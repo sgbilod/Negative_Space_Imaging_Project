@@ -1,0 +1,48 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\resolvelib\\resolvers\\resolution.py",
+  "classes": [
+    {
+      "name": "Resolution",
+      "docstring": "Stateful resolution object.\n\nThis is designed as a one-off object that holds information to kick start\nthe resolution process, and holds the results afterwards.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "state",
+          "docstring": null
+        },
+        {
+          "name": "resolve",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Resolver",
+      "docstring": "The thing that performs the actual resolution work.",
+      "methods": [
+        {
+          "name": "resolve",
+          "docstring": "Take a collection of constraints, spit out the resolution result.\n\nThe return value is a representation to the final resolution result. It\nis a tuple subclass with three public members:\n\n* `mapping`: A dict of resolved candidates. Each key is an identifier\n    of a requirement (as returned by the provider's `identify` method),\n    and the value is the resolved candidate.\n* `graph`: A `DirectedGraph` instance representing the dependency tree.\n    The vertices are keys of `mapping`, and each edge represents *why*\n    a particular package is included. A special vertex `None` is\n    included to represent parents of user-supplied requirements.\n* `criteria`: A dict of \"criteria\" that hold detailed information on\n    how edges in the graph are derived. Each key is an identifier of a\n    requirement, and the value is a `Criterion` instance.\n\nThe following exceptions may be raised if a resolution cannot be found:\n\n* `ResolutionImpossible`: A resolution cannot be found for the given\n    combination of requirements. The `causes` attribute of the\n    exception is a list of (requirement, parent), giving the\n    requirements that could not be satisfied.\n* `ResolutionTooDeep`: The dependency tree is too deeply nested and\n    the resolver gave up. This is usually caused by a circular\n    dependency, but you can try to resolve this by increasing the\n    `max_rounds` argument."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "state",
+      "docstring": null
+    },
+    {
+      "name": "resolve",
+      "docstring": null
+    },
+    {
+      "name": "resolve",
+      "docstring": "Take a collection of constraints, spit out the resolution result.\n\nThe return value is a representation to the final resolution result. It\nis a tuple subclass with three public members:\n\n* `mapping`: A dict of resolved candidates. Each key is an identifier\n    of a requirement (as returned by the provider's `identify` method),\n    and the value is the resolved candidate.\n* `graph`: A `DirectedGraph` instance representing the dependency tree.\n    The vertices are keys of `mapping`, and each edge represents *why*\n    a particular package is included. A special vertex `None` is\n    included to represent parents of user-supplied requirements.\n* `criteria`: A dict of \"criteria\" that hold detailed information on\n    how edges in the graph are derived. Each key is an identifier of a\n    requirement, and the value is a `Criterion` instance.\n\nThe following exceptions may be raised if a resolution cannot be found:\n\n* `ResolutionImpossible`: A resolution cannot be found for the given\n    combination of requirements. The `causes` attribute of the\n    exception is a list of (requirement, parent), giving the\n    requirements that could not be satisfied.\n* `ResolutionTooDeep`: The dependency tree is too deeply nested and\n    the resolver gave up. This is usually caused by a circular\n    dependency, but you can try to resolve this by increasing the\n    `max_rounds` argument."
+    }
+  ],
+  "innovations": []
+}

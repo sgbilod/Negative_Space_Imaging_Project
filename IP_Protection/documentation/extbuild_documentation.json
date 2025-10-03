@@ -1,0 +1,23 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\testing\\_private\\extbuild.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "build_and_import_extension",
+      "docstring": "Build and imports a c-extension module `modname` from a list of function\nfragments `functions`.\n\n\nParameters\n----------\nfunctions : list of fragments\n    Each fragment is a sequence of func_name, calling convention, snippet.\nprologue : string\n    Code to precede the rest, usually extra ``#include`` or ``#define``\n    macros.\nbuild_dir : pathlib.Path\n    Where to build the module, usually a temporary directory\ninclude_dirs : list\n    Extra directories to find include files when compiling\nmore_init : string\n    Code to appear in the module PyMODINIT_FUNC\n\nReturns\n-------\nout: module\n    The module will have been loaded and is ready for use\n\nExamples\n--------\n>>> functions = [(\"test_bytes\", \"METH_O\", \"\"\"\n    if ( !PyBytesCheck(args)) {\n        Py_RETURN_FALSE;\n    }\n    Py_RETURN_TRUE;\n\"\"\")]\n>>> mod = build_and_import_extension(\"testme\", functions)\n>>> assert not mod.test_bytes('abc')\n>>> assert mod.test_bytes(b'abc')"
+    },
+    {
+      "name": "compile_extension_module",
+      "docstring": "Build an extension module and return the filename of the resulting\nnative code file.\n\nParameters\n----------\nname : string\n    name of the module, possibly including dots if it is a module inside a\n    package.\nbuilddir : pathlib.Path\n    Where to build the module, usually a temporary directory\ninclude_dirs : list\n    Extra directories to find include files when compiling\nlibraries : list\n    Libraries to link into the extension module\nlibrary_dirs: list\n    Where to find the libraries, ``-L`` passed to the linker"
+    },
+    {
+      "name": "build",
+      "docstring": "use meson to build"
+    },
+    {
+      "name": "get_so_suffix",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

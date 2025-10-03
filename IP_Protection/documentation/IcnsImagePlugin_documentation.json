@@ -1,0 +1,100 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\IcnsImagePlugin.py",
+  "classes": [
+    {
+      "name": "IcnsFile",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "fobj is a file-like object as an icns resource"
+        },
+        {
+          "name": "itersizes",
+          "docstring": null
+        },
+        {
+          "name": "bestsize",
+          "docstring": null
+        },
+        {
+          "name": "dataforsize",
+          "docstring": "Get an icon resource as {channel: array}.  Note that\nthe arrays are bottom-up like windows bitmaps and will likely\nneed to be flipped or transposed in some way."
+        },
+        {
+          "name": "getimage",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "IcnsImageFile",
+      "docstring": "PIL image support for Mac OS .icns files.\nChooses the best resolution, but will possibly load\na different size image if you mutate the size attribute\nbefore calling 'load'.\n\nThe info dictionary has a key 'sizes' that is a list\nof sizes that the icns file has.",
+      "methods": [
+        {
+          "name": "size",
+          "docstring": null
+        },
+        {
+          "name": "size",
+          "docstring": null
+        },
+        {
+          "name": "load",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "nextheader",
+      "docstring": null
+    },
+    {
+      "name": "read_32t",
+      "docstring": null
+    },
+    {
+      "name": "read_32",
+      "docstring": "Read a 32bit RGB icon resource.  Seems to be either uncompressed or\nan RLE packbits-like scheme."
+    },
+    {
+      "name": "read_mk",
+      "docstring": null
+    },
+    {
+      "name": "read_png_or_jpeg2000",
+      "docstring": null
+    },
+    {
+      "name": "itersizes",
+      "docstring": null
+    },
+    {
+      "name": "bestsize",
+      "docstring": null
+    },
+    {
+      "name": "dataforsize",
+      "docstring": "Get an icon resource as {channel: array}.  Note that\nthe arrays are bottom-up like windows bitmaps and will likely\nneed to be flipped or transposed in some way."
+    },
+    {
+      "name": "getimage",
+      "docstring": null
+    },
+    {
+      "name": "size",
+      "docstring": null
+    },
+    {
+      "name": "size",
+      "docstring": null
+    },
+    {
+      "name": "load",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,150 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\xmlWriter.py",
+  "classes": [
+    {
+      "name": "XMLWriter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": "Writes text."
+        },
+        {
+          "name": "writecdata",
+          "docstring": "Writes text in a CDATA section."
+        },
+        {
+          "name": "write8bit",
+          "docstring": "Writes a bytes() sequence into the XML, escaping\nnon-ASCII bytes.  When this is read in xmlReader,\nthe original bytes can be recovered by encoding to\n'latin-1'."
+        },
+        {
+          "name": "write_noindent",
+          "docstring": "Writes text without indentation."
+        },
+        {
+          "name": "newline",
+          "docstring": null
+        },
+        {
+          "name": "comment",
+          "docstring": null
+        },
+        {
+          "name": "simpletag",
+          "docstring": null
+        },
+        {
+          "name": "begintag",
+          "docstring": null
+        },
+        {
+          "name": "endtag",
+          "docstring": null
+        },
+        {
+          "name": "dumphex",
+          "docstring": null
+        },
+        {
+          "name": "indent",
+          "docstring": null
+        },
+        {
+          "name": "dedent",
+          "docstring": null
+        },
+        {
+          "name": "stringifyattrs",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "escape",
+      "docstring": "Escape characters not allowed in `XML 1.0 <https://www.w3.org/TR/xml/#NT-Char>`_."
+    },
+    {
+      "name": "escapeattr",
+      "docstring": null
+    },
+    {
+      "name": "escape8bit",
+      "docstring": "Input is Unicode string."
+    },
+    {
+      "name": "hexStr",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": "Writes text."
+    },
+    {
+      "name": "writecdata",
+      "docstring": "Writes text in a CDATA section."
+    },
+    {
+      "name": "write8bit",
+      "docstring": "Writes a bytes() sequence into the XML, escaping\nnon-ASCII bytes.  When this is read in xmlReader,\nthe original bytes can be recovered by encoding to\n'latin-1'."
+    },
+    {
+      "name": "write_noindent",
+      "docstring": "Writes text without indentation."
+    },
+    {
+      "name": "newline",
+      "docstring": null
+    },
+    {
+      "name": "comment",
+      "docstring": null
+    },
+    {
+      "name": "simpletag",
+      "docstring": null
+    },
+    {
+      "name": "begintag",
+      "docstring": null
+    },
+    {
+      "name": "endtag",
+      "docstring": null
+    },
+    {
+      "name": "dumphex",
+      "docstring": null
+    },
+    {
+      "name": "indent",
+      "docstring": null
+    },
+    {
+      "name": "dedent",
+      "docstring": null
+    },
+    {
+      "name": "stringifyattrs",
+      "docstring": null
+    },
+    {
+      "name": "escapechar",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

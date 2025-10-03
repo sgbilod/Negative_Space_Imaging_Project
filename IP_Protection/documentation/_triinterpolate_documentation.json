@@ -1,0 +1,268 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tri\\_triinterpolate.py",
+  "classes": [
+    {
+      "name": "TriInterpolator",
+      "docstring": "Abstract base class for classes used to interpolate on a triangular grid.\n\nDerived classes implement the following methods:\n\n- ``__call__(x, y)``,\n  where x, y are array-like point coordinates of the same shape, and\n  that returns a masked array of the same shape containing the\n  interpolated z-values.\n\n- ``gradient(x, y)``,\n  where x, y are array-like point coordinates of the same\n  shape, and that returns a list of 2 masked arrays of the same shape\n  containing the 2 derivatives of the interpolator (derivatives of\n  interpolated z values with respect to x and y).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LinearTriInterpolator",
+      "docstring": "Linear interpolator on a triangular grid.\n\nEach triangle is represented by a plane so that an interpolated value at\npoint (x, y) lies on the plane of the triangle containing (x, y).\nInterpolated values are therefore continuous across the triangulation, but\ntheir first derivatives are discontinuous at edges between triangles.\n\nParameters\n----------\ntriangulation : `~matplotlib.tri.Triangulation`\n    The triangulation to interpolate over.\nz : (npoints,) array-like\n    Array of values, defined at grid points, to interpolate between.\ntrifinder : `~matplotlib.tri.TriFinder`, optional\n    If this is not specified, the Triangulation's default TriFinder will\n    be used by calling `.Triangulation.get_trifinder`.\n\nMethods\n-------\n`__call__` (x, y) : Returns interpolated values at (x, y) points.\n`gradient` (x, y) : Returns interpolated derivatives at (x, y) points.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "gradient",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CubicTriInterpolator",
+      "docstring": "Cubic interpolator on a triangular grid.\n\nIn one-dimension - on a segment - a cubic interpolating function is\ndefined by the values of the function and its derivative at both ends.\nThis is almost the same in 2D inside a triangle, except that the values\nof the function and its 2 derivatives have to be defined at each triangle\nnode.\n\nThe CubicTriInterpolator takes the value of the function at each node -\nprovided by the user - and internally computes the value of the\nderivatives, resulting in a smooth interpolation.\n(As a special feature, the user can also impose the value of the\nderivatives at each node, but this is not supposed to be the common\nusage.)\n\nParameters\n----------\ntriangulation : `~matplotlib.tri.Triangulation`\n    The triangulation to interpolate over.\nz : (npoints,) array-like\n    Array of values, defined at grid points, to interpolate between.\nkind : {'min_E', 'geom', 'user'}, optional\n    Choice of the smoothing algorithm, in order to compute\n    the interpolant derivatives (defaults to 'min_E'):\n\n    - if 'min_E': (default) The derivatives at each node is computed\n      to minimize a bending energy.\n    - if 'geom': The derivatives at each node is computed as a\n      weighted average of relevant triangle normals. To be used for\n      speed optimization (large grids).\n    - if 'user': The user provides the argument *dz*, no computation\n      is hence needed.\n\ntrifinder : `~matplotlib.tri.TriFinder`, optional\n    If not specified, the Triangulation's default TriFinder will\n    be used by calling `.Triangulation.get_trifinder`.\ndz : tuple of array-likes (dzdx, dzdy), optional\n    Used only if  *kind* ='user'. In this case *dz* must be provided as\n    (dzdx, dzdy) where dzdx, dzdy are arrays of the same shape as *z* and\n    are the interpolant first derivatives at the *triangulation* points.\n\nMethods\n-------\n`__call__` (x, y) : Returns interpolated values at (x, y) points.\n`gradient` (x, y) : Returns interpolated derivatives at (x, y) points.\n\nNotes\n-----\nThis note is a bit technical and details how the cubic interpolation is\ncomputed.\n\nThe interpolation is based on a Clough-Tocher subdivision scheme of\nthe *triangulation* mesh (to make it clearer, each triangle of the\ngrid will be divided in 3 child-triangles, and on each child triangle\nthe interpolated function is a cubic polynomial of the 2 coordinates).\nThis technique originates from FEM (Finite Element Method) analysis;\nthe element used is a reduced Hsieh-Clough-Tocher (HCT)\nelement. Its shape functions are described in [1]_.\nThe assembled function is guaranteed to be C1-smooth, i.e. it is\ncontinuous and its first derivatives are also continuous (this\nis easy to show inside the triangles but is also true when crossing the\nedges).\n\nIn the default case (*kind* ='min_E'), the interpolant minimizes a\ncurvature energy on the functional space generated by the HCT element\nshape functions - with imposed values but arbitrary derivatives at each\nnode. The minimized functional is the integral of the so-called total\ncurvature (implementation based on an algorithm from [2]_ - PCG sparse\nsolver):\n\n.. math::\n\n    E(z) = \\frac{1}{2} \\int_{\\Omega} \\left(\n        \\left( \\frac{\\partial^2{z}}{\\partial{x}^2} \\right)^2 +\n        \\left( \\frac{\\partial^2{z}}{\\partial{y}^2} \\right)^2 +\n        2\\left( \\frac{\\partial^2{z}}{\\partial{y}\\partial{x}} \\right)^2\n    \\right) dx\\,dy\n\nIf the case *kind* ='geom' is chosen by the user, a simple geometric\napproximation is used (weighted average of the triangle normal\nvectors), which could improve speed on very large grids.\n\nReferences\n----------\n.. [1] Michel Bernadou, Kamal Hassan, \"Basis functions for general\n    Hsieh-Clough-Tocher triangles, complete or reduced.\",\n    International Journal for Numerical Methods in Engineering,\n    17(5):784 - 789. 2.01.\n.. [2] C.T. Kelley, \"Iterative Methods for Optimization\".",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "gradient",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_ReducedHCT_Element",
+      "docstring": "Implementation of reduced HCT triangular element with explicit shape\nfunctions.\n\nComputes z, dz, d2z and the element stiffness matrix for bending energy:\nE(f) = integral( (d2z/dx2 + d2z/dy2)**2 dA)\n\n*** Reference for the shape functions: ***\n[1] Basis functions for general Hsieh-Clough-Tocher _triangles, complete or\n    reduced.\n    Michel Bernadou, Kamal Hassan\n    International Journal for Numerical Methods in Engineering.\n    17(5):784 - 789.  2.01\n\n*** Element description: ***\n9 dofs: z and dz given at 3 apex\nC1 (conform)",
+      "methods": [
+        {
+          "name": "get_function_values",
+          "docstring": "Parameters\n----------\nalpha : is a (N x 3 x 1) array (array of column-matrices) of\nbarycentric coordinates,\necc : is a (N x 3 x 1) array (array of column-matrices) of triangle\neccentricities,\ndofs : is a (N x 1 x 9) arrays (arrays of row-matrices) of computed\ndegrees of freedom.\n\nReturns\n-------\nReturns the N-array of interpolated function values."
+        },
+        {
+          "name": "get_function_derivatives",
+          "docstring": "Parameters\n----------\n*alpha* is a (N x 3 x 1) array (array of column-matrices of\nbarycentric coordinates)\n*J* is a (N x 2 x 2) array of jacobian matrices (jacobian matrix at\ntriangle first apex)\n*ecc* is a (N x 3 x 1) array (array of column-matrices of triangle\neccentricities)\n*dofs* is a (N x 1 x 9) arrays (arrays of row-matrices) of computed\ndegrees of freedom.\n\nReturns\n-------\nReturns the values of interpolated function derivatives [dz/dx, dz/dy]\nin global coordinates at locations alpha, as a column-matrices of\nshape (N x 2 x 1)."
+        },
+        {
+          "name": "get_function_hessians",
+          "docstring": "Parameters\n----------\n*alpha* is a (N x 3 x 1) array (array of column-matrices) of\nbarycentric coordinates\n*J* is a (N x 2 x 2) array of jacobian matrices (jacobian matrix at\ntriangle first apex)\n*ecc* is a (N x 3 x 1) array (array of column-matrices) of triangle\neccentricities\n*dofs* is a (N x 1 x 9) arrays (arrays of row-matrices) of computed\ndegrees of freedom.\n\nReturns\n-------\nReturns the values of interpolated function 2nd-derivatives\n[d2z/dx2, d2z/dy2, d2z/dxdy] in global coordinates at locations alpha,\nas a column-matrices of shape (N x 3 x 1)."
+        },
+        {
+          "name": "get_d2Sidksij2",
+          "docstring": "Parameters\n----------\n*alpha* is a (N x 3 x 1) array (array of column-matrices) of\nbarycentric coordinates\n*ecc* is a (N x 3 x 1) array (array of column-matrices) of triangle\neccentricities\n\nReturns\n-------\nReturns the arrays d2sdksi2 (N x 3 x 1) Hessian of shape functions\nexpressed in covariant coordinates in first apex basis."
+        },
+        {
+          "name": "get_bending_matrices",
+          "docstring": "Parameters\n----------\n*J* is a (N x 2 x 2) array of jacobian matrices (jacobian matrix at\ntriangle first apex)\n*ecc* is a (N x 3 x 1) array (array of column-matrices) of triangle\neccentricities\n\nReturns\n-------\nReturns the element K matrices for bending energy expressed in\nGLOBAL nodal coordinates.\nK_ij = integral [ (d2zi/dx2 + d2zi/dy2) * (d2zj/dx2 + d2zj/dy2) dA]\ntri_J is needed to rotate dofs from local basis to global basis"
+        },
+        {
+          "name": "get_Hrot_from_J",
+          "docstring": "Parameters\n----------\n*J* is a (N x 2 x 2) array of jacobian matrices (jacobian matrix at\ntriangle first apex)\n\nReturns\n-------\nReturns H_rot used to rotate Hessian from local basis of first apex,\nto global coordinates.\nif *return_area* is True, returns also the triangle area (0.5*det(J))"
+        },
+        {
+          "name": "get_Kff_and_Ff",
+          "docstring": "Build K and F for the following elliptic formulation:\nminimization of curvature energy with value of function at node\nimposed and derivatives 'free'.\n\nBuild the global Kff matrix in cco format.\nBuild the full Ff vec Ff = - Kfc x Uc.\n\nParameters\n----------\n*J* is a (N x 2 x 2) array of jacobian matrices (jacobian matrix at\ntriangle first apex)\n*ecc* is a (N x 3 x 1) array (array of column-matrices) of triangle\neccentricities\n*triangles* is a (N x 3) array of nodes indexes.\n*Uc* is (N x 3) array of imposed displacements at nodes\n\nReturns\n-------\n(Kff_rows, Kff_cols, Kff_vals) Kff matrix in coo format - Duplicate\n(row, col) entries must be summed.\nFf: force vector - dim npts * 3"
+        }
+      ]
+    },
+    {
+      "name": "_DOF_estimator",
+      "docstring": "Abstract base class for classes used to estimate a function's first\nderivatives, and deduce the dofs for a CubicTriInterpolator using a\nreduced HCT element formulation.\n\nDerived classes implement ``compute_df(self, **kwargs)``, returning\n``np.vstack([dfx, dfy]).T`` where ``dfx, dfy`` are the estimation of the 2\ngradient coordinates.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "compute_dz",
+          "docstring": null
+        },
+        {
+          "name": "compute_dof_from_df",
+          "docstring": "Compute reduced-HCT elements degrees of freedom, from the gradient."
+        },
+        {
+          "name": "get_dof_vec",
+          "docstring": "Compute the dof vector of a triangle, from the value of f, df and\nof the local Jacobian at each node.\n\nParameters\n----------\ntri_z : shape (3,) array\n    f nodal values.\ntri_dz : shape (3, 2) array\n    df/dx, df/dy nodal values.\nJ\n    Jacobian matrix in local basis of apex 0.\n\nReturns\n-------\ndof : shape (9,) array\n    For each apex ``iapex``::\n\n        dof[iapex*3+0] = f(Ai)\n        dof[iapex*3+1] = df(Ai).(AiAi+)\n        dof[iapex*3+2] = df(Ai).(AiAi-)"
+        }
+      ]
+    },
+    {
+      "name": "_DOF_estimator_user",
+      "docstring": "dz is imposed by user; accounts for scaling if any.",
+      "methods": [
+        {
+          "name": "compute_dz",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_DOF_estimator_geom",
+      "docstring": "Fast 'geometric' approximation, recommended for large arrays.",
+      "methods": [
+        {
+          "name": "compute_dz",
+          "docstring": "self.df is computed as weighted average of _triangles sharing a common\nnode. On each triangle itri f is first assumed linear (= ~f), which\nallows to compute d~f[itri]\nThen the following approximation of df nodal values is then proposed:\n    f[ipt] = SUM ( w[itri] x d~f[itri] , for itri sharing apex ipt)\nThe weighted coeff. w[itri] are proportional to the angle of the\ntriangle itri at apex ipt"
+        },
+        {
+          "name": "compute_geom_weights",
+          "docstring": "Build the (nelems, 3) weights coeffs of _triangles angles,\nrenormalized so that np.sum(weights, axis=1) == np.ones(nelems)"
+        },
+        {
+          "name": "compute_geom_grads",
+          "docstring": "Compute the (global) gradient component of f assumed linear (~f).\nreturns array df of shape (nelems, 2)\ndf[ielem].dM[ielem] = dz[ielem] i.e. df = dz x dM = dM.T^-1 x dz"
+        }
+      ]
+    },
+    {
+      "name": "_DOF_estimator_min_E",
+      "docstring": "The 'smoothest' approximation, df is computed through global minimization\nof the bending energy:\n  E(f) = integral[(d2z/dx2 + d2z/dy2 + 2 d2z/dxdy)**2 dA]",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "compute_dz",
+          "docstring": "Elliptic solver for bending energy minimization.\nUses a dedicated 'toy' sparse Jacobi PCG solver."
+        }
+      ]
+    },
+    {
+      "name": "_Sparse_Matrix_coo",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a sparse matrix in coo format.\n*vals*: arrays of values of non-null entries of the matrix\n*rows*: int arrays of rows of non-null entries of the matrix\n*cols*: int arrays of cols of non-null entries of the matrix\n*shape*: 2-tuple (n, m) of matrix shape"
+        },
+        {
+          "name": "dot",
+          "docstring": "Dot product of self by a vector *V* in sparse-dense to dense format\n*V* dense vector of shape (self.m,)."
+        },
+        {
+          "name": "compress_csc",
+          "docstring": "Compress rows, cols, vals / summing duplicates. Sort for csc format."
+        },
+        {
+          "name": "compress_csr",
+          "docstring": "Compress rows, cols, vals / summing duplicates. Sort for csr format."
+        },
+        {
+          "name": "to_dense",
+          "docstring": "Return a dense matrix representing self, mainly for debugging purposes."
+        },
+        {
+          "name": "diag",
+          "docstring": "Return the (dense) vector of the diagonal elements."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "gradient",
+      "docstring": null
+    },
+    {
+      "name": "gradient",
+      "docstring": null
+    },
+    {
+      "name": "get_function_values",
+      "docstring": "Parameters\n----------\nalpha : is a (N x 3 x 1) array (array of column-matrices) of\nbarycentric coordinates,\necc : is a (N x 3 x 1) array (array of column-matrices) of triangle\neccentricities,\ndofs : is a (N x 1 x 9) arrays (arrays of row-matrices) of computed\ndegrees of freedom.\n\nReturns\n-------\nReturns the N-array of interpolated function values."
+    },
+    {
+      "name": "get_function_derivatives",
+      "docstring": "Parameters\n----------\n*alpha* is a (N x 3 x 1) array (array of column-matrices of\nbarycentric coordinates)\n*J* is a (N x 2 x 2) array of jacobian matrices (jacobian matrix at\ntriangle first apex)\n*ecc* is a (N x 3 x 1) array (array of column-matrices of triangle\neccentricities)\n*dofs* is a (N x 1 x 9) arrays (arrays of row-matrices) of computed\ndegrees of freedom.\n\nReturns\n-------\nReturns the values of interpolated function derivatives [dz/dx, dz/dy]\nin global coordinates at locations alpha, as a column-matrices of\nshape (N x 2 x 1)."
+    },
+    {
+      "name": "get_function_hessians",
+      "docstring": "Parameters\n----------\n*alpha* is a (N x 3 x 1) array (array of column-matrices) of\nbarycentric coordinates\n*J* is a (N x 2 x 2) array of jacobian matrices (jacobian matrix at\ntriangle first apex)\n*ecc* is a (N x 3 x 1) array (array of column-matrices) of triangle\neccentricities\n*dofs* is a (N x 1 x 9) arrays (arrays of row-matrices) of computed\ndegrees of freedom.\n\nReturns\n-------\nReturns the values of interpolated function 2nd-derivatives\n[d2z/dx2, d2z/dy2, d2z/dxdy] in global coordinates at locations alpha,\nas a column-matrices of shape (N x 3 x 1)."
+    },
+    {
+      "name": "get_d2Sidksij2",
+      "docstring": "Parameters\n----------\n*alpha* is a (N x 3 x 1) array (array of column-matrices) of\nbarycentric coordinates\n*ecc* is a (N x 3 x 1) array (array of column-matrices) of triangle\neccentricities\n\nReturns\n-------\nReturns the arrays d2sdksi2 (N x 3 x 1) Hessian of shape functions\nexpressed in covariant coordinates in first apex basis."
+    },
+    {
+      "name": "get_bending_matrices",
+      "docstring": "Parameters\n----------\n*J* is a (N x 2 x 2) array of jacobian matrices (jacobian matrix at\ntriangle first apex)\n*ecc* is a (N x 3 x 1) array (array of column-matrices) of triangle\neccentricities\n\nReturns\n-------\nReturns the element K matrices for bending energy expressed in\nGLOBAL nodal coordinates.\nK_ij = integral [ (d2zi/dx2 + d2zi/dy2) * (d2zj/dx2 + d2zj/dy2) dA]\ntri_J is needed to rotate dofs from local basis to global basis"
+    },
+    {
+      "name": "get_Hrot_from_J",
+      "docstring": "Parameters\n----------\n*J* is a (N x 2 x 2) array of jacobian matrices (jacobian matrix at\ntriangle first apex)\n\nReturns\n-------\nReturns H_rot used to rotate Hessian from local basis of first apex,\nto global coordinates.\nif *return_area* is True, returns also the triangle area (0.5*det(J))"
+    },
+    {
+      "name": "get_Kff_and_Ff",
+      "docstring": "Build K and F for the following elliptic formulation:\nminimization of curvature energy with value of function at node\nimposed and derivatives 'free'.\n\nBuild the global Kff matrix in cco format.\nBuild the full Ff vec Ff = - Kfc x Uc.\n\nParameters\n----------\n*J* is a (N x 2 x 2) array of jacobian matrices (jacobian matrix at\ntriangle first apex)\n*ecc* is a (N x 3 x 1) array (array of column-matrices) of triangle\neccentricities\n*triangles* is a (N x 3) array of nodes indexes.\n*Uc* is (N x 3) array of imposed displacements at nodes\n\nReturns\n-------\n(Kff_rows, Kff_cols, Kff_vals) Kff matrix in coo format - Duplicate\n(row, col) entries must be summed.\nFf: force vector - dim npts * 3"
+    },
+    {
+      "name": "compute_dz",
+      "docstring": null
+    },
+    {
+      "name": "compute_dof_from_df",
+      "docstring": "Compute reduced-HCT elements degrees of freedom, from the gradient."
+    },
+    {
+      "name": "get_dof_vec",
+      "docstring": "Compute the dof vector of a triangle, from the value of f, df and\nof the local Jacobian at each node.\n\nParameters\n----------\ntri_z : shape (3,) array\n    f nodal values.\ntri_dz : shape (3, 2) array\n    df/dx, df/dy nodal values.\nJ\n    Jacobian matrix in local basis of apex 0.\n\nReturns\n-------\ndof : shape (9,) array\n    For each apex ``iapex``::\n\n        dof[iapex*3+0] = f(Ai)\n        dof[iapex*3+1] = df(Ai).(AiAi+)\n        dof[iapex*3+2] = df(Ai).(AiAi-)"
+    },
+    {
+      "name": "compute_dz",
+      "docstring": null
+    },
+    {
+      "name": "compute_dz",
+      "docstring": "self.df is computed as weighted average of _triangles sharing a common\nnode. On each triangle itri f is first assumed linear (= ~f), which\nallows to compute d~f[itri]\nThen the following approximation of df nodal values is then proposed:\n    f[ipt] = SUM ( w[itri] x d~f[itri] , for itri sharing apex ipt)\nThe weighted coeff. w[itri] are proportional to the angle of the\ntriangle itri at apex ipt"
+    },
+    {
+      "name": "compute_geom_weights",
+      "docstring": "Build the (nelems, 3) weights coeffs of _triangles angles,\nrenormalized so that np.sum(weights, axis=1) == np.ones(nelems)"
+    },
+    {
+      "name": "compute_geom_grads",
+      "docstring": "Compute the (global) gradient component of f assumed linear (~f).\nreturns array df of shape (nelems, 2)\ndf[ielem].dM[ielem] = dz[ielem] i.e. df = dz x dM = dM.T^-1 x dz"
+    },
+    {
+      "name": "compute_dz",
+      "docstring": "Elliptic solver for bending energy minimization.\nUses a dedicated 'toy' sparse Jacobi PCG solver."
+    },
+    {
+      "name": "dot",
+      "docstring": "Dot product of self by a vector *V* in sparse-dense to dense format\n*V* dense vector of shape (self.m,)."
+    },
+    {
+      "name": "compress_csc",
+      "docstring": "Compress rows, cols, vals / summing duplicates. Sort for csc format."
+    },
+    {
+      "name": "compress_csr",
+      "docstring": "Compress rows, cols, vals / summing duplicates. Sort for csr format."
+    },
+    {
+      "name": "to_dense",
+      "docstring": "Return a dense matrix representing self, mainly for debugging purposes."
+    },
+    {
+      "name": "diag",
+      "docstring": "Return the (dense) vector of the diagonal elements."
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "          to minimize a bending energy.\n        - if 'geom': The derivatives at each node is computed as a\n          weighted average of relevant triangle normals. To be used for\n          speed optimization (large grids).\n        - if 'user': The user provides the argument *dz*, no computation\n          is hence needed.\n"
+    }
+  ]
+}

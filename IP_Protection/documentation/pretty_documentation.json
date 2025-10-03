@@ -1,0 +1,134 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\pretty.py",
+  "classes": [
+    {
+      "name": "Pretty",
+      "docstring": "A rich renderable that pretty prints an object.\n\nArgs:\n    _object (Any): An object to pretty print.\n    highlighter (HighlighterType, optional): Highlighter object to apply to result, or None for ReprHighlighter. Defaults to None.\n    indent_size (int, optional): Number of spaces in indent. Defaults to 4.\n    justify (JustifyMethod, optional): Justify method, or None for default. Defaults to None.\n    overflow (OverflowMethod, optional): Overflow method, or None for default. Defaults to None.\n    no_wrap (Optional[bool], optional): Disable word wrapping. Defaults to False.\n    indent_guides (bool, optional): Enable indentation guides. Defaults to False.\n    max_length (int, optional): Maximum length of containers before abbreviating, or None for no abbreviation.\n        Defaults to None.\n    max_string (int, optional): Maximum length of string before truncating, or None to disable. Defaults to None.\n    max_depth (int, optional): Maximum depth of nested data structures, or None for no maximum. Defaults to None.\n    expand_all (bool, optional): Expand all containers. Defaults to False.\n    margin (int, optional): Subtrace a margin from width to force containers to expand earlier. Defaults to 0.\n    insert_line (bool, optional): Insert a new line if the output has multiple new lines. Defaults to False.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Node",
+      "docstring": "A node in a repr tree. May be atomic or a container.",
+      "methods": [
+        {
+          "name": "iter_tokens",
+          "docstring": "Generate tokens for this node."
+        },
+        {
+          "name": "check_length",
+          "docstring": "Check the length fits within a limit.\n\nArgs:\n    start_length (int): Starting length of the line (indent, prefix, suffix).\n    max_length (int): Maximum length.\n\nReturns:\n    bool: True if the node can be rendered within max length, otherwise False."
+        },
+        {
+          "name": "render",
+          "docstring": "Render the node to a pretty repr.\n\nArgs:\n    max_width (int, optional): Maximum width of the repr. Defaults to 80.\n    indent_size (int, optional): Size of indents. Defaults to 4.\n    expand_all (bool, optional): Expand all levels. Defaults to False.\n\nReturns:\n    str: A repr string of the original object."
+        }
+      ]
+    },
+    {
+      "name": "_Line",
+      "docstring": "A line in repr output.",
+      "methods": [
+        {
+          "name": "expandable",
+          "docstring": "Check if the line may be expanded."
+        },
+        {
+          "name": "check_length",
+          "docstring": "Check this line fits within a given number of cells."
+        },
+        {
+          "name": "expand",
+          "docstring": "Expand this line by adding children on their own line."
+        }
+      ]
+    },
+    {
+      "name": "BrokenRepr",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "StockKeepingUnit",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Thing",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "RichFormatter",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "install",
+      "docstring": "Install automatic pretty printing in the Python REPL.\n\nArgs:\n    console (Console, optional): Console instance or ``None`` to use global console. Defaults to None.\n    overflow (Optional[OverflowMethod], optional): Overflow method. Defaults to \"ignore\".\n    crop (Optional[bool], optional): Enable cropping of long lines. Defaults to False.\n    indent_guides (bool, optional): Enable indentation guides. Defaults to False.\n    max_length (int, optional): Maximum length of containers before abbreviating, or None for no abbreviation.\n        Defaults to None.\n    max_string (int, optional): Maximum length of string before truncating, or None to disable. Defaults to None.\n    max_depth (int, optional): Maximum depth of nested data structures, or None for no maximum. Defaults to None.\n    expand_all (bool, optional): Expand all containers. Defaults to False.\n    max_frames (int): Maximum number of frames to show in a traceback, 0 for no maximum. Defaults to 100."
+    },
+    {
+      "name": "is_expandable",
+      "docstring": "Check if an object may be expanded by pretty print."
+    },
+    {
+      "name": "traverse",
+      "docstring": "Traverse object and generate a tree.\n\nArgs:\n    _object (Any): Object to be traversed.\n    max_length (int, optional): Maximum length of containers before abbreviating, or None for no abbreviation.\n        Defaults to None.\n    max_string (int, optional): Maximum length of string before truncating, or None to disable truncating.\n        Defaults to None.\n    max_depth (int, optional): Maximum depth of data structures, or None for no maximum.\n        Defaults to None.\n\nReturns:\n    Node: The root of a tree structure which can be used to render a pretty repr."
+    },
+    {
+      "name": "pretty_repr",
+      "docstring": "Prettify repr string by expanding on to new lines to fit within a given width.\n\nArgs:\n    _object (Any): Object to repr.\n    max_width (int, optional): Desired maximum width of repr string. Defaults to 80.\n    indent_size (int, optional): Number of spaces to indent. Defaults to 4.\n    max_length (int, optional): Maximum length of containers before abbreviating, or None for no abbreviation.\n        Defaults to None.\n    max_string (int, optional): Maximum length of string before truncating, or None to disable truncating.\n        Defaults to None.\n    max_depth (int, optional): Maximum depth of nested data structure, or None for no depth.\n        Defaults to None.\n    expand_all (bool, optional): Expand all containers regardless of available width. Defaults to False.\n\nReturns:\n    str: A possibly multi-line representation of the object."
+    },
+    {
+      "name": "pprint",
+      "docstring": "A convenience function for pretty printing.\n\nArgs:\n    _object (Any): Object to pretty print.\n    console (Console, optional): Console instance, or None to use default. Defaults to None.\n    max_length (int, optional): Maximum length of containers before abbreviating, or None for no abbreviation.\n        Defaults to None.\n    max_string (int, optional): Maximum length of strings before truncating, or None to disable. Defaults to None.\n    max_depth (int, optional): Maximum depth for nested data structures, or None for unlimited depth. Defaults to None.\n    indent_guides (bool, optional): Enable indentation guides. Defaults to True.\n    expand_all (bool, optional): Expand all containers. Defaults to False."
+    },
+    {
+      "name": "display_hook",
+      "docstring": "Replacement sys.displayhook which prettifies objects with Rich."
+    },
+    {
+      "name": "iter_tokens",
+      "docstring": "Generate tokens for this node."
+    },
+    {
+      "name": "check_length",
+      "docstring": "Check the length fits within a limit.\n\nArgs:\n    start_length (int): Starting length of the line (indent, prefix, suffix).\n    max_length (int): Maximum length.\n\nReturns:\n    bool: True if the node can be rendered within max length, otherwise False."
+    },
+    {
+      "name": "render",
+      "docstring": "Render the node to a pretty repr.\n\nArgs:\n    max_width (int, optional): Maximum width of the repr. Defaults to 80.\n    indent_size (int, optional): Size of indents. Defaults to 4.\n    expand_all (bool, optional): Expand all levels. Defaults to False.\n\nReturns:\n    str: A repr string of the original object."
+    },
+    {
+      "name": "expandable",
+      "docstring": "Check if the line may be expanded."
+    },
+    {
+      "name": "check_length",
+      "docstring": "Check this line fits within a given number of cells."
+    },
+    {
+      "name": "expand",
+      "docstring": "Expand this line by adding children on their own line."
+    },
+    {
+      "name": "to_repr",
+      "docstring": "Get repr string for an object, but catch errors."
+    },
+    {
+      "name": "iter_rich_args",
+      "docstring": null
+    },
+    {
+      "name": "iter_attrs",
+      "docstring": "Iterate over attr fields and values."
+    }
+  ],
+  "innovations": []
+}

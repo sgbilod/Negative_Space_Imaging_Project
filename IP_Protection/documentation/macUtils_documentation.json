@@ -1,0 +1,26 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\macUtils.py",
+  "classes": [
+    {
+      "name": "SFNTResourceReader",
+      "docstring": "Simple read-only file wrapper for 'sfnt' resources.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "getSFNTResIndices",
+      "docstring": "Determine whether a file has a 'sfnt' resource fork or not."
+    },
+    {
+      "name": "openTTFonts",
+      "docstring": "Given a pathname, return a list of TTFont objects. In the case\nof a flat TTF/OTF file, the list will contain just one font object;\nbut in the case of a Mac font suitcase it will contain as many\nfont objects as there are sfnt resources in the file."
+    }
+  ],
+  "innovations": []
+}

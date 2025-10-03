@@ -1,0 +1,2239 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\_tifffile.py",
+  "classes": [
+    {
+      "name": "lazyattr",
+      "docstring": "Attribute whose value is computed on first access.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TiffWriter",
+      "docstring": "Write numpy arrays to TIFF file.\n\nTiffWriter instances must be closed using the 'close' method, which is\nautomatically called when using the 'with' context manager.\n\nTiffWriter's main purpose is saving nD numpy array's as TIFF,\nnot to create any possible TIFF format. Specifically, JPEG compression,\nSubIFDs, ExifIFD, or GPSIFD tags are not supported.\n\nExamples\n--------\n>>> # successively append images to BigTIFF file\n>>> data = numpy.random.rand(2, 5, 3, 301, 219)\n>>> with TiffWriter('temp.tif', bigtiff=True) as tif:\n...     for i in range(data.shape[0]):\n...         tif.save(data[i], compress=6, photometric='minisblack')",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Open a TIFF file for writing.\n\nAn empty TIFF file is created if the file does not exist, else the\nfile is overwritten with an empty TIFF file unless 'append'\nis true. Use bigtiff=True when creating files larger than 4 GB.\n\nParameters\n----------\nfile : str, binary stream, or FileHandle\n    File name or writable binary stream, such as an open file\n    or BytesIO.\nbigtiff : bool\n    If True, the BigTIFF format is used.\nbyteorder : {'<', '>', '=', '|'}\n    The endianness of the data in the file.\n    By default, this is the system's native byte order.\nappend : bool\n    If True and 'file' is an existing standard TIFF file, image data\n    and tags are appended to the file.\n    Appending data may corrupt specifically formatted TIFF files\n    such as LSM, STK, ImageJ, NIH, or FluoView.\nimagej : bool\n    If True, write an ImageJ hyperstack compatible file.\n    This format can handle data types uint8, uint16, or float32 and\n    data shapes up to 6 dimensions in TZCYXS order.\n    RGB images (S=3 or S=4) must be uint8.\n    ImageJ's default byte order is big-endian but this implementation\n    uses the system's native byte order by default.\n    ImageJ does not support BigTIFF format or LZMA compression.\n    The ImageJ file format is undocumented."
+        },
+        {
+          "name": "save",
+          "docstring": "Write numpy array and tags to TIFF file.\n\nThe data shape's last dimensions are assumed to be image depth,\nheight (length), width, and samples.\nIf a colormap is provided, the data's dtype must be uint8 or uint16\nand the data values are indices into the last dimension of the\ncolormap.\nIf 'shape' and 'dtype' are specified, an empty array is saved.\nThis option cannot be used with compression or multiple tiles.\nImage data are written uncompressed in one strip per plane by default.\nDimensions larger than 2 to 4 (depending on photometric mode, planar\nconfiguration, and SGI mode) are flattened and saved as separate pages.\nThe SampleFormat and BitsPerSample tags are derived from the data type.\n\nParameters\n----------\ndata : numpy.ndarray or None\n    Input image array.\nshape : tuple or None\n    Shape of the empty array to save. Used only if 'data' is None.\ndtype : numpy.dtype or None\n    Data-type of the empty array to save. Used only if 'data' is None.\nreturnoffset : bool\n    If True and the image data in the file is memory-mappable, return\n    the offset and number of bytes of the image data in the file.\nphotometric : {'MINISBLACK', 'MINISWHITE', 'RGB', 'PALETTE', 'CFA'}\n    The color space of the image data.\n    By default, this setting is inferred from the data shape and the\n    value of colormap.\n    For CFA images, DNG tags must be specified in 'extratags'.\nplanarconfig : {'CONTIG', 'SEPARATE'}\n    Specifies if samples are stored contiguous or in separate planes.\n    By default, this setting is inferred from the data shape.\n    If this parameter is set, extra samples are used to store grayscale\n    images.\n    'CONTIG': last dimension contains samples.\n    'SEPARATE': third last dimension contains samples.\ntile : tuple of int\n    The shape (depth, length, width) of image tiles to write.\n    If None (default), image data are written in strips.\n    The tile length and width must be a multiple of 16.\n    If the tile depth is provided, the SGI ImageDepth and TileDepth\n    tags are used to save volume data.\n    Unless a single tile is used, tiles cannot be used to write\n    contiguous files.\n    Few software can read the SGI format, e.g. MeVisLab.\ncontiguous : bool\n    If True (default) and the data and parameters are compatible with\n    previous ones, if any, the image data are stored contiguously after\n    the previous one. Parameters 'photometric' and 'planarconfig'\n    are ignored. Parameters 'description', datetime', and 'extratags'\n    are written to the first page of a contiguous series only.\nalign : int\n    Byte boundary on which to align the image data in the file.\n    Default 16. Use mmap.ALLOCATIONGRANULARITY for memory-mapped data.\n    Following contiguous writes are not aligned.\ntruncate : bool\n    If True, only write the first page including shape metadata if\n    possible (uncompressed, contiguous, not tiled).\n    Other TIFF readers will only be able to read part of the data.\ncompress : int or 'LZMA', 'ZSTD'\n    Values from 0 to 9 controlling the level of zlib compression.\n    If 0 (default), data are written uncompressed.\n    Compression cannot be used to write contiguous files.\n    If 'LZMA' or 'ZSTD', LZMA or ZSTD compression is used, which is\n    not available on all platforms.\nrowsperstrip : int\n    The number of rows per strip used for compression.\n    Uncompressed data are written in one strip per plane.\npredictor : bool\n    If True, apply horizontal differencing to integer type images\n    before compression.\ncolormap : numpy.ndarray\n    RGB color values for the corresponding data value.\n    Must be of shape (3, 2**(data.itemsize*8)) and dtype uint16.\ndescription : str\n    The subject of the image. Must be 7-bit ASCII. Cannot be used with\n    the ImageJ format. Saved with the first page only.\ndatetime : datetime\n    Date and time of image creation in '%Y:%m:%d %H:%M:%S' format.\n    If None (default), the current date and time is used.\n    Saved with the first page only.\nresolution : (float, float[, str]) or ((int, int), (int, int)[, str])\n    X and Y resolutions in pixels per resolution unit as float or\n    rational numbers. A third, optional parameter specifies the\n    resolution unit, which must be None (default for ImageJ),\n    'INCH' (default), or 'CENTIMETER'.\nsoftware : str\n    Name of the software used to create the file. Must be 7-bit ASCII.\n    Saved with the first page only.\nmetadata : dict\n    Additional meta data to be saved along with shape information\n    in JSON or ImageJ formats in an ImageDescription tag.\n    If None, do not write a second ImageDescription tag.\n    Strings must be 7-bit ASCII. Saved with the first page only.\nijmetadata : dict\n    Additional meta data to be saved in application specific\n    IJMetadata and IJMetadataByteCounts tags. Refer to the\n    imagej_metadata_tags function for valid keys and values.\n    Saved with the first page only.\nextratags : sequence of tuples\n    Additional tags as [(code, dtype, count, value, writeonce)].\n\n    code : int\n        The TIFF tag Id.\n    dtype : str\n        Data type of items in 'value' in Python struct format.\n        One of B, s, H, I, 2I, b, h, i, 2i, f, d, Q, or q.\n    count : int\n        Number of data values. Not used for string or byte string\n        values.\n    value : sequence\n        'Count' values compatible with 'dtype'.\n        Byte strings must contain count values of dtype packed as\n        binary data.\n    writeonce : bool\n        If True, the tag is written to the first page only."
+        },
+        {
+          "name": "close",
+          "docstring": "Write remaining pages and close file handle."
+        }
+      ]
+    },
+    {
+      "name": "TiffFile",
+      "docstring": "Read image and metadata from TIFF file.\n\nTiffFile instances must be closed using the 'close' method, which is\nautomatically called when using the 'with' context manager.\n\nAttributes\n----------\npages : TiffPages\n    Sequence of TIFF pages in file.\nseries : list of TiffPageSeries\n    Sequences of closely related TIFF pages. These are computed\n    from OME, LSM, ImageJ, etc. metadata or based on similarity\n    of page properties such as shape, dtype, and compression.\nbyteorder : '>', '<'\n    The endianness of data in the file.\n    '>': big-endian (Motorola).\n    '>': little-endian (Intel).\nis_flag : bool\n    If True, file is of a certain format.\n    Flags are: bigtiff, movie, shaped, ome, imagej, stk, lsm, fluoview,\n    nih, vista, 'micromanager, metaseries, mdgel, mediacy, tvips, fei,\n    sem, scn, svs, scanimage, andor, epics, pilatus, qptiff.\n\nAll attributes are read-only.\n\nExamples\n--------\n>>> # read image array from TIFF file\n>>> imsave('temp.tif', numpy.random.rand(5, 301, 219))\n>>> with TiffFile('temp.tif') as tif:\n...     data = tif.asarray()\n>>> data.shape\n(5, 301, 219)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize instance from file.\n\nParameters\n----------\narg : str or open file\n    Name of file or open file object.\n    The file objects are closed in TiffFile.close().\nname : str\n    Optional name of file in case 'arg' is a file handle.\noffset : int\n    Optional start position of embedded file. By default, this is\n    the current file position.\nsize : int\n    Optional size of embedded file. By default, this is the number\n    of bytes from the 'offset' to the end of the file.\nmultifile : bool\n    If True (default), series may include pages from multiple files.\n    Currently applies to OME-TIFF only.\nmovie : bool\n    If True, assume that later pages differ from first page only by\n    data offsets and byte counts. Significantly increases speed and\n    reduces memory usage when reading movies with thousands of pages.\n    Enabling this for non-movie files will result in data corruption\n    or crashes. Python 3 only.\nkwargs : bool\n    'is_ome': If False, disable processing of OME-XML metadata."
+        },
+        {
+          "name": "filehandle",
+          "docstring": "Return file handle."
+        },
+        {
+          "name": "filename",
+          "docstring": "Return name of file handle."
+        },
+        {
+          "name": "fstat",
+          "docstring": "Return status of file handle as stat_result object."
+        },
+        {
+          "name": "close",
+          "docstring": "Close open file handle(s)."
+        },
+        {
+          "name": "asarray",
+          "docstring": "Return image data from multiple TIFF pages as numpy array.\n\nBy default, the data from the first series is returned.\n\nParameters\n----------\nkey : int, slice, or sequence of page indices\n    Defines which pages to return as array.\nseries : int or TiffPageSeries\n    Defines which series of pages to return as array.\nout : numpy.ndarray, str, or file-like object; optional\n    Buffer where image data will be saved.\n    If None (default), a new array will be created.\n    If numpy.ndarray, a writable array of compatible dtype and shape.\n    If 'memmap', directly memory-map the image data in the TIFF file\n    if possible; else create a memory-mapped array in a temporary file.\n    If str or open file, the file name or file object used to\n    create a memory-map to an array stored in a binary file on disk.\nvalidate : bool\n    If True (default), validate various tags.\n    Passed to TiffPage.asarray().\nmaxworkers : int\n    Maximum number of threads to concurrently get data from pages.\n    Default is 1. If None, up to half the CPU cores are used.\n    Reading data from file is limited to a single thread.\n    Using multiple threads can significantly speed up this function\n    if the bottleneck is decoding compressed data, e.g. in case of\n    large LZW compressed LSM files.\n    If the bottleneck is I/O or pure Python code, using multiple\n    threads might be detrimental."
+        },
+        {
+          "name": "series",
+          "docstring": "Return related pages as TiffPageSeries.\n\nSide effect: after calling this function, TiffFile.pages might contain\nTiffPage and TiffFrame instances."
+        },
+        {
+          "name": "flags",
+          "docstring": "Return set of file flags."
+        },
+        {
+          "name": "is_mdgel",
+          "docstring": "File has MD Gel format."
+        },
+        {
+          "name": "is_movie",
+          "docstring": "Return if file is a movie."
+        },
+        {
+          "name": "shaped_metadata",
+          "docstring": "Return Tifffile metadata from JSON descriptions as dicts."
+        },
+        {
+          "name": "ome_metadata",
+          "docstring": "Return OME XML as dict."
+        },
+        {
+          "name": "qptiff_metadata",
+          "docstring": "Return PerkinElmer-QPI-ImageDescription XML element as dict."
+        },
+        {
+          "name": "lsm_metadata",
+          "docstring": "Return LSM metadata from CZ_LSMINFO tag as dict."
+        },
+        {
+          "name": "stk_metadata",
+          "docstring": "Return STK metadata from UIC tags as dict."
+        },
+        {
+          "name": "imagej_metadata",
+          "docstring": "Return consolidated ImageJ metadata as dict."
+        },
+        {
+          "name": "fluoview_metadata",
+          "docstring": "Return consolidated FluoView metadata as dict."
+        },
+        {
+          "name": "nih_metadata",
+          "docstring": "Return NIH Image metadata from NIHImageHeader tag as dict."
+        },
+        {
+          "name": "fei_metadata",
+          "docstring": "Return FEI metadata from SFEG or HELIOS tags as dict."
+        },
+        {
+          "name": "sem_metadata",
+          "docstring": "Return SEM metadata from CZ_SEM tag as dict."
+        },
+        {
+          "name": "mdgel_metadata",
+          "docstring": "Return consolidated metadata from MD GEL tags as dict."
+        },
+        {
+          "name": "andor_metadata",
+          "docstring": "Return Andor tags as dict."
+        },
+        {
+          "name": "epics_metadata",
+          "docstring": "Return EPICS areaDetector tags as dict."
+        },
+        {
+          "name": "tvips_metadata",
+          "docstring": "Return TVIPS tag as dict."
+        },
+        {
+          "name": "metaseries_metadata",
+          "docstring": "Return MetaSeries metadata from image description as dict."
+        },
+        {
+          "name": "pilatus_metadata",
+          "docstring": "Return Pilatus metadata from image description as dict."
+        },
+        {
+          "name": "micromanager_metadata",
+          "docstring": "Return consolidated MicroManager metadata as dict."
+        },
+        {
+          "name": "scanimage_metadata",
+          "docstring": "Return ScanImage non-varying frame and ROI metadata as dict."
+        },
+        {
+          "name": "geotiff_metadata",
+          "docstring": "Return GeoTIFF metadata from first page as dict."
+        }
+      ]
+    },
+    {
+      "name": "TiffPages",
+      "docstring": "Sequence of TIFF image file directories.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize instance from file. Read first TiffPage from file.\n\nThe file position must be at an offset to an offset to a TiffPage."
+        },
+        {
+          "name": "cache",
+          "docstring": "Return if pages/frames are currently being cached."
+        },
+        {
+          "name": "cache",
+          "docstring": "Enable or disable caching of pages/frames. Clear cache if False."
+        },
+        {
+          "name": "useframes",
+          "docstring": "Return if currently using TiffFrame (True) or TiffPage (False)."
+        },
+        {
+          "name": "useframes",
+          "docstring": "Set to use TiffFrame (True) or TiffPage (False)."
+        },
+        {
+          "name": "keyframe",
+          "docstring": "Return index of current keyframe."
+        },
+        {
+          "name": "keyframe",
+          "docstring": "Set current keyframe. Load TiffPage from file if necessary."
+        },
+        {
+          "name": "next_page_offset",
+          "docstring": "Return offset where offset to a new page can be stored."
+        },
+        {
+          "name": "load",
+          "docstring": "Read all remaining pages from file."
+        },
+        {
+          "name": "clear",
+          "docstring": "Delete all but first page from cache. Set keyframe to first page."
+        }
+      ]
+    },
+    {
+      "name": "TiffPage",
+      "docstring": "TIFF image file directory (IFD).\n\nAttributes\n----------\nindex : int\n    Index of page in file.\ndtype : numpy.dtype or None\n    Data type (native byte order) of the image in IFD.\nshape : tuple\n    Dimensions of the image in IFD.\naxes : str\n    Axes label codes:\n    'X' width, 'Y' height, 'S' sample, 'I' image series|page|plane,\n    'Z' depth, 'C' color|em-wavelength|channel, 'E' ex-wavelength|lambda,\n    'T' time, 'R' region|tile, 'A' angle, 'P' phase, 'H' lifetime,\n    'L' exposure, 'V' event, 'Q' unknown, '_' missing\ntags : dict\n    Dictionary of tags in IFD. {tag.name: TiffTag}\ncolormap : numpy.ndarray\n    Color look up table, if exists.\n\nAll attributes are read-only.\n\nNotes\n-----\nThe internal, normalized '_shape' attribute is 6 dimensional:\n\n0 : number planes/images  (stk, ij).\n1 : planar samplesperpixel.\n2 : imagedepth Z  (sgi).\n3 : imagelength Y.\n4 : imagewidth X.\n5 : contig samplesperpixel.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize instance from file.\n\nThe file handle position must be at offset to a valid IFD."
+        },
+        {
+          "name": "asarray",
+          "docstring": "Read image data from file and return as numpy array.\n\nRaise ValueError if format is unsupported.\n\nParameters\n----------\nout : numpy.ndarray, str, or file-like object; optional\n    Buffer where image data will be saved.\n    If None (default), a new array will be created.\n    If numpy.ndarray, a writable array of compatible dtype and shape.\n    If 'memmap', directly memory-map the image data in the TIFF file\n    if possible; else create a memory-mapped array in a temporary file.\n    If str or open file, the file name or file object used to\n    create a memory-map to an array stored in a binary file on disk.\nsqueeze : bool\n    If True, all length-1 dimensions (except X and Y) are\n    squeezed out from the array.\n    If False, the shape of the returned array might be different from\n    the page.shape.\nlock : {RLock, NullContext}\n    A reentrant lock used to synchronize reads from file.\n    If None (default), the lock of the parent's filehandle is used.\nreopen : bool\n    If True (default) and the parent file handle is closed, the file\n    is temporarily re-opened and closed if no exception occurs.\nmaxsize: int or None\n    Maximum size of data before a ValueError is raised.\n    Can be used to catch DOS. Default: 16 TB.\nvalidate : bool\n    If True (default), validate various parameters.\n    If None, only validate parameters and return None."
+        },
+        {
+          "name": "asrgb",
+          "docstring": "Return image data as RGB(A).\n\nWork in progress."
+        },
+        {
+          "name": "aspage",
+          "docstring": null
+        },
+        {
+          "name": "keyframe",
+          "docstring": null
+        },
+        {
+          "name": "keyframe",
+          "docstring": null
+        },
+        {
+          "name": "offsets_bytecounts",
+          "docstring": "Return simplified offsets and bytecounts."
+        },
+        {
+          "name": "is_contiguous",
+          "docstring": "Return offset and size of contiguous data, else None.\n\nExcludes prediction and fill_order."
+        },
+        {
+          "name": "is_final",
+          "docstring": "Return if page's image data are stored in final form.\n\nExcludes byte-swapping."
+        },
+        {
+          "name": "is_memmappable",
+          "docstring": "Return if page's image data in file can be memory-mapped."
+        },
+        {
+          "name": "flags",
+          "docstring": "Return set of flags."
+        },
+        {
+          "name": "ndim",
+          "docstring": "Return number of array dimensions."
+        },
+        {
+          "name": "size",
+          "docstring": "Return number of elements in array."
+        },
+        {
+          "name": "andor_tags",
+          "docstring": "Return consolidated metadata from Andor tags as dict.\n\nRemove Andor tags from self.tags."
+        },
+        {
+          "name": "epics_tags",
+          "docstring": "Return consolidated metadata from EPICS areaDetector tags as dict.\n\nRemove areaDetector tags from self.tags."
+        },
+        {
+          "name": "geotiff_tags",
+          "docstring": "Return consolidated metadata from GeoTIFF tags as dict."
+        },
+        {
+          "name": "is_tiled",
+          "docstring": "Page contains tiled image."
+        },
+        {
+          "name": "is_reduced",
+          "docstring": "Page is reduced image of another image."
+        },
+        {
+          "name": "is_chroma_subsampled",
+          "docstring": "Page contains chroma subsampled image."
+        },
+        {
+          "name": "is_imagej",
+          "docstring": "Return ImageJ description if exists, else None."
+        },
+        {
+          "name": "is_shaped",
+          "docstring": "Return description containing array shape if exists, else None."
+        },
+        {
+          "name": "is_mdgel",
+          "docstring": "Page contains MDFileTag tag."
+        },
+        {
+          "name": "is_mediacy",
+          "docstring": "Page contains Media Cybernetics Id tag."
+        },
+        {
+          "name": "is_stk",
+          "docstring": "Page contains UIC2Tag tag."
+        },
+        {
+          "name": "is_lsm",
+          "docstring": "Page contains CZ_LSMINFO tag."
+        },
+        {
+          "name": "is_fluoview",
+          "docstring": "Page contains FluoView MM_STAMP tag."
+        },
+        {
+          "name": "is_nih",
+          "docstring": "Page contains NIH image header."
+        },
+        {
+          "name": "is_sgi",
+          "docstring": "Page contains SGI image and tile depth tags."
+        },
+        {
+          "name": "is_vista",
+          "docstring": "Software tag is 'ISS Vista'."
+        },
+        {
+          "name": "is_metaseries",
+          "docstring": "Page contains MDS MetaSeries metadata in ImageDescription tag."
+        },
+        {
+          "name": "is_ome",
+          "docstring": "Page contains OME-XML in ImageDescription tag."
+        },
+        {
+          "name": "is_scn",
+          "docstring": "Page contains Leica SCN XML in ImageDescription tag."
+        },
+        {
+          "name": "is_micromanager",
+          "docstring": "Page contains Micro-Manager metadata."
+        },
+        {
+          "name": "is_andor",
+          "docstring": "Page contains Andor Technology tags."
+        },
+        {
+          "name": "is_pilatus",
+          "docstring": "Page contains Pilatus tags."
+        },
+        {
+          "name": "is_epics",
+          "docstring": "Page contains EPICS areaDetector tags."
+        },
+        {
+          "name": "is_tvips",
+          "docstring": "Page contains TVIPS metadata."
+        },
+        {
+          "name": "is_fei",
+          "docstring": "Page contains SFEG or HELIOS metadata."
+        },
+        {
+          "name": "is_sem",
+          "docstring": "Page contains Zeiss SEM metadata."
+        },
+        {
+          "name": "is_svs",
+          "docstring": "Page contains Aperio metadata."
+        },
+        {
+          "name": "is_scanimage",
+          "docstring": "Page contains ScanImage metadata."
+        },
+        {
+          "name": "is_qptiff",
+          "docstring": "Page contains PerkinElmer tissue images metadata."
+        },
+        {
+          "name": "is_geotiff",
+          "docstring": "Page contains GeoTIFF metadata."
+        }
+      ]
+    },
+    {
+      "name": "TiffFrame",
+      "docstring": "Lightweight TIFF image file directory (IFD).\n\nOnly a limited number of tag values are read from file, e.g. StripOffsets,\nand StripByteCounts. Other tag values are assumed to be identical with a\nspecified TiffPage instance, the keyframe.\n\nTiffFrame is intended to reduce resource usage and speed up reading data\nfrom file, not for introspection of metadata.\n\nNot compatible with Python 2.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Read specified tags from file.\n\nThe file handle position must be at the offset to a valid IFD."
+        },
+        {
+          "name": "aspage",
+          "docstring": "Return TiffPage from file."
+        },
+        {
+          "name": "asarray",
+          "docstring": "Read image data from file and return as numpy array."
+        },
+        {
+          "name": "asrgb",
+          "docstring": "Read image data from file and return RGB image as numpy array."
+        },
+        {
+          "name": "offsets_bytecounts",
+          "docstring": "Return simplified offsets and bytecounts."
+        },
+        {
+          "name": "is_contiguous",
+          "docstring": "Return offset and size of contiguous data, else None."
+        },
+        {
+          "name": "is_memmappable",
+          "docstring": "Return if page's image data in file can be memory-mapped."
+        }
+      ]
+    },
+    {
+      "name": "TiffTag",
+      "docstring": "TIFF tag structure.\n\nAttributes\n----------\nname : string\n    Name of tag.\ncode : int\n    Decimal code of tag.\ndtype : str\n    Datatype of tag data. One of TIFF DATA_FORMATS.\ncount : int\n    Number of values.\nvalue : various types\n    Tag data as Python object.\nImageSourceData : int\n    Location of value in file.\n\nAll attributes are read-only.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize instance from tag header."
+        },
+        {
+          "name": "name",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TiffFileError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "TiffPageSeries",
+      "docstring": "Series of TIFF pages with compatible shape and data type.\n\nAttributes\n----------\npages : list of TiffPage\n    Sequence of TiffPages in series.\ndtype : numpy.dtype\n    Data type (native byte order) of the image array in series.\nshape : tuple\n    Dimensions of the image array in series.\naxes : str\n    Labels of axes in shape. See TiffPage.axes.\noffset : int or None\n    Position of image data in file if memory-mappable, else None.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize instance."
+        },
+        {
+          "name": "asarray",
+          "docstring": "Return image data from series of TIFF pages as numpy array."
+        },
+        {
+          "name": "offset",
+          "docstring": "Return offset to series data in file, if any."
+        },
+        {
+          "name": "ndim",
+          "docstring": "Return number of array dimensions."
+        },
+        {
+          "name": "size",
+          "docstring": "Return number of elements in array."
+        },
+        {
+          "name": "pages",
+          "docstring": "Return sequence of all pages in series."
+        }
+      ]
+    },
+    {
+      "name": "TiffSequence",
+      "docstring": "Sequence of TIFF files.\n\nThe image data in all files must match shape, dtype, etc.\n\nAttributes\n----------\nfiles : list\n    List of file names.\nshape : tuple\n    Shape of image sequence. Excludes shape of image array.\naxes : str\n    Labels of axes in shape.\n\nExamples\n--------\n>>> # read image stack from sequence of TIFF files\n>>> imsave('temp_C001T001.tif', numpy.random.rand(64, 64))\n>>> imsave('temp_C001T002.tif', numpy.random.rand(64, 64))\n>>> tifs = TiffSequence('temp_C001*.tif')\n>>> tifs.shape\n(1, 2)\n>>> tifs.axes\n'CT'\n>>> data = tifs.asarray()\n>>> data.shape\n(1, 2, 64, 64)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize instance from multiple files.\n\nParameters\n----------\nfiles : str, pathlib.Path, or sequence thereof\n    Glob pattern or sequence of file names.\n    Binary streams are not supported.\nimread : function or class\n    Image read function or class with asarray function returning numpy\n    array from single file.\npattern : str\n    Regular expression pattern that matches axes names and sequence\n    indices in file names.\n    By default, the pattern matches Olympus OIF and Leica TIFF series."
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "asarray",
+          "docstring": "Read image data from all files and return as numpy array.\n\nThe args and kwargs parameters are passed to the imread function.\n\nRaise IndexError or ValueError if image shapes do not match."
+        }
+      ]
+    },
+    {
+      "name": "FileHandle",
+      "docstring": "Binary file handle.\n\nA limited, special purpose file handler that can:\n\n* handle embedded files (for CZI within CZI files)\n* re-open closed files (for multi-file formats, such as OME-TIFF)\n* read and write numpy arrays and records from file like objects\n\nOnly 'rb' and 'wb' modes are supported. Concurrently reading and writing\nof the same stream is untested.\n\nWhen initialized from another file handle, do not use it unless this\nFileHandle is closed.\n\nAttributes\n----------\nname : str\n    Name of the file.\npath : str\n    Absolute path to file.\nsize : int\n    Size of file in bytes.\nis_file : bool\n    If True, file has a filno and can be memory-mapped.\n\nAll attributes are read-only.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize file handle from file name or another file handle.\n\nParameters\n----------\nfile : str, pathlib.Path, binary stream, or FileHandle\n    File name or seekable binary stream, such as an open file\n    or BytesIO.\nmode : str\n    File open mode in case 'file' is a file name. Must be 'rb' or 'wb'.\nname : str\n    Optional name of file in case 'file' is a binary stream.\noffset : int\n    Optional start position of embedded file. By default, this is\n    the current file position.\nsize : int\n    Optional size of embedded file. By default, this is the number\n    of bytes from the 'offset' to the end of the file."
+        },
+        {
+          "name": "open",
+          "docstring": "Open or re-open file."
+        },
+        {
+          "name": "read",
+          "docstring": "Read 'size' bytes from file, or until EOF is reached."
+        },
+        {
+          "name": "write",
+          "docstring": "Write bytestring to file."
+        },
+        {
+          "name": "flush",
+          "docstring": "Flush write buffers if applicable."
+        },
+        {
+          "name": "memmap_array",
+          "docstring": "Return numpy.memmap of data stored in file."
+        },
+        {
+          "name": "read_array",
+          "docstring": "Return numpy array from file.\n\nWork around numpy issue #2230, \"numpy.fromfile does not accept\nStringIO object\" https://github.com/numpy/numpy/issues/2230."
+        },
+        {
+          "name": "read_record",
+          "docstring": "Return numpy record from file."
+        },
+        {
+          "name": "write_empty",
+          "docstring": "Append size bytes to file. Position must be at end of file."
+        },
+        {
+          "name": "write_array",
+          "docstring": "Write numpy array to binary file."
+        },
+        {
+          "name": "tell",
+          "docstring": "Return file's current position."
+        },
+        {
+          "name": "seek",
+          "docstring": "Set file's current position."
+        },
+        {
+          "name": "close",
+          "docstring": "Close file."
+        },
+        {
+          "name": "name",
+          "docstring": null
+        },
+        {
+          "name": "dirname",
+          "docstring": null
+        },
+        {
+          "name": "path",
+          "docstring": null
+        },
+        {
+          "name": "size",
+          "docstring": null
+        },
+        {
+          "name": "closed",
+          "docstring": null
+        },
+        {
+          "name": "lock",
+          "docstring": null
+        },
+        {
+          "name": "lock",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "NullContext",
+      "docstring": "Null context manager.\n\n>>> with NullContext():\n...     pass",
+      "methods": []
+    },
+    {
+      "name": "OpenFileCache",
+      "docstring": "Keep files open.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize open file cache."
+        },
+        {
+          "name": "open",
+          "docstring": "Re-open file if necessary."
+        },
+        {
+          "name": "close",
+          "docstring": "Close opened file if no longer used."
+        },
+        {
+          "name": "clear",
+          "docstring": "Close all opened files if not in use."
+        }
+      ]
+    },
+    {
+      "name": "LazyConst",
+      "docstring": "Class whose attributes are computed on first access from its methods.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TIFF",
+      "docstring": "Namespace for module constants.",
+      "methods": [
+        {
+          "name": "TAGS",
+          "docstring": null
+        },
+        {
+          "name": "TAG_NAMES",
+          "docstring": null
+        },
+        {
+          "name": "TAG_READERS",
+          "docstring": null
+        },
+        {
+          "name": "TAG_TUPLE",
+          "docstring": null
+        },
+        {
+          "name": "TAG_ATTRIBUTES",
+          "docstring": null
+        },
+        {
+          "name": "TAG_ENUM",
+          "docstring": null
+        },
+        {
+          "name": "FILETYPE",
+          "docstring": null
+        },
+        {
+          "name": "OFILETYPE",
+          "docstring": null
+        },
+        {
+          "name": "COMPRESSION",
+          "docstring": null
+        },
+        {
+          "name": "PHOTOMETRIC",
+          "docstring": null
+        },
+        {
+          "name": "THRESHHOLD",
+          "docstring": null
+        },
+        {
+          "name": "FILLORDER",
+          "docstring": null
+        },
+        {
+          "name": "ORIENTATION",
+          "docstring": null
+        },
+        {
+          "name": "PLANARCONFIG",
+          "docstring": null
+        },
+        {
+          "name": "GRAYRESPONSEUNIT",
+          "docstring": null
+        },
+        {
+          "name": "GROUP4OPT",
+          "docstring": null
+        },
+        {
+          "name": "RESUNIT",
+          "docstring": null
+        },
+        {
+          "name": "COLORRESPONSEUNIT",
+          "docstring": null
+        },
+        {
+          "name": "PREDICTOR",
+          "docstring": null
+        },
+        {
+          "name": "EXTRASAMPLE",
+          "docstring": null
+        },
+        {
+          "name": "SAMPLEFORMAT",
+          "docstring": null
+        },
+        {
+          "name": "DATATYPES",
+          "docstring": null
+        },
+        {
+          "name": "DATA_FORMATS",
+          "docstring": null
+        },
+        {
+          "name": "DATA_DTYPES",
+          "docstring": null
+        },
+        {
+          "name": "SAMPLE_DTYPES",
+          "docstring": null
+        },
+        {
+          "name": "COMPESSORS",
+          "docstring": null
+        },
+        {
+          "name": "DECOMPESSORS",
+          "docstring": null
+        },
+        {
+          "name": "FRAME_ATTRS",
+          "docstring": null
+        },
+        {
+          "name": "FILE_FLAGS",
+          "docstring": null
+        },
+        {
+          "name": "FILE_EXTENSIONS",
+          "docstring": null
+        },
+        {
+          "name": "FILEOPEN_FILTER",
+          "docstring": null
+        },
+        {
+          "name": "AXES_LABELS",
+          "docstring": null
+        },
+        {
+          "name": "ANDOR_TAGS",
+          "docstring": null
+        },
+        {
+          "name": "EXIF_TAGS",
+          "docstring": null
+        },
+        {
+          "name": "GPS_TAGS",
+          "docstring": null
+        },
+        {
+          "name": "IOP_TAGS",
+          "docstring": null
+        },
+        {
+          "name": "GEO_KEYS",
+          "docstring": null
+        },
+        {
+          "name": "GEO_CODES",
+          "docstring": null
+        },
+        {
+          "name": "CZ_LSMINFO",
+          "docstring": null
+        },
+        {
+          "name": "CZ_LSMINFO_READERS",
+          "docstring": null
+        },
+        {
+          "name": "CZ_LSMINFO_SCANTYPE",
+          "docstring": null
+        },
+        {
+          "name": "CZ_LSMINFO_DIMENSIONS",
+          "docstring": null
+        },
+        {
+          "name": "CZ_LSMINFO_DATATYPES",
+          "docstring": null
+        },
+        {
+          "name": "CZ_LSMINFO_TYPEOFDATA",
+          "docstring": null
+        },
+        {
+          "name": "CZ_LSMINFO_SCANINFO_ARRAYS",
+          "docstring": null
+        },
+        {
+          "name": "CZ_LSMINFO_SCANINFO_STRUCTS",
+          "docstring": null
+        },
+        {
+          "name": "CZ_LSMINFO_SCANINFO_ATTRIBUTES",
+          "docstring": null
+        },
+        {
+          "name": "NIH_IMAGE_HEADER",
+          "docstring": null
+        },
+        {
+          "name": "NIH_COLORTABLE_TYPE",
+          "docstring": null
+        },
+        {
+          "name": "NIH_LUTMODE_TYPE",
+          "docstring": null
+        },
+        {
+          "name": "NIH_CURVEFIT_TYPE",
+          "docstring": null
+        },
+        {
+          "name": "NIH_UNITS_TYPE",
+          "docstring": null
+        },
+        {
+          "name": "NIH_STACKTYPE_TYPE",
+          "docstring": null
+        },
+        {
+          "name": "TVIPS_HEADER_V1",
+          "docstring": null
+        },
+        {
+          "name": "TVIPS_HEADER_V2",
+          "docstring": null
+        },
+        {
+          "name": "MM_HEADER",
+          "docstring": null
+        },
+        {
+          "name": "MM_DIMENSIONS",
+          "docstring": null
+        },
+        {
+          "name": "UIC_TAGS",
+          "docstring": null
+        },
+        {
+          "name": "PILATUS_HEADER",
+          "docstring": null
+        },
+        {
+          "name": "REVERSE_BITORDER_BYTES",
+          "docstring": null
+        },
+        {
+          "name": "REVERSE_BITORDER_ARRAY",
+          "docstring": null
+        },
+        {
+          "name": "ALLOCATIONGRANULARITY",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Error",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ParseError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "FileNotFoundError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "FILETYPE",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "OFILETYPE",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "COMPRESSION",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PHOTOMETRIC",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "THRESHHOLD",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "FILLORDER",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ORIENTATION",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PLANARCONFIG",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "GRAYRESPONSEUNIT",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "GROUP4OPT",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "RESUNIT",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "COLORRESPONSEUNIT",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PREDICTOR",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "EXTRASAMPLE",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "SAMPLEFORMAT",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "DATATYPES",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Compressors",
+      "docstring": "Delay import compressor functions.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Decompressors",
+      "docstring": "Delay import decompressor functions.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "imread",
+      "docstring": "Return image data from TIFF file(s) as numpy array.\n\nRefer to the TiffFile class and member functions for documentation.\n\nParameters\n----------\nfiles : str, binary stream, or sequence\n    File name, seekable binary stream, glob pattern, or sequence of\n    file names.\nkwargs : dict\n    Parameters 'multifile' and 'is_ome' are passed to the TiffFile class.\n    The 'pattern' parameter is passed to the TiffSequence class.\n    Other parameters are passed to the asarray functions.\n    The first image series is returned if no arguments are provided.\n\nExamples\n--------\n>>> # get image from first page\n>>> imsave('temp.tif', numpy.random.rand(3, 4, 301, 219))\n>>> im = imread('temp.tif', key=0)\n>>> im.shape\n(4, 301, 219)\n\n>>> # get images from sequence of files\n>>> ims = imread(['temp.tif', 'temp.tif'])\n>>> ims.shape\n(2, 3, 4, 301, 219)"
+    },
+    {
+      "name": "imsave",
+      "docstring": "Write numpy array to TIFF file.\n\nRefer to the TiffWriter class and member functions for documentation.\n\nParameters\n----------\nfile : str or binary stream\n    File name or writable binary stream, such as an open file or BytesIO.\ndata : array_like\n    Input image. The last dimensions are assumed to be image depth,\n    height, width, and samples.\n    If None, an empty array of the specified shape and dtype is\n    saved to file.\n    Unless 'byteorder' is specified in 'kwargs', the TIFF file byte order\n    is determined from the data's dtype or the dtype argument.\nshape : tuple\n    If 'data' is None, shape of an empty array to save to the file.\ndtype : numpy.dtype\n    If 'data' is None, data-type of an empty array to save to the file.\nbigsize : int\n    Create a BigTIFF file if the size of data in bytes is larger than\n    this threshold and 'imagej' or 'truncate' are not enabled.\n    By default, the threshold is 4 GB minus 32 MB reserved for metadata.\n    Use the 'bigtiff' parameter to explicitly specify the type of\n    file created.\nkwargs : dict\n    Parameters 'append', 'byteorder', 'bigtiff', and 'imagej', are passed\n    to TiffWriter(). Other parameters are passed to TiffWriter.save().\n\nReturns\n-------\nIf the image data are written contiguously, return offset and bytecount\nof image data in the file.\n\nExamples\n--------\n>>> # save a RGB image\n>>> data = numpy.random.randint(0, 255, (256, 256, 3), 'uint8')\n>>> imsave('temp.tif', data, photometric='rgb')\n\n>>> # save a random array and metadata, using compression\n>>> data = numpy.random.rand(2, 5, 3, 301, 219)\n>>> imsave('temp.tif', data, compress=6, metadata={'axes': 'TZCYX'})"
+    },
+    {
+      "name": "memmap",
+      "docstring": "Return memory-mapped numpy array stored in TIFF file.\n\nMemory-mapping requires data stored in native byte order, without tiling,\ncompression, predictors, etc.\nIf 'shape' and 'dtype' are provided, existing files will be overwritten or\nappended to depending on the 'append' parameter.\nOtherwise the image data of a specified page or series in an existing\nfile will be memory-mapped. By default, the image data of the first page\nseries is memory-mapped.\nCall flush() to write any changes in the array to the file.\nRaise ValueError if the image data in the file is not memory-mappable.\n\nParameters\n----------\nfilename : str\n    Name of the TIFF file which stores the array.\nshape : tuple\n    Shape of the empty array.\ndtype : numpy.dtype\n    Data-type of the empty array.\npage : int\n    Index of the page which image data to memory-map.\nseries : int\n    Index of the page series which image data to memory-map.\nmode : {'r+', 'r', 'c'}, optional\n    The file open mode. Default is to open existing file for reading and\n    writing ('r+').\nkwargs : dict\n    Additional parameters passed to imsave() or TiffFile().\n\nExamples\n--------\n>>> # create an empty TIFF file and write to memory-mapped image\n>>> im = memmap('temp.tif', shape=(256, 256), dtype='float32')\n>>> im[255, 255] = 1.0\n>>> im.flush()\n>>> im.shape, im.dtype\n((256, 256), dtype('float32'))\n>>> del im\n\n>>> # memory-map image data in a TIFF file\n>>> im = memmap('temp.tif', page=0)\n>>> im[255, 255]\n1.0"
+    },
+    {
+      "name": "read_tags",
+      "docstring": "Read tags from chain of IFDs and return as list of dicts.\n\nThe file handle position must be at a valid IFD header."
+    },
+    {
+      "name": "read_exif_ifd",
+      "docstring": "Read EXIF tags from file and return as dict."
+    },
+    {
+      "name": "read_gps_ifd",
+      "docstring": "Read GPS tags from file and return as dict."
+    },
+    {
+      "name": "read_interoperability_ifd",
+      "docstring": "Read Interoperability tags from file and return as dict."
+    },
+    {
+      "name": "read_bytes",
+      "docstring": "Read tag data from file and return as byte string."
+    },
+    {
+      "name": "read_utf8",
+      "docstring": "Read tag data from file and return as unicode string."
+    },
+    {
+      "name": "read_numpy",
+      "docstring": "Read tag data from file and return as numpy array."
+    },
+    {
+      "name": "read_colormap",
+      "docstring": "Read ColorMap data from file and return as numpy array."
+    },
+    {
+      "name": "read_json",
+      "docstring": "Read JSON tag data from file and return as object."
+    },
+    {
+      "name": "read_mm_header",
+      "docstring": "Read FluoView mm_header tag from file and return as dict."
+    },
+    {
+      "name": "read_mm_stamp",
+      "docstring": "Read FluoView mm_stamp tag from file and return as numpy.ndarray."
+    },
+    {
+      "name": "read_uic1tag",
+      "docstring": "Read MetaMorph STK UIC1Tag from file and return as dict.\n\nReturn empty dictionary if planecount is unknown."
+    },
+    {
+      "name": "read_uic2tag",
+      "docstring": "Read MetaMorph STK UIC2Tag from file and return as dict."
+    },
+    {
+      "name": "read_uic3tag",
+      "docstring": "Read MetaMorph STK UIC3Tag from file and return as dict."
+    },
+    {
+      "name": "read_uic4tag",
+      "docstring": "Read MetaMorph STK UIC4Tag from file and return as dict."
+    },
+    {
+      "name": "read_uic_tag",
+      "docstring": "Read a single UIC tag value from file and return tag name and value.\n\nUIC1Tags use an offset."
+    },
+    {
+      "name": "read_uic_image_property",
+      "docstring": "Read UIC ImagePropertyEx tag from file and return as dict."
+    },
+    {
+      "name": "read_cz_lsminfo",
+      "docstring": "Read CZ_LSMINFO tag from file and return as dict."
+    },
+    {
+      "name": "read_lsm_floatpairs",
+      "docstring": "Read LSM sequence of float pairs from file and return as list."
+    },
+    {
+      "name": "read_lsm_positions",
+      "docstring": "Read LSM positions from file and return as list."
+    },
+    {
+      "name": "read_lsm_timestamps",
+      "docstring": "Read LSM time stamps from file and return as list."
+    },
+    {
+      "name": "read_lsm_eventlist",
+      "docstring": "Read LSM events from file and return as list of (time, type, text)."
+    },
+    {
+      "name": "read_lsm_channelcolors",
+      "docstring": "Read LSM ChannelColors structure from file and return as dict."
+    },
+    {
+      "name": "read_lsm_scaninfo",
+      "docstring": "Read LSM ScanInfo structure from file and return as dict."
+    },
+    {
+      "name": "read_tvips_header",
+      "docstring": "Read TVIPS EM-MENU headers and return as dict."
+    },
+    {
+      "name": "read_fei_metadata",
+      "docstring": "Read FEI SFEG/HELIOS headers and return as dict."
+    },
+    {
+      "name": "read_cz_sem",
+      "docstring": "Read Zeiss SEM tag and return as dict."
+    },
+    {
+      "name": "read_nih_image_header",
+      "docstring": "Read NIH_IMAGE_HEADER tag from file and return as dict."
+    },
+    {
+      "name": "read_scanimage_metadata",
+      "docstring": "Read ScanImage BigTIFF v3 static and ROI metadata from open file.\n\nReturn non-varying frame data as dict and ROI group data as JSON.\n\nThe settings can be used to read image data and metadata without parsing\nthe TIFF file.\n\nRaise ValueError if file does not contain valid ScanImage v3 metadata."
+    },
+    {
+      "name": "read_micromanager_metadata",
+      "docstring": "Read MicroManager non-TIFF settings from open file and return as dict.\n\nThe settings can be used to read image data without parsing the TIFF file.\n\nRaise ValueError if the file does not contain valid MicroManager metadata."
+    },
+    {
+      "name": "read_metaseries_catalog",
+      "docstring": "Read MetaSeries non-TIFF hint catalog from file.\n\nRaise ValueError if the file does not contain a valid hint catalog."
+    },
+    {
+      "name": "imagej_metadata_tags",
+      "docstring": "Return IJMetadata and IJMetadataByteCounts tags from metadata dict.\n\nThe tags can be passed to the TiffWriter.save function as extratags.\n\nThe metadata dict may contain the following keys and values:\n\n    Info : str\n        Human-readable information as string.\n    Labels : sequence of str\n        Human-readable labels for each channel.\n    Ranges : sequence of doubles\n        Lower and upper values for each channel.\n    LUTs : sequence of (3, 256) uint8 ndarrays\n        Color palettes for each channel.\n    Plot : bytes\n        Undocumented ImageJ internal format.\n    ROI: bytes\n        Undocumented ImageJ internal region of interest format.\n    Overlays : bytes\n        Undocumented ImageJ internal format."
+    },
+    {
+      "name": "imagej_metadata",
+      "docstring": "Return IJMetadata tag value as dict.\n\nThe 'Info' string can have multiple formats, e.g. OIF or ScanImage,\nthat might be parsed into dicts using the matlabstr2py or\noiffile.SettingsFile functions."
+    },
+    {
+      "name": "imagej_description_metadata",
+      "docstring": "Return metatata from ImageJ image description as dict.\n\nRaise ValueError if not a valid ImageJ description.\n\n>>> description = 'ImageJ=1.11a\\nimages=510\\nhyperstack=true\\n'\n>>> imagej_description_metadata(description)  # doctest: +SKIP\n{'ImageJ': '1.11a', 'images': 510, 'hyperstack': True}"
+    },
+    {
+      "name": "imagej_description",
+      "docstring": "Return ImageJ image description from data shape.\n\nImageJ can handle up to 6 dimensions in order TZCYXS.\n\n>>> imagej_description((51, 5, 2, 196, 171))  # doctest: +SKIP\nImageJ=1.11a\nimages=510\nchannels=2\nslices=5\nframes=51\nhyperstack=true\nmode=grayscale\nloop=false"
+    },
+    {
+      "name": "imagej_shape",
+      "docstring": "Return shape normalized to 6D ImageJ hyperstack TZCYXS.\n\nRaise ValueError if not a valid ImageJ hyperstack shape.\n\n>>> imagej_shape((2, 3, 4, 5, 3), False)\n(2, 3, 4, 5, 3, 1)"
+    },
+    {
+      "name": "json_description",
+      "docstring": "Return JSON image description from data shape and other meta data.\n\nReturn UTF-8 encoded JSON.\n\n>>> json_description((256, 256, 3), axes='YXS')  # doctest: +SKIP\nb'{\"shape\": [256, 256, 3], \"axes\": \"YXS\"}'"
+    },
+    {
+      "name": "json_description_metadata",
+      "docstring": "Return metatata from JSON formatted image description as dict.\n\nRaise ValuError if description is of unknown format.\n\n>>> description = '{\"shape\": [256, 256, 3], \"axes\": \"YXS\"}'\n>>> json_description_metadata(description)  # doctest: +SKIP\n{'shape': [256, 256, 3], 'axes': 'YXS'}\n>>> json_description_metadata('shape=(256, 256, 3)')\n{'shape': (256, 256, 3)}"
+    },
+    {
+      "name": "fluoview_description_metadata",
+      "docstring": "Return metatata from FluoView image description as dict.\n\nThe FluoView image description format is unspecified. Expect failures.\n\n>>> descr = ('[Intensity Mapping]\\nMap Ch0: Range=00000 to 02047\\n'\n...          '[Intensity Mapping End]')\n>>> fluoview_description_metadata(descr)\n{'Intensity Mapping': {'Map Ch0: Range': '00000 to 02047'}}"
+    },
+    {
+      "name": "pilatus_description_metadata",
+      "docstring": "Return metatata from Pilatus image description as dict.\n\nReturn metadata from Pilatus pixel array detectors by Dectris, created\nby camserver or TVX software.\n\n>>> pilatus_description_metadata('# Pixel_size 172e-6 m x 172e-6 m')\n{'Pixel_size': (0.000172, 0.000172)}"
+    },
+    {
+      "name": "svs_description_metadata",
+      "docstring": "Return metatata from Aperio image description as dict.\n\nThe Aperio image description format is unspecified. Expect failures.\n\n>>> svs_description_metadata('Aperio Image Library v1.0')\n{'Aperio Image Library': 'v1.0'}"
+    },
+    {
+      "name": "stk_description_metadata",
+      "docstring": "Return metadata from MetaMorph image description as list of dict.\n\nThe MetaMorph image description format is unspecified. Expect failures."
+    },
+    {
+      "name": "metaseries_description_metadata",
+      "docstring": "Return metatata from MetaSeries image description as dict."
+    },
+    {
+      "name": "scanimage_description_metadata",
+      "docstring": "Return metatata from ScanImage image description as dict."
+    },
+    {
+      "name": "scanimage_artist_metadata",
+      "docstring": "Return metatata from ScanImage artist tag as dict."
+    },
+    {
+      "name": "decode_floats",
+      "docstring": "Decode floating point horizontal differencing.\n\nThe TIFF predictor type 3 reorders the bytes of the image values and\napplies horizontal byte differencing to improve compression of floating\npoint images. The ordering of interleaved color channels is preserved.\n\nParameters\n----------\ndata : numpy.ndarray\n    The image to be decoded. The dtype must be a floating point.\n    The shape must include the number of contiguous samples per pixel\n    even if 1."
+    },
+    {
+      "name": "decode_packbits",
+      "docstring": "Decompress PackBits encoded byte string.\n\nPackBits is a simple byte-oriented run-length compression scheme."
+    },
+    {
+      "name": "decode_lzw",
+      "docstring": "Decompress LZW (Lempel-Ziv-Welch) encoded TIFF strip (byte string).\n\nThe strip must begin with a CLEAR code and end with an EOI code.\n\nThis implementation of the LZW decoding algorithm is described in (1) and\nis not compatible with old style LZW compressed files like quad-lzw.tif."
+    },
+    {
+      "name": "unpack_ints",
+      "docstring": "Decompress byte string to array of integers of any bit size <= 32.\n\nThis Python implementation is slow and only handles itemsizes 1, 2, 4, 8,\n16, 32, and 64.\n\nParameters\n----------\ndata : byte str\n    Data to decompress.\ndtype : numpy.dtype or str\n    A numpy boolean or integer type.\nitemsize : int\n    Number of bits per integer.\nrunlen : int\n    Number of consecutive integers, after which to start at next byte.\n\nExamples\n--------\n>>> unpack_ints(b'a', 'B', 1)\narray([0, 1, 1, 0, 0, 0, 0, 1], dtype=uint8)\n>>> unpack_ints(b'ab', 'B', 2)\narray([1, 2, 0, 1, 1, 2, 0, 2], dtype=uint8)"
+    },
+    {
+      "name": "unpack_rgb",
+      "docstring": "Return array from byte string containing packed samples.\n\nUse to unpack RGB565 or RGB555 to RGB888 format.\n\nParameters\n----------\ndata : byte str\n    The data to be decoded. Samples in each pixel are stored consecutively.\n    Pixels are aligned to 8, 16, or 32 bit boundaries.\ndtype : numpy.dtype\n    The sample data type. The byteorder applies also to the data stream.\nbitspersample : tuple\n    Number of bits for each sample in a pixel.\nrescale : bool\n    Upscale samples to the number of bits in dtype.\n\nReturns\n-------\nresult : ndarray\n    Flattened array of unpacked samples of native dtype.\n\nExamples\n--------\n>>> data = struct.pack('BBBB', 0x21, 0x08, 0xff, 0xff)\n>>> print(unpack_rgb(data, '<B', (5, 6, 5), False))\n[ 1  1  1 31 63 31]\n>>> print(unpack_rgb(data, '<B', (5, 6, 5)))\n[  8   4   8 255 255 255]\n>>> print(unpack_rgb(data, '<B', (5, 5, 5)))\n[ 16   8   8 255 255 255]"
+    },
+    {
+      "name": "reverse_bitorder",
+      "docstring": "Reverse bits in each byte of byte string or numpy array.\n\nDecode data where pixels with lower column values are stored in the\nlower-order bits of the bytes (FillOrder is LSB2MSB).\n\nParameters\n----------\ndata : byte string or ndarray\n    The data to be bit reversed. If byte string, a new bit-reversed byte\n    string is returned. Numpy arrays are bit-reversed in-place.\n\nExamples\n--------\n>>> reverse_bitorder(b'\\x01\\x64')\nb'\\x80&'\n>>> data = numpy.array([1, 666], dtype='uint16')\n>>> reverse_bitorder(data)\n>>> data\narray([  128, 16473], dtype=uint16)"
+    },
+    {
+      "name": "apply_colormap",
+      "docstring": "Return palette-colored image.\n\nThe image values are used to index the colormap on axis 1. The returned\nimage is of shape image.shape+colormap.shape[0] and dtype colormap.dtype.\n\nParameters\n----------\nimage : numpy.ndarray\n    Indexes into the colormap.\ncolormap : numpy.ndarray\n    RGB lookup table aka palette of shape (3, 2**bits_per_sample).\ncontig : bool\n    If True, return a contiguous array.\n\nExamples\n--------\n>>> image = numpy.arange(256, dtype='uint8')\n>>> colormap = numpy.vstack([image, image, image]).astype('uint16') * 256\n>>> apply_colormap(image, colormap)[-1]\narray([65280, 65280, 65280], dtype=uint16)"
+    },
+    {
+      "name": "reorient",
+      "docstring": "Return reoriented view of image array.\n\nParameters\n----------\nimage : numpy.ndarray\n    Non-squeezed output of asarray() functions.\n    Axes -3 and -2 must be image length and width respectively.\norientation : int or str\n    One of TIFF.ORIENTATION names or values."
+    },
+    {
+      "name": "repeat_nd",
+      "docstring": "Return read-only view into input array with elements repeated.\n\nZoom nD image by integer factors using nearest neighbor interpolation\n(box filter).\n\nParameters\n----------\na : array_like\n    Input array.\nrepeats : sequence of int\n    The number of repetitions to apply along each dimension of input array.\n\nExample\n-------\n>>> repeat_nd([[1, 2], [3, 4]], (2, 2))\narray([[1, 1, 2, 2],\n       [1, 1, 2, 2],\n       [3, 3, 4, 4],\n       [3, 3, 4, 4]])"
+    },
+    {
+      "name": "reshape_nd",
+      "docstring": "Return image array or shape with at least ndim dimensions.\n\nPrepend 1s to image shape as necessary.\n\n>>> reshape_nd(numpy.empty(0), 1).shape\n(0,)\n>>> reshape_nd(numpy.empty(1), 2).shape\n(1, 1)\n>>> reshape_nd(numpy.empty((2, 3)), 3).shape\n(1, 2, 3)\n>>> reshape_nd(numpy.empty((3, 4, 5)), 3).shape\n(3, 4, 5)\n>>> reshape_nd((2, 3), 3)\n(1, 2, 3)"
+    },
+    {
+      "name": "squeeze_axes",
+      "docstring": "Return shape and axes with single-dimensional entries removed.\n\nRemove unused dimensions unless their axes are listed in 'skip'.\n\n>>> squeeze_axes((5, 1, 2, 1, 1), 'TZYXC')\n((5, 2, 1), 'TYX')"
+    },
+    {
+      "name": "transpose_axes",
+      "docstring": "Return image with its axes permuted to match specified axes.\n\nA view is returned if possible.\n\n>>> transpose_axes(numpy.zeros((2, 3, 4, 5)), 'TYXC', asaxes='CTZYX').shape\n(5, 2, 1, 3, 4)"
+    },
+    {
+      "name": "reshape_axes",
+      "docstring": "Return axes matching new shape.\n\nUnknown dimensions are labelled 'Q'.\n\n>>> reshape_axes('YXS', (219, 301, 1), (219, 301))\n'YX'\n>>> reshape_axes('IYX', (12, 219, 301), (3, 4, 219, 1, 301, 1))\n'QQYQXQ'"
+    },
+    {
+      "name": "stack_pages",
+      "docstring": "Read data from sequence of TiffPage and stack them vertically.\n\nAdditional parameters are passed to the TiffPage.asarray function."
+    },
+    {
+      "name": "clean_offsets_counts",
+      "docstring": "Return cleaned offsets and byte counts.\n\nRemove zero offsets and counts. Use to sanitize _offsets and _bytecounts\ntag values for strips or tiles."
+    },
+    {
+      "name": "buffered_read",
+      "docstring": "Return iterator over blocks read from file."
+    },
+    {
+      "name": "create_output",
+      "docstring": "Return numpy array where image data of shape and dtype can be copied.\n\nThe 'out' parameter may have the following values or types:\n\nNone\n    An empty array of shape and dtype is created and returned.\nnumpy.ndarray\n    An existing writable array of compatible dtype and shape. A view of\n    the same array is returned after verification.\n'memmap' or 'memmap:tempdir'\n    A memory-map to an array stored in a temporary binary file on disk\n    is created and returned.\nstr or open file\n    The file name or file object used to create a memory-map to an array\n    stored in a binary file on disk. The created memory-mapped array is\n    returned."
+    },
+    {
+      "name": "matlabstr2py",
+      "docstring": "Return Python object from Matlab string representation.\n\nReturn str, bool, int, float, list (Matlab arrays or cells), or\ndict (Matlab structures) types.\n\nUse to access ScanImage metadata.\n\n>>> matlabstr2py('1')\n1\n>>> matlabstr2py(\"['x y z' true false; 1 2.0 -3e4; NaN Inf @class]\")\n[['x y z', True, False], [1, 2.0, -30000.0], [nan, inf, '@class']]\n>>> d = matlabstr2py(\"SI.hChannels.channelType = {'stripe' 'stripe'}\\n\"\n...                  \"SI.hChannels.channelsActive = 2\")\n>>> d['SI.hChannels.channelType']\n['stripe', 'stripe']"
+    },
+    {
+      "name": "stripnull",
+      "docstring": "Return string truncated at first null character.\n\nClean NULL terminated C strings. For unicode strings use null='\\0'.\n\n>>> stripnull(b'string\\x00')\nb'string'\n>>> stripnull('string\\x00', null='\\0')\n'string'"
+    },
+    {
+      "name": "stripascii",
+      "docstring": "Return string truncated at last byte that is 7-bit ASCII.\n\nClean NULL separated and terminated TIFF strings.\n\n>>> stripascii(b'string\\x00string\\n\\x01\\x00')\nb'string\\x00string\\n'\n>>> stripascii(b'\\x00')\nb''"
+    },
+    {
+      "name": "asbool",
+      "docstring": "Return string as bool if possible, else raise TypeError.\n\n>>> asbool(b' False ')\nFalse"
+    },
+    {
+      "name": "astype",
+      "docstring": "Return argument as one of types if possible.\n\n>>> astype('42')\n42\n>>> astype('3.14')\n3.14\n>>> astype('True')\nTrue\n>>> astype(b'Neee-Wom')\n'Neee-Wom'"
+    },
+    {
+      "name": "format_size",
+      "docstring": "Return file size as string from byte size.\n\n>>> format_size(1234)\n'1234 B'\n>>> format_size(12345678901)\n'11.50 GiB'"
+    },
+    {
+      "name": "identityfunc",
+      "docstring": "Single argument identity function.\n\n>>> identityfunc('arg')\n'arg'"
+    },
+    {
+      "name": "nullfunc",
+      "docstring": "Null function.\n\n>>> nullfunc('arg', kwarg='kwarg')"
+    },
+    {
+      "name": "sequence",
+      "docstring": "Return tuple containing value if value is not a sequence.\n\n>>> sequence(1)\n(1,)\n>>> sequence([1])\n[1]"
+    },
+    {
+      "name": "product",
+      "docstring": "Return product of sequence of numbers.\n\nEquivalent of functools.reduce(operator.mul, iterable, 1).\nMultiplying numpy integers might overflow.\n\n>>> product([2**8, 2**30])\n274877906944\n>>> product([])\n1"
+    },
+    {
+      "name": "natural_sorted",
+      "docstring": "Return human sorted list of strings.\n\nE.g. for sorting file names.\n\n>>> natural_sorted(['f1', 'f2', 'f10'])\n['f1', 'f2', 'f10']"
+    },
+    {
+      "name": "excel_datetime",
+      "docstring": "Return datetime object from timestamp in Excel serial format.\n\nConvert LSM time stamps.\n\n>>> excel_datetime(40237.029999999795)\ndatetime.datetime(2010, 2, 28, 0, 43, 11, 999982)"
+    },
+    {
+      "name": "julian_datetime",
+      "docstring": "Return datetime from days since 1/1/4713 BC and ms since midnight.\n\nConvert Julian dates according to MetaMorph.\n\n>>> julian_datetime(2451576, 54362783)\ndatetime.datetime(2000, 2, 2, 15, 6, 2, 783)"
+    },
+    {
+      "name": "byteorder_isnative",
+      "docstring": "Return if byteorder matches the system's byteorder.\n\n>>> byteorder_isnative('=')\nTrue"
+    },
+    {
+      "name": "recarray2dict",
+      "docstring": "Return numpy.recarray as dict."
+    },
+    {
+      "name": "xml2dict",
+      "docstring": "Return XML as dict.\n\n>>> xml2dict('<?xml version=\"1.0\" ?><root attr=\"name\"><key>1</key></root>')\n{'root': {'key': 1, 'attr': 'name'}}"
+    },
+    {
+      "name": "hexdump",
+      "docstring": "Return hexdump representation of byte string.\n\n>>> hexdump(binascii.unhexlify('49492a00080000000e00fe0004000100'))\n'49 49 2a 00 08 00 00 00 0e 00 fe 00 04 00 01 00 II*.............'"
+    },
+    {
+      "name": "isprintable",
+      "docstring": "Return if all characters in string are printable.\n\n>>> isprintable('abc')\nTrue\n>>> isprintable(b'\u0001')\nFalse"
+    },
+    {
+      "name": "clean_whitespace",
+      "docstring": "Return string with compressed whitespace."
+    },
+    {
+      "name": "pformat_xml",
+      "docstring": "Return pretty formatted XML."
+    },
+    {
+      "name": "pformat",
+      "docstring": "Return pretty formatted representation of object as string.\n\nWhitespace might be altered."
+    },
+    {
+      "name": "snipstr",
+      "docstring": "Return string cut to specified length.\n\n>>> snipstr('abcdefghijklmnop', 8)\n'abc...op'"
+    },
+    {
+      "name": "enumarg",
+      "docstring": "Return enum member from its name or value.\n\n>>> enumarg(TIFF.PHOTOMETRIC, 2)\n<PHOTOMETRIC.RGB: 2>\n>>> enumarg(TIFF.PHOTOMETRIC, 'RGB')\n<PHOTOMETRIC.RGB: 2>"
+    },
+    {
+      "name": "parse_kwargs",
+      "docstring": "Return dict with keys from keys|keyvals and values from kwargs|keyvals.\n\nExisting keys are deleted from kwargs.\n\n>>> kwargs = {'one': 1, 'two': 2, 'four': 4}\n>>> kwargs2 = parse_kwargs(kwargs, 'two', 'three', four=None, five=5)\n>>> kwargs == {'one': 1}\nTrue\n>>> kwargs2 == {'two': 2, 'four': 4, 'five': 5}\nTrue"
+    },
+    {
+      "name": "update_kwargs",
+      "docstring": "Update dict with keys and values if keys do not already exist.\n\n>>> kwargs = {'one': 1, }\n>>> update_kwargs(kwargs, one=None, two=2)\n>>> kwargs == {'one': 1, 'two': 2}\nTrue"
+    },
+    {
+      "name": "validate_jhove",
+      "docstring": "Validate TIFF file using jhove -m TIFF-hul.\n\nRaise ValueError if jhove outputs an error message unless the message\ncontains one of the strings in 'ignore'.\n\nJHOVE does not support bigtiff or more than 50 IFDs.\n\nSee `JHOVE TIFF-hul Module <http://jhove.sourceforge.net/tiff-hul.html>`_"
+    },
+    {
+      "name": "lsm2bin",
+      "docstring": "Convert [MP]TZCYX LSM file to series of BIN files.\n\nOne BIN file containing 'ZCYX' data are created for each position, time,\nand tile. The position, time, and tile indices are encoded at the end\nof the filenames."
+    },
+    {
+      "name": "imshow",
+      "docstring": "Plot n-dimensional images using matplotlib.pyplot.\n\nReturn figure, subplot and plot axis.\nRequires pyplot already imported C{from matplotlib import pyplot}.\n\nParameters\n----------\nbitspersample : int or None\n    Number of bits per channel in integer RGB images.\nphotometric : {'MINISWHITE', 'MINISBLACK', 'RGB', or 'PALETTE'}\n    The color space of the image data.\ntitle : str\n    Window and subplot title.\nfigure : matplotlib.figure.Figure (optional).\n    Matplotlib to use for plotting.\nsubplot : int\n    A matplotlib.pyplot.subplot axis.\nmaxdim : int\n    maximum image width and length.\nkwargs : optional\n    Arguments for matplotlib.pyplot.imshow."
+    },
+    {
+      "name": "askopenfilename",
+      "docstring": "Return file name(s) from Tkinter's file open dialog."
+    },
+    {
+      "name": "main",
+      "docstring": "Command line usage main function."
+    },
+    {
+      "name": "save",
+      "docstring": "Write numpy array and tags to TIFF file.\n\nThe data shape's last dimensions are assumed to be image depth,\nheight (length), width, and samples.\nIf a colormap is provided, the data's dtype must be uint8 or uint16\nand the data values are indices into the last dimension of the\ncolormap.\nIf 'shape' and 'dtype' are specified, an empty array is saved.\nThis option cannot be used with compression or multiple tiles.\nImage data are written uncompressed in one strip per plane by default.\nDimensions larger than 2 to 4 (depending on photometric mode, planar\nconfiguration, and SGI mode) are flattened and saved as separate pages.\nThe SampleFormat and BitsPerSample tags are derived from the data type.\n\nParameters\n----------\ndata : numpy.ndarray or None\n    Input image array.\nshape : tuple or None\n    Shape of the empty array to save. Used only if 'data' is None.\ndtype : numpy.dtype or None\n    Data-type of the empty array to save. Used only if 'data' is None.\nreturnoffset : bool\n    If True and the image data in the file is memory-mappable, return\n    the offset and number of bytes of the image data in the file.\nphotometric : {'MINISBLACK', 'MINISWHITE', 'RGB', 'PALETTE', 'CFA'}\n    The color space of the image data.\n    By default, this setting is inferred from the data shape and the\n    value of colormap.\n    For CFA images, DNG tags must be specified in 'extratags'.\nplanarconfig : {'CONTIG', 'SEPARATE'}\n    Specifies if samples are stored contiguous or in separate planes.\n    By default, this setting is inferred from the data shape.\n    If this parameter is set, extra samples are used to store grayscale\n    images.\n    'CONTIG': last dimension contains samples.\n    'SEPARATE': third last dimension contains samples.\ntile : tuple of int\n    The shape (depth, length, width) of image tiles to write.\n    If None (default), image data are written in strips.\n    The tile length and width must be a multiple of 16.\n    If the tile depth is provided, the SGI ImageDepth and TileDepth\n    tags are used to save volume data.\n    Unless a single tile is used, tiles cannot be used to write\n    contiguous files.\n    Few software can read the SGI format, e.g. MeVisLab.\ncontiguous : bool\n    If True (default) and the data and parameters are compatible with\n    previous ones, if any, the image data are stored contiguously after\n    the previous one. Parameters 'photometric' and 'planarconfig'\n    are ignored. Parameters 'description', datetime', and 'extratags'\n    are written to the first page of a contiguous series only.\nalign : int\n    Byte boundary on which to align the image data in the file.\n    Default 16. Use mmap.ALLOCATIONGRANULARITY for memory-mapped data.\n    Following contiguous writes are not aligned.\ntruncate : bool\n    If True, only write the first page including shape metadata if\n    possible (uncompressed, contiguous, not tiled).\n    Other TIFF readers will only be able to read part of the data.\ncompress : int or 'LZMA', 'ZSTD'\n    Values from 0 to 9 controlling the level of zlib compression.\n    If 0 (default), data are written uncompressed.\n    Compression cannot be used to write contiguous files.\n    If 'LZMA' or 'ZSTD', LZMA or ZSTD compression is used, which is\n    not available on all platforms.\nrowsperstrip : int\n    The number of rows per strip used for compression.\n    Uncompressed data are written in one strip per plane.\npredictor : bool\n    If True, apply horizontal differencing to integer type images\n    before compression.\ncolormap : numpy.ndarray\n    RGB color values for the corresponding data value.\n    Must be of shape (3, 2**(data.itemsize*8)) and dtype uint16.\ndescription : str\n    The subject of the image. Must be 7-bit ASCII. Cannot be used with\n    the ImageJ format. Saved with the first page only.\ndatetime : datetime\n    Date and time of image creation in '%Y:%m:%d %H:%M:%S' format.\n    If None (default), the current date and time is used.\n    Saved with the first page only.\nresolution : (float, float[, str]) or ((int, int), (int, int)[, str])\n    X and Y resolutions in pixels per resolution unit as float or\n    rational numbers. A third, optional parameter specifies the\n    resolution unit, which must be None (default for ImageJ),\n    'INCH' (default), or 'CENTIMETER'.\nsoftware : str\n    Name of the software used to create the file. Must be 7-bit ASCII.\n    Saved with the first page only.\nmetadata : dict\n    Additional meta data to be saved along with shape information\n    in JSON or ImageJ formats in an ImageDescription tag.\n    If None, do not write a second ImageDescription tag.\n    Strings must be 7-bit ASCII. Saved with the first page only.\nijmetadata : dict\n    Additional meta data to be saved in application specific\n    IJMetadata and IJMetadataByteCounts tags. Refer to the\n    imagej_metadata_tags function for valid keys and values.\n    Saved with the first page only.\nextratags : sequence of tuples\n    Additional tags as [(code, dtype, count, value, writeonce)].\n\n    code : int\n        The TIFF tag Id.\n    dtype : str\n        Data type of items in 'value' in Python struct format.\n        One of B, s, H, I, 2I, b, h, i, 2i, f, d, Q, or q.\n    count : int\n        Number of data values. Not used for string or byte string\n        values.\n    value : sequence\n        'Count' values compatible with 'dtype'.\n        Byte strings must contain count values of dtype packed as\n        binary data.\n    writeonce : bool\n        If True, the tag is written to the first page only."
+    },
+    {
+      "name": "close",
+      "docstring": "Write remaining pages and close file handle."
+    },
+    {
+      "name": "filehandle",
+      "docstring": "Return file handle."
+    },
+    {
+      "name": "filename",
+      "docstring": "Return name of file handle."
+    },
+    {
+      "name": "fstat",
+      "docstring": "Return status of file handle as stat_result object."
+    },
+    {
+      "name": "close",
+      "docstring": "Close open file handle(s)."
+    },
+    {
+      "name": "asarray",
+      "docstring": "Return image data from multiple TIFF pages as numpy array.\n\nBy default, the data from the first series is returned.\n\nParameters\n----------\nkey : int, slice, or sequence of page indices\n    Defines which pages to return as array.\nseries : int or TiffPageSeries\n    Defines which series of pages to return as array.\nout : numpy.ndarray, str, or file-like object; optional\n    Buffer where image data will be saved.\n    If None (default), a new array will be created.\n    If numpy.ndarray, a writable array of compatible dtype and shape.\n    If 'memmap', directly memory-map the image data in the TIFF file\n    if possible; else create a memory-mapped array in a temporary file.\n    If str or open file, the file name or file object used to\n    create a memory-map to an array stored in a binary file on disk.\nvalidate : bool\n    If True (default), validate various tags.\n    Passed to TiffPage.asarray().\nmaxworkers : int\n    Maximum number of threads to concurrently get data from pages.\n    Default is 1. If None, up to half the CPU cores are used.\n    Reading data from file is limited to a single thread.\n    Using multiple threads can significantly speed up this function\n    if the bottleneck is decoding compressed data, e.g. in case of\n    large LZW compressed LSM files.\n    If the bottleneck is I/O or pure Python code, using multiple\n    threads might be detrimental."
+    },
+    {
+      "name": "series",
+      "docstring": "Return related pages as TiffPageSeries.\n\nSide effect: after calling this function, TiffFile.pages might contain\nTiffPage and TiffFrame instances."
+    },
+    {
+      "name": "flags",
+      "docstring": "Return set of file flags."
+    },
+    {
+      "name": "is_mdgel",
+      "docstring": "File has MD Gel format."
+    },
+    {
+      "name": "is_movie",
+      "docstring": "Return if file is a movie."
+    },
+    {
+      "name": "shaped_metadata",
+      "docstring": "Return Tifffile metadata from JSON descriptions as dicts."
+    },
+    {
+      "name": "ome_metadata",
+      "docstring": "Return OME XML as dict."
+    },
+    {
+      "name": "qptiff_metadata",
+      "docstring": "Return PerkinElmer-QPI-ImageDescription XML element as dict."
+    },
+    {
+      "name": "lsm_metadata",
+      "docstring": "Return LSM metadata from CZ_LSMINFO tag as dict."
+    },
+    {
+      "name": "stk_metadata",
+      "docstring": "Return STK metadata from UIC tags as dict."
+    },
+    {
+      "name": "imagej_metadata",
+      "docstring": "Return consolidated ImageJ metadata as dict."
+    },
+    {
+      "name": "fluoview_metadata",
+      "docstring": "Return consolidated FluoView metadata as dict."
+    },
+    {
+      "name": "nih_metadata",
+      "docstring": "Return NIH Image metadata from NIHImageHeader tag as dict."
+    },
+    {
+      "name": "fei_metadata",
+      "docstring": "Return FEI metadata from SFEG or HELIOS tags as dict."
+    },
+    {
+      "name": "sem_metadata",
+      "docstring": "Return SEM metadata from CZ_SEM tag as dict."
+    },
+    {
+      "name": "mdgel_metadata",
+      "docstring": "Return consolidated metadata from MD GEL tags as dict."
+    },
+    {
+      "name": "andor_metadata",
+      "docstring": "Return Andor tags as dict."
+    },
+    {
+      "name": "epics_metadata",
+      "docstring": "Return EPICS areaDetector tags as dict."
+    },
+    {
+      "name": "tvips_metadata",
+      "docstring": "Return TVIPS tag as dict."
+    },
+    {
+      "name": "metaseries_metadata",
+      "docstring": "Return MetaSeries metadata from image description as dict."
+    },
+    {
+      "name": "pilatus_metadata",
+      "docstring": "Return Pilatus metadata from image description as dict."
+    },
+    {
+      "name": "micromanager_metadata",
+      "docstring": "Return consolidated MicroManager metadata as dict."
+    },
+    {
+      "name": "scanimage_metadata",
+      "docstring": "Return ScanImage non-varying frame and ROI metadata as dict."
+    },
+    {
+      "name": "geotiff_metadata",
+      "docstring": "Return GeoTIFF metadata from first page as dict."
+    },
+    {
+      "name": "cache",
+      "docstring": "Return if pages/frames are currently being cached."
+    },
+    {
+      "name": "cache",
+      "docstring": "Enable or disable caching of pages/frames. Clear cache if False."
+    },
+    {
+      "name": "useframes",
+      "docstring": "Return if currently using TiffFrame (True) or TiffPage (False)."
+    },
+    {
+      "name": "useframes",
+      "docstring": "Set to use TiffFrame (True) or TiffPage (False)."
+    },
+    {
+      "name": "keyframe",
+      "docstring": "Return index of current keyframe."
+    },
+    {
+      "name": "keyframe",
+      "docstring": "Set current keyframe. Load TiffPage from file if necessary."
+    },
+    {
+      "name": "next_page_offset",
+      "docstring": "Return offset where offset to a new page can be stored."
+    },
+    {
+      "name": "load",
+      "docstring": "Read all remaining pages from file."
+    },
+    {
+      "name": "clear",
+      "docstring": "Delete all but first page from cache. Set keyframe to first page."
+    },
+    {
+      "name": "asarray",
+      "docstring": "Read image data from file and return as numpy array.\n\nRaise ValueError if format is unsupported.\n\nParameters\n----------\nout : numpy.ndarray, str, or file-like object; optional\n    Buffer where image data will be saved.\n    If None (default), a new array will be created.\n    If numpy.ndarray, a writable array of compatible dtype and shape.\n    If 'memmap', directly memory-map the image data in the TIFF file\n    if possible; else create a memory-mapped array in a temporary file.\n    If str or open file, the file name or file object used to\n    create a memory-map to an array stored in a binary file on disk.\nsqueeze : bool\n    If True, all length-1 dimensions (except X and Y) are\n    squeezed out from the array.\n    If False, the shape of the returned array might be different from\n    the page.shape.\nlock : {RLock, NullContext}\n    A reentrant lock used to synchronize reads from file.\n    If None (default), the lock of the parent's filehandle is used.\nreopen : bool\n    If True (default) and the parent file handle is closed, the file\n    is temporarily re-opened and closed if no exception occurs.\nmaxsize: int or None\n    Maximum size of data before a ValueError is raised.\n    Can be used to catch DOS. Default: 16 TB.\nvalidate : bool\n    If True (default), validate various parameters.\n    If None, only validate parameters and return None."
+    },
+    {
+      "name": "asrgb",
+      "docstring": "Return image data as RGB(A).\n\nWork in progress."
+    },
+    {
+      "name": "aspage",
+      "docstring": null
+    },
+    {
+      "name": "keyframe",
+      "docstring": null
+    },
+    {
+      "name": "keyframe",
+      "docstring": null
+    },
+    {
+      "name": "offsets_bytecounts",
+      "docstring": "Return simplified offsets and bytecounts."
+    },
+    {
+      "name": "is_contiguous",
+      "docstring": "Return offset and size of contiguous data, else None.\n\nExcludes prediction and fill_order."
+    },
+    {
+      "name": "is_final",
+      "docstring": "Return if page's image data are stored in final form.\n\nExcludes byte-swapping."
+    },
+    {
+      "name": "is_memmappable",
+      "docstring": "Return if page's image data in file can be memory-mapped."
+    },
+    {
+      "name": "flags",
+      "docstring": "Return set of flags."
+    },
+    {
+      "name": "ndim",
+      "docstring": "Return number of array dimensions."
+    },
+    {
+      "name": "size",
+      "docstring": "Return number of elements in array."
+    },
+    {
+      "name": "andor_tags",
+      "docstring": "Return consolidated metadata from Andor tags as dict.\n\nRemove Andor tags from self.tags."
+    },
+    {
+      "name": "epics_tags",
+      "docstring": "Return consolidated metadata from EPICS areaDetector tags as dict.\n\nRemove areaDetector tags from self.tags."
+    },
+    {
+      "name": "geotiff_tags",
+      "docstring": "Return consolidated metadata from GeoTIFF tags as dict."
+    },
+    {
+      "name": "is_tiled",
+      "docstring": "Page contains tiled image."
+    },
+    {
+      "name": "is_reduced",
+      "docstring": "Page is reduced image of another image."
+    },
+    {
+      "name": "is_chroma_subsampled",
+      "docstring": "Page contains chroma subsampled image."
+    },
+    {
+      "name": "is_imagej",
+      "docstring": "Return ImageJ description if exists, else None."
+    },
+    {
+      "name": "is_shaped",
+      "docstring": "Return description containing array shape if exists, else None."
+    },
+    {
+      "name": "is_mdgel",
+      "docstring": "Page contains MDFileTag tag."
+    },
+    {
+      "name": "is_mediacy",
+      "docstring": "Page contains Media Cybernetics Id tag."
+    },
+    {
+      "name": "is_stk",
+      "docstring": "Page contains UIC2Tag tag."
+    },
+    {
+      "name": "is_lsm",
+      "docstring": "Page contains CZ_LSMINFO tag."
+    },
+    {
+      "name": "is_fluoview",
+      "docstring": "Page contains FluoView MM_STAMP tag."
+    },
+    {
+      "name": "is_nih",
+      "docstring": "Page contains NIH image header."
+    },
+    {
+      "name": "is_sgi",
+      "docstring": "Page contains SGI image and tile depth tags."
+    },
+    {
+      "name": "is_vista",
+      "docstring": "Software tag is 'ISS Vista'."
+    },
+    {
+      "name": "is_metaseries",
+      "docstring": "Page contains MDS MetaSeries metadata in ImageDescription tag."
+    },
+    {
+      "name": "is_ome",
+      "docstring": "Page contains OME-XML in ImageDescription tag."
+    },
+    {
+      "name": "is_scn",
+      "docstring": "Page contains Leica SCN XML in ImageDescription tag."
+    },
+    {
+      "name": "is_micromanager",
+      "docstring": "Page contains Micro-Manager metadata."
+    },
+    {
+      "name": "is_andor",
+      "docstring": "Page contains Andor Technology tags."
+    },
+    {
+      "name": "is_pilatus",
+      "docstring": "Page contains Pilatus tags."
+    },
+    {
+      "name": "is_epics",
+      "docstring": "Page contains EPICS areaDetector tags."
+    },
+    {
+      "name": "is_tvips",
+      "docstring": "Page contains TVIPS metadata."
+    },
+    {
+      "name": "is_fei",
+      "docstring": "Page contains SFEG or HELIOS metadata."
+    },
+    {
+      "name": "is_sem",
+      "docstring": "Page contains Zeiss SEM metadata."
+    },
+    {
+      "name": "is_svs",
+      "docstring": "Page contains Aperio metadata."
+    },
+    {
+      "name": "is_scanimage",
+      "docstring": "Page contains ScanImage metadata."
+    },
+    {
+      "name": "is_qptiff",
+      "docstring": "Page contains PerkinElmer tissue images metadata."
+    },
+    {
+      "name": "is_geotiff",
+      "docstring": "Page contains GeoTIFF metadata."
+    },
+    {
+      "name": "aspage",
+      "docstring": "Return TiffPage from file."
+    },
+    {
+      "name": "asarray",
+      "docstring": "Read image data from file and return as numpy array."
+    },
+    {
+      "name": "asrgb",
+      "docstring": "Read image data from file and return RGB image as numpy array."
+    },
+    {
+      "name": "offsets_bytecounts",
+      "docstring": "Return simplified offsets and bytecounts."
+    },
+    {
+      "name": "is_contiguous",
+      "docstring": "Return offset and size of contiguous data, else None."
+    },
+    {
+      "name": "is_memmappable",
+      "docstring": "Return if page's image data in file can be memory-mapped."
+    },
+    {
+      "name": "name",
+      "docstring": null
+    },
+    {
+      "name": "asarray",
+      "docstring": "Return image data from series of TIFF pages as numpy array."
+    },
+    {
+      "name": "offset",
+      "docstring": "Return offset to series data in file, if any."
+    },
+    {
+      "name": "ndim",
+      "docstring": "Return number of array dimensions."
+    },
+    {
+      "name": "size",
+      "docstring": "Return number of elements in array."
+    },
+    {
+      "name": "pages",
+      "docstring": "Return sequence of all pages in series."
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "asarray",
+      "docstring": "Read image data from all files and return as numpy array.\n\nThe args and kwargs parameters are passed to the imread function.\n\nRaise IndexError or ValueError if image shapes do not match."
+    },
+    {
+      "name": "open",
+      "docstring": "Open or re-open file."
+    },
+    {
+      "name": "read",
+      "docstring": "Read 'size' bytes from file, or until EOF is reached."
+    },
+    {
+      "name": "write",
+      "docstring": "Write bytestring to file."
+    },
+    {
+      "name": "flush",
+      "docstring": "Flush write buffers if applicable."
+    },
+    {
+      "name": "memmap_array",
+      "docstring": "Return numpy.memmap of data stored in file."
+    },
+    {
+      "name": "read_array",
+      "docstring": "Return numpy array from file.\n\nWork around numpy issue #2230, \"numpy.fromfile does not accept\nStringIO object\" https://github.com/numpy/numpy/issues/2230."
+    },
+    {
+      "name": "read_record",
+      "docstring": "Return numpy record from file."
+    },
+    {
+      "name": "write_empty",
+      "docstring": "Append size bytes to file. Position must be at end of file."
+    },
+    {
+      "name": "write_array",
+      "docstring": "Write numpy array to binary file."
+    },
+    {
+      "name": "tell",
+      "docstring": "Return file's current position."
+    },
+    {
+      "name": "seek",
+      "docstring": "Set file's current position."
+    },
+    {
+      "name": "close",
+      "docstring": "Close file."
+    },
+    {
+      "name": "name",
+      "docstring": null
+    },
+    {
+      "name": "dirname",
+      "docstring": null
+    },
+    {
+      "name": "path",
+      "docstring": null
+    },
+    {
+      "name": "size",
+      "docstring": null
+    },
+    {
+      "name": "closed",
+      "docstring": null
+    },
+    {
+      "name": "lock",
+      "docstring": null
+    },
+    {
+      "name": "lock",
+      "docstring": null
+    },
+    {
+      "name": "open",
+      "docstring": "Re-open file if necessary."
+    },
+    {
+      "name": "close",
+      "docstring": "Close opened file if no longer used."
+    },
+    {
+      "name": "clear",
+      "docstring": "Close all opened files if not in use."
+    },
+    {
+      "name": "TAGS",
+      "docstring": null
+    },
+    {
+      "name": "TAG_NAMES",
+      "docstring": null
+    },
+    {
+      "name": "TAG_READERS",
+      "docstring": null
+    },
+    {
+      "name": "TAG_TUPLE",
+      "docstring": null
+    },
+    {
+      "name": "TAG_ATTRIBUTES",
+      "docstring": null
+    },
+    {
+      "name": "TAG_ENUM",
+      "docstring": null
+    },
+    {
+      "name": "FILETYPE",
+      "docstring": null
+    },
+    {
+      "name": "OFILETYPE",
+      "docstring": null
+    },
+    {
+      "name": "COMPRESSION",
+      "docstring": null
+    },
+    {
+      "name": "PHOTOMETRIC",
+      "docstring": null
+    },
+    {
+      "name": "THRESHHOLD",
+      "docstring": null
+    },
+    {
+      "name": "FILLORDER",
+      "docstring": null
+    },
+    {
+      "name": "ORIENTATION",
+      "docstring": null
+    },
+    {
+      "name": "PLANARCONFIG",
+      "docstring": null
+    },
+    {
+      "name": "GRAYRESPONSEUNIT",
+      "docstring": null
+    },
+    {
+      "name": "GROUP4OPT",
+      "docstring": null
+    },
+    {
+      "name": "RESUNIT",
+      "docstring": null
+    },
+    {
+      "name": "COLORRESPONSEUNIT",
+      "docstring": null
+    },
+    {
+      "name": "PREDICTOR",
+      "docstring": null
+    },
+    {
+      "name": "EXTRASAMPLE",
+      "docstring": null
+    },
+    {
+      "name": "SAMPLEFORMAT",
+      "docstring": null
+    },
+    {
+      "name": "DATATYPES",
+      "docstring": null
+    },
+    {
+      "name": "DATA_FORMATS",
+      "docstring": null
+    },
+    {
+      "name": "DATA_DTYPES",
+      "docstring": null
+    },
+    {
+      "name": "SAMPLE_DTYPES",
+      "docstring": null
+    },
+    {
+      "name": "COMPESSORS",
+      "docstring": null
+    },
+    {
+      "name": "DECOMPESSORS",
+      "docstring": null
+    },
+    {
+      "name": "FRAME_ATTRS",
+      "docstring": null
+    },
+    {
+      "name": "FILE_FLAGS",
+      "docstring": null
+    },
+    {
+      "name": "FILE_EXTENSIONS",
+      "docstring": null
+    },
+    {
+      "name": "FILEOPEN_FILTER",
+      "docstring": null
+    },
+    {
+      "name": "AXES_LABELS",
+      "docstring": null
+    },
+    {
+      "name": "ANDOR_TAGS",
+      "docstring": null
+    },
+    {
+      "name": "EXIF_TAGS",
+      "docstring": null
+    },
+    {
+      "name": "GPS_TAGS",
+      "docstring": null
+    },
+    {
+      "name": "IOP_TAGS",
+      "docstring": null
+    },
+    {
+      "name": "GEO_KEYS",
+      "docstring": null
+    },
+    {
+      "name": "GEO_CODES",
+      "docstring": null
+    },
+    {
+      "name": "CZ_LSMINFO",
+      "docstring": null
+    },
+    {
+      "name": "CZ_LSMINFO_READERS",
+      "docstring": null
+    },
+    {
+      "name": "CZ_LSMINFO_SCANTYPE",
+      "docstring": null
+    },
+    {
+      "name": "CZ_LSMINFO_DIMENSIONS",
+      "docstring": null
+    },
+    {
+      "name": "CZ_LSMINFO_DATATYPES",
+      "docstring": null
+    },
+    {
+      "name": "CZ_LSMINFO_TYPEOFDATA",
+      "docstring": null
+    },
+    {
+      "name": "CZ_LSMINFO_SCANINFO_ARRAYS",
+      "docstring": null
+    },
+    {
+      "name": "CZ_LSMINFO_SCANINFO_STRUCTS",
+      "docstring": null
+    },
+    {
+      "name": "CZ_LSMINFO_SCANINFO_ATTRIBUTES",
+      "docstring": null
+    },
+    {
+      "name": "NIH_IMAGE_HEADER",
+      "docstring": null
+    },
+    {
+      "name": "NIH_COLORTABLE_TYPE",
+      "docstring": null
+    },
+    {
+      "name": "NIH_LUTMODE_TYPE",
+      "docstring": null
+    },
+    {
+      "name": "NIH_CURVEFIT_TYPE",
+      "docstring": null
+    },
+    {
+      "name": "NIH_UNITS_TYPE",
+      "docstring": null
+    },
+    {
+      "name": "NIH_STACKTYPE_TYPE",
+      "docstring": null
+    },
+    {
+      "name": "TVIPS_HEADER_V1",
+      "docstring": null
+    },
+    {
+      "name": "TVIPS_HEADER_V2",
+      "docstring": null
+    },
+    {
+      "name": "MM_HEADER",
+      "docstring": null
+    },
+    {
+      "name": "MM_DIMENSIONS",
+      "docstring": null
+    },
+    {
+      "name": "UIC_TAGS",
+      "docstring": null
+    },
+    {
+      "name": "PILATUS_HEADER",
+      "docstring": null
+    },
+    {
+      "name": "REVERSE_BITORDER_BYTES",
+      "docstring": null
+    },
+    {
+      "name": "REVERSE_BITORDER_ARRAY",
+      "docstring": null
+    },
+    {
+      "name": "ALLOCATIONGRANULARITY",
+      "docstring": null
+    },
+    {
+      "name": "read_int",
+      "docstring": null
+    },
+    {
+      "name": "parse",
+      "docstring": null
+    },
+    {
+      "name": "decorate",
+      "docstring": null
+    },
+    {
+      "name": "next_code",
+      "docstring": "Return integer of 'bitw' bits at 'bitcount' position in encoded."
+    },
+    {
+      "name": "func",
+      "docstring": "Read, decode, and copy page data."
+    },
+    {
+      "name": "lex",
+      "docstring": null
+    },
+    {
+      "name": "next_token",
+      "docstring": null
+    },
+    {
+      "name": "value",
+      "docstring": null
+    },
+    {
+      "name": "parse",
+      "docstring": null
+    },
+    {
+      "name": "sortkey",
+      "docstring": null
+    },
+    {
+      "name": "astype",
+      "docstring": null
+    },
+    {
+      "name": "etree2dict",
+      "docstring": null
+    },
+    {
+      "name": "format_coord",
+      "docstring": null
+    },
+    {
+      "name": "none",
+      "docstring": null
+    },
+    {
+      "name": "print_",
+      "docstring": "Print function with flush support."
+    },
+    {
+      "name": "bytes2str",
+      "docstring": "Return string from bytes."
+    },
+    {
+      "name": "str2bytes",
+      "docstring": "Return bytes from string."
+    },
+    {
+      "name": "byte2int",
+      "docstring": "Return value of byte as int."
+    },
+    {
+      "name": "bytes2str",
+      "docstring": "Return unicode string from encoded bytes."
+    },
+    {
+      "name": "str2bytes",
+      "docstring": "Return bytes from unicode string."
+    },
+    {
+      "name": "byte2int",
+      "docstring": "Return value of byte as int."
+    },
+    {
+      "name": "pack",
+      "docstring": null
+    },
+    {
+      "name": "addtag",
+      "docstring": null
+    },
+    {
+      "name": "rational",
+      "docstring": "\"Return nominator and denominator from float or two integers."
+    },
+    {
+      "name": "pack",
+      "docstring": null
+    },
+    {
+      "name": "append_series",
+      "docstring": null
+    },
+    {
+      "name": "is_hyperstack",
+      "docstring": null
+    },
+    {
+      "name": "set_image",
+      "docstring": null
+    },
+    {
+      "name": "on_changed",
+      "docstring": null
+    },
+    {
+      "name": "on_keypressed",
+      "docstring": null
+    },
+    {
+      "name": "notnone",
+      "docstring": null
+    },
+    {
+      "name": "imread",
+      "docstring": null
+    },
+    {
+      "name": "compress",
+      "docstring": null
+    },
+    {
+      "name": "compress",
+      "docstring": null
+    },
+    {
+      "name": "transform",
+      "docstring": null
+    },
+    {
+      "name": "transform",
+      "docstring": null
+    },
+    {
+      "name": "decompress",
+      "docstring": null
+    },
+    {
+      "name": "lzma_compress",
+      "docstring": null
+    },
+    {
+      "name": "decode_jpeg",
+      "docstring": null
+    },
+    {
+      "name": "unpack",
+      "docstring": null
+    },
+    {
+      "name": "unpack",
+      "docstring": null
+    },
+    {
+      "name": "unpack",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

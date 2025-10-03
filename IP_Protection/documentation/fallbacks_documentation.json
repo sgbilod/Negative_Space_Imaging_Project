@@ -1,0 +1,488 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\utils\\fallbacks.py",
+  "classes": [
+    {
+      "name": "MinimalNumPy",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummyFigure",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "add_subplot",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummyAxes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "plot",
+          "docstring": null
+        },
+        {
+          "name": "scatter",
+          "docstring": null
+        },
+        {
+          "name": "bar",
+          "docstring": null
+        },
+        {
+          "name": "set_title",
+          "docstring": null
+        },
+        {
+          "name": "set_xlabel",
+          "docstring": null
+        },
+        {
+          "name": "set_ylabel",
+          "docstring": null
+        },
+        {
+          "name": "set_xlim",
+          "docstring": null
+        },
+        {
+          "name": "set_ylim",
+          "docstring": null
+        },
+        {
+          "name": "grid",
+          "docstring": null
+        },
+        {
+          "name": "legend",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummyPyPlot",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "figure",
+          "docstring": null
+        },
+        {
+          "name": "subplot",
+          "docstring": null
+        },
+        {
+          "name": "plot",
+          "docstring": null
+        },
+        {
+          "name": "scatter",
+          "docstring": null
+        },
+        {
+          "name": "bar",
+          "docstring": null
+        },
+        {
+          "name": "title",
+          "docstring": null
+        },
+        {
+          "name": "xlabel",
+          "docstring": null
+        },
+        {
+          "name": "ylabel",
+          "docstring": null
+        },
+        {
+          "name": "xlim",
+          "docstring": null
+        },
+        {
+          "name": "ylim",
+          "docstring": null
+        },
+        {
+          "name": "grid",
+          "docstring": null
+        },
+        {
+          "name": "legend",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "savefig",
+          "docstring": null
+        },
+        {
+          "name": "tight_layout",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummyOpenCV",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "imread",
+          "docstring": null
+        },
+        {
+          "name": "imwrite",
+          "docstring": null
+        },
+        {
+          "name": "resize",
+          "docstring": null
+        },
+        {
+          "name": "cvtColor",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummyWeb3",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "toChecksumAddress",
+          "docstring": null
+        },
+        {
+          "name": "keccak",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummyEth",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummyContract",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "functions",
+          "docstring": null
+        },
+        {
+          "name": "call",
+          "docstring": null
+        },
+        {
+          "name": "transact",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummySolcx",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "compile_source",
+          "docstring": null
+        },
+        {
+          "name": "install_solc",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummySeries",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummyDataFrame",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "to_csv",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummyPandas",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "DataFrame",
+          "docstring": null
+        },
+        {
+          "name": "Series",
+          "docstring": null
+        },
+        {
+          "name": "read_csv",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummyHashLib",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "sha256",
+          "docstring": null
+        },
+        {
+          "name": "sha512",
+          "docstring": null
+        },
+        {
+          "name": "md5",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummyHash",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "hexdigest",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "add_subplot",
+      "docstring": null
+    },
+    {
+      "name": "plot",
+      "docstring": null
+    },
+    {
+      "name": "scatter",
+      "docstring": null
+    },
+    {
+      "name": "bar",
+      "docstring": null
+    },
+    {
+      "name": "set_title",
+      "docstring": null
+    },
+    {
+      "name": "set_xlabel",
+      "docstring": null
+    },
+    {
+      "name": "set_ylabel",
+      "docstring": null
+    },
+    {
+      "name": "set_xlim",
+      "docstring": null
+    },
+    {
+      "name": "set_ylim",
+      "docstring": null
+    },
+    {
+      "name": "grid",
+      "docstring": null
+    },
+    {
+      "name": "legend",
+      "docstring": null
+    },
+    {
+      "name": "figure",
+      "docstring": null
+    },
+    {
+      "name": "subplot",
+      "docstring": null
+    },
+    {
+      "name": "plot",
+      "docstring": null
+    },
+    {
+      "name": "scatter",
+      "docstring": null
+    },
+    {
+      "name": "bar",
+      "docstring": null
+    },
+    {
+      "name": "title",
+      "docstring": null
+    },
+    {
+      "name": "xlabel",
+      "docstring": null
+    },
+    {
+      "name": "ylabel",
+      "docstring": null
+    },
+    {
+      "name": "xlim",
+      "docstring": null
+    },
+    {
+      "name": "ylim",
+      "docstring": null
+    },
+    {
+      "name": "grid",
+      "docstring": null
+    },
+    {
+      "name": "legend",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "savefig",
+      "docstring": null
+    },
+    {
+      "name": "tight_layout",
+      "docstring": null
+    },
+    {
+      "name": "imread",
+      "docstring": null
+    },
+    {
+      "name": "imwrite",
+      "docstring": null
+    },
+    {
+      "name": "resize",
+      "docstring": null
+    },
+    {
+      "name": "cvtColor",
+      "docstring": null
+    },
+    {
+      "name": "toChecksumAddress",
+      "docstring": null
+    },
+    {
+      "name": "keccak",
+      "docstring": null
+    },
+    {
+      "name": "functions",
+      "docstring": null
+    },
+    {
+      "name": "call",
+      "docstring": null
+    },
+    {
+      "name": "transact",
+      "docstring": null
+    },
+    {
+      "name": "compile_source",
+      "docstring": null
+    },
+    {
+      "name": "install_solc",
+      "docstring": null
+    },
+    {
+      "name": "to_csv",
+      "docstring": null
+    },
+    {
+      "name": "DataFrame",
+      "docstring": null
+    },
+    {
+      "name": "Series",
+      "docstring": null
+    },
+    {
+      "name": "read_csv",
+      "docstring": null
+    },
+    {
+      "name": "sha256",
+      "docstring": null
+    },
+    {
+      "name": "sha512",
+      "docstring": null
+    },
+    {
+      "name": "md5",
+      "docstring": null
+    },
+    {
+      "name": "hexdigest",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,787 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\backend_pdf.py",
+  "classes": [
+    {
+      "name": "Reference",
+      "docstring": "PDF reference object.\n\nUse PdfFile.reserveObject() to create References.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "pdfRepr",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Name",
+      "docstring": "PDF name object.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "pdfRepr",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Verbatim",
+      "docstring": "Store verbatim PDF command content for later inclusion in the stream.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "pdfRepr",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Op",
+      "docstring": "PDF operators (not an exhaustive list).",
+      "methods": [
+        {
+          "name": "pdfRepr",
+          "docstring": null
+        },
+        {
+          "name": "paint_path",
+          "docstring": "Return the PDF operator to paint a path.\n\nParameters\n----------\nfill : bool\n    Fill the path with the fill color.\nstroke : bool\n    Stroke the outline of the path with the line color."
+        }
+      ]
+    },
+    {
+      "name": "Stream",
+      "docstring": "PDF stream object.\n\nThis has no pdfRepr method. Instead, call begin(), then output the\ncontents of the stream by calling write(), and finally call end().",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nid : int\n    Object id of the stream.\nlen : Reference or None\n    An unused Reference object for the length of the stream;\n    None means to use a memory buffer so the length can be inlined.\nfile : PdfFile\n    The underlying object to write the stream to.\nextra : dict from Name to anything, or None\n    Extra key-value pairs to include in the stream header.\npng : dict or None\n    If the data is already png encoded, the decode parameters."
+        },
+        {
+          "name": "end",
+          "docstring": "Finalize stream."
+        },
+        {
+          "name": "write",
+          "docstring": "Write some data on the stream."
+        }
+      ]
+    },
+    {
+      "name": "PdfFile",
+      "docstring": "PDF file object.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nfilename : str or path-like or file-like\n    Output target; if a string, a file will be opened for writing.\n\nmetadata : dict from strings to strings and dates\n    Information dictionary object (see PDF reference section 10.2.1\n    'Document Information Dictionary'), e.g.:\n    ``{'Creator': 'My software', 'Author': 'Me', 'Title': 'Awesome'}``.\n\n    The standard keys are 'Title', 'Author', 'Subject', 'Keywords',\n    'Creator', 'Producer', 'CreationDate', 'ModDate', and\n    'Trapped'. Values have been predefined for 'Creator', 'Producer'\n    and 'CreationDate'. They can be removed by setting them to `None`."
+        },
+        {
+          "name": "newPage",
+          "docstring": null
+        },
+        {
+          "name": "newTextnote",
+          "docstring": null
+        },
+        {
+          "name": "finalize",
+          "docstring": "Write out the various deferred objects and the pdf end matter."
+        },
+        {
+          "name": "close",
+          "docstring": "Flush all buffers and free all resources."
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "output",
+          "docstring": null
+        },
+        {
+          "name": "beginStream",
+          "docstring": null
+        },
+        {
+          "name": "endStream",
+          "docstring": null
+        },
+        {
+          "name": "outputStream",
+          "docstring": null
+        },
+        {
+          "name": "fontName",
+          "docstring": "Select a font based on fontprop and return a name suitable for\nOp.selectfont. If fontprop is a string, it will be interpreted\nas the filename of the font."
+        },
+        {
+          "name": "dviFontName",
+          "docstring": "Given a dvi font object, return a name suitable for Op.selectfont.\nThis registers the font information in ``self.dviFontInfo`` if not yet\nregistered."
+        },
+        {
+          "name": "writeFonts",
+          "docstring": null
+        },
+        {
+          "name": "createType1Descriptor",
+          "docstring": null
+        },
+        {
+          "name": "embedTTF",
+          "docstring": "Embed the TTF font from the named file into the document."
+        },
+        {
+          "name": "alphaState",
+          "docstring": "Return name of an ExtGState that sets alpha to the given value."
+        },
+        {
+          "name": "writeExtGSTates",
+          "docstring": null
+        },
+        {
+          "name": "hatchPattern",
+          "docstring": null
+        },
+        {
+          "name": "writeHatches",
+          "docstring": null
+        },
+        {
+          "name": "addGouraudTriangles",
+          "docstring": "Add a Gouraud triangle shading.\n\nParameters\n----------\npoints : np.ndarray\n    Triangle vertices, shape (n, 3, 2)\n    where n = number of triangles, 3 = vertices, 2 = x, y.\ncolors : np.ndarray\n    Vertex colors, shape (n, 3, 1) or (n, 3, 4)\n    as with points, but last dimension is either (gray,)\n    or (r, g, b, alpha).\n\nReturns\n-------\nName, Reference"
+        },
+        {
+          "name": "writeGouraudTriangles",
+          "docstring": null
+        },
+        {
+          "name": "imageObject",
+          "docstring": "Return name of an image XObject representing the given image."
+        },
+        {
+          "name": "writeImages",
+          "docstring": null
+        },
+        {
+          "name": "markerObject",
+          "docstring": "Return name of a marker XObject representing the given path."
+        },
+        {
+          "name": "writeMarkers",
+          "docstring": null
+        },
+        {
+          "name": "pathCollectionObject",
+          "docstring": null
+        },
+        {
+          "name": "writePathCollectionTemplates",
+          "docstring": null
+        },
+        {
+          "name": "pathOperations",
+          "docstring": null
+        },
+        {
+          "name": "writePath",
+          "docstring": null
+        },
+        {
+          "name": "reserveObject",
+          "docstring": "Reserve an ID for an indirect object.\n\nThe name is used for debugging in case we forget to print out\nthe object with writeObject."
+        },
+        {
+          "name": "recordXref",
+          "docstring": null
+        },
+        {
+          "name": "writeObject",
+          "docstring": null
+        },
+        {
+          "name": "writeXref",
+          "docstring": "Write out the xref table."
+        },
+        {
+          "name": "writeInfoDict",
+          "docstring": "Write out the info dictionary, checking it for good form"
+        },
+        {
+          "name": "writeTrailer",
+          "docstring": "Write out the PDF trailer."
+        }
+      ]
+    },
+    {
+      "name": "RendererPdf",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "finalize",
+          "docstring": null
+        },
+        {
+          "name": "check_gc",
+          "docstring": null
+        },
+        {
+          "name": "get_image_magnification",
+          "docstring": null
+        },
+        {
+          "name": "draw_image",
+          "docstring": null
+        },
+        {
+          "name": "draw_path",
+          "docstring": null
+        },
+        {
+          "name": "draw_path_collection",
+          "docstring": null
+        },
+        {
+          "name": "draw_markers",
+          "docstring": null
+        },
+        {
+          "name": "draw_gouraud_triangles",
+          "docstring": null
+        },
+        {
+          "name": "draw_mathtext",
+          "docstring": null
+        },
+        {
+          "name": "draw_tex",
+          "docstring": null
+        },
+        {
+          "name": "encode_string",
+          "docstring": null
+        },
+        {
+          "name": "draw_text",
+          "docstring": null
+        },
+        {
+          "name": "new_gc",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GraphicsContextPdf",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "stroke",
+          "docstring": "Predicate: does the path need to be stroked (its outline drawn)?\nThis tests for the various conditions that disable stroking\nthe path, in which case it would presumably be filled."
+        },
+        {
+          "name": "fill",
+          "docstring": "Predicate: does the path need to be filled?\n\nAn optional argument can be used to specify an alternative\n_fillcolor, as needed by RendererPdf.draw_markers."
+        },
+        {
+          "name": "paint",
+          "docstring": "Return the appropriate pdf operator to cause the path to be\nstroked, filled, or both."
+        },
+        {
+          "name": "capstyle_cmd",
+          "docstring": null
+        },
+        {
+          "name": "joinstyle_cmd",
+          "docstring": null
+        },
+        {
+          "name": "linewidth_cmd",
+          "docstring": null
+        },
+        {
+          "name": "dash_cmd",
+          "docstring": null
+        },
+        {
+          "name": "alpha_cmd",
+          "docstring": null
+        },
+        {
+          "name": "hatch_cmd",
+          "docstring": null
+        },
+        {
+          "name": "rgb_cmd",
+          "docstring": null
+        },
+        {
+          "name": "fillcolor_cmd",
+          "docstring": null
+        },
+        {
+          "name": "push",
+          "docstring": null
+        },
+        {
+          "name": "pop",
+          "docstring": null
+        },
+        {
+          "name": "clip_cmd",
+          "docstring": "Set clip rectangle. Calls `.pop()` and `.push()`."
+        },
+        {
+          "name": "delta",
+          "docstring": "Copy properties of other into self and return PDF commands\nneeded to transform *self* into *other*."
+        },
+        {
+          "name": "copy_properties",
+          "docstring": "Copy properties of other into self."
+        },
+        {
+          "name": "finalize",
+          "docstring": "Make sure every pushed graphics state is popped."
+        }
+      ]
+    },
+    {
+      "name": "PdfPages",
+      "docstring": "A multi-page PDF file.\n\nExamples\n--------\n>>> import matplotlib.pyplot as plt\n>>> # Initialize:\n>>> with PdfPages('foo.pdf') as pdf:\n...     # As many times as you like, create a figure fig and save it:\n...     fig = plt.figure()\n...     pdf.savefig(fig)\n...     # When no figure is specified the current figure is saved\n...     pdf.savefig()\n\nNotes\n-----\nIn reality `PdfPages` is a thin wrapper around `PdfFile`, in order to avoid\nconfusion when using `~.pyplot.savefig` and forgetting the format argument.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a new PdfPages object.\n\nParameters\n----------\nfilename : str or path-like or file-like\n    Plots using `PdfPages.savefig` will be written to a file at this location.\n    The file is opened when a figure is saved for the first time (overwriting\n    any older file with the same name).\n\nmetadata : dict, optional\n    Information dictionary object (see PDF reference section 10.2.1\n    'Document Information Dictionary'), e.g.:\n    ``{'Creator': 'My software', 'Author': 'Me', 'Title': 'Awesome'}``.\n\n    The standard keys are 'Title', 'Author', 'Subject', 'Keywords',\n    'Creator', 'Producer', 'CreationDate', 'ModDate', and\n    'Trapped'. Values have been predefined for 'Creator', 'Producer'\n    and 'CreationDate'. They can be removed by setting them to `None`."
+        },
+        {
+          "name": "close",
+          "docstring": "Finalize this object, making the underlying file a complete\nPDF file."
+        },
+        {
+          "name": "infodict",
+          "docstring": "Return a modifiable information dictionary object\n(see PDF reference section 10.2.1 'Document Information\nDictionary')."
+        },
+        {
+          "name": "savefig",
+          "docstring": "Save a `.Figure` to this file as a new page.\n\nAny other keyword arguments are passed to `~.Figure.savefig`.\n\nParameters\n----------\nfigure : `.Figure` or int, default: the active figure\n    The figure, or index of the figure, that is saved to the file."
+        },
+        {
+          "name": "get_pagecount",
+          "docstring": "Return the current number of pages in the multipage pdf file."
+        },
+        {
+          "name": "attach_note",
+          "docstring": "Add a new text note to the page to be saved next. The optional\npositionRect specifies the position of the new note on the\npage. It is outside the page per default to make sure it is\ninvisible on printouts."
+        }
+      ]
+    },
+    {
+      "name": "FigureCanvasPdf",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "get_default_filetype",
+          "docstring": null
+        },
+        {
+          "name": "print_pdf",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BackendPdf",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "pdfRepr",
+      "docstring": "Map Python objects to PDF syntax."
+    },
+    {
+      "name": "is_string_like",
+      "docstring": null
+    },
+    {
+      "name": "is_date",
+      "docstring": null
+    },
+    {
+      "name": "check_trapped",
+      "docstring": null
+    },
+    {
+      "name": "pdfRepr",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "pdfRepr",
+      "docstring": null
+    },
+    {
+      "name": "pdfRepr",
+      "docstring": null
+    },
+    {
+      "name": "pdfRepr",
+      "docstring": null
+    },
+    {
+      "name": "paint_path",
+      "docstring": "Return the PDF operator to paint a path.\n\nParameters\n----------\nfill : bool\n    Fill the path with the fill color.\nstroke : bool\n    Stroke the outline of the path with the line color."
+    },
+    {
+      "name": "end",
+      "docstring": "Finalize stream."
+    },
+    {
+      "name": "write",
+      "docstring": "Write some data on the stream."
+    },
+    {
+      "name": "newPage",
+      "docstring": null
+    },
+    {
+      "name": "newTextnote",
+      "docstring": null
+    },
+    {
+      "name": "finalize",
+      "docstring": "Write out the various deferred objects and the pdf end matter."
+    },
+    {
+      "name": "close",
+      "docstring": "Flush all buffers and free all resources."
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "output",
+      "docstring": null
+    },
+    {
+      "name": "beginStream",
+      "docstring": null
+    },
+    {
+      "name": "endStream",
+      "docstring": null
+    },
+    {
+      "name": "outputStream",
+      "docstring": null
+    },
+    {
+      "name": "fontName",
+      "docstring": "Select a font based on fontprop and return a name suitable for\nOp.selectfont. If fontprop is a string, it will be interpreted\nas the filename of the font."
+    },
+    {
+      "name": "dviFontName",
+      "docstring": "Given a dvi font object, return a name suitable for Op.selectfont.\nThis registers the font information in ``self.dviFontInfo`` if not yet\nregistered."
+    },
+    {
+      "name": "writeFonts",
+      "docstring": null
+    },
+    {
+      "name": "createType1Descriptor",
+      "docstring": null
+    },
+    {
+      "name": "embedTTF",
+      "docstring": "Embed the TTF font from the named file into the document."
+    },
+    {
+      "name": "alphaState",
+      "docstring": "Return name of an ExtGState that sets alpha to the given value."
+    },
+    {
+      "name": "writeExtGSTates",
+      "docstring": null
+    },
+    {
+      "name": "hatchPattern",
+      "docstring": null
+    },
+    {
+      "name": "writeHatches",
+      "docstring": null
+    },
+    {
+      "name": "addGouraudTriangles",
+      "docstring": "Add a Gouraud triangle shading.\n\nParameters\n----------\npoints : np.ndarray\n    Triangle vertices, shape (n, 3, 2)\n    where n = number of triangles, 3 = vertices, 2 = x, y.\ncolors : np.ndarray\n    Vertex colors, shape (n, 3, 1) or (n, 3, 4)\n    as with points, but last dimension is either (gray,)\n    or (r, g, b, alpha).\n\nReturns\n-------\nName, Reference"
+    },
+    {
+      "name": "writeGouraudTriangles",
+      "docstring": null
+    },
+    {
+      "name": "imageObject",
+      "docstring": "Return name of an image XObject representing the given image."
+    },
+    {
+      "name": "writeImages",
+      "docstring": null
+    },
+    {
+      "name": "markerObject",
+      "docstring": "Return name of a marker XObject representing the given path."
+    },
+    {
+      "name": "writeMarkers",
+      "docstring": null
+    },
+    {
+      "name": "pathCollectionObject",
+      "docstring": null
+    },
+    {
+      "name": "writePathCollectionTemplates",
+      "docstring": null
+    },
+    {
+      "name": "pathOperations",
+      "docstring": null
+    },
+    {
+      "name": "writePath",
+      "docstring": null
+    },
+    {
+      "name": "reserveObject",
+      "docstring": "Reserve an ID for an indirect object.\n\nThe name is used for debugging in case we forget to print out\nthe object with writeObject."
+    },
+    {
+      "name": "recordXref",
+      "docstring": null
+    },
+    {
+      "name": "writeObject",
+      "docstring": null
+    },
+    {
+      "name": "writeXref",
+      "docstring": "Write out the xref table."
+    },
+    {
+      "name": "writeInfoDict",
+      "docstring": "Write out the info dictionary, checking it for good form"
+    },
+    {
+      "name": "writeTrailer",
+      "docstring": "Write out the PDF trailer."
+    },
+    {
+      "name": "finalize",
+      "docstring": null
+    },
+    {
+      "name": "check_gc",
+      "docstring": null
+    },
+    {
+      "name": "get_image_magnification",
+      "docstring": null
+    },
+    {
+      "name": "draw_image",
+      "docstring": null
+    },
+    {
+      "name": "draw_path",
+      "docstring": null
+    },
+    {
+      "name": "draw_path_collection",
+      "docstring": null
+    },
+    {
+      "name": "draw_markers",
+      "docstring": null
+    },
+    {
+      "name": "draw_gouraud_triangles",
+      "docstring": null
+    },
+    {
+      "name": "draw_mathtext",
+      "docstring": null
+    },
+    {
+      "name": "draw_tex",
+      "docstring": null
+    },
+    {
+      "name": "encode_string",
+      "docstring": null
+    },
+    {
+      "name": "draw_text",
+      "docstring": null
+    },
+    {
+      "name": "new_gc",
+      "docstring": null
+    },
+    {
+      "name": "stroke",
+      "docstring": "Predicate: does the path need to be stroked (its outline drawn)?\nThis tests for the various conditions that disable stroking\nthe path, in which case it would presumably be filled."
+    },
+    {
+      "name": "fill",
+      "docstring": "Predicate: does the path need to be filled?\n\nAn optional argument can be used to specify an alternative\n_fillcolor, as needed by RendererPdf.draw_markers."
+    },
+    {
+      "name": "paint",
+      "docstring": "Return the appropriate pdf operator to cause the path to be\nstroked, filled, or both."
+    },
+    {
+      "name": "capstyle_cmd",
+      "docstring": null
+    },
+    {
+      "name": "joinstyle_cmd",
+      "docstring": null
+    },
+    {
+      "name": "linewidth_cmd",
+      "docstring": null
+    },
+    {
+      "name": "dash_cmd",
+      "docstring": null
+    },
+    {
+      "name": "alpha_cmd",
+      "docstring": null
+    },
+    {
+      "name": "hatch_cmd",
+      "docstring": null
+    },
+    {
+      "name": "rgb_cmd",
+      "docstring": null
+    },
+    {
+      "name": "fillcolor_cmd",
+      "docstring": null
+    },
+    {
+      "name": "push",
+      "docstring": null
+    },
+    {
+      "name": "pop",
+      "docstring": null
+    },
+    {
+      "name": "clip_cmd",
+      "docstring": "Set clip rectangle. Calls `.pop()` and `.push()`."
+    },
+    {
+      "name": "delta",
+      "docstring": "Copy properties of other into self and return PDF commands\nneeded to transform *self* into *other*."
+    },
+    {
+      "name": "copy_properties",
+      "docstring": "Copy properties of other into self."
+    },
+    {
+      "name": "finalize",
+      "docstring": "Make sure every pushed graphics state is popped."
+    },
+    {
+      "name": "close",
+      "docstring": "Finalize this object, making the underlying file a complete\nPDF file."
+    },
+    {
+      "name": "infodict",
+      "docstring": "Return a modifiable information dictionary object\n(see PDF reference section 10.2.1 'Document Information\nDictionary')."
+    },
+    {
+      "name": "savefig",
+      "docstring": "Save a `.Figure` to this file as a new page.\n\nAny other keyword arguments are passed to `~.Figure.savefig`.\n\nParameters\n----------\nfigure : `.Figure` or int, default: the active figure\n    The figure, or index of the figure, that is saved to the file."
+    },
+    {
+      "name": "get_pagecount",
+      "docstring": "Return the current number of pages in the multipage pdf file."
+    },
+    {
+      "name": "attach_note",
+      "docstring": "Add a new text note to the page to be saved next. The optional\npositionRect specifies the position of the new note on the\npage. It is outside the page per default to make sure it is\ninvisible on printouts."
+    },
+    {
+      "name": "get_default_filetype",
+      "docstring": null
+    },
+    {
+      "name": "print_pdf",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "toStr",
+      "docstring": null
+    },
+    {
+      "name": "cvt",
+      "docstring": "Convert font coordinates to PDF glyph coordinates."
+    },
+    {
+      "name": "embedTTFType3",
+      "docstring": "The Type 3-specific part of embedding a Truetype font"
+    },
+    {
+      "name": "embedTTFType42",
+      "docstring": "The Type 42-specific part of embedding a Truetype font"
+    },
+    {
+      "name": "get_char_width",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        # We can only reuse the objects if the presence of fill and\n        # stroke (and the amount of alpha for each) is the same for\n        # all of them\n        can_do_optimization = True\n        facecolors = np.asarray(facecolors)\n        edgecolors = np.asarray(edgecolors)\n"
+    }
+  ]
+}

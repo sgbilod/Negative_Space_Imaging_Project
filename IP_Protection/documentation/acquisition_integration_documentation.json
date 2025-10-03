@@ -1,0 +1,94 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\negative-space-project\\acquisition_integration.py",
+  "classes": [
+    {
+      "name": "AcquisitionIntegrator",
+      "docstring": "Integrates standalone image acquisition components with the Negative Space project.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the acquisition integrator.\n\nArgs:\n    acquisition_profile: Name of the acquisition profile to use\n    output_dir: Directory to save captured images and results"
+        },
+        {
+          "name": "connect_to_camera",
+          "docstring": "Connect to a camera using both systems to ensure compatibility.\n\nArgs:\n    camera_type: Type of camera (\"webcam\", \"file\", \"stream\")\n    camera_id: ID or index of the camera\n    \nReturns:\n    bool: True if connection successful in both systems"
+        },
+        {
+          "name": "capture_and_process",
+          "docstring": "Capture and process a series of frames.\n\nArgs:\n    num_frames: Number of frames to capture\n    interval: Interval between frames in seconds\n    \nReturns:\n    list: List of processed frames and their metadata"
+        },
+        {
+          "name": "generate_point_cloud",
+          "docstring": "Generate a point cloud from processed frames.\n\nArgs:\n    processed_frames: List of processed frames and their metadata\n    \nReturns:\n    object: Generated point cloud"
+        },
+        {
+          "name": "run_full_pipeline",
+          "docstring": "Run the full acquisition and reconstruction pipeline.\n\nArgs:\n    num_frames: Number of frames to capture\n    interval: Interval between frames in seconds\n    \nReturns:\n    dict: Results containing processed frames and point cloud"
+        }
+      ]
+    },
+    {
+      "name": "FeatureType",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PointCloudType",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PointCloudParams",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MockImagePreprocessor",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "preprocess",
+          "docstring": "Simple mock implementation that returns the image as is."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "main",
+      "docstring": null
+    },
+    {
+      "name": "connect_to_camera",
+      "docstring": "Connect to a camera using both systems to ensure compatibility.\n\nArgs:\n    camera_type: Type of camera (\"webcam\", \"file\", \"stream\")\n    camera_id: ID or index of the camera\n    \nReturns:\n    bool: True if connection successful in both systems"
+    },
+    {
+      "name": "capture_and_process",
+      "docstring": "Capture and process a series of frames.\n\nArgs:\n    num_frames: Number of frames to capture\n    interval: Interval between frames in seconds\n    \nReturns:\n    list: List of processed frames and their metadata"
+    },
+    {
+      "name": "generate_point_cloud",
+      "docstring": "Generate a point cloud from processed frames.\n\nArgs:\n    processed_frames: List of processed frames and their metadata\n    \nReturns:\n    object: Generated point cloud"
+    },
+    {
+      "name": "run_full_pipeline",
+      "docstring": "Run the full acquisition and reconstruction pipeline.\n\nArgs:\n    num_frames: Number of frames to capture\n    interval: Interval between frames in seconds\n    \nReturns:\n    dict: Results containing processed frames and point cloud"
+    },
+    {
+      "name": "preprocess",
+      "docstring": "Simple mock implementation that returns the image as is."
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "            # Use mock if real implementation not available\n            self.feature_detector = FeatureDetector(feature_type=\"void_edge\")\n        \n        # Initialize point cloud generator with negative space optimization\n        self.point_cloud_generator = PointCloudGenerator(\n            cloud_type=PointCloudType.NEGATIVE_SPACE_OPTIMIZED,\n            params=PointCloudParams("
+    }
+  ]
+}

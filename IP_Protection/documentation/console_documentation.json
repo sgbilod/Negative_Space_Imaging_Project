@@ -1,0 +1,698 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\console.py",
+  "classes": [
+    {
+      "name": "NoChange",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ConsoleDimensions",
+      "docstring": "Size of the terminal.",
+      "methods": []
+    },
+    {
+      "name": "ConsoleOptions",
+      "docstring": "Options for __rich_console__ method.",
+      "methods": [
+        {
+          "name": "ascii_only",
+          "docstring": "Check if renderables should use ascii only."
+        },
+        {
+          "name": "copy",
+          "docstring": "Return a copy of the options.\n\nReturns:\n    ConsoleOptions: a copy of self."
+        },
+        {
+          "name": "update",
+          "docstring": "Update values, return a copy."
+        },
+        {
+          "name": "update_width",
+          "docstring": "Update just the width, return a copy.\n\nArgs:\n    width (int): New width (sets both min_width and max_width)\n\nReturns:\n    ~ConsoleOptions: New console options instance."
+        },
+        {
+          "name": "update_height",
+          "docstring": "Update the height, and return a copy.\n\nArgs:\n    height (int): New height\n\nReturns:\n    ~ConsoleOptions: New Console options instance."
+        },
+        {
+          "name": "reset_height",
+          "docstring": "Return a copy of the options with height set to ``None``.\n\nReturns:\n    ~ConsoleOptions: New console options instance."
+        },
+        {
+          "name": "update_dimensions",
+          "docstring": "Update the width and height, and return a copy.\n\nArgs:\n    width (int): New width (sets both min_width and max_width).\n    height (int): New height.\n\nReturns:\n    ~ConsoleOptions: New console options instance."
+        }
+      ]
+    },
+    {
+      "name": "RichCast",
+      "docstring": "An object that may be 'cast' to a console renderable.",
+      "methods": []
+    },
+    {
+      "name": "ConsoleRenderable",
+      "docstring": "An object that supports the console protocol.",
+      "methods": []
+    },
+    {
+      "name": "CaptureError",
+      "docstring": "An error in the Capture context manager.",
+      "methods": []
+    },
+    {
+      "name": "NewLine",
+      "docstring": "A renderable to generate new line(s)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ScreenUpdate",
+      "docstring": "Render a list of lines at a given offset.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Capture",
+      "docstring": "Context manager to capture the result of printing to the console.\nSee :meth:`~rich.console.Console.capture` for how to use.\n\nArgs:\n    console (Console): A console instance to capture output.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get",
+          "docstring": "Get the result of the capture."
+        }
+      ]
+    },
+    {
+      "name": "ThemeContext",
+      "docstring": "A context manager to use a temporary theme. See :meth:`~rich.console.Console.use_theme` for usage.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PagerContext",
+      "docstring": "A context manager that 'pages' content. See :meth:`~rich.console.Console.pager` for usage.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ScreenContext",
+      "docstring": "A context manager that enables an alternative screen. See :meth:`~rich.console.Console.screen` for usage.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "update",
+          "docstring": "Update the screen.\n\nArgs:\n    renderable (RenderableType, optional): Optional renderable to replace current renderable,\n        or None for no change. Defaults to None.\n    style: (Style, optional): Replacement style, or None for no change. Defaults to None."
+        }
+      ]
+    },
+    {
+      "name": "Group",
+      "docstring": "Takes a group of renderables and returns a renderable object that renders the group.\n\nArgs:\n    renderables (Iterable[RenderableType]): An iterable of renderable objects.\n    fit (bool, optional): Fit dimension of group to contents, or fill available space. Defaults to True.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "renderables",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ConsoleThreadLocals",
+      "docstring": "Thread local values for Console context.",
+      "methods": []
+    },
+    {
+      "name": "RenderHook",
+      "docstring": "Provides hooks in to the render process.",
+      "methods": [
+        {
+          "name": "process_renderables",
+          "docstring": "Called with a list of objects to render.\n\nThis method can return a new list of renderables, or modify and return the same list.\n\nArgs:\n    renderables (List[ConsoleRenderable]): A number of renderable objects.\n\nReturns:\n    List[ConsoleRenderable]: A replacement list of renderables."
+        }
+      ]
+    },
+    {
+      "name": "Console",
+      "docstring": "A high level console interface.\n\nArgs:\n    color_system (str, optional): The color system supported by your terminal,\n        either ``\"standard\"``, ``\"256\"`` or ``\"truecolor\"``. Leave as ``\"auto\"`` to autodetect.\n    force_terminal (Optional[bool], optional): Enable/disable terminal control codes, or None to auto-detect terminal. Defaults to None.\n    force_jupyter (Optional[bool], optional): Enable/disable Jupyter rendering, or None to auto-detect Jupyter. Defaults to None.\n    force_interactive (Optional[bool], optional): Enable/disable interactive mode, or None to auto detect. Defaults to None.\n    soft_wrap (Optional[bool], optional): Set soft wrap default on print method. Defaults to False.\n    theme (Theme, optional): An optional style theme object, or ``None`` for default theme.\n    stderr (bool, optional): Use stderr rather than stdout if ``file`` is not specified. Defaults to False.\n    file (IO, optional): A file object where the console should write to. Defaults to stdout.\n    quiet (bool, Optional): Boolean to suppress all output. Defaults to False.\n    width (int, optional): The width of the terminal. Leave as default to auto-detect width.\n    height (int, optional): The height of the terminal. Leave as default to auto-detect height.\n    style (StyleType, optional): Style to apply to all output, or None for no style. Defaults to None.\n    no_color (Optional[bool], optional): Enabled no color mode, or None to auto detect. Defaults to None.\n    tab_size (int, optional): Number of spaces used to replace a tab character. Defaults to 8.\n    record (bool, optional): Boolean to enable recording of terminal output,\n        required to call :meth:`export_html`, :meth:`export_svg`, and :meth:`export_text`. Defaults to False.\n    markup (bool, optional): Boolean to enable :ref:`console_markup`. Defaults to True.\n    emoji (bool, optional): Enable emoji code. Defaults to True.\n    emoji_variant (str, optional): Optional emoji variant, either \"text\" or \"emoji\". Defaults to None.\n    highlight (bool, optional): Enable automatic highlighting. Defaults to True.\n    log_time (bool, optional): Boolean to enable logging of time by :meth:`log` methods. Defaults to True.\n    log_path (bool, optional): Boolean to enable the logging of the caller by :meth:`log`. Defaults to True.\n    log_time_format (Union[str, TimeFormatterCallable], optional): If ``log_time`` is enabled, either string for strftime or callable that formats the time. Defaults to \"[%X] \".\n    highlighter (HighlighterType, optional): Default highlighter.\n    legacy_windows (bool, optional): Enable legacy Windows mode, or ``None`` to auto detect. Defaults to ``None``.\n    safe_box (bool, optional): Restrict box options that don't render on legacy Windows.\n    get_datetime (Callable[[], datetime], optional): Callable that gets the current time as a datetime.datetime object (used by Console.log),\n        or None for datetime.now.\n    get_time (Callable[[], time], optional): Callable that gets the current time in seconds, default uses time.monotonic.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "file",
+          "docstring": "Get the file object to write to."
+        },
+        {
+          "name": "file",
+          "docstring": "Set a new file object."
+        },
+        {
+          "name": "set_live",
+          "docstring": "Set Live instance. Used by Live context manager.\n\nArgs:\n    live (Live): Live instance using this Console.\n\nRaises:\n    errors.LiveError: If this Console has a Live context currently active."
+        },
+        {
+          "name": "clear_live",
+          "docstring": "Clear the Live instance."
+        },
+        {
+          "name": "push_render_hook",
+          "docstring": "Add a new render hook to the stack.\n\nArgs:\n    hook (RenderHook): Render hook instance."
+        },
+        {
+          "name": "pop_render_hook",
+          "docstring": "Pop the last renderhook from the stack."
+        },
+        {
+          "name": "begin_capture",
+          "docstring": "Begin capturing console output. Call :meth:`end_capture` to exit capture mode and return output."
+        },
+        {
+          "name": "end_capture",
+          "docstring": "End capture mode and return captured string.\n\nReturns:\n    str: Console output."
+        },
+        {
+          "name": "push_theme",
+          "docstring": "Push a new theme on to the top of the stack, replacing the styles from the previous theme.\nGenerally speaking, you should call :meth:`~rich.console.Console.use_theme` to get a context manager, rather\nthan calling this method directly.\n\nArgs:\n    theme (Theme): A theme instance.\n    inherit (bool, optional): Inherit existing styles. Defaults to True."
+        },
+        {
+          "name": "pop_theme",
+          "docstring": "Remove theme from top of stack, restoring previous theme."
+        },
+        {
+          "name": "use_theme",
+          "docstring": "Use a different theme for the duration of the context manager.\n\nArgs:\n    theme (Theme): Theme instance to user.\n    inherit (bool, optional): Inherit existing console styles. Defaults to True.\n\nReturns:\n    ThemeContext: [description]"
+        },
+        {
+          "name": "color_system",
+          "docstring": "Get color system string.\n\nReturns:\n    Optional[str]: \"standard\", \"256\" or \"truecolor\"."
+        },
+        {
+          "name": "encoding",
+          "docstring": "Get the encoding of the console file, e.g. ``\"utf-8\"``.\n\nReturns:\n    str: A standard encoding string."
+        },
+        {
+          "name": "is_terminal",
+          "docstring": "Check if the console is writing to a terminal.\n\nReturns:\n    bool: True if the console writing to a device capable of\n        understanding escape sequences, otherwise False."
+        },
+        {
+          "name": "is_dumb_terminal",
+          "docstring": "Detect dumb terminal.\n\nReturns:\n    bool: True if writing to a dumb terminal, otherwise False."
+        },
+        {
+          "name": "options",
+          "docstring": "Get default console options."
+        },
+        {
+          "name": "size",
+          "docstring": "Get the size of the console.\n\nReturns:\n    ConsoleDimensions: A named tuple containing the dimensions."
+        },
+        {
+          "name": "size",
+          "docstring": "Set a new size for the terminal.\n\nArgs:\n    new_size (Tuple[int, int]): New width and height."
+        },
+        {
+          "name": "width",
+          "docstring": "Get the width of the console.\n\nReturns:\n    int: The width (in characters) of the console."
+        },
+        {
+          "name": "width",
+          "docstring": "Set width.\n\nArgs:\n    width (int): New width."
+        },
+        {
+          "name": "height",
+          "docstring": "Get the height of the console.\n\nReturns:\n    int: The height (in lines) of the console."
+        },
+        {
+          "name": "height",
+          "docstring": "Set height.\n\nArgs:\n    height (int): new height."
+        },
+        {
+          "name": "bell",
+          "docstring": "Play a 'bell' sound (if supported by the terminal)."
+        },
+        {
+          "name": "capture",
+          "docstring": "A context manager to *capture* the result of print() or log() in a string,\nrather than writing it to the console.\n\nExample:\n    >>> from rich.console import Console\n    >>> console = Console()\n    >>> with console.capture() as capture:\n    ...     console.print(\"[bold magenta]Hello World[/]\")\n    >>> print(capture.get())\n\nReturns:\n    Capture: Context manager with disables writing to the terminal."
+        },
+        {
+          "name": "pager",
+          "docstring": "A context manager to display anything printed within a \"pager\". The pager application\nis defined by the system and will typically support at least pressing a key to scroll.\n\nArgs:\n    pager (Pager, optional): A pager object, or None to use :class:`~rich.pager.SystemPager`. Defaults to None.\n    styles (bool, optional): Show styles in pager. Defaults to False.\n    links (bool, optional): Show links in pager. Defaults to False.\n\nExample:\n    >>> from rich.console import Console\n    >>> from rich.__main__ import make_test_card\n    >>> console = Console()\n    >>> with console.pager():\n            console.print(make_test_card())\n\nReturns:\n    PagerContext: A context manager."
+        },
+        {
+          "name": "line",
+          "docstring": "Write new line(s).\n\nArgs:\n    count (int, optional): Number of new lines. Defaults to 1."
+        },
+        {
+          "name": "clear",
+          "docstring": "Clear the screen.\n\nArgs:\n    home (bool, optional): Also move the cursor to 'home' position. Defaults to True."
+        },
+        {
+          "name": "status",
+          "docstring": "Display a status and spinner.\n\nArgs:\n    status (RenderableType): A status renderable (str or Text typically).\n    spinner (str, optional): Name of spinner animation (see python -m rich.spinner). Defaults to \"dots\".\n    spinner_style (StyleType, optional): Style of spinner. Defaults to \"status.spinner\".\n    speed (float, optional): Speed factor for spinner animation. Defaults to 1.0.\n    refresh_per_second (float, optional): Number of refreshes per second. Defaults to 12.5.\n\nReturns:\n    Status: A Status object that may be used as a context manager."
+        },
+        {
+          "name": "show_cursor",
+          "docstring": "Show or hide the cursor.\n\nArgs:\n    show (bool, optional): Set visibility of the cursor."
+        },
+        {
+          "name": "set_alt_screen",
+          "docstring": "Enables alternative screen mode.\n\nNote, if you enable this mode, you should ensure that is disabled before\nthe application exits. See :meth:`~rich.Console.screen` for a context manager\nthat handles this for you.\n\nArgs:\n    enable (bool, optional): Enable (True) or disable (False) alternate screen. Defaults to True.\n\nReturns:\n    bool: True if the control codes were written."
+        },
+        {
+          "name": "is_alt_screen",
+          "docstring": "Check if the alt screen was enabled.\n\nReturns:\n    bool: True if the alt screen was enabled, otherwise False."
+        },
+        {
+          "name": "set_window_title",
+          "docstring": "Set the title of the console terminal window.\n\nWarning: There is no means within Rich of \"resetting\" the window title to its\nprevious value, meaning the title you set will persist even after your application\nexits.\n\n``fish`` shell resets the window title before and after each command by default,\nnegating this issue. Windows Terminal and command prompt will also reset the title for you.\nMost other shells and terminals, however, do not do this.\n\nSome terminals may require configuration changes before you can set the title.\nSome terminals may not support setting the title at all.\n\nOther software (including the terminal itself, the shell, custom prompts, plugins, etc.)\nmay also set the terminal window title. This could result in whatever value you write\nusing this method being overwritten.\n\nArgs:\n    title (str): The new title of the terminal window.\n\nReturns:\n    bool: True if the control code to change the terminal title was\n        written, otherwise False. Note that a return value of True\n        does not guarantee that the window title has actually changed,\n        since the feature may be unsupported/disabled in some terminals."
+        },
+        {
+          "name": "screen",
+          "docstring": "Context manager to enable and disable 'alternative screen' mode.\n\nArgs:\n    hide_cursor (bool, optional): Also hide the cursor. Defaults to False.\n    style (Style, optional): Optional style for screen. Defaults to None.\n\nReturns:\n    ~ScreenContext: Context which enables alternate screen on enter, and disables it on exit."
+        },
+        {
+          "name": "measure",
+          "docstring": "Measure a renderable. Returns a :class:`~rich.measure.Measurement` object which contains\ninformation regarding the number of characters required to print the renderable.\n\nArgs:\n    renderable (RenderableType): Any renderable or string.\n    options (Optional[ConsoleOptions], optional): Options to use when measuring, or None\n        to use default options. Defaults to None.\n\nReturns:\n    Measurement: A measurement of the renderable."
+        },
+        {
+          "name": "render",
+          "docstring": "Render an object in to an iterable of `Segment` instances.\n\nThis method contains the logic for rendering objects with the console protocol.\nYou are unlikely to need to use it directly, unless you are extending the library.\n\nArgs:\n    renderable (RenderableType): An object supporting the console protocol, or\n        an object that may be converted to a string.\n    options (ConsoleOptions, optional): An options object, or None to use self.options. Defaults to None.\n\nReturns:\n    Iterable[Segment]: An iterable of segments that may be rendered."
+        },
+        {
+          "name": "render_lines",
+          "docstring": "Render objects in to a list of lines.\n\n        The output of render_lines is useful when further formatting of rendered console text\n        is required, such as the Panel class which draws a border around any renderable object.\n\n        Args:\n            renderable (RenderableType): Any object renderable in the console.\n            options (Optional[ConsoleOptions], optional): Console options, or None to use self.options. Default to ``None``.\n            style (Style, optional): Optional style to apply to renderables. Defaults to ``None``.\n            pad (bool, optional): Pad lines shorter than render width. Defaults to ``True``.\n            new_lines (bool, optional): Include \"\n\" characters at end of lines.\n\n        Returns:\n            List[List[Segment]]: A list of lines, where a line is a list of Segment objects.\n        "
+        },
+        {
+          "name": "render_str",
+          "docstring": "Convert a string to a Text instance. This is called automatically if\nyou print or log a string.\n\nArgs:\n    text (str): Text to render.\n    style (Union[str, Style], optional): Style to apply to rendered text.\n    justify (str, optional): Justify method: \"default\", \"left\", \"center\", \"full\", or \"right\". Defaults to ``None``.\n    overflow (str, optional): Overflow method: \"crop\", \"fold\", or \"ellipsis\". Defaults to ``None``.\n    emoji (Optional[bool], optional): Enable emoji, or ``None`` to use Console default.\n    markup (Optional[bool], optional): Enable markup, or ``None`` to use Console default.\n    highlight (Optional[bool], optional): Enable highlighting, or ``None`` to use Console default.\n    highlighter (HighlighterType, optional): Optional highlighter to apply.\nReturns:\n    ConsoleRenderable: Renderable object."
+        },
+        {
+          "name": "get_style",
+          "docstring": "Get a Style instance by its theme name or parse a definition.\n\nArgs:\n    name (str): The name of a style or a style definition.\n\nReturns:\n    Style: A Style object.\n\nRaises:\n    MissingStyle: If no style could be parsed from name."
+        },
+        {
+          "name": "rule",
+          "docstring": "Draw a line with optional centered title.\n\nArgs:\n    title (str, optional): Text to render over the rule. Defaults to \"\".\n    characters (str, optional): Character(s) to form the line. Defaults to \"\u2500\".\n    style (str, optional): Style of line. Defaults to \"rule.line\".\n    align (str, optional): How to align the title, one of \"left\", \"center\", or \"right\". Defaults to \"center\"."
+        },
+        {
+          "name": "control",
+          "docstring": "Insert non-printing control codes.\n\nArgs:\n    control_codes (str): Control codes, such as those that may move the cursor."
+        },
+        {
+          "name": "out",
+          "docstring": "Output to the terminal. This is a low-level way of writing to the terminal which unlike\n:meth:`~rich.console.Console.print` won't pretty print, wrap text, or apply markup, but will\noptionally apply highlighting and a basic style.\n\nArgs:\n    sep (str, optional): String to write between print data. Defaults to \" \".\n    end (str, optional): String to write at end of print data. Defaults to \"\\\\n\".\n    style (Union[str, Style], optional): A style to apply to output. Defaults to None.\n    highlight (Optional[bool], optional): Enable automatic highlighting, or ``None`` to use\n        console default. Defaults to ``None``."
+        },
+        {
+          "name": "print",
+          "docstring": "Print to the console.\n\nArgs:\n    objects (positional args): Objects to log to the terminal.\n    sep (str, optional): String to write between print data. Defaults to \" \".\n    end (str, optional): String to write at end of print data. Defaults to \"\\\\n\".\n    style (Union[str, Style], optional): A style to apply to output. Defaults to None.\n    justify (str, optional): Justify method: \"default\", \"left\", \"right\", \"center\", or \"full\". Defaults to ``None``.\n    overflow (str, optional): Overflow method: \"ignore\", \"crop\", \"fold\", or \"ellipsis\". Defaults to None.\n    no_wrap (Optional[bool], optional): Disable word wrapping. Defaults to None.\n    emoji (Optional[bool], optional): Enable emoji code, or ``None`` to use console default. Defaults to ``None``.\n    markup (Optional[bool], optional): Enable markup, or ``None`` to use console default. Defaults to ``None``.\n    highlight (Optional[bool], optional): Enable automatic highlighting, or ``None`` to use console default. Defaults to ``None``.\n    width (Optional[int], optional): Width of output, or ``None`` to auto-detect. Defaults to ``None``.\n    crop (Optional[bool], optional): Crop output to width of terminal. Defaults to True.\n    soft_wrap (bool, optional): Enable soft wrap mode which disables word wrapping and cropping of text or ``None`` for\n        Console default. Defaults to ``None``.\n    new_line_start (bool, False): Insert a new line at the start if the output contains more than one line. Defaults to ``False``."
+        },
+        {
+          "name": "print_json",
+          "docstring": "Pretty prints JSON. Output will be valid JSON.\n\nArgs:\n    json (Optional[str]): A string containing JSON.\n    data (Any): If json is not supplied, then encode this data.\n    indent (Union[None, int, str], optional): Number of spaces to indent. Defaults to 2.\n    highlight (bool, optional): Enable highlighting of output: Defaults to True.\n    skip_keys (bool, optional): Skip keys not of a basic type. Defaults to False.\n    ensure_ascii (bool, optional): Escape all non-ascii characters. Defaults to False.\n    check_circular (bool, optional): Check for circular references. Defaults to True.\n    allow_nan (bool, optional): Allow NaN and Infinity values. Defaults to True.\n    default (Callable, optional): A callable that converts values that can not be encoded\n        in to something that can be JSON encoded. Defaults to None.\n    sort_keys (bool, optional): Sort dictionary keys. Defaults to False."
+        },
+        {
+          "name": "update_screen",
+          "docstring": "Update the screen at a given offset.\n\nArgs:\n    renderable (RenderableType): A Rich renderable.\n    region (Region, optional): Region of screen to update, or None for entire screen. Defaults to None.\n    x (int, optional): x offset. Defaults to 0.\n    y (int, optional): y offset. Defaults to 0.\n\nRaises:\n    errors.NoAltScreen: If the Console isn't in alt screen mode."
+        },
+        {
+          "name": "update_screen_lines",
+          "docstring": "Update lines of the screen at a given offset.\n\nArgs:\n    lines (List[List[Segment]]): Rendered lines (as produced by :meth:`~rich.Console.render_lines`).\n    x (int, optional): x offset (column no). Defaults to 0.\n    y (int, optional): y offset (column no). Defaults to 0.\n\nRaises:\n    errors.NoAltScreen: If the Console isn't in alt screen mode."
+        },
+        {
+          "name": "print_exception",
+          "docstring": "Prints a rich render of the last exception and traceback.\n\nArgs:\n    width (Optional[int], optional): Number of characters used to render code. Defaults to 100.\n    extra_lines (int, optional): Additional lines of code to render. Defaults to 3.\n    theme (str, optional): Override pygments theme used in traceback\n    word_wrap (bool, optional): Enable word wrapping of long lines. Defaults to False.\n    show_locals (bool, optional): Enable display of local variables. Defaults to False.\n    suppress (Iterable[Union[str, ModuleType]]): Optional sequence of modules or paths to exclude from traceback.\n    max_frames (int): Maximum number of frames to show in a traceback, 0 for no maximum. Defaults to 100."
+        },
+        {
+          "name": "log",
+          "docstring": "Log rich content to the terminal.\n\nArgs:\n    objects (positional args): Objects to log to the terminal.\n    sep (str, optional): String to write between print data. Defaults to \" \".\n    end (str, optional): String to write at end of print data. Defaults to \"\\\\n\".\n    style (Union[str, Style], optional): A style to apply to output. Defaults to None.\n    justify (str, optional): One of \"left\", \"right\", \"center\", or \"full\". Defaults to ``None``.\n    emoji (Optional[bool], optional): Enable emoji code, or ``None`` to use console default. Defaults to None.\n    markup (Optional[bool], optional): Enable markup, or ``None`` to use console default. Defaults to None.\n    highlight (Optional[bool], optional): Enable automatic highlighting, or ``None`` to use console default. Defaults to None.\n    log_locals (bool, optional): Boolean to enable logging of locals where ``log()``\n        was called. Defaults to False.\n    _stack_offset (int, optional): Offset of caller from end of call stack. Defaults to 1."
+        },
+        {
+          "name": "on_broken_pipe",
+          "docstring": "This function is called when a `BrokenPipeError` is raised.\n\nThis can occur when piping Textual output in Linux and macOS.\nThe default implementation is to exit the app, but you could implement\nthis method in a subclass to change the behavior.\n\nSee https://docs.python.org/3/library/signal.html#note-on-sigpipe for details."
+        },
+        {
+          "name": "input",
+          "docstring": "Displays a prompt and waits for input from the user. The prompt may contain color / style.\n\nIt works in the same way as Python's builtin :func:`input` function and provides elaborate line editing and history features if Python's builtin :mod:`readline` module is previously loaded.\n\nArgs:\n    prompt (Union[str, Text]): Text to render in the prompt.\n    markup (bool, optional): Enable console markup (requires a str prompt). Defaults to True.\n    emoji (bool, optional): Enable emoji (requires a str prompt). Defaults to True.\n    password: (bool, optional): Hide typed text. Defaults to False.\n    stream: (TextIO, optional): Optional file to read input from (rather than stdin). Defaults to None.\n\nReturns:\n    str: Text read from stdin."
+        },
+        {
+          "name": "export_text",
+          "docstring": "Generate text from console contents (requires record=True argument in constructor).\n\nArgs:\n    clear (bool, optional): Clear record buffer after exporting. Defaults to ``True``.\n    styles (bool, optional): If ``True``, ansi escape codes will be included. ``False`` for plain text.\n        Defaults to ``False``.\n\nReturns:\n    str: String containing console contents."
+        },
+        {
+          "name": "save_text",
+          "docstring": "Generate text from console and save to a given location (requires record=True argument in constructor).\n\nArgs:\n    path (str): Path to write text files.\n    clear (bool, optional): Clear record buffer after exporting. Defaults to ``True``.\n    styles (bool, optional): If ``True``, ansi style codes will be included. ``False`` for plain text.\n        Defaults to ``False``."
+        },
+        {
+          "name": "export_html",
+          "docstring": "Generate HTML from console contents (requires record=True argument in constructor).\n\nArgs:\n    theme (TerminalTheme, optional): TerminalTheme object containing console colors.\n    clear (bool, optional): Clear record buffer after exporting. Defaults to ``True``.\n    code_format (str, optional): Format string to render HTML. In addition to '{foreground}',\n        '{background}', and '{code}', should contain '{stylesheet}' if inline_styles is ``False``.\n    inline_styles (bool, optional): If ``True`` styles will be inlined in to spans, which makes files\n        larger but easier to cut and paste markup. If ``False``, styles will be embedded in a style tag.\n        Defaults to False.\n\nReturns:\n    str: String containing console contents as HTML."
+        },
+        {
+          "name": "save_html",
+          "docstring": "Generate HTML from console contents and write to a file (requires record=True argument in constructor).\n\nArgs:\n    path (str): Path to write html file.\n    theme (TerminalTheme, optional): TerminalTheme object containing console colors.\n    clear (bool, optional): Clear record buffer after exporting. Defaults to ``True``.\n    code_format (str, optional): Format string to render HTML. In addition to '{foreground}',\n        '{background}', and '{code}', should contain '{stylesheet}' if inline_styles is ``False``.\n    inline_styles (bool, optional): If ``True`` styles will be inlined in to spans, which makes files\n        larger but easier to cut and paste markup. If ``False``, styles will be embedded in a style tag.\n        Defaults to False."
+        },
+        {
+          "name": "export_svg",
+          "docstring": "Generate an SVG from the console contents (requires record=True in Console constructor).\n\nArgs:\n    title (str, optional): The title of the tab in the output image\n    theme (TerminalTheme, optional): The ``TerminalTheme`` object to use to style the terminal\n    clear (bool, optional): Clear record buffer after exporting. Defaults to ``True``\n    code_format (str, optional): Format string used to generate the SVG. Rich will inject a number of variables\n        into the string in order to form the final SVG output. The default template used and the variables\n        injected by Rich can be found by inspecting the ``console.CONSOLE_SVG_FORMAT`` variable.\n    font_aspect_ratio (float, optional): The width to height ratio of the font used in the ``code_format``\n        string. Defaults to 0.61, which is the width to height ratio of Fira Code (the default font).\n        If you aren't specifying a different font inside ``code_format``, you probably don't need this.\n    unique_id (str, optional): unique id that is used as the prefix for various elements (CSS styles, node\n        ids). If not set, this defaults to a computed value based on the recorded content."
+        },
+        {
+          "name": "save_svg",
+          "docstring": "Generate an SVG file from the console contents (requires record=True in Console constructor).\n\nArgs:\n    path (str): The path to write the SVG to.\n    title (str, optional): The title of the tab in the output image\n    theme (TerminalTheme, optional): The ``TerminalTheme`` object to use to style the terminal\n    clear (bool, optional): Clear record buffer after exporting. Defaults to ``True``\n    code_format (str, optional): Format string used to generate the SVG. Rich will inject a number of variables\n        into the string in order to form the final SVG output. The default template used and the variables\n        injected by Rich can be found by inspecting the ``console.CONSOLE_SVG_FORMAT`` variable.\n    font_aspect_ratio (float, optional): The width to height ratio of the font used in the ``code_format``\n        string. Defaults to 0.61, which is the width to height ratio of Fira Code (the default font).\n        If you aren't specifying a different font inside ``code_format``, you probably don't need this.\n    unique_id (str, optional): unique id that is used as the prefix for various elements (CSS styles, node\n        ids). If not set, this defaults to a computed value based on the recorded content."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "group",
+      "docstring": "A decorator that turns an iterable of renderables in to a group.\n\nArgs:\n    fit (bool, optional): Fit dimension of group to contents, or fill available space. Defaults to True."
+    },
+    {
+      "name": "get_windows_console_features",
+      "docstring": null
+    },
+    {
+      "name": "detect_legacy_windows",
+      "docstring": "Detect legacy Windows."
+    },
+    {
+      "name": "ascii_only",
+      "docstring": "Check if renderables should use ascii only."
+    },
+    {
+      "name": "copy",
+      "docstring": "Return a copy of the options.\n\nReturns:\n    ConsoleOptions: a copy of self."
+    },
+    {
+      "name": "update",
+      "docstring": "Update values, return a copy."
+    },
+    {
+      "name": "update_width",
+      "docstring": "Update just the width, return a copy.\n\nArgs:\n    width (int): New width (sets both min_width and max_width)\n\nReturns:\n    ~ConsoleOptions: New console options instance."
+    },
+    {
+      "name": "update_height",
+      "docstring": "Update the height, and return a copy.\n\nArgs:\n    height (int): New height\n\nReturns:\n    ~ConsoleOptions: New Console options instance."
+    },
+    {
+      "name": "reset_height",
+      "docstring": "Return a copy of the options with height set to ``None``.\n\nReturns:\n    ~ConsoleOptions: New console options instance."
+    },
+    {
+      "name": "update_dimensions",
+      "docstring": "Update the width and height, and return a copy.\n\nArgs:\n    width (int): New width (sets both min_width and max_width).\n    height (int): New height.\n\nReturns:\n    ~ConsoleOptions: New console options instance."
+    },
+    {
+      "name": "get",
+      "docstring": "Get the result of the capture."
+    },
+    {
+      "name": "update",
+      "docstring": "Update the screen.\n\nArgs:\n    renderable (RenderableType, optional): Optional renderable to replace current renderable,\n        or None for no change. Defaults to None.\n    style: (Style, optional): Replacement style, or None for no change. Defaults to None."
+    },
+    {
+      "name": "renderables",
+      "docstring": null
+    },
+    {
+      "name": "decorator",
+      "docstring": "Convert a method that returns an iterable of renderables in to a Group."
+    },
+    {
+      "name": "process_renderables",
+      "docstring": "Called with a list of objects to render.\n\nThis method can return a new list of renderables, or modify and return the same list.\n\nArgs:\n    renderables (List[ConsoleRenderable]): A number of renderable objects.\n\nReturns:\n    List[ConsoleRenderable]: A replacement list of renderables."
+    },
+    {
+      "name": "file",
+      "docstring": "Get the file object to write to."
+    },
+    {
+      "name": "file",
+      "docstring": "Set a new file object."
+    },
+    {
+      "name": "set_live",
+      "docstring": "Set Live instance. Used by Live context manager.\n\nArgs:\n    live (Live): Live instance using this Console.\n\nRaises:\n    errors.LiveError: If this Console has a Live context currently active."
+    },
+    {
+      "name": "clear_live",
+      "docstring": "Clear the Live instance."
+    },
+    {
+      "name": "push_render_hook",
+      "docstring": "Add a new render hook to the stack.\n\nArgs:\n    hook (RenderHook): Render hook instance."
+    },
+    {
+      "name": "pop_render_hook",
+      "docstring": "Pop the last renderhook from the stack."
+    },
+    {
+      "name": "begin_capture",
+      "docstring": "Begin capturing console output. Call :meth:`end_capture` to exit capture mode and return output."
+    },
+    {
+      "name": "end_capture",
+      "docstring": "End capture mode and return captured string.\n\nReturns:\n    str: Console output."
+    },
+    {
+      "name": "push_theme",
+      "docstring": "Push a new theme on to the top of the stack, replacing the styles from the previous theme.\nGenerally speaking, you should call :meth:`~rich.console.Console.use_theme` to get a context manager, rather\nthan calling this method directly.\n\nArgs:\n    theme (Theme): A theme instance.\n    inherit (bool, optional): Inherit existing styles. Defaults to True."
+    },
+    {
+      "name": "pop_theme",
+      "docstring": "Remove theme from top of stack, restoring previous theme."
+    },
+    {
+      "name": "use_theme",
+      "docstring": "Use a different theme for the duration of the context manager.\n\nArgs:\n    theme (Theme): Theme instance to user.\n    inherit (bool, optional): Inherit existing console styles. Defaults to True.\n\nReturns:\n    ThemeContext: [description]"
+    },
+    {
+      "name": "color_system",
+      "docstring": "Get color system string.\n\nReturns:\n    Optional[str]: \"standard\", \"256\" or \"truecolor\"."
+    },
+    {
+      "name": "encoding",
+      "docstring": "Get the encoding of the console file, e.g. ``\"utf-8\"``.\n\nReturns:\n    str: A standard encoding string."
+    },
+    {
+      "name": "is_terminal",
+      "docstring": "Check if the console is writing to a terminal.\n\nReturns:\n    bool: True if the console writing to a device capable of\n        understanding escape sequences, otherwise False."
+    },
+    {
+      "name": "is_dumb_terminal",
+      "docstring": "Detect dumb terminal.\n\nReturns:\n    bool: True if writing to a dumb terminal, otherwise False."
+    },
+    {
+      "name": "options",
+      "docstring": "Get default console options."
+    },
+    {
+      "name": "size",
+      "docstring": "Get the size of the console.\n\nReturns:\n    ConsoleDimensions: A named tuple containing the dimensions."
+    },
+    {
+      "name": "size",
+      "docstring": "Set a new size for the terminal.\n\nArgs:\n    new_size (Tuple[int, int]): New width and height."
+    },
+    {
+      "name": "width",
+      "docstring": "Get the width of the console.\n\nReturns:\n    int: The width (in characters) of the console."
+    },
+    {
+      "name": "width",
+      "docstring": "Set width.\n\nArgs:\n    width (int): New width."
+    },
+    {
+      "name": "height",
+      "docstring": "Get the height of the console.\n\nReturns:\n    int: The height (in lines) of the console."
+    },
+    {
+      "name": "height",
+      "docstring": "Set height.\n\nArgs:\n    height (int): new height."
+    },
+    {
+      "name": "bell",
+      "docstring": "Play a 'bell' sound (if supported by the terminal)."
+    },
+    {
+      "name": "capture",
+      "docstring": "A context manager to *capture* the result of print() or log() in a string,\nrather than writing it to the console.\n\nExample:\n    >>> from rich.console import Console\n    >>> console = Console()\n    >>> with console.capture() as capture:\n    ...     console.print(\"[bold magenta]Hello World[/]\")\n    >>> print(capture.get())\n\nReturns:\n    Capture: Context manager with disables writing to the terminal."
+    },
+    {
+      "name": "pager",
+      "docstring": "A context manager to display anything printed within a \"pager\". The pager application\nis defined by the system and will typically support at least pressing a key to scroll.\n\nArgs:\n    pager (Pager, optional): A pager object, or None to use :class:`~rich.pager.SystemPager`. Defaults to None.\n    styles (bool, optional): Show styles in pager. Defaults to False.\n    links (bool, optional): Show links in pager. Defaults to False.\n\nExample:\n    >>> from rich.console import Console\n    >>> from rich.__main__ import make_test_card\n    >>> console = Console()\n    >>> with console.pager():\n            console.print(make_test_card())\n\nReturns:\n    PagerContext: A context manager."
+    },
+    {
+      "name": "line",
+      "docstring": "Write new line(s).\n\nArgs:\n    count (int, optional): Number of new lines. Defaults to 1."
+    },
+    {
+      "name": "clear",
+      "docstring": "Clear the screen.\n\nArgs:\n    home (bool, optional): Also move the cursor to 'home' position. Defaults to True."
+    },
+    {
+      "name": "status",
+      "docstring": "Display a status and spinner.\n\nArgs:\n    status (RenderableType): A status renderable (str or Text typically).\n    spinner (str, optional): Name of spinner animation (see python -m rich.spinner). Defaults to \"dots\".\n    spinner_style (StyleType, optional): Style of spinner. Defaults to \"status.spinner\".\n    speed (float, optional): Speed factor for spinner animation. Defaults to 1.0.\n    refresh_per_second (float, optional): Number of refreshes per second. Defaults to 12.5.\n\nReturns:\n    Status: A Status object that may be used as a context manager."
+    },
+    {
+      "name": "show_cursor",
+      "docstring": "Show or hide the cursor.\n\nArgs:\n    show (bool, optional): Set visibility of the cursor."
+    },
+    {
+      "name": "set_alt_screen",
+      "docstring": "Enables alternative screen mode.\n\nNote, if you enable this mode, you should ensure that is disabled before\nthe application exits. See :meth:`~rich.Console.screen` for a context manager\nthat handles this for you.\n\nArgs:\n    enable (bool, optional): Enable (True) or disable (False) alternate screen. Defaults to True.\n\nReturns:\n    bool: True if the control codes were written."
+    },
+    {
+      "name": "is_alt_screen",
+      "docstring": "Check if the alt screen was enabled.\n\nReturns:\n    bool: True if the alt screen was enabled, otherwise False."
+    },
+    {
+      "name": "set_window_title",
+      "docstring": "Set the title of the console terminal window.\n\nWarning: There is no means within Rich of \"resetting\" the window title to its\nprevious value, meaning the title you set will persist even after your application\nexits.\n\n``fish`` shell resets the window title before and after each command by default,\nnegating this issue. Windows Terminal and command prompt will also reset the title for you.\nMost other shells and terminals, however, do not do this.\n\nSome terminals may require configuration changes before you can set the title.\nSome terminals may not support setting the title at all.\n\nOther software (including the terminal itself, the shell, custom prompts, plugins, etc.)\nmay also set the terminal window title. This could result in whatever value you write\nusing this method being overwritten.\n\nArgs:\n    title (str): The new title of the terminal window.\n\nReturns:\n    bool: True if the control code to change the terminal title was\n        written, otherwise False. Note that a return value of True\n        does not guarantee that the window title has actually changed,\n        since the feature may be unsupported/disabled in some terminals."
+    },
+    {
+      "name": "screen",
+      "docstring": "Context manager to enable and disable 'alternative screen' mode.\n\nArgs:\n    hide_cursor (bool, optional): Also hide the cursor. Defaults to False.\n    style (Style, optional): Optional style for screen. Defaults to None.\n\nReturns:\n    ~ScreenContext: Context which enables alternate screen on enter, and disables it on exit."
+    },
+    {
+      "name": "measure",
+      "docstring": "Measure a renderable. Returns a :class:`~rich.measure.Measurement` object which contains\ninformation regarding the number of characters required to print the renderable.\n\nArgs:\n    renderable (RenderableType): Any renderable or string.\n    options (Optional[ConsoleOptions], optional): Options to use when measuring, or None\n        to use default options. Defaults to None.\n\nReturns:\n    Measurement: A measurement of the renderable."
+    },
+    {
+      "name": "render",
+      "docstring": "Render an object in to an iterable of `Segment` instances.\n\nThis method contains the logic for rendering objects with the console protocol.\nYou are unlikely to need to use it directly, unless you are extending the library.\n\nArgs:\n    renderable (RenderableType): An object supporting the console protocol, or\n        an object that may be converted to a string.\n    options (ConsoleOptions, optional): An options object, or None to use self.options. Defaults to None.\n\nReturns:\n    Iterable[Segment]: An iterable of segments that may be rendered."
+    },
+    {
+      "name": "render_lines",
+      "docstring": "Render objects in to a list of lines.\n\n        The output of render_lines is useful when further formatting of rendered console text\n        is required, such as the Panel class which draws a border around any renderable object.\n\n        Args:\n            renderable (RenderableType): Any object renderable in the console.\n            options (Optional[ConsoleOptions], optional): Console options, or None to use self.options. Default to ``None``.\n            style (Style, optional): Optional style to apply to renderables. Defaults to ``None``.\n            pad (bool, optional): Pad lines shorter than render width. Defaults to ``True``.\n            new_lines (bool, optional): Include \"\n\" characters at end of lines.\n\n        Returns:\n            List[List[Segment]]: A list of lines, where a line is a list of Segment objects.\n        "
+    },
+    {
+      "name": "render_str",
+      "docstring": "Convert a string to a Text instance. This is called automatically if\nyou print or log a string.\n\nArgs:\n    text (str): Text to render.\n    style (Union[str, Style], optional): Style to apply to rendered text.\n    justify (str, optional): Justify method: \"default\", \"left\", \"center\", \"full\", or \"right\". Defaults to ``None``.\n    overflow (str, optional): Overflow method: \"crop\", \"fold\", or \"ellipsis\". Defaults to ``None``.\n    emoji (Optional[bool], optional): Enable emoji, or ``None`` to use Console default.\n    markup (Optional[bool], optional): Enable markup, or ``None`` to use Console default.\n    highlight (Optional[bool], optional): Enable highlighting, or ``None`` to use Console default.\n    highlighter (HighlighterType, optional): Optional highlighter to apply.\nReturns:\n    ConsoleRenderable: Renderable object."
+    },
+    {
+      "name": "get_style",
+      "docstring": "Get a Style instance by its theme name or parse a definition.\n\nArgs:\n    name (str): The name of a style or a style definition.\n\nReturns:\n    Style: A Style object.\n\nRaises:\n    MissingStyle: If no style could be parsed from name."
+    },
+    {
+      "name": "rule",
+      "docstring": "Draw a line with optional centered title.\n\nArgs:\n    title (str, optional): Text to render over the rule. Defaults to \"\".\n    characters (str, optional): Character(s) to form the line. Defaults to \"\u2500\".\n    style (str, optional): Style of line. Defaults to \"rule.line\".\n    align (str, optional): How to align the title, one of \"left\", \"center\", or \"right\". Defaults to \"center\"."
+    },
+    {
+      "name": "control",
+      "docstring": "Insert non-printing control codes.\n\nArgs:\n    control_codes (str): Control codes, such as those that may move the cursor."
+    },
+    {
+      "name": "out",
+      "docstring": "Output to the terminal. This is a low-level way of writing to the terminal which unlike\n:meth:`~rich.console.Console.print` won't pretty print, wrap text, or apply markup, but will\noptionally apply highlighting and a basic style.\n\nArgs:\n    sep (str, optional): String to write between print data. Defaults to \" \".\n    end (str, optional): String to write at end of print data. Defaults to \"\\\\n\".\n    style (Union[str, Style], optional): A style to apply to output. Defaults to None.\n    highlight (Optional[bool], optional): Enable automatic highlighting, or ``None`` to use\n        console default. Defaults to ``None``."
+    },
+    {
+      "name": "print",
+      "docstring": "Print to the console.\n\nArgs:\n    objects (positional args): Objects to log to the terminal.\n    sep (str, optional): String to write between print data. Defaults to \" \".\n    end (str, optional): String to write at end of print data. Defaults to \"\\\\n\".\n    style (Union[str, Style], optional): A style to apply to output. Defaults to None.\n    justify (str, optional): Justify method: \"default\", \"left\", \"right\", \"center\", or \"full\". Defaults to ``None``.\n    overflow (str, optional): Overflow method: \"ignore\", \"crop\", \"fold\", or \"ellipsis\". Defaults to None.\n    no_wrap (Optional[bool], optional): Disable word wrapping. Defaults to None.\n    emoji (Optional[bool], optional): Enable emoji code, or ``None`` to use console default. Defaults to ``None``.\n    markup (Optional[bool], optional): Enable markup, or ``None`` to use console default. Defaults to ``None``.\n    highlight (Optional[bool], optional): Enable automatic highlighting, or ``None`` to use console default. Defaults to ``None``.\n    width (Optional[int], optional): Width of output, or ``None`` to auto-detect. Defaults to ``None``.\n    crop (Optional[bool], optional): Crop output to width of terminal. Defaults to True.\n    soft_wrap (bool, optional): Enable soft wrap mode which disables word wrapping and cropping of text or ``None`` for\n        Console default. Defaults to ``None``.\n    new_line_start (bool, False): Insert a new line at the start if the output contains more than one line. Defaults to ``False``."
+    },
+    {
+      "name": "print_json",
+      "docstring": "Pretty prints JSON. Output will be valid JSON.\n\nArgs:\n    json (Optional[str]): A string containing JSON.\n    data (Any): If json is not supplied, then encode this data.\n    indent (Union[None, int, str], optional): Number of spaces to indent. Defaults to 2.\n    highlight (bool, optional): Enable highlighting of output: Defaults to True.\n    skip_keys (bool, optional): Skip keys not of a basic type. Defaults to False.\n    ensure_ascii (bool, optional): Escape all non-ascii characters. Defaults to False.\n    check_circular (bool, optional): Check for circular references. Defaults to True.\n    allow_nan (bool, optional): Allow NaN and Infinity values. Defaults to True.\n    default (Callable, optional): A callable that converts values that can not be encoded\n        in to something that can be JSON encoded. Defaults to None.\n    sort_keys (bool, optional): Sort dictionary keys. Defaults to False."
+    },
+    {
+      "name": "update_screen",
+      "docstring": "Update the screen at a given offset.\n\nArgs:\n    renderable (RenderableType): A Rich renderable.\n    region (Region, optional): Region of screen to update, or None for entire screen. Defaults to None.\n    x (int, optional): x offset. Defaults to 0.\n    y (int, optional): y offset. Defaults to 0.\n\nRaises:\n    errors.NoAltScreen: If the Console isn't in alt screen mode."
+    },
+    {
+      "name": "update_screen_lines",
+      "docstring": "Update lines of the screen at a given offset.\n\nArgs:\n    lines (List[List[Segment]]): Rendered lines (as produced by :meth:`~rich.Console.render_lines`).\n    x (int, optional): x offset (column no). Defaults to 0.\n    y (int, optional): y offset (column no). Defaults to 0.\n\nRaises:\n    errors.NoAltScreen: If the Console isn't in alt screen mode."
+    },
+    {
+      "name": "print_exception",
+      "docstring": "Prints a rich render of the last exception and traceback.\n\nArgs:\n    width (Optional[int], optional): Number of characters used to render code. Defaults to 100.\n    extra_lines (int, optional): Additional lines of code to render. Defaults to 3.\n    theme (str, optional): Override pygments theme used in traceback\n    word_wrap (bool, optional): Enable word wrapping of long lines. Defaults to False.\n    show_locals (bool, optional): Enable display of local variables. Defaults to False.\n    suppress (Iterable[Union[str, ModuleType]]): Optional sequence of modules or paths to exclude from traceback.\n    max_frames (int): Maximum number of frames to show in a traceback, 0 for no maximum. Defaults to 100."
+    },
+    {
+      "name": "log",
+      "docstring": "Log rich content to the terminal.\n\nArgs:\n    objects (positional args): Objects to log to the terminal.\n    sep (str, optional): String to write between print data. Defaults to \" \".\n    end (str, optional): String to write at end of print data. Defaults to \"\\\\n\".\n    style (Union[str, Style], optional): A style to apply to output. Defaults to None.\n    justify (str, optional): One of \"left\", \"right\", \"center\", or \"full\". Defaults to ``None``.\n    emoji (Optional[bool], optional): Enable emoji code, or ``None`` to use console default. Defaults to None.\n    markup (Optional[bool], optional): Enable markup, or ``None`` to use console default. Defaults to None.\n    highlight (Optional[bool], optional): Enable automatic highlighting, or ``None`` to use console default. Defaults to None.\n    log_locals (bool, optional): Boolean to enable logging of locals where ``log()``\n        was called. Defaults to False.\n    _stack_offset (int, optional): Offset of caller from end of call stack. Defaults to 1."
+    },
+    {
+      "name": "on_broken_pipe",
+      "docstring": "This function is called when a `BrokenPipeError` is raised.\n\nThis can occur when piping Textual output in Linux and macOS.\nThe default implementation is to exit the app, but you could implement\nthis method in a subclass to change the behavior.\n\nSee https://docs.python.org/3/library/signal.html#note-on-sigpipe for details."
+    },
+    {
+      "name": "input",
+      "docstring": "Displays a prompt and waits for input from the user. The prompt may contain color / style.\n\nIt works in the same way as Python's builtin :func:`input` function and provides elaborate line editing and history features if Python's builtin :mod:`readline` module is previously loaded.\n\nArgs:\n    prompt (Union[str, Text]): Text to render in the prompt.\n    markup (bool, optional): Enable console markup (requires a str prompt). Defaults to True.\n    emoji (bool, optional): Enable emoji (requires a str prompt). Defaults to True.\n    password: (bool, optional): Hide typed text. Defaults to False.\n    stream: (TextIO, optional): Optional file to read input from (rather than stdin). Defaults to None.\n\nReturns:\n    str: Text read from stdin."
+    },
+    {
+      "name": "export_text",
+      "docstring": "Generate text from console contents (requires record=True argument in constructor).\n\nArgs:\n    clear (bool, optional): Clear record buffer after exporting. Defaults to ``True``.\n    styles (bool, optional): If ``True``, ansi escape codes will be included. ``False`` for plain text.\n        Defaults to ``False``.\n\nReturns:\n    str: String containing console contents."
+    },
+    {
+      "name": "save_text",
+      "docstring": "Generate text from console and save to a given location (requires record=True argument in constructor).\n\nArgs:\n    path (str): Path to write text files.\n    clear (bool, optional): Clear record buffer after exporting. Defaults to ``True``.\n    styles (bool, optional): If ``True``, ansi style codes will be included. ``False`` for plain text.\n        Defaults to ``False``."
+    },
+    {
+      "name": "export_html",
+      "docstring": "Generate HTML from console contents (requires record=True argument in constructor).\n\nArgs:\n    theme (TerminalTheme, optional): TerminalTheme object containing console colors.\n    clear (bool, optional): Clear record buffer after exporting. Defaults to ``True``.\n    code_format (str, optional): Format string to render HTML. In addition to '{foreground}',\n        '{background}', and '{code}', should contain '{stylesheet}' if inline_styles is ``False``.\n    inline_styles (bool, optional): If ``True`` styles will be inlined in to spans, which makes files\n        larger but easier to cut and paste markup. If ``False``, styles will be embedded in a style tag.\n        Defaults to False.\n\nReturns:\n    str: String containing console contents as HTML."
+    },
+    {
+      "name": "save_html",
+      "docstring": "Generate HTML from console contents and write to a file (requires record=True argument in constructor).\n\nArgs:\n    path (str): Path to write html file.\n    theme (TerminalTheme, optional): TerminalTheme object containing console colors.\n    clear (bool, optional): Clear record buffer after exporting. Defaults to ``True``.\n    code_format (str, optional): Format string to render HTML. In addition to '{foreground}',\n        '{background}', and '{code}', should contain '{stylesheet}' if inline_styles is ``False``.\n    inline_styles (bool, optional): If ``True`` styles will be inlined in to spans, which makes files\n        larger but easier to cut and paste markup. If ``False``, styles will be embedded in a style tag.\n        Defaults to False."
+    },
+    {
+      "name": "export_svg",
+      "docstring": "Generate an SVG from the console contents (requires record=True in Console constructor).\n\nArgs:\n    title (str, optional): The title of the tab in the output image\n    theme (TerminalTheme, optional): The ``TerminalTheme`` object to use to style the terminal\n    clear (bool, optional): Clear record buffer after exporting. Defaults to ``True``\n    code_format (str, optional): Format string used to generate the SVG. Rich will inject a number of variables\n        into the string in order to form the final SVG output. The default template used and the variables\n        injected by Rich can be found by inspecting the ``console.CONSOLE_SVG_FORMAT`` variable.\n    font_aspect_ratio (float, optional): The width to height ratio of the font used in the ``code_format``\n        string. Defaults to 0.61, which is the width to height ratio of Fira Code (the default font).\n        If you aren't specifying a different font inside ``code_format``, you probably don't need this.\n    unique_id (str, optional): unique id that is used as the prefix for various elements (CSS styles, node\n        ids). If not set, this defaults to a computed value based on the recorded content."
+    },
+    {
+      "name": "save_svg",
+      "docstring": "Generate an SVG file from the console contents (requires record=True in Console constructor).\n\nArgs:\n    path (str): The path to write the SVG to.\n    title (str, optional): The title of the tab in the output image\n    theme (TerminalTheme, optional): The ``TerminalTheme`` object to use to style the terminal\n    clear (bool, optional): Clear record buffer after exporting. Defaults to ``True``\n    code_format (str, optional): Format string used to generate the SVG. Rich will inject a number of variables\n        into the string in order to form the final SVG output. The default template used and the variables\n        injected by Rich can be found by inspecting the ``console.CONSOLE_SVG_FORMAT`` variable.\n    font_aspect_ratio (float, optional): The width to height ratio of the font used in the ``code_format``\n        string. Defaults to 0.61, which is the width to height ratio of Fira Code (the default font).\n        If you aren't specifying a different font inside ``code_format``, you probably don't need this.\n    unique_id (str, optional): unique id that is used as the prefix for various elements (CSS styles, node\n        ids). If not set, this defaults to a computed value based on the recorded content."
+    },
+    {
+      "name": "check_text",
+      "docstring": null
+    },
+    {
+      "name": "get_svg_style",
+      "docstring": "Convert a Style to CSS rules for SVG."
+    },
+    {
+      "name": "escape_text",
+      "docstring": "HTML escape text and replace spaces with nbsp."
+    },
+    {
+      "name": "make_tag",
+      "docstring": "Make a tag from name, content, and attributes."
+    },
+    {
+      "name": "align_append",
+      "docstring": null
+    },
+    {
+      "name": "stringify",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

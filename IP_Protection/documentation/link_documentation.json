@@ -1,0 +1,274 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\models\\link.py",
+  "classes": [
+    {
+      "name": "LinkHash",
+      "docstring": "Links to content may have embedded hash values. This class parses those.\n\n`name` must be any member of `_SUPPORTED_HASHES`.\n\nThis class can be converted to and from `ArchiveInfo`. While ArchiveInfo intends to\nbe JSON-serializable to conform to PEP 610, this class contains the logic for\nparsing a hash name and value for correctness, and then checking whether that hash\nconforms to a schema with `.is_hash_allowed()`.",
+      "methods": [
+        {
+          "name": "find_hash_url_fragment",
+          "docstring": "Search a string for a checksum algorithm name and encoded output value."
+        },
+        {
+          "name": "as_dict",
+          "docstring": null
+        },
+        {
+          "name": "as_hashes",
+          "docstring": "Return a Hashes instance which checks only for the current hash."
+        },
+        {
+          "name": "is_hash_allowed",
+          "docstring": "Return True if the current hash is allowed by `hashes`."
+        }
+      ]
+    },
+    {
+      "name": "MetadataFile",
+      "docstring": "Information about a core metadata file associated with a distribution.",
+      "methods": []
+    },
+    {
+      "name": "Link",
+      "docstring": "Represents a parsed link from a Package Index's simple URL",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": ":param url: url of the resource pointed to (href of the link)\n:param comes_from: instance of IndexContent where the link was found,\n    or string.\n:param requires_python: String containing the `Requires-Python`\n    metadata field, specified in PEP 345. This may be specified by\n    a data-requires-python attribute in the HTML link tag, as\n    described in PEP 503.\n:param yanked_reason: the reason the file has been yanked, if the\n    file has been yanked, or None if the file hasn't been yanked.\n    This is the value of the \"data-yanked\" attribute, if present, in\n    a simple repository HTML link. If the file has been yanked but\n    no reason was provided, this should be the empty string. See\n    PEP 592 for more information and the specification.\n:param metadata_file_data: the metadata attached to the file, or None if\n    no such metadata is provided. This argument, if not None, indicates\n    that a separate metadata file exists, and also optionally supplies\n    hashes for that file.\n:param cache_link_parsing: A flag that is used elsewhere to determine\n    whether resources retrieved from this link should be cached. PyPI\n    URLs should generally have this set to False, for example.\n:param hashes: A mapping of hash names to digests to allow us to\n    determine the validity of a download."
+        },
+        {
+          "name": "from_json",
+          "docstring": "Convert an pypi json document from a simple repository page into a Link."
+        },
+        {
+          "name": "from_element",
+          "docstring": "Convert an anchor element's attributes in a simple repository page to a Link."
+        },
+        {
+          "name": "url",
+          "docstring": null
+        },
+        {
+          "name": "redacted_url",
+          "docstring": null
+        },
+        {
+          "name": "filename",
+          "docstring": null
+        },
+        {
+          "name": "file_path",
+          "docstring": null
+        },
+        {
+          "name": "scheme",
+          "docstring": null
+        },
+        {
+          "name": "netloc",
+          "docstring": "This can contain auth information."
+        },
+        {
+          "name": "path",
+          "docstring": null
+        },
+        {
+          "name": "splitext",
+          "docstring": null
+        },
+        {
+          "name": "ext",
+          "docstring": null
+        },
+        {
+          "name": "url_without_fragment",
+          "docstring": null
+        },
+        {
+          "name": "subdirectory_fragment",
+          "docstring": null
+        },
+        {
+          "name": "metadata_link",
+          "docstring": "Return a link to the associated core metadata file (if any)."
+        },
+        {
+          "name": "as_hashes",
+          "docstring": null
+        },
+        {
+          "name": "hash",
+          "docstring": null
+        },
+        {
+          "name": "hash_name",
+          "docstring": null
+        },
+        {
+          "name": "show_url",
+          "docstring": null
+        },
+        {
+          "name": "is_file",
+          "docstring": null
+        },
+        {
+          "name": "is_existing_dir",
+          "docstring": null
+        },
+        {
+          "name": "is_wheel",
+          "docstring": null
+        },
+        {
+          "name": "is_vcs",
+          "docstring": null
+        },
+        {
+          "name": "is_yanked",
+          "docstring": null
+        },
+        {
+          "name": "has_hash",
+          "docstring": null
+        },
+        {
+          "name": "is_hash_allowed",
+          "docstring": "Return True if the link has a hash and it is allowed by `hashes`."
+        }
+      ]
+    },
+    {
+      "name": "_CleanResult",
+      "docstring": "Convert link for equivalency check.\n\nThis is used in the resolver to check whether two URL-specified requirements\nlikely point to the same distribution and can be considered equivalent. This\nequivalency logic avoids comparing URLs literally, which can be too strict\n(e.g. \"a=1&b=2\" vs \"b=2&a=1\") and produce conflicts unexpecting to users.\n\nCurrently this does three things:\n\n1. Drop the basic auth part. This is technically wrong since a server can\n   serve different content based on auth, but if it does that, it is even\n   impossible to guarantee two URLs without auth are equivalent, since\n   the user can input different auth information when prompted. So the\n   practical solution is to assume the auth doesn't affect the response.\n2. Parse the query to avoid the ordering issue. Note that ordering under the\n   same key in the query are NOT cleaned; i.e. \"a=1&a=2\" and \"a=2&a=1\" are\n   still considered different.\n3. Explicitly drop most of the fragment part, except ``subdirectory=`` and\n   hash values, since it should have no impact the downloaded content. Note\n   that this drops the \"egg=\" part historically used to denote the requested\n   project (and extras), which is wrong in the strictest sense, but too many\n   people are supplying it inconsistently to cause superfluous resolution\n   conflicts, so we choose to also ignore them.",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "supported_hashes",
+      "docstring": null
+    },
+    {
+      "name": "links_equivalent",
+      "docstring": null
+    },
+    {
+      "name": "find_hash_url_fragment",
+      "docstring": "Search a string for a checksum algorithm name and encoded output value."
+    },
+    {
+      "name": "as_dict",
+      "docstring": null
+    },
+    {
+      "name": "as_hashes",
+      "docstring": "Return a Hashes instance which checks only for the current hash."
+    },
+    {
+      "name": "is_hash_allowed",
+      "docstring": "Return True if the current hash is allowed by `hashes`."
+    },
+    {
+      "name": "from_json",
+      "docstring": "Convert an pypi json document from a simple repository page into a Link."
+    },
+    {
+      "name": "from_element",
+      "docstring": "Convert an anchor element's attributes in a simple repository page to a Link."
+    },
+    {
+      "name": "url",
+      "docstring": null
+    },
+    {
+      "name": "redacted_url",
+      "docstring": null
+    },
+    {
+      "name": "filename",
+      "docstring": null
+    },
+    {
+      "name": "file_path",
+      "docstring": null
+    },
+    {
+      "name": "scheme",
+      "docstring": null
+    },
+    {
+      "name": "netloc",
+      "docstring": "This can contain auth information."
+    },
+    {
+      "name": "path",
+      "docstring": null
+    },
+    {
+      "name": "splitext",
+      "docstring": null
+    },
+    {
+      "name": "ext",
+      "docstring": null
+    },
+    {
+      "name": "url_without_fragment",
+      "docstring": null
+    },
+    {
+      "name": "subdirectory_fragment",
+      "docstring": null
+    },
+    {
+      "name": "metadata_link",
+      "docstring": "Return a link to the associated core metadata file (if any)."
+    },
+    {
+      "name": "as_hashes",
+      "docstring": null
+    },
+    {
+      "name": "hash",
+      "docstring": null
+    },
+    {
+      "name": "hash_name",
+      "docstring": null
+    },
+    {
+      "name": "show_url",
+      "docstring": null
+    },
+    {
+      "name": "is_file",
+      "docstring": null
+    },
+    {
+      "name": "is_existing_dir",
+      "docstring": null
+    },
+    {
+      "name": "is_wheel",
+      "docstring": null
+    },
+    {
+      "name": "is_vcs",
+      "docstring": null
+    },
+    {
+      "name": "is_yanked",
+      "docstring": null
+    },
+    {
+      "name": "has_hash",
+      "docstring": null
+    },
+    {
+      "name": "is_hash_allowed",
+      "docstring": "Return True if the link has a hash and it is allowed by `hashes`."
+    }
+  ],
+  "innovations": []
+}

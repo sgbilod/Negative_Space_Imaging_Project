@@ -1,0 +1,32 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\grab.py",
+  "classes": [
+    {
+      "name": "BaseGrabFormat",
+      "docstring": "Base format for grab formats.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ScreenGrabFormat",
+      "docstring": "The ScreenGrabFormat provided a means to grab screenshots using\nthe uri of \"<screen>\".\n\nThis functionality is provided via Pillow. Note that \"<screen>\" is\nonly supported on Windows and OS X.\n\nParameters for reading\n----------------------\nNo parameters.",
+      "methods": []
+    },
+    {
+      "name": "ClipboardGrabFormat",
+      "docstring": "The ClipboardGrabFormat provided a means to grab image data from\nthe clipboard, using the uri \"<clipboard>\"\n\nThis functionality is provided via Pillow. Note that \"<clipboard>\" is\nonly supported on Windows.\n\nParameters for reading\n----------------------\nNo parameters.",
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [],
+  "innovations": []
+}

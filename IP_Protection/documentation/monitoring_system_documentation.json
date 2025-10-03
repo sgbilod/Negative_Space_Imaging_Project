@@ -1,0 +1,30 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\IP_Protection\\automation\\monitoring_system.py",
+  "classes": [
+    {
+      "name": "IPMonitoringSystem",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "on_modified",
+          "docstring": "Handle file modification events."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "start_monitoring",
+      "docstring": "Start the file system monitoring."
+    },
+    {
+      "name": "on_modified",
+      "docstring": "Handle file modification events."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,63 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\packages\\backports\\weakref_finalize.py",
+  "classes": [
+    {
+      "name": "weakref_finalize",
+      "docstring": "Class for finalization of weakrefable objects\nfinalize(obj, func, *args, **kwargs) returns a callable finalizer\nobject which will be called when obj is garbage collected. The\nfirst time the finalizer is called it evaluates func(*arg, **kwargs)\nand returns the result. After this the finalizer is dead, and\ncalling it just returns None.\nWhen the program exits any remaining finalizers for which the\natexit attribute is true will be run in reverse order of creation.\nBy default atexit is true.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "detach",
+          "docstring": "If alive then mark as dead and return (obj, func, args, kwargs);\notherwise return None"
+        },
+        {
+          "name": "peek",
+          "docstring": "If alive then return (obj, func, args, kwargs);\notherwise return None"
+        },
+        {
+          "name": "alive",
+          "docstring": "Whether finalizer is alive"
+        },
+        {
+          "name": "atexit",
+          "docstring": "Whether finalizer should be called at exit"
+        },
+        {
+          "name": "atexit",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_Info",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "detach",
+      "docstring": "If alive then mark as dead and return (obj, func, args, kwargs);\notherwise return None"
+    },
+    {
+      "name": "peek",
+      "docstring": "If alive then return (obj, func, args, kwargs);\notherwise return None"
+    },
+    {
+      "name": "alive",
+      "docstring": "Whether finalizer is alive"
+    },
+    {
+      "name": "atexit",
+      "docstring": "Whether finalizer should be called at exit"
+    },
+    {
+      "name": "atexit",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

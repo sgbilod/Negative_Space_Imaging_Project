@@ -1,0 +1,52 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_typing\\_nbit_base.py",
+  "classes": [
+    {
+      "name": "NBitBase",
+      "docstring": "A type representing `numpy.number` precision during static type checking.\n\nUsed exclusively for the purpose static type checking, `NBitBase`\nrepresents the base of a hierarchical set of subclasses.\nEach subsequent subclass is herein used for representing a lower level\nof precision, *e.g.* ``64Bit > 32Bit > 16Bit``.\n\n.. versionadded:: 1.20\n\nExamples\n--------\nBelow is a typical usage example: `NBitBase` is herein used for annotating\na function that takes a float and integer of arbitrary precision\nas arguments and returns a new float of whichever precision is largest\n(*e.g.* ``np.float16 + np.int64 -> np.float64``).\n\n.. code-block:: python\n\n    >>> from __future__ import annotations\n    >>> from typing import TypeVar, TYPE_CHECKING\n    >>> import numpy as np\n    >>> import numpy.typing as npt\n\n    >>> S = TypeVar(\"S\", bound=npt.NBitBase)\n    >>> T = TypeVar(\"T\", bound=npt.NBitBase)\n\n    >>> def add(a: np.floating[S], b: np.integer[T]) -> np.floating[S | T]:\n    ...     return a + b\n\n    >>> a = np.float16()\n    >>> b = np.int64()\n    >>> out = add(a, b)\n\n    >>> if TYPE_CHECKING:\n    ...     reveal_locals()\n    ...     # note: Revealed local types are:\n    ...     # note:     a: numpy.floating[numpy.typing._16Bit*]\n    ...     # note:     b: numpy.signedinteger[numpy.typing._64Bit*]\n    ...     # note:     out: numpy.floating[numpy.typing._64Bit*]",
+      "methods": []
+    },
+    {
+      "name": "_256Bit",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_128Bit",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_96Bit",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_80Bit",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_64Bit",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_32Bit",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_16Bit",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_8Bit",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [],
+  "innovations": []
+}

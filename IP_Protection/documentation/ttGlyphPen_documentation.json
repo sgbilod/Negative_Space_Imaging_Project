@@ -1,0 +1,138 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\pens\\ttGlyphPen.py",
+  "classes": [
+    {
+      "name": "_TTGlyphBasePen",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Construct a new pen.\n\nArgs:\n    glyphSet (Dict[str, Any]): A glyphset object, used to resolve components.\n    handleOverflowingTransforms (bool): See below.\n\nIf ``handleOverflowingTransforms`` is True, the components' transform values\nare checked that they don't overflow the limits of a F2Dot14 number:\n-2.0 <= v < +2.0. If any transform value exceeds these, the composite\nglyph is decomposed.\n\nAn exception to this rule is done for values that are very close to +2.0\n(both for consistency with the -2.0 case, and for the relative frequency\nthese occur in real fonts). When almost +2.0 values occur (and all other\nvalues are within the range -2.0 <= x <= +2.0), they are clamped to the\nmaximum positive value that can still be encoded as an F2Dot14: i.e.\n1.99993896484375.\n\nIf False, no check is done and all components are translated unmodified\ninto the glyf table, followed by an inevitable ``struct.error`` once an\nattempt is made to compile them.\n\nIf both contours and components are present in a glyph, the components\nare decomposed."
+        },
+        {
+          "name": "init",
+          "docstring": null
+        },
+        {
+          "name": "addComponent",
+          "docstring": "Add a sub glyph."
+        },
+        {
+          "name": "glyph",
+          "docstring": "Returns a :py:class:`~._g_l_y_f.Glyph` object representing the glyph.\n\nArgs:\n    componentFlags: Flags to use for component glyphs. (default: 0x04)\n\n    dropImpliedOnCurves: Whether to remove implied-oncurve points. (default: False)"
+        }
+      ]
+    },
+    {
+      "name": "TTGlyphPen",
+      "docstring": "Pen used for drawing to a TrueType glyph.\n\nThis pen can be used to construct or modify glyphs in a TrueType format\nfont. After using the pen to draw, use the ``.glyph()`` method to retrieve\na :py:class:`~._g_l_y_f.Glyph` object representing the glyph.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "lineTo",
+          "docstring": null
+        },
+        {
+          "name": "moveTo",
+          "docstring": null
+        },
+        {
+          "name": "curveTo",
+          "docstring": null
+        },
+        {
+          "name": "qCurveTo",
+          "docstring": null
+        },
+        {
+          "name": "closePath",
+          "docstring": null
+        },
+        {
+          "name": "endPath",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TTGlyphPointPen",
+      "docstring": "Point pen used for drawing to a TrueType glyph.\n\nThis pen can be used to construct or modify glyphs in a TrueType format\nfont. After using the pen to draw, use the ``.glyph()`` method to retrieve\na :py:class:`~._g_l_y_f.Glyph` object representing the glyph.",
+      "methods": [
+        {
+          "name": "init",
+          "docstring": null
+        },
+        {
+          "name": "beginPath",
+          "docstring": "Start a new sub path."
+        },
+        {
+          "name": "endPath",
+          "docstring": "End the current sub path."
+        },
+        {
+          "name": "addPoint",
+          "docstring": "Add a point to the current sub path."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "init",
+      "docstring": null
+    },
+    {
+      "name": "addComponent",
+      "docstring": "Add a sub glyph."
+    },
+    {
+      "name": "glyph",
+      "docstring": "Returns a :py:class:`~._g_l_y_f.Glyph` object representing the glyph.\n\nArgs:\n    componentFlags: Flags to use for component glyphs. (default: 0x04)\n\n    dropImpliedOnCurves: Whether to remove implied-oncurve points. (default: False)"
+    },
+    {
+      "name": "lineTo",
+      "docstring": null
+    },
+    {
+      "name": "moveTo",
+      "docstring": null
+    },
+    {
+      "name": "curveTo",
+      "docstring": null
+    },
+    {
+      "name": "qCurveTo",
+      "docstring": null
+    },
+    {
+      "name": "closePath",
+      "docstring": null
+    },
+    {
+      "name": "endPath",
+      "docstring": null
+    },
+    {
+      "name": "init",
+      "docstring": null
+    },
+    {
+      "name": "beginPath",
+      "docstring": "Start a new sub path."
+    },
+    {
+      "name": "endPath",
+      "docstring": "End the current sub path."
+    },
+    {
+      "name": "addPoint",
+      "docstring": "Add a point to the current sub path."
+    }
+  ],
+  "innovations": []
+}

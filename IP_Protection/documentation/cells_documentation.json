@@ -1,0 +1,27 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\cells.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "cached_cell_len",
+      "docstring": "Get the number of cells required to display text.\n\nThis method always caches, which may use up a lot of memory. It is recommended to use\n`cell_len` over this method.\n\nArgs:\n    text (str): Text to display.\n\nReturns:\n    int: Get the number of cells required to display text."
+    },
+    {
+      "name": "cell_len",
+      "docstring": "Get the number of cells required to display text.\n\nArgs:\n    text (str): Text to display.\n\nReturns:\n    int: Get the number of cells required to display text."
+    },
+    {
+      "name": "get_character_cell_size",
+      "docstring": "Get the cell size of a character.\n\nArgs:\n    character (str): A single character.\n\nReturns:\n    int: Number of cells (0, 1 or 2) occupied by that character."
+    },
+    {
+      "name": "set_cell_size",
+      "docstring": "Set the length of a string to fit within given number of cells."
+    },
+    {
+      "name": "chop_cells",
+      "docstring": "Split text into lines such that each line fits within the available (cell) width.\n\nArgs:\n    text: The text to fold such that it fits in the given width.\n    width: The width available (number of cells).\n\nReturns:\n    A list of strings such that each string in the list has cell width\n    less than or equal to the available width."
+    }
+  ],
+  "innovations": []
+}

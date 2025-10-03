@@ -1,0 +1,304 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\f2py\\tests\\test_character.py",
+  "classes": [
+    {
+      "name": "TestCharacterString",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_input",
+          "docstring": null
+        },
+        {
+          "name": "test_output",
+          "docstring": null
+        },
+        {
+          "name": "test_array_input",
+          "docstring": null
+        },
+        {
+          "name": "test_array_output",
+          "docstring": null
+        },
+        {
+          "name": "test_2d_array_input",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCharacter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_input",
+          "docstring": null
+        },
+        {
+          "name": "test_input_varia",
+          "docstring": null
+        },
+        {
+          "name": "test_array_input",
+          "docstring": null
+        },
+        {
+          "name": "test_array_input_varia",
+          "docstring": null
+        },
+        {
+          "name": "test_2d_array_input",
+          "docstring": null
+        },
+        {
+          "name": "test_output",
+          "docstring": null
+        },
+        {
+          "name": "test_array_output",
+          "docstring": null
+        },
+        {
+          "name": "test_input_output",
+          "docstring": null
+        },
+        {
+          "name": "test_inout",
+          "docstring": null
+        },
+        {
+          "name": "test_inout_varia",
+          "docstring": null
+        },
+        {
+          "name": "test_array_inout",
+          "docstring": null
+        },
+        {
+          "name": "test_2d_array_inout",
+          "docstring": null
+        },
+        {
+          "name": "test_return",
+          "docstring": null
+        },
+        {
+          "name": "test_array_return",
+          "docstring": null
+        },
+        {
+          "name": "test_optional",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMiscCharacter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_gh18684",
+          "docstring": null
+        },
+        {
+          "name": "test_gh6308",
+          "docstring": null
+        },
+        {
+          "name": "test_gh4519",
+          "docstring": null
+        },
+        {
+          "name": "test_gh3425",
+          "docstring": null
+        },
+        {
+          "name": "test_character_bc",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestStringScalarArr",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_char",
+          "docstring": null
+        },
+        {
+          "name": "test_char_arr",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestStringAssumedLength",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_gh24008",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestStringOptionalInOut",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_gh24662",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNewCharHandling",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_gh25286",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestBCCharHandling",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_gh25286",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_input",
+      "docstring": null
+    },
+    {
+      "name": "test_output",
+      "docstring": null
+    },
+    {
+      "name": "test_array_input",
+      "docstring": null
+    },
+    {
+      "name": "test_array_output",
+      "docstring": null
+    },
+    {
+      "name": "test_2d_array_input",
+      "docstring": null
+    },
+    {
+      "name": "test_input",
+      "docstring": null
+    },
+    {
+      "name": "test_input_varia",
+      "docstring": null
+    },
+    {
+      "name": "test_array_input",
+      "docstring": null
+    },
+    {
+      "name": "test_array_input_varia",
+      "docstring": null
+    },
+    {
+      "name": "test_2d_array_input",
+      "docstring": null
+    },
+    {
+      "name": "test_output",
+      "docstring": null
+    },
+    {
+      "name": "test_array_output",
+      "docstring": null
+    },
+    {
+      "name": "test_input_output",
+      "docstring": null
+    },
+    {
+      "name": "test_inout",
+      "docstring": null
+    },
+    {
+      "name": "test_inout_varia",
+      "docstring": null
+    },
+    {
+      "name": "test_array_inout",
+      "docstring": null
+    },
+    {
+      "name": "test_2d_array_inout",
+      "docstring": null
+    },
+    {
+      "name": "test_return",
+      "docstring": null
+    },
+    {
+      "name": "test_array_return",
+      "docstring": null
+    },
+    {
+      "name": "test_optional",
+      "docstring": null
+    },
+    {
+      "name": "test_gh18684",
+      "docstring": null
+    },
+    {
+      "name": "test_gh6308",
+      "docstring": null
+    },
+    {
+      "name": "test_gh4519",
+      "docstring": null
+    },
+    {
+      "name": "test_gh3425",
+      "docstring": null
+    },
+    {
+      "name": "test_character_bc",
+      "docstring": null
+    },
+    {
+      "name": "test_char",
+      "docstring": null
+    },
+    {
+      "name": "test_char_arr",
+      "docstring": null
+    },
+    {
+      "name": "test_gh24008",
+      "docstring": null
+    },
+    {
+      "name": "test_gh24662",
+      "docstring": null
+    },
+    {
+      "name": "test_gh25286",
+      "docstring": null
+    },
+    {
+      "name": "test_gh25286",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,578 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\lines.py",
+  "classes": [
+    {
+      "name": "Line2D",
+      "docstring": "A line - the line can have both a solid linestyle connecting all\nthe vertices, and a marker at each vertex.  Additionally, the\ndrawing of the solid line is influenced by the drawstyle, e.g., one\ncan create \"stepped\" lines in various styles.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a `.Line2D` instance with *x* and *y* data in sequences of\n*xdata*, *ydata*.\n\nAdditional keyword arguments are `.Line2D` properties:\n\n%(Line2D:kwdoc)s\n\nSee :meth:`set_linestyle` for a description of the line styles,\n:meth:`set_marker` for a description of the markers, and\n:meth:`set_drawstyle` for a description of the draw styles."
+        },
+        {
+          "name": "contains",
+          "docstring": "Test whether *mouseevent* occurred on the line.\n\nAn event is deemed to have occurred \"on\" the line if it is less\nthan ``self.pickradius`` (default: 5 points) away from it.  Use\n`~.Line2D.get_pickradius` or `~.Line2D.set_pickradius` to get or set\nthe pick radius.\n\nParameters\n----------\nmouseevent : `~matplotlib.backend_bases.MouseEvent`\n\nReturns\n-------\ncontains : bool\n    Whether any values are within the radius.\ndetails : dict\n    A dictionary ``{'ind': pointlist}``, where *pointlist* is a\n    list of points of the line that are within the pickradius around\n    the event position.\n\n    TODO: sort returned indices by distance"
+        },
+        {
+          "name": "get_pickradius",
+          "docstring": "Return the pick radius used for containment tests.\n\nSee `.contains` for more details."
+        },
+        {
+          "name": "set_pickradius",
+          "docstring": "Set the pick radius used for containment tests.\n\nSee `.contains` for more details.\n\nParameters\n----------\npickradius : float\n    Pick radius, in points."
+        },
+        {
+          "name": "get_fillstyle",
+          "docstring": "Return the marker fill style.\n\nSee also `~.Line2D.set_fillstyle`."
+        },
+        {
+          "name": "set_fillstyle",
+          "docstring": "Set the marker fill style.\n\nParameters\n----------\nfs : {'full', 'left', 'right', 'bottom', 'top', 'none'}\n    Possible values:\n\n    - 'full': Fill the whole marker with the *markerfacecolor*.\n    - 'left', 'right', 'bottom', 'top': Fill the marker half at\n      the given side with the *markerfacecolor*. The other\n      half of the marker is filled with *markerfacecoloralt*.\n    - 'none': No filling.\n\n    For examples see :ref:`marker_fill_styles`."
+        },
+        {
+          "name": "set_markevery",
+          "docstring": "Set the markevery property to subsample the plot when using markers.\n\ne.g., if ``every=5``, every 5-th marker will be plotted.\n\nParameters\n----------\nevery : None or int or (int, int) or slice or list[int] or float or (float, float) or list[bool]\n    Which markers to plot.\n\n    - ``every=None``: every point will be plotted.\n    - ``every=N``: every N-th marker will be plotted starting with\n      marker 0.\n    - ``every=(start, N)``: every N-th marker, starting at index\n      *start*, will be plotted.\n    - ``every=slice(start, end, N)``: every N-th marker, starting at\n      index *start*, up to but not including index *end*, will be\n      plotted.\n    - ``every=[i, j, m, ...]``: only markers at the given indices\n      will be plotted.\n    - ``every=[True, False, True, ...]``: only positions that are True\n      will be plotted. The list must have the same length as the data\n      points.\n    - ``every=0.1``, (i.e. a float): markers will be spaced at\n      approximately equal visual distances along the line; the distance\n      along the line between markers is determined by multiplying the\n      display-coordinate distance of the Axes bounding-box diagonal\n      by the value of *every*.\n    - ``every=(0.5, 0.1)`` (i.e. a length-2 tuple of float): similar\n      to ``every=0.1`` but the first marker will be offset along the\n      line by 0.5 multiplied by the\n      display-coordinate-diagonal-distance along the line.\n\n    For examples see\n    :doc:`/gallery/lines_bars_and_markers/markevery_demo`.\n\nNotes\n-----\nSetting *markevery* will still only draw markers at actual data points.\nWhile the float argument form aims for uniform visual spacing, it has\nto coerce from the ideal spacing to the nearest available data point.\nDepending on the number and distribution of data points, the result\nmay still not look evenly spaced.\n\nWhen using a start offset to specify the first marker, the offset will\nbe from the first data point which may be different from the first\nthe visible data point if the plot is zoomed in.\n\nIf zooming in on a plot when using float arguments then the actual\ndata points that have markers will change because the distance between\nmarkers is always determined from the display-coordinates\naxes-bounding-box-diagonal regardless of the actual axes data limits."
+        },
+        {
+          "name": "get_markevery",
+          "docstring": "Return the markevery setting for marker subsampling.\n\nSee also `~.Line2D.set_markevery`."
+        },
+        {
+          "name": "set_picker",
+          "docstring": "Set the event picker details for the line.\n\nParameters\n----------\np : float or callable[[Artist, Event], tuple[bool, dict]]\n    If a float, it is used as the pick radius in points."
+        },
+        {
+          "name": "get_bbox",
+          "docstring": "Get the bounding box of this line."
+        },
+        {
+          "name": "get_window_extent",
+          "docstring": null
+        },
+        {
+          "name": "set_data",
+          "docstring": "Set the x and y data.\n\nParameters\n----------\n*args : (2, N) array or two 1D arrays\n\nSee Also\n--------\nset_xdata\nset_ydata"
+        },
+        {
+          "name": "recache_always",
+          "docstring": null
+        },
+        {
+          "name": "recache",
+          "docstring": null
+        },
+        {
+          "name": "set_transform",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        },
+        {
+          "name": "get_antialiased",
+          "docstring": "Return whether antialiased rendering is used."
+        },
+        {
+          "name": "get_color",
+          "docstring": "Return the line color.\n\nSee also `~.Line2D.set_color`."
+        },
+        {
+          "name": "get_drawstyle",
+          "docstring": "Return the drawstyle.\n\nSee also `~.Line2D.set_drawstyle`."
+        },
+        {
+          "name": "get_gapcolor",
+          "docstring": "Return the line gapcolor.\n\nSee also `~.Line2D.set_gapcolor`."
+        },
+        {
+          "name": "get_linestyle",
+          "docstring": "Return the linestyle.\n\nSee also `~.Line2D.set_linestyle`."
+        },
+        {
+          "name": "get_linewidth",
+          "docstring": "Return the linewidth in points.\n\nSee also `~.Line2D.set_linewidth`."
+        },
+        {
+          "name": "get_marker",
+          "docstring": "Return the line marker.\n\nSee also `~.Line2D.set_marker`."
+        },
+        {
+          "name": "get_markeredgecolor",
+          "docstring": "Return the marker edge color.\n\nSee also `~.Line2D.set_markeredgecolor`."
+        },
+        {
+          "name": "get_markeredgewidth",
+          "docstring": "Return the marker edge width in points.\n\nSee also `~.Line2D.set_markeredgewidth`."
+        },
+        {
+          "name": "get_markerfacecolor",
+          "docstring": "Return the marker face color.\n\nSee also `~.Line2D.set_markerfacecolor`."
+        },
+        {
+          "name": "get_markerfacecoloralt",
+          "docstring": "Return the alternate marker face color.\n\nSee also `~.Line2D.set_markerfacecoloralt`."
+        },
+        {
+          "name": "get_markersize",
+          "docstring": "Return the marker size in points.\n\nSee also `~.Line2D.set_markersize`."
+        },
+        {
+          "name": "get_data",
+          "docstring": "Return the line data as an ``(xdata, ydata)`` pair.\n\nIf *orig* is *True*, return the original data."
+        },
+        {
+          "name": "get_xdata",
+          "docstring": "Return the xdata.\n\nIf *orig* is *True*, return the original data, else the\nprocessed data."
+        },
+        {
+          "name": "get_ydata",
+          "docstring": "Return the ydata.\n\nIf *orig* is *True*, return the original data, else the\nprocessed data."
+        },
+        {
+          "name": "get_path",
+          "docstring": "Return the `~matplotlib.path.Path` associated with this line."
+        },
+        {
+          "name": "get_xydata",
+          "docstring": "Return the *xy* data as a (N, 2) array."
+        },
+        {
+          "name": "set_antialiased",
+          "docstring": "Set whether to use antialiased rendering.\n\nParameters\n----------\nb : bool"
+        },
+        {
+          "name": "set_color",
+          "docstring": "Set the color of the line.\n\nParameters\n----------\ncolor : :mpltype:`color`"
+        },
+        {
+          "name": "set_drawstyle",
+          "docstring": "Set the drawstyle of the plot.\n\nThe drawstyle determines how the points are connected.\n\nParameters\n----------\ndrawstyle : {'default', 'steps', 'steps-pre', 'steps-mid', 'steps-post'}, default: 'default'\n    For 'default', the points are connected with straight lines.\n\n    The steps variants connect the points with step-like lines,\n    i.e. horizontal lines with vertical steps. They differ in the\n    location of the step:\n\n    - 'steps-pre': The step is at the beginning of the line segment,\n      i.e. the line will be at the y-value of point to the right.\n    - 'steps-mid': The step is halfway between the points.\n    - 'steps-post: The step is at the end of the line segment,\n      i.e. the line will be at the y-value of the point to the left.\n    - 'steps' is equal to 'steps-pre' and is maintained for\n      backward-compatibility.\n\n    For examples see :doc:`/gallery/lines_bars_and_markers/step_demo`."
+        },
+        {
+          "name": "set_gapcolor",
+          "docstring": "Set a color to fill the gaps in the dashed line style.\n\n.. note::\n\n    Striped lines are created by drawing two interleaved dashed lines.\n    There can be overlaps between those two, which may result in\n    artifacts when using transparency.\n\n    This functionality is experimental and may change.\n\nParameters\n----------\ngapcolor : :mpltype:`color` or None\n    The color with which to fill the gaps. If None, the gaps are\n    unfilled."
+        },
+        {
+          "name": "set_linewidth",
+          "docstring": "Set the line width in points.\n\nParameters\n----------\nw : float\n    Line width, in points."
+        },
+        {
+          "name": "set_linestyle",
+          "docstring": "Set the linestyle of the line.\n\nParameters\n----------\nls : {'-', '--', '-.', ':', '', (offset, on-off-seq), ...}\n    Possible values:\n\n    - A string:\n\n      ==========================================  =================\n      linestyle                                   description\n      ==========================================  =================\n      ``'-'`` or ``'solid'``                      solid line\n      ``'--'`` or  ``'dashed'``                   dashed line\n      ``'-.'`` or  ``'dashdot'``                  dash-dotted line\n      ``':'`` or ``'dotted'``                     dotted line\n      ``'none'``, ``'None'``, ``' '``, or ``''``  draw nothing\n      ==========================================  =================\n\n    - Alternatively a dash tuple of the following form can be\n      provided::\n\n          (offset, onoffseq)\n\n      where ``onoffseq`` is an even length tuple of on and off ink\n      in points. See also :meth:`set_dashes`.\n\n    For examples see :doc:`/gallery/lines_bars_and_markers/linestyles`."
+        },
+        {
+          "name": "set_marker",
+          "docstring": "Set the line marker.\n\nParameters\n----------\nmarker : marker style string, `~.path.Path` or `~.markers.MarkerStyle`\n    See `~matplotlib.markers` for full description of possible\n    arguments."
+        },
+        {
+          "name": "set_markeredgecolor",
+          "docstring": "Set the marker edge color.\n\nParameters\n----------\nec : :mpltype:`color`"
+        },
+        {
+          "name": "set_markerfacecolor",
+          "docstring": "Set the marker face color.\n\nParameters\n----------\nfc : :mpltype:`color`"
+        },
+        {
+          "name": "set_markerfacecoloralt",
+          "docstring": "Set the alternate marker face color.\n\nParameters\n----------\nfc : :mpltype:`color`"
+        },
+        {
+          "name": "set_markeredgewidth",
+          "docstring": "Set the marker edge width in points.\n\nParameters\n----------\new : float\n     Marker edge width, in points."
+        },
+        {
+          "name": "set_markersize",
+          "docstring": "Set the marker size in points.\n\nParameters\n----------\nsz : float\n     Marker size, in points."
+        },
+        {
+          "name": "set_xdata",
+          "docstring": "Set the data array for x.\n\nParameters\n----------\nx : 1D array\n\nSee Also\n--------\nset_data\nset_ydata"
+        },
+        {
+          "name": "set_ydata",
+          "docstring": "Set the data array for y.\n\nParameters\n----------\ny : 1D array\n\nSee Also\n--------\nset_data\nset_xdata"
+        },
+        {
+          "name": "set_dashes",
+          "docstring": "Set the dash sequence.\n\nThe dash sequence is a sequence of floats of even length describing\nthe length of dashes and spaces in points.\n\nFor example, (5, 2, 1, 2) describes a sequence of 5 point and 1 point\ndashes separated by 2 point spaces.\n\nSee also `~.Line2D.set_gapcolor`, which allows those spaces to be\nfilled with a color.\n\nParameters\n----------\nseq : sequence of floats (on/off ink in points) or (None, None)\n    If *seq* is empty or ``(None, None)``, the linestyle will be set\n    to solid."
+        },
+        {
+          "name": "update_from",
+          "docstring": "Copy properties from *other* to self."
+        },
+        {
+          "name": "set_dash_joinstyle",
+          "docstring": "How to join segments of the line if it `~Line2D.is_dashed`.\n\nThe default joinstyle is :rc:`lines.dash_joinstyle`.\n\nParameters\n----------\ns : `.JoinStyle` or %(JoinStyle)s"
+        },
+        {
+          "name": "set_solid_joinstyle",
+          "docstring": "How to join segments if the line is solid (not `~Line2D.is_dashed`).\n\nThe default joinstyle is :rc:`lines.solid_joinstyle`.\n\nParameters\n----------\ns : `.JoinStyle` or %(JoinStyle)s"
+        },
+        {
+          "name": "get_dash_joinstyle",
+          "docstring": "Return the `.JoinStyle` for dashed lines.\n\nSee also `~.Line2D.set_dash_joinstyle`."
+        },
+        {
+          "name": "get_solid_joinstyle",
+          "docstring": "Return the `.JoinStyle` for solid lines.\n\nSee also `~.Line2D.set_solid_joinstyle`."
+        },
+        {
+          "name": "set_dash_capstyle",
+          "docstring": "How to draw the end caps if the line is `~Line2D.is_dashed`.\n\nThe default capstyle is :rc:`lines.dash_capstyle`.\n\nParameters\n----------\ns : `.CapStyle` or %(CapStyle)s"
+        },
+        {
+          "name": "set_solid_capstyle",
+          "docstring": "How to draw the end caps if the line is solid (not `~Line2D.is_dashed`)\n\nThe default capstyle is :rc:`lines.solid_capstyle`.\n\nParameters\n----------\ns : `.CapStyle` or %(CapStyle)s"
+        },
+        {
+          "name": "get_dash_capstyle",
+          "docstring": "Return the `.CapStyle` for dashed lines.\n\nSee also `~.Line2D.set_dash_capstyle`."
+        },
+        {
+          "name": "get_solid_capstyle",
+          "docstring": "Return the `.CapStyle` for solid lines.\n\nSee also `~.Line2D.set_solid_capstyle`."
+        },
+        {
+          "name": "is_dashed",
+          "docstring": "Return whether line has a dashed linestyle.\n\nA custom linestyle is assumed to be dashed, we do not inspect the\n``onoffseq`` directly.\n\nSee also `~.Line2D.set_linestyle`."
+        }
+      ]
+    },
+    {
+      "name": "AxLine",
+      "docstring": "A helper class that implements `~.Axes.axline`, by recomputing the artist\ntransform at draw time.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nxy1 : (float, float)\n    The first set of (x, y) coordinates for the line to pass through.\nxy2 : (float, float) or None\n    The second set of (x, y) coordinates for the line to pass through.\n    Both *xy2* and *slope* must be passed, but one of them must be None.\nslope : float or None\n    The slope of the line. Both *xy2* and *slope* must be passed, but one of\n    them must be None."
+        },
+        {
+          "name": "get_transform",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        },
+        {
+          "name": "get_xy1",
+          "docstring": "Return the *xy1* value of the line."
+        },
+        {
+          "name": "get_xy2",
+          "docstring": "Return the *xy2* value of the line."
+        },
+        {
+          "name": "get_slope",
+          "docstring": "Return the *slope* value of the line."
+        },
+        {
+          "name": "set_xy1",
+          "docstring": "Set the *xy1* value of the line.\n\nParameters\n----------\nxy1 : tuple[float, float]\n    Points for the line to pass through."
+        },
+        {
+          "name": "set_xy2",
+          "docstring": "Set the *xy2* value of the line.\n\n.. note::\n\n    You can only set *xy2* if the line was created using the *xy2*\n    parameter. If the line was created using *slope*, please use\n    `~.AxLine.set_slope`.\n\nParameters\n----------\nxy2 : tuple[float, float]\n    Points for the line to pass through."
+        },
+        {
+          "name": "set_slope",
+          "docstring": "Set the *slope* value of the line.\n\n.. note::\n\n    You can only set *slope* if the line was created using the *slope*\n    parameter. If the line was created using *xy2*, please use\n    `~.AxLine.set_xy2`.\n\nParameters\n----------\nslope : float\n    The slope of the line."
+        }
+      ]
+    },
+    {
+      "name": "VertexSelector",
+      "docstring": "Manage the callbacks to maintain a list of selected vertices for `.Line2D`.\nDerived classes should override the `process_selected` method to do\nsomething with the picks.\n\nHere is an example which highlights the selected verts with red circles::\n\n    import numpy as np\n    import matplotlib.pyplot as plt\n    import matplotlib.lines as lines\n\n    class HighlightSelected(lines.VertexSelector):\n        def __init__(self, line, fmt='ro', **kwargs):\n            super().__init__(line)\n            self.markers, = self.axes.plot([], [], fmt, **kwargs)\n\n        def process_selected(self, ind, xs, ys):\n            self.markers.set_data(xs, ys)\n            self.canvas.draw()\n\n    fig, ax = plt.subplots()\n    x, y = np.random.rand(2, 30)\n    line, = ax.plot(x, y, 'bs-', picker=5)\n\n    selector = HighlightSelected(line)\n    plt.show()",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nline : `~matplotlib.lines.Line2D`\n    The line must already have been added to an `~.axes.Axes` and must\n    have its picker property set."
+        },
+        {
+          "name": "process_selected",
+          "docstring": "Default \"do nothing\" implementation of the `process_selected` method.\n\nParameters\n----------\nind : list of int\n    The indices of the selected vertices.\nxs, ys : array-like\n    The coordinates of the selected vertices."
+        },
+        {
+          "name": "onpick",
+          "docstring": "When the line is picked, update the set of selected indices."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "segment_hits",
+      "docstring": "Return the indices of the segments in the polyline with coordinates (*cx*,\n*cy*) that are within a distance *radius* of the point (*x*, *y*)."
+    },
+    {
+      "name": "contains",
+      "docstring": "Test whether *mouseevent* occurred on the line.\n\nAn event is deemed to have occurred \"on\" the line if it is less\nthan ``self.pickradius`` (default: 5 points) away from it.  Use\n`~.Line2D.get_pickradius` or `~.Line2D.set_pickradius` to get or set\nthe pick radius.\n\nParameters\n----------\nmouseevent : `~matplotlib.backend_bases.MouseEvent`\n\nReturns\n-------\ncontains : bool\n    Whether any values are within the radius.\ndetails : dict\n    A dictionary ``{'ind': pointlist}``, where *pointlist* is a\n    list of points of the line that are within the pickradius around\n    the event position.\n\n    TODO: sort returned indices by distance"
+    },
+    {
+      "name": "get_pickradius",
+      "docstring": "Return the pick radius used for containment tests.\n\nSee `.contains` for more details."
+    },
+    {
+      "name": "set_pickradius",
+      "docstring": "Set the pick radius used for containment tests.\n\nSee `.contains` for more details.\n\nParameters\n----------\npickradius : float\n    Pick radius, in points."
+    },
+    {
+      "name": "get_fillstyle",
+      "docstring": "Return the marker fill style.\n\nSee also `~.Line2D.set_fillstyle`."
+    },
+    {
+      "name": "set_fillstyle",
+      "docstring": "Set the marker fill style.\n\nParameters\n----------\nfs : {'full', 'left', 'right', 'bottom', 'top', 'none'}\n    Possible values:\n\n    - 'full': Fill the whole marker with the *markerfacecolor*.\n    - 'left', 'right', 'bottom', 'top': Fill the marker half at\n      the given side with the *markerfacecolor*. The other\n      half of the marker is filled with *markerfacecoloralt*.\n    - 'none': No filling.\n\n    For examples see :ref:`marker_fill_styles`."
+    },
+    {
+      "name": "set_markevery",
+      "docstring": "Set the markevery property to subsample the plot when using markers.\n\ne.g., if ``every=5``, every 5-th marker will be plotted.\n\nParameters\n----------\nevery : None or int or (int, int) or slice or list[int] or float or (float, float) or list[bool]\n    Which markers to plot.\n\n    - ``every=None``: every point will be plotted.\n    - ``every=N``: every N-th marker will be plotted starting with\n      marker 0.\n    - ``every=(start, N)``: every N-th marker, starting at index\n      *start*, will be plotted.\n    - ``every=slice(start, end, N)``: every N-th marker, starting at\n      index *start*, up to but not including index *end*, will be\n      plotted.\n    - ``every=[i, j, m, ...]``: only markers at the given indices\n      will be plotted.\n    - ``every=[True, False, True, ...]``: only positions that are True\n      will be plotted. The list must have the same length as the data\n      points.\n    - ``every=0.1``, (i.e. a float): markers will be spaced at\n      approximately equal visual distances along the line; the distance\n      along the line between markers is determined by multiplying the\n      display-coordinate distance of the Axes bounding-box diagonal\n      by the value of *every*.\n    - ``every=(0.5, 0.1)`` (i.e. a length-2 tuple of float): similar\n      to ``every=0.1`` but the first marker will be offset along the\n      line by 0.5 multiplied by the\n      display-coordinate-diagonal-distance along the line.\n\n    For examples see\n    :doc:`/gallery/lines_bars_and_markers/markevery_demo`.\n\nNotes\n-----\nSetting *markevery* will still only draw markers at actual data points.\nWhile the float argument form aims for uniform visual spacing, it has\nto coerce from the ideal spacing to the nearest available data point.\nDepending on the number and distribution of data points, the result\nmay still not look evenly spaced.\n\nWhen using a start offset to specify the first marker, the offset will\nbe from the first data point which may be different from the first\nthe visible data point if the plot is zoomed in.\n\nIf zooming in on a plot when using float arguments then the actual\ndata points that have markers will change because the distance between\nmarkers is always determined from the display-coordinates\naxes-bounding-box-diagonal regardless of the actual axes data limits."
+    },
+    {
+      "name": "get_markevery",
+      "docstring": "Return the markevery setting for marker subsampling.\n\nSee also `~.Line2D.set_markevery`."
+    },
+    {
+      "name": "set_picker",
+      "docstring": "Set the event picker details for the line.\n\nParameters\n----------\np : float or callable[[Artist, Event], tuple[bool, dict]]\n    If a float, it is used as the pick radius in points."
+    },
+    {
+      "name": "get_bbox",
+      "docstring": "Get the bounding box of this line."
+    },
+    {
+      "name": "get_window_extent",
+      "docstring": null
+    },
+    {
+      "name": "set_data",
+      "docstring": "Set the x and y data.\n\nParameters\n----------\n*args : (2, N) array or two 1D arrays\n\nSee Also\n--------\nset_xdata\nset_ydata"
+    },
+    {
+      "name": "recache_always",
+      "docstring": null
+    },
+    {
+      "name": "recache",
+      "docstring": null
+    },
+    {
+      "name": "set_transform",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "get_antialiased",
+      "docstring": "Return whether antialiased rendering is used."
+    },
+    {
+      "name": "get_color",
+      "docstring": "Return the line color.\n\nSee also `~.Line2D.set_color`."
+    },
+    {
+      "name": "get_drawstyle",
+      "docstring": "Return the drawstyle.\n\nSee also `~.Line2D.set_drawstyle`."
+    },
+    {
+      "name": "get_gapcolor",
+      "docstring": "Return the line gapcolor.\n\nSee also `~.Line2D.set_gapcolor`."
+    },
+    {
+      "name": "get_linestyle",
+      "docstring": "Return the linestyle.\n\nSee also `~.Line2D.set_linestyle`."
+    },
+    {
+      "name": "get_linewidth",
+      "docstring": "Return the linewidth in points.\n\nSee also `~.Line2D.set_linewidth`."
+    },
+    {
+      "name": "get_marker",
+      "docstring": "Return the line marker.\n\nSee also `~.Line2D.set_marker`."
+    },
+    {
+      "name": "get_markeredgecolor",
+      "docstring": "Return the marker edge color.\n\nSee also `~.Line2D.set_markeredgecolor`."
+    },
+    {
+      "name": "get_markeredgewidth",
+      "docstring": "Return the marker edge width in points.\n\nSee also `~.Line2D.set_markeredgewidth`."
+    },
+    {
+      "name": "get_markerfacecolor",
+      "docstring": "Return the marker face color.\n\nSee also `~.Line2D.set_markerfacecolor`."
+    },
+    {
+      "name": "get_markerfacecoloralt",
+      "docstring": "Return the alternate marker face color.\n\nSee also `~.Line2D.set_markerfacecoloralt`."
+    },
+    {
+      "name": "get_markersize",
+      "docstring": "Return the marker size in points.\n\nSee also `~.Line2D.set_markersize`."
+    },
+    {
+      "name": "get_data",
+      "docstring": "Return the line data as an ``(xdata, ydata)`` pair.\n\nIf *orig* is *True*, return the original data."
+    },
+    {
+      "name": "get_xdata",
+      "docstring": "Return the xdata.\n\nIf *orig* is *True*, return the original data, else the\nprocessed data."
+    },
+    {
+      "name": "get_ydata",
+      "docstring": "Return the ydata.\n\nIf *orig* is *True*, return the original data, else the\nprocessed data."
+    },
+    {
+      "name": "get_path",
+      "docstring": "Return the `~matplotlib.path.Path` associated with this line."
+    },
+    {
+      "name": "get_xydata",
+      "docstring": "Return the *xy* data as a (N, 2) array."
+    },
+    {
+      "name": "set_antialiased",
+      "docstring": "Set whether to use antialiased rendering.\n\nParameters\n----------\nb : bool"
+    },
+    {
+      "name": "set_color",
+      "docstring": "Set the color of the line.\n\nParameters\n----------\ncolor : :mpltype:`color`"
+    },
+    {
+      "name": "set_drawstyle",
+      "docstring": "Set the drawstyle of the plot.\n\nThe drawstyle determines how the points are connected.\n\nParameters\n----------\ndrawstyle : {'default', 'steps', 'steps-pre', 'steps-mid', 'steps-post'}, default: 'default'\n    For 'default', the points are connected with straight lines.\n\n    The steps variants connect the points with step-like lines,\n    i.e. horizontal lines with vertical steps. They differ in the\n    location of the step:\n\n    - 'steps-pre': The step is at the beginning of the line segment,\n      i.e. the line will be at the y-value of point to the right.\n    - 'steps-mid': The step is halfway between the points.\n    - 'steps-post: The step is at the end of the line segment,\n      i.e. the line will be at the y-value of the point to the left.\n    - 'steps' is equal to 'steps-pre' and is maintained for\n      backward-compatibility.\n\n    For examples see :doc:`/gallery/lines_bars_and_markers/step_demo`."
+    },
+    {
+      "name": "set_gapcolor",
+      "docstring": "Set a color to fill the gaps in the dashed line style.\n\n.. note::\n\n    Striped lines are created by drawing two interleaved dashed lines.\n    There can be overlaps between those two, which may result in\n    artifacts when using transparency.\n\n    This functionality is experimental and may change.\n\nParameters\n----------\ngapcolor : :mpltype:`color` or None\n    The color with which to fill the gaps. If None, the gaps are\n    unfilled."
+    },
+    {
+      "name": "set_linewidth",
+      "docstring": "Set the line width in points.\n\nParameters\n----------\nw : float\n    Line width, in points."
+    },
+    {
+      "name": "set_linestyle",
+      "docstring": "Set the linestyle of the line.\n\nParameters\n----------\nls : {'-', '--', '-.', ':', '', (offset, on-off-seq), ...}\n    Possible values:\n\n    - A string:\n\n      ==========================================  =================\n      linestyle                                   description\n      ==========================================  =================\n      ``'-'`` or ``'solid'``                      solid line\n      ``'--'`` or  ``'dashed'``                   dashed line\n      ``'-.'`` or  ``'dashdot'``                  dash-dotted line\n      ``':'`` or ``'dotted'``                     dotted line\n      ``'none'``, ``'None'``, ``' '``, or ``''``  draw nothing\n      ==========================================  =================\n\n    - Alternatively a dash tuple of the following form can be\n      provided::\n\n          (offset, onoffseq)\n\n      where ``onoffseq`` is an even length tuple of on and off ink\n      in points. See also :meth:`set_dashes`.\n\n    For examples see :doc:`/gallery/lines_bars_and_markers/linestyles`."
+    },
+    {
+      "name": "set_marker",
+      "docstring": "Set the line marker.\n\nParameters\n----------\nmarker : marker style string, `~.path.Path` or `~.markers.MarkerStyle`\n    See `~matplotlib.markers` for full description of possible\n    arguments."
+    },
+    {
+      "name": "set_markeredgecolor",
+      "docstring": "Set the marker edge color.\n\nParameters\n----------\nec : :mpltype:`color`"
+    },
+    {
+      "name": "set_markerfacecolor",
+      "docstring": "Set the marker face color.\n\nParameters\n----------\nfc : :mpltype:`color`"
+    },
+    {
+      "name": "set_markerfacecoloralt",
+      "docstring": "Set the alternate marker face color.\n\nParameters\n----------\nfc : :mpltype:`color`"
+    },
+    {
+      "name": "set_markeredgewidth",
+      "docstring": "Set the marker edge width in points.\n\nParameters\n----------\new : float\n     Marker edge width, in points."
+    },
+    {
+      "name": "set_markersize",
+      "docstring": "Set the marker size in points.\n\nParameters\n----------\nsz : float\n     Marker size, in points."
+    },
+    {
+      "name": "set_xdata",
+      "docstring": "Set the data array for x.\n\nParameters\n----------\nx : 1D array\n\nSee Also\n--------\nset_data\nset_ydata"
+    },
+    {
+      "name": "set_ydata",
+      "docstring": "Set the data array for y.\n\nParameters\n----------\ny : 1D array\n\nSee Also\n--------\nset_data\nset_xdata"
+    },
+    {
+      "name": "set_dashes",
+      "docstring": "Set the dash sequence.\n\nThe dash sequence is a sequence of floats of even length describing\nthe length of dashes and spaces in points.\n\nFor example, (5, 2, 1, 2) describes a sequence of 5 point and 1 point\ndashes separated by 2 point spaces.\n\nSee also `~.Line2D.set_gapcolor`, which allows those spaces to be\nfilled with a color.\n\nParameters\n----------\nseq : sequence of floats (on/off ink in points) or (None, None)\n    If *seq* is empty or ``(None, None)``, the linestyle will be set\n    to solid."
+    },
+    {
+      "name": "update_from",
+      "docstring": "Copy properties from *other* to self."
+    },
+    {
+      "name": "set_dash_joinstyle",
+      "docstring": "How to join segments of the line if it `~Line2D.is_dashed`.\n\nThe default joinstyle is :rc:`lines.dash_joinstyle`.\n\nParameters\n----------\ns : `.JoinStyle` or %(JoinStyle)s"
+    },
+    {
+      "name": "set_solid_joinstyle",
+      "docstring": "How to join segments if the line is solid (not `~Line2D.is_dashed`).\n\nThe default joinstyle is :rc:`lines.solid_joinstyle`.\n\nParameters\n----------\ns : `.JoinStyle` or %(JoinStyle)s"
+    },
+    {
+      "name": "get_dash_joinstyle",
+      "docstring": "Return the `.JoinStyle` for dashed lines.\n\nSee also `~.Line2D.set_dash_joinstyle`."
+    },
+    {
+      "name": "get_solid_joinstyle",
+      "docstring": "Return the `.JoinStyle` for solid lines.\n\nSee also `~.Line2D.set_solid_joinstyle`."
+    },
+    {
+      "name": "set_dash_capstyle",
+      "docstring": "How to draw the end caps if the line is `~Line2D.is_dashed`.\n\nThe default capstyle is :rc:`lines.dash_capstyle`.\n\nParameters\n----------\ns : `.CapStyle` or %(CapStyle)s"
+    },
+    {
+      "name": "set_solid_capstyle",
+      "docstring": "How to draw the end caps if the line is solid (not `~Line2D.is_dashed`)\n\nThe default capstyle is :rc:`lines.solid_capstyle`.\n\nParameters\n----------\ns : `.CapStyle` or %(CapStyle)s"
+    },
+    {
+      "name": "get_dash_capstyle",
+      "docstring": "Return the `.CapStyle` for dashed lines.\n\nSee also `~.Line2D.set_dash_capstyle`."
+    },
+    {
+      "name": "get_solid_capstyle",
+      "docstring": "Return the `.CapStyle` for solid lines.\n\nSee also `~.Line2D.set_solid_capstyle`."
+    },
+    {
+      "name": "is_dashed",
+      "docstring": "Return whether line has a dashed linestyle.\n\nA custom linestyle is assumed to be dashed, we do not inspect the\n``onoffseq`` directly.\n\nSee also `~.Line2D.set_linestyle`."
+    },
+    {
+      "name": "get_transform",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "get_xy1",
+      "docstring": "Return the *xy1* value of the line."
+    },
+    {
+      "name": "get_xy2",
+      "docstring": "Return the *xy2* value of the line."
+    },
+    {
+      "name": "get_slope",
+      "docstring": "Return the *slope* value of the line."
+    },
+    {
+      "name": "set_xy1",
+      "docstring": "Set the *xy1* value of the line.\n\nParameters\n----------\nxy1 : tuple[float, float]\n    Points for the line to pass through."
+    },
+    {
+      "name": "set_xy2",
+      "docstring": "Set the *xy2* value of the line.\n\n.. note::\n\n    You can only set *xy2* if the line was created using the *xy2*\n    parameter. If the line was created using *slope*, please use\n    `~.AxLine.set_slope`.\n\nParameters\n----------\nxy2 : tuple[float, float]\n    Points for the line to pass through."
+    },
+    {
+      "name": "set_slope",
+      "docstring": "Set the *slope* value of the line.\n\n.. note::\n\n    You can only set *slope* if the line was created using the *slope*\n    parameter. If the line was created using *xy2*, please use\n    `~.AxLine.set_xy2`.\n\nParameters\n----------\nslope : float\n    The slope of the line."
+    },
+    {
+      "name": "process_selected",
+      "docstring": "Default \"do nothing\" implementation of the `process_selected` method.\n\nParameters\n----------\nind : list of int\n    The indices of the selected vertices.\nxs, ys : array-like\n    The coordinates of the selected vertices."
+    },
+    {
+      "name": "onpick",
+      "docstring": "When the line is picked, update the set of selected indices."
+    }
+  ],
+  "innovations": []
+}

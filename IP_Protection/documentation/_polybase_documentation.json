@@ -1,0 +1,210 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\polynomial\\_polybase.py",
+  "classes": [
+    {
+      "name": "ABCPolyBase",
+      "docstring": "An abstract base class for immutable series classes.\n\nABCPolyBase provides the standard Python numerical methods\n'+', '-', '*', '//', '%', 'divmod', '**', and '()' along with the\nmethods listed below.\n\nParameters\n----------\ncoef : array_like\n    Series coefficients in order of increasing degree, i.e.,\n    ``(1, 2, 3)`` gives ``1*P_0(x) + 2*P_1(x) + 3*P_2(x)``, where\n    ``P_i`` is the basis polynomials of degree ``i``.\ndomain : (2,) array_like, optional\n    Domain to use. The interval ``[domain[0], domain[1]]`` is mapped\n    to the interval ``[window[0], window[1]]`` by shifting and scaling.\n    The default value is the derived class domain.\nwindow : (2,) array_like, optional\n    Window, see domain for its use. The default value is the\n    derived class window.\nsymbol : str, optional\n    Symbol used to represent the independent variable in string\n    representations of the polynomial expression, e.g. for printing.\n    The symbol must be a valid Python identifier. Default value is 'x'.\n\n    .. versionadded:: 1.24\n\nAttributes\n----------\ncoef : (N,) ndarray\n    Series coefficients in order of increasing degree.\ndomain : (2,) ndarray\n    Domain that is mapped to window.\nwindow : (2,) ndarray\n    Window that domain is mapped to.\nsymbol : str\n    Symbol representing the independent variable.\n\nClass Attributes\n----------------\nmaxpower : int\n    Maximum power allowed, i.e., the largest number ``n`` such that\n    ``p(x)**n`` is allowed. This is to limit runaway polynomial size.\ndomain : (2,) ndarray\n    Default domain of the class.\nwindow : (2,) ndarray\n    Default window of the class.",
+      "methods": [
+        {
+          "name": "symbol",
+          "docstring": null
+        },
+        {
+          "name": "domain",
+          "docstring": null
+        },
+        {
+          "name": "window",
+          "docstring": null
+        },
+        {
+          "name": "basis_name",
+          "docstring": null
+        },
+        {
+          "name": "has_samecoef",
+          "docstring": "Check if coefficients match.\n\nParameters\n----------\nother : class instance\n    The other class must have the ``coef`` attribute.\n\nReturns\n-------\nbool : boolean\n    True if the coefficients are the same, False otherwise."
+        },
+        {
+          "name": "has_samedomain",
+          "docstring": "Check if domains match.\n\nParameters\n----------\nother : class instance\n    The other class must have the ``domain`` attribute.\n\nReturns\n-------\nbool : boolean\n    True if the domains are the same, False otherwise."
+        },
+        {
+          "name": "has_samewindow",
+          "docstring": "Check if windows match.\n\nParameters\n----------\nother : class instance\n    The other class must have the ``window`` attribute.\n\nReturns\n-------\nbool : boolean\n    True if the windows are the same, False otherwise."
+        },
+        {
+          "name": "has_sametype",
+          "docstring": "Check if types match.\n\nParameters\n----------\nother : object\n    Class instance.\n\nReturns\n-------\nbool : boolean\n    True if other is same class as self"
+        },
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "copy",
+          "docstring": "Return a copy.\n\nReturns\n-------\nnew_series : series\n    Copy of self."
+        },
+        {
+          "name": "degree",
+          "docstring": "The degree of the series.\n\nReturns\n-------\ndegree : int\n    Degree of the series, one less than the number of coefficients.\n\nExamples\n--------\n\nCreate a polynomial object for ``1 + 7*x + 4*x**2``:\n\n>>> poly = np.polynomial.Polynomial([1, 7, 4])\n>>> print(poly)\n1.0 + 7.0\u00b7x + 4.0\u00b7x\u00b2\n>>> poly.degree()\n2\n\nNote that this method does not check for non-zero coefficients.\nYou must trim the polynomial to remove any trailing zeroes:\n\n>>> poly = np.polynomial.Polynomial([1, 7, 0])\n>>> print(poly)\n1.0 + 7.0\u00b7x + 0.0\u00b7x\u00b2\n>>> poly.degree()\n2\n>>> poly.trim().degree()\n1"
+        },
+        {
+          "name": "cutdeg",
+          "docstring": "Truncate series to the given degree.\n\nReduce the degree of the series to `deg` by discarding the\nhigh order terms. If `deg` is greater than the current degree a\ncopy of the current series is returned. This can be useful in least\nsquares where the coefficients of the high degree terms may be very\nsmall.\n\nParameters\n----------\ndeg : non-negative int\n    The series is reduced to degree `deg` by discarding the high\n    order terms. The value of `deg` must be a non-negative integer.\n\nReturns\n-------\nnew_series : series\n    New instance of series with reduced degree."
+        },
+        {
+          "name": "trim",
+          "docstring": "Remove trailing coefficients\n\nRemove trailing coefficients until a coefficient is reached whose\nabsolute value greater than `tol` or the beginning of the series is\nreached. If all the coefficients would be removed the series is set\nto ``[0]``. A new series instance is returned with the new\ncoefficients.  The current instance remains unchanged.\n\nParameters\n----------\ntol : non-negative number.\n    All trailing coefficients less than `tol` will be removed.\n\nReturns\n-------\nnew_series : series\n    New instance of series with trimmed coefficients."
+        },
+        {
+          "name": "truncate",
+          "docstring": "Truncate series to length `size`.\n\nReduce the series to length `size` by discarding the high\ndegree terms. The value of `size` must be a positive integer. This\ncan be useful in least squares where the coefficients of the\nhigh degree terms may be very small.\n\nParameters\n----------\nsize : positive int\n    The series is reduced to length `size` by discarding the high\n    degree terms. The value of `size` must be a positive integer.\n\nReturns\n-------\nnew_series : series\n    New instance of series with truncated coefficients."
+        },
+        {
+          "name": "convert",
+          "docstring": "Convert series to a different kind and/or domain and/or window.\n\nParameters\n----------\ndomain : array_like, optional\n    The domain of the converted series. If the value is None,\n    the default domain of `kind` is used.\nkind : class, optional\n    The polynomial series type class to which the current instance\n    should be converted. If kind is None, then the class of the\n    current instance is used.\nwindow : array_like, optional\n    The window of the converted series. If the value is None,\n    the default window of `kind` is used.\n\nReturns\n-------\nnew_series : series\n    The returned class can be of different type than the current\n    instance and/or have a different domain and/or different\n    window.\n\nNotes\n-----\nConversion between domains and class types can result in\nnumerically ill defined series."
+        },
+        {
+          "name": "mapparms",
+          "docstring": "Return the mapping parameters.\n\nThe returned values define a linear map ``off + scl*x`` that is\napplied to the input arguments before the series is evaluated. The\nmap depends on the ``domain`` and ``window``; if the current\n``domain`` is equal to the ``window`` the resulting map is the\nidentity.  If the coefficients of the series instance are to be\nused by themselves outside this class, then the linear function\nmust be substituted for the ``x`` in the standard representation of\nthe base polynomials.\n\nReturns\n-------\noff, scl : float or complex\n    The mapping function is defined by ``off + scl*x``.\n\nNotes\n-----\nIf the current domain is the interval ``[l1, r1]`` and the window\nis ``[l2, r2]``, then the linear mapping function ``L`` is\ndefined by the equations::\n\n    L(l1) = l2\n    L(r1) = r2"
+        },
+        {
+          "name": "integ",
+          "docstring": "Integrate.\n\nReturn a series instance that is the definite integral of the\ncurrent series.\n\nParameters\n----------\nm : non-negative int\n    The number of integrations to perform.\nk : array_like\n    Integration constants. The first constant is applied to the\n    first integration, the second to the second, and so on. The\n    list of values must less than or equal to `m` in length and any\n    missing values are set to zero.\nlbnd : Scalar\n    The lower bound of the definite integral.\n\nReturns\n-------\nnew_series : series\n    A new series representing the integral. The domain is the same\n    as the domain of the integrated series."
+        },
+        {
+          "name": "deriv",
+          "docstring": "Differentiate.\n\nReturn a series instance of that is the derivative of the current\nseries.\n\nParameters\n----------\nm : non-negative int\n    Find the derivative of order `m`.\n\nReturns\n-------\nnew_series : series\n    A new series representing the derivative. The domain is the same\n    as the domain of the differentiated series."
+        },
+        {
+          "name": "roots",
+          "docstring": "Return the roots of the series polynomial.\n\nCompute the roots for the series. Note that the accuracy of the\nroots decreases the further outside the `domain` they lie.\n\nReturns\n-------\nroots : ndarray\n    Array containing the roots of the series."
+        },
+        {
+          "name": "linspace",
+          "docstring": "Return x, y values at equally spaced points in domain.\n\nReturns the x, y values at `n` linearly spaced points across the\ndomain.  Here y is the value of the polynomial at the points x. By\ndefault the domain is the same as that of the series instance.\nThis method is intended mostly as a plotting aid.\n\nParameters\n----------\nn : int, optional\n    Number of point pairs to return. The default value is 100.\ndomain : {None, array_like}, optional\n    If not None, the specified domain is used instead of that of\n    the calling instance. It should be of the form ``[beg,end]``.\n    The default is None which case the class domain is used.\n\nReturns\n-------\nx, y : ndarray\n    x is equal to linspace(self.domain[0], self.domain[1], n) and\n    y is the series evaluated at element of x."
+        },
+        {
+          "name": "fit",
+          "docstring": "Least squares fit to data.\n\nReturn a series instance that is the least squares fit to the data\n`y` sampled at `x`. The domain of the returned instance can be\nspecified and this will often result in a superior fit with less\nchance of ill conditioning.\n\nParameters\n----------\nx : array_like, shape (M,)\n    x-coordinates of the M sample points ``(x[i], y[i])``.\ny : array_like, shape (M,)\n    y-coordinates of the M sample points ``(x[i], y[i])``.\ndeg : int or 1-D array_like\n    Degree(s) of the fitting polynomials. If `deg` is a single integer\n    all terms up to and including the `deg`'th term are included in the\n    fit. For NumPy versions >= 1.11.0 a list of integers specifying the\n    degrees of the terms to include may be used instead.\ndomain : {None, [beg, end], []}, optional\n    Domain to use for the returned series. If ``None``,\n    then a minimal domain that covers the points `x` is chosen.  If\n    ``[]`` the class domain is used. The default value was the\n    class domain in NumPy 1.4 and ``None`` in later versions.\n    The ``[]`` option was added in numpy 1.5.0.\nrcond : float, optional\n    Relative condition number of the fit. Singular values smaller\n    than this relative to the largest singular value will be\n    ignored. The default value is ``len(x)*eps``, where eps is the\n    relative precision of the float type, about 2e-16 in most\n    cases.\nfull : bool, optional\n    Switch determining nature of return value. When it is False\n    (the default) just the coefficients are returned, when True\n    diagnostic information from the singular value decomposition is\n    also returned.\nw : array_like, shape (M,), optional\n    Weights. If not None, the weight ``w[i]`` applies to the unsquared\n    residual ``y[i] - y_hat[i]`` at ``x[i]``. Ideally the weights are\n    chosen so that the errors of the products ``w[i]*y[i]`` all have\n    the same variance.  When using inverse-variance weighting, use\n    ``w[i] = 1/sigma(y[i])``.  The default value is None.\nwindow : {[beg, end]}, optional\n    Window to use for the returned series. The default\n    value is the default class domain\nsymbol : str, optional\n    Symbol representing the independent variable. Default is 'x'.\n\nReturns\n-------\nnew_series : series\n    A series that represents the least squares fit to the data and\n    has the domain and window specified in the call. If the\n    coefficients for the unscaled and unshifted basis polynomials are\n    of interest, do ``new_series.convert().coef``.\n\n[resid, rank, sv, rcond] : list\n    These values are only returned if ``full == True``\n\n    - resid -- sum of squared residuals of the least squares fit\n    - rank -- the numerical rank of the scaled Vandermonde matrix\n    - sv -- singular values of the scaled Vandermonde matrix\n    - rcond -- value of `rcond`.\n\n    For more details, see `linalg.lstsq`."
+        },
+        {
+          "name": "fromroots",
+          "docstring": "Return series instance that has the specified roots.\n\nReturns a series representing the product\n``(x - r[0])*(x - r[1])*...*(x - r[n-1])``, where ``r`` is a\nlist of roots.\n\nParameters\n----------\nroots : array_like\n    List of roots.\ndomain : {[], None, array_like}, optional\n    Domain for the resulting series. If None the domain is the\n    interval from the smallest root to the largest. If [] the\n    domain is the class domain. The default is [].\nwindow : {None, array_like}, optional\n    Window for the returned series. If None the class window is\n    used. The default is None.\nsymbol : str, optional\n    Symbol representing the independent variable. Default is 'x'.\n\nReturns\n-------\nnew_series : series\n    Series with the specified roots."
+        },
+        {
+          "name": "identity",
+          "docstring": "Identity function.\n\nIf ``p`` is the returned series, then ``p(x) == x`` for all\nvalues of x.\n\nParameters\n----------\ndomain : {None, array_like}, optional\n    If given, the array must be of the form ``[beg, end]``, where\n    ``beg`` and ``end`` are the endpoints of the domain. If None is\n    given then the class domain is used. The default is None.\nwindow : {None, array_like}, optional\n    If given, the resulting array must be if the form\n    ``[beg, end]``, where ``beg`` and ``end`` are the endpoints of\n    the window. If None is given then the class window is used. The\n    default is None.\nsymbol : str, optional\n    Symbol representing the independent variable. Default is 'x'.\n\nReturns\n-------\nnew_series : series\n     Series of representing the identity."
+        },
+        {
+          "name": "basis",
+          "docstring": "Series basis polynomial of degree `deg`.\n\nReturns the series representing the basis polynomial of degree `deg`.\n\nParameters\n----------\ndeg : int\n    Degree of the basis polynomial for the series. Must be >= 0.\ndomain : {None, array_like}, optional\n    If given, the array must be of the form ``[beg, end]``, where\n    ``beg`` and ``end`` are the endpoints of the domain. If None is\n    given then the class domain is used. The default is None.\nwindow : {None, array_like}, optional\n    If given, the resulting array must be if the form\n    ``[beg, end]``, where ``beg`` and ``end`` are the endpoints of\n    the window. If None is given then the class window is used. The\n    default is None.\nsymbol : str, optional\n    Symbol representing the independent variable. Default is 'x'.\n\nReturns\n-------\nnew_series : series\n    A series with the coefficient of the `deg` term set to one and\n    all others zero."
+        },
+        {
+          "name": "cast",
+          "docstring": "Convert series to series of this class.\n\nThe `series` is expected to be an instance of some polynomial\nseries of one of the types supported by by the numpy.polynomial\nmodule, but could be some other class that supports the convert\nmethod.\n\nParameters\n----------\nseries : series\n    The series instance to be converted.\ndomain : {None, array_like}, optional\n    If given, the array must be of the form ``[beg, end]``, where\n    ``beg`` and ``end`` are the endpoints of the domain. If None is\n    given then the class domain is used. The default is None.\nwindow : {None, array_like}, optional\n    If given, the resulting array must be if the form\n    ``[beg, end]``, where ``beg`` and ``end`` are the endpoints of\n    the window. If None is given then the class window is used. The\n    default is None.\n\nReturns\n-------\nnew_series : series\n    A series of the same kind as the calling class and equal to\n    `series` when evaluated.\n\nSee Also\n--------\nconvert : similar instance method"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "symbol",
+      "docstring": null
+    },
+    {
+      "name": "domain",
+      "docstring": null
+    },
+    {
+      "name": "window",
+      "docstring": null
+    },
+    {
+      "name": "basis_name",
+      "docstring": null
+    },
+    {
+      "name": "has_samecoef",
+      "docstring": "Check if coefficients match.\n\nParameters\n----------\nother : class instance\n    The other class must have the ``coef`` attribute.\n\nReturns\n-------\nbool : boolean\n    True if the coefficients are the same, False otherwise."
+    },
+    {
+      "name": "has_samedomain",
+      "docstring": "Check if domains match.\n\nParameters\n----------\nother : class instance\n    The other class must have the ``domain`` attribute.\n\nReturns\n-------\nbool : boolean\n    True if the domains are the same, False otherwise."
+    },
+    {
+      "name": "has_samewindow",
+      "docstring": "Check if windows match.\n\nParameters\n----------\nother : class instance\n    The other class must have the ``window`` attribute.\n\nReturns\n-------\nbool : boolean\n    True if the windows are the same, False otherwise."
+    },
+    {
+      "name": "has_sametype",
+      "docstring": "Check if types match.\n\nParameters\n----------\nother : object\n    Class instance.\n\nReturns\n-------\nbool : boolean\n    True if other is same class as self"
+    },
+    {
+      "name": "copy",
+      "docstring": "Return a copy.\n\nReturns\n-------\nnew_series : series\n    Copy of self."
+    },
+    {
+      "name": "degree",
+      "docstring": "The degree of the series.\n\nReturns\n-------\ndegree : int\n    Degree of the series, one less than the number of coefficients.\n\nExamples\n--------\n\nCreate a polynomial object for ``1 + 7*x + 4*x**2``:\n\n>>> poly = np.polynomial.Polynomial([1, 7, 4])\n>>> print(poly)\n1.0 + 7.0\u00b7x + 4.0\u00b7x\u00b2\n>>> poly.degree()\n2\n\nNote that this method does not check for non-zero coefficients.\nYou must trim the polynomial to remove any trailing zeroes:\n\n>>> poly = np.polynomial.Polynomial([1, 7, 0])\n>>> print(poly)\n1.0 + 7.0\u00b7x + 0.0\u00b7x\u00b2\n>>> poly.degree()\n2\n>>> poly.trim().degree()\n1"
+    },
+    {
+      "name": "cutdeg",
+      "docstring": "Truncate series to the given degree.\n\nReduce the degree of the series to `deg` by discarding the\nhigh order terms. If `deg` is greater than the current degree a\ncopy of the current series is returned. This can be useful in least\nsquares where the coefficients of the high degree terms may be very\nsmall.\n\nParameters\n----------\ndeg : non-negative int\n    The series is reduced to degree `deg` by discarding the high\n    order terms. The value of `deg` must be a non-negative integer.\n\nReturns\n-------\nnew_series : series\n    New instance of series with reduced degree."
+    },
+    {
+      "name": "trim",
+      "docstring": "Remove trailing coefficients\n\nRemove trailing coefficients until a coefficient is reached whose\nabsolute value greater than `tol` or the beginning of the series is\nreached. If all the coefficients would be removed the series is set\nto ``[0]``. A new series instance is returned with the new\ncoefficients.  The current instance remains unchanged.\n\nParameters\n----------\ntol : non-negative number.\n    All trailing coefficients less than `tol` will be removed.\n\nReturns\n-------\nnew_series : series\n    New instance of series with trimmed coefficients."
+    },
+    {
+      "name": "truncate",
+      "docstring": "Truncate series to length `size`.\n\nReduce the series to length `size` by discarding the high\ndegree terms. The value of `size` must be a positive integer. This\ncan be useful in least squares where the coefficients of the\nhigh degree terms may be very small.\n\nParameters\n----------\nsize : positive int\n    The series is reduced to length `size` by discarding the high\n    degree terms. The value of `size` must be a positive integer.\n\nReturns\n-------\nnew_series : series\n    New instance of series with truncated coefficients."
+    },
+    {
+      "name": "convert",
+      "docstring": "Convert series to a different kind and/or domain and/or window.\n\nParameters\n----------\ndomain : array_like, optional\n    The domain of the converted series. If the value is None,\n    the default domain of `kind` is used.\nkind : class, optional\n    The polynomial series type class to which the current instance\n    should be converted. If kind is None, then the class of the\n    current instance is used.\nwindow : array_like, optional\n    The window of the converted series. If the value is None,\n    the default window of `kind` is used.\n\nReturns\n-------\nnew_series : series\n    The returned class can be of different type than the current\n    instance and/or have a different domain and/or different\n    window.\n\nNotes\n-----\nConversion between domains and class types can result in\nnumerically ill defined series."
+    },
+    {
+      "name": "mapparms",
+      "docstring": "Return the mapping parameters.\n\nThe returned values define a linear map ``off + scl*x`` that is\napplied to the input arguments before the series is evaluated. The\nmap depends on the ``domain`` and ``window``; if the current\n``domain`` is equal to the ``window`` the resulting map is the\nidentity.  If the coefficients of the series instance are to be\nused by themselves outside this class, then the linear function\nmust be substituted for the ``x`` in the standard representation of\nthe base polynomials.\n\nReturns\n-------\noff, scl : float or complex\n    The mapping function is defined by ``off + scl*x``.\n\nNotes\n-----\nIf the current domain is the interval ``[l1, r1]`` and the window\nis ``[l2, r2]``, then the linear mapping function ``L`` is\ndefined by the equations::\n\n    L(l1) = l2\n    L(r1) = r2"
+    },
+    {
+      "name": "integ",
+      "docstring": "Integrate.\n\nReturn a series instance that is the definite integral of the\ncurrent series.\n\nParameters\n----------\nm : non-negative int\n    The number of integrations to perform.\nk : array_like\n    Integration constants. The first constant is applied to the\n    first integration, the second to the second, and so on. The\n    list of values must less than or equal to `m` in length and any\n    missing values are set to zero.\nlbnd : Scalar\n    The lower bound of the definite integral.\n\nReturns\n-------\nnew_series : series\n    A new series representing the integral. The domain is the same\n    as the domain of the integrated series."
+    },
+    {
+      "name": "deriv",
+      "docstring": "Differentiate.\n\nReturn a series instance of that is the derivative of the current\nseries.\n\nParameters\n----------\nm : non-negative int\n    Find the derivative of order `m`.\n\nReturns\n-------\nnew_series : series\n    A new series representing the derivative. The domain is the same\n    as the domain of the differentiated series."
+    },
+    {
+      "name": "roots",
+      "docstring": "Return the roots of the series polynomial.\n\nCompute the roots for the series. Note that the accuracy of the\nroots decreases the further outside the `domain` they lie.\n\nReturns\n-------\nroots : ndarray\n    Array containing the roots of the series."
+    },
+    {
+      "name": "linspace",
+      "docstring": "Return x, y values at equally spaced points in domain.\n\nReturns the x, y values at `n` linearly spaced points across the\ndomain.  Here y is the value of the polynomial at the points x. By\ndefault the domain is the same as that of the series instance.\nThis method is intended mostly as a plotting aid.\n\nParameters\n----------\nn : int, optional\n    Number of point pairs to return. The default value is 100.\ndomain : {None, array_like}, optional\n    If not None, the specified domain is used instead of that of\n    the calling instance. It should be of the form ``[beg,end]``.\n    The default is None which case the class domain is used.\n\nReturns\n-------\nx, y : ndarray\n    x is equal to linspace(self.domain[0], self.domain[1], n) and\n    y is the series evaluated at element of x."
+    },
+    {
+      "name": "fit",
+      "docstring": "Least squares fit to data.\n\nReturn a series instance that is the least squares fit to the data\n`y` sampled at `x`. The domain of the returned instance can be\nspecified and this will often result in a superior fit with less\nchance of ill conditioning.\n\nParameters\n----------\nx : array_like, shape (M,)\n    x-coordinates of the M sample points ``(x[i], y[i])``.\ny : array_like, shape (M,)\n    y-coordinates of the M sample points ``(x[i], y[i])``.\ndeg : int or 1-D array_like\n    Degree(s) of the fitting polynomials. If `deg` is a single integer\n    all terms up to and including the `deg`'th term are included in the\n    fit. For NumPy versions >= 1.11.0 a list of integers specifying the\n    degrees of the terms to include may be used instead.\ndomain : {None, [beg, end], []}, optional\n    Domain to use for the returned series. If ``None``,\n    then a minimal domain that covers the points `x` is chosen.  If\n    ``[]`` the class domain is used. The default value was the\n    class domain in NumPy 1.4 and ``None`` in later versions.\n    The ``[]`` option was added in numpy 1.5.0.\nrcond : float, optional\n    Relative condition number of the fit. Singular values smaller\n    than this relative to the largest singular value will be\n    ignored. The default value is ``len(x)*eps``, where eps is the\n    relative precision of the float type, about 2e-16 in most\n    cases.\nfull : bool, optional\n    Switch determining nature of return value. When it is False\n    (the default) just the coefficients are returned, when True\n    diagnostic information from the singular value decomposition is\n    also returned.\nw : array_like, shape (M,), optional\n    Weights. If not None, the weight ``w[i]`` applies to the unsquared\n    residual ``y[i] - y_hat[i]`` at ``x[i]``. Ideally the weights are\n    chosen so that the errors of the products ``w[i]*y[i]`` all have\n    the same variance.  When using inverse-variance weighting, use\n    ``w[i] = 1/sigma(y[i])``.  The default value is None.\nwindow : {[beg, end]}, optional\n    Window to use for the returned series. The default\n    value is the default class domain\nsymbol : str, optional\n    Symbol representing the independent variable. Default is 'x'.\n\nReturns\n-------\nnew_series : series\n    A series that represents the least squares fit to the data and\n    has the domain and window specified in the call. If the\n    coefficients for the unscaled and unshifted basis polynomials are\n    of interest, do ``new_series.convert().coef``.\n\n[resid, rank, sv, rcond] : list\n    These values are only returned if ``full == True``\n\n    - resid -- sum of squared residuals of the least squares fit\n    - rank -- the numerical rank of the scaled Vandermonde matrix\n    - sv -- singular values of the scaled Vandermonde matrix\n    - rcond -- value of `rcond`.\n\n    For more details, see `linalg.lstsq`."
+    },
+    {
+      "name": "fromroots",
+      "docstring": "Return series instance that has the specified roots.\n\nReturns a series representing the product\n``(x - r[0])*(x - r[1])*...*(x - r[n-1])``, where ``r`` is a\nlist of roots.\n\nParameters\n----------\nroots : array_like\n    List of roots.\ndomain : {[], None, array_like}, optional\n    Domain for the resulting series. If None the domain is the\n    interval from the smallest root to the largest. If [] the\n    domain is the class domain. The default is [].\nwindow : {None, array_like}, optional\n    Window for the returned series. If None the class window is\n    used. The default is None.\nsymbol : str, optional\n    Symbol representing the independent variable. Default is 'x'.\n\nReturns\n-------\nnew_series : series\n    Series with the specified roots."
+    },
+    {
+      "name": "identity",
+      "docstring": "Identity function.\n\nIf ``p`` is the returned series, then ``p(x) == x`` for all\nvalues of x.\n\nParameters\n----------\ndomain : {None, array_like}, optional\n    If given, the array must be of the form ``[beg, end]``, where\n    ``beg`` and ``end`` are the endpoints of the domain. If None is\n    given then the class domain is used. The default is None.\nwindow : {None, array_like}, optional\n    If given, the resulting array must be if the form\n    ``[beg, end]``, where ``beg`` and ``end`` are the endpoints of\n    the window. If None is given then the class window is used. The\n    default is None.\nsymbol : str, optional\n    Symbol representing the independent variable. Default is 'x'.\n\nReturns\n-------\nnew_series : series\n     Series of representing the identity."
+    },
+    {
+      "name": "basis",
+      "docstring": "Series basis polynomial of degree `deg`.\n\nReturns the series representing the basis polynomial of degree `deg`.\n\nParameters\n----------\ndeg : int\n    Degree of the basis polynomial for the series. Must be >= 0.\ndomain : {None, array_like}, optional\n    If given, the array must be of the form ``[beg, end]``, where\n    ``beg`` and ``end`` are the endpoints of the domain. If None is\n    given then the class domain is used. The default is None.\nwindow : {None, array_like}, optional\n    If given, the resulting array must be if the form\n    ``[beg, end]``, where ``beg`` and ``end`` are the endpoints of\n    the window. If None is given then the class window is used. The\n    default is None.\nsymbol : str, optional\n    Symbol representing the independent variable. Default is 'x'.\n\nReturns\n-------\nnew_series : series\n    A series with the coefficient of the `deg` term set to one and\n    all others zero."
+    },
+    {
+      "name": "cast",
+      "docstring": "Convert series to series of this class.\n\nThe `series` is expected to be an instance of some polynomial\nseries of one of the types supported by by the numpy.polynomial\nmodule, but could be some other class that supports the convert\nmethod.\n\nParameters\n----------\nseries : series\n    The series instance to be converted.\ndomain : {None, array_like}, optional\n    If given, the array must be of the form ``[beg, end]``, where\n    ``beg`` and ``end`` are the endpoints of the domain. If None is\n    given then the class domain is used. The default is None.\nwindow : {None, array_like}, optional\n    If given, the resulting array must be if the form\n    ``[beg, end]``, where ``beg`` and ``end`` are the endpoints of\n    the window. If None is given then the class window is used. The\n    default is None.\n\nReturns\n-------\nnew_series : series\n    A series of the same kind as the calling class and equal to\n    `series` when evaluated.\n\nSee Also\n--------\nconvert : similar instance method"
+    }
+  ],
+  "innovations": []
+}

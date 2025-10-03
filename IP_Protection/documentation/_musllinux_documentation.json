@@ -1,0 +1,17 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\_musllinux.py",
+  "classes": [
+    {
+      "name": "_MuslVersion",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "platform_tags",
+      "docstring": "Generate musllinux tags compatible to the current platform.\n\n:param archs: Sequence of compatible architectures.\n    The first one shall be the closest to the actual architecture and be the part of\n    platform tag after the ``linux_`` prefix, e.g. ``x86_64``.\n    The ``linux_`` prefix is assumed as a prerequisite for the current platform to\n    be musllinux-compatible.\n\n:returns: An iterator of compatible musllinux tags."
+    }
+  ],
+  "innovations": []
+}

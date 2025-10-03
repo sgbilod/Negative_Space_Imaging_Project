@@ -1,0 +1,12 @@
+cryptography version: 45.0.6
+hashes module imported successfully
+padding module imported successfully
+SecureImagingWorkflow imported successfully
+All signature modules imported successfully
+Simulating image acquisition...
+Simulating image acquisition...
+Error: Out of sequence signing. Expected signer index 0, got 1
+================================================================================
+Error in secure workflow: 'charmap' codec can't encode character '\U0001f512' in position 0: character maps to <undefined>
+Audit log saved to security_audit_error.json
+Error: Invalid signature from test_signer_1: 

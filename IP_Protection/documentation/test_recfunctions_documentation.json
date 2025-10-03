@@ -1,0 +1,532 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\tests\\test_recfunctions.py",
+  "classes": [
+    {
+      "name": "TestRecFunctions",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_zip_descr",
+          "docstring": null
+        },
+        {
+          "name": "test_drop_fields",
+          "docstring": null
+        },
+        {
+          "name": "test_rename_fields",
+          "docstring": null
+        },
+        {
+          "name": "test_get_names",
+          "docstring": null
+        },
+        {
+          "name": "test_get_names_flat",
+          "docstring": null
+        },
+        {
+          "name": "test_get_fieldstructure",
+          "docstring": null
+        },
+        {
+          "name": "test_find_duplicates",
+          "docstring": null
+        },
+        {
+          "name": "test_find_duplicates_ignoremask",
+          "docstring": null
+        },
+        {
+          "name": "test_repack_fields",
+          "docstring": null
+        },
+        {
+          "name": "test_structured_to_unstructured",
+          "docstring": null
+        },
+        {
+          "name": "test_unstructured_to_structured",
+          "docstring": null
+        },
+        {
+          "name": "test_field_assignment_by_name",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestRecursiveFillFields",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_simple_flexible",
+          "docstring": null
+        },
+        {
+          "name": "test_masked_flexible",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMergeArrays",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_solo",
+          "docstring": null
+        },
+        {
+          "name": "test_solo_w_flatten",
+          "docstring": null
+        },
+        {
+          "name": "test_standard",
+          "docstring": null
+        },
+        {
+          "name": "test_flatten",
+          "docstring": null
+        },
+        {
+          "name": "test_flatten_wflexible",
+          "docstring": null
+        },
+        {
+          "name": "test_wmasked_arrays",
+          "docstring": null
+        },
+        {
+          "name": "test_w_singlefield",
+          "docstring": null
+        },
+        {
+          "name": "test_w_shorter_flex",
+          "docstring": null
+        },
+        {
+          "name": "test_singlerecord",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAppendFields",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_append_single",
+          "docstring": null
+        },
+        {
+          "name": "test_append_double",
+          "docstring": null
+        },
+        {
+          "name": "test_append_on_flex",
+          "docstring": null
+        },
+        {
+          "name": "test_append_on_nested",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestStackArrays",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_solo",
+          "docstring": null
+        },
+        {
+          "name": "test_unnamed_fields",
+          "docstring": null
+        },
+        {
+          "name": "test_unnamed_and_named_fields",
+          "docstring": null
+        },
+        {
+          "name": "test_matching_named_fields",
+          "docstring": null
+        },
+        {
+          "name": "test_defaults",
+          "docstring": null
+        },
+        {
+          "name": "test_autoconversion",
+          "docstring": null
+        },
+        {
+          "name": "test_checktitles",
+          "docstring": null
+        },
+        {
+          "name": "test_subdtype",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestJoinBy",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_inner_join",
+          "docstring": null
+        },
+        {
+          "name": "test_join",
+          "docstring": null
+        },
+        {
+          "name": "test_join_subdtype",
+          "docstring": null
+        },
+        {
+          "name": "test_outer_join",
+          "docstring": null
+        },
+        {
+          "name": "test_leftouter_join",
+          "docstring": null
+        },
+        {
+          "name": "test_different_field_order",
+          "docstring": null
+        },
+        {
+          "name": "test_duplicate_keys",
+          "docstring": null
+        },
+        {
+          "name": "test_same_name_different_dtypes_key",
+          "docstring": null
+        },
+        {
+          "name": "test_same_name_different_dtypes",
+          "docstring": null
+        },
+        {
+          "name": "test_subarray_key",
+          "docstring": null
+        },
+        {
+          "name": "test_padded_dtype",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestJoinBy2",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_no_r1postfix",
+          "docstring": null
+        },
+        {
+          "name": "test_no_postfix",
+          "docstring": null
+        },
+        {
+          "name": "test_no_r2postfix",
+          "docstring": null
+        },
+        {
+          "name": "test_two_keys_two_vars",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAppendFieldsObj",
+      "docstring": "Test append_fields with arrays containing objects",
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_append_to_objects",
+          "docstring": "Test append_fields when the base array contains objects"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_zip_descr",
+      "docstring": null
+    },
+    {
+      "name": "test_drop_fields",
+      "docstring": null
+    },
+    {
+      "name": "test_rename_fields",
+      "docstring": null
+    },
+    {
+      "name": "test_get_names",
+      "docstring": null
+    },
+    {
+      "name": "test_get_names_flat",
+      "docstring": null
+    },
+    {
+      "name": "test_get_fieldstructure",
+      "docstring": null
+    },
+    {
+      "name": "test_find_duplicates",
+      "docstring": null
+    },
+    {
+      "name": "test_find_duplicates_ignoremask",
+      "docstring": null
+    },
+    {
+      "name": "test_repack_fields",
+      "docstring": null
+    },
+    {
+      "name": "test_structured_to_unstructured",
+      "docstring": null
+    },
+    {
+      "name": "test_unstructured_to_structured",
+      "docstring": null
+    },
+    {
+      "name": "test_field_assignment_by_name",
+      "docstring": null
+    },
+    {
+      "name": "test_simple_flexible",
+      "docstring": null
+    },
+    {
+      "name": "test_masked_flexible",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_solo",
+      "docstring": null
+    },
+    {
+      "name": "test_solo_w_flatten",
+      "docstring": null
+    },
+    {
+      "name": "test_standard",
+      "docstring": null
+    },
+    {
+      "name": "test_flatten",
+      "docstring": null
+    },
+    {
+      "name": "test_flatten_wflexible",
+      "docstring": null
+    },
+    {
+      "name": "test_wmasked_arrays",
+      "docstring": null
+    },
+    {
+      "name": "test_w_singlefield",
+      "docstring": null
+    },
+    {
+      "name": "test_w_shorter_flex",
+      "docstring": null
+    },
+    {
+      "name": "test_singlerecord",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_append_single",
+      "docstring": null
+    },
+    {
+      "name": "test_append_double",
+      "docstring": null
+    },
+    {
+      "name": "test_append_on_flex",
+      "docstring": null
+    },
+    {
+      "name": "test_append_on_nested",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_solo",
+      "docstring": null
+    },
+    {
+      "name": "test_unnamed_fields",
+      "docstring": null
+    },
+    {
+      "name": "test_unnamed_and_named_fields",
+      "docstring": null
+    },
+    {
+      "name": "test_matching_named_fields",
+      "docstring": null
+    },
+    {
+      "name": "test_defaults",
+      "docstring": null
+    },
+    {
+      "name": "test_autoconversion",
+      "docstring": null
+    },
+    {
+      "name": "test_checktitles",
+      "docstring": null
+    },
+    {
+      "name": "test_subdtype",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_inner_join",
+      "docstring": null
+    },
+    {
+      "name": "test_join",
+      "docstring": null
+    },
+    {
+      "name": "test_join_subdtype",
+      "docstring": null
+    },
+    {
+      "name": "test_outer_join",
+      "docstring": null
+    },
+    {
+      "name": "test_leftouter_join",
+      "docstring": null
+    },
+    {
+      "name": "test_different_field_order",
+      "docstring": null
+    },
+    {
+      "name": "test_duplicate_keys",
+      "docstring": null
+    },
+    {
+      "name": "test_same_name_different_dtypes_key",
+      "docstring": null
+    },
+    {
+      "name": "test_same_name_different_dtypes",
+      "docstring": null
+    },
+    {
+      "name": "test_subarray_key",
+      "docstring": null
+    },
+    {
+      "name": "test_padded_dtype",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_no_r1postfix",
+      "docstring": null
+    },
+    {
+      "name": "test_no_postfix",
+      "docstring": null
+    },
+    {
+      "name": "test_no_r2postfix",
+      "docstring": null
+    },
+    {
+      "name": "test_two_keys_two_vars",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_append_to_objects",
+      "docstring": "Test append_fields when the base array contains objects"
+    },
+    {
+      "name": "subarray",
+      "docstring": null
+    },
+    {
+      "name": "structured",
+      "docstring": null
+    },
+    {
+      "name": "inspect",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

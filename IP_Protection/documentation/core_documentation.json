@@ -1,0 +1,31 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\style\\core.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "use",
+      "docstring": "Use Matplotlib style settings from a style specification.\n\nThe style name of 'default' is reserved for reverting back to\nthe default style settings.\n\n.. note::\n\n   This updates the `.rcParams` with the settings from the style.\n   `.rcParams` not defined in the style are kept.\n\nParameters\n----------\nstyle : str, dict, Path or list\n\n    A style specification. Valid options are:\n\n    str\n        - One of the style names in `.style.available` (a builtin style or\n          a style installed in the user library path).\n\n        - A dotted name of the form \"package.style_name\"; in that case,\n          \"package\" should be an importable Python package name, e.g. at\n          ``/path/to/package/__init__.py``; the loaded style file is\n          ``/path/to/package/style_name.mplstyle``.  (Style files in\n          subpackages are likewise supported.)\n\n        - The path or URL to a style file, which gets loaded by\n          `.rc_params_from_file`.\n\n    dict\n        A mapping of key/value pairs for `matplotlib.rcParams`.\n\n    Path\n        The path to a style file, which gets loaded by\n        `.rc_params_from_file`.\n\n    list\n        A list of style specifiers (str, Path or dict), which are applied\n        from first to last in the list.\n\nNotes\n-----\nThe following `.rcParams` are not related to style and will be ignored if\nfound in a style specification:\n\n%s"
+    },
+    {
+      "name": "context",
+      "docstring": "Context manager for using style settings temporarily.\n\nParameters\n----------\nstyle : str, dict, Path or list\n    A style specification. Valid options are:\n\n    str\n        - One of the style names in `.style.available` (a builtin style or\n          a style installed in the user library path).\n\n        - A dotted name of the form \"package.style_name\"; in that case,\n          \"package\" should be an importable Python package name, e.g. at\n          ``/path/to/package/__init__.py``; the loaded style file is\n          ``/path/to/package/style_name.mplstyle``.  (Style files in\n          subpackages are likewise supported.)\n\n        - The path or URL to a style file, which gets loaded by\n          `.rc_params_from_file`.\n    dict\n        A mapping of key/value pairs for `matplotlib.rcParams`.\n\n    Path\n        The path to a style file, which gets loaded by\n        `.rc_params_from_file`.\n\n    list\n        A list of style specifiers (str, Path or dict), which are applied\n        from first to last in the list.\n\nafter_reset : bool\n    If True, apply style after resetting settings to their defaults;\n    otherwise, apply style on top of the current settings."
+    },
+    {
+      "name": "update_user_library",
+      "docstring": "Update style library with user-defined rc files."
+    },
+    {
+      "name": "read_style_directory",
+      "docstring": "Return dictionary of styles defined in *style_dir*."
+    },
+    {
+      "name": "update_nested_dict",
+      "docstring": "Update nested dict (only level of nesting) with new values.\n\nUnlike `dict.update`, this assumes that the values of the parent dict are\ndicts (or dict-like), so you shouldn't replace the nested dict if it\nalready exists. Instead you should update the sub-dict."
+    },
+    {
+      "name": "reload_library",
+      "docstring": "Reload the style library."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,223 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\tests\\test_ctypeslib.py",
+  "classes": [
+    {
+      "name": "TestLoadLibrary",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_basic2",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNdpointer",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_ndim",
+          "docstring": null
+        },
+        {
+          "name": "test_shape",
+          "docstring": null
+        },
+        {
+          "name": "test_flags",
+          "docstring": null
+        },
+        {
+          "name": "test_cache",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNdpointerCFunc",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_arguments",
+          "docstring": "Test that arguments are coerced from arrays "
+        },
+        {
+          "name": "test_return",
+          "docstring": "Test that return values are coerced to arrays "
+        },
+        {
+          "name": "test_vague_return_value",
+          "docstring": "Test that vague ndpointer return values do not promote to arrays "
+        }
+      ]
+    },
+    {
+      "name": "TestAsArray",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_array",
+          "docstring": null
+        },
+        {
+          "name": "test_pointer",
+          "docstring": null
+        },
+        {
+          "name": "test_struct_array_pointer",
+          "docstring": null
+        },
+        {
+          "name": "test_reference_cycles",
+          "docstring": null
+        },
+        {
+          "name": "test_segmentation_fault",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAsCtypesType",
+      "docstring": "Test conversion from dtypes to ctypes types ",
+      "methods": [
+        {
+          "name": "test_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_subarray",
+          "docstring": null
+        },
+        {
+          "name": "test_structure",
+          "docstring": null
+        },
+        {
+          "name": "test_structure_aligned",
+          "docstring": null
+        },
+        {
+          "name": "test_union",
+          "docstring": null
+        },
+        {
+          "name": "test_padded_union",
+          "docstring": null
+        },
+        {
+          "name": "test_overlapping",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Struct",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_basic2",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_ndim",
+      "docstring": null
+    },
+    {
+      "name": "test_shape",
+      "docstring": null
+    },
+    {
+      "name": "test_flags",
+      "docstring": null
+    },
+    {
+      "name": "test_cache",
+      "docstring": null
+    },
+    {
+      "name": "test_arguments",
+      "docstring": "Test that arguments are coerced from arrays "
+    },
+    {
+      "name": "test_return",
+      "docstring": "Test that return values are coerced to arrays "
+    },
+    {
+      "name": "test_vague_return_value",
+      "docstring": "Test that vague ndpointer return values do not promote to arrays "
+    },
+    {
+      "name": "test_array",
+      "docstring": null
+    },
+    {
+      "name": "test_pointer",
+      "docstring": null
+    },
+    {
+      "name": "test_struct_array_pointer",
+      "docstring": null
+    },
+    {
+      "name": "test_reference_cycles",
+      "docstring": null
+    },
+    {
+      "name": "test_segmentation_fault",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_subarray",
+      "docstring": null
+    },
+    {
+      "name": "test_structure",
+      "docstring": null
+    },
+    {
+      "name": "test_structure_aligned",
+      "docstring": null
+    },
+    {
+      "name": "test_union",
+      "docstring": null
+    },
+    {
+      "name": "test_padded_union",
+      "docstring": null
+    },
+    {
+      "name": "test_overlapping",
+      "docstring": null
+    },
+    {
+      "name": "check",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

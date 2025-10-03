@@ -1,0 +1,117 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\_iotools.py",
+  "classes": [
+    {
+      "name": "LineSplitter",
+      "docstring": "Object to split a string at a given delimiter or at given places.\n\nParameters\n----------\ndelimiter : str, int, or sequence of ints, optional\n    If a string, character used to delimit consecutive fields.\n    If an integer or a sequence of integers, width(s) of each field.\ncomments : str, optional\n    Character used to mark the beginning of a comment. Default is '#'.\nautostrip : bool, optional\n    Whether to strip each individual field. Default is True.",
+      "methods": [
+        {
+          "name": "autostrip",
+          "docstring": "Wrapper to strip each member of the output of `method`.\n\nParameters\n----------\nmethod : function\n    Function that takes a single argument and returns a sequence of\n    strings.\n\nReturns\n-------\nwrapped : function\n    The result of wrapping `method`. `wrapped` takes a single input\n    argument and returns a list of strings that are stripped of\n    white-space."
+        },
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "NameValidator",
+      "docstring": "Object to validate a list of strings to use as field names.\n\nThe strings are stripped of any non alphanumeric character, and spaces\nare replaced by '_'. During instantiation, the user can define a list\nof names to exclude, as well as a list of invalid characters. Names in\nthe exclusion list are appended a '_' character.\n\nOnce an instance has been created, it can be called with a list of\nnames, and a list of valid names will be created.  The `__call__`\nmethod accepts an optional keyword \"default\" that sets the default name\nin case of ambiguity. By default this is 'f', so that names will\ndefault to `f0`, `f1`, etc.\n\nParameters\n----------\nexcludelist : sequence, optional\n    A list of names to exclude. This list is appended to the default\n    list ['return', 'file', 'print']. Excluded names are appended an\n    underscore: for example, `file` becomes `file_` if supplied.\ndeletechars : str, optional\n    A string combining invalid characters that must be deleted from the\n    names.\ncase_sensitive : {True, False, 'upper', 'lower'}, optional\n    * If True, field names are case-sensitive.\n    * If False or 'upper', field names are converted to upper case.\n    * If 'lower', field names are converted to lower case.\n\n    The default value is True.\nreplace_space : '_', optional\n    Character(s) used in replacement of white spaces.\n\nNotes\n-----\nCalling an instance of `NameValidator` is the same as calling its\nmethod `validate`.\n\nExamples\n--------\n>>> import numpy as np\n>>> validator = np.lib._iotools.NameValidator()\n>>> validator(['file', 'field2', 'with space', 'CaSe'])\n('file_', 'field2', 'with_space', 'CaSe')\n\n>>> validator = np.lib._iotools.NameValidator(excludelist=['excl'],\n...                                           deletechars='q',\n...                                           case_sensitive=False)\n>>> validator(['excl', 'field2', 'no_q', 'with space', 'CaSe'])\n('EXCL', 'FIELD2', 'NO_Q', 'WITH_SPACE', 'CASE')",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "validate",
+          "docstring": "Validate a list of strings as field names for a structured array.\n\nParameters\n----------\nnames : sequence of str\n    Strings to be validated.\ndefaultfmt : str, optional\n    Default format string, used if validating a given string\n    reduces its length to zero.\nnbfields : integer, optional\n    Final number of validated names, used to expand or shrink the\n    initial list of names.\n\nReturns\n-------\nvalidatednames : list of str\n    The list of validated field names.\n\nNotes\n-----\nA `NameValidator` instance can be called directly, which is the\nsame as calling `validate`. For examples, see `NameValidator`."
+        }
+      ]
+    },
+    {
+      "name": "ConverterError",
+      "docstring": "Exception raised when an error occurs in a converter for string values.",
+      "methods": []
+    },
+    {
+      "name": "ConverterLockError",
+      "docstring": "Exception raised when an attempt is made to upgrade a locked converter.",
+      "methods": []
+    },
+    {
+      "name": "ConversionWarning",
+      "docstring": "Warning issued when a string converter has a problem.\n\nNotes\n-----\nIn `genfromtxt` a `ConversionWarning` is issued if raising exceptions\nis explicitly suppressed with the \"invalid_raise\" keyword.",
+      "methods": []
+    },
+    {
+      "name": "StringConverter",
+      "docstring": "Factory class for function transforming a string into another object\n(int, float).\n\nAfter initialization, an instance can be called to transform a string\ninto another object. If the string is recognized as representing a\nmissing value, a default value is returned.\n\nAttributes\n----------\nfunc : function\n    Function used for the conversion.\ndefault : any\n    Default value to return when the input corresponds to a missing\n    value.\ntype : type\n    Type of the output.\n_status : int\n    Integer representing the order of the conversion.\n_mapper : sequence of tuples\n    Sequence of tuples (dtype, function, default value) to evaluate in\n    order.\n_locked : bool\n    Holds `locked` parameter.\n\nParameters\n----------\ndtype_or_func : {None, dtype, function}, optional\n    If a `dtype`, specifies the input data type, used to define a basic\n    function and a default value for missing data. For example, when\n    `dtype` is float, the `func` attribute is set to `float` and the\n    default value to `np.nan`.  If a function, this function is used to\n    convert a string to another object. In this case, it is recommended\n    to give an associated default value as input.\ndefault : any, optional\n    Value to return by default, that is, when the string to be\n    converted is flagged as missing. If not given, `StringConverter`\n    tries to supply a reasonable default value.\nmissing_values : {None, sequence of str}, optional\n    ``None`` or sequence of strings indicating a missing value. If ``None``\n    then missing values are indicated by empty entries. The default is\n    ``None``.\nlocked : bool, optional\n    Whether the StringConverter should be locked to prevent automatic\n    upgrade or not. Default is False.",
+      "methods": [
+        {
+          "name": "upgrade_mapper",
+          "docstring": "Upgrade the mapper of a StringConverter by adding a new function and\nits corresponding default.\n\nThe input function (or sequence of functions) and its associated\ndefault value (if any) is inserted in penultimate position of the\nmapper.  The corresponding type is estimated from the dtype of the\ndefault value.\n\nParameters\n----------\nfunc : var\n    Function, or sequence of functions\n\nExamples\n--------\n>>> import dateutil.parser\n>>> import datetime\n>>> dateparser = dateutil.parser.parse\n>>> defaultdate = datetime.date(2000, 1, 1)\n>>> StringConverter.upgrade_mapper(dateparser, default=defaultdate)"
+        },
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "upgrade",
+          "docstring": "Find the best converter for a given string, and return the result.\n\nThe supplied string `value` is converted by testing different\nconverters in order. First the `func` method of the\n`StringConverter` instance is tried, if this fails other available\nconverters are tried.  The order in which these other converters\nare tried is determined by the `_status` attribute of the instance.\n\nParameters\n----------\nvalue : str\n    The string to convert.\n\nReturns\n-------\nout : any\n    The result of converting `value` with the appropriate converter."
+        },
+        {
+          "name": "iterupgrade",
+          "docstring": null
+        },
+        {
+          "name": "update",
+          "docstring": "Set StringConverter attributes directly.\n\nParameters\n----------\nfunc : function\n    Conversion function.\ndefault : any, optional\n    Value to return by default, that is, when the string to be\n    converted is flagged as missing. If not given,\n    `StringConverter` tries to supply a reasonable default value.\ntesting_value : str, optional\n    A string representing a standard input value of the converter.\n    This string is used to help defining a reasonable default\n    value.\nmissing_values : {sequence of str, None}, optional\n    Sequence of strings indicating a missing value. If ``None``, then\n    the existing `missing_values` are cleared. The default is ``''``.\nlocked : bool, optional\n    Whether the StringConverter should be locked to prevent\n    automatic upgrade or not. Default is False.\n\nNotes\n-----\n`update` takes the same parameters as the constructor of\n`StringConverter`, except that `func` does not accept a `dtype`\nwhereas `dtype_or_func` in the constructor does."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "has_nested_fields",
+      "docstring": "Returns whether one or several fields of a dtype are nested.\n\nParameters\n----------\nndtype : dtype\n    Data-type of a structured array.\n\nRaises\n------\nAttributeError\n    If `ndtype` does not have a `names` attribute.\n\nExamples\n--------\n>>> import numpy as np\n>>> dt = np.dtype([('name', 'S4'), ('x', float), ('y', float)])\n>>> np.lib._iotools.has_nested_fields(dt)\nFalse"
+    },
+    {
+      "name": "flatten_dtype",
+      "docstring": "Unpack a structured data-type by collapsing nested fields and/or fields\nwith a shape.\n\nNote that the field names are lost.\n\nParameters\n----------\nndtype : dtype\n    The datatype to collapse\nflatten_base : bool, optional\n   If True, transform a field with a shape into several fields. Default is\n   False.\n\nExamples\n--------\n>>> import numpy as np\n>>> dt = np.dtype([('name', 'S4'), ('x', float), ('y', float),\n...                ('block', int, (2, 3))])\n>>> np.lib._iotools.flatten_dtype(dt)\n[dtype('S4'), dtype('float64'), dtype('float64'), dtype('int64')]\n>>> np.lib._iotools.flatten_dtype(dt, flatten_base=True)\n[dtype('S4'),\n dtype('float64'),\n dtype('float64'),\n dtype('int64'),\n dtype('int64'),\n dtype('int64'),\n dtype('int64'),\n dtype('int64'),\n dtype('int64')]"
+    },
+    {
+      "name": "str2bool",
+      "docstring": "Tries to transform a string supposed to represent a boolean to a boolean.\n\nParameters\n----------\nvalue : str\n    The string that is transformed to a boolean.\n\nReturns\n-------\nboolval : bool\n    The boolean representation of `value`.\n\nRaises\n------\nValueError\n    If the string is not 'True' or 'False' (case independent)\n\nExamples\n--------\n>>> import numpy as np\n>>> np.lib._iotools.str2bool('TRUE')\nTrue\n>>> np.lib._iotools.str2bool('false')\nFalse"
+    },
+    {
+      "name": "easy_dtype",
+      "docstring": "Convenience function to create a `np.dtype` object.\n\nThe function processes the input `dtype` and matches it with the given\nnames.\n\nParameters\n----------\nndtype : var\n    Definition of the dtype. Can be any string or dictionary recognized\n    by the `np.dtype` function, or a sequence of types.\nnames : str or sequence, optional\n    Sequence of strings to use as field names for a structured dtype.\n    For convenience, `names` can be a string of a comma-separated list\n    of names.\ndefaultfmt : str, optional\n    Format string used to define missing names, such as ``\"f%i\"``\n    (default) or ``\"fields_%02i\"``.\nvalidationargs : optional\n    A series of optional arguments used to initialize a\n    `NameValidator`.\n\nExamples\n--------\n>>> import numpy as np\n>>> np.lib._iotools.easy_dtype(float)\ndtype('float64')\n>>> np.lib._iotools.easy_dtype(\"i4, f8\")\ndtype([('f0', '<i4'), ('f1', '<f8')])\n>>> np.lib._iotools.easy_dtype(\"i4, f8\", defaultfmt=\"field_%03i\")\ndtype([('field_000', '<i4'), ('field_001', '<f8')])\n\n>>> np.lib._iotools.easy_dtype((int, float, float), names=\"a,b,c\")\ndtype([('a', '<i8'), ('b', '<f8'), ('c', '<f8')])\n>>> np.lib._iotools.easy_dtype(float, names=\"a,b,c\")\ndtype([('a', '<f8'), ('b', '<f8'), ('c', '<f8')])"
+    },
+    {
+      "name": "autostrip",
+      "docstring": "Wrapper to strip each member of the output of `method`.\n\nParameters\n----------\nmethod : function\n    Function that takes a single argument and returns a sequence of\n    strings.\n\nReturns\n-------\nwrapped : function\n    The result of wrapping `method`. `wrapped` takes a single input\n    argument and returns a list of strings that are stripped of\n    white-space."
+    },
+    {
+      "name": "validate",
+      "docstring": "Validate a list of strings as field names for a structured array.\n\nParameters\n----------\nnames : sequence of str\n    Strings to be validated.\ndefaultfmt : str, optional\n    Default format string, used if validating a given string\n    reduces its length to zero.\nnbfields : integer, optional\n    Final number of validated names, used to expand or shrink the\n    initial list of names.\n\nReturns\n-------\nvalidatednames : list of str\n    The list of validated field names.\n\nNotes\n-----\nA `NameValidator` instance can be called directly, which is the\nsame as calling `validate`. For examples, see `NameValidator`."
+    },
+    {
+      "name": "upgrade_mapper",
+      "docstring": "Upgrade the mapper of a StringConverter by adding a new function and\nits corresponding default.\n\nThe input function (or sequence of functions) and its associated\ndefault value (if any) is inserted in penultimate position of the\nmapper.  The corresponding type is estimated from the dtype of the\ndefault value.\n\nParameters\n----------\nfunc : var\n    Function, or sequence of functions\n\nExamples\n--------\n>>> import dateutil.parser\n>>> import datetime\n>>> dateparser = dateutil.parser.parse\n>>> defaultdate = datetime.date(2000, 1, 1)\n>>> StringConverter.upgrade_mapper(dateparser, default=defaultdate)"
+    },
+    {
+      "name": "upgrade",
+      "docstring": "Find the best converter for a given string, and return the result.\n\nThe supplied string `value` is converted by testing different\nconverters in order. First the `func` method of the\n`StringConverter` instance is tried, if this fails other available\nconverters are tried.  The order in which these other converters\nare tried is determined by the `_status` attribute of the instance.\n\nParameters\n----------\nvalue : str\n    The string to convert.\n\nReturns\n-------\nout : any\n    The result of converting `value` with the appropriate converter."
+    },
+    {
+      "name": "iterupgrade",
+      "docstring": null
+    },
+    {
+      "name": "update",
+      "docstring": "Set StringConverter attributes directly.\n\nParameters\n----------\nfunc : function\n    Conversion function.\ndefault : any, optional\n    Value to return by default, that is, when the string to be\n    converted is flagged as missing. If not given,\n    `StringConverter` tries to supply a reasonable default value.\ntesting_value : str, optional\n    A string representing a standard input value of the converter.\n    This string is used to help defining a reasonable default\n    value.\nmissing_values : {sequence of str, None}, optional\n    Sequence of strings indicating a missing value. If ``None``, then\n    the existing `missing_values` are cleared. The default is ``''``.\nlocked : bool, optional\n    Whether the StringConverter should be locked to prevent\n    automatic upgrade or not. Default is False.\n\nNotes\n-----\n`update` takes the same parameters as the constructor of\n`StringConverter`, except that `func` does not accept a `dtype`\nwhereas `dtype_or_func` in the constructor does."
+    }
+  ],
+  "innovations": []
+}

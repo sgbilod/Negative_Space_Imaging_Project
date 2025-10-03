@@ -1,0 +1,227 @@
+{
+    "users": {
+        "admin": {
+            "username": "admin",
+            "password_hash": "3d1a5711df0a4afc6f7781e2d3e23b95847489e19a4abe912e977d0df8ee3b4d",
+            "salt": "7e28044f113be4cd303974185113e1d24fe9d54c5d19fef11c8071494662372e",
+            "role": "ADMIN",
+            "created_at": "2025-08-07T21:23:52.370361",
+            "last_login": null,
+            "failed_attempts": 1,
+            "locked_until": null,
+            "biometric_id": null,
+            "two_factor_enabled": true,
+            "security_questions": {}
+        },
+        "user1": {
+            "username": "user1",
+            "password_hash": "62db161ccc3f341ba877576c421a7bf0ae62548f654867101aeb5f418497c441",
+            "salt": "04c74acf80208d27491e919c970494ba65210d1276a4ba1c9fee36a554c35cc6",
+            "role": "USER",
+            "created_at": "2025-08-07T21:39:20.199487",
+            "last_login": "2025-08-07T21:39:20.522662",
+            "failed_attempts": 0,
+            "locked_until": null,
+            "biometric_id": "51dcb98e6fd5239482866c0ac8f206f88e84a589dafbd4c826da8151c4d0237c",
+            "two_factor_enabled": true,
+            "security_questions": {}
+        },
+        "analyst": {
+            "username": "analyst",
+            "password_hash": "6074fc059ad221b6ccc5e666bf2e7036c33607f9d9f7679be064e5f475f934d0",
+            "salt": "c0f4a0f947cc24bc93be9f07336ee4e0c2f6943cc6ce830d9eb5e41b91e81283",
+            "role": "ANALYST",
+            "created_at": "2025-08-07T21:39:20.274956",
+            "last_login": "2025-08-07T21:39:20.689295",
+            "failed_attempts": 0,
+            "locked_until": null,
+            "biometric_id": "c6829297f7dc23c77ada11d54e763b51663f5e9f826faa75f12481c48ce39063",
+            "two_factor_enabled": true,
+            "security_questions": {}
+        },
+        "test_user": {
+            "username": "test_user",
+            "password_hash": "7aaa2c6c55b36fdc834629a7d32c2f27d794059927c3e560101623296200858d",
+            "salt": "c46a4d4aeb166e949152099fb0a57d654a3ca4c474b795fa521fb06f03672ae0",
+            "role": "USER",
+            "created_at": "2025-08-07T23:43:53.402955",
+            "last_login": "2025-08-07T23:47:30.884331",
+            "failed_attempts": 0,
+            "locked_until": null,
+            "biometric_id": null,
+            "two_factor_enabled": true,
+            "security_questions": {},
+            "biometric_enrolled": true
+        }
+    },
+    "access_logs": [],
+    "security_events": [
+        {
+            "timestamp": "2025-08-07T21:23:52.371911",
+            "type": "USER_CREATED",
+            "details": "User admin created with role ADMIN"
+        },
+        {
+            "timestamp": "2025-08-07T21:23:52.418186",
+            "type": "2FA_REQUIRED",
+            "details": "Two-factor required for user: admin"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.201899",
+            "type": "USER_CREATED",
+            "details": "User user1 created with role USER"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.276303",
+            "type": "USER_CREATED",
+            "details": "User analyst created with role ANALYST"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.352718",
+            "type": "FAILED_LOGIN",
+            "details": "Failed login attempt for user: admin"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.431788",
+            "type": "2FA_REQUIRED",
+            "details": "Two-factor required for user: user1"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.524583",
+            "type": "SUCCESSFUL_LOGIN",
+            "details": "User user1 logged in successfully"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.621759",
+            "type": "2FA_REQUIRED",
+            "details": "Two-factor required for user: analyst"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.690686",
+            "type": "SUCCESSFUL_LOGIN",
+            "details": "User analyst logged in successfully"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.695784",
+            "type": "BIOMETRIC_REGISTERED",
+            "details": "Biometric data registered for user: user1"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.701266",
+            "type": "BIOMETRIC_REGISTERED",
+            "details": "Biometric data registered for user: analyst"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.704907",
+            "type": "FAILED_BIOMETRIC",
+            "details": "Failed biometric verification for user: user1"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.710102",
+            "type": "BIOMETRIC_REGISTERED",
+            "details": "Biometric data registered for user: user1"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.714112",
+            "type": "SUCCESSFUL_BIOMETRIC",
+            "details": "Successful biometric verification for user: user1"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.718180",
+            "type": "FAILED_BIOMETRIC",
+            "details": "Failed biometric verification for user: analyst"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.723521",
+            "type": "BIOMETRIC_REGISTERED",
+            "details": "Biometric data registered for user: analyst"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.727017",
+            "type": "SUCCESSFUL_BIOMETRIC",
+            "details": "Successful biometric verification for user: analyst"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.729655",
+            "type": "LOGOUT",
+            "details": "User user1 logged out"
+        },
+        {
+            "timestamp": "2025-08-07T21:39:20.732974",
+            "type": "LOGOUT",
+            "details": "User analyst logged out"
+        },
+        {
+            "timestamp": "2025-08-07T23:43:53.409611",
+            "type": "USER_CREATED",
+            "details": "User test_user created with role USER"
+        },
+        {
+            "timestamp": "2025-08-07T23:43:53.455341",
+            "type": "2FA_REQUIRED",
+            "details": "Two-factor required for user: test_user"
+        },
+        {
+            "timestamp": "2025-08-07T23:47:30.892515",
+            "type": "SUCCESSFUL_LOGIN",
+            "details": "User test_user logged in successfully"
+        },
+        {
+            "timestamp": "2025-08-08T00:01:16.835738",
+            "type": "VULNERABILITY_SCAN",
+            "details": "Vulnerability scan completed with 2 findings"
+        },
+        {
+            "timestamp": "2025-08-08T00:01:16.878281",
+            "type": "FAILED_BIOMETRIC",
+            "details": "Failed biometric verification for user: test_user"
+        },
+        {
+            "timestamp": "2025-08-08T08:46:17.416303",
+            "type": "VULNERABILITY_SCAN",
+            "details": "Vulnerability scan completed with 5 findings"
+        },
+        {
+            "timestamp": "2025-08-08T08:51:50.551863",
+            "type": "VULNERABILITY_SCAN",
+            "details": "Vulnerability scan completed with 3 findings"
+        },
+        {
+            "timestamp": "2025-08-08T09:01:02.522271",
+            "type": "VULNERABILITY_SCAN",
+            "details": "Vulnerability scan completed with 1 findings"
+        },
+        {
+            "timestamp": "2025-08-08T09:04:32.544367",
+            "type": "THREAT_DETECTED",
+            "details": "Simulated data exfiltration threat detected"
+        },
+        {
+            "timestamp": "2025-08-08T09:04:32.556548",
+            "type": "THREAT_LEVEL_CHANGE",
+            "details": "No details provided"
+        },
+        {
+            "timestamp": "2025-08-08T09:14:27.605262",
+            "type": "THREAT_DETECTED",
+            "details": "Simulated brute force threat detected"
+        },
+        {
+            "timestamp": "2025-08-08T09:17:27.624713",
+            "type": "THREAT_DETECTED",
+            "details": "Simulated brute force threat detected"
+        },
+        {
+            "timestamp": "2025-08-08T09:24:33.082722",
+            "type": "VULNERABILITY_SCAN",
+            "details": "Vulnerability scan completed with 5 findings"
+        },
+        {
+            "timestamp": "2025-08-08T09:46:52.787341",
+            "type": "VULNERABILITY_SCAN",
+            "details": "Vulnerability scan completed with 2 findings"
+        }
+    ],
+    "created_at": "2025-08-07T21:23:52.312881",
+    "last_updated": "2025-08-08T09:46:52.788089"
+}

@@ -1,0 +1,17 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\designspaceLib\\statNames.py",
+  "classes": [
+    {
+      "name": "StatNames",
+      "docstring": "Name data generated from the STAT table information.",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "getStatNames",
+      "docstring": "Compute the family, style, PostScript names of the given ``userLocation``\nusing the document's STAT information.\n\nAlso computes localizations.\n\nIf not enough STAT data is available for a given name, either its dict of\nlocalized names will be empty (family and style names), or the name will be\nNone (PostScript name).\n\nNote: this method does not consider info attached to the instance, like\nfamily name. The user needs to override all names on an instance that STAT\ninformation would compute differently than desired.\n\n.. versionadded:: 5.0"
+    }
+  ],
+  "innovations": []
+}

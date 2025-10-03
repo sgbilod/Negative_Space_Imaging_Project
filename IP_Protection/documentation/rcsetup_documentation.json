@@ -1,0 +1,179 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\rcsetup.py",
+  "classes": [
+    {
+      "name": "__getattr__",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "interactive_bk",
+          "docstring": null
+        },
+        {
+          "name": "non_interactive_bk",
+          "docstring": null
+        },
+        {
+          "name": "all_backends",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ValidateInStrings",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "*valid* is a list of legal strings."
+        }
+      ]
+    },
+    {
+      "name": "_DunderChecker",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "visit_Attribute",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_ignorecase",
+      "docstring": "A marker class indicating that a list-of-str is case-insensitive.",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "validate_any",
+      "docstring": null
+    },
+    {
+      "name": "validate_bool",
+      "docstring": "Convert b to ``bool`` or raise."
+    },
+    {
+      "name": "validate_axisbelow",
+      "docstring": null
+    },
+    {
+      "name": "validate_dpi",
+      "docstring": "Confirm s is string 'figure' or convert s to float or raise."
+    },
+    {
+      "name": "validate_fonttype",
+      "docstring": "Confirm that this is a Postscript or PDF font type that we know how to\nconvert to."
+    },
+    {
+      "name": "validate_backend",
+      "docstring": null
+    },
+    {
+      "name": "validate_color_or_inherit",
+      "docstring": "Return a valid color arg."
+    },
+    {
+      "name": "validate_color_or_auto",
+      "docstring": null
+    },
+    {
+      "name": "validate_color_for_prop_cycle",
+      "docstring": null
+    },
+    {
+      "name": "validate_color",
+      "docstring": "Return a valid color arg."
+    },
+    {
+      "name": "validate_aspect",
+      "docstring": null
+    },
+    {
+      "name": "validate_fontsize_None",
+      "docstring": null
+    },
+    {
+      "name": "validate_fontsize",
+      "docstring": null
+    },
+    {
+      "name": "validate_fontweight",
+      "docstring": null
+    },
+    {
+      "name": "validate_fontstretch",
+      "docstring": null
+    },
+    {
+      "name": "validate_font_properties",
+      "docstring": null
+    },
+    {
+      "name": "validate_whiskers",
+      "docstring": null
+    },
+    {
+      "name": "validate_ps_distiller",
+      "docstring": null
+    },
+    {
+      "name": "validate_markevery",
+      "docstring": "Validate the markevery property of a Line2D object.\n\nParameters\n----------\ns : None, int, (int, int), slice, float, (float, float), or list[int]\n\nReturns\n-------\nNone, int, (int, int), slice, float, (float, float), or list[int]"
+    },
+    {
+      "name": "validate_bbox",
+      "docstring": null
+    },
+    {
+      "name": "validate_sketch",
+      "docstring": null
+    },
+    {
+      "name": "validate_hatch",
+      "docstring": "Validate a hatch pattern.\nA hatch pattern string can have any sequence of the following\ncharacters: ``\\ / | - + * . x o O``."
+    },
+    {
+      "name": "cycler",
+      "docstring": "Create a `~cycler.Cycler` object much like :func:`cycler.cycler`,\nbut includes input validation.\n\nCall signatures::\n\n  cycler(cycler)\n  cycler(label=values, label2=values2, ...)\n  cycler(label, values)\n\nForm 1 copies a given `~cycler.Cycler` object.\n\nForm 2 creates a `~cycler.Cycler` which cycles over one or more\nproperties simultaneously. If multiple properties are given, their\nvalue lists must have the same length.\n\nForm 3 creates a `~cycler.Cycler` for a single property. This form\nexists for compatibility with the original cycler. Its use is\ndiscouraged in favor of the kwarg form, i.e. ``cycler(label=values)``.\n\nParameters\n----------\ncycler : Cycler\n    Copy constructor for Cycler.\n\nlabel : str\n    The property key. Must be a valid `.Artist` property.\n    For example, 'color' or 'linestyle'. Aliases are allowed,\n    such as 'c' for 'color' and 'lw' for 'linewidth'.\n\nvalues : iterable\n    Finite-length iterable of the property values. These values\n    are validated and will raise a ValueError if invalid.\n\nReturns\n-------\nCycler\n    A new :class:`~cycler.Cycler` for the given properties.\n\nExamples\n--------\nCreating a cycler for a single property:\n\n>>> c = cycler(color=['red', 'green', 'blue'])\n\nCreating a cycler for simultaneously cycling over multiple properties\n(e.g. red circle, green plus, blue cross):\n\n>>> c = cycler(color=['red', 'green', 'blue'],\n...            marker=['o', '+', 'x'])"
+    },
+    {
+      "name": "validate_cycler",
+      "docstring": "Return a Cycler object from a string repr or the object itself."
+    },
+    {
+      "name": "validate_hist_bins",
+      "docstring": null
+    },
+    {
+      "name": "interactive_bk",
+      "docstring": null
+    },
+    {
+      "name": "non_interactive_bk",
+      "docstring": null
+    },
+    {
+      "name": "all_backends",
+      "docstring": null
+    },
+    {
+      "name": "f",
+      "docstring": null
+    },
+    {
+      "name": "validator",
+      "docstring": null
+    },
+    {
+      "name": "visit_Attribute",
+      "docstring": null
+    },
+    {
+      "name": "func",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

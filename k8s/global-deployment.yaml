@@ -1,0 +1,136 @@
+# Global Kubernetes Deployment Configuration
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: negative-space-system
+  labels:
+    istio-injection: enabled
+    security-tier: maximum
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: negative-space-core
+  namespace: negative-space-system
+  labels:
+    app: negative-space
+    tier: core
+    security: maximum
+spec:
+  replicas: 100
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: negative-space
+  template:
+    metadata:
+      labels:
+        app: negative-space
+        security: maximum
+      annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        istio.io/rev: "1-10"
+    spec:
+      serviceAccountName: negative-space-sa
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: negative-space-core
+        image: negative-space/core:latest
+        imagePullPolicy: Always
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+        resources:
+          requests:
+            memory: "4Gi"
+            cpu: "2"
+          limits:
+            memory: "8Gi"
+            cpu: "4"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 9090
+          name: metrics
+        env:
+        - name: ENVIRONMENT
+          value: "production"
+        - name: LOG_LEVEL
+          value: "INFO"
+        volumeMounts:
+        - name: config
+          mountPath: /etc/negative-space
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: negative-space-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: negative-space-service
+  namespace: negative-space-system
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  - port: 9090
+    targetPort: 9090
+    protocol: TCP
+    name: metrics
+  selector:
+    app: negative-space
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: negative-space-ingress
+  namespace: negative-space-system
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  tls:
+  - hosts:
+    - api.negative-space.io
+    secretName: negative-space-tls
+  rules:
+  - host: api.negative-space.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: negative-space-service
+            port:
+              number: 80

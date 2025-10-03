@@ -1,0 +1,460 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\animation.py",
+  "classes": [
+    {
+      "name": "MovieWriterRegistry",
+      "docstring": "Registry of available writer classes by human readable name.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "register",
+          "docstring": "Decorator for registering a class under a name.\n\nExample use::\n\n    @registry.register(name)\n    class Foo:\n        pass"
+        },
+        {
+          "name": "is_available",
+          "docstring": "Check if given writer is available by name.\n\nParameters\n----------\nname : str\n\nReturns\n-------\nbool"
+        },
+        {
+          "name": "list",
+          "docstring": "Get a list of available MovieWriters."
+        }
+      ]
+    },
+    {
+      "name": "AbstractMovieWriter",
+      "docstring": "Abstract base class for writing movies, providing a way to grab frames by\ncalling `~AbstractMovieWriter.grab_frame`.\n\n`setup` is called to start the process and `finish` is called afterwards.\n`saving` is provided as a context manager to facilitate this process as ::\n\n    with moviewriter.saving(fig, outfile='myfile.mp4', dpi=100):\n        # Iterate over frames\n        moviewriter.grab_frame(**savefig_kwargs)\n\nThe use of the context manager ensures that `setup` and `finish` are\nperformed as necessary.\n\nAn instance of a concrete subclass of this class can be given as the\n``writer`` argument of `Animation.save()`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "setup",
+          "docstring": "Setup for writing the movie file.\n\nParameters\n----------\nfig : `~matplotlib.figure.Figure`\n    The figure object that contains the information for frames.\noutfile : str\n    The filename of the resulting movie file.\ndpi : float, default: ``fig.dpi``\n    The DPI (or resolution) for the file.  This controls the size\n    in pixels of the resulting movie file."
+        },
+        {
+          "name": "frame_size",
+          "docstring": "A tuple ``(width, height)`` in pixels of a movie frame."
+        },
+        {
+          "name": "grab_frame",
+          "docstring": "Grab the image information from the figure and save as a movie frame.\n\nAll keyword arguments in *savefig_kwargs* are passed on to the\n`~.Figure.savefig` call that saves the figure.  However, several\nkeyword arguments that are supported by `~.Figure.savefig` may not be\npassed as they are controlled by the MovieWriter:\n\n- *dpi*, *bbox_inches*:  These may not be passed because each frame of the\n   animation much be exactly the same size in pixels.\n- *format*: This is controlled by the MovieWriter."
+        },
+        {
+          "name": "finish",
+          "docstring": "Finish any processing for writing the movie."
+        },
+        {
+          "name": "saving",
+          "docstring": "Context manager to facilitate writing the movie file.\n\n``*args, **kw`` are any parameters that should be passed to `setup`."
+        }
+      ]
+    },
+    {
+      "name": "MovieWriter",
+      "docstring": "Base class for writing movies.\n\nThis is a base class for MovieWriter subclasses that write a movie frame\ndata to a pipe. You cannot instantiate this class directly.\nSee examples for how to use its subclasses.\n\nAttributes\n----------\nframe_format : str\n    The format used in writing frame data, defaults to 'rgba'.\nfig : `~matplotlib.figure.Figure`\n    The figure to capture data from.\n    This must be provided by the subclasses.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nfps : int, default: 5\n    Movie frame rate (per second).\ncodec : str or None, default: :rc:`animation.codec`\n    The codec to use.\nbitrate : int, default: :rc:`animation.bitrate`\n    The bitrate of the movie, in kilobits per second.  Higher values\n    means higher quality movies, but increase the file size.  A value\n    of -1 lets the underlying movie encoder select the bitrate.\nextra_args : list of str or None, optional\n    Extra command-line arguments passed to the underlying movie encoder. These\n    arguments are passed last to the encoder, just before the filename. The\n    default, None, means to use :rc:`animation.[name-of-encoder]_args` for the\n    builtin writers.\nmetadata : dict[str, str], default: {}\n    A dictionary of keys and values for metadata to include in the\n    output file. Some keys that may be of use include:\n    title, artist, genre, subject, copyright, srcform, comment."
+        },
+        {
+          "name": "setup",
+          "docstring": null
+        },
+        {
+          "name": "finish",
+          "docstring": "Finish any processing for writing the movie."
+        },
+        {
+          "name": "grab_frame",
+          "docstring": null
+        },
+        {
+          "name": "bin_path",
+          "docstring": "Return the binary path to the commandline tool used by a specific\nsubclass. This is a class method so that the tool can be looked for\nbefore making a particular MovieWriter subclass available."
+        },
+        {
+          "name": "isAvailable",
+          "docstring": "Return whether a MovieWriter subclass is actually available."
+        }
+      ]
+    },
+    {
+      "name": "FileMovieWriter",
+      "docstring": "`MovieWriter` for writing to individual files and stitching at the end.\n\nThis must be sub-classed to be useful.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "setup",
+          "docstring": "Setup for writing the movie file.\n\nParameters\n----------\nfig : `~matplotlib.figure.Figure`\n    The figure to grab the rendered frames from.\noutfile : str\n    The filename of the resulting movie file.\ndpi : float, default: ``fig.dpi``\n    The dpi of the output file. This, with the figure size,\n    controls the size in pixels of the resulting movie file.\nframe_prefix : str, optional\n    The filename prefix to use for temporary files.  If *None* (the\n    default), files are written to a temporary directory which is\n    deleted by `finish`; if not *None*, no temporary files are\n    deleted."
+        },
+        {
+          "name": "frame_format",
+          "docstring": "Format (png, jpeg, etc.) to use for saving the frames, which can be\ndecided by the individual subclasses."
+        },
+        {
+          "name": "frame_format",
+          "docstring": null
+        },
+        {
+          "name": "grab_frame",
+          "docstring": null
+        },
+        {
+          "name": "finish",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PillowWriter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "isAvailable",
+          "docstring": null
+        },
+        {
+          "name": "setup",
+          "docstring": null
+        },
+        {
+          "name": "grab_frame",
+          "docstring": null
+        },
+        {
+          "name": "finish",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FFMpegBase",
+      "docstring": "Mixin class for FFMpeg output.\n\nThis is a base class for the concrete `FFMpegWriter` and `FFMpegFileWriter`\nclasses.",
+      "methods": [
+        {
+          "name": "output_args",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FFMpegWriter",
+      "docstring": "Pipe-based ffmpeg writer.\n\nFrames are streamed directly to ffmpeg via a pipe and written in a single pass.\n\nThis effectively works as a slideshow input to ffmpeg with the fps passed as\n``-framerate``, so see also `their notes on frame rates`_ for further details.\n\n.. _their notes on frame rates: https://trac.ffmpeg.org/wiki/Slideshow#Framerates",
+      "methods": []
+    },
+    {
+      "name": "FFMpegFileWriter",
+      "docstring": "File-based ffmpeg writer.\n\nFrames are written to temporary files on disk and then stitched together at the end.\n\nThis effectively works as a slideshow input to ffmpeg with the fps passed as\n``-framerate``, so see also `their notes on frame rates`_ for further details.\n\n.. _their notes on frame rates: https://trac.ffmpeg.org/wiki/Slideshow#Framerates",
+      "methods": []
+    },
+    {
+      "name": "ImageMagickBase",
+      "docstring": "Mixin class for ImageMagick output.\n\nThis is a base class for the concrete `ImageMagickWriter` and\n`ImageMagickFileWriter` classes, which define an ``input_names`` attribute\n(or property) specifying the input names passed to ImageMagick.",
+      "methods": [
+        {
+          "name": "bin_path",
+          "docstring": null
+        },
+        {
+          "name": "isAvailable",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ImageMagickWriter",
+      "docstring": "Pipe-based animated gif writer.\n\nFrames are streamed directly to ImageMagick via a pipe and written\nin a single pass.",
+      "methods": []
+    },
+    {
+      "name": "ImageMagickFileWriter",
+      "docstring": "File-based animated gif writer.\n\nFrames are written to temporary files on disk and then stitched\ntogether at the end.",
+      "methods": []
+    },
+    {
+      "name": "HTMLWriter",
+      "docstring": "Writer for JavaScript-based HTML movies.",
+      "methods": [
+        {
+          "name": "isAvailable",
+          "docstring": null
+        },
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "setup",
+          "docstring": null
+        },
+        {
+          "name": "grab_frame",
+          "docstring": null
+        },
+        {
+          "name": "finish",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Animation",
+      "docstring": "A base class for Animations.\n\nThis class is not usable as is, and should be subclassed to provide needed\nbehavior.\n\n.. note::\n\n    You must store the created Animation in a variable that lives as long\n    as the animation should run. Otherwise, the Animation object will be\n    garbage-collected and the animation stops.\n\nParameters\n----------\nfig : `~matplotlib.figure.Figure`\n    The figure object used to get needed events, such as draw or resize.\n\nevent_source : object, optional\n    A class that can run a callback when desired events\n    are generated, as well as be stopped and started.\n\n    Examples include timers (see `TimedAnimation`) and file\n    system notifications.\n\nblit : bool, default: False\n    Whether blitting is used to optimize drawing.  If the backend does not\n    support blitting, then this parameter has no effect.\n\nSee Also\n--------\nFuncAnimation,  ArtistAnimation",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "save",
+          "docstring": "Save the animation as a movie file by drawing every frame.\n\nParameters\n----------\nfilename : str\n    The output filename, e.g., :file:`mymovie.mp4`.\n\nwriter : `MovieWriter` or str, default: :rc:`animation.writer`\n    A `MovieWriter` instance to use or a key that identifies a\n    class to use, such as 'ffmpeg'.\n\nfps : int, optional\n    Movie frame rate (per second).  If not set, the frame rate from the\n    animation's frame interval.\n\ndpi : float, default: :rc:`savefig.dpi`\n    Controls the dots per inch for the movie frames.  Together with\n    the figure's size in inches, this controls the size of the movie.\n\ncodec : str, default: :rc:`animation.codec`.\n    The video codec to use.  Not all codecs are supported by a given\n    `MovieWriter`.\n\nbitrate : int, default: :rc:`animation.bitrate`\n    The bitrate of the movie, in kilobits per second.  Higher values\n    means higher quality movies, but increase the file size.  A value\n    of -1 lets the underlying movie encoder select the bitrate.\n\nextra_args : list of str or None, optional\n    Extra command-line arguments passed to the underlying movie encoder. These\n    arguments are passed last to the encoder, just before the output filename.\n    The default, None, means to use :rc:`animation.[name-of-encoder]_args` for\n    the builtin writers.\n\nmetadata : dict[str, str], default: {}\n    Dictionary of keys and values for metadata to include in\n    the output file. Some keys that may be of use include:\n    title, artist, genre, subject, copyright, srcform, comment.\n\nextra_anim : list, default: []\n    Additional `Animation` objects that should be included\n    in the saved movie file. These need to be from the same\n    `.Figure` instance. Also, animation frames will\n    just be simply combined, so there should be a 1:1 correspondence\n    between the frames from the different animations.\n\nsavefig_kwargs : dict, default: {}\n    Keyword arguments passed to each `~.Figure.savefig` call used to\n    save the individual frames.\n\nprogress_callback : function, optional\n    A callback function that will be called for every frame to notify\n    the saving progress. It must have the signature ::\n\n        def func(current_frame: int, total_frames: int) -> Any\n\n    where *current_frame* is the current frame number and *total_frames* is the\n    total number of frames to be saved. *total_frames* is set to None, if the\n    total number of frames cannot be determined. Return values may exist but are\n    ignored.\n\n    Example code to write the progress to stdout::\n\n        progress_callback = lambda i, n: print(f'Saving frame {i}/{n}')\n\nNotes\n-----\n*fps*, *codec*, *bitrate*, *extra_args* and *metadata* are used to\nconstruct a `.MovieWriter` instance and can only be passed if\n*writer* is a string.  If they are passed as non-*None* and *writer*\nis a `.MovieWriter`, a `RuntimeError` will be raised."
+        },
+        {
+          "name": "new_frame_seq",
+          "docstring": "Return a new sequence of frame information."
+        },
+        {
+          "name": "new_saved_frame_seq",
+          "docstring": "Return a new sequence of saved/cached frame information."
+        },
+        {
+          "name": "to_html5_video",
+          "docstring": "Convert the animation to an HTML5 ``<video>`` tag.\n\nThis saves the animation as an h264 video, encoded in base64\ndirectly into the HTML5 video tag. This respects :rc:`animation.writer`\nand :rc:`animation.bitrate`. This also makes use of the\n*interval* to control the speed, and uses the *repeat*\nparameter to decide whether to loop.\n\nParameters\n----------\nembed_limit : float, optional\n    Limit, in MB, of the returned animation. No animation is created\n    if the limit is exceeded.\n    Defaults to :rc:`animation.embed_limit` = 20.0.\n\nReturns\n-------\nstr\n    An HTML5 video tag with the animation embedded as base64 encoded\n    h264 video.\n    If the *embed_limit* is exceeded, this returns the string\n    \"Video too large to embed.\""
+        },
+        {
+          "name": "to_jshtml",
+          "docstring": "Generate HTML representation of the animation.\n\nParameters\n----------\nfps : int, optional\n    Movie frame rate (per second). If not set, the frame rate from\n    the animation's frame interval.\nembed_frames : bool, optional\ndefault_mode : str, optional\n    What to do when the animation ends. Must be one of ``{'loop',\n    'once', 'reflect'}``. Defaults to ``'loop'`` if the *repeat*\n    parameter is True, otherwise ``'once'``.\n\nReturns\n-------\nstr\n    An HTML representation of the animation embedded as a js object as\n    produced with the `.HTMLWriter`."
+        },
+        {
+          "name": "pause",
+          "docstring": "Pause the animation."
+        },
+        {
+          "name": "resume",
+          "docstring": "Resume the animation."
+        }
+      ]
+    },
+    {
+      "name": "TimedAnimation",
+      "docstring": "`Animation` subclass for time-based animation.\n\nA new frame is drawn every *interval* milliseconds.\n\n.. note::\n\n    You must store the created Animation in a variable that lives as long\n    as the animation should run. Otherwise, the Animation object will be\n    garbage-collected and the animation stops.\n\nParameters\n----------\nfig : `~matplotlib.figure.Figure`\n    The figure object used to get needed events, such as draw or resize.\ninterval : int, default: 200\n    Delay between frames in milliseconds.\nrepeat_delay : int, default: 0\n    The delay in milliseconds between consecutive animation runs, if\n    *repeat* is True.\nrepeat : bool, default: True\n    Whether the animation repeats when the sequence of frames is completed.\nblit : bool, default: False\n    Whether blitting is used to optimize drawing.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ArtistAnimation",
+      "docstring": "`TimedAnimation` subclass that creates an animation by using a fixed\nset of `.Artist` objects.\n\nBefore creating an instance, all plotting should have taken place\nand the relevant artists saved.\n\n.. note::\n\n    You must store the created Animation in a variable that lives as long\n    as the animation should run. Otherwise, the Animation object will be\n    garbage-collected and the animation stops.\n\nParameters\n----------\nfig : `~matplotlib.figure.Figure`\n    The figure object used to get needed events, such as draw or resize.\nartists : list\n    Each list entry is a collection of `.Artist` objects that are made\n    visible on the corresponding frame.  Other artists are made invisible.\ninterval : int, default: 200\n    Delay between frames in milliseconds.\nrepeat_delay : int, default: 0\n    The delay in milliseconds between consecutive animation runs, if\n    *repeat* is True.\nrepeat : bool, default: True\n    Whether the animation repeats when the sequence of frames is completed.\nblit : bool, default: False\n    Whether blitting is used to optimize drawing.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FuncAnimation",
+      "docstring": "`TimedAnimation` subclass that makes an animation by repeatedly calling\na function *func*.\n\n.. note::\n\n    You must store the created Animation in a variable that lives as long\n    as the animation should run. Otherwise, the Animation object will be\n    garbage-collected and the animation stops.\n\nParameters\n----------\nfig : `~matplotlib.figure.Figure`\n    The figure object used to get needed events, such as draw or resize.\n\nfunc : callable\n    The function to call at each frame.  The first argument will\n    be the next value in *frames*.   Any additional positional\n    arguments can be supplied using `functools.partial` or via the *fargs*\n    parameter.\n\n    The required signature is::\n\n        def func(frame, *fargs) -> iterable_of_artists\n\n    It is often more convenient to provide the arguments using\n    `functools.partial`. In this way it is also possible to pass keyword\n    arguments. To pass a function with both positional and keyword\n    arguments, set all arguments as keyword arguments, just leaving the\n    *frame* argument unset::\n\n        def func(frame, art, *, y=None):\n            ...\n\n        ani = FuncAnimation(fig, partial(func, art=ln, y='foo'))\n\n    If ``blit == True``, *func* must return an iterable of all artists\n    that were modified or created. This information is used by the blitting\n    algorithm to determine which parts of the figure have to be updated.\n    The return value is unused if ``blit == False`` and may be omitted in\n    that case.\n\nframes : iterable, int, generator function, or None, optional\n    Source of data to pass *func* and each frame of the animation\n\n    - If an iterable, then simply use the values provided.  If the\n      iterable has a length, it will override the *save_count* kwarg.\n\n    - If an integer, then equivalent to passing ``range(frames)``\n\n    - If a generator function, then must have the signature::\n\n         def gen_function() -> obj\n\n    - If *None*, then equivalent to passing ``itertools.count``.\n\n    In all of these cases, the values in *frames* is simply passed through\n    to the user-supplied *func* and thus can be of any type.\n\ninit_func : callable, optional\n    A function used to draw a clear frame. If not given, the results of\n    drawing from the first item in the frames sequence will be used. This\n    function will be called once before the first frame.\n\n    The required signature is::\n\n        def init_func() -> iterable_of_artists\n\n    If ``blit == True``, *init_func* must return an iterable of artists\n    to be re-drawn. This information is used by the blitting algorithm to\n    determine which parts of the figure have to be updated.  The return\n    value is unused if ``blit == False`` and may be omitted in that case.\n\nfargs : tuple or None, optional\n    Additional arguments to pass to each call to *func*. Note: the use of\n    `functools.partial` is preferred over *fargs*. See *func* for details.\n\nsave_count : int, optional\n    Fallback for the number of values from *frames* to cache. This is\n    only used if the number of frames cannot be inferred from *frames*,\n    i.e. when it's an iterator without length or a generator.\n\ninterval : int, default: 200\n    Delay between frames in milliseconds.\n\nrepeat_delay : int, default: 0\n    The delay in milliseconds between consecutive animation runs, if\n    *repeat* is True.\n\nrepeat : bool, default: True\n    Whether the animation repeats when the sequence of frames is completed.\n\nblit : bool, default: False\n    Whether blitting is used to optimize drawing.  Note: when using\n    blitting, any animated artists will be drawn according to their zorder;\n    however, they will be drawn on top of any previous artists, regardless\n    of their zorder.\n\ncache_frame_data : bool, default: True\n    Whether frame data is cached.  Disabling cache might be helpful when\n    frames contain large objects.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "new_frame_seq",
+          "docstring": null
+        },
+        {
+          "name": "new_saved_frame_seq",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "adjusted_figsize",
+      "docstring": "Compute figure size so that pixels are a multiple of n.\n\nParameters\n----------\nw, h : float\n    Size in inches.\n\ndpi : float\n    The dpi.\n\nn : int\n    The target multiple.\n\nReturns\n-------\nwnew, hnew : float\n    The new figure size in inches."
+    },
+    {
+      "name": "correct_roundoff",
+      "docstring": null
+    },
+    {
+      "name": "register",
+      "docstring": "Decorator for registering a class under a name.\n\nExample use::\n\n    @registry.register(name)\n    class Foo:\n        pass"
+    },
+    {
+      "name": "is_available",
+      "docstring": "Check if given writer is available by name.\n\nParameters\n----------\nname : str\n\nReturns\n-------\nbool"
+    },
+    {
+      "name": "list",
+      "docstring": "Get a list of available MovieWriters."
+    },
+    {
+      "name": "setup",
+      "docstring": "Setup for writing the movie file.\n\nParameters\n----------\nfig : `~matplotlib.figure.Figure`\n    The figure object that contains the information for frames.\noutfile : str\n    The filename of the resulting movie file.\ndpi : float, default: ``fig.dpi``\n    The DPI (or resolution) for the file.  This controls the size\n    in pixels of the resulting movie file."
+    },
+    {
+      "name": "frame_size",
+      "docstring": "A tuple ``(width, height)`` in pixels of a movie frame."
+    },
+    {
+      "name": "grab_frame",
+      "docstring": "Grab the image information from the figure and save as a movie frame.\n\nAll keyword arguments in *savefig_kwargs* are passed on to the\n`~.Figure.savefig` call that saves the figure.  However, several\nkeyword arguments that are supported by `~.Figure.savefig` may not be\npassed as they are controlled by the MovieWriter:\n\n- *dpi*, *bbox_inches*:  These may not be passed because each frame of the\n   animation much be exactly the same size in pixels.\n- *format*: This is controlled by the MovieWriter."
+    },
+    {
+      "name": "finish",
+      "docstring": "Finish any processing for writing the movie."
+    },
+    {
+      "name": "saving",
+      "docstring": "Context manager to facilitate writing the movie file.\n\n``*args, **kw`` are any parameters that should be passed to `setup`."
+    },
+    {
+      "name": "setup",
+      "docstring": null
+    },
+    {
+      "name": "finish",
+      "docstring": "Finish any processing for writing the movie."
+    },
+    {
+      "name": "grab_frame",
+      "docstring": null
+    },
+    {
+      "name": "bin_path",
+      "docstring": "Return the binary path to the commandline tool used by a specific\nsubclass. This is a class method so that the tool can be looked for\nbefore making a particular MovieWriter subclass available."
+    },
+    {
+      "name": "isAvailable",
+      "docstring": "Return whether a MovieWriter subclass is actually available."
+    },
+    {
+      "name": "setup",
+      "docstring": "Setup for writing the movie file.\n\nParameters\n----------\nfig : `~matplotlib.figure.Figure`\n    The figure to grab the rendered frames from.\noutfile : str\n    The filename of the resulting movie file.\ndpi : float, default: ``fig.dpi``\n    The dpi of the output file. This, with the figure size,\n    controls the size in pixels of the resulting movie file.\nframe_prefix : str, optional\n    The filename prefix to use for temporary files.  If *None* (the\n    default), files are written to a temporary directory which is\n    deleted by `finish`; if not *None*, no temporary files are\n    deleted."
+    },
+    {
+      "name": "frame_format",
+      "docstring": "Format (png, jpeg, etc.) to use for saving the frames, which can be\ndecided by the individual subclasses."
+    },
+    {
+      "name": "frame_format",
+      "docstring": null
+    },
+    {
+      "name": "grab_frame",
+      "docstring": null
+    },
+    {
+      "name": "finish",
+      "docstring": null
+    },
+    {
+      "name": "isAvailable",
+      "docstring": null
+    },
+    {
+      "name": "setup",
+      "docstring": null
+    },
+    {
+      "name": "grab_frame",
+      "docstring": null
+    },
+    {
+      "name": "finish",
+      "docstring": null
+    },
+    {
+      "name": "output_args",
+      "docstring": null
+    },
+    {
+      "name": "bin_path",
+      "docstring": null
+    },
+    {
+      "name": "isAvailable",
+      "docstring": null
+    },
+    {
+      "name": "isAvailable",
+      "docstring": null
+    },
+    {
+      "name": "setup",
+      "docstring": null
+    },
+    {
+      "name": "grab_frame",
+      "docstring": null
+    },
+    {
+      "name": "finish",
+      "docstring": null
+    },
+    {
+      "name": "save",
+      "docstring": "Save the animation as a movie file by drawing every frame.\n\nParameters\n----------\nfilename : str\n    The output filename, e.g., :file:`mymovie.mp4`.\n\nwriter : `MovieWriter` or str, default: :rc:`animation.writer`\n    A `MovieWriter` instance to use or a key that identifies a\n    class to use, such as 'ffmpeg'.\n\nfps : int, optional\n    Movie frame rate (per second).  If not set, the frame rate from the\n    animation's frame interval.\n\ndpi : float, default: :rc:`savefig.dpi`\n    Controls the dots per inch for the movie frames.  Together with\n    the figure's size in inches, this controls the size of the movie.\n\ncodec : str, default: :rc:`animation.codec`.\n    The video codec to use.  Not all codecs are supported by a given\n    `MovieWriter`.\n\nbitrate : int, default: :rc:`animation.bitrate`\n    The bitrate of the movie, in kilobits per second.  Higher values\n    means higher quality movies, but increase the file size.  A value\n    of -1 lets the underlying movie encoder select the bitrate.\n\nextra_args : list of str or None, optional\n    Extra command-line arguments passed to the underlying movie encoder. These\n    arguments are passed last to the encoder, just before the output filename.\n    The default, None, means to use :rc:`animation.[name-of-encoder]_args` for\n    the builtin writers.\n\nmetadata : dict[str, str], default: {}\n    Dictionary of keys and values for metadata to include in\n    the output file. Some keys that may be of use include:\n    title, artist, genre, subject, copyright, srcform, comment.\n\nextra_anim : list, default: []\n    Additional `Animation` objects that should be included\n    in the saved movie file. These need to be from the same\n    `.Figure` instance. Also, animation frames will\n    just be simply combined, so there should be a 1:1 correspondence\n    between the frames from the different animations.\n\nsavefig_kwargs : dict, default: {}\n    Keyword arguments passed to each `~.Figure.savefig` call used to\n    save the individual frames.\n\nprogress_callback : function, optional\n    A callback function that will be called for every frame to notify\n    the saving progress. It must have the signature ::\n\n        def func(current_frame: int, total_frames: int) -> Any\n\n    where *current_frame* is the current frame number and *total_frames* is the\n    total number of frames to be saved. *total_frames* is set to None, if the\n    total number of frames cannot be determined. Return values may exist but are\n    ignored.\n\n    Example code to write the progress to stdout::\n\n        progress_callback = lambda i, n: print(f'Saving frame {i}/{n}')\n\nNotes\n-----\n*fps*, *codec*, *bitrate*, *extra_args* and *metadata* are used to\nconstruct a `.MovieWriter` instance and can only be passed if\n*writer* is a string.  If they are passed as non-*None* and *writer*\nis a `.MovieWriter`, a `RuntimeError` will be raised."
+    },
+    {
+      "name": "new_frame_seq",
+      "docstring": "Return a new sequence of frame information."
+    },
+    {
+      "name": "new_saved_frame_seq",
+      "docstring": "Return a new sequence of saved/cached frame information."
+    },
+    {
+      "name": "to_html5_video",
+      "docstring": "Convert the animation to an HTML5 ``<video>`` tag.\n\nThis saves the animation as an h264 video, encoded in base64\ndirectly into the HTML5 video tag. This respects :rc:`animation.writer`\nand :rc:`animation.bitrate`. This also makes use of the\n*interval* to control the speed, and uses the *repeat*\nparameter to decide whether to loop.\n\nParameters\n----------\nembed_limit : float, optional\n    Limit, in MB, of the returned animation. No animation is created\n    if the limit is exceeded.\n    Defaults to :rc:`animation.embed_limit` = 20.0.\n\nReturns\n-------\nstr\n    An HTML5 video tag with the animation embedded as base64 encoded\n    h264 video.\n    If the *embed_limit* is exceeded, this returns the string\n    \"Video too large to embed.\""
+    },
+    {
+      "name": "to_jshtml",
+      "docstring": "Generate HTML representation of the animation.\n\nParameters\n----------\nfps : int, optional\n    Movie frame rate (per second). If not set, the frame rate from\n    the animation's frame interval.\nembed_frames : bool, optional\ndefault_mode : str, optional\n    What to do when the animation ends. Must be one of ``{'loop',\n    'once', 'reflect'}``. Defaults to ``'loop'`` if the *repeat*\n    parameter is True, otherwise ``'once'``.\n\nReturns\n-------\nstr\n    An HTML representation of the animation embedded as a js object as\n    produced with the `.HTMLWriter`."
+    },
+    {
+      "name": "pause",
+      "docstring": "Pause the animation."
+    },
+    {
+      "name": "resume",
+      "docstring": "Resume the animation."
+    },
+    {
+      "name": "new_frame_seq",
+      "docstring": null
+    },
+    {
+      "name": "new_saved_frame_seq",
+      "docstring": null
+    },
+    {
+      "name": "wrapper",
+      "docstring": null
+    },
+    {
+      "name": "gen",
+      "docstring": null
+    },
+    {
+      "name": "iter_frames",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

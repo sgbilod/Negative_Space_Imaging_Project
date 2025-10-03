@@ -1,0 +1,42 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\ImageQt.py",
+  "classes": [
+    {
+      "name": "ImageQt",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "An PIL image wrapper for Qt.  This is a subclass of PyQt's QImage\nclass.\n\n:param im: A PIL Image object, or a file name (given either as\n    Python string or a PyQt string object)."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "rgb",
+      "docstring": "(Internal) Turns an RGB color into a Qt compatible color integer."
+    },
+    {
+      "name": "fromqimage",
+      "docstring": ":param im: QImage or PIL ImageQt object"
+    },
+    {
+      "name": "fromqpixmap",
+      "docstring": null
+    },
+    {
+      "name": "align8to32",
+      "docstring": "converts each scanline of data from 8 bit to 32 bit aligned"
+    },
+    {
+      "name": "toqimage",
+      "docstring": null
+    },
+    {
+      "name": "toqpixmap",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

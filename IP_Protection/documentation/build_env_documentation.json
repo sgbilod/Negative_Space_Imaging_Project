@@ -1,0 +1,74 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\build_env.py",
+  "classes": [
+    {
+      "name": "_Prefix",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BuildEnvironment",
+      "docstring": "Creates and manages an isolated environment to install build deps",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "check_requirements",
+          "docstring": "Return 2 sets:\n- conflicting requirements: set of (installed, wanted) reqs tuples\n- missing requirements: set of reqs"
+        },
+        {
+          "name": "install_requirements",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "NoOpBuildEnvironment",
+      "docstring": "A no-op drop-in replacement for BuildEnvironment",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "cleanup",
+          "docstring": null
+        },
+        {
+          "name": "install_requirements",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_runnable_pip",
+      "docstring": "Get a file to pass to a Python executable, to run the currently-running pip.\n\nThis is used to run a pip subprocess, for installing requirements into the build\nenvironment."
+    },
+    {
+      "name": "check_requirements",
+      "docstring": "Return 2 sets:\n- conflicting requirements: set of (installed, wanted) reqs tuples\n- missing requirements: set of reqs"
+    },
+    {
+      "name": "install_requirements",
+      "docstring": null
+    },
+    {
+      "name": "cleanup",
+      "docstring": null
+    },
+    {
+      "name": "install_requirements",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

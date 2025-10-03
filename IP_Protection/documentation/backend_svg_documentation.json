@@ -1,0 +1,257 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\backend_svg.py",
+  "classes": [
+    {
+      "name": "XMLWriter",
+      "docstring": "Parameters\n----------\nfile : writable text file-like object",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "start",
+          "docstring": "Open a new element.  Attributes can be given as keyword\narguments, or as a string/string dictionary. The method returns\nan opaque identifier that can be passed to the :meth:`close`\nmethod, to close all open elements up to and including this one.\n\nParameters\n----------\ntag\n    Element tag.\nattrib\n    Attribute dictionary.  Alternatively, attributes can be given as\n    keyword arguments.\n\nReturns\n-------\nAn element identifier."
+        },
+        {
+          "name": "comment",
+          "docstring": "Add a comment to the output stream.\n\nParameters\n----------\ncomment : str\n    Comment text."
+        },
+        {
+          "name": "data",
+          "docstring": "Add character data to the output stream.\n\nParameters\n----------\ntext : str\n    Character data."
+        },
+        {
+          "name": "end",
+          "docstring": "Close the current element (opened by the most recent call to\n:meth:`start`).\n\nParameters\n----------\ntag\n    Element tag.  If given, the tag must match the start tag.  If\n    omitted, the current element is closed.\nindent : bool, default: True"
+        },
+        {
+          "name": "close",
+          "docstring": "Close open elements, up to (and including) the element identified\nby the given identifier.\n\nParameters\n----------\nid\n    Element identifier, as returned by the :meth:`start` method."
+        },
+        {
+          "name": "element",
+          "docstring": "Add an entire element.  This is the same as calling :meth:`start`,\n:meth:`data`, and :meth:`end` in sequence. The *text* argument can be\nomitted."
+        },
+        {
+          "name": "flush",
+          "docstring": "Flush the output stream."
+        }
+      ]
+    },
+    {
+      "name": "RendererSVG",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "finalize",
+          "docstring": null
+        },
+        {
+          "name": "open_group",
+          "docstring": null
+        },
+        {
+          "name": "close_group",
+          "docstring": null
+        },
+        {
+          "name": "option_image_nocomposite",
+          "docstring": null
+        },
+        {
+          "name": "draw_path",
+          "docstring": null
+        },
+        {
+          "name": "draw_markers",
+          "docstring": null
+        },
+        {
+          "name": "draw_path_collection",
+          "docstring": null
+        },
+        {
+          "name": "draw_gouraud_triangles",
+          "docstring": null
+        },
+        {
+          "name": "option_scale_image",
+          "docstring": null
+        },
+        {
+          "name": "get_image_magnification",
+          "docstring": null
+        },
+        {
+          "name": "draw_image",
+          "docstring": null
+        },
+        {
+          "name": "draw_text",
+          "docstring": null
+        },
+        {
+          "name": "flipy",
+          "docstring": null
+        },
+        {
+          "name": "get_canvas_width_height",
+          "docstring": null
+        },
+        {
+          "name": "get_text_width_height_descent",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FigureCanvasSVG",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "print_svg",
+          "docstring": "Parameters\n----------\nfilename : str or path-like or file-like\n    Output target; if a string, a file will be opened for writing.\n\nmetadata : dict[str, Any], optional\n    Metadata in the SVG file defined as key-value pairs of strings,\n    datetimes, or lists of strings, e.g., ``{'Creator': 'My software',\n    'Contributor': ['Me', 'My Friend'], 'Title': 'Awesome'}``.\n\n    The standard keys and their value types are:\n\n    * *str*: ``'Coverage'``, ``'Description'``, ``'Format'``,\n      ``'Identifier'``, ``'Language'``, ``'Relation'``, ``'Source'``,\n      ``'Title'``, and ``'Type'``.\n    * *str* or *list of str*: ``'Contributor'``, ``'Creator'``,\n      ``'Keywords'``, ``'Publisher'``, and ``'Rights'``.\n    * *str*, *date*, *datetime*, or *tuple* of same: ``'Date'``. If a\n      non-*str*, then it will be formatted as ISO 8601.\n\n    Values have been predefined for ``'Creator'``, ``'Date'``,\n    ``'Format'``, and ``'Type'``. They can be removed by setting them\n    to `None`.\n\n    Information is encoded as `Dublin Core Metadata`__.\n\n    .. _DC: https://www.dublincore.org/specifications/dublin-core/\n\n    __ DC_"
+        },
+        {
+          "name": "print_svgz",
+          "docstring": null
+        },
+        {
+          "name": "get_default_filetype",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BackendSVG",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "start",
+      "docstring": "Open a new element.  Attributes can be given as keyword\narguments, or as a string/string dictionary. The method returns\nan opaque identifier that can be passed to the :meth:`close`\nmethod, to close all open elements up to and including this one.\n\nParameters\n----------\ntag\n    Element tag.\nattrib\n    Attribute dictionary.  Alternatively, attributes can be given as\n    keyword arguments.\n\nReturns\n-------\nAn element identifier."
+    },
+    {
+      "name": "comment",
+      "docstring": "Add a comment to the output stream.\n\nParameters\n----------\ncomment : str\n    Comment text."
+    },
+    {
+      "name": "data",
+      "docstring": "Add character data to the output stream.\n\nParameters\n----------\ntext : str\n    Character data."
+    },
+    {
+      "name": "end",
+      "docstring": "Close the current element (opened by the most recent call to\n:meth:`start`).\n\nParameters\n----------\ntag\n    Element tag.  If given, the tag must match the start tag.  If\n    omitted, the current element is closed.\nindent : bool, default: True"
+    },
+    {
+      "name": "close",
+      "docstring": "Close open elements, up to (and including) the element identified\nby the given identifier.\n\nParameters\n----------\nid\n    Element identifier, as returned by the :meth:`start` method."
+    },
+    {
+      "name": "element",
+      "docstring": "Add an entire element.  This is the same as calling :meth:`start`,\n:meth:`data`, and :meth:`end` in sequence. The *text* argument can be\nomitted."
+    },
+    {
+      "name": "flush",
+      "docstring": "Flush the output stream."
+    },
+    {
+      "name": "finalize",
+      "docstring": null
+    },
+    {
+      "name": "open_group",
+      "docstring": null
+    },
+    {
+      "name": "close_group",
+      "docstring": null
+    },
+    {
+      "name": "option_image_nocomposite",
+      "docstring": null
+    },
+    {
+      "name": "draw_path",
+      "docstring": null
+    },
+    {
+      "name": "draw_markers",
+      "docstring": null
+    },
+    {
+      "name": "draw_path_collection",
+      "docstring": null
+    },
+    {
+      "name": "draw_gouraud_triangles",
+      "docstring": null
+    },
+    {
+      "name": "option_scale_image",
+      "docstring": null
+    },
+    {
+      "name": "get_image_magnification",
+      "docstring": null
+    },
+    {
+      "name": "draw_image",
+      "docstring": null
+    },
+    {
+      "name": "draw_text",
+      "docstring": null
+    },
+    {
+      "name": "flipy",
+      "docstring": null
+    },
+    {
+      "name": "get_canvas_width_height",
+      "docstring": null
+    },
+    {
+      "name": "get_text_width_height_descent",
+      "docstring": null
+    },
+    {
+      "name": "print_svg",
+      "docstring": "Parameters\n----------\nfilename : str or path-like or file-like\n    Output target; if a string, a file will be opened for writing.\n\nmetadata : dict[str, Any], optional\n    Metadata in the SVG file defined as key-value pairs of strings,\n    datetimes, or lists of strings, e.g., ``{'Creator': 'My software',\n    'Contributor': ['Me', 'My Friend'], 'Title': 'Awesome'}``.\n\n    The standard keys and their value types are:\n\n    * *str*: ``'Coverage'``, ``'Description'``, ``'Format'``,\n      ``'Identifier'``, ``'Language'``, ``'Relation'``, ``'Source'``,\n      ``'Title'``, and ``'Type'``.\n    * *str* or *list of str*: ``'Contributor'``, ``'Creator'``,\n      ``'Keywords'``, ``'Publisher'``, and ``'Rights'``.\n    * *str*, *date*, *datetime*, or *tuple* of same: ``'Date'``. If a\n      non-*str*, then it will be formatted as ISO 8601.\n\n    Values have been predefined for ``'Creator'``, ``'Date'``,\n    ``'Format'``, and ``'Type'``. They can be removed by setting them\n    to `None`.\n\n    Information is encoded as `Dublin Core Metadata`__.\n\n    .. _DC: https://www.dublincore.org/specifications/dublin-core/\n\n    __ DC_"
+    },
+    {
+      "name": "print_svgz",
+      "docstring": null
+    },
+    {
+      "name": "get_default_filetype",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "ensure_metadata",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "                             offsets, offset_trans, facecolors, edgecolors,\n                             linewidths, linestyles, antialiaseds, urls,\n                             offset_position):\n        # Is the optimization worth it? Rough calculation:\n        # cost of emitting a path in-line is\n        #    (len_path + 5) * uses_per_path\n        # cost of definition+use is"
+    }
+  ]
+}

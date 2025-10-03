@@ -1,0 +1,17 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_globals.py",
+  "classes": [
+    {
+      "name": "_NoValueType",
+      "docstring": "Special keyword value.\n\nThe instance of this class may be used as the default value assigned to a\nkeyword if no other obvious default (e.g., `None`) is suitable,\n\nCommon reasons for using this keyword are:\n\n- A new keyword is added to a function, and that function forwards its\n  inputs to another function or method which can be defined outside of\n  NumPy. For example, ``np.std(x)`` calls ``x.std``, so when a ``keepdims``\n  keyword was added that could only be forwarded if the user explicitly\n  specified ``keepdims``; downstream array libraries may not have added\n  the same keyword, so adding ``x.std(..., keepdims=keepdims)``\n  unconditionally could have broken previously working code.\n- A keyword is being deprecated, and a deprecation warning must only be\n  emitted when the keyword is used.",
+      "methods": []
+    },
+    {
+      "name": "_CopyMode",
+      "docstring": "An enumeration for the copy modes supported\nby numpy.copy() and numpy.array(). The following three modes are supported,\n\n- ALWAYS: This means that a deep copy of the input\n          array will always be taken.\n- IF_NEEDED: This means that a deep copy of the input\n             array will be taken only if necessary.\n- NEVER: This means that the deep copy will never be taken.\n         If a copy cannot be avoided then a `ValueError` will be\n         raised.\n\nNote that the buffer-protocol could in theory do copies.  NumPy currently\nassumes an object exporting the buffer protocol will never do this.",
+      "methods": []
+    }
+  ],
+  "functions": [],
+  "innovations": []
+}

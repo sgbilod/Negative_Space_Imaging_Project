@@ -1,0 +1,156 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\cffLib\\specializer.py",
+  "classes": [
+    {
+      "name": "_GeneralizerDecombinerCommandsMap",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "rmoveto",
+          "docstring": null
+        },
+        {
+          "name": "hmoveto",
+          "docstring": null
+        },
+        {
+          "name": "vmoveto",
+          "docstring": null
+        },
+        {
+          "name": "rlineto",
+          "docstring": null
+        },
+        {
+          "name": "hlineto",
+          "docstring": null
+        },
+        {
+          "name": "vlineto",
+          "docstring": null
+        },
+        {
+          "name": "rrcurveto",
+          "docstring": null
+        },
+        {
+          "name": "hhcurveto",
+          "docstring": null
+        },
+        {
+          "name": "vvcurveto",
+          "docstring": null
+        },
+        {
+          "name": "hvcurveto",
+          "docstring": null
+        },
+        {
+          "name": "vhcurveto",
+          "docstring": null
+        },
+        {
+          "name": "rcurveline",
+          "docstring": null
+        },
+        {
+          "name": "rlinecurve",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "stringToProgram",
+      "docstring": null
+    },
+    {
+      "name": "programToString",
+      "docstring": null
+    },
+    {
+      "name": "programToCommands",
+      "docstring": "Takes a T2CharString program list and returns list of commands.\nEach command is a two-tuple of commandname,arg-list.  The commandname might\nbe empty string if no commandname shall be emitted (used for glyph width,\nhintmask/cntrmask argument, as well as stray arguments at the end of the\nprogram (\ud83e\udd37).\n'getNumRegions' may be None, or a callable object. It must return the\nnumber of regions. 'getNumRegions' takes a single argument, vsindex. It\nreturns the numRegions for the vsindex.\nThe Charstring may or may not start with a width value. If the first\nnon-blend operator has an odd number of arguments, then the first argument is\na width, and is popped off. This is complicated with blend operators, as\nthere may be more than one before the first hint or moveto operator, and each\none reduces several arguments to just one list argument. We have to sum the\nnumber of arguments that are not part of the blend arguments, and all the\n'numBlends' values. We could instead have said that by definition, if there\nis a blend operator, there is no width value, since CFF2 Charstrings don't\nhave width values. I discussed this with Behdad, and we are allowing for an\ninitial width value in this case because developers may assemble a CFF2\ncharstring from CFF Charstrings, which could have width values."
+    },
+    {
+      "name": "commandsToProgram",
+      "docstring": "Takes a commands list as returned by programToCommands() and converts\nit back to a T2CharString program list."
+    },
+    {
+      "name": "generalizeCommands",
+      "docstring": null
+    },
+    {
+      "name": "generalizeProgram",
+      "docstring": null
+    },
+    {
+      "name": "specializeCommands",
+      "docstring": null
+    },
+    {
+      "name": "specializeProgram",
+      "docstring": null
+    },
+    {
+      "name": "rmoveto",
+      "docstring": null
+    },
+    {
+      "name": "hmoveto",
+      "docstring": null
+    },
+    {
+      "name": "vmoveto",
+      "docstring": null
+    },
+    {
+      "name": "rlineto",
+      "docstring": null
+    },
+    {
+      "name": "hlineto",
+      "docstring": null
+    },
+    {
+      "name": "vlineto",
+      "docstring": null
+    },
+    {
+      "name": "rrcurveto",
+      "docstring": null
+    },
+    {
+      "name": "hhcurveto",
+      "docstring": null
+    },
+    {
+      "name": "vvcurveto",
+      "docstring": null
+    },
+    {
+      "name": "hvcurveto",
+      "docstring": null
+    },
+    {
+      "name": "vhcurveto",
+      "docstring": null
+    },
+    {
+      "name": "rcurveline",
+      "docstring": null
+    },
+    {
+      "name": "rlinecurve",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "            # the 'maxstack' chosen by the client, as the default\n            # maxstack may have been used unintentionally. For all\n            # the other operators, this just produces a little less\n            # optimization, but here it puts a hard (and low) limit\n            # on the number of source fonts that can be used.\n            #\n            # Make sure the stack depth does not exceed (maxstack - 1), so"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\realtime_demo.py",
+  "classes": [
+    {
+      "name": "DemoMode",
+      "docstring": "Demo modes for real-time tracking",
+      "methods": []
+    },
+    {
+      "name": "RealTimeDemo",
+      "docstring": "Real-time negative space analysis demo",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the real-time demo\n\nArgs:\n    mode: Demo mode (webcam, video file, or synthetic)\n    analysis_mode: Analysis mode for the tracker\n    video_path: Path to video file (for VIDEO_FILE mode)\n    camera_id: Camera ID (for WEBCAM mode)\n    resolution: Camera resolution (for WEBCAM mode)\n    display_results: Whether to display results in a window"
+        },
+        {
+          "name": "init_components",
+          "docstring": "Initialize demo components"
+        },
+        {
+          "name": "start",
+          "docstring": "Start the demo"
+        },
+        {
+          "name": "run_loop",
+          "docstring": "Main processing loop"
+        },
+        {
+          "name": "get_frame",
+          "docstring": "Get a frame from the current source\n\nReturns:\n    Frame from current source, or None if no frames are available"
+        },
+        {
+          "name": "display_frame",
+          "docstring": "Display the current frame and analysis results\n\nArgs:\n    frame: Current video frame\n    point_cloud: Generated point cloud"
+        },
+        {
+          "name": "print_metrics",
+          "docstring": "Print performance metrics"
+        },
+        {
+          "name": "cleanup",
+          "docstring": "Clean up resources"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "parse_args",
+      "docstring": "Parse command-line arguments"
+    },
+    {
+      "name": "main",
+      "docstring": "Main function"
+    },
+    {
+      "name": "init_components",
+      "docstring": "Initialize demo components"
+    },
+    {
+      "name": "start",
+      "docstring": "Start the demo"
+    },
+    {
+      "name": "run_loop",
+      "docstring": "Main processing loop"
+    },
+    {
+      "name": "get_frame",
+      "docstring": "Get a frame from the current source\n\nReturns:\n    Frame from current source, or None if no frames are available"
+    },
+    {
+      "name": "display_frame",
+      "docstring": "Display the current frame and analysis results\n\nArgs:\n    frame: Current video frame\n    point_cloud: Generated point cloud"
+    },
+    {
+      "name": "print_metrics",
+      "docstring": "Print performance metrics"
+    },
+    {
+      "name": "cleanup",
+      "docstring": "Clean up resources"
+    }
+  ],
+  "innovations": []
+}

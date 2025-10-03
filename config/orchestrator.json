@@ -1,0 +1,33 @@
+{
+    "system": {
+        "monitoring_interval": 300,
+        "log_level": "INFO",
+        "startup_validation_level": "COMPLETE",
+        "monitoring_validation_level": "BASIC"
+    },
+    "security": {
+        "require_multi_signature": true,
+        "min_signatures": 3,
+        "signature_threshold": 2,
+        "encryption_algorithm": "AES-256-GCM",
+        "key_rotation_days": 30
+    },
+    "performance": {
+        "max_threads": 8,
+        "gpu_enabled": true,
+        "distributed_mode": false,
+        "benchmark_interval": 3600
+    },
+    "logging": {
+        "file_rotation": "1 day",
+        "max_size": "100MB",
+        "backup_count": 30,
+        "compression": true
+    },
+    "paths": {
+        "data_dir": "data",
+        "cache_dir": "cache",
+        "temp_dir": "temp",
+        "log_dir": "logs"
+    }
+}

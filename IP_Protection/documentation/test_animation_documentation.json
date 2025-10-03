@@ -1,0 +1,198 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_animation.py",
+  "classes": [
+    {
+      "name": "NullMovieWriter",
+      "docstring": "A minimal MovieWriter.  It doesn't actually write anything.\nIt just saves the arguments that were given to the setup() and\ngrab_frame() methods as attributes, and counts how many times\ngrab_frame() is called.\n\nThis class doesn't have an __init__ method with the appropriate\nsignature, and it doesn't define an isAvailable() method, so\nit cannot be added to the 'writers' registry.",
+      "methods": [
+        {
+          "name": "setup",
+          "docstring": null
+        },
+        {
+          "name": "grab_frame",
+          "docstring": null
+        },
+        {
+          "name": "finish",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RegisteredNullMovieWriter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "isAvailable",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummyMovieWriter",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Frame",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "anim",
+      "docstring": "Create a simple animation (with options)."
+    },
+    {
+      "name": "test_null_movie_writer",
+      "docstring": null
+    },
+    {
+      "name": "test_animation_delete",
+      "docstring": null
+    },
+    {
+      "name": "test_movie_writer_dpi_default",
+      "docstring": null
+    },
+    {
+      "name": "gen_writers",
+      "docstring": null
+    },
+    {
+      "name": "test_save_animation_smoketest",
+      "docstring": null
+    },
+    {
+      "name": "test_grabframe",
+      "docstring": null
+    },
+    {
+      "name": "test_animation_repr_html",
+      "docstring": null
+    },
+    {
+      "name": "test_no_length_frames",
+      "docstring": null
+    },
+    {
+      "name": "test_movie_writer_registry",
+      "docstring": null
+    },
+    {
+      "name": "test_embed_limit",
+      "docstring": null
+    },
+    {
+      "name": "test_cleanup_temporaries",
+      "docstring": null
+    },
+    {
+      "name": "test_failing_ffmpeg",
+      "docstring": "Test that we correctly raise a CalledProcessError when ffmpeg fails.\n\nTo do so, mock ffmpeg using a simple executable shell script that\nsucceeds when called with no arguments (so that it gets registered by\n`isAvailable`), but fails otherwise, and add it to the $PATH."
+    },
+    {
+      "name": "test_funcanimation_cache_frame_data",
+      "docstring": null
+    },
+    {
+      "name": "test_draw_frame",
+      "docstring": null
+    },
+    {
+      "name": "test_exhausted_animation",
+      "docstring": null
+    },
+    {
+      "name": "test_no_frame_warning",
+      "docstring": null
+    },
+    {
+      "name": "test_animation_frame",
+      "docstring": null
+    },
+    {
+      "name": "test_save_count_override_warnings_has_length",
+      "docstring": null
+    },
+    {
+      "name": "test_save_count_override_warnings_scaler",
+      "docstring": null
+    },
+    {
+      "name": "test_disable_cache_warning",
+      "docstring": null
+    },
+    {
+      "name": "test_movie_writer_invalid_path",
+      "docstring": null
+    },
+    {
+      "name": "test_animation_with_transparency",
+      "docstring": "Test animation exhaustion with transparency using PillowWriter directly"
+    },
+    {
+      "name": "init",
+      "docstring": null
+    },
+    {
+      "name": "animate",
+      "docstring": null
+    },
+    {
+      "name": "setup",
+      "docstring": null
+    },
+    {
+      "name": "grab_frame",
+      "docstring": null
+    },
+    {
+      "name": "finish",
+      "docstring": null
+    },
+    {
+      "name": "isAvailable",
+      "docstring": null
+    },
+    {
+      "name": "init",
+      "docstring": null
+    },
+    {
+      "name": "animate",
+      "docstring": null
+    },
+    {
+      "name": "frames_generator",
+      "docstring": null
+    },
+    {
+      "name": "animate",
+      "docstring": null
+    },
+    {
+      "name": "update",
+      "docstring": null
+    },
+    {
+      "name": "update",
+      "docstring": null
+    },
+    {
+      "name": "init",
+      "docstring": null
+    },
+    {
+      "name": "animate",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

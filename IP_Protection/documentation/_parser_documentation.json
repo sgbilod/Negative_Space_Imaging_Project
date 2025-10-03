@@ -1,0 +1,290 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\dateutil\\parser\\_parser.py",
+  "classes": [
+    {
+      "name": "_timelex",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_token",
+          "docstring": "This function breaks the time string into lexical units (tokens), which\ncan be parsed by the parser. Lexical units are demarcated by changes in\nthe character set, so any continuous string of letters is considered\none unit, any continuous string of numbers is considered one unit.\n\nThe main complication arises from the fact that dots ('.') can be used\nboth as separators (e.g. \"Sep.20.2009\") or decimal points (e.g.\n\"4:30:21.447\"). As such, it is necessary to read the full context of\nany dot-separated strings before breaking it into tokens; as such, this\nfunction maintains a \"token stack\", for when the ambiguous context\ndemands that multiple tokens be parsed at once."
+        },
+        {
+          "name": "next",
+          "docstring": null
+        },
+        {
+          "name": "split",
+          "docstring": null
+        },
+        {
+          "name": "isword",
+          "docstring": "Whether or not the next character is part of a word "
+        },
+        {
+          "name": "isnum",
+          "docstring": "Whether the next character is part of a number "
+        },
+        {
+          "name": "isspace",
+          "docstring": "Whether the next character is whitespace "
+        }
+      ]
+    },
+    {
+      "name": "_resultbase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "parserinfo",
+      "docstring": "Class which handles what inputs are accepted. Subclass this to customize\nthe language and acceptable values for each parameter.\n\n:param dayfirst:\n    Whether to interpret the first value in an ambiguous 3-integer date\n    (e.g. 01/05/09) as the day (``True``) or month (``False``). If\n    ``yearfirst`` is set to ``True``, this distinguishes between YDM\n    and YMD. Default is ``False``.\n\n:param yearfirst:\n    Whether to interpret the first value in an ambiguous 3-integer date\n    (e.g. 01/05/09) as the year. If ``True``, the first number is taken\n    to be the year, otherwise the last number is taken to be the year.\n    Default is ``False``.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "jump",
+          "docstring": null
+        },
+        {
+          "name": "weekday",
+          "docstring": null
+        },
+        {
+          "name": "month",
+          "docstring": null
+        },
+        {
+          "name": "hms",
+          "docstring": null
+        },
+        {
+          "name": "ampm",
+          "docstring": null
+        },
+        {
+          "name": "pertain",
+          "docstring": null
+        },
+        {
+          "name": "utczone",
+          "docstring": null
+        },
+        {
+          "name": "tzoffset",
+          "docstring": null
+        },
+        {
+          "name": "convertyear",
+          "docstring": "Converts two-digit years to year within [-50, 49]\nrange of self._year (current local time)"
+        },
+        {
+          "name": "validate",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_ymd",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "has_year",
+          "docstring": null
+        },
+        {
+          "name": "has_month",
+          "docstring": null
+        },
+        {
+          "name": "has_day",
+          "docstring": null
+        },
+        {
+          "name": "could_be_day",
+          "docstring": null
+        },
+        {
+          "name": "append",
+          "docstring": null
+        },
+        {
+          "name": "resolve_ymd",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "parser",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "parse",
+          "docstring": "Parse the date/time string into a :class:`datetime.datetime` object.\n\n:param timestr:\n    Any date/time string using the supported formats.\n\n:param default:\n    The default datetime object, if this is a datetime object and not\n    ``None``, elements specified in ``timestr`` replace elements in the\n    default object.\n\n:param ignoretz:\n    If set ``True``, time zones in parsed strings are ignored and a\n    naive :class:`datetime.datetime` object is returned.\n\n:param tzinfos:\n    Additional time zone names / aliases which may be present in the\n    string. This argument maps time zone names (and optionally offsets\n    from those time zones) to time zones. This parameter can be a\n    dictionary with timezone aliases mapping time zone names to time\n    zones or a function taking two parameters (``tzname`` and\n    ``tzoffset``) and returning a time zone.\n\n    The timezones to which the names are mapped can be an integer\n    offset from UTC in seconds or a :class:`tzinfo` object.\n\n    .. doctest::\n       :options: +NORMALIZE_WHITESPACE\n\n        >>> from dateutil.parser import parse\n        >>> from dateutil.tz import gettz\n        >>> tzinfos = {\"BRST\": -7200, \"CST\": gettz(\"America/Chicago\")}\n        >>> parse(\"2012-01-19 17:21:00 BRST\", tzinfos=tzinfos)\n        datetime.datetime(2012, 1, 19, 17, 21, tzinfo=tzoffset(u'BRST', -7200))\n        >>> parse(\"2012-01-19 17:21:00 CST\", tzinfos=tzinfos)\n        datetime.datetime(2012, 1, 19, 17, 21,\n                          tzinfo=tzfile('/usr/share/zoneinfo/America/Chicago'))\n\n    This parameter is ignored if ``ignoretz`` is set.\n\n:param \\*\\*kwargs:\n    Keyword arguments as passed to ``_parse()``.\n\n:return:\n    Returns a :class:`datetime.datetime` object or, if the\n    ``fuzzy_with_tokens`` option is ``True``, returns a tuple, the\n    first element being a :class:`datetime.datetime` object, the second\n    a tuple containing the fuzzy tokens.\n\n:raises ParserError:\n    Raised for invalid or unknown string format, if the provided\n    :class:`tzinfo` is not in a valid format, or if an invalid date\n    would be created.\n\n:raises TypeError:\n    Raised for non-string or character stream input.\n\n:raises OverflowError:\n    Raised if the parsed date exceeds the largest valid C integer on\n    your system."
+        }
+      ]
+    },
+    {
+      "name": "_tzparser",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "parse",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ParserError",
+      "docstring": "Exception subclass used for any failure to parse a datetime string.\n\nThis is a subclass of :py:exc:`ValueError`, and should be raised any time\nearlier versions of ``dateutil`` would have raised ``ValueError``.\n\n.. versionadded:: 2.8.1",
+      "methods": []
+    },
+    {
+      "name": "UnknownTimezoneWarning",
+      "docstring": "Raised when the parser finds a timezone it cannot parse into a tzinfo.\n\n.. versionadded:: 2.7.0",
+      "methods": []
+    },
+    {
+      "name": "_result",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_result",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_attr",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "parse",
+      "docstring": "Parse a string in one of the supported formats, using the\n``parserinfo`` parameters.\n\n:param timestr:\n    A string containing a date/time stamp.\n\n:param parserinfo:\n    A :class:`parserinfo` object containing parameters for the parser.\n    If ``None``, the default arguments to the :class:`parserinfo`\n    constructor are used.\n\nThe ``**kwargs`` parameter takes the following keyword arguments:\n\n:param default:\n    The default datetime object, if this is a datetime object and not\n    ``None``, elements specified in ``timestr`` replace elements in the\n    default object.\n\n:param ignoretz:\n    If set ``True``, time zones in parsed strings are ignored and a naive\n    :class:`datetime` object is returned.\n\n:param tzinfos:\n    Additional time zone names / aliases which may be present in the\n    string. This argument maps time zone names (and optionally offsets\n    from those time zones) to time zones. This parameter can be a\n    dictionary with timezone aliases mapping time zone names to time\n    zones or a function taking two parameters (``tzname`` and\n    ``tzoffset``) and returning a time zone.\n\n    The timezones to which the names are mapped can be an integer\n    offset from UTC in seconds or a :class:`tzinfo` object.\n\n    .. doctest::\n       :options: +NORMALIZE_WHITESPACE\n\n        >>> from dateutil.parser import parse\n        >>> from dateutil.tz import gettz\n        >>> tzinfos = {\"BRST\": -7200, \"CST\": gettz(\"America/Chicago\")}\n        >>> parse(\"2012-01-19 17:21:00 BRST\", tzinfos=tzinfos)\n        datetime.datetime(2012, 1, 19, 17, 21, tzinfo=tzoffset(u'BRST', -7200))\n        >>> parse(\"2012-01-19 17:21:00 CST\", tzinfos=tzinfos)\n        datetime.datetime(2012, 1, 19, 17, 21,\n                          tzinfo=tzfile('/usr/share/zoneinfo/America/Chicago'))\n\n    This parameter is ignored if ``ignoretz`` is set.\n\n:param dayfirst:\n    Whether to interpret the first value in an ambiguous 3-integer date\n    (e.g. 01/05/09) as the day (``True``) or month (``False``). If\n    ``yearfirst`` is set to ``True``, this distinguishes between YDM and\n    YMD. If set to ``None``, this value is retrieved from the current\n    :class:`parserinfo` object (which itself defaults to ``False``).\n\n:param yearfirst:\n    Whether to interpret the first value in an ambiguous 3-integer date\n    (e.g. 01/05/09) as the year. If ``True``, the first number is taken to\n    be the year, otherwise the last number is taken to be the year. If\n    this is set to ``None``, the value is retrieved from the current\n    :class:`parserinfo` object (which itself defaults to ``False``).\n\n:param fuzzy:\n    Whether to allow fuzzy parsing, allowing for string like \"Today is\n    January 1, 2047 at 8:21:00AM\".\n\n:param fuzzy_with_tokens:\n    If ``True``, ``fuzzy`` is automatically set to True, and the parser\n    will return a tuple where the first element is the parsed\n    :class:`datetime.datetime` datetimestamp and the second element is\n    a tuple containing the portions of the string which were ignored:\n\n    .. doctest::\n\n        >>> from dateutil.parser import parse\n        >>> parse(\"Today is January 1, 2047 at 8:21:00AM\", fuzzy_with_tokens=True)\n        (datetime.datetime(2047, 1, 1, 8, 21), (u'Today is ', u' ', u'at '))\n\n:return:\n    Returns a :class:`datetime.datetime` object or, if the\n    ``fuzzy_with_tokens`` option is ``True``, returns a tuple, the\n    first element being a :class:`datetime.datetime` object, the second\n    a tuple containing the fuzzy tokens.\n\n:raises ParserError:\n    Raised for invalid or unknown string formats, if the provided\n    :class:`tzinfo` is not in a valid format, or if an invalid date would\n    be created.\n\n:raises OverflowError:\n    Raised if the parsed date exceeds the largest valid C integer on\n    your system."
+    },
+    {
+      "name": "get_token",
+      "docstring": "This function breaks the time string into lexical units (tokens), which\ncan be parsed by the parser. Lexical units are demarcated by changes in\nthe character set, so any continuous string of letters is considered\none unit, any continuous string of numbers is considered one unit.\n\nThe main complication arises from the fact that dots ('.') can be used\nboth as separators (e.g. \"Sep.20.2009\") or decimal points (e.g.\n\"4:30:21.447\"). As such, it is necessary to read the full context of\nany dot-separated strings before breaking it into tokens; as such, this\nfunction maintains a \"token stack\", for when the ambiguous context\ndemands that multiple tokens be parsed at once."
+    },
+    {
+      "name": "next",
+      "docstring": null
+    },
+    {
+      "name": "split",
+      "docstring": null
+    },
+    {
+      "name": "isword",
+      "docstring": "Whether or not the next character is part of a word "
+    },
+    {
+      "name": "isnum",
+      "docstring": "Whether the next character is part of a number "
+    },
+    {
+      "name": "isspace",
+      "docstring": "Whether the next character is whitespace "
+    },
+    {
+      "name": "jump",
+      "docstring": null
+    },
+    {
+      "name": "weekday",
+      "docstring": null
+    },
+    {
+      "name": "month",
+      "docstring": null
+    },
+    {
+      "name": "hms",
+      "docstring": null
+    },
+    {
+      "name": "ampm",
+      "docstring": null
+    },
+    {
+      "name": "pertain",
+      "docstring": null
+    },
+    {
+      "name": "utczone",
+      "docstring": null
+    },
+    {
+      "name": "tzoffset",
+      "docstring": null
+    },
+    {
+      "name": "convertyear",
+      "docstring": "Converts two-digit years to year within [-50, 49]\nrange of self._year (current local time)"
+    },
+    {
+      "name": "validate",
+      "docstring": null
+    },
+    {
+      "name": "has_year",
+      "docstring": null
+    },
+    {
+      "name": "has_month",
+      "docstring": null
+    },
+    {
+      "name": "has_day",
+      "docstring": null
+    },
+    {
+      "name": "could_be_day",
+      "docstring": null
+    },
+    {
+      "name": "append",
+      "docstring": null
+    },
+    {
+      "name": "resolve_ymd",
+      "docstring": null
+    },
+    {
+      "name": "parse",
+      "docstring": "Parse the date/time string into a :class:`datetime.datetime` object.\n\n:param timestr:\n    Any date/time string using the supported formats.\n\n:param default:\n    The default datetime object, if this is a datetime object and not\n    ``None``, elements specified in ``timestr`` replace elements in the\n    default object.\n\n:param ignoretz:\n    If set ``True``, time zones in parsed strings are ignored and a\n    naive :class:`datetime.datetime` object is returned.\n\n:param tzinfos:\n    Additional time zone names / aliases which may be present in the\n    string. This argument maps time zone names (and optionally offsets\n    from those time zones) to time zones. This parameter can be a\n    dictionary with timezone aliases mapping time zone names to time\n    zones or a function taking two parameters (``tzname`` and\n    ``tzoffset``) and returning a time zone.\n\n    The timezones to which the names are mapped can be an integer\n    offset from UTC in seconds or a :class:`tzinfo` object.\n\n    .. doctest::\n       :options: +NORMALIZE_WHITESPACE\n\n        >>> from dateutil.parser import parse\n        >>> from dateutil.tz import gettz\n        >>> tzinfos = {\"BRST\": -7200, \"CST\": gettz(\"America/Chicago\")}\n        >>> parse(\"2012-01-19 17:21:00 BRST\", tzinfos=tzinfos)\n        datetime.datetime(2012, 1, 19, 17, 21, tzinfo=tzoffset(u'BRST', -7200))\n        >>> parse(\"2012-01-19 17:21:00 CST\", tzinfos=tzinfos)\n        datetime.datetime(2012, 1, 19, 17, 21,\n                          tzinfo=tzfile('/usr/share/zoneinfo/America/Chicago'))\n\n    This parameter is ignored if ``ignoretz`` is set.\n\n:param \\*\\*kwargs:\n    Keyword arguments as passed to ``_parse()``.\n\n:return:\n    Returns a :class:`datetime.datetime` object or, if the\n    ``fuzzy_with_tokens`` option is ``True``, returns a tuple, the\n    first element being a :class:`datetime.datetime` object, the second\n    a tuple containing the fuzzy tokens.\n\n:raises ParserError:\n    Raised for invalid or unknown string format, if the provided\n    :class:`tzinfo` is not in a valid format, or if an invalid date\n    would be created.\n\n:raises TypeError:\n    Raised for non-string or character stream input.\n\n:raises OverflowError:\n    Raised if the parsed date exceeds the largest valid C integer on\n    your system."
+    },
+    {
+      "name": "parse",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

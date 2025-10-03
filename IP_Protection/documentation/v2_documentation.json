@@ -1,0 +1,200 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\v2.py",
+  "classes": [
+    {
+      "name": "LegacyReader",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "request",
+          "docstring": null
+        },
+        {
+          "name": "format",
+          "docstring": null
+        },
+        {
+          "name": "get_length",
+          "docstring": null
+        },
+        {
+          "name": "get_data",
+          "docstring": null
+        },
+        {
+          "name": "get_next_data",
+          "docstring": null
+        },
+        {
+          "name": "set_image_index",
+          "docstring": null
+        },
+        {
+          "name": "get_meta_data",
+          "docstring": null
+        },
+        {
+          "name": "iter_data",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LegacyWriter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "request",
+          "docstring": null
+        },
+        {
+          "name": "format",
+          "docstring": null
+        },
+        {
+          "name": "append_data",
+          "docstring": null
+        },
+        {
+          "name": "set_meta_data",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "to_nbytes",
+      "docstring": null
+    },
+    {
+      "name": "help",
+      "docstring": "help(name=None)\n\nPrint the documentation of the format specified by name, or a list\nof supported formats if name is omitted.\n\nParameters\n----------\nname : str\n    Can be the name of a format, a filename extension, or a full\n    filename. See also the :doc:`formats page <../formats/index>`."
+    },
+    {
+      "name": "decypher_format_arg",
+      "docstring": "Split format into plugin and format\n\nThe V2 API aliases plugins and supported formats. This function\nsplits these so that they can be fed separately to `iio.imopen`."
+    },
+    {
+      "name": "is_batch",
+      "docstring": null
+    },
+    {
+      "name": "is_volume",
+      "docstring": null
+    },
+    {
+      "name": "get_reader",
+      "docstring": "get_reader(uri, format=None, mode='?', **kwargs)\n\nReturns a :class:`.Reader` object which can be used to read data\nand meta data from the specified file.\n\nParameters\n----------\nuri : {str, pathlib.Path, bytes, file}\n    The resource to load the image from, e.g. a filename, pathlib.Path,\n    http address or file object, see the docs for more info.\nformat : str\n    The format to use to read the file. By default imageio selects\n    the appropriate for you based on the filename and its contents.\nmode : {'i', 'I', 'v', 'V', '?'}\n    Used to give the reader a hint on what the user expects (default \"?\"):\n    \"i\" for an image, \"I\" for multiple images, \"v\" for a volume,\n    \"V\" for multiple volumes, \"?\" for don't care.\nkwargs : ...\n    Further keyword arguments are passed to the reader. See :func:`.help`\n    to see what arguments are available for a particular format."
+    },
+    {
+      "name": "get_writer",
+      "docstring": "get_writer(uri, format=None, mode='?', **kwargs)\n\nReturns a :class:`.Writer` object which can be used to write data\nand meta data to the specified file.\n\nParameters\n----------\nuri : {str, pathlib.Path, file}\n    The resource to write the image to, e.g. a filename, pathlib.Path\n    or file object, see the docs for more info.\nformat : str\n    The format to use to write the file. By default imageio selects\n    the appropriate for you based on the filename.\nmode : {'i', 'I', 'v', 'V', '?'}\n    Used to give the writer a hint on what the user expects (default '?'):\n    \"i\" for an image, \"I\" for multiple images, \"v\" for a volume,\n    \"V\" for multiple volumes, \"?\" for don't care.\nkwargs : ...\n    Further keyword arguments are passed to the writer. See :func:`.help`\n    to see what arguments are available for a particular format."
+    },
+    {
+      "name": "imread",
+      "docstring": "imread(uri, format=None, **kwargs)\n\nReads an image from the specified file. Returns a numpy array, which\ncomes with a dict of meta data at its 'meta' attribute.\n\nNote that the image data is returned as-is, and may not always have\na dtype of uint8 (and thus may differ from what e.g. PIL returns).\n\nParameters\n----------\nuri : {str, pathlib.Path, bytes, file}\n    The resource to load the image from, e.g. a filename, pathlib.Path,\n    http address or file object, see the docs for more info.\nformat : str\n    The format to use to read the file. By default imageio selects\n    the appropriate for you based on the filename and its contents.\nkwargs : ...\n    Further keyword arguments are passed to the reader. See :func:`.help`\n    to see what arguments are available for a particular format."
+    },
+    {
+      "name": "imwrite",
+      "docstring": "imwrite(uri, im, format=None, **kwargs)\n\nWrite an image to the specified file.\n\nParameters\n----------\nuri : {str, pathlib.Path, file}\n    The resource to write the image to, e.g. a filename, pathlib.Path\n    or file object, see the docs for more info.\nim : numpy.ndarray\n    The image data. Must be NxM, NxMx3 or NxMx4.\nformat : str\n    The format to use to write the file. By default imageio selects\n    the appropriate for you based on the filename and its contents.\nkwargs : ...\n    Further keyword arguments are passed to the writer. See :func:`.help`\n    to see what arguments are available for a particular format."
+    },
+    {
+      "name": "mimread",
+      "docstring": "mimread(uri, format=None, memtest=\"256MB\", **kwargs)\n\nReads multiple images from the specified file. Returns a list of\nnumpy arrays, each with a dict of meta data at its 'meta' attribute.\n\nParameters\n----------\nuri : {str, pathlib.Path, bytes, file}\n    The resource to load the images from, e.g. a filename,pathlib.Path,\n    http address or file object, see the docs for more info.\nformat : str\n    The format to use to read the file. By default imageio selects\n    the appropriate for you based on the filename and its contents.\nmemtest : {bool, int, float, str}\n    If truthy, this function will raise an error if the resulting\n    list of images consumes greater than the amount of memory specified.\n    This is to protect the system from using so much memory that it needs\n    to resort to swapping, and thereby stall the computer. E.g.\n    ``mimread('hunger_games.avi')``.\n\n    If the argument is a number, that will be used as the threshold number\n    of bytes.\n\n    If the argument is a string, it will be interpreted as a number of bytes with\n    SI/IEC prefixed units (e.g. '1kB', '250MiB', '80.3YB').\n\n    - Units are case sensitive\n    - k, M etc. represent a 1000-fold change, where Ki, Mi etc. represent 1024-fold\n    - The \"B\" is optional, but if present, must be capitalised\n\n    If the argument is True, the default will be used, for compatibility reasons.\n\n    Default: '256MB'\nkwargs : ...\n    Further keyword arguments are passed to the reader. See :func:`.help`\n    to see what arguments are available for a particular format."
+    },
+    {
+      "name": "mimwrite",
+      "docstring": "mimwrite(uri, ims, format=None, **kwargs)\n\nWrite multiple images to the specified file.\n\nParameters\n----------\nuri : {str, pathlib.Path, file}\n    The resource to write the images to, e.g. a filename, pathlib.Path\n    or file object, see the docs for more info.\nims : sequence of numpy arrays\n    The image data. Each array must be NxM, NxMx3 or NxMx4.\nformat : str\n    The format to use to read the file. By default imageio selects\n    the appropriate for you based on the filename and its contents.\nkwargs : ...\n    Further keyword arguments are passed to the writer. See :func:`.help`\n    to see what arguments are available for a particular format."
+    },
+    {
+      "name": "volread",
+      "docstring": "volread(uri, format=None, **kwargs)\n\nReads a volume from the specified file. Returns a numpy array, which\ncomes with a dict of meta data at its 'meta' attribute.\n\nParameters\n----------\nuri : {str, pathlib.Path, bytes, file}\n    The resource to load the volume from, e.g. a filename, pathlib.Path,\n    http address or file object, see the docs for more info.\nformat : str\n    The format to use to read the file. By default imageio selects\n    the appropriate for you based on the filename and its contents.\nkwargs : ...\n    Further keyword arguments are passed to the reader. See :func:`.help`\n    to see what arguments are available for a particular format."
+    },
+    {
+      "name": "volwrite",
+      "docstring": "volwrite(uri, vol, format=None, **kwargs)\n\nWrite a volume to the specified file.\n\nParameters\n----------\nuri : {str, pathlib.Path, file}\n    The resource to write the image to, e.g. a filename, pathlib.Path\n    or file object, see the docs for more info.\nvol : numpy.ndarray\n    The image data. Must be NxMxL (or NxMxLxK if each voxel is a tuple).\nformat : str\n    The format to use to read the file. By default imageio selects\n    the appropriate for you based on the filename and its contents.\nkwargs : ...\n    Further keyword arguments are passed to the writer. See :func:`.help`\n    to see what arguments are available for a particular format."
+    },
+    {
+      "name": "mvolread",
+      "docstring": "mvolread(uri, format=None, memtest='1GB', **kwargs)\n\nReads multiple volumes from the specified file. Returns a list of\nnumpy arrays, each with a dict of meta data at its 'meta' attribute.\n\nParameters\n----------\nuri : {str, pathlib.Path, bytes, file}\n    The resource to load the volumes from, e.g. a filename, pathlib.Path,\n    http address or file object, see the docs for more info.\nformat : str\n    The format to use to read the file. By default imageio selects\n    the appropriate for you based on the filename and its contents.\nmemtest : {bool, int, float, str}\n    If truthy, this function will raise an error if the resulting\n    list of images consumes greater than the amount of memory specified.\n    This is to protect the system from using so much memory that it needs\n    to resort to swapping, and thereby stall the computer. E.g.\n    ``mimread('hunger_games.avi')``.\n\n    If the argument is a number, that will be used as the threshold number\n    of bytes.\n\n    If the argument is a string, it will be interpreted as a number of bytes with\n    SI/IEC prefixed units (e.g. '1kB', '250MiB', '80.3YB').\n\n    - Units are case sensitive\n    - k, M etc. represent a 1000-fold change, where Ki, Mi etc. represent 1024-fold\n    - The \"B\" is optional, but if present, must be capitalised\n\n    If the argument is True, the default will be used, for compatibility reasons.\n\n    Default: '1GB'\nkwargs : ...\n    Further keyword arguments are passed to the reader. See :func:`.help`\n    to see what arguments are available for a particular format."
+    },
+    {
+      "name": "mvolwrite",
+      "docstring": "mvolwrite(uri, vols, format=None, **kwargs)\n\nWrite multiple volumes to the specified file.\n\nParameters\n----------\nuri : {str, pathlib.Path, file}\n    The resource to write the volumes to, e.g. a filename, pathlib.Path\n    or file object, see the docs for more info.\nims : sequence of numpy arrays\n    The image data. Each array must be NxMxL (or NxMxLxK if each\n    voxel is a tuple).\nformat : str\n    The format to use to read the file. By default imageio selects\n    the appropriate for you based on the filename and its contents.\nkwargs : ...\n    Further keyword arguments are passed to the writer. See :func:`.help`\n    to see what arguments are available for a particular format."
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "request",
+      "docstring": null
+    },
+    {
+      "name": "format",
+      "docstring": null
+    },
+    {
+      "name": "get_length",
+      "docstring": null
+    },
+    {
+      "name": "get_data",
+      "docstring": null
+    },
+    {
+      "name": "get_next_data",
+      "docstring": null
+    },
+    {
+      "name": "set_image_index",
+      "docstring": null
+    },
+    {
+      "name": "get_meta_data",
+      "docstring": null
+    },
+    {
+      "name": "iter_data",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "request",
+      "docstring": null
+    },
+    {
+      "name": "format",
+      "docstring": null
+    },
+    {
+      "name": "append_data",
+      "docstring": null
+    },
+    {
+      "name": "set_meta_data",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

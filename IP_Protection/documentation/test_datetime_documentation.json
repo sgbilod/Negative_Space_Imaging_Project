@@ -1,0 +1,422 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_datetime.py",
+  "classes": [
+    {
+      "name": "TestDatetimePlotting",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_annotate",
+          "docstring": null
+        },
+        {
+          "name": "test_arrow",
+          "docstring": null
+        },
+        {
+          "name": "test_axhline",
+          "docstring": null
+        },
+        {
+          "name": "test_axhspan",
+          "docstring": null
+        },
+        {
+          "name": "test_axline",
+          "docstring": null
+        },
+        {
+          "name": "test_axvline",
+          "docstring": null
+        },
+        {
+          "name": "test_axvspan",
+          "docstring": null
+        },
+        {
+          "name": "test_bar",
+          "docstring": null
+        },
+        {
+          "name": "test_bar_label",
+          "docstring": null
+        },
+        {
+          "name": "test_barbs",
+          "docstring": null
+        },
+        {
+          "name": "test_barh",
+          "docstring": null
+        },
+        {
+          "name": "test_boxplot",
+          "docstring": null
+        },
+        {
+          "name": "test_broken_barh",
+          "docstring": null
+        },
+        {
+          "name": "test_bxp",
+          "docstring": null
+        },
+        {
+          "name": "test_clabel",
+          "docstring": null
+        },
+        {
+          "name": "test_contour",
+          "docstring": null
+        },
+        {
+          "name": "test_contourf",
+          "docstring": null
+        },
+        {
+          "name": "test_errorbar",
+          "docstring": null
+        },
+        {
+          "name": "test_eventplot",
+          "docstring": null
+        },
+        {
+          "name": "test_fill",
+          "docstring": null
+        },
+        {
+          "name": "test_fill_between",
+          "docstring": null
+        },
+        {
+          "name": "test_fill_betweenx",
+          "docstring": null
+        },
+        {
+          "name": "test_hexbin",
+          "docstring": null
+        },
+        {
+          "name": "test_hist",
+          "docstring": null
+        },
+        {
+          "name": "test_hist2d",
+          "docstring": null
+        },
+        {
+          "name": "test_hlines",
+          "docstring": null
+        },
+        {
+          "name": "test_imshow",
+          "docstring": null
+        },
+        {
+          "name": "test_loglog",
+          "docstring": null
+        },
+        {
+          "name": "test_matshow",
+          "docstring": null
+        },
+        {
+          "name": "test_pcolor",
+          "docstring": null
+        },
+        {
+          "name": "test_pcolorfast",
+          "docstring": null
+        },
+        {
+          "name": "test_pcolormesh",
+          "docstring": null
+        },
+        {
+          "name": "test_plot",
+          "docstring": null
+        },
+        {
+          "name": "test_plot_date",
+          "docstring": null
+        },
+        {
+          "name": "test_quiver",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter",
+          "docstring": null
+        },
+        {
+          "name": "test_semilogx",
+          "docstring": null
+        },
+        {
+          "name": "test_semilogy",
+          "docstring": null
+        },
+        {
+          "name": "test_stackplot",
+          "docstring": null
+        },
+        {
+          "name": "test_stairs",
+          "docstring": null
+        },
+        {
+          "name": "test_stem",
+          "docstring": null
+        },
+        {
+          "name": "test_step",
+          "docstring": null
+        },
+        {
+          "name": "test_streamplot",
+          "docstring": null
+        },
+        {
+          "name": "test_text",
+          "docstring": null
+        },
+        {
+          "name": "test_tricontour",
+          "docstring": null
+        },
+        {
+          "name": "test_tricontourf",
+          "docstring": null
+        },
+        {
+          "name": "test_tripcolor",
+          "docstring": null
+        },
+        {
+          "name": "test_triplot",
+          "docstring": null
+        },
+        {
+          "name": "test_violin",
+          "docstring": null
+        },
+        {
+          "name": "test_violinplot",
+          "docstring": null
+        },
+        {
+          "name": "test_vlines",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_annotate",
+      "docstring": null
+    },
+    {
+      "name": "test_arrow",
+      "docstring": null
+    },
+    {
+      "name": "test_axhline",
+      "docstring": null
+    },
+    {
+      "name": "test_axhspan",
+      "docstring": null
+    },
+    {
+      "name": "test_axline",
+      "docstring": null
+    },
+    {
+      "name": "test_axvline",
+      "docstring": null
+    },
+    {
+      "name": "test_axvspan",
+      "docstring": null
+    },
+    {
+      "name": "test_bar",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_label",
+      "docstring": null
+    },
+    {
+      "name": "test_barbs",
+      "docstring": null
+    },
+    {
+      "name": "test_barh",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot",
+      "docstring": null
+    },
+    {
+      "name": "test_broken_barh",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp",
+      "docstring": null
+    },
+    {
+      "name": "test_clabel",
+      "docstring": null
+    },
+    {
+      "name": "test_contour",
+      "docstring": null
+    },
+    {
+      "name": "test_contourf",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar",
+      "docstring": null
+    },
+    {
+      "name": "test_eventplot",
+      "docstring": null
+    },
+    {
+      "name": "test_fill",
+      "docstring": null
+    },
+    {
+      "name": "test_fill_between",
+      "docstring": null
+    },
+    {
+      "name": "test_fill_betweenx",
+      "docstring": null
+    },
+    {
+      "name": "test_hexbin",
+      "docstring": null
+    },
+    {
+      "name": "test_hist",
+      "docstring": null
+    },
+    {
+      "name": "test_hist2d",
+      "docstring": null
+    },
+    {
+      "name": "test_hlines",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow",
+      "docstring": null
+    },
+    {
+      "name": "test_loglog",
+      "docstring": null
+    },
+    {
+      "name": "test_matshow",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolor",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolorfast",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolormesh",
+      "docstring": null
+    },
+    {
+      "name": "test_plot",
+      "docstring": null
+    },
+    {
+      "name": "test_plot_date",
+      "docstring": null
+    },
+    {
+      "name": "test_quiver",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter",
+      "docstring": null
+    },
+    {
+      "name": "test_semilogx",
+      "docstring": null
+    },
+    {
+      "name": "test_semilogy",
+      "docstring": null
+    },
+    {
+      "name": "test_stackplot",
+      "docstring": null
+    },
+    {
+      "name": "test_stairs",
+      "docstring": null
+    },
+    {
+      "name": "test_stem",
+      "docstring": null
+    },
+    {
+      "name": "test_step",
+      "docstring": null
+    },
+    {
+      "name": "test_streamplot",
+      "docstring": null
+    },
+    {
+      "name": "test_text",
+      "docstring": null
+    },
+    {
+      "name": "test_tricontour",
+      "docstring": null
+    },
+    {
+      "name": "test_tricontourf",
+      "docstring": null
+    },
+    {
+      "name": "test_tripcolor",
+      "docstring": null
+    },
+    {
+      "name": "test_triplot",
+      "docstring": null
+    },
+    {
+      "name": "test_violin",
+      "docstring": null
+    },
+    {
+      "name": "test_violinplot",
+      "docstring": null
+    },
+    {
+      "name": "test_vlines",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

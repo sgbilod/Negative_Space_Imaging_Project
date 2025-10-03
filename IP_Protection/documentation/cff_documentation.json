@@ -1,0 +1,186 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\varLib\\cff.py",
+  "classes": [
+    {
+      "name": "CFFToCFF2OutlineExtractor",
+      "docstring": "This class is used to remove the initial width from the CFF\ncharstring without trying to add the width to self.nominalWidthX,\nwhich is None.",
+      "methods": [
+        {
+          "name": "popallWidth",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MergeOutlineExtractor",
+      "docstring": "Used to extract the charstring commands - including hints - from a\nCFF charstring in order to merge it as another set of region data\ninto a CFF2 variable font charstring.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "countHints",
+          "docstring": null
+        },
+        {
+          "name": "op_hstem",
+          "docstring": null
+        },
+        {
+          "name": "op_vstem",
+          "docstring": null
+        },
+        {
+          "name": "op_hstemhm",
+          "docstring": null
+        },
+        {
+          "name": "op_vstemhm",
+          "docstring": null
+        },
+        {
+          "name": "op_hintmask",
+          "docstring": null
+        },
+        {
+          "name": "op_cntrmask",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CFF2CharStringMergePen",
+      "docstring": "Pen to merge Type 2 CharStrings.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "add_point",
+          "docstring": null
+        },
+        {
+          "name": "add_hint",
+          "docstring": null
+        },
+        {
+          "name": "add_hintmask",
+          "docstring": null
+        },
+        {
+          "name": "restart",
+          "docstring": null
+        },
+        {
+          "name": "getCommands",
+          "docstring": null
+        },
+        {
+          "name": "reorder_blend_args",
+          "docstring": "We first re-order the master coordinate values.\nFor a moveto to lineto, the args are now arranged as::\n\n        [ [master_0 x,y], [master_1 x,y], [master_2 x,y] ]\n\nWe re-arrange this to::\n\n        [       [master_0 x, master_1 x, master_2 x],\n                [master_0 y, master_1 y, master_2 y]\n        ]\n\nIf the master values are all the same, we collapse the list to\nas single value instead of a list.\n\nWe then convert this to::\n\n        [ [master_0 x] + [x delta tuple] + [numBlends=1]\n          [master_0 y] + [y delta tuple] + [numBlends=1]\n        ]"
+        },
+        {
+          "name": "getCharString",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "addCFFVarStore",
+      "docstring": null
+    },
+    {
+      "name": "convertCFFtoCFF2",
+      "docstring": null
+    },
+    {
+      "name": "conv_to_int",
+      "docstring": null
+    },
+    {
+      "name": "get_private",
+      "docstring": null
+    },
+    {
+      "name": "merge_PrivateDicts",
+      "docstring": "I step through the FontDicts in the FDArray of the varfont TopDict.\nFor each varfont FontDict:\n\n* step through each key in FontDict.Private.\n* For each key, step through each relevant source font Private dict, and\n  build a list of values to blend.\n\nThe 'relevant' source fonts are selected by first getting the right\nsubmodel using ``vsindex_dict[vsindex]``. The indices of the\n``subModel.locations`` are mapped to source font list indices by\nassuming the latter order is the same as the order of the\n``var_model.locations``. I can then get the index of each subModel\nlocation in the list of ``var_model.locations``."
+    },
+    {
+      "name": "getfd_map",
+      "docstring": "Since a subset source font may have fewer FontDicts in their\nFDArray than the default font, we have to match up the FontDicts in\nthe different fonts . We do this with the FDSelect array, and by\nassuming that the same glyph will reference  matching FontDicts in\neach source font. We return a mapping from fdIndex in the default\nfont to a dictionary which maps each master list index of each\nregion font to the equivalent fdIndex in the region font."
+    },
+    {
+      "name": "merge_region_fonts",
+      "docstring": null
+    },
+    {
+      "name": "merge_charstrings",
+      "docstring": null
+    },
+    {
+      "name": "popallWidth",
+      "docstring": null
+    },
+    {
+      "name": "countHints",
+      "docstring": null
+    },
+    {
+      "name": "op_hstem",
+      "docstring": null
+    },
+    {
+      "name": "op_vstem",
+      "docstring": null
+    },
+    {
+      "name": "op_hstemhm",
+      "docstring": null
+    },
+    {
+      "name": "op_vstemhm",
+      "docstring": null
+    },
+    {
+      "name": "op_hintmask",
+      "docstring": null
+    },
+    {
+      "name": "op_cntrmask",
+      "docstring": null
+    },
+    {
+      "name": "add_point",
+      "docstring": null
+    },
+    {
+      "name": "add_hint",
+      "docstring": null
+    },
+    {
+      "name": "add_hintmask",
+      "docstring": null
+    },
+    {
+      "name": "restart",
+      "docstring": null
+    },
+    {
+      "name": "getCommands",
+      "docstring": null
+    },
+    {
+      "name": "reorder_blend_args",
+      "docstring": "We first re-order the master coordinate values.\nFor a moveto to lineto, the args are now arranged as::\n\n        [ [master_0 x,y], [master_1 x,y], [master_2 x,y] ]\n\nWe re-arrange this to::\n\n        [       [master_0 x, master_1 x, master_2 x],\n                [master_0 y, master_1 y, master_2 y]\n        ]\n\nIf the master values are all the same, we collapse the list to\nas single value instead of a list.\n\nWe then convert this to::\n\n        [ [master_0 x] + [x delta tuple] + [numBlends=1]\n          [master_0 y] + [y delta tuple] + [numBlends=1]\n        ]"
+    },
+    {
+      "name": "getCharString",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,471 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\f2py\\auxfuncs.py",
+  "classes": [
+    {
+      "name": "F2PYError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "throw_error",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "outmess",
+      "docstring": null
+    },
+    {
+      "name": "debugcapi",
+      "docstring": null
+    },
+    {
+      "name": "ischaracter_or_characterarray",
+      "docstring": null
+    },
+    {
+      "name": "ischaracter",
+      "docstring": null
+    },
+    {
+      "name": "ischaracterarray",
+      "docstring": null
+    },
+    {
+      "name": "isstring_or_stringarray",
+      "docstring": null
+    },
+    {
+      "name": "isstring",
+      "docstring": null
+    },
+    {
+      "name": "isstringarray",
+      "docstring": null
+    },
+    {
+      "name": "isarrayofstrings",
+      "docstring": null
+    },
+    {
+      "name": "isarray",
+      "docstring": null
+    },
+    {
+      "name": "isscalar",
+      "docstring": null
+    },
+    {
+      "name": "iscomplex",
+      "docstring": null
+    },
+    {
+      "name": "islogical",
+      "docstring": null
+    },
+    {
+      "name": "isinteger",
+      "docstring": null
+    },
+    {
+      "name": "isreal",
+      "docstring": null
+    },
+    {
+      "name": "get_kind",
+      "docstring": null
+    },
+    {
+      "name": "isint1",
+      "docstring": null
+    },
+    {
+      "name": "islong_long",
+      "docstring": null
+    },
+    {
+      "name": "isunsigned_char",
+      "docstring": null
+    },
+    {
+      "name": "isunsigned_short",
+      "docstring": null
+    },
+    {
+      "name": "isunsigned",
+      "docstring": null
+    },
+    {
+      "name": "isunsigned_long_long",
+      "docstring": null
+    },
+    {
+      "name": "isdouble",
+      "docstring": null
+    },
+    {
+      "name": "islong_double",
+      "docstring": null
+    },
+    {
+      "name": "islong_complex",
+      "docstring": null
+    },
+    {
+      "name": "iscomplexarray",
+      "docstring": null
+    },
+    {
+      "name": "isint1array",
+      "docstring": null
+    },
+    {
+      "name": "isunsigned_chararray",
+      "docstring": null
+    },
+    {
+      "name": "isunsigned_shortarray",
+      "docstring": null
+    },
+    {
+      "name": "isunsignedarray",
+      "docstring": null
+    },
+    {
+      "name": "isunsigned_long_longarray",
+      "docstring": null
+    },
+    {
+      "name": "issigned_chararray",
+      "docstring": null
+    },
+    {
+      "name": "issigned_shortarray",
+      "docstring": null
+    },
+    {
+      "name": "issigned_array",
+      "docstring": null
+    },
+    {
+      "name": "issigned_long_longarray",
+      "docstring": null
+    },
+    {
+      "name": "isallocatable",
+      "docstring": null
+    },
+    {
+      "name": "ismutable",
+      "docstring": null
+    },
+    {
+      "name": "ismoduleroutine",
+      "docstring": null
+    },
+    {
+      "name": "ismodule",
+      "docstring": null
+    },
+    {
+      "name": "isfunction",
+      "docstring": null
+    },
+    {
+      "name": "isfunction_wrap",
+      "docstring": null
+    },
+    {
+      "name": "issubroutine",
+      "docstring": null
+    },
+    {
+      "name": "issubroutine_wrap",
+      "docstring": null
+    },
+    {
+      "name": "isattr_value",
+      "docstring": null
+    },
+    {
+      "name": "hasassumedshape",
+      "docstring": null
+    },
+    {
+      "name": "requiresf90wrapper",
+      "docstring": null
+    },
+    {
+      "name": "isroutine",
+      "docstring": null
+    },
+    {
+      "name": "islogicalfunction",
+      "docstring": null
+    },
+    {
+      "name": "islong_longfunction",
+      "docstring": null
+    },
+    {
+      "name": "islong_doublefunction",
+      "docstring": null
+    },
+    {
+      "name": "iscomplexfunction",
+      "docstring": null
+    },
+    {
+      "name": "iscomplexfunction_warn",
+      "docstring": null
+    },
+    {
+      "name": "isstringfunction",
+      "docstring": null
+    },
+    {
+      "name": "hasexternals",
+      "docstring": null
+    },
+    {
+      "name": "isthreadsafe",
+      "docstring": null
+    },
+    {
+      "name": "hasvariables",
+      "docstring": null
+    },
+    {
+      "name": "isoptional",
+      "docstring": null
+    },
+    {
+      "name": "isexternal",
+      "docstring": null
+    },
+    {
+      "name": "getdimension",
+      "docstring": null
+    },
+    {
+      "name": "isrequired",
+      "docstring": null
+    },
+    {
+      "name": "iscstyledirective",
+      "docstring": null
+    },
+    {
+      "name": "isintent_in",
+      "docstring": null
+    },
+    {
+      "name": "isintent_inout",
+      "docstring": null
+    },
+    {
+      "name": "isintent_out",
+      "docstring": null
+    },
+    {
+      "name": "isintent_hide",
+      "docstring": null
+    },
+    {
+      "name": "isintent_nothide",
+      "docstring": null
+    },
+    {
+      "name": "isintent_c",
+      "docstring": null
+    },
+    {
+      "name": "isintent_cache",
+      "docstring": null
+    },
+    {
+      "name": "isintent_copy",
+      "docstring": null
+    },
+    {
+      "name": "isintent_overwrite",
+      "docstring": null
+    },
+    {
+      "name": "isintent_callback",
+      "docstring": null
+    },
+    {
+      "name": "isintent_inplace",
+      "docstring": null
+    },
+    {
+      "name": "isintent_aux",
+      "docstring": null
+    },
+    {
+      "name": "isintent_aligned4",
+      "docstring": null
+    },
+    {
+      "name": "isintent_aligned8",
+      "docstring": null
+    },
+    {
+      "name": "isintent_aligned16",
+      "docstring": null
+    },
+    {
+      "name": "isprivate",
+      "docstring": null
+    },
+    {
+      "name": "isvariable",
+      "docstring": null
+    },
+    {
+      "name": "hasinitvalue",
+      "docstring": null
+    },
+    {
+      "name": "hasinitvalueasstring",
+      "docstring": null
+    },
+    {
+      "name": "hasnote",
+      "docstring": null
+    },
+    {
+      "name": "hasresultnote",
+      "docstring": null
+    },
+    {
+      "name": "hascommon",
+      "docstring": null
+    },
+    {
+      "name": "containscommon",
+      "docstring": null
+    },
+    {
+      "name": "containsmodule",
+      "docstring": null
+    },
+    {
+      "name": "hasbody",
+      "docstring": null
+    },
+    {
+      "name": "hascallstatement",
+      "docstring": null
+    },
+    {
+      "name": "istrue",
+      "docstring": null
+    },
+    {
+      "name": "isfalse",
+      "docstring": null
+    },
+    {
+      "name": "l_and",
+      "docstring": null
+    },
+    {
+      "name": "l_or",
+      "docstring": null
+    },
+    {
+      "name": "l_not",
+      "docstring": null
+    },
+    {
+      "name": "isdummyroutine",
+      "docstring": null
+    },
+    {
+      "name": "getfortranname",
+      "docstring": null
+    },
+    {
+      "name": "getmultilineblock",
+      "docstring": null
+    },
+    {
+      "name": "getcallstatement",
+      "docstring": null
+    },
+    {
+      "name": "getcallprotoargument",
+      "docstring": null
+    },
+    {
+      "name": "getusercode",
+      "docstring": null
+    },
+    {
+      "name": "getusercode1",
+      "docstring": null
+    },
+    {
+      "name": "getpymethoddef",
+      "docstring": null
+    },
+    {
+      "name": "getargs",
+      "docstring": null
+    },
+    {
+      "name": "getargs2",
+      "docstring": null
+    },
+    {
+      "name": "getrestdoc",
+      "docstring": null
+    },
+    {
+      "name": "gentitle",
+      "docstring": null
+    },
+    {
+      "name": "flatlist",
+      "docstring": null
+    },
+    {
+      "name": "stripcomma",
+      "docstring": null
+    },
+    {
+      "name": "replace",
+      "docstring": null
+    },
+    {
+      "name": "dictappend",
+      "docstring": null
+    },
+    {
+      "name": "applyrules",
+      "docstring": null
+    },
+    {
+      "name": "get_f2py_modulename",
+      "docstring": null
+    },
+    {
+      "name": "getuseblocks",
+      "docstring": null
+    },
+    {
+      "name": "process_f2cmap_dict",
+      "docstring": "Update the Fortran-to-C type mapping dictionary with new mappings and\nreturn a list of successfully mapped C types.\n\nThis function integrates a new mapping dictionary into an existing\nFortran-to-C type mapping dictionary. It ensures that all keys are in\nlowercase and validates new entries against a given C-to-Python mapping\ndictionary. Redefinitions and invalid entries are reported with a warning.\n\nParameters\n----------\nf2cmap_all : dict\n    The existing Fortran-to-C type mapping dictionary that will be updated.\n    It should be a dictionary of dictionaries where the main keys represent\n    Fortran types and the nested dictionaries map Fortran type specifiers\n    to corresponding C types.\n\nnew_map : dict\n    A dictionary containing new type mappings to be added to `f2cmap_all`.\n    The structure should be similar to `f2cmap_all`, with keys representing\n    Fortran types and values being dictionaries of type specifiers and their\n    C type equivalents.\n\nc2py_map : dict\n    A dictionary used for validating the C types in `new_map`. It maps C\n    types to corresponding Python types and is used to ensure that the C\n    types specified in `new_map` are valid.\n\nverbose : boolean\n    A flag used to provide information about the types mapped\n\nReturns\n-------\ntuple of (dict, list)\n    The updated Fortran-to-C type mapping dictionary and a list of\n    successfully mapped C types."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,26 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\filewrapper.py",
+  "classes": [
+    {
+      "name": "CallbackFileWrapper",
+      "docstring": "Small wrapper around a fp object which will tee everything read into a\nbuffer, and when that file is closed it will execute a callback with the\ncontents of that buffer.\n\nAll attributes are proxied to the underlying file object.\n\nThis class uses members with a double underscore (__) leading prefix so as\nnot to accidentally shadow an attribute.\n\nThe data is stored in a temporary file until it is all available.  As long\nas the temporary files directory is disk-based (sometimes it's a\nmemory-backed-``tmpfs`` on Linux), data will be unloaded to disk if memory\npressure is high.  For small files the disk usually won't be used at all,\nit'll all be in the filesystem memory cache, so there should be no\nperformance impact.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "read",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

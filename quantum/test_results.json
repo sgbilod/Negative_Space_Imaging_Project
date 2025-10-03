@@ -1,0 +1,56 @@
+{
+  "results": [
+    {
+      "name": "Random Values",
+      "coherence": 0.0,
+      "execution_time": 0.012838602066040039,
+      "state_valid": false,
+      "max_value": 0.0999961950169827,
+      "success": false,
+      "memory_delta": 0.41796875
+    },
+    {
+      "name": "Near-Zero",
+      "coherence": 0.0,
+      "execution_time": 0.01389765739440918,
+      "state_valid": false,
+      "max_value": 1e-10,
+      "success": false,
+      "memory_delta": 0.41796875
+    },
+    {
+      "name": "Large Values",
+      "coherence": 0.0,
+      "execution_time": 0.02135157585144043,
+      "state_valid": false,
+      "max_value": 10000000000.0,
+      "success": false,
+      "memory_delta": 0.1796875
+    },
+    {
+      "name": "Mixed Scale",
+      "coherence": 0.0,
+      "execution_time": 0.012208700180053711,
+      "state_valid": false,
+      "max_value": 10000000000.0,
+      "success": false,
+      "memory_delta": 0.296875
+    },
+    {
+      "name": "Alternating",
+      "coherence": 0.0,
+      "execution_time": 0.014636754989624023,
+      "state_valid": false,
+      "max_value": 1.0,
+      "success": false,
+      "memory_delta": 0.25390625
+    }
+  ],
+  "stats": {
+    "total_time": 0.07493329048156738,
+    "total_coherence": 0.0,
+    "successful_tests": 5,
+    "failed_tests": 0,
+    "total_cases": 5
+  }
+}

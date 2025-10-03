@@ -1,0 +1,71 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\ma\\testutils.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "approx",
+      "docstring": "Returns true if all components of a and b are equal to given tolerances.\n\nIf fill_value is True, masked values considered equal. Otherwise,\nmasked values are considered unequal.  The relative error rtol should\nbe positive and << 1.0 The absolute error atol comes into play for\nthose elements of b that are very small or zero; it says how small a\nmust be also."
+    },
+    {
+      "name": "almost",
+      "docstring": "Returns True if a and b are equal up to decimal places.\n\nIf fill_value is True, masked values considered equal. Otherwise,\nmasked values are considered unequal."
+    },
+    {
+      "name": "assert_equal_records",
+      "docstring": "Asserts that two records are equal.\n\nPretty crude for now."
+    },
+    {
+      "name": "assert_equal",
+      "docstring": "Asserts that two items are equal."
+    },
+    {
+      "name": "fail_if_equal",
+      "docstring": "Raises an assertion error if two items are equal."
+    },
+    {
+      "name": "assert_almost_equal",
+      "docstring": "Asserts that two items are almost equal.\n\nThe test is equivalent to abs(desired-actual) < 0.5 * 10**(-decimal)."
+    },
+    {
+      "name": "assert_array_compare",
+      "docstring": "Asserts that comparison between two masked arrays is satisfied.\n\nThe comparison is elementwise."
+    },
+    {
+      "name": "assert_array_equal",
+      "docstring": "Checks the elementwise equality of two masked arrays."
+    },
+    {
+      "name": "fail_if_array_equal",
+      "docstring": "Raises an assertion error if two masked arrays are not equal elementwise."
+    },
+    {
+      "name": "assert_array_approx_equal",
+      "docstring": "Checks the equality of two masked arrays, up to given number odecimals.\n\nThe equality is checked elementwise."
+    },
+    {
+      "name": "assert_array_almost_equal",
+      "docstring": "Checks the equality of two masked arrays, up to given number odecimals.\n\nThe equality is checked elementwise."
+    },
+    {
+      "name": "assert_array_less",
+      "docstring": "Checks that x is smaller than y elementwise."
+    },
+    {
+      "name": "assert_mask_equal",
+      "docstring": "Asserts the equality of two masks."
+    },
+    {
+      "name": "compare",
+      "docstring": null
+    },
+    {
+      "name": "compare",
+      "docstring": "Returns the result of the loose comparison between x and y)."
+    },
+    {
+      "name": "compare",
+      "docstring": "Returns the result of the loose comparison between x and y)."
+    }
+  ],
+  "innovations": []
+}

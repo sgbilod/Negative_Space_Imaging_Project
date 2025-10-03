@@ -1,0 +1,212 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\ImageFont.py",
+  "classes": [
+    {
+      "name": "Axis",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Layout",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ImageFont",
+      "docstring": "PIL font wrapper",
+      "methods": [
+        {
+          "name": "getmask",
+          "docstring": "Create a bitmap for the text.\n\nIf the font uses antialiasing, the bitmap should have mode ``L`` and use a\nmaximum value of 255. Otherwise, it should have mode ``1``.\n\n:param text: Text to render.\n:param mode: Used by some graphics drivers to indicate what mode the\n             driver prefers; if empty, the renderer may return either\n             mode. Note that the mode is always a string, to simplify\n             C-level implementations.\n\n             .. versionadded:: 1.1.5\n\n:return: An internal PIL storage memory instance as defined by the\n         :py:mod:`PIL.Image.core` interface module."
+        },
+        {
+          "name": "getbbox",
+          "docstring": "Returns bounding box (in pixels) of given text.\n\n.. versionadded:: 9.2.0\n\n:param text: Text to render.\n\n:return: ``(left, top, right, bottom)`` bounding box"
+        },
+        {
+          "name": "getlength",
+          "docstring": "Returns length (in pixels) of given text.\nThis is the amount by which following text should be offset.\n\n.. versionadded:: 9.2.0"
+        }
+      ]
+    },
+    {
+      "name": "FreeTypeFont",
+      "docstring": "FreeType font wrapper (requires _imagingft service)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "getname",
+          "docstring": ":return: A tuple of the font family (e.g. Helvetica) and the font style\n    (e.g. Bold)"
+        },
+        {
+          "name": "getmetrics",
+          "docstring": ":return: A tuple of the font ascent (the distance from the baseline to\n    the highest outline point) and descent (the distance from the\n    baseline to the lowest outline point, a negative value)"
+        },
+        {
+          "name": "getlength",
+          "docstring": "Returns length (in pixels with 1/64 precision) of given text when rendered\nin font with provided direction, features, and language.\n\nThis is the amount by which following text should be offset.\nText bounding box may extend past the length in some fonts,\ne.g. when using italics or accents.\n\nThe result is returned as a float; it is a whole number if using basic layout.\n\nNote that the sum of two lengths may not equal the length of a concatenated\nstring due to kerning. If you need to adjust for kerning, include the following\ncharacter and subtract its length.\n\nFor example, instead of ::\n\n  hello = font.getlength(\"Hello\")\n  world = font.getlength(\"World\")\n  hello_world = hello + world  # not adjusted for kerning\n  assert hello_world == font.getlength(\"HelloWorld\")  # may fail\n\nuse ::\n\n  hello = font.getlength(\"HelloW\") - font.getlength(\"W\")  # adjusted for kerning\n  world = font.getlength(\"World\")\n  hello_world = hello + world  # adjusted for kerning\n  assert hello_world == font.getlength(\"HelloWorld\")  # True\n\nor disable kerning with (requires libraqm) ::\n\n  hello = draw.textlength(\"Hello\", font, features=[\"-kern\"])\n  world = draw.textlength(\"World\", font, features=[\"-kern\"])\n  hello_world = hello + world  # kerning is disabled, no need to adjust\n  assert hello_world == draw.textlength(\"HelloWorld\", font, features=[\"-kern\"])\n\n.. versionadded:: 8.0.0\n\n:param text: Text to measure.\n:param mode: Used by some graphics drivers to indicate what mode the\n             driver prefers; if empty, the renderer may return either\n             mode. Note that the mode is always a string, to simplify\n             C-level implementations.\n\n:param direction: Direction of the text. It can be 'rtl' (right to\n                  left), 'ltr' (left to right) or 'ttb' (top to bottom).\n                  Requires libraqm.\n\n:param features: A list of OpenType font features to be used during text\n                 layout. This is usually used to turn on optional\n                 font features that are not enabled by default,\n                 for example 'dlig' or 'ss01', but can be also\n                 used to turn off default font features for\n                 example '-liga' to disable ligatures or '-kern'\n                 to disable kerning.  To get all supported\n                 features, see\n                 https://learn.microsoft.com/en-us/typography/opentype/spec/featurelist\n                 Requires libraqm.\n\n:param language: Language of the text. Different languages may use\n                 different glyph shapes or ligatures. This parameter tells\n                 the font which language the text is in, and to apply the\n                 correct substitutions as appropriate, if available.\n                 It should be a `BCP 47 language code\n                 <https://www.w3.org/International/articles/language-tags/>`_\n                 Requires libraqm.\n\n:return: Either width for horizontal text, or height for vertical text."
+        },
+        {
+          "name": "getbbox",
+          "docstring": "Returns bounding box (in pixels) of given text relative to given anchor\nwhen rendered in font with provided direction, features, and language.\n\nUse :py:meth:`getlength()` to get the offset of following text with\n1/64 pixel precision. The bounding box includes extra margins for\nsome fonts, e.g. italics or accents.\n\n.. versionadded:: 8.0.0\n\n:param text: Text to render.\n:param mode: Used by some graphics drivers to indicate what mode the\n             driver prefers; if empty, the renderer may return either\n             mode. Note that the mode is always a string, to simplify\n             C-level implementations.\n\n:param direction: Direction of the text. It can be 'rtl' (right to\n                  left), 'ltr' (left to right) or 'ttb' (top to bottom).\n                  Requires libraqm.\n\n:param features: A list of OpenType font features to be used during text\n                 layout. This is usually used to turn on optional\n                 font features that are not enabled by default,\n                 for example 'dlig' or 'ss01', but can be also\n                 used to turn off default font features for\n                 example '-liga' to disable ligatures or '-kern'\n                 to disable kerning.  To get all supported\n                 features, see\n                 https://learn.microsoft.com/en-us/typography/opentype/spec/featurelist\n                 Requires libraqm.\n\n:param language: Language of the text. Different languages may use\n                 different glyph shapes or ligatures. This parameter tells\n                 the font which language the text is in, and to apply the\n                 correct substitutions as appropriate, if available.\n                 It should be a `BCP 47 language code\n                 <https://www.w3.org/International/articles/language-tags/>`_\n                 Requires libraqm.\n\n:param stroke_width: The width of the text stroke.\n\n:param anchor:  The text anchor alignment. Determines the relative location of\n                the anchor to the text. The default alignment is top left,\n                specifically ``la`` for horizontal text and ``lt`` for\n                vertical text. See :ref:`text-anchors` for details.\n\n:return: ``(left, top, right, bottom)`` bounding box"
+        },
+        {
+          "name": "getmask",
+          "docstring": "Create a bitmap for the text.\n\nIf the font uses antialiasing, the bitmap should have mode ``L`` and use a\nmaximum value of 255. If the font has embedded color data, the bitmap\nshould have mode ``RGBA``. Otherwise, it should have mode ``1``.\n\n:param text: Text to render.\n:param mode: Used by some graphics drivers to indicate what mode the\n             driver prefers; if empty, the renderer may return either\n             mode. Note that the mode is always a string, to simplify\n             C-level implementations.\n\n             .. versionadded:: 1.1.5\n\n:param direction: Direction of the text. It can be 'rtl' (right to\n                  left), 'ltr' (left to right) or 'ttb' (top to bottom).\n                  Requires libraqm.\n\n                  .. versionadded:: 4.2.0\n\n:param features: A list of OpenType font features to be used during text\n                 layout. This is usually used to turn on optional\n                 font features that are not enabled by default,\n                 for example 'dlig' or 'ss01', but can be also\n                 used to turn off default font features for\n                 example '-liga' to disable ligatures or '-kern'\n                 to disable kerning.  To get all supported\n                 features, see\n                 https://learn.microsoft.com/en-us/typography/opentype/spec/featurelist\n                 Requires libraqm.\n\n                 .. versionadded:: 4.2.0\n\n:param language: Language of the text. Different languages may use\n                 different glyph shapes or ligatures. This parameter tells\n                 the font which language the text is in, and to apply the\n                 correct substitutions as appropriate, if available.\n                 It should be a `BCP 47 language code\n                 <https://www.w3.org/International/articles/language-tags/>`_\n                 Requires libraqm.\n\n                 .. versionadded:: 6.0.0\n\n:param stroke_width: The width of the text stroke.\n\n                 .. versionadded:: 6.2.0\n\n:param anchor:  The text anchor alignment. Determines the relative location of\n                the anchor to the text. The default alignment is top left,\n                specifically ``la`` for horizontal text and ``lt`` for\n                vertical text. See :ref:`text-anchors` for details.\n\n                 .. versionadded:: 8.0.0\n\n:param ink: Foreground ink for rendering in RGBA mode.\n\n                 .. versionadded:: 8.0.0\n\n:param start: Tuple of horizontal and vertical offset, as text may render\n              differently when starting at fractional coordinates.\n\n                 .. versionadded:: 9.4.0\n\n:return: An internal PIL storage memory instance as defined by the\n         :py:mod:`PIL.Image.core` interface module."
+        },
+        {
+          "name": "getmask2",
+          "docstring": "Create a bitmap for the text.\n\nIf the font uses antialiasing, the bitmap should have mode ``L`` and use a\nmaximum value of 255. If the font has embedded color data, the bitmap\nshould have mode ``RGBA``. Otherwise, it should have mode ``1``.\n\n:param text: Text to render.\n:param mode: Used by some graphics drivers to indicate what mode the\n             driver prefers; if empty, the renderer may return either\n             mode. Note that the mode is always a string, to simplify\n             C-level implementations.\n\n             .. versionadded:: 1.1.5\n\n:param direction: Direction of the text. It can be 'rtl' (right to\n                  left), 'ltr' (left to right) or 'ttb' (top to bottom).\n                  Requires libraqm.\n\n                  .. versionadded:: 4.2.0\n\n:param features: A list of OpenType font features to be used during text\n                 layout. This is usually used to turn on optional\n                 font features that are not enabled by default,\n                 for example 'dlig' or 'ss01', but can be also\n                 used to turn off default font features for\n                 example '-liga' to disable ligatures or '-kern'\n                 to disable kerning.  To get all supported\n                 features, see\n                 https://learn.microsoft.com/en-us/typography/opentype/spec/featurelist\n                 Requires libraqm.\n\n                 .. versionadded:: 4.2.0\n\n:param language: Language of the text. Different languages may use\n                 different glyph shapes or ligatures. This parameter tells\n                 the font which language the text is in, and to apply the\n                 correct substitutions as appropriate, if available.\n                 It should be a `BCP 47 language code\n                 <https://www.w3.org/International/articles/language-tags/>`_\n                 Requires libraqm.\n\n                 .. versionadded:: 6.0.0\n\n:param stroke_width: The width of the text stroke.\n\n                 .. versionadded:: 6.2.0\n\n:param anchor:  The text anchor alignment. Determines the relative location of\n                the anchor to the text. The default alignment is top left,\n                specifically ``la`` for horizontal text and ``lt`` for\n                vertical text. See :ref:`text-anchors` for details.\n\n                 .. versionadded:: 8.0.0\n\n:param ink: Foreground ink for rendering in RGBA mode.\n\n                 .. versionadded:: 8.0.0\n\n:param start: Tuple of horizontal and vertical offset, as text may render\n              differently when starting at fractional coordinates.\n\n                 .. versionadded:: 9.4.0\n\n:return: A tuple of an internal PIL storage memory instance as defined by the\n         :py:mod:`PIL.Image.core` interface module, and the text offset, the\n         gap between the starting coordinate and the first marking"
+        },
+        {
+          "name": "font_variant",
+          "docstring": "Create a copy of this FreeTypeFont object,\nusing any specified arguments to override the settings.\n\nParameters are identical to the parameters used to initialize this\nobject.\n\n:return: A FreeTypeFont object."
+        },
+        {
+          "name": "get_variation_names",
+          "docstring": ":returns: A list of the named styles in a variation font.\n:exception OSError: If the font is not a variation font."
+        },
+        {
+          "name": "set_variation_by_name",
+          "docstring": ":param name: The name of the style.\n:exception OSError: If the font is not a variation font."
+        },
+        {
+          "name": "get_variation_axes",
+          "docstring": ":returns: A list of the axes in a variation font.\n:exception OSError: If the font is not a variation font."
+        },
+        {
+          "name": "set_variation_by_axes",
+          "docstring": ":param axes: A list of values for each axis.\n:exception OSError: If the font is not a variation font."
+        }
+      ]
+    },
+    {
+      "name": "TransposedFont",
+      "docstring": "Wrapper for writing rotated or mirrored text",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Wrapper that creates a transposed font from any existing font\nobject.\n\n:param font: A font object.\n:param orientation: An optional orientation.  If given, this should\n    be one of Image.Transpose.FLIP_LEFT_RIGHT, Image.Transpose.FLIP_TOP_BOTTOM,\n    Image.Transpose.ROTATE_90, Image.Transpose.ROTATE_180, or\n    Image.Transpose.ROTATE_270."
+        },
+        {
+          "name": "getmask",
+          "docstring": null
+        },
+        {
+          "name": "getbbox",
+          "docstring": null
+        },
+        {
+          "name": "getlength",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "load",
+      "docstring": "Load a font file. This function loads a font object from the given\nbitmap font file, and returns the corresponding font object. For loading TrueType\nor OpenType fonts instead, see :py:func:`~PIL.ImageFont.truetype`.\n\n:param filename: Name of font file.\n:return: A font object.\n:exception OSError: If the file could not be read."
+    },
+    {
+      "name": "truetype",
+      "docstring": "Load a TrueType or OpenType font from a file or file-like object,\nand create a font object. This function loads a font object from the given\nfile or file-like object, and creates a font object for a font of the given\nsize. For loading bitmap fonts instead, see :py:func:`~PIL.ImageFont.load`\nand :py:func:`~PIL.ImageFont.load_path`.\n\nPillow uses FreeType to open font files. On Windows, be aware that FreeType\nwill keep the file open as long as the FreeTypeFont object exists. Windows\nlimits the number of files that can be open in C at once to 512, so if many\nfonts are opened simultaneously and that limit is approached, an\n``OSError`` may be thrown, reporting that FreeType \"cannot open resource\".\nA workaround would be to copy the file(s) into memory, and open that instead.\n\nThis function requires the _imagingft service.\n\n:param font: A filename or file-like object containing a TrueType font.\n             If the file is not found in this filename, the loader may also\n             search in other directories, such as:\n\n             * The :file:`fonts/` directory on Windows,\n             * :file:`/Library/Fonts/`, :file:`/System/Library/Fonts/`\n               and :file:`~/Library/Fonts/` on macOS.\n             * :file:`~/.local/share/fonts`, :file:`/usr/local/share/fonts`,\n               and :file:`/usr/share/fonts` on Linux; or those specified by\n               the ``XDG_DATA_HOME`` and ``XDG_DATA_DIRS`` environment variables\n               for user-installed and system-wide fonts, respectively.\n\n:param size: The requested size, in pixels.\n:param index: Which font face to load (default is first available face).\n:param encoding: Which font encoding to use (default is Unicode). Possible\n                 encodings include (see the FreeType documentation for more\n                 information):\n\n                 * \"unic\" (Unicode)\n                 * \"symb\" (Microsoft Symbol)\n                 * \"ADOB\" (Adobe Standard)\n                 * \"ADBE\" (Adobe Expert)\n                 * \"ADBC\" (Adobe Custom)\n                 * \"armn\" (Apple Roman)\n                 * \"sjis\" (Shift JIS)\n                 * \"gb  \" (PRC)\n                 * \"big5\"\n                 * \"wans\" (Extended Wansung)\n                 * \"joha\" (Johab)\n                 * \"lat1\" (Latin-1)\n\n                 This specifies the character set to use. It does not alter the\n                 encoding of any text provided in subsequent operations.\n:param layout_engine: Which layout engine to use, if available:\n                 :attr:`.ImageFont.Layout.BASIC` or :attr:`.ImageFont.Layout.RAQM`.\n                 If it is available, Raqm layout will be used by default.\n                 Otherwise, basic layout will be used.\n\n                 Raqm layout is recommended for all non-English text. If Raqm layout\n                 is not required, basic layout will have better performance.\n\n                 You can check support for Raqm layout using\n                 :py:func:`PIL.features.check_feature` with ``feature=\"raqm\"``.\n\n                 .. versionadded:: 4.2.0\n:return: A font object.\n:exception OSError: If the file could not be read.\n:exception ValueError: If the font size is not greater than zero."
+    },
+    {
+      "name": "load_path",
+      "docstring": "Load font file. Same as :py:func:`~PIL.ImageFont.load`, but searches for a\nbitmap font along the Python path.\n\n:param filename: Name of font file.\n:return: A font object.\n:exception OSError: If the file could not be read."
+    },
+    {
+      "name": "load_default_imagefont",
+      "docstring": null
+    },
+    {
+      "name": "load_default",
+      "docstring": "If FreeType support is available, load a version of Aileron Regular,\nhttps://dotcolon.net/fonts/aileron, with a more limited character set.\n\nOtherwise, load a \"better than nothing\" font.\n\n.. versionadded:: 1.1.4\n\n:param size: The font size of Aileron Regular.\n\n    .. versionadded:: 10.1.0\n\n:return: A font object."
+    },
+    {
+      "name": "getmask",
+      "docstring": "Create a bitmap for the text.\n\nIf the font uses antialiasing, the bitmap should have mode ``L`` and use a\nmaximum value of 255. Otherwise, it should have mode ``1``.\n\n:param text: Text to render.\n:param mode: Used by some graphics drivers to indicate what mode the\n             driver prefers; if empty, the renderer may return either\n             mode. Note that the mode is always a string, to simplify\n             C-level implementations.\n\n             .. versionadded:: 1.1.5\n\n:return: An internal PIL storage memory instance as defined by the\n         :py:mod:`PIL.Image.core` interface module."
+    },
+    {
+      "name": "getbbox",
+      "docstring": "Returns bounding box (in pixels) of given text.\n\n.. versionadded:: 9.2.0\n\n:param text: Text to render.\n\n:return: ``(left, top, right, bottom)`` bounding box"
+    },
+    {
+      "name": "getlength",
+      "docstring": "Returns length (in pixels) of given text.\nThis is the amount by which following text should be offset.\n\n.. versionadded:: 9.2.0"
+    },
+    {
+      "name": "getname",
+      "docstring": ":return: A tuple of the font family (e.g. Helvetica) and the font style\n    (e.g. Bold)"
+    },
+    {
+      "name": "getmetrics",
+      "docstring": ":return: A tuple of the font ascent (the distance from the baseline to\n    the highest outline point) and descent (the distance from the\n    baseline to the lowest outline point, a negative value)"
+    },
+    {
+      "name": "getlength",
+      "docstring": "Returns length (in pixels with 1/64 precision) of given text when rendered\nin font with provided direction, features, and language.\n\nThis is the amount by which following text should be offset.\nText bounding box may extend past the length in some fonts,\ne.g. when using italics or accents.\n\nThe result is returned as a float; it is a whole number if using basic layout.\n\nNote that the sum of two lengths may not equal the length of a concatenated\nstring due to kerning. If you need to adjust for kerning, include the following\ncharacter and subtract its length.\n\nFor example, instead of ::\n\n  hello = font.getlength(\"Hello\")\n  world = font.getlength(\"World\")\n  hello_world = hello + world  # not adjusted for kerning\n  assert hello_world == font.getlength(\"HelloWorld\")  # may fail\n\nuse ::\n\n  hello = font.getlength(\"HelloW\") - font.getlength(\"W\")  # adjusted for kerning\n  world = font.getlength(\"World\")\n  hello_world = hello + world  # adjusted for kerning\n  assert hello_world == font.getlength(\"HelloWorld\")  # True\n\nor disable kerning with (requires libraqm) ::\n\n  hello = draw.textlength(\"Hello\", font, features=[\"-kern\"])\n  world = draw.textlength(\"World\", font, features=[\"-kern\"])\n  hello_world = hello + world  # kerning is disabled, no need to adjust\n  assert hello_world == draw.textlength(\"HelloWorld\", font, features=[\"-kern\"])\n\n.. versionadded:: 8.0.0\n\n:param text: Text to measure.\n:param mode: Used by some graphics drivers to indicate what mode the\n             driver prefers; if empty, the renderer may return either\n             mode. Note that the mode is always a string, to simplify\n             C-level implementations.\n\n:param direction: Direction of the text. It can be 'rtl' (right to\n                  left), 'ltr' (left to right) or 'ttb' (top to bottom).\n                  Requires libraqm.\n\n:param features: A list of OpenType font features to be used during text\n                 layout. This is usually used to turn on optional\n                 font features that are not enabled by default,\n                 for example 'dlig' or 'ss01', but can be also\n                 used to turn off default font features for\n                 example '-liga' to disable ligatures or '-kern'\n                 to disable kerning.  To get all supported\n                 features, see\n                 https://learn.microsoft.com/en-us/typography/opentype/spec/featurelist\n                 Requires libraqm.\n\n:param language: Language of the text. Different languages may use\n                 different glyph shapes or ligatures. This parameter tells\n                 the font which language the text is in, and to apply the\n                 correct substitutions as appropriate, if available.\n                 It should be a `BCP 47 language code\n                 <https://www.w3.org/International/articles/language-tags/>`_\n                 Requires libraqm.\n\n:return: Either width for horizontal text, or height for vertical text."
+    },
+    {
+      "name": "getbbox",
+      "docstring": "Returns bounding box (in pixels) of given text relative to given anchor\nwhen rendered in font with provided direction, features, and language.\n\nUse :py:meth:`getlength()` to get the offset of following text with\n1/64 pixel precision. The bounding box includes extra margins for\nsome fonts, e.g. italics or accents.\n\n.. versionadded:: 8.0.0\n\n:param text: Text to render.\n:param mode: Used by some graphics drivers to indicate what mode the\n             driver prefers; if empty, the renderer may return either\n             mode. Note that the mode is always a string, to simplify\n             C-level implementations.\n\n:param direction: Direction of the text. It can be 'rtl' (right to\n                  left), 'ltr' (left to right) or 'ttb' (top to bottom).\n                  Requires libraqm.\n\n:param features: A list of OpenType font features to be used during text\n                 layout. This is usually used to turn on optional\n                 font features that are not enabled by default,\n                 for example 'dlig' or 'ss01', but can be also\n                 used to turn off default font features for\n                 example '-liga' to disable ligatures or '-kern'\n                 to disable kerning.  To get all supported\n                 features, see\n                 https://learn.microsoft.com/en-us/typography/opentype/spec/featurelist\n                 Requires libraqm.\n\n:param language: Language of the text. Different languages may use\n                 different glyph shapes or ligatures. This parameter tells\n                 the font which language the text is in, and to apply the\n                 correct substitutions as appropriate, if available.\n                 It should be a `BCP 47 language code\n                 <https://www.w3.org/International/articles/language-tags/>`_\n                 Requires libraqm.\n\n:param stroke_width: The width of the text stroke.\n\n:param anchor:  The text anchor alignment. Determines the relative location of\n                the anchor to the text. The default alignment is top left,\n                specifically ``la`` for horizontal text and ``lt`` for\n                vertical text. See :ref:`text-anchors` for details.\n\n:return: ``(left, top, right, bottom)`` bounding box"
+    },
+    {
+      "name": "getmask",
+      "docstring": "Create a bitmap for the text.\n\nIf the font uses antialiasing, the bitmap should have mode ``L`` and use a\nmaximum value of 255. If the font has embedded color data, the bitmap\nshould have mode ``RGBA``. Otherwise, it should have mode ``1``.\n\n:param text: Text to render.\n:param mode: Used by some graphics drivers to indicate what mode the\n             driver prefers; if empty, the renderer may return either\n             mode. Note that the mode is always a string, to simplify\n             C-level implementations.\n\n             .. versionadded:: 1.1.5\n\n:param direction: Direction of the text. It can be 'rtl' (right to\n                  left), 'ltr' (left to right) or 'ttb' (top to bottom).\n                  Requires libraqm.\n\n                  .. versionadded:: 4.2.0\n\n:param features: A list of OpenType font features to be used during text\n                 layout. This is usually used to turn on optional\n                 font features that are not enabled by default,\n                 for example 'dlig' or 'ss01', but can be also\n                 used to turn off default font features for\n                 example '-liga' to disable ligatures or '-kern'\n                 to disable kerning.  To get all supported\n                 features, see\n                 https://learn.microsoft.com/en-us/typography/opentype/spec/featurelist\n                 Requires libraqm.\n\n                 .. versionadded:: 4.2.0\n\n:param language: Language of the text. Different languages may use\n                 different glyph shapes or ligatures. This parameter tells\n                 the font which language the text is in, and to apply the\n                 correct substitutions as appropriate, if available.\n                 It should be a `BCP 47 language code\n                 <https://www.w3.org/International/articles/language-tags/>`_\n                 Requires libraqm.\n\n                 .. versionadded:: 6.0.0\n\n:param stroke_width: The width of the text stroke.\n\n                 .. versionadded:: 6.2.0\n\n:param anchor:  The text anchor alignment. Determines the relative location of\n                the anchor to the text. The default alignment is top left,\n                specifically ``la`` for horizontal text and ``lt`` for\n                vertical text. See :ref:`text-anchors` for details.\n\n                 .. versionadded:: 8.0.0\n\n:param ink: Foreground ink for rendering in RGBA mode.\n\n                 .. versionadded:: 8.0.0\n\n:param start: Tuple of horizontal and vertical offset, as text may render\n              differently when starting at fractional coordinates.\n\n                 .. versionadded:: 9.4.0\n\n:return: An internal PIL storage memory instance as defined by the\n         :py:mod:`PIL.Image.core` interface module."
+    },
+    {
+      "name": "getmask2",
+      "docstring": "Create a bitmap for the text.\n\nIf the font uses antialiasing, the bitmap should have mode ``L`` and use a\nmaximum value of 255. If the font has embedded color data, the bitmap\nshould have mode ``RGBA``. Otherwise, it should have mode ``1``.\n\n:param text: Text to render.\n:param mode: Used by some graphics drivers to indicate what mode the\n             driver prefers; if empty, the renderer may return either\n             mode. Note that the mode is always a string, to simplify\n             C-level implementations.\n\n             .. versionadded:: 1.1.5\n\n:param direction: Direction of the text. It can be 'rtl' (right to\n                  left), 'ltr' (left to right) or 'ttb' (top to bottom).\n                  Requires libraqm.\n\n                  .. versionadded:: 4.2.0\n\n:param features: A list of OpenType font features to be used during text\n                 layout. This is usually used to turn on optional\n                 font features that are not enabled by default,\n                 for example 'dlig' or 'ss01', but can be also\n                 used to turn off default font features for\n                 example '-liga' to disable ligatures or '-kern'\n                 to disable kerning.  To get all supported\n                 features, see\n                 https://learn.microsoft.com/en-us/typography/opentype/spec/featurelist\n                 Requires libraqm.\n\n                 .. versionadded:: 4.2.0\n\n:param language: Language of the text. Different languages may use\n                 different glyph shapes or ligatures. This parameter tells\n                 the font which language the text is in, and to apply the\n                 correct substitutions as appropriate, if available.\n                 It should be a `BCP 47 language code\n                 <https://www.w3.org/International/articles/language-tags/>`_\n                 Requires libraqm.\n\n                 .. versionadded:: 6.0.0\n\n:param stroke_width: The width of the text stroke.\n\n                 .. versionadded:: 6.2.0\n\n:param anchor:  The text anchor alignment. Determines the relative location of\n                the anchor to the text. The default alignment is top left,\n                specifically ``la`` for horizontal text and ``lt`` for\n                vertical text. See :ref:`text-anchors` for details.\n\n                 .. versionadded:: 8.0.0\n\n:param ink: Foreground ink for rendering in RGBA mode.\n\n                 .. versionadded:: 8.0.0\n\n:param start: Tuple of horizontal and vertical offset, as text may render\n              differently when starting at fractional coordinates.\n\n                 .. versionadded:: 9.4.0\n\n:return: A tuple of an internal PIL storage memory instance as defined by the\n         :py:mod:`PIL.Image.core` interface module, and the text offset, the\n         gap between the starting coordinate and the first marking"
+    },
+    {
+      "name": "font_variant",
+      "docstring": "Create a copy of this FreeTypeFont object,\nusing any specified arguments to override the settings.\n\nParameters are identical to the parameters used to initialize this\nobject.\n\n:return: A FreeTypeFont object."
+    },
+    {
+      "name": "get_variation_names",
+      "docstring": ":returns: A list of the named styles in a variation font.\n:exception OSError: If the font is not a variation font."
+    },
+    {
+      "name": "set_variation_by_name",
+      "docstring": ":param name: The name of the style.\n:exception OSError: If the font is not a variation font."
+    },
+    {
+      "name": "get_variation_axes",
+      "docstring": ":returns: A list of the axes in a variation font.\n:exception OSError: If the font is not a variation font."
+    },
+    {
+      "name": "set_variation_by_axes",
+      "docstring": ":param axes: A list of values for each axis.\n:exception OSError: If the font is not a variation font."
+    },
+    {
+      "name": "getmask",
+      "docstring": null
+    },
+    {
+      "name": "getbbox",
+      "docstring": null
+    },
+    {
+      "name": "getlength",
+      "docstring": null
+    },
+    {
+      "name": "freetype",
+      "docstring": null
+    },
+    {
+      "name": "load_from_bytes",
+      "docstring": null
+    },
+    {
+      "name": "fill",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

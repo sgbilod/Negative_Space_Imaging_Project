@@ -1,0 +1,304 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\voltLib\\ast.py",
+  "classes": [
+    {
+      "name": "Pos",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Element",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "build",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Statement",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Expression",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "VoltFile",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "build",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GlyphDefinition",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GroupDefinition",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "glyphSet",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GlyphName",
+      "docstring": "A single glyph name, such as cedilla.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "glyphSet",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Enum",
+      "docstring": "An enum",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "glyphSet",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GroupName",
+      "docstring": "A glyph group",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "glyphSet",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Range",
+      "docstring": "A glyph range",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "glyphSet",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ScriptDefinition",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LangSysDefinition",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FeatureDefinition",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LookupDefinition",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SubstitutionDefinition",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SubstitutionSingleDefinition",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "SubstitutionMultipleDefinition",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "SubstitutionLigatureDefinition",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "SubstitutionAlternateDefinition",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "SubstitutionReverseChainingSingleDefinition",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PositionAttachDefinition",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PositionAttachCursiveDefinition",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PositionAdjustPairDefinition",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PositionAdjustSingleDefinition",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ContextDefinition",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AnchorDefinition",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SettingDefinition",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "build",
+      "docstring": null
+    },
+    {
+      "name": "build",
+      "docstring": null
+    },
+    {
+      "name": "glyphSet",
+      "docstring": null
+    },
+    {
+      "name": "glyphSet",
+      "docstring": null
+    },
+    {
+      "name": "glyphSet",
+      "docstring": null
+    },
+    {
+      "name": "glyphSet",
+      "docstring": null
+    },
+    {
+      "name": "glyphSet",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

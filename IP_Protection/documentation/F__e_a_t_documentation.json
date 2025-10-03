@@ -1,0 +1,55 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\F__e_a_t.py",
+  "classes": [
+    {
+      "name": "table_F__e_a_t",
+      "docstring": "Feature table\n\nThe ``Feat`` table is used exclusively by the Graphite shaping engine\nto store features and possible settings specified in GDL. Graphite features\ndetermine what rules are applied to transform a glyph stream.\n\nNot to be confused with ``feat``, or the OpenType Layout tables\n``GSUB``/``GPOS``.\n\nSee also https://graphite.sil.org/graphite_techAbout#graphite-font-tables",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Feature",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

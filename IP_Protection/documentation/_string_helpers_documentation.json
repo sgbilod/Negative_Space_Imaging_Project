@@ -1,0 +1,19 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\_string_helpers.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "english_lower",
+      "docstring": "Apply English case rules to convert ASCII strings to all lower case.\n\nThis is an internal utility function to replace calls to str.lower() such\nthat we can avoid changing behavior with changing locales. In particular,\nTurkish has distinct dotted and dotless variants of the Latin letter \"I\" in\nboth lowercase and uppercase. Thus, \"I\".lower() != \"i\" in a \"tr\" locale.\n\nParameters\n----------\ns : str\n\nReturns\n-------\nlowered : str\n\nExamples\n--------\n>>> from numpy._core.numerictypes import english_lower\n>>> english_lower('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_')\n'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789_'\n>>> english_lower('')\n''"
+    },
+    {
+      "name": "english_upper",
+      "docstring": "Apply English case rules to convert ASCII strings to all upper case.\n\nThis is an internal utility function to replace calls to str.upper() such\nthat we can avoid changing behavior with changing locales. In particular,\nTurkish has distinct dotted and dotless variants of the Latin letter \"I\" in\nboth lowercase and uppercase. Thus, \"i\".upper() != \"I\" in a \"tr\" locale.\n\nParameters\n----------\ns : str\n\nReturns\n-------\nuppered : str\n\nExamples\n--------\n>>> from numpy._core.numerictypes import english_upper\n>>> english_upper('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_')\n'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_'\n>>> english_upper('')\n''"
+    },
+    {
+      "name": "english_capitalize",
+      "docstring": "Apply English case rules to convert the first character of an ASCII\nstring to upper case.\n\nThis is an internal utility function to replace calls to str.capitalize()\nsuch that we can avoid changing behavior with changing locales.\n\nParameters\n----------\ns : str\n\nReturns\n-------\ncapitalized : str\n\nExamples\n--------\n>>> from numpy._core.numerictypes import english_capitalize\n>>> english_capitalize('int8')\n'Int8'\n>>> english_capitalize('Int8')\n'Int8'\n>>> english_capitalize('')\n''"
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,110 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\pens\\cu2quPen.py",
+  "classes": [
+    {
+      "name": "Cu2QuPen",
+      "docstring": "A filter pen to convert cubic bezier curves to quadratic b-splines\nusing the FontTools SegmentPen protocol.\n\nArgs:\n\n    other_pen: another SegmentPen used to draw the transformed outline.\n    max_err: maximum approximation error in font units. For optimal results,\n        if you know the UPEM of the font, we recommend setting this to a\n        value equal, or close to UPEM / 1000.\n    reverse_direction: flip the contours' direction but keep starting point.\n    stats: a dictionary counting the point numbers of quadratic segments.\n    all_quadratic: if True (default), only quadratic b-splines are generated.\n        if False, quadratic curves or cubic curves are generated depending\n        on which one is more economical.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "curveTo",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Cu2QuPointPen",
+      "docstring": "A filter pen to convert cubic bezier curves to quadratic b-splines\nusing the FontTools PointPen protocol.\n\nArgs:\n    other_point_pen: another PointPen used to draw the transformed outline.\n    max_err: maximum approximation error in font units. For optimal results,\n        if you know the UPEM of the font, we recommend setting this to a\n        value equal, or close to UPEM / 1000.\n    reverse_direction: reverse the winding direction of all contours.\n    stats: a dictionary counting the point numbers of quadratic segments.\n    all_quadratic: if True (default), only quadratic b-splines are generated.\n        if False, quadratic curves or cubic curves are generated depending\n        on which one is more economical.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "addComponent",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Cu2QuMultiPen",
+      "docstring": "A filter multi-pen to convert cubic bezier curves to quadratic b-splines\nin a interpolation-compatible manner, using the FontTools SegmentPen protocol.\n\nArgs:\n\n    other_pens: list of SegmentPens used to draw the transformed outlines.\n    max_err: maximum approximation error in font units. For optimal results,\n        if you know the UPEM of the font, we recommend setting this to a\n        value equal, or close to UPEM / 1000.\n    reverse_direction: flip the contours' direction but keep starting point.\n\nThis pen does not follow the normal SegmentPen protocol. Instead, its\nmoveTo/lineTo/qCurveTo/curveTo methods take a list of tuples that are\narguments that would normally be passed to a SegmentPen, one item for\neach of the pens in other_pens.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "moveTo",
+          "docstring": null
+        },
+        {
+          "name": "lineTo",
+          "docstring": null
+        },
+        {
+          "name": "qCurveTo",
+          "docstring": null
+        },
+        {
+          "name": "curveTo",
+          "docstring": null
+        },
+        {
+          "name": "closePath",
+          "docstring": null
+        },
+        {
+          "name": "endPath",
+          "docstring": null
+        },
+        {
+          "name": "addComponent",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "curveTo",
+      "docstring": null
+    },
+    {
+      "name": "addComponent",
+      "docstring": null
+    },
+    {
+      "name": "moveTo",
+      "docstring": null
+    },
+    {
+      "name": "lineTo",
+      "docstring": null
+    },
+    {
+      "name": "qCurveTo",
+      "docstring": null
+    },
+    {
+      "name": "curveTo",
+      "docstring": null
+    },
+    {
+      "name": "closePath",
+      "docstring": null
+    },
+    {
+      "name": "endPath",
+      "docstring": null
+    },
+    {
+      "name": "addComponent",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

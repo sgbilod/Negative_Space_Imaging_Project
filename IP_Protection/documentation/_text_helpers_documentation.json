@@ -1,0 +1,21 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\_text_helpers.py",
+  "classes": [
+    {
+      "name": "LayoutItem",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "warn_on_missing_glyph",
+      "docstring": null
+    },
+    {
+      "name": "layout",
+      "docstring": "Render *string* with *font*.\n\nFor each character in *string*, yield a LayoutItem instance. When such an instance\nis yielded, the font's glyph is set to the corresponding character.\n\nParameters\n----------\nstring : str\n    The string to be rendered.\nfont : FT2Font\n    The font.\nkern_mode : Kerning\n    A FreeType kerning mode.\n\nYields\n------\nLayoutItem"
+    }
+  ],
+  "innovations": []
+}

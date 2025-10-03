@@ -1,0 +1,30 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\mpl_toolkits\\axes_grid1\\axes_rgb.py",
+  "classes": [
+    {
+      "name": "RGBAxes",
+      "docstring": "4-panel `~.Axes.imshow` (RGB, R, G, B).\n\nLayout::\n\n    \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2510\n    \u2502               \u2502  R  \u2502\n    \u2502               \u251c\u2500\u2500\u2500\u2500\u2500\u2524\n    \u2502      RGB      \u2502  G  \u2502\n    \u2502               \u251c\u2500\u2500\u2500\u2500\u2500\u2524\n    \u2502               \u2502  B  \u2502\n    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2518\n\nSubclasses can override the ``_defaultAxesClass`` attribute.\nBy default RGBAxes uses `.mpl_axes.Axes`.\n\nAttributes\n----------\nRGB : ``_defaultAxesClass``\n    The Axes object for the three-channel `~.Axes.imshow`.\nR : ``_defaultAxesClass``\n    The Axes object for the red channel `~.Axes.imshow`.\nG : ``_defaultAxesClass``\n    The Axes object for the green channel `~.Axes.imshow`.\nB : ``_defaultAxesClass``\n    The Axes object for the blue channel `~.Axes.imshow`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\npad : float, default: 0\n    Fraction of the Axes height to put as padding.\naxes_class : `~matplotlib.axes.Axes`\n    Axes class to use. If not provided, ``_defaultAxesClass`` is used.\n*args\n    Forwarded to *axes_class* init for the RGB Axes\n**kwargs\n    Forwarded to *axes_class* init for the RGB, R, G, and B Axes"
+        },
+        {
+          "name": "imshow_rgb",
+          "docstring": "Create the four images {rgb, r, g, b}.\n\nParameters\n----------\nr, g, b : array-like\n    The red, green, and blue arrays.\n**kwargs\n    Forwarded to `~.Axes.imshow` calls for the four images.\n\nReturns\n-------\nrgb : `~matplotlib.image.AxesImage`\nr : `~matplotlib.image.AxesImage`\ng : `~matplotlib.image.AxesImage`\nb : `~matplotlib.image.AxesImage`"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "make_rgb_axes",
+      "docstring": "Parameters\n----------\nax : `~matplotlib.axes.Axes`\n    Axes instance to create the RGB Axes in.\npad : float, optional\n    Fraction of the Axes height to pad.\naxes_class : `matplotlib.axes.Axes` or None, optional\n    Axes class to use for the R, G, and B Axes. If None, use\n    the same class as *ax*.\n**kwargs\n    Forwarded to *axes_class* init for the R, G, and B Axes."
+    },
+    {
+      "name": "imshow_rgb",
+      "docstring": "Create the four images {rgb, r, g, b}.\n\nParameters\n----------\nr, g, b : array-like\n    The red, green, and blue arrays.\n**kwargs\n    Forwarded to `~.Axes.imshow` calls for the four images.\n\nReturns\n-------\nrgb : `~matplotlib.image.AxesImage`\nr : `~matplotlib.image.AxesImage`\ng : `~matplotlib.image.AxesImage`\nb : `~matplotlib.image.AxesImage`"
+    }
+  ],
+  "innovations": []
+}

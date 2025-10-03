@@ -1,0 +1,58 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\_a_v_a_r.py",
+  "classes": [
+    {
+      "name": "table__a_v_a_r",
+      "docstring": "Axis Variations table\n\nThis class represents the ``avar`` table of a variable font. The object has one\nsubstantive attribute, ``segments``, which maps axis tags to a segments dictionary::\n\n    >>> font[\"avar\"].segments   # doctest: +SKIP\n    {'wght': {-1.0: -1.0,\n      0.0: 0.0,\n      0.125: 0.11444091796875,\n      0.25: 0.23492431640625,\n      0.5: 0.35540771484375,\n      0.625: 0.5,\n      0.75: 0.6566162109375,\n      0.875: 0.81927490234375,\n      1.0: 1.0},\n     'ital': {-1.0: -1.0, 0.0: 0.0, 1.0: 1.0}}\n\nNotice that the segments dictionary is made up of normalized values. A valid\n``avar`` segment mapping must contain the entries ``-1.0: -1.0, 0.0: 0.0, 1.0: 1.0``.\nfontTools does not enforce this, so it is your responsibility to ensure that\nmappings are valid.\n\nSee also https://learn.microsoft.com/en-us/typography/opentype/spec/avar",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "renormalizeLocation",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "renormalizeLocation",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

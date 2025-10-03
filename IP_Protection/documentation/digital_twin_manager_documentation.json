@@ -1,0 +1,68 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\revenue\\proof_of_existence\\digital_twin_manager.py",
+  "classes": [
+    {
+      "name": "DigitalTwinManager",
+      "docstring": "Manages digital twins of assets based on their negative space signatures.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the Digital Twin Manager."
+        },
+        {
+          "name": "create_digital_twin",
+          "docstring": "Create a new digital twin for an asset.\n\nArgs:\n    asset_data: Metadata about the asset (name, type, owner, etc.)\n    spatial_signature: Either a pre-computed signature string or raw coordinates\n    gps_coordinates: Optional GPS coordinates where the asset was registered\n    \nReturns:\n    Digital twin data including the unique asset ID"
+        },
+        {
+          "name": "verify_asset",
+          "docstring": "Verify an asset against its digital twin.\n\nArgs:\n    asset_id: The ID of the asset to verify\n    current_signature: Current spatial signature or coordinates\n    current_gps: Current GPS coordinates\n    \nReturns:\n    Verification result with match details"
+        }
+      ]
+    },
+    {
+      "name": "DigitalTwinAPI",
+      "docstring": "API for the Digital Twin Asset Verification service.\nThis is a skeleton implementation for Phase 1.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the Digital Twin API."
+        },
+        {
+          "name": "register_asset",
+          "docstring": "Register a new asset and create its digital twin.\n\nArgs:\n    request_data: Dictionary containing asset data and spatial signature\n    \nReturns:\n    Digital twin data"
+        },
+        {
+          "name": "verify_asset",
+          "docstring": "Verify an asset against its digital twin.\n\nArgs:\n    request_data: Dictionary containing asset_id and current signature\n    \nReturns:\n    Verification result"
+        },
+        {
+          "name": "get_asset_history",
+          "docstring": "Get the lifecycle history of an asset.\n\nArgs:\n    request_data: Dictionary containing asset_id\n    \nReturns:\n    Asset lifecycle history"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "create_digital_twin",
+      "docstring": "Create a new digital twin for an asset.\n\nArgs:\n    asset_data: Metadata about the asset (name, type, owner, etc.)\n    spatial_signature: Either a pre-computed signature string or raw coordinates\n    gps_coordinates: Optional GPS coordinates where the asset was registered\n    \nReturns:\n    Digital twin data including the unique asset ID"
+    },
+    {
+      "name": "verify_asset",
+      "docstring": "Verify an asset against its digital twin.\n\nArgs:\n    asset_id: The ID of the asset to verify\n    current_signature: Current spatial signature or coordinates\n    current_gps: Current GPS coordinates\n    \nReturns:\n    Verification result with match details"
+    },
+    {
+      "name": "register_asset",
+      "docstring": "Register a new asset and create its digital twin.\n\nArgs:\n    request_data: Dictionary containing asset data and spatial signature\n    \nReturns:\n    Digital twin data"
+    },
+    {
+      "name": "verify_asset",
+      "docstring": "Verify an asset against its digital twin.\n\nArgs:\n    request_data: Dictionary containing asset_id and current signature\n    \nReturns:\n    Verification result"
+    },
+    {
+      "name": "get_asset_history",
+      "docstring": "Get the lifecycle history of an asset.\n\nArgs:\n    request_data: Dictionary containing asset_id\n    \nReturns:\n    Asset lifecycle history"
+    }
+  ],
+  "innovations": []
+}

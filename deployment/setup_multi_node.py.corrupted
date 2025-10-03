@@ -1,0 +1,1482 @@
+#!/usr/bin/env python3
+"""
+Multi-Node Deployment Setup Script for Negative Space Imaging Project
+Prepares the environment for multi-node deployment with advanced configuration
+options and automatic dependency resolution.
+"""
+
+import os
+import sys
+import logging
+import argparse
+import subprocess
+import shutil
+import json
+import yaml
+import platform
+from pathlib import Path
+from typing import Dict, List, Any, Optional, Tuple
+import secrets
+import string
+import datetime
+import re
+
+# Configure logging with advanced formatting
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(name)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S',
+    handlers=[
+        logging.FileHandler("deployment_setup.log"),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+def run_command(command: List[str], check: bool = True, env: Optional[Dict[str, str]] = None, 
+             cwd: Optional[str] = None, timeout: Optional[int] = None) -> Tuple[int, str, str]:
+    """
+    Run a shell command and return the exit code, stdout, and stderr
+    
+    Args:
+        command: The command to run as a list of strings
+        check: Whether to raise an exception if the command fails
+        env: Environment variables to pass to the command
+        cwd: Working directory to run the command in
+        timeout: Timeout in seconds for the command
+        
+    Returns:
+        Tuple of (exit_code, stdout, stderr)
+    """
+    command_str = ' '.join(command)
+    logger.debug(f"Running command: {command_str}")
+    
+    # Prepare environment
+    command_env = os.environ.copy()
+    if env:
+        command_env.update(env)
+    
+    try:
+        process = subprocess.Popen(
+            command,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            env=command_env,
+            cwd=cwd
+        )
+        
+        try:
+            stdout, stderr = process.communicate(timeout=timeout)
+            exit_code = process.returncode
+            
+            if exit_code != 0 and check:
+                logger.error(f"Command failed with exit code {exit_code}")
+                logger.error(f"Command: {command_str}")
+                logger.error(f"STDERR: {stderr}")
+                logger.error(f"STDOUT: {stdout}")
+            
+            return exit_code, stdout, stderr
+        except subprocess.TimeoutExpired:
+            process.kill()
+            stdout, stderr = process.communicate()
+            logger.error(f"Command timed out after {timeout} seconds")
+            logger.error(f"Command: {command_str}")
+            if check:
+                raise
+            return 124, stdout, f"Timeout after {timeout} seconds"
+            
+    except Exception as e:
+        logger.error(f"Failed to run command: {str(e)}")
+        logger.error(f"Command: {command_str}")
+        if check:
+            raise
+        return 1, "", str(e)
+
+def check_prerequisites():
+    """
+    Check if all prerequisites for deployment are met
+    Validates directories, dependencies, and required tools
+    
+    Returns:
+        bool: True if all prerequisites are met, False otherwise
+    """
+    logger.info("Checking deployment prerequisites...")
+    
+    # Check OS compatibility
+    os_name = platform.system()
+    os_version = platform.version()
+    logger.info(f"Operating system: {os_name} {os_version}")
+    
+    if os_name not in ["Windows", "Linux", "Darwin"]:
+        logger.warning(f"Unsupported operating system: {os_name}")
+        logger.warning("This script is designed for Windows, Linux, or macOS")
+        return False
+    
+    # Create required directories
+    required_dirs = [
+        Path("deployment"),
+        Path("deployment/templates"),
+        Path("deployment/output"),
+        Path("deployment/kubernetes"),
+        Path("deployment/kubernetes/manifests"),
+        Path("deployment/dockerfiles"),
+        Path("deployment/monitoring"),
+        Path("deployment/monitoring/dashboards"),
+        Path("deployment/monitoring/dashboard-providers"),
+        Path("deployment/monitoring/datasources"),
+        Path("deployment/logging"),
+        Path("deployment/database"),
+        Path("deployment/secrets")
+    ]
+    
+    for directory in required_dirs:
+        if not directory.exists():
+            logger.info(f"Creating directory: {directory}")
+            try:
+                directory.mkdir(parents=True, exist_ok=True)
+            except Exception as e:
+                logger.error(f"Failed to create directory {directory}: {str(e)}")
+                return False
+    
+    # Check Python version
+    python_version = platform.python_version()
+    logger.info(f"Python version: {python_version}")
+    
+    major, minor, _ = map(int, python_version.split("."))
+    if major < 3 or (major == 3 and minor < 7):
+        logger.warning(f"Python version {python_version} might not be compatible")
+        logger.warning("Python 3.7 or higher is recommended")
+    
+    # Check for Python dependencies
+    logger.info("Checking Python dependencies...")
+    required_packages = [
+        "pyyaml",
+        "jinja2",
+        "jsonschema",
+        "requests",
+        "prometheus_client",
+        "docker",
+        "kubernetes"
+    ]
+    
+    missing_packages = []
+    for package in required_packages:
+        try:
+            __import__(package)
+        except ImportError:
+            missing_packages.append(package)
+    
+    if missing_packages:
+        logger.warning(f"Missing required packages: {', '.join(missing_packages)}")
+        logger.info("Installing missing packages...")
+        
+        for package in missing_packages:
+            logger.info(f"Installing {package}...")
+            exit_code, _, stderr = run_command(
+                [sys.executable, "-m", "pip", "install", package],
+                check=False
+            )
+            
+            if exit_code != 0:
+                logger.error(f"Failed to install {package}: {stderr}")
+                return False
+            
+            logger.info(f"Successfully installed {package}")
+    
+    # Check for Docker
+    logger.info("Checking for Docker...")
+    docker_available = False
+    
+    exit_code, docker_version, _ = run_command(["docker", "--version"], check=False)
+    if exit_code == 0:
+        docker_available = True
+        logger.info(f"Docker is installed: {docker_version.strip()}")
+        
+        # Check if Docker Compose is available
+        exit_code, docker_compose_version, _ = run_command(["docker", "compose", "version"], check=False)
+        if exit_code == 0:
+            logger.info(f"Docker Compose is installed: {docker_compose_version.strip()}")
+        else:
+            logger.warning("Docker Compose not found. It's recommended for local development.")
+    else:
+        logger.warning("Docker not found. Docker Compose deployment will not be available")
+        
+    # Check for Kubernetes tools
+    logger.info("Checking for Kubernetes tools...")
+    k8s_available = False
+    
+    exit_code, kubectl_version, _ = run_command(["kubectl", "version", "--client", "--output=yaml"], check=False)
+    if exit_code == 0:
+        k8s_available = True
+        logger.info("kubectl is installed")
+        
+        # Parse kubectl version
+        try:
+            import yaml
+            version_info = yaml.safe_load(kubectl_version)
+            client_version = version_info.get("clientVersion", {})
+            version = client_version.get("gitVersion", "unknown")
+            logger.info(f"kubectl version: {version}")
+        except Exception as e:
+            logger.warning(f"Failed to parse kubectl version: {str(e)}")
+    else:
+        logger.warning("kubectl not found. Kubernetes deployment will not be available")
+    
+    # Check for Helm (optional but recommended for Kubernetes)
+    exit_code, helm_version, _ = run_command(["helm", "version", "--short"], check=False)
+    if exit_code == 0:
+        logger.info(f"Helm is installed: {helm_version.strip()}")
+    else:
+        logger.warning("Helm not found. It's recommended for Kubernetes deployments.")
+    
+    # Check for database tools
+    logger.info("Checking for database tools...")
+    
+    # Check for PostgreSQL client (psql)
+    exit_code, _, _ = run_command(["psql", "--version"], check=False)
+    if exit_code == 0:
+        logger.info("PostgreSQL client is installed")
+    else:
+        logger.warning("PostgreSQL client not found. It might be needed for database operations.")
+    
+    # Check available deployment options
+    if not docker_available and not k8s_available:
+        logger.error("Neither Docker nor Kubernetes is available")
+        logger.error("At least one of them is required for deployment")
+        return False
+    
+    # Check for required template files
+    template_dir = Path("deployment/templates")
+    required_templates = [
+        "cluster.yaml.tmpl",
+        "nodes.yaml.tmpl", 
+        "storage.yaml.tmpl",
+        "networking.yaml.tmpl",
+        "services.yaml.tmpl",
+        "monitoring.yaml.tmpl"
+    ]
+    
+    missing_templates = []
+    for template in required_templates:
+        template_path = template_dir / template
+        if not template_path.exists():
+            missing_templates.append(template)
+    
+    if missing_templates:
+        logger.warning(f"Missing template files: {', '.join(missing_templates)}")
+        logger.warning("Template files will need to be created")
+    
+    logger.info("Prerequisites check completed")
+    return True
+
+def setup_database_files():
+    """
+    Set up database initialization files
+    
+    Returns:
+        bool: True if setup was successful, False otherwise
+    """
+    logger.info("Setting up database initialization files...")
+    
+    database_dir = Path("deployment/database")
+    
+    # Ensure database directory exists
+    database_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Create a README file for the database directory
+    readme_path = database_dir / "README.md"
+    readme_content = """# Database Configuration
+
+This directory contains the database initialization scripts for the Negative Space Imaging Project.
+
+## Files
+
+- `01-init-schema.sql`: Database schema initialization script
+- `02-init-data.sql`: Initial data population script
+- `init-database.sh`: Database initialization script
+- `README.md`: This file
+
+## Usage
+
+The database initialization scripts are automatically used by the deployment system
+when setting up the database for the first time.
+
+You can also run them manually:
+
+```bash
+# For local PostgreSQL
+psql -U postgres -d negative_space_imaging -f 01-init-schema.sql
+psql -U postgres -d negative_space_imaging -f 02-init-data.sql
+
+# For Docker
+docker exec -i <container_name> psql -U postgres -d negative_space_imaging -f /docker-entrypoint-initdb.d/01-init-schema.sql
+docker exec -i <container_name> psql -U postgres -d negative_space_imaging -f /docker-entrypoint-initdb.d/02-init-data.sql
+```
+
+## Schema
+
+The database schema includes the following tables:
+- Users: User accounts and authentication
+- Projects: Imaging projects
+- Images: Image data and metadata
+- Computations: Processing jobs and results
+- SecurityLogs: Security audit logs
+- SystemEvents: System events and notifications
+"""
+    
+    # Write README file
+    try:
+        with open(readme_path, 'w') as f:
+            f.write(readme_content)
+        logger.info("Created database README file")
+    except Exception as e:
+        logger.error(f"Failed to create database README file: {str(e)}")
+        return False
+    
+    # Create schema initialization script
+    schema_path = database_dir / "01-init-schema.sql"
+    schema_content = """-- Database Schema Initialization for Negative Space Imaging Project
+-- This script creates the necessary tables and relationships
+
+-- Enable UUID extension
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+-- Create Users table
+CREATE TABLE IF NOT EXISTS users (
+    user_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    is_active BOOLEAN DEFAULT TRUE,
+    is_admin BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Create Projects table
+CREATE TABLE IF NOT EXISTS projects (
+    project_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    owner_id UUID NOT NULL REFERENCES users(user_id),
+    is_public BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Create Images table
+CREATE TABLE IF NOT EXISTS images (
+    image_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    project_id UUID NOT NULL REFERENCES projects(project_id),
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    file_path VARCHAR(255) NOT NULL,
+    file_size BIGINT NOT NULL,
+    file_type VARCHAR(50) NOT NULL,
+    width INTEGER,
+    height INTEGER,
+    acquisition_date TIMESTAMP WITH TIME ZONE,
+    metadata JSONB,
+    is_processed BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Create Computations table
+CREATE TABLE IF NOT EXISTS computations (
+    computation_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    image_id UUID NOT NULL REFERENCES images(image_id),
+    algorithm VARCHAR(100) NOT NULL,
+    parameters JSONB,
+    status VARCHAR(50) NOT NULL,
+    result_path VARCHAR(255),
+    start_time TIMESTAMP WITH TIME ZONE,
+    end_time TIMESTAMP WITH TIME ZONE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Create SecurityLogs table
+CREATE TABLE IF NOT EXISTS security_logs (
+    log_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_id UUID REFERENCES users(user_id),
+    action VARCHAR(100) NOT NULL,
+    ip_address VARCHAR(50),
+    user_agent TEXT,
+    details JSONB,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Create SystemEvents table
+CREATE TABLE IF NOT EXISTS system_events (
+    event_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    event_type VARCHAR(100) NOT NULL,
+    severity VARCHAR(20) NOT NULL,
+    message TEXT NOT NULL,
+    details JSONB,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Create indexes
+CREATE INDEX idx_projects_owner ON projects(owner_id);
+CREATE INDEX idx_images_project ON images(project_id);
+CREATE INDEX idx_computations_image ON computations(image_id);
+CREATE INDEX idx_security_logs_user ON security_logs(user_id);
+CREATE INDEX idx_security_logs_action ON security_logs(action);
+CREATE INDEX idx_system_events_type ON system_events(event_type);
+CREATE INDEX idx_system_events_severity ON system_events(severity);
+
+-- Create view for image statistics
+CREATE OR REPLACE VIEW image_statistics AS
+SELECT 
+    p.project_id,
+    p.name AS project_name,
+    COUNT(i.image_id) AS total_images,
+    SUM(CASE WHEN i.is_processed THEN 1 ELSE 0 END) AS processed_images,
+    SUM(i.file_size) AS total_size
+FROM projects p
+LEFT JOIN images i ON p.project_id = i.project_id
+GROUP BY p.project_id, p.name;
+
+-- Create view for computation statistics
+CREATE OR REPLACE VIEW computation_statistics AS
+SELECT 
+    algorithm,
+    COUNT(*) AS total_computations,
+    COUNT(CASE WHEN status = 'completed' THEN 1 END) AS completed_computations,
+    COUNT(CASE WHEN status = 'failed' THEN 1 END) AS failed_computations,
+    AVG(EXTRACT(EPOCH FROM (end_time - start_time))) AS avg_duration_seconds
+FROM computations
+GROUP BY algorithm;
+"""
+    
+    # Write schema initialization script
+    try:
+        with open(schema_path, 'w') as f:
+            f.write(schema_content)
+        logger.info("Created database schema initialization script")
+    except Exception as e:
+        logger.error(f"Failed to create schema initialization script: {str(e)}")
+        return False
+    
+    # Create data initialization script
+    data_path = database_dir / "02-init-data.sql"
+    data_content = """-- Initial Data Population for Negative Space Imaging Project
+-- This script populates the database with initial data
+
+-- Add default admin user (password: change-me-immediately)
+INSERT INTO users (username, email, password_hash, first_name, last_name, is_active, is_admin)
+VALUES ('admin', 'admin@example.com', '$2a$10$GjEH5lCBY8EvXYw/8TCaJu8gORQT8V5B.ZvxAaJW3J5mCprO6a1pS', 'Admin', 'User', TRUE, TRUE)
+ON CONFLICT (username) DO NOTHING;
+
+-- Add default project
+INSERT INTO projects (name, description, owner_id, is_public)
+VALUES ('Default Project', 'Default project for Negative Space Imaging', (SELECT user_id FROM users WHERE username = 'admin'), TRUE)
+ON CONFLICT DO NOTHING;
+
+-- Add system event types
+INSERT INTO system_events (event_type, severity, message, details)
+VALUES 
+    ('system_startup', 'info', 'System initialized', '{"version": "1.0.0"}'),
+    ('database_initialization', 'info', 'Database initialized', '{"tables": 6, "views": 2}')
+ON CONFLICT DO NOTHING;
+"""
+    
+    # Write data initialization script
+    try:
+        with open(data_path, 'w') as f:
+            f.write(data_content)
+        logger.info("Created database data initialization script")
+    except Exception as e:
+        logger.error(f"Failed to create data initialization script: {str(e)}")
+        return False
+    
+    # Create database initialization shell script
+    init_script_path = database_dir / "init-database.sh"
+    init_script_content = """#!/bin/bash
+# Database Initialization Script for Negative Space Imaging Project
+
+set -e
+
+# Create database if it doesn't exist
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
+    CREATE DATABASE negative_space_imaging;
+EOSQL
+
+# Run initialization scripts
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "negative_space_imaging" -f /docker-entrypoint-initdb.d/01-init-schema.sql
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "negative_space_imaging" -f /docker-entrypoint-initdb.d/02-init-data.sql
+
+echo "Database initialization completed"
+"""
+    
+    # Write database initialization shell script
+    try:
+        with open(init_script_path, 'w') as f:
+            f.write(init_script_content)
+        # Make the script executable
+        if platform.system() != "Windows":
+            os.chmod(init_script_path, 0o755)
+        logger.info("Created database initialization shell script")
+    except Exception as e:
+        logger.error(f"Failed to create database initialization script: {str(e)}")
+        return False
+    
+    logger.info("Database files setup completed")
+    return True
+
+def setup_database_integration(force_recreate=False):
+    """
+    Set up database integration for multi-node deployment
+    
+    Args:
+        force_recreate: If True, recreate configuration files even if they exist
+        
+    Returns:
+        bool: True if setup was successful, False otherwise
+    """
+    logger.info("Setting up database integration...")
+    
+    deployment_dir = Path("deployment")
+    database_dir = deployment_dir / "database"
+    
+    # Ensure database directory exists
+    database_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Create or update database connection configuration
+    config_dir = deployment_dir / "config"
+    config_dir.mkdir(parents=True, exist_ok=True)
+    
+    db_config_path = config_dir / "database.yaml"
+    if not db_config_path.exists() or force_recreate:
+        logger.info("Creating database configuration file...")
+        db_config = {
+            "database": {
+                "host": "db.negative-space-imaging.svc.cluster.local",
+                "port": 5432,
+                "dbname": "negative_space_imaging",
+                "user": "postgres",
+                "password": "postgres",  # This should be replaced with a secure password
+                "timeout": 30,
+                "min_connections": 1,
+                "max_connections": 10,
+                "schema_file": "deployment/database/01-init-schema.sql",
+                "data_file": "deployment/database/02-init-data.sql",
+                "migrations_dir": "deployment/database/migrations",
+                "backup_dir": "deployment/database/backups",
+                "ssl_mode": "prefer"
+            }
+        }
+        
+        try:
+            import yaml
+            with open(db_config_path, 'w') as f:
+                yaml.dump(db_config, f, default_flow_style=False)
+            logger.info(f"Created database configuration: {db_config_path}")
+        except Exception as e:
+            logger.error(f"Failed to create database configuration: {str(e)}")
+            return False
+    
+    # Copy database deployment scripts
+    logger.info("Setting up database deployment scripts...")
+    
+    # Source files
+    source_files = [
+        ("database_connection.py", deployment_dir / "database_connection.py"),
+        ("database_deploy.py", deployment_dir / "database_deploy.py"),
+        ("hpc_database_integration.py", deployment_dir / "hpc_database_integration.py"),
+        ("test_database_deployment.py", deployment_dir / "test_database_deployment.py")
+    ]
+    
+    # Copy files if they exist
+    for source_name, dest_path in source_files:
+        source_path = deployment_dir / source_name
+        if source_path.exists() and not dest_path.exists():
+            try:
+                import shutil
+                shutil.copy2(source_path, dest_path)
+                logger.info(f"Copied {source_name} to {dest_path}")
+            except Exception as e:
+                logger.error(f"Failed to copy {source_name}: {str(e)}")
+                # Continue even if one file fails
+    
+    # Create database integration script for Kubernetes
+    k8s_db_script_path = deployment_dir / "kubernetes" / "deploy-database.yaml"
+    os.makedirs(os.path.dirname(k8s_db_script_path), exist_ok=True)
+    
+    k8s_db_script_content = """apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-init-scripts
+data:
+  01-init-schema.sql: |
+    -- Include schema creation script here
+    CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+    
+    -- Create tables if not exists
+    CREATE TABLE IF NOT EXISTS system_nodes (
+        id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+        node_id VARCHAR(100) NOT NULL UNIQUE,
+        name VARCHAR(100),
+        status VARCHAR(20) NOT NULL DEFAULT 'active',
+        node_type VARCHAR(50) DEFAULT 'compute',
+        details JSONB,
+        last_seen TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+        created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+        updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+    );
+    
+    -- More tables would be included here
+    
+  02-init-data.sql: |
+    -- Include initial data script here
+    INSERT INTO system_events (event_type, severity, message, details)
+    VALUES ('system.initialization', 'info', 'Kubernetes database initialized',
+           '{"initialized_at": "' || NOW()::TEXT || '", "environment": "kubernetes"}')
+    ON CONFLICT DO NOTHING;
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres
+spec:
+  serviceName: "postgres"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:13
+        ports:
+        - containerPort: 5432
+          name: postgres
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-credentials
+              key: password
+        - name: POSTGRES_USER
+          value: postgres
+        - name: POSTGRES_DB
+          value: postgres
+        volumeMounts:
+        - name: postgres-data
+          mountPath: /var/lib/postgresql/data
+        - name: init-scripts
+          mountPath: /docker-entrypoint-initdb.d
+      volumes:
+      - name: init-scripts
+        configMap:
+          name: db-init-scripts
+  volumeClaimTemplates:
+  - metadata:
+      name: postgres-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 10Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+spec:
+  selector:
+    app: postgres
+  ports:
+  - port: 5432
+    targetPort: 5432
+  clusterIP: None
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: db-credentials
+type: Opaque
+data:
+  password: cG9zdGdyZXM=  # "postgres" in base64, should be replaced in production
+"""
+    
+    try:
+        with open(k8s_db_script_path, 'w') as f:
+            f.write(k8s_db_script_content)
+        logger.info(f"Created Kubernetes database deployment script: {k8s_db_script_path}")
+    except Exception as e:
+        logger.error(f"Failed to create Kubernetes database script: {str(e)}")
+        return False
+    
+    logger.info("Database integration setup completed")
+    return True
+
+
+def setup_template_files(force_recreate=False):
+    """
+    Set up template files for deployment
+    
+    Args:
+        force_recreate: If True, recreate all template files even if they exist
+        
+    Returns:
+        bool: True if setup was successful, False otherwise
+    """
+    logger.info("Setting up deployment template files...")
+    
+    deployment_dir = Path("deployment")
+    template_dir = deployment_dir / "templates"
+    
+    # Ensure template directory exists
+    template_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Define template files and their content
+    templates = {
+        "cluster.yaml.tmpl": """apiVersion: v1
+kind: Cluster
+metadata:
+  name: {{ name }}
+  labels:
+    environment: {{ environment }}
+    version: {{ version }}
+spec:
+  environment: {{ environment }}
+  version: {{ version }}
+  description: "Negative Space Imaging Project Multi-Node Cluster"
+  managedBy: "Negative Space Imaging Project Deployment Manager"
+""",
+
+        "nodes.yaml.tmpl": """apiVersion: v1
+kind: NodeSet
+metadata:
+  name: {{ cluster_name }}-nodes
+  labels:
+    cluster: {{ cluster_name }}
+spec:
+  clusterName: {{ cluster_name }}
+  nodes:
+    # Master nodes
+    {{#nodes.master}}
+    - name: {{ name }}
+      role: master
+      resources:
+        cpu: {{ resources.cpu }}
+        memory: {{ resources.memory }}
+      labels:
+        nodeType: master
+        zone: {{ zone }}
+      taints:
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+    {{/nodes.master}}
+    
+    # Compute nodes
+    {{#nodes.compute}}
+    - name: {{ name }}
+      role: worker
+      resources:
+        cpu: {{ resources.cpu }}
+        memory: {{ resources.memory }}
+        gpu: {{ resources.gpu }}
+      labels:
+        nodeType: compute
+        zone: {{ zone }}
+        accelerator: {{ accelerator_type }}
+    {{/nodes.compute}}
+    
+    # Storage nodes
+    {{#nodes.storage}}
+    - name: {{ name }}
+      role: worker
+      resources:
+        cpu: {{ resources.cpu }}
+        memory: {{ resources.memory }}
+        storage: {{ resources.storage }}
+      labels:
+        nodeType: storage
+        zone: {{ zone }}
+        storageType: {{ storage_type }}
+    {{/nodes.storage}}
+    
+    # Edge nodes
+    {{#nodes.edge}}
+    - name: {{ name }}
+      role: worker
+      resources:
+        cpu: {{ resources.cpu }}
+        memory: {{ resources.memory }}
+      labels:
+        nodeType: edge
+        zone: {{ zone }}
+        ingress: "true"
+    {{/nodes.edge}}
+  
+  # Auto-scaling configuration
+  autoScaling:
+    enabled: {{ auto_scaling.enabled }}
+    minNodes: {{ auto_scaling.min_nodes }}
+    maxNodes: {{ auto_scaling.max_nodes }}
+    scaleUpThreshold: {{ auto_scaling.scale_up_threshold }}
+    scaleDownThreshold: {{ auto_scaling.scale_down_threshold }}
+""",
+
+        "storage.yaml.tmpl": """apiVersion: v1
+kind: StorageClass
+metadata:
+  name: {{ cluster_name }}-storage
+  labels:
+    cluster: {{ cluster_name }}
+spec:
+  # Main storage configuration
+  storageClasses:
+    # Fast local storage for processing
+    - name: {{ cluster_name }}-fast-local
+      provisioner: kubernetes.io/local-storage
+      reclaimPolicy: Retain
+      volumeBindingMode: WaitForFirstConsumer
+      parameters:
+        type: SSD
+    
+    # Persistent network storage
+    - name: {{ cluster_name }}-persistent
+      provisioner: kubernetes.io/aws-ebs
+      reclaimPolicy: Retain
+      parameters:
+        type: gp2
+        fsType: ext4
+    
+    # High-performance storage for GPU processing
+    - name: {{ cluster_name }}-high-performance
+      provisioner: kubernetes.io/local-storage
+      reclaimPolicy: Retain
+      volumeBindingMode: WaitForFirstConsumer
+      parameters:
+        type: NVMe
+  
+  # Persistent Volume Claims
+  persistentVolumeClaims:
+    # Data storage
+    - name: {{ cluster_name }}-data
+      storageClassName: {{ cluster_name }}-persistent
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: {{ storage.data.capacity }}
+    
+    # Model storage
+    - name: {{ cluster_name }}-models
+      storageClassName: {{ cluster_name }}-persistent
+      accessModes:
+        - ReadOnlyMany
+      resources:
+        requests:
+          storage: {{ storage.models.capacity }}
+    
+    # Cache storage
+    - name: {{ cluster_name }}-cache
+      storageClassName: {{ cluster_name }}-fast-local
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: {{ storage.cache.capacity }}
+    
+    # Processing storage
+    - name: {{ cluster_name }}-processing
+      storageClassName: {{ cluster_name }}-high-performance
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: {{ storage.processing.capacity }}
+""",
+
+        "networking.yaml.tmpl": """apiVersion: v1
+kind: NetworkPolicy
+metadata:
+  name: {{ cluster_name }}-network
+  labels:
+    cluster: {{ cluster_name }}
+spec:
+  # Network configuration
+  networkPolicies:
+    # Internal network for communication between services
+    - name: {{ cluster_name }}-internal
+      podSelector:
+        matchLabels:
+          cluster: {{ cluster_name }}
+      ingress:
+        - from:
+            - podSelector:
+                matchLabels:
+                  cluster: {{ cluster_name }}
+    
+    # API network for external API access
+    - name: {{ cluster_name }}-api
+      podSelector:
+        matchLabels:
+          role: api
+      ingress:
+        - from:
+            - ipBlock:
+                cidr: {{ networking.api_access_cidr }}
+          ports:
+            - protocol: TCP
+              port: 443
+    
+    # Data transfer network for high-bandwidth internal transfers
+    - name: {{ cluster_name }}-data-transfer
+      podSelector:
+        matchLabels:
+          role: data-processor
+      ingress:
+        - from:
+            - podSelector:
+                matchLabels:
+                  role: data-storage
+          ports:
+            - protocol: TCP
+              port: 8000
+  
+  # Service mesh configuration
+  serviceMesh:
+    enabled: {{ networking.service_mesh.enabled }}
+    implementation: {{ networking.service_mesh.implementation }}
+    autoInject: {{ networking.service_mesh.auto_inject }}
+    mtls:
+      enabled: {{ networking.service_mesh.mtls.enabled }}
+      mode: {{ networking.service_mesh.mtls.mode }}
+  
+  # Load balancer configuration
+  loadBalancer:
+    enabled: {{ networking.load_balancer.enabled }}
+    type: {{ networking.load_balancer.type }}
+    implementation: {{ networking.load_balancer.implementation }}
+    config:
+      healthCheckPath: /health
+      healthCheckPort: 8080
+      healthCheckInterval: 30s
+      sessionAffinity: {{ networking.load_balancer.session_affinity }}
+""",
+
+        "services.yaml.tmpl": """apiVersion: v1
+kind: ServiceDeployment
+metadata:
+  name: {{ cluster_name }}-services
+  labels:
+    cluster: {{ cluster_name }}
+spec:
+  services:
+    # API Gateway Service
+    - name: {{ cluster_name }}-api-gateway
+      image: {{ services.api_gateway.image }}
+      replicas: {{ services.api_gateway.replicas }}
+      resources:
+        limits:
+          cpu: {{ services.api_gateway.resources.limits.cpu }}
+          memory: {{ services.api_gateway.resources.limits.memory }}
+        requests:
+          cpu: {{ services.api_gateway.resources.requests.cpu }}
+          memory: {{ services.api_gateway.resources.requests.memory }}
+      ports:
+        - name: http
+          containerPort: 8080
+          servicePort: 80
+        - name: https
+          containerPort: 8443
+          servicePort: 443
+      environment:
+        {{#services.api_gateway.environment_variables}}
+        - name: {{ name }}
+          value: {{ value }}
+        {{/services.api_gateway.environment_variables}}
+      healthCheck:
+        path: /health
+        port: 8080
+        initialDelaySeconds: 30
+        periodSeconds: 10
+      nodeSelector:
+        nodeType: edge
+    
+    # Image Processing Service
+    - name: {{ cluster_name }}-image-processing
+      image: {{ services.image_processing.image }}
+      replicas: {{ services.image_processing.replicas }}
+      resources:
+        limits:
+          cpu: {{ services.image_processing.resources.limits.cpu }}
+          memory: {{ services.image_processing.resources.limits.memory }}
+          nvidia.com/gpu: {{ services.image_processing.resources.limits.gpu }}
+        requests:
+          cpu: {{ services.image_processing.resources.requests.cpu }}
+          memory: {{ services.image_processing.resources.requests.memory }}
+          nvidia.com/gpu: {{ services.image_processing.resources.requests.gpu }}
+      ports:
+        - name: grpc
+          containerPort: 9000
+          servicePort: 9000
+      environment:
+        {{#services.image_processing.environment_variables}}
+        - name: {{ name }}
+          value: {{ value }}
+        {{/services.image_processing.environment_variables}}
+      volumeMounts:
+        - name: models
+          mountPath: /app/models
+          readOnly: true
+        - name: processing
+          mountPath: /app/processing
+        - name: data
+          mountPath: /app/data
+      healthCheck:
+        path: /health
+        port: 8080
+        initialDelaySeconds: 60
+        periodSeconds: 15
+      nodeSelector:
+        nodeType: compute
+    
+    # Additional services omitted for brevity
+""",
+
+        "monitoring.yaml.tmpl": """apiVersion: v1
+kind: MonitoringConfig
+metadata:
+  name: {{ cluster_name }}-monitoring
+  labels:
+    cluster: {{ cluster_name }}
+spec:
+  # Prometheus configuration
+  prometheus:
+    enabled: {{ monitoring.prometheus.enabled }}
+    retention: {{ monitoring.prometheus.retention }}
+    scrapeInterval: {{ monitoring.prometheus.scrape_interval }}
+    resources:
+      limits:
+        cpu: {{ monitoring.prometheus.resources.limits.cpu }}
+        memory: {{ monitoring.prometheus.resources.limits.memory }}
+      requests:
+        cpu: {{ monitoring.prometheus.resources.requests.cpu }}
+        memory: {{ monitoring.prometheus.resources.requests.memory }}
+    storage:
+      size: {{ monitoring.prometheus.storage.size }}
+      storageClassName: {{ cluster_name }}-persistent
+    alerting:
+      enabled: {{ monitoring.prometheus.alerting.enabled }}
+      rules:
+        - name: HighCpuUsage
+          expr: avg(rate(container_cpu_usage_seconds_total{namespace="{{ cluster_name }}"}[5m])) by (pod) > 0.8
+          for: 5m
+          severity: warning
+          summary: High CPU usage detected
+  
+  # Grafana configuration
+  grafana:
+    enabled: {{ monitoring.grafana.enabled }}
+    adminPassword: "{{ monitoring.grafana.admin_password }}"
+    resources:
+      limits:
+        cpu: {{ monitoring.grafana.resources.limits.cpu }}
+        memory: {{ monitoring.grafana.resources.limits.memory }}
+      requests:
+        cpu: {{ monitoring.grafana.resources.requests.cpu }}
+        memory: {{ monitoring.grafana.resources.requests.memory }}
+    dashboards:
+      - name: ClusterOverview
+        configMap: {{ cluster_name }}-grafana-dashboards
+        fileName: cluster-overview.json
+"""
+    }
+    
+    # Create each template file
+    success = True
+    for template_name, template_content in templates.items():
+        template_path = template_dir / template_name
+        
+        if template_path.exists() and not force_recreate:
+            logger.info(f"Template file {template_name} already exists, skipping")
+            continue
+        
+        try:
+            with open(template_path, 'w') as f:
+                f.write(template_content)
+            logger.info(f"Created template file: {template_name}")
+        except Exception as e:
+            logger.error(f"Failed to create template file {template_name}: {str(e)}")
+            success = False
+    
+    if success:
+        logger.info("All template files created successfully")
+    else:
+        logger.warning("Some template files could not be created")
+    
+    return success
+""",
+
+        "storage.yaml.tmpl": """apiVersion: v1
+kind: StorageClass
+metadata:
+  name: {{ cluster_name }}-storage
+  labels:
+    cluster: {{ cluster_name }}
+spec:
+  # Main storage configuration
+  storageClasses:
+    # Fast local storage for processing
+    - name: {{ cluster_name }}-fast-local
+      provisioner: kubernetes.io/local-storage
+      reclaimPolicy: Retain
+      volumeBindingMode: WaitForFirstConsumer
+      parameters:
+        type: SSD
+    
+    # Persistent network storage
+    - name: {{ cluster_name }}-persistent
+      provisioner: kubernetes.io/aws-ebs
+      reclaimPolicy: Retain
+      parameters:
+        type: gp2
+        fsType: ext4
+    
+    # High-performance storage for GPU processing
+    - name: {{ cluster_name }}-high-performance
+      provisioner: kubernetes.io/local-storage
+      reclaimPolicy: Retain
+      volumeBindingMode: WaitForFirstConsumer
+      parameters:
+        type: NVMe
+  
+  # Persistent Volume Claims
+  persistentVolumeClaims:
+    # Data storage
+    - name: {{ cluster_name }}-data
+      storageClassName: {{ cluster_name }}-persistent
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: {{ storage.data.capacity }}
+    
+    # Model storage
+    - name: {{ cluster_name }}-models
+      storageClassName: {{ cluster_name }}-persistent
+      accessModes:
+        - ReadOnlyMany
+      resources:
+        requests:
+          storage: {{ storage.models.capacity }}
+    
+    # Cache storage
+    - name: {{ cluster_name }}-cache
+      storageClassName: {{ cluster_name }}-fast-local
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: {{ storage.cache.capacity }}
+    
+    # Processing storage
+    - name: {{ cluster_name }}-processing
+      storageClassName: {{ cluster_name }}-high-performance
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: {{ storage.processing.capacity }}
+""",
+
+        "networking.yaml.tmpl": """apiVersion: v1
+kind: NetworkPolicy
+metadata:
+  name: {{ cluster_name }}-network
+  labels:
+    cluster: {{ cluster_name }}
+spec:
+  # Network configuration
+  networkPolicies:
+    # Internal network for communication between services
+    - name: {{ cluster_name }}-internal
+      podSelector:
+        matchLabels:
+          cluster: {{ cluster_name }}
+      ingress:
+        - from:
+            - podSelector:
+                matchLabels:
+                  cluster: {{ cluster_name }}
+    
+    # API network for external API access
+    - name: {{ cluster_name }}-api
+      podSelector:
+        matchLabels:
+          role: api
+      ingress:
+        - from:
+            - ipBlock:
+                cidr: {{ networking.api_access_cidr }}
+          ports:
+            - protocol: TCP
+              port: 443
+    
+    # Data transfer network for high-bandwidth internal transfers
+    - name: {{ cluster_name }}-data-transfer
+      podSelector:
+        matchLabels:
+          role: data-processor
+      ingress:
+        - from:
+            - podSelector:
+                matchLabels:
+                  role: data-storage
+          ports:
+            - protocol: TCP
+              port: 8000
+  
+  # Service mesh configuration
+  serviceMesh:
+    enabled: {{ networking.service_mesh.enabled }}
+    implementation: {{ networking.service_mesh.implementation }}
+    autoInject: {{ networking.service_mesh.auto_inject }}
+    mtls:
+      enabled: {{ networking.service_mesh.mtls.enabled }}
+      mode: {{ networking.service_mesh.mtls.mode }}
+  
+  # Load balancer configuration
+  loadBalancer:
+    enabled: {{ networking.load_balancer.enabled }}
+    type: {{ networking.load_balancer.type }}
+    implementation: {{ networking.load_balancer.implementation }}
+    config:
+      healthCheckPath: /health
+      healthCheckPort: 8080
+      healthCheckInterval: 30s
+      sessionAffinity: {{ networking.load_balancer.session_affinity }}
+""",
+
+        "services.yaml.tmpl": """apiVersion: v1
+kind: ServiceDeployment
+metadata:
+  name: {{ cluster_name }}-services
+  labels:
+    cluster: {{ cluster_name }}
+spec:
+  services:
+    # API Gateway Service
+    - name: {{ cluster_name }}-api-gateway
+      image: {{ services.api_gateway.image }}
+      replicas: {{ services.api_gateway.replicas }}
+      resources:
+        limits:
+          cpu: {{ services.api_gateway.resources.limits.cpu }}
+          memory: {{ services.api_gateway.resources.limits.memory }}
+        requests:
+          cpu: {{ services.api_gateway.resources.requests.cpu }}
+          memory: {{ services.api_gateway.resources.requests.memory }}
+      ports:
+        - name: http
+          containerPort: 8080
+          servicePort: 80
+        - name: https
+          containerPort: 8443
+          servicePort: 443
+      environment:
+        {{#services.api_gateway.environment_variables}}
+        - name: {{ name }}
+          value: {{ value }}
+        {{/services.api_gateway.environment_variables}}
+      healthCheck:
+        path: /health
+        port: 8080
+        initialDelaySeconds: 30
+        periodSeconds: 10
+      nodeSelector:
+        nodeType: edge
+    
+    # Image Processing Service
+    - name: {{ cluster_name }}-image-processing
+      image: {{ services.image_processing.image }}
+      replicas: {{ services.image_processing.replicas }}
+      resources:
+        limits:
+          cpu: {{ services.image_processing.resources.limits.cpu }}
+          memory: {{ services.image_processing.resources.limits.memory }}
+          nvidia.com/gpu: {{ services.image_processing.resources.limits.gpu }}
+        requests:
+          cpu: {{ services.image_processing.resources.requests.cpu }}
+          memory: {{ services.image_processing.resources.requests.memory }}
+          nvidia.com/gpu: {{ services.image_processing.resources.requests.gpu }}
+      ports:
+        - name: grpc
+          containerPort: 9000
+          servicePort: 9000
+      environment:
+        {{#services.image_processing.environment_variables}}
+        - name: {{ name }}
+          value: {{ value }}
+        {{/services.image_processing.environment_variables}}
+      volumeMounts:
+        - name: models
+          mountPath: /app/models
+          readOnly: true
+        - name: processing
+          mountPath: /app/processing
+        - name: data
+          mountPath: /app/data
+      healthCheck:
+        path: /health
+        port: 8080
+        initialDelaySeconds: 60
+        periodSeconds: 15
+      nodeSelector:
+        nodeType: compute
+    
+    # Additional services omitted for brevity
+""",
+
+        "monitoring.yaml.tmpl": """apiVersion: v1
+kind: MonitoringConfig
+metadata:
+  name: {{ cluster_name }}-monitoring
+  labels:
+    cluster: {{ cluster_name }}
+spec:
+  # Prometheus configuration
+  prometheus:
+    enabled: {{ monitoring.prometheus.enabled }}
+    retention: {{ monitoring.prometheus.retention }}
+    scrapeInterval: {{ monitoring.prometheus.scrape_interval }}
+    resources:
+      limits:
+        cpu: {{ monitoring.prometheus.resources.limits.cpu }}
+        memory: {{ monitoring.prometheus.resources.limits.memory }}
+      requests:
+        cpu: {{ monitoring.prometheus.resources.requests.cpu }}
+        memory: {{ monitoring.prometheus.resources.requests.memory }}
+    storage:
+      size: {{ monitoring.prometheus.storage.size }}
+      storageClassName: {{ cluster_name }}-persistent
+    alerting:
+      enabled: {{ monitoring.prometheus.alerting.enabled }}
+      rules:
+        - name: HighCpuUsage
+          expr: avg(rate(container_cpu_usage_seconds_total{namespace="{{ cluster_name }}"}[5m])) by (pod) > 0.8
+          for: 5m
+          severity: warning
+          summary: High CPU usage detected
+  
+  # Grafana configuration
+  grafana:
+    enabled: {{ monitoring.grafana.enabled }}
+    adminPassword: "{{ monitoring.grafana.admin_password }}"
+    resources:
+      limits:
+        cpu: {{ monitoring.grafana.resources.limits.cpu }}
+        memory: {{ monitoring.grafana.resources.limits.memory }}
+      requests:
+        cpu: {{ monitoring.grafana.resources.requests.cpu }}
+        memory: {{ monitoring.grafana.resources.requests.memory }}
+    dashboards:
+      - name: ClusterOverview
+        configMap: {{ cluster_name }}-grafana-dashboards
+        fileName: cluster-overview.json
+"""
+    }
+    
+    # Create each template file
+    success = True
+    for template_name, template_content in templates.items():
+        template_path = template_dir / template_name
+        
+        if template_path.exists() and not force_recreate:
+            logger.info(f"Template file {template_name} already exists, skipping")
+            continue
+        
+        try:
+            with open(template_path, 'w') as f:
+                f.write(template_content)
+            logger.info(f"Created template file: {template_name}")
+        except Exception as e:
+            logger.error(f"Failed to create template file {template_name}: {str(e)}")
+            success = False
+    
+    if success:
+        logger.info("All template files created successfully")
+    else:
+        logger.warning("Some template files could not be created")
+    
+    return successdef main():
+    """Main entry point"""
+    parser = argparse.ArgumentParser(description="Multi-Node Deployment Setup")
+    parser.add_argument("--check-only", action="store_true", help="Only check prerequisites, don't set up anything")
+    parser.add_argument("--skip-database", action="store_true", help="Skip database setup")
+    parser.add_argument("--skip-db-integration", action="store_true", help="Skip database integration setup")
+    parser.add_argument("--force", action="store_true", help="Force recreation of files even if they exist")
+    args = parser.parse_args()
+    
+    try:
+        # Check prerequisites
+        if not check_prerequisites():
+            logger.error("Prerequisites check failed")
+            return 1
+        
+        if args.check_only:
+            logger.info("Prerequisites check completed successfully")
+            return 0
+        
+        # Set up template files
+        if not setup_template_files(force_recreate=args.force):
+            logger.error("Template files setup failed")
+            return 1
+        
+        # Setup database files
+        if not args.skip_database:
+            if not setup_database_files():
+                logger.error("Database files setup failed")
+                return 1
+        else:
+            logger.info("Skipping database files setup")
+        
+        # Setup database integration
+        if not args.skip_database and not args.skip_db_integration:
+            if not setup_database_integration(force_recreate=args.force):
+                logger.error("Database integration setup failed")
+                return 1
+        else:
+            logger.info("Skipping database integration setup")
+        
+        # Create example configuration
+        if not create_example_config():
+            logger.error("Example configuration creation failed")
+            return 1
+        
+        logger.info("Deployment setup completed successfully")
+        logger.info("You can now create your own configuration file based on the example")
+        logger.info("and run the deployment with: python deployment/multi_node_deploy.py")
+        
+        # Print database information if database was set up
+        if not args.skip_database:
+            logger.info("\nDatabase Integration:")
+            logger.info("- Database configuration is at: deployment/config/database.yaml")
+            logger.info("- Use the database deployment tools:")
+            logger.info("  * python deployment/database_deploy.py --deploy    : Deploy the database")
+            logger.info("  * python deployment/database_deploy.py --verify    : Verify the database")
+            logger.info("  * python deployment/database_deploy.py --migrate   : Run migrations")
+            logger.info("  * python deployment/database_deploy.py --backup    : Backup the database")
+            logger.info("  * python deployment/test_database_deployment.py    : Test database setup")
+        
+        return 0
+    except Exception as e:
+        logger.exception(f"Unhandled exception: {str(e)}")
+        return 1
+
+if __name__ == "__main__":
+    sys.exit(main())

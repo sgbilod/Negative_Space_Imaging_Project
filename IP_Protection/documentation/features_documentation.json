@@ -1,0 +1,59 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\features.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "check_module",
+      "docstring": "Checks if a module is available.\n\n:param feature: The module to check for.\n:returns: ``True`` if available, ``False`` otherwise.\n:raises ValueError: If the module is not defined in this version of Pillow."
+    },
+    {
+      "name": "version_module",
+      "docstring": ":param feature: The module to check for.\n:returns:\n    The loaded version number as a string, or ``None`` if unknown or not available.\n:raises ValueError: If the module is not defined in this version of Pillow."
+    },
+    {
+      "name": "get_supported_modules",
+      "docstring": ":returns: A list of all supported modules."
+    },
+    {
+      "name": "check_codec",
+      "docstring": "Checks if a codec is available.\n\n:param feature: The codec to check for.\n:returns: ``True`` if available, ``False`` otherwise.\n:raises ValueError: If the codec is not defined in this version of Pillow."
+    },
+    {
+      "name": "version_codec",
+      "docstring": ":param feature: The codec to check for.\n:returns:\n    The version number as a string, or ``None`` if not available.\n    Checked at compile time for ``jpg``, run-time otherwise.\n:raises ValueError: If the codec is not defined in this version of Pillow."
+    },
+    {
+      "name": "get_supported_codecs",
+      "docstring": ":returns: A list of all supported codecs."
+    },
+    {
+      "name": "check_feature",
+      "docstring": "Checks if a feature is available.\n\n:param feature: The feature to check for.\n:returns: ``True`` if available, ``False`` if unavailable, ``None`` if unknown.\n:raises ValueError: If the feature is not defined in this version of Pillow."
+    },
+    {
+      "name": "version_feature",
+      "docstring": ":param feature: The feature to check for.\n:returns: The version number as a string, or ``None`` if not available.\n:raises ValueError: If the feature is not defined in this version of Pillow."
+    },
+    {
+      "name": "get_supported_features",
+      "docstring": ":returns: A list of all supported features."
+    },
+    {
+      "name": "check",
+      "docstring": ":param feature: A module, codec, or feature name.\n:returns:\n    ``True`` if the module, codec, or feature is available,\n    ``False`` or ``None`` otherwise."
+    },
+    {
+      "name": "version",
+      "docstring": ":param feature:\n    The module, codec, or feature to check for.\n:returns:\n    The version number as a string, or ``None`` if unknown or not available."
+    },
+    {
+      "name": "get_supported",
+      "docstring": ":returns: A list of all supported modules, features, and codecs."
+    },
+    {
+      "name": "pilinfo",
+      "docstring": "Prints information about this installation of Pillow.\nThis function can be called with ``python3 -m PIL``.\nIt can also be called with ``python3 -m PIL.report`` or ``python3 -m PIL --report``\nto have \"supported_formats\" set to ``False``, omitting the list of all supported\nimage file formats.\n\n:param out:\n    The output stream to print to. Defaults to ``sys.stdout`` if ``None``.\n:param supported_formats:\n    If ``True``, a list of all supported image file formats will be printed."
+    }
+  ],
+  "innovations": []
+}

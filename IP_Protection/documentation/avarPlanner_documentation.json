@@ -1,0 +1,87 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\varLib\\avarPlanner.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "normalizeLinear",
+      "docstring": "Linearly normalize value in [rangeMin, rangeMax] to [0, 1], with extrapolation."
+    },
+    {
+      "name": "interpolateLinear",
+      "docstring": "Linear interpolation between a and b, with t typically in [0, 1]."
+    },
+    {
+      "name": "normalizeLog",
+      "docstring": "Logarithmically normalize value in [rangeMin, rangeMax] to [0, 1], with extrapolation."
+    },
+    {
+      "name": "interpolateLog",
+      "docstring": "Logarithmic interpolation between a and b, with t typically in [0, 1]."
+    },
+    {
+      "name": "normalizeDegrees",
+      "docstring": "Angularly normalize value in [rangeMin, rangeMax] to [0, 1], with extrapolation."
+    },
+    {
+      "name": "measureWeight",
+      "docstring": "Measure the perceptual average weight of the given glyphs."
+    },
+    {
+      "name": "measureWidth",
+      "docstring": "Measure the average width of the given glyphs."
+    },
+    {
+      "name": "measureSlant",
+      "docstring": "Measure the perceptual average slant angle of the given glyphs."
+    },
+    {
+      "name": "sanitizeWidth",
+      "docstring": "Sanitize the width axis limits."
+    },
+    {
+      "name": "sanitizeWeight",
+      "docstring": "Sanitize the weight axis limits."
+    },
+    {
+      "name": "sanitizeSlant",
+      "docstring": "Sanitize the slant axis limits."
+    },
+    {
+      "name": "planAxis",
+      "docstring": "Plan an axis.\n\nmeasureFunc: callable that takes a glyphset and an optional\nlist of glyphnames, and returns the glyphset-wide measurement\nto be used for the axis.\n\nnormalizeFunc: callable that takes a measurement and a minimum\nand maximum, and normalizes the measurement into the range 0..1,\npossibly extrapolating too.\n\ninterpolateFunc: callable that takes a normalized t value, and a\nminimum and maximum, and returns the interpolated value,\npossibly extrapolating too.\n\nglyphSetFunc: callable that takes a variations \"location\" dictionary,\nand returns a glyphset.\n\naxisTag: the axis tag string.\n\naxisLimits: a triple of minimum, default, and maximum values for\nthe axis. Or an `fvar` Axis object.\n\nvalues: a list of output values to map for this axis.\n\nsamples: the number of samples to use when sampling. Default 8.\n\nglyphs: a list of glyph names to use when sampling. Defaults to None,\nwhich will process all glyphs.\n\ndesignLimits: an optional triple of minimum, default, and maximum values\nrepresenging the \"design\" limits for the axis. If not provided, the\naxisLimits will be used.\n\npins: an optional dictionary of before/after mapping entries to pin in\nthe output.\n\nsanitizeFunc: an optional callable to call to sanitize the axis limits."
+    },
+    {
+      "name": "planWeightAxis",
+      "docstring": "Plan a weight (`wght`) axis.\n\nweights: A list of weight values to plan for. If None, the default\nvalues are used.\n\nThis function simply calls planAxis with values=weights, and the appropriate\narguments. See documenation for planAxis for more information."
+    },
+    {
+      "name": "planWidthAxis",
+      "docstring": "Plan a width (`wdth`) axis.\n\nwidths: A list of width values (percentages) to plan for. If None, the default\nvalues are used.\n\nThis function simply calls planAxis with values=widths, and the appropriate\narguments. See documenation for planAxis for more information."
+    },
+    {
+      "name": "planSlantAxis",
+      "docstring": "Plan a slant (`slnt`) axis.\n\nslants: A list slant angles to plan for. If None, the default\nvalues are used.\n\nThis function simply calls planAxis with values=slants, and the appropriate\narguments. See documenation for planAxis for more information."
+    },
+    {
+      "name": "planOpticalSizeAxis",
+      "docstring": "Plan a optical-size (`opsz`) axis.\n\nsizes: A list of optical size values to plan for. If None, the default\nvalues are used.\n\nThis function simply calls planAxis with values=sizes, and the appropriate\narguments. See documenation for planAxis for more information."
+    },
+    {
+      "name": "makeDesignspaceSnippet",
+      "docstring": "Make a designspace snippet for a single axis."
+    },
+    {
+      "name": "addEmptyAvar",
+      "docstring": "Add an empty `avar` table to the font."
+    },
+    {
+      "name": "processAxis",
+      "docstring": "Process a single axis."
+    },
+    {
+      "name": "main",
+      "docstring": "Plan the standard axis mappings for a variable font"
+    }
+  ],
+  "innovations": []
+}

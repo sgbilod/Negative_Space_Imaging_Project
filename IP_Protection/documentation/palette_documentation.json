@@ -1,0 +1,35 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\palette.py",
+  "classes": [
+    {
+      "name": "Palette",
+      "docstring": "A palette of available colors.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "match",
+          "docstring": "Find a color from a palette that most closely matches a given color.\n\nArgs:\n    color (Tuple[int, int, int]): RGB components in range 0 > 255.\n\nReturns:\n    int: Index of closes matching color."
+        }
+      ]
+    },
+    {
+      "name": "ColorBox",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "match",
+      "docstring": "Find a color from a palette that most closely matches a given color.\n\nArgs:\n    color (Tuple[int, int, int]): RGB components in range 0 > 255.\n\nReturns:\n    int: Index of closes matching color."
+    },
+    {
+      "name": "get_color_distance",
+      "docstring": "Get the distance to a color."
+    }
+  ],
+  "innovations": []
+}

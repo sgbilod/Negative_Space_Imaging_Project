@@ -1,0 +1,46 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\MpoImagePlugin.py",
+  "classes": [
+    {
+      "name": "MpoImageFile",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "load_seek",
+          "docstring": null
+        },
+        {
+          "name": "seek",
+          "docstring": null
+        },
+        {
+          "name": "tell",
+          "docstring": null
+        },
+        {
+          "name": "adopt",
+          "docstring": "Transform the instance of JpegImageFile into\nan instance of MpoImageFile.\nAfter the call, the JpegImageFile is extended\nto be an MpoImageFile.\n\nThis is essentially useful when opening a JPEG\nfile that reveals itself as an MPO, to avoid\ndouble call to _open."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "load_seek",
+      "docstring": null
+    },
+    {
+      "name": "seek",
+      "docstring": null
+    },
+    {
+      "name": "tell",
+      "docstring": null
+    },
+    {
+      "name": "adopt",
+      "docstring": "Transform the instance of JpegImageFile into\nan instance of MpoImageFile.\nAfter the call, the JpegImageFile is extended\nto be an MpoImageFile.\n\nThis is essentially useful when opening a JPEG\nfile that reveals itself as an MPO, to avoid\ndouble call to _open."
+    }
+  ],
+  "innovations": []
+}

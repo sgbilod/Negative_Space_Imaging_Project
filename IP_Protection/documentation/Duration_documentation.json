@@ -1,0 +1,42 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\testing\\jpl_units\\Duration.py",
+  "classes": [
+    {
+      "name": "Duration",
+      "docstring": "Class Duration in development.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a new Duration object.\n\n= ERROR CONDITIONS\n- If the input frame is not in the allowed list, an error is thrown.\n\n= INPUT VARIABLES\n- frame     The frame of the duration.  Must be 'ET' or 'UTC'\n- seconds  The number of seconds in the Duration."
+        },
+        {
+          "name": "frame",
+          "docstring": "Return the frame the duration is in."
+        },
+        {
+          "name": "seconds",
+          "docstring": "Return the number of seconds in the Duration."
+        },
+        {
+          "name": "checkSameFrame",
+          "docstring": "Check to see if frames are the same.\n\n= ERROR CONDITIONS\n- If the frame of the rhs Duration is not the same as our frame,\n  an error is thrown.\n\n= INPUT VARIABLES\n- rhs     The Duration to check for the same frame\n- func    The name of the function doing the check."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "frame",
+      "docstring": "Return the frame the duration is in."
+    },
+    {
+      "name": "seconds",
+      "docstring": "Return the number of seconds in the Duration."
+    },
+    {
+      "name": "checkSameFrame",
+      "docstring": "Check to see if frames are the same.\n\n= ERROR CONDITIONS\n- If the frame of the rhs Duration is not the same as our frame,\n  an error is thrown.\n\n= INPUT VARIABLES\n- rhs     The Duration to check for the same frame\n- func    The name of the function doing the check."
+    }
+  ],
+  "innovations": []
+}

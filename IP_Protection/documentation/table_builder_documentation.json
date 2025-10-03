@@ -1,0 +1,49 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\colorLib\\table_builder.py",
+  "classes": [
+    {
+      "name": "BuildCallback",
+      "docstring": "Keyed on (BEFORE_BUILD, class[, Format if available]).\nReceives (dest, source).\nShould return (dest, source), which can be new objects.",
+      "methods": []
+    },
+    {
+      "name": "TableBuilder",
+      "docstring": "Helps to populate things derived from BaseTable from maps, tuples, etc.\n\nA table of lifecycle callbacks may be provided to add logic beyond what is possible\nbased on otData info for the target class. See BuildCallbacks.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "build",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TableUnbuilder",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "unbuild",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "build",
+      "docstring": null
+    },
+    {
+      "name": "unbuild",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

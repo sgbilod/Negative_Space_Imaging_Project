@@ -1,0 +1,239 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_colorbar.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "test_colorbar_extension_shape",
+      "docstring": "Test rectangular colorbar extensions."
+    },
+    {
+      "name": "test_colorbar_extension_length",
+      "docstring": "Test variable length colorbar extensions."
+    },
+    {
+      "name": "test_colorbar_extension_inverted_axis",
+      "docstring": "Test extension color with an inverted axis"
+    },
+    {
+      "name": "test_colorbar_positioning",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_single_ax_panchor_false",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_single_ax_panchor_east",
+      "docstring": null
+    },
+    {
+      "name": "test_contour_colorbar",
+      "docstring": null
+    },
+    {
+      "name": "test_gridspec_make_colorbar",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_single_scatter",
+      "docstring": null
+    },
+    {
+      "name": "test_remove_from_figure",
+      "docstring": "Test `remove` with the specified ``use_gridspec`` setting."
+    },
+    {
+      "name": "test_remove_from_figure_cl",
+      "docstring": "Test `remove` with constrained_layout."
+    },
+    {
+      "name": "test_colorbarbase",
+      "docstring": null
+    },
+    {
+      "name": "test_parentless_mappable",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_closed_patch",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_ticks",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_minorticks_on_off",
+      "docstring": null
+    },
+    {
+      "name": "test_cbar_minorticks_for_rc_xyminortickvisible",
+      "docstring": "issue gh-16468.\n\nMaking sure that minor ticks on the colorbar are turned on\n(internally) using the cbar.minorticks_on() method when\nrcParams['xtick.minor.visible'] = True (for horizontal cbar)\nrcParams['ytick.minor.visible'] = True (for vertical cbar).\nUsing cbar.minorticks_on() ensures that the minor ticks\ndon't overflow into the extend regions of the colorbar."
+    },
+    {
+      "name": "test_colorbar_autoticks",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_autotickslog",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_get_ticks",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_lognorm_extension",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_powernorm_extension",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_axes_kw",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_log_minortick_labels",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_renorm",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_format",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_scale_reset",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_get_ticks_2",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_inverted_ticks",
+      "docstring": null
+    },
+    {
+      "name": "test_mappable_no_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_mappable_2d_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_label",
+      "docstring": "Test the label parameter. It should just be mapped to the xlabel/ylabel of\nthe axes, depending on the orientation."
+    },
+    {
+      "name": "test_keeping_xlabel",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_int",
+      "docstring": null
+    },
+    {
+      "name": "test_anchored_cbar_position_using_specgrid",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_change_lim_scale",
+      "docstring": null
+    },
+    {
+      "name": "test_axes_handles_same_functions",
+      "docstring": null
+    },
+    {
+      "name": "test_inset_colorbar_layout",
+      "docstring": null
+    },
+    {
+      "name": "test_twoslope_colorbar",
+      "docstring": null
+    },
+    {
+      "name": "test_remove_cb_whose_mappable_has_no_figure",
+      "docstring": null
+    },
+    {
+      "name": "test_aspects",
+      "docstring": null
+    },
+    {
+      "name": "test_proportional_colorbars",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_extend_drawedges",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_contourf_extend_patches",
+      "docstring": null
+    },
+    {
+      "name": "test_negative_boundarynorm",
+      "docstring": null
+    },
+    {
+      "name": "test_centerednorm",
+      "docstring": null
+    },
+    {
+      "name": "test_nonorm",
+      "docstring": null
+    },
+    {
+      "name": "test_boundaries",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_no_warning_rcparams_grid_true",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_set_formatter_locator",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_extend_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_offset_text_loc",
+      "docstring": null
+    },
+    {
+      "name": "test_title_text_loc",
+      "docstring": null
+    },
+    {
+      "name": "test_passing_location",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_axes_parmeters",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_wrong_figure",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_format_string_and_old",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

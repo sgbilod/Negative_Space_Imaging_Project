@@ -1,0 +1,27 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\temporal_demo.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "parse_arguments",
+      "docstring": "Parse command line arguments"
+    },
+    {
+      "name": "ensure_directory",
+      "docstring": "Ensure a directory exists"
+    },
+    {
+      "name": "generate_deforming_scene",
+      "docstring": "Generate a scene that changes over time\n\nArgs:\n    frame: Current frame number\n    num_frames: Total number of frames\n    deformation_factor: Controls how much the scene deforms\n    \nReturns:\n    SimplePointCloud: Point cloud for the current frame"
+    },
+    {
+      "name": "run_temporal_demo",
+      "docstring": "Run the temporal analysis demo"
+    },
+    {
+      "name": "main",
+      "docstring": "Main function"
+    }
+  ],
+  "innovations": []
+}

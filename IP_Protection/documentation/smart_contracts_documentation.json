@@ -1,0 +1,184 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\blockchain\\smart_contracts.py",
+  "classes": [
+    {
+      "name": "SmartContractManager",
+      "docstring": "Manages deployment and interaction with smart contracts",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a smart contract manager\n\nArgs:\n    provider_url: URL of the Ethereum provider (e.g., Infura)\n    private_key: Private key for transaction signing\n    contract_address: Address of an existing contract (if any)"
+        },
+        {
+          "name": "compile_contract",
+          "docstring": "Compile the contract source code\n\nReturns:\n    bool: True if compilation was successful"
+        },
+        {
+          "name": "deploy_contract",
+          "docstring": "Deploy the contract to the blockchain\n\nArgs:\n    account_address: Address to deploy from (if not using private key)\n    \nReturns:\n    str: Deployed contract address, or None if deployment failed"
+        },
+        {
+          "name": "load_contract",
+          "docstring": "Load an existing contract\n\nArgs:\n    address: Contract address\n    abi: Contract ABI (if not already set)\n    \nReturns:\n    bool: True if successful"
+        },
+        {
+          "name": "is_initialized",
+          "docstring": "Check if the contract manager is initialized\n\nReturns:\n    bool: True if initialized"
+        }
+      ]
+    },
+    {
+      "name": "SignatureRegistry",
+      "docstring": "Interface to the signature registry contract",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a signature registry\n\nArgs:\n    contract_manager: Smart contract manager"
+        },
+        {
+          "name": "register_signature",
+          "docstring": "Register a signature on the blockchain\n\nArgs:\n    signature_data: Signature data (float array or bytes)\n    metadata: Additional metadata\n    account_address: Address to register from (if not using private key)\n    \nReturns:\n    str: Signature ID, or None if registration failed"
+        },
+        {
+          "name": "verify_signature",
+          "docstring": "Verify a signature against the blockchain\n\nArgs:\n    signature_id: ID of the signature to verify\n    signature_data: Signature data to verify\n    account_address: Address to verify from (if not using private key)\n    \nReturns:\n    bool: True if signature is valid"
+        },
+        {
+          "name": "get_signature",
+          "docstring": "Get signature details\n\nArgs:\n    signature_id: ID of the signature to get\n    \nReturns:\n    Dict: Signature details, or None if not found"
+        },
+        {
+          "name": "revoke_signature",
+          "docstring": "Revoke a signature\n\nArgs:\n    signature_id: ID of the signature to revoke\n    account_address: Address to revoke from (if not using private key)\n    \nReturns:\n    bool: True if successful"
+        },
+        {
+          "name": "get_signature_count",
+          "docstring": "Get the number of registered signatures\n\nReturns:\n    int: Number of signatures"
+        },
+        {
+          "name": "get_signature_ids",
+          "docstring": "Get a list of signature IDs\n\nArgs:\n    start_index: Start index\n    count: Number of signatures to return\n    \nReturns:\n    List[str]: List of signature IDs"
+        }
+      ]
+    },
+    {
+      "name": "VerificationService",
+      "docstring": "Service for verifying signatures against the blockchain",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a verification service\n\nArgs:\n    signature_registry: Signature registry"
+        },
+        {
+          "name": "verify_signature",
+          "docstring": "Verify a signature and return detailed results\n\nArgs:\n    signature_id: ID of the signature to verify\n    signature_data: Signature data to verify\n    \nReturns:\n    Dict: Verification results"
+        },
+        {
+          "name": "verify_multiple_signatures",
+          "docstring": "Verify multiple signatures and return aggregated results\n\nArgs:\n    verifications: List of {signatureId, signatureData} dictionaries\n    \nReturns:\n    Dict: Aggregated verification results"
+        },
+        {
+          "name": "clear_cache",
+          "docstring": "Clear the verification cache"
+        }
+      ]
+    },
+    {
+      "name": "DummyWeb3",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummyEth",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummyContract",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "functions",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_web3_fallback",
+      "docstring": "Get fallback Web3 implementation for testing"
+    },
+    {
+      "name": "compile_contract",
+      "docstring": "Compile the contract source code\n\nReturns:\n    bool: True if compilation was successful"
+    },
+    {
+      "name": "deploy_contract",
+      "docstring": "Deploy the contract to the blockchain\n\nArgs:\n    account_address: Address to deploy from (if not using private key)\n    \nReturns:\n    str: Deployed contract address, or None if deployment failed"
+    },
+    {
+      "name": "load_contract",
+      "docstring": "Load an existing contract\n\nArgs:\n    address: Contract address\n    abi: Contract ABI (if not already set)\n    \nReturns:\n    bool: True if successful"
+    },
+    {
+      "name": "is_initialized",
+      "docstring": "Check if the contract manager is initialized\n\nReturns:\n    bool: True if initialized"
+    },
+    {
+      "name": "register_signature",
+      "docstring": "Register a signature on the blockchain\n\nArgs:\n    signature_data: Signature data (float array or bytes)\n    metadata: Additional metadata\n    account_address: Address to register from (if not using private key)\n    \nReturns:\n    str: Signature ID, or None if registration failed"
+    },
+    {
+      "name": "verify_signature",
+      "docstring": "Verify a signature against the blockchain\n\nArgs:\n    signature_id: ID of the signature to verify\n    signature_data: Signature data to verify\n    account_address: Address to verify from (if not using private key)\n    \nReturns:\n    bool: True if signature is valid"
+    },
+    {
+      "name": "get_signature",
+      "docstring": "Get signature details\n\nArgs:\n    signature_id: ID of the signature to get\n    \nReturns:\n    Dict: Signature details, or None if not found"
+    },
+    {
+      "name": "revoke_signature",
+      "docstring": "Revoke a signature\n\nArgs:\n    signature_id: ID of the signature to revoke\n    account_address: Address to revoke from (if not using private key)\n    \nReturns:\n    bool: True if successful"
+    },
+    {
+      "name": "get_signature_count",
+      "docstring": "Get the number of registered signatures\n\nReturns:\n    int: Number of signatures"
+    },
+    {
+      "name": "get_signature_ids",
+      "docstring": "Get a list of signature IDs\n\nArgs:\n    start_index: Start index\n    count: Number of signatures to return\n    \nReturns:\n    List[str]: List of signature IDs"
+    },
+    {
+      "name": "verify_signature",
+      "docstring": "Verify a signature and return detailed results\n\nArgs:\n    signature_id: ID of the signature to verify\n    signature_data: Signature data to verify\n    \nReturns:\n    Dict: Verification results"
+    },
+    {
+      "name": "verify_multiple_signatures",
+      "docstring": "Verify multiple signatures and return aggregated results\n\nArgs:\n    verifications: List of {signatureId, signatureData} dictionaries\n    \nReturns:\n    Dict: Aggregated verification results"
+    },
+    {
+      "name": "clear_cache",
+      "docstring": "Clear the verification cache"
+    },
+    {
+      "name": "functions",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

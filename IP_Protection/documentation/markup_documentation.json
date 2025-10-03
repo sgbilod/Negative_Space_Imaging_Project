@@ -1,0 +1,38 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\markup.py",
+  "classes": [
+    {
+      "name": "Tag",
+      "docstring": "A tag in console markup.",
+      "methods": [
+        {
+          "name": "markup",
+          "docstring": "Get the string representation of this tag."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "escape",
+      "docstring": "Escapes text so that it won't be interpreted as markup.\n\nArgs:\n    markup (str): Content to be inserted in to markup.\n\nReturns:\n    str: Markup with square brackets escaped."
+    },
+    {
+      "name": "render",
+      "docstring": "Render console markup in to a Text instance.\n\nArgs:\n    markup (str): A string containing console markup.\n    style: (Union[str, Style]): The style to use.\n    emoji (bool, optional): Also render emoji code. Defaults to True.\n    emoji_variant (str, optional): Optional emoji variant, either \"text\" or \"emoji\". Defaults to None.\n\n\nRaises:\n    MarkupError: If there is a syntax error in the markup.\n\nReturns:\n    Text: A test instance."
+    },
+    {
+      "name": "markup",
+      "docstring": "Get the string representation of this tag."
+    },
+    {
+      "name": "escape_backslashes",
+      "docstring": "Called by re.sub replace matches."
+    },
+    {
+      "name": "pop_style",
+      "docstring": "Pop tag matching given style name."
+    }
+  ],
+  "innovations": []
+}

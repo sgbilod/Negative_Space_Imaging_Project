@@ -1,0 +1,57 @@
+# Quantum-Resistant Security Configuration
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: quantum-keys
+  namespace: negative-space-system
+type: Opaque
+stringData:
+  crystals-kyber-public: ${KYBER_PUBLIC_KEY}
+  crystals-kyber-private: ${KYBER_PRIVATE_KEY}
+  dilithium-public: ${DILITHIUM_PUBLIC_KEY}
+  dilithium-private: ${DILITHIUM_PRIVATE_KEY}
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: quantum-resistant-issuer
+spec:
+  vault:
+    path: quantum-pki/sign/certificates
+    server: https://vault.negative-space.io
+    caBundle: ${CA_BUNDLE}
+    auth:
+      tokenSecretRef:
+        name: vault-token
+        key: token
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: quantum-encryption-policy
+  namespace: negative-space-system
+spec:
+  podSelector:
+    matchLabels:
+      app: negative-space
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          role: quantum-encryptor
+    ports:
+    - protocol: TCP
+      port: 443
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          role: quantum-encryptor
+    ports:
+    - protocol: TCP
+      port: 443

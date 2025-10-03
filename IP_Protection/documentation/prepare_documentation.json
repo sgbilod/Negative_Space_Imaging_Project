@@ -1,0 +1,85 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\operations\\prepare.py",
+  "classes": [
+    {
+      "name": "File",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "RequirementPreparer",
+      "docstring": "Prepares a Requirement",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "prepare_linked_requirement",
+          "docstring": "Prepare a requirement to be obtained from req.link."
+        },
+        {
+          "name": "prepare_linked_requirements_more",
+          "docstring": "Prepare linked requirements more, if needed."
+        },
+        {
+          "name": "save_linked_requirement",
+          "docstring": null
+        },
+        {
+          "name": "prepare_editable_requirement",
+          "docstring": "Prepare an editable requirement."
+        },
+        {
+          "name": "prepare_installed_requirement",
+          "docstring": "Prepare an already-installed requirement."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "unpack_vcs_link",
+      "docstring": null
+    },
+    {
+      "name": "get_http_url",
+      "docstring": null
+    },
+    {
+      "name": "get_file_url",
+      "docstring": "Get file and optionally check its hash."
+    },
+    {
+      "name": "unpack_url",
+      "docstring": "Unpack link into location, downloading if required.\n\n:param hashes: A Hashes object, one of whose embedded hashes must match,\n    or HashMismatch will be raised. If the Hashes is empty, no matches are\n    required, and unhashable types of requirements (like VCS ones, which\n    would ordinarily raise HashUnsupported) are allowed."
+    },
+    {
+      "name": "prepare_linked_requirement",
+      "docstring": "Prepare a requirement to be obtained from req.link."
+    },
+    {
+      "name": "prepare_linked_requirements_more",
+      "docstring": "Prepare linked requirements more, if needed."
+    },
+    {
+      "name": "save_linked_requirement",
+      "docstring": null
+    },
+    {
+      "name": "prepare_editable_requirement",
+      "docstring": "Prepare an editable requirement."
+    },
+    {
+      "name": "prepare_installed_requirement",
+      "docstring": "Prepare an already-installed requirement."
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "                    req.needs_more_preparation = True\n                    return metadata_dist\n\n            # None of the optimizations worked, fully prepare the requirement\n            return self._prepare_linked_requirement(req, parallel_builds)\n\n    def prepare_linked_requirements_more("
+    }
+  ]
+}

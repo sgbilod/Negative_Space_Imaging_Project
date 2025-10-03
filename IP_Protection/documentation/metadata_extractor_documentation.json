@@ -1,0 +1,103 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\acquisition\\metadata_extractor.py",
+  "classes": [
+    {
+      "name": "SpatialMetadata",
+      "docstring": "Container for spatial reference metadata",
+      "methods": []
+    },
+    {
+      "name": "MetadataExtractor",
+      "docstring": "Extracts and manages metadata from images for spatial referencing.\n\nThis class handles extraction of EXIF data, sensor information, and\nother metadata needed for accurate spatial mapping and negative space\nanalysis.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the metadata extractor.\n\nArgs:\n    session_id: Optional session identifier. If None, a new UUID is generated."
+        },
+        {
+          "name": "extract_from_file",
+          "docstring": "Extract metadata from an image file.\n\nArgs:\n    image_path: Path to the image file\n    \nReturns:\n    SpatialMetadata object with extracted information"
+        },
+        {
+          "name": "extract_from_image",
+          "docstring": "Extract metadata from an image array.\n\nArgs:\n    image: Numpy array containing the image\n    additional_info: Optional dictionary with additional metadata\n    \nReturns:\n    SpatialMetadata object with extracted information"
+        },
+        {
+          "name": "add_spatial_reference",
+          "docstring": "Add a reference object to the metadata for a specific image.\n\nArgs:\n    image_hash: Hash of the image\n    reference_object: Dictionary with reference object information\n    \nReturns:\n    True if successful, False otherwise"
+        },
+        {
+          "name": "add_void_region",
+          "docstring": "Add a void region to the metadata for a specific image.\n\nArgs:\n    image_hash: Hash of the image\n    void_region: Dictionary with void region information\n    \nReturns:\n    True if successful, False otherwise"
+        },
+        {
+          "name": "add_camera_calibration",
+          "docstring": "Add camera calibration data to the metadata for a specific image.\n\nArgs:\n    image_hash: Hash of the image\n    camera_matrix: Camera matrix from calibration\n    distortion_coefficients: Distortion coefficients from calibration\n    \nReturns:\n    True if successful, False otherwise"
+        },
+        {
+          "name": "save_metadata",
+          "docstring": "Save metadata for a specific image to a JSON file.\n\nArgs:\n    image_hash: Hash of the image\n    file_path: Path to save the metadata\n    \nReturns:\n    True if successful, False otherwise"
+        },
+        {
+          "name": "load_metadata",
+          "docstring": "Load metadata from a JSON file.\n\nArgs:\n    file_path: Path to the metadata file\n    \nReturns:\n    SpatialMetadata object if successful, None otherwise"
+        },
+        {
+          "name": "export_collection",
+          "docstring": "Export all metadata in the collection to a directory.\n\nArgs:\n    directory: Directory to save metadata files\n    \nReturns:\n    True if successful, False otherwise"
+        },
+        {
+          "name": "get_metadata",
+          "docstring": "Get metadata for a specific image.\n\nArgs:\n    image_hash: Hash of the image\n    \nReturns:\n    SpatialMetadata object if found, None otherwise"
+        },
+        {
+          "name": "calculate_sensor_size",
+          "docstring": "Calculate or look up the sensor size based on camera model.\n\nArgs:\n    metadata: SpatialMetadata object\n    \nReturns:\n    Tuple of (width, height) in mm if found, None otherwise"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "extract_from_file",
+      "docstring": "Extract metadata from an image file.\n\nArgs:\n    image_path: Path to the image file\n    \nReturns:\n    SpatialMetadata object with extracted information"
+    },
+    {
+      "name": "extract_from_image",
+      "docstring": "Extract metadata from an image array.\n\nArgs:\n    image: Numpy array containing the image\n    additional_info: Optional dictionary with additional metadata\n    \nReturns:\n    SpatialMetadata object with extracted information"
+    },
+    {
+      "name": "add_spatial_reference",
+      "docstring": "Add a reference object to the metadata for a specific image.\n\nArgs:\n    image_hash: Hash of the image\n    reference_object: Dictionary with reference object information\n    \nReturns:\n    True if successful, False otherwise"
+    },
+    {
+      "name": "add_void_region",
+      "docstring": "Add a void region to the metadata for a specific image.\n\nArgs:\n    image_hash: Hash of the image\n    void_region: Dictionary with void region information\n    \nReturns:\n    True if successful, False otherwise"
+    },
+    {
+      "name": "add_camera_calibration",
+      "docstring": "Add camera calibration data to the metadata for a specific image.\n\nArgs:\n    image_hash: Hash of the image\n    camera_matrix: Camera matrix from calibration\n    distortion_coefficients: Distortion coefficients from calibration\n    \nReturns:\n    True if successful, False otherwise"
+    },
+    {
+      "name": "save_metadata",
+      "docstring": "Save metadata for a specific image to a JSON file.\n\nArgs:\n    image_hash: Hash of the image\n    file_path: Path to save the metadata\n    \nReturns:\n    True if successful, False otherwise"
+    },
+    {
+      "name": "load_metadata",
+      "docstring": "Load metadata from a JSON file.\n\nArgs:\n    file_path: Path to the metadata file\n    \nReturns:\n    SpatialMetadata object if successful, None otherwise"
+    },
+    {
+      "name": "export_collection",
+      "docstring": "Export all metadata in the collection to a directory.\n\nArgs:\n    directory: Directory to save metadata files\n    \nReturns:\n    True if successful, False otherwise"
+    },
+    {
+      "name": "get_metadata",
+      "docstring": "Get metadata for a specific image.\n\nArgs:\n    image_hash: Hash of the image\n    \nReturns:\n    SpatialMetadata object if found, None otherwise"
+    },
+    {
+      "name": "calculate_sensor_size",
+      "docstring": "Calculate or look up the sensor size based on camera model.\n\nArgs:\n    metadata: SpatialMetadata object\n    \nReturns:\n    Tuple of (width, height) in mm if found, None otherwise"
+    }
+  ],
+  "innovations": []
+}

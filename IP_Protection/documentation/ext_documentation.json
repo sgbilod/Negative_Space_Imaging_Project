@@ -1,0 +1,87 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\msgpack\\ext.py",
+  "classes": [
+    {
+      "name": "ExtType",
+      "docstring": "ExtType represents ext type in msgpack.",
+      "methods": []
+    },
+    {
+      "name": "Timestamp",
+      "docstring": "Timestamp represents the Timestamp extension type in msgpack.\n\nWhen built with Cython, msgpack uses C methods to pack and unpack `Timestamp`.\nWhen using pure-Python msgpack, :func:`to_bytes` and :func:`from_bytes` are used to pack and\nunpack `Timestamp`.\n\nThis class is immutable: Do not override seconds and nanoseconds.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a Timestamp object.\n\n:param int seconds:\n    Number of seconds since the UNIX epoch (00:00:00 UTC Jan 1 1970, minus leap seconds).\n    May be negative.\n\n:param int nanoseconds:\n    Number of nanoseconds to add to `seconds` to get fractional time.\n    Maximum is 999_999_999.  Default is 0.\n\nNote: Negative times (before the UNIX epoch) are represented as neg. seconds + pos. ns."
+        },
+        {
+          "name": "from_bytes",
+          "docstring": "Unpack bytes into a `Timestamp` object.\n\nUsed for pure-Python msgpack unpacking.\n\n:param b: Payload from msgpack ext message with code -1\n:type b: bytes\n\n:returns: Timestamp object unpacked from msgpack ext payload\n:rtype: Timestamp"
+        },
+        {
+          "name": "to_bytes",
+          "docstring": "Pack this Timestamp object into bytes.\n\nUsed for pure-Python msgpack packing.\n\n:returns data: Payload for EXT message with code -1 (timestamp type)\n:rtype: bytes"
+        },
+        {
+          "name": "from_unix",
+          "docstring": "Create a Timestamp from posix timestamp in seconds.\n\n:param unix_float: Posix timestamp in seconds.\n:type unix_float: int or float"
+        },
+        {
+          "name": "to_unix",
+          "docstring": "Get the timestamp as a floating-point value.\n\n:returns: posix timestamp\n:rtype: float"
+        },
+        {
+          "name": "from_unix_nano",
+          "docstring": "Create a Timestamp from posix timestamp in nanoseconds.\n\n:param int unix_ns: Posix timestamp in nanoseconds.\n:rtype: Timestamp"
+        },
+        {
+          "name": "to_unix_nano",
+          "docstring": "Get the timestamp as a unixtime in nanoseconds.\n\n:returns: posix timestamp in nanoseconds\n:rtype: int"
+        },
+        {
+          "name": "to_datetime",
+          "docstring": "Get the timestamp as a UTC datetime.\n\n:rtype: `datetime.datetime`"
+        },
+        {
+          "name": "from_datetime",
+          "docstring": "Create a Timestamp from datetime with tzinfo.\n\n:rtype: Timestamp"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "from_bytes",
+      "docstring": "Unpack bytes into a `Timestamp` object.\n\nUsed for pure-Python msgpack unpacking.\n\n:param b: Payload from msgpack ext message with code -1\n:type b: bytes\n\n:returns: Timestamp object unpacked from msgpack ext payload\n:rtype: Timestamp"
+    },
+    {
+      "name": "to_bytes",
+      "docstring": "Pack this Timestamp object into bytes.\n\nUsed for pure-Python msgpack packing.\n\n:returns data: Payload for EXT message with code -1 (timestamp type)\n:rtype: bytes"
+    },
+    {
+      "name": "from_unix",
+      "docstring": "Create a Timestamp from posix timestamp in seconds.\n\n:param unix_float: Posix timestamp in seconds.\n:type unix_float: int or float"
+    },
+    {
+      "name": "to_unix",
+      "docstring": "Get the timestamp as a floating-point value.\n\n:returns: posix timestamp\n:rtype: float"
+    },
+    {
+      "name": "from_unix_nano",
+      "docstring": "Create a Timestamp from posix timestamp in nanoseconds.\n\n:param int unix_ns: Posix timestamp in nanoseconds.\n:rtype: Timestamp"
+    },
+    {
+      "name": "to_unix_nano",
+      "docstring": "Get the timestamp as a unixtime in nanoseconds.\n\n:returns: posix timestamp in nanoseconds\n:rtype: int"
+    },
+    {
+      "name": "to_datetime",
+      "docstring": "Get the timestamp as a UTC datetime.\n\n:rtype: `datetime.datetime`"
+    },
+    {
+      "name": "from_datetime",
+      "docstring": "Create a Timestamp from datetime with tzinfo.\n\n:rtype: Timestamp"
+    }
+  ],
+  "innovations": []
+}

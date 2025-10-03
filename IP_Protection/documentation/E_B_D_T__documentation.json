@@ -1,0 +1,397 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\E_B_D_T_.py",
+  "classes": [
+    {
+      "name": "table_E_B_D_T_",
+      "docstring": "Embedded Bitmap Data table\n\nThe ``EBDT`` table contains monochrome or grayscale bitmap data for\nglyphs. It must be used in concert with the ``EBLC`` table.\n\nSee also https://learn.microsoft.com/en-us/typography/opentype/spec/ebdt",
+      "methods": [
+        {
+          "name": "getImageFormatClass",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "EbdtComponent",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BitmapGlyph",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "ensureDecompiled",
+          "docstring": null
+        },
+        {
+          "name": "getFormat",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "writeMetrics",
+          "docstring": null
+        },
+        {
+          "name": "readMetrics",
+          "docstring": null
+        },
+        {
+          "name": "writeData",
+          "docstring": null
+        },
+        {
+          "name": "readData",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BitAlignedBitmapMixin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "getRow",
+          "docstring": null
+        },
+        {
+          "name": "setRows",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ByteAlignedBitmapMixin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "getRow",
+          "docstring": null
+        },
+        {
+          "name": "setRows",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ebdt_bitmap_format_1",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ebdt_bitmap_format_2",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ebdt_bitmap_format_5",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ebdt_bitmap_format_6",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ebdt_bitmap_format_7",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ComponentBitmapGlyph",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ebdt_bitmap_format_8",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ebdt_bitmap_format_9",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "memodict",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "BitmapPlusMetricsMixin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "writeMetrics",
+          "docstring": null
+        },
+        {
+          "name": "readMetrics",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "getImageFormatClass",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "ensureDecompiled",
+      "docstring": null
+    },
+    {
+      "name": "getFormat",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "writeMetrics",
+      "docstring": null
+    },
+    {
+      "name": "readMetrics",
+      "docstring": null
+    },
+    {
+      "name": "writeData",
+      "docstring": null
+    },
+    {
+      "name": "readData",
+      "docstring": null
+    },
+    {
+      "name": "getRow",
+      "docstring": null
+    },
+    {
+      "name": "setRows",
+      "docstring": null
+    },
+    {
+      "name": "getRow",
+      "docstring": null
+    },
+    {
+      "name": "setRows",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "writeMetrics",
+      "docstring": null
+    },
+    {
+      "name": "readMetrics",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

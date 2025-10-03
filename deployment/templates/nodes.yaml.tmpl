@@ -1,0 +1,72 @@
+apiVersion: v1
+kind: NodeSet
+metadata:
+  name: {{ cluster_name }}-nodes
+  labels:
+    cluster: {{ cluster_name }}
+spec:
+  clusterName: {{ cluster_name }}
+  nodes:
+    # Master nodes
+    {{#nodes.master}}
+    - name: {{ name }}
+      role: master
+      resources:
+        cpu: {{ resources.cpu }}
+        memory: {{ resources.memory }}
+      labels:
+        nodeType: master
+        zone: {{ zone }}
+      taints:
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+    {{/nodes.master}}
+
+    # Compute nodes
+    {{#nodes.compute}}
+    - name: {{ name }}
+      role: worker
+      resources:
+        cpu: {{ resources.cpu }}
+        memory: {{ resources.memory }}
+        gpu: {{ resources.gpu }}
+      labels:
+        nodeType: compute
+        zone: {{ zone }}
+        accelerator: {{ accelerator_type }}
+    {{/nodes.compute}}
+
+    # Storage nodes
+    {{#nodes.storage}}
+    - name: {{ name }}
+      role: worker
+      resources:
+        cpu: {{ resources.cpu }}
+        memory: {{ resources.memory }}
+        storage: {{ resources.storage }}
+      labels:
+        nodeType: storage
+        zone: {{ zone }}
+        storageType: {{ storage_type }}
+    {{/nodes.storage}}
+
+    # Edge nodes
+    {{#nodes.edge}}
+    - name: {{ name }}
+      role: worker
+      resources:
+        cpu: {{ resources.cpu }}
+        memory: {{ resources.memory }}
+      labels:
+        nodeType: edge
+        zone: {{ zone }}
+        ingress: "true"
+    {{/nodes.edge}}
+
+  # Auto-scaling configuration
+  autoScaling:
+    enabled: {{ auto_scaling.enabled }}
+    minNodes: {{ auto_scaling.min_nodes }}
+    maxNodes: {{ auto_scaling.max_nodes }}
+    scaleUpThreshold: {{ auto_scaling.scale_up_threshold }}
+    scaleDownThreshold: {{ auto_scaling.scale_down_threshold }}

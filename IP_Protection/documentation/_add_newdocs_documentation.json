@@ -1,0 +1,17 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\_add_newdocs.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "refer_to_array_attribute",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "\n        Default is 'safe'.\n    optimize : {False, True, 'greedy', 'optimal'}, optional\n        Controls if intermediate optimization should occur. No optimization\n        will occur if False and True will default to the 'greedy' algorithm.\n        Also accepts an explicit contraction list from the ``np.einsum_path``\n        function. See ``np.einsum_path`` for more details. Defaults to False."
+    }
+  ]
+}

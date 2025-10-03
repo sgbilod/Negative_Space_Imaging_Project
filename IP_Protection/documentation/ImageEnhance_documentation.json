@@ -1,0 +1,68 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\ImageEnhance.py",
+  "classes": [
+    {
+      "name": "_Enhance",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "enhance",
+          "docstring": "Returns an enhanced image.\n\n:param factor: A floating point value controlling the enhancement.\n               Factor 1.0 always returns a copy of the original image,\n               lower factors mean less color (brightness, contrast,\n               etc), and higher values more. There are no restrictions\n               on this value.\n:rtype: :py:class:`~PIL.Image.Image`"
+        }
+      ]
+    },
+    {
+      "name": "Color",
+      "docstring": "Adjust image color balance.\n\nThis class can be used to adjust the colour balance of an image, in\na manner similar to the controls on a colour TV set. An enhancement\nfactor of 0.0 gives a black and white image. A factor of 1.0 gives\nthe original image.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Contrast",
+      "docstring": "Adjust image contrast.\n\nThis class can be used to control the contrast of an image, similar\nto the contrast control on a TV set. An enhancement factor of 0.0\ngives a solid gray image. A factor of 1.0 gives the original image.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Brightness",
+      "docstring": "Adjust image brightness.\n\nThis class can be used to control the brightness of an image.  An\nenhancement factor of 0.0 gives a black image. A factor of 1.0 gives the\noriginal image.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Sharpness",
+      "docstring": "Adjust image sharpness.\n\nThis class can be used to adjust the sharpness of an image. An\nenhancement factor of 0.0 gives a blurred image, a factor of 1.0 gives the\noriginal image, and a factor of 2.0 gives a sharpened image.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "enhance",
+      "docstring": "Returns an enhanced image.\n\n:param factor: A floating point value controlling the enhancement.\n               Factor 1.0 always returns a copy of the original image,\n               lower factors mean less color (brightness, contrast,\n               etc), and higher values more. There are no restrictions\n               on this value.\n:rtype: :py:class:`~PIL.Image.Image`"
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "\n    def enhance(self, factor: float) -> Image.Image:\n        \"\"\"\n        Returns an enhanced image.\n\n        :param factor: A floating point value controlling the enhancement.\n                       Factor 1.0 always returns a copy of the original image,"
+    }
+  ]
+}

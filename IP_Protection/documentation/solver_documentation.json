@@ -1,0 +1,11 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\varLib\\instancer\\solver.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "rebaseTent",
+      "docstring": "Given a tuple (lower,peak,upper) \"tent\" and new axis limits\n(axisMin,axisDefault,axisMax), solves how to represent the tent\nunder the new axis configuration.  All values are in normalized\n-1,0,+1 coordinate system. Tent values can be outside this range.\n\nReturn value is a list of tuples. Each tuple is of the form\n(scalar,tent), where scalar is a multipler to multiply any\ndelta-sets by, and tent is a new tent for that output delta-set.\nIf tent value is None, that is a special deltaset that should\nbe always-enabled (called \"gain\")."
+    }
+  ],
+  "innovations": []
+}

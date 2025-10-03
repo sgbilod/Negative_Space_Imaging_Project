@@ -1,0 +1,282 @@
+{% extends "base.html" %} {% block title %}Performance Dashboard{% endblock %} {% block content %}
+<div class="container-fluid">
+  <h1 class="mt-4 mb-4">Performance Dashboard</h1>
+
+  <div class="row">
+    <!-- Performance Metrics -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Current Metrics</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="metric-card">
+                <h6>CPU Usage</h6>
+                <h3>{{ metrics.cpu_usage|round(2) }}%</h3>
+                <div class="progress">
+                  <div
+                    class="progress-bar {% if metrics.cpu_usage > 80 %}bg-danger{% elif metrics.cpu_usage > 50 %}bg-warning{% else %}bg-success{% endif %}"
+                    role="progressbar"
+                    style="width: {{ metrics.cpu_usage }}%"
+                    aria-valuenow="{{ metrics.cpu_usage }}"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="metric-card">
+                <h6>Memory Usage</h6>
+                <h3>{{ metrics.memory_usage|round(2) }} MB</h3>
+                <div class="progress">
+                  <div
+                    class="progress-bar {% if metrics.memory_usage > 1024 %}bg-danger{% elif metrics.memory_usage > 512 %}bg-warning{% else %}bg-success{% endif %}"
+                    role="progressbar"
+                    style="width: {{ (metrics.memory_usage / 20.48)|min(100) }}%"
+                    aria-valuenow="{{ metrics.memory_usage }}"
+                    aria-valuemin="0"
+                    aria-valuemax="2048"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <div class="metric-card">
+                <h6>Thread Count</h6>
+                <h3>{{ metrics.thread_count }}</h3>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="metric-card">
+                <h6>Process Count</h6>
+                <h3>{{ metrics.process_count }}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <div class="metric-card">
+                <h6>Cache Hits/Misses</h6>
+                <h3>{{ metrics.cache_hits }}/{{ metrics.cache_misses }}</h3>
+                {% if metrics.cache_hits + metrics.cache_misses > 0 %}
+                <div class="progress">
+                  <div
+                    class="progress-bar bg-success"
+                    role="progressbar"
+                    style="width: {{ (metrics.cache_hits / (metrics.cache_hits + metrics.cache_misses) * 100) }}%"
+                    aria-valuenow="{{ metrics.cache_hits }}"
+                    aria-valuemin="0"
+                    aria-valuemax="{{ metrics.cache_hits + metrics.cache_misses }}"
+                  ></div>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="metric-card">
+                <h6>Execution Time</h6>
+                <h3>{{ metrics.execution_time|round(4) }} s</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="text-muted"
+            >Optimization Level: <strong>{{ optimization_level }}</strong></span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Memory Usage Chart -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Memory Usage History</h5>
+        </div>
+        <div class="card-body">
+          <canvas id="memoryChart" width="400" height="250"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Optimization Controls -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Optimization Controls</h5>
+        </div>
+        <div class="card-body">
+          <form action="{{ url_for('performance.optimize') }}" method="post">
+            <div class="mb-3">
+              <label for="target" class="form-label">Target</label>
+              <select class="form-select" id="target" name="target">
+                {% for target in optimization_targets %}
+                <option value="{{ target }}">{{ target }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="level" class="form-label">Optimization Level</label>
+              <select class="form-select" id="level" name="level">
+                <option value="">Current ({{ optimization_level }})</option>
+                {% for level in optimization_levels %}
+                <option
+                  value="{{ level }}"
+                  {%
+                  if
+                  level=""
+                  ="optimization_level"
+                  %}selected{%
+                  endif
+                  %}
+                >
+                  {{ level }}
+                </option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="component" class="form-label">Component (Optional)</label>
+              <select class="form-select" id="component" name="component">
+                <option value="">All Components</option>
+                {% for component_name, profile in components.items() %}
+                <option value="{{ component_name }}">{{ component_name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Optimize Now</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Optimization Recommendations</h5>
+        </div>
+        <div class="card-body">
+          {% if recommendations %}
+          <ul class="list-group">
+            {% for recommendation in recommendations %}
+            <li
+              class="list-group-item {% if recommendation.level == 'warning' %}list-group-item-warning{% elif recommendation.level == 'error' %}list-group-item-danger{% else %}list-group-item-info{% endif %}"
+            >
+              <strong>{{ recommendation.type|upper }}</strong>: {{ recommendation.message }}
+            </li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <div class="alert alert-success">
+            <i class="fas fa-check-circle"></i> No optimization recommendations at this time.
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Quick Links -->
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Performance Management</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3">
+              <a
+                href="{{ url_for('performance.monitor') }}"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                <i class="fas fa-chart-line"></i> Monitor
+              </a>
+            </div>
+            <div class="col-md-3">
+              <a
+                href="{{ url_for('performance.profiler') }}"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                <i class="fas fa-microscope"></i> Profiler
+              </a>
+            </div>
+            <div class="col-md-3">
+              <a
+                href="{{ url_for('performance.cache') }}"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                <i class="fas fa-database"></i> Cache
+              </a>
+            </div>
+            <div class="col-md-3">
+              <a
+                href="{{ url_for('performance.memory') }}"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                <i class="fas fa-memory"></i> Memory
+              </a>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-12">
+              <a
+                href="{{ url_for('performance.settings') }}"
+                class="btn btn-outline-secondary w-100"
+              >
+                <i class="fas fa-cog"></i> Settings
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Memory usage chart
+  var ctx = document.getElementById('memoryChart').getContext('2d');
+  var memoryChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: {{ memory_labels|tojson }},
+          datasets: [{
+              label: 'Memory Usage (MB)',
+              data: {{ memory_data|tojson }},
+              backgroundColor: 'rgba(54, 162, 235, 0.2)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1,
+              tension: 0.4
+          }]
+      },
+      options: {
+          responsive: true,
+          scales: {
+              y: {
+                  beginAtZero: true,
+                  title: {
+                      display: true,
+                      text: 'Memory (MB)'
+                  }
+              }
+          }
+      }
+  });
+
+  // Auto-refresh dashboard every 30 seconds
+  setTimeout(function() {
+      location.reload();
+  }, 30000);
+</script>
+{% endblock %}

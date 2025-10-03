@@ -1,0 +1,30 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\_ratio.py",
+  "classes": [
+    {
+      "name": "Edge",
+      "docstring": "Any object that defines an edge (such as Layout).",
+      "methods": []
+    },
+    {
+      "name": "E",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "ratio_resolve",
+      "docstring": "Divide total space to satisfy size, ratio, and minimum_size, constraints.\n\nThe returned list of integers should add up to total in most cases, unless it is\nimpossible to satisfy all the constraints. For instance, if there are two edges\nwith a minimum size of 20 each and `total` is 30 then the returned list will be\ngreater than total. In practice, this would mean that a Layout object would\nclip the rows that would overflow the screen height.\n\nArgs:\n    total (int): Total number of characters.\n    edges (List[Edge]): Edges within total space.\n\nReturns:\n    List[int]: Number of characters for each edge."
+    },
+    {
+      "name": "ratio_reduce",
+      "docstring": "Divide an integer total in to parts based on ratios.\n\nArgs:\n    total (int): The total to divide.\n    ratios (List[int]): A list of integer ratios.\n    maximums (List[int]): List of maximums values for each slot.\n    values (List[int]): List of values\n\nReturns:\n    List[int]: A list of integers guaranteed to sum to total."
+    },
+    {
+      "name": "ratio_distribute",
+      "docstring": "Distribute an integer total in to parts based on ratios.\n\nArgs:\n    total (int): The total to divide.\n    ratios (List[int]): A list of integer ratios.\n    minimums (List[int]): List of minimum values for each slot.\n\nReturns:\n    List[int]: A list of integers guaranteed to sum to total."
+    }
+  ],
+  "innovations": []
+}

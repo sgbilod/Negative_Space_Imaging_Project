@@ -1,0 +1,249 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\backend_agg.py",
+  "classes": [
+    {
+      "name": "RendererAgg",
+      "docstring": "The renderer handles all the drawing primitives using a graphics\ncontext instance that controls the colors/styles",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "draw_path",
+          "docstring": null
+        },
+        {
+          "name": "draw_mathtext",
+          "docstring": "Draw mathtext using :mod:`matplotlib.mathtext`."
+        },
+        {
+          "name": "draw_text",
+          "docstring": null
+        },
+        {
+          "name": "get_text_width_height_descent",
+          "docstring": null
+        },
+        {
+          "name": "draw_tex",
+          "docstring": null
+        },
+        {
+          "name": "get_canvas_width_height",
+          "docstring": null
+        },
+        {
+          "name": "points_to_pixels",
+          "docstring": null
+        },
+        {
+          "name": "buffer_rgba",
+          "docstring": null
+        },
+        {
+          "name": "tostring_argb",
+          "docstring": null
+        },
+        {
+          "name": "clear",
+          "docstring": null
+        },
+        {
+          "name": "option_image_nocomposite",
+          "docstring": null
+        },
+        {
+          "name": "option_scale_image",
+          "docstring": null
+        },
+        {
+          "name": "restore_region",
+          "docstring": "Restore the saved region. If bbox (instance of BboxBase, or\nits extents) is given, only the region specified by the bbox\nwill be restored. *xy* (a pair of floats) optionally\nspecifies the new position (the LLC of the original region,\nnot the LLC of the bbox) where the region will be restored.\n\n>>> region = renderer.copy_from_bbox()\n>>> x1, y1, x2, y2 = region.get_extents()\n>>> renderer.restore_region(region, bbox=(x1+dx, y1, x2, y2),\n...                         xy=(x1-dx, y1))"
+        },
+        {
+          "name": "start_filter",
+          "docstring": "Start filtering. It simply creates a new canvas (the old one is saved)."
+        },
+        {
+          "name": "stop_filter",
+          "docstring": "Save the current canvas as an image and apply post processing.\n\nThe *post_processing* function::\n\n   def post_processing(image, dpi):\n     # ny, nx, depth = image.shape\n     # image (numpy array) has RGBA channels and has a depth of 4.\n     ...\n     # create a new_image (numpy array of 4 channels, size can be\n     # different). The resulting image may have offsets from\n     # lower-left corner of the original image\n     return new_image, offset_x, offset_y\n\nThe saved renderer is restored and the returned image from\npost_processing is plotted (using draw_image) on it."
+        }
+      ]
+    },
+    {
+      "name": "FigureCanvasAgg",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "copy_from_bbox",
+          "docstring": null
+        },
+        {
+          "name": "restore_region",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        },
+        {
+          "name": "get_renderer",
+          "docstring": null
+        },
+        {
+          "name": "tostring_argb",
+          "docstring": "Get the image as ARGB `bytes`.\n\n`draw` must be called at least once before this function will work and\nto update the renderer for any subsequent changes to the Figure."
+        },
+        {
+          "name": "buffer_rgba",
+          "docstring": "Get the image as a `memoryview` to the renderer's buffer.\n\n`draw` must be called at least once before this function will work and\nto update the renderer for any subsequent changes to the Figure."
+        },
+        {
+          "name": "print_raw",
+          "docstring": null
+        },
+        {
+          "name": "print_png",
+          "docstring": "Write the figure to a PNG file.\n\nParameters\n----------\nfilename_or_obj : str or path-like or file-like\n    The file to write to.\n\nmetadata : dict, optional\n    Metadata in the PNG file as key-value pairs of bytes or latin-1\n    encodable strings.\n    According to the PNG specification, keys must be shorter than 79\n    chars.\n\n    The `PNG specification`_ defines some common keywords that may be\n    used as appropriate:\n\n    - Title: Short (one line) title or caption for image.\n    - Author: Name of image's creator.\n    - Description: Description of image (possibly long).\n    - Copyright: Copyright notice.\n    - Creation Time: Time of original image creation\n      (usually RFC 1123 format).\n    - Software: Software used to create the image.\n    - Disclaimer: Legal disclaimer.\n    - Warning: Warning of nature of content.\n    - Source: Device used to create the image.\n    - Comment: Miscellaneous comment;\n      conversion from other image format.\n\n    Other keywords may be invented for other purposes.\n\n    If 'Software' is not given, an autogenerated value for Matplotlib\n    will be used.  This can be removed by setting it to *None*.\n\n    For more details see the `PNG specification`_.\n\n    .. _PNG specification:                 https://www.w3.org/TR/2003/REC-PNG-20031110/#11keywords\n\npil_kwargs : dict, optional\n    Keyword arguments passed to `PIL.Image.Image.save`.\n\n    If the 'pnginfo' key is present, it completely overrides\n    *metadata*, including the default 'Software' key."
+        },
+        {
+          "name": "print_to_buffer",
+          "docstring": null
+        },
+        {
+          "name": "print_jpg",
+          "docstring": null
+        },
+        {
+          "name": "print_tif",
+          "docstring": null
+        },
+        {
+          "name": "print_webp",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BackendAgg",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_hinting_flag",
+      "docstring": null
+    },
+    {
+      "name": "draw_path",
+      "docstring": null
+    },
+    {
+      "name": "draw_mathtext",
+      "docstring": "Draw mathtext using :mod:`matplotlib.mathtext`."
+    },
+    {
+      "name": "draw_text",
+      "docstring": null
+    },
+    {
+      "name": "get_text_width_height_descent",
+      "docstring": null
+    },
+    {
+      "name": "draw_tex",
+      "docstring": null
+    },
+    {
+      "name": "get_canvas_width_height",
+      "docstring": null
+    },
+    {
+      "name": "points_to_pixels",
+      "docstring": null
+    },
+    {
+      "name": "buffer_rgba",
+      "docstring": null
+    },
+    {
+      "name": "tostring_argb",
+      "docstring": null
+    },
+    {
+      "name": "clear",
+      "docstring": null
+    },
+    {
+      "name": "option_image_nocomposite",
+      "docstring": null
+    },
+    {
+      "name": "option_scale_image",
+      "docstring": null
+    },
+    {
+      "name": "restore_region",
+      "docstring": "Restore the saved region. If bbox (instance of BboxBase, or\nits extents) is given, only the region specified by the bbox\nwill be restored. *xy* (a pair of floats) optionally\nspecifies the new position (the LLC of the original region,\nnot the LLC of the bbox) where the region will be restored.\n\n>>> region = renderer.copy_from_bbox()\n>>> x1, y1, x2, y2 = region.get_extents()\n>>> renderer.restore_region(region, bbox=(x1+dx, y1, x2, y2),\n...                         xy=(x1-dx, y1))"
+    },
+    {
+      "name": "start_filter",
+      "docstring": "Start filtering. It simply creates a new canvas (the old one is saved)."
+    },
+    {
+      "name": "stop_filter",
+      "docstring": "Save the current canvas as an image and apply post processing.\n\nThe *post_processing* function::\n\n   def post_processing(image, dpi):\n     # ny, nx, depth = image.shape\n     # image (numpy array) has RGBA channels and has a depth of 4.\n     ...\n     # create a new_image (numpy array of 4 channels, size can be\n     # different). The resulting image may have offsets from\n     # lower-left corner of the original image\n     return new_image, offset_x, offset_y\n\nThe saved renderer is restored and the returned image from\npost_processing is plotted (using draw_image) on it."
+    },
+    {
+      "name": "copy_from_bbox",
+      "docstring": null
+    },
+    {
+      "name": "restore_region",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "get_renderer",
+      "docstring": null
+    },
+    {
+      "name": "tostring_argb",
+      "docstring": "Get the image as ARGB `bytes`.\n\n`draw` must be called at least once before this function will work and\nto update the renderer for any subsequent changes to the Figure."
+    },
+    {
+      "name": "buffer_rgba",
+      "docstring": "Get the image as a `memoryview` to the renderer's buffer.\n\n`draw` must be called at least once before this function will work and\nto update the renderer for any subsequent changes to the Figure."
+    },
+    {
+      "name": "print_raw",
+      "docstring": null
+    },
+    {
+      "name": "print_png",
+      "docstring": "Write the figure to a PNG file.\n\nParameters\n----------\nfilename_or_obj : str or path-like or file-like\n    The file to write to.\n\nmetadata : dict, optional\n    Metadata in the PNG file as key-value pairs of bytes or latin-1\n    encodable strings.\n    According to the PNG specification, keys must be shorter than 79\n    chars.\n\n    The `PNG specification`_ defines some common keywords that may be\n    used as appropriate:\n\n    - Title: Short (one line) title or caption for image.\n    - Author: Name of image's creator.\n    - Description: Description of image (possibly long).\n    - Copyright: Copyright notice.\n    - Creation Time: Time of original image creation\n      (usually RFC 1123 format).\n    - Software: Software used to create the image.\n    - Disclaimer: Legal disclaimer.\n    - Warning: Warning of nature of content.\n    - Source: Device used to create the image.\n    - Comment: Miscellaneous comment;\n      conversion from other image format.\n\n    Other keywords may be invented for other purposes.\n\n    If 'Software' is not given, an autogenerated value for Matplotlib\n    will be used.  This can be removed by setting it to *None*.\n\n    For more details see the `PNG specification`_.\n\n    .. _PNG specification:                 https://www.w3.org/TR/2003/REC-PNG-20031110/#11keywords\n\npil_kwargs : dict, optional\n    Keyword arguments passed to `PIL.Image.Image.save`.\n\n    If the 'pnginfo' key is present, it completely overrides\n    *metadata*, including the default 'Software' key."
+    },
+    {
+      "name": "print_to_buffer",
+      "docstring": null
+    },
+    {
+      "name": "print_jpg",
+      "docstring": null
+    },
+    {
+      "name": "print_tif",
+      "docstring": null
+    },
+    {
+      "name": "print_webp",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

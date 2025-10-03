@@ -1,0 +1,82 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\axes\\_secondary_axes.py",
+  "classes": [
+    {
+      "name": "SecondaryAxis",
+      "docstring": "General class to hold a Secondary_X/Yaxis.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "See `.secondary_xaxis` and `.secondary_yaxis` for the doc string.\nWhile there is no need for this to be private, it should really be\ncalled by those higher level functions."
+        },
+        {
+          "name": "set_alignment",
+          "docstring": "Set if axes spine and labels are drawn at top or bottom (or left/right)\nof the Axes.\n\nParameters\n----------\nalign : {'top', 'bottom', 'left', 'right'}\n    Either 'top' or 'bottom' for orientation='x' or\n    'left' or 'right' for orientation='y' axis."
+        },
+        {
+          "name": "set_location",
+          "docstring": "Set the vertical or horizontal location of the axes in\nparent-normalized coordinates.\n\nParameters\n----------\nlocation : {'top', 'bottom', 'left', 'right'} or float\n    The position to put the secondary axis.  Strings can be 'top' or\n    'bottom' for orientation='x' and 'right' or 'left' for\n    orientation='y'. A float indicates the relative position on the\n    parent Axes to put the new Axes, 0.0 being the bottom (or left)\n    and 1.0 being the top (or right).\n\ntransform : `.Transform`, optional\n    Transform for the location to use. Defaults to\n    the parent's ``transAxes``, so locations are normally relative to\n    the parent axes.\n\n    .. versionadded:: 3.9"
+        },
+        {
+          "name": "apply_aspect",
+          "docstring": null
+        },
+        {
+          "name": "set_ticks",
+          "docstring": null
+        },
+        {
+          "name": "set_functions",
+          "docstring": "Set how the secondary axis converts limits from the parent Axes.\n\nParameters\n----------\nfunctions : 2-tuple of func, or `Transform` with an inverse.\n    Transform between the parent axis values and the secondary axis\n    values.\n\n    If supplied as a 2-tuple of functions, the first function is\n    the forward transform function and the second is the inverse\n    transform.\n\n    If a transform is supplied, then the transform must have an\n    inverse."
+        },
+        {
+          "name": "draw",
+          "docstring": "Draw the secondary Axes.\n\nConsults the parent Axes for its limits and converts them\nusing the converter specified by\n`~.axes._secondary_axes.set_functions` (or *functions*\nparameter when Axes initialized.)"
+        },
+        {
+          "name": "set_aspect",
+          "docstring": "Secondary Axes cannot set the aspect ratio, so calling this just\nsets a warning."
+        },
+        {
+          "name": "set_color",
+          "docstring": "Change the color of the secondary Axes and all decorators.\n\nParameters\n----------\ncolor : :mpltype:`color`"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "set_alignment",
+      "docstring": "Set if axes spine and labels are drawn at top or bottom (or left/right)\nof the Axes.\n\nParameters\n----------\nalign : {'top', 'bottom', 'left', 'right'}\n    Either 'top' or 'bottom' for orientation='x' or\n    'left' or 'right' for orientation='y' axis."
+    },
+    {
+      "name": "set_location",
+      "docstring": "Set the vertical or horizontal location of the axes in\nparent-normalized coordinates.\n\nParameters\n----------\nlocation : {'top', 'bottom', 'left', 'right'} or float\n    The position to put the secondary axis.  Strings can be 'top' or\n    'bottom' for orientation='x' and 'right' or 'left' for\n    orientation='y'. A float indicates the relative position on the\n    parent Axes to put the new Axes, 0.0 being the bottom (or left)\n    and 1.0 being the top (or right).\n\ntransform : `.Transform`, optional\n    Transform for the location to use. Defaults to\n    the parent's ``transAxes``, so locations are normally relative to\n    the parent axes.\n\n    .. versionadded:: 3.9"
+    },
+    {
+      "name": "apply_aspect",
+      "docstring": null
+    },
+    {
+      "name": "set_ticks",
+      "docstring": null
+    },
+    {
+      "name": "set_functions",
+      "docstring": "Set how the secondary axis converts limits from the parent Axes.\n\nParameters\n----------\nfunctions : 2-tuple of func, or `Transform` with an inverse.\n    Transform between the parent axis values and the secondary axis\n    values.\n\n    If supplied as a 2-tuple of functions, the first function is\n    the forward transform function and the second is the inverse\n    transform.\n\n    If a transform is supplied, then the transform must have an\n    inverse."
+    },
+    {
+      "name": "draw",
+      "docstring": "Draw the secondary Axes.\n\nConsults the parent Axes for its limits and converts them\nusing the converter specified by\n`~.axes._secondary_axes.set_functions` (or *functions*\nparameter when Axes initialized.)"
+    },
+    {
+      "name": "set_aspect",
+      "docstring": "Secondary Axes cannot set the aspect ratio, so calling this just\nsets a warning."
+    },
+    {
+      "name": "set_color",
+      "docstring": "Change the color of the secondary Axes and all decorators.\n\nParameters\n----------\ncolor : :mpltype:`color`"
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,67 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\f2py\\capi_maps.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "load_f2cmap_file",
+      "docstring": null
+    },
+    {
+      "name": "getctype",
+      "docstring": "Determines C type"
+    },
+    {
+      "name": "f2cexpr",
+      "docstring": "Rewrite Fortran expression as f2py supported C expression.\n\nDue to the lack of a proper expression parser in f2py, this\nfunction uses a heuristic approach that assumes that Fortran\narithmetic expressions are valid C arithmetic expressions when\nmapping Fortran function calls to the corresponding C function/CPP\nmacros calls."
+    },
+    {
+      "name": "getstrlength",
+      "docstring": null
+    },
+    {
+      "name": "getarrdims",
+      "docstring": null
+    },
+    {
+      "name": "getpydocsign",
+      "docstring": null
+    },
+    {
+      "name": "getarrdocsign",
+      "docstring": null
+    },
+    {
+      "name": "getinit",
+      "docstring": null
+    },
+    {
+      "name": "get_elsize",
+      "docstring": null
+    },
+    {
+      "name": "sign2map",
+      "docstring": "varname,ctype,atype\ninit,init.r,init.i,pytype\nvardebuginfo,vardebugshowvalue,varshowvalue\nvarrformat\n\nintent"
+    },
+    {
+      "name": "routsign2map",
+      "docstring": "name,NAME,begintitle,endtitle\nrname,ctype,rformat\nroutdebugshowvalue"
+    },
+    {
+      "name": "modsign2map",
+      "docstring": "modulename"
+    },
+    {
+      "name": "cb_sign2map",
+      "docstring": null
+    },
+    {
+      "name": "cb_routsign2map",
+      "docstring": "name,begintitle,endtitle,argname\nctype,rctype,maxnofargs,nofoptargs,returncptr"
+    },
+    {
+      "name": "common_sign2map",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

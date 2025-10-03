@@ -1,0 +1,265 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\woff2.py",
+  "classes": [
+    {
+      "name": "WOFF2Reader",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "reconstructTable",
+          "docstring": "Reconstruct table named 'tag' from transformed data."
+        }
+      ]
+    },
+    {
+      "name": "WOFF2Writer",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": "All tags must have been specified. Now write the table data and directory."
+        },
+        {
+          "name": "transformTable",
+          "docstring": "Return transformed table data, or None if some pre-conditions aren't\nmet -- in which case, the non-transformed table data will be used."
+        },
+        {
+          "name": "writeMasterChecksum",
+          "docstring": "Write checkSumAdjustment to the transformBuffer."
+        },
+        {
+          "name": "reordersTables",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "WOFF2DirectoryEntry",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "fromFile",
+          "docstring": null
+        },
+        {
+          "name": "fromString",
+          "docstring": null
+        },
+        {
+          "name": "toString",
+          "docstring": null
+        },
+        {
+          "name": "transformVersion",
+          "docstring": "Return bits 6-7 of table entry's flags, which indicate the preprocessing\ntransformation version number (between 0 and 3)."
+        },
+        {
+          "name": "transformVersion",
+          "docstring": null
+        },
+        {
+          "name": "transformed",
+          "docstring": "Return True if the table has any transformation, else return False."
+        },
+        {
+          "name": "transformed",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "WOFF2LocaTable",
+      "docstring": "Same as parent class. The only difference is that it attempts to preserve\nthe 'indexFormat' as encoded in the WOFF2 glyf table.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "WOFF2GlyfTable",
+      "docstring": "Decoder/Encoder for WOFF2 'glyf' table transform.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "reconstruct",
+          "docstring": "Decompile transformed 'glyf' data."
+        },
+        {
+          "name": "transform",
+          "docstring": "Return transformed 'glyf' data"
+        }
+      ]
+    },
+    {
+      "name": "WOFF2HmtxTable",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "reconstruct",
+          "docstring": null
+        },
+        {
+          "name": "transform",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "WOFF2FlavorData",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Data class that holds the WOFF2 header major/minor version, any\nmetadata or private data (as bytes strings), and the set of\ntable tags that have transformations applied (if reader is not None),\nor will have once the WOFF2 font is compiled.\n\nArgs:\n        reader: an SFNTReader (or subclass) object to read flavor data from.\n        data: another WOFFFlavorData object to initialise data from.\n        transformedTables: set of strings containing table tags to be transformed.\n\nRaises:\n        ImportError if the brotli module is not installed.\n\nNOTE: The 'reader' argument, on the one hand, and the 'data' and\n'transformedTables' arguments, on the other hand, are mutually exclusive."
+        }
+      ]
+    },
+    {
+      "name": "_HelpAction",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_NoGlyfTransformAction",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_HmtxTransformAction",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "getKnownTagIndex",
+      "docstring": "Return index of 'tag' in woff2KnownTags list. Return 63 if not found."
+    },
+    {
+      "name": "unpackBase128",
+      "docstring": "Read one to five bytes from UIntBase128-encoded input string, and return\na tuple containing the decoded integer plus any leftover data.\n\n>>> unpackBase128(b'\\x3f\\x00\\x00') == (63, b\"\\x00\\x00\")\nTrue\n>>> unpackBase128(b'\\x8f\\xff\\xff\\xff\\x7f')[0] == 4294967295\nTrue\n>>> unpackBase128(b'\\x80\\x80\\x3f')  # doctest: +IGNORE_EXCEPTION_DETAIL\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in ?\nTTLibError: UIntBase128 value must not start with leading zeros\n>>> unpackBase128(b'\\x8f\\xff\\xff\\xff\\xff\\x7f')[0]  # doctest: +IGNORE_EXCEPTION_DETAIL\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in ?\nTTLibError: UIntBase128-encoded sequence is longer than 5 bytes\n>>> unpackBase128(b'\\x90\\x80\\x80\\x80\\x00')[0]  # doctest: +IGNORE_EXCEPTION_DETAIL\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in ?\nTTLibError: UIntBase128 value exceeds 2**32-1"
+    },
+    {
+      "name": "base128Size",
+      "docstring": "Return the length in bytes of a UIntBase128-encoded sequence with value n.\n\n>>> base128Size(0)\n1\n>>> base128Size(24567)\n3\n>>> base128Size(2**32-1)\n5"
+    },
+    {
+      "name": "packBase128",
+      "docstring": "Encode unsigned integer in range 0 to 2**32-1 (inclusive) to a string of\nbytes using UIntBase128 variable-length encoding. Produce the shortest possible\nencoding.\n\n>>> packBase128(63) == b\"\\x3f\"\nTrue\n>>> packBase128(2**32-1) == b'\\x8f\\xff\\xff\\xff\\x7f'\nTrue"
+    },
+    {
+      "name": "unpack255UShort",
+      "docstring": "Read one to three bytes from 255UInt16-encoded input string, and return a\ntuple containing the decoded integer plus any leftover data.\n\n>>> unpack255UShort(bytechr(252))[0]\n252\n\nNote that some numbers (e.g. 506) can have multiple encodings:\n>>> unpack255UShort(struct.pack(\"BB\", 254, 0))[0]\n506\n>>> unpack255UShort(struct.pack(\"BB\", 255, 253))[0]\n506\n>>> unpack255UShort(struct.pack(\"BBB\", 253, 1, 250))[0]\n506"
+    },
+    {
+      "name": "pack255UShort",
+      "docstring": "Encode unsigned integer in range 0 to 65535 (inclusive) to a bytestring\nusing 255UInt16 variable-length encoding.\n\n>>> pack255UShort(252) == b'\\xfc'\nTrue\n>>> pack255UShort(506) == b'\\xfe\\x00'\nTrue\n>>> pack255UShort(762) == b'\\xfd\\x02\\xfa'\nTrue"
+    },
+    {
+      "name": "compress",
+      "docstring": "Compress OpenType font to WOFF2.\n\nArgs:\n        input_file: a file path, file or file-like object (open in binary mode)\n                containing an OpenType font (either CFF- or TrueType-flavored).\n        output_file: a file path, file or file-like object where to save the\n                compressed WOFF2 font.\n        transform_tables: Optional[Iterable[str]]: a set of table tags for which\n                to enable preprocessing transformations. By default, only 'glyf'\n                and 'loca' tables are transformed. An empty set means disable all\n                transformations."
+    },
+    {
+      "name": "decompress",
+      "docstring": "Decompress WOFF2 font to OpenType font.\n\nArgs:\n        input_file: a file path, file or file-like object (open in binary mode)\n                containing a compressed WOFF2 font.\n        output_file: a file path, file or file-like object where to save the\n                decompressed OpenType font."
+    },
+    {
+      "name": "main",
+      "docstring": "Compress and decompress WOFF2 fonts"
+    },
+    {
+      "name": "reconstructTable",
+      "docstring": "Reconstruct table named 'tag' from transformed data."
+    },
+    {
+      "name": "close",
+      "docstring": "All tags must have been specified. Now write the table data and directory."
+    },
+    {
+      "name": "transformTable",
+      "docstring": "Return transformed table data, or None if some pre-conditions aren't\nmet -- in which case, the non-transformed table data will be used."
+    },
+    {
+      "name": "writeMasterChecksum",
+      "docstring": "Write checkSumAdjustment to the transformBuffer."
+    },
+    {
+      "name": "reordersTables",
+      "docstring": null
+    },
+    {
+      "name": "fromFile",
+      "docstring": null
+    },
+    {
+      "name": "fromString",
+      "docstring": null
+    },
+    {
+      "name": "toString",
+      "docstring": null
+    },
+    {
+      "name": "transformVersion",
+      "docstring": "Return bits 6-7 of table entry's flags, which indicate the preprocessing\ntransformation version number (between 0 and 3)."
+    },
+    {
+      "name": "transformVersion",
+      "docstring": null
+    },
+    {
+      "name": "transformed",
+      "docstring": "Return True if the table has any transformation, else return False."
+    },
+    {
+      "name": "transformed",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "reconstruct",
+      "docstring": "Decompile transformed 'glyf' data."
+    },
+    {
+      "name": "transform",
+      "docstring": "Return transformed 'glyf' data"
+    },
+    {
+      "name": "reconstruct",
+      "docstring": null
+    },
+    {
+      "name": "transform",
+      "docstring": null
+    },
+    {
+      "name": "withSign",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

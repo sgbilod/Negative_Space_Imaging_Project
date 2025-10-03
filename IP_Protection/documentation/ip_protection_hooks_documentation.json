@@ -1,0 +1,58 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\IP_Protection\\automation\\ip_protection_hooks.py",
+  "classes": [
+    {
+      "name": "IPProtectionHooks",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "check_file_header",
+          "docstring": "Verify that source files have proper copyright headers."
+        },
+        {
+          "name": "scan_for_sensitive_info",
+          "docstring": "Scan for sensitive information in files."
+        },
+        {
+          "name": "verify_commit_message",
+          "docstring": "Verify commit message follows documentation standards."
+        },
+        {
+          "name": "run_pre_commit_hook",
+          "docstring": "Pre-commit hook implementation."
+        },
+        {
+          "name": "get_staged_files",
+          "docstring": "Get list of staged files."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "check_file_header",
+      "docstring": "Verify that source files have proper copyright headers."
+    },
+    {
+      "name": "scan_for_sensitive_info",
+      "docstring": "Scan for sensitive information in files."
+    },
+    {
+      "name": "verify_commit_message",
+      "docstring": "Verify commit message follows documentation standards."
+    },
+    {
+      "name": "run_pre_commit_hook",
+      "docstring": "Pre-commit hook implementation."
+    },
+    {
+      "name": "get_staged_files",
+      "docstring": "Get list of staged files."
+    }
+  ],
+  "innovations": []
+}

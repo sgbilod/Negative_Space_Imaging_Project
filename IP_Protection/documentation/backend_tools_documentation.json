@@ -1,0 +1,502 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backend_tools.py",
+  "classes": [
+    {
+      "name": "Cursors",
+      "docstring": "Backend-independent cursor types.",
+      "methods": []
+    },
+    {
+      "name": "ToolBase",
+      "docstring": "Base tool class.\n\nA base tool, only implements `trigger` method or no method at all.\nThe tool is instantiated by `matplotlib.backend_managers.ToolManager`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_figure",
+          "docstring": null
+        },
+        {
+          "name": "trigger",
+          "docstring": "Called when this tool gets used.\n\nThis method is called by `.ToolManager.trigger_tool`.\n\nParameters\n----------\nevent : `.Event`\n    The canvas event that caused this tool to be called.\nsender : object\n    Object that requested the tool to be triggered.\ndata : object\n    Extra data."
+        }
+      ]
+    },
+    {
+      "name": "ToolToggleBase",
+      "docstring": "Toggleable tool.\n\nEvery time it is triggered, it switches between enable and disable.\n\nParameters\n----------\n``*args``\n    Variable length argument to be used by the Tool.\n``**kwargs``\n    `toggled` if present and True, sets the initial state of the Tool\n    Arbitrary keyword arguments to be consumed by the Tool",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "trigger",
+          "docstring": "Calls `enable` or `disable` based on `toggled` value."
+        },
+        {
+          "name": "enable",
+          "docstring": "Enable the toggle tool.\n\n`trigger` calls this method when `toggled` is False."
+        },
+        {
+          "name": "disable",
+          "docstring": "Disable the toggle tool.\n\n`trigger` call this method when `toggled` is True.\n\nThis can happen in different circumstances.\n\n* Click on the toolbar tool button.\n* Call to `matplotlib.backend_managers.ToolManager.trigger_tool`.\n* Another `ToolToggleBase` derived tool is triggered\n  (from the same `.ToolManager`)."
+        },
+        {
+          "name": "toggled",
+          "docstring": "State of the toggled tool."
+        },
+        {
+          "name": "set_figure",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolSetCursor",
+      "docstring": "Change to the current cursor while inaxes.\n\nThis tool, keeps track of all `ToolToggleBase` derived tools, and updates\nthe cursor when a tool gets triggered.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_figure",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolCursorPosition",
+      "docstring": "Send message with the current pointer position.\n\nThis tool runs in the background reporting the position of the cursor.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_figure",
+          "docstring": null
+        },
+        {
+          "name": "send_message",
+          "docstring": "Call `matplotlib.backend_managers.ToolManager.message_event`."
+        }
+      ]
+    },
+    {
+      "name": "RubberbandBase",
+      "docstring": "Draw and remove a rubberband.",
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": "Call `draw_rubberband` or `remove_rubberband` based on data."
+        },
+        {
+          "name": "draw_rubberband",
+          "docstring": "Draw rubberband.\n\nThis method must get implemented per backend."
+        },
+        {
+          "name": "remove_rubberband",
+          "docstring": "Remove rubberband.\n\nThis method should get implemented per backend."
+        }
+      ]
+    },
+    {
+      "name": "ToolQuit",
+      "docstring": "Tool to call the figure manager destroy method.",
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolQuitAll",
+      "docstring": "Tool to call the figure manager destroy method.",
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolGrid",
+      "docstring": "Tool to toggle the major grids of the figure.",
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolMinorGrid",
+      "docstring": "Tool to toggle the major and minor grids of the figure.",
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolFullScreen",
+      "docstring": "Tool to toggle full screen.",
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AxisScaleBase",
+      "docstring": "Base Tool to toggle between linear and logarithmic.",
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        },
+        {
+          "name": "enable",
+          "docstring": null
+        },
+        {
+          "name": "disable",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolYScale",
+      "docstring": "Tool to toggle between linear and logarithmic scales on the Y axis.",
+      "methods": [
+        {
+          "name": "set_scale",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolXScale",
+      "docstring": "Tool to toggle between linear and logarithmic scales on the X axis.",
+      "methods": [
+        {
+          "name": "set_scale",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolViewsPositions",
+      "docstring": "Auxiliary Tool to handle changes in views and positions.\n\nRuns in the background and should get used by all the tools that\nneed to access the figure's history of views and positions, e.g.\n\n* `ToolZoom`\n* `ToolPan`\n* `ToolHome`\n* `ToolBack`\n* `ToolForward`",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "add_figure",
+          "docstring": "Add the current figure to the stack of views and positions."
+        },
+        {
+          "name": "clear",
+          "docstring": "Reset the Axes stack."
+        },
+        {
+          "name": "update_view",
+          "docstring": "Update the view limits and position for each Axes from the current\nstack position. If any Axes are present in the figure that aren't in\nthe current stack position, use the home view limits for those Axes and\ndon't update *any* positions."
+        },
+        {
+          "name": "push_current",
+          "docstring": "Push the current view limits and position onto their respective stacks."
+        },
+        {
+          "name": "update_home_views",
+          "docstring": "Make sure that ``self.home_views`` has an entry for all Axes present\nin the figure."
+        },
+        {
+          "name": "home",
+          "docstring": "Recall the first view and position from the stack."
+        },
+        {
+          "name": "back",
+          "docstring": "Back one step in the stack of views and positions."
+        },
+        {
+          "name": "forward",
+          "docstring": "Forward one step in the stack of views and positions."
+        }
+      ]
+    },
+    {
+      "name": "ViewsPositionsBase",
+      "docstring": "Base class for `ToolHome`, `ToolBack` and `ToolForward`.",
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolHome",
+      "docstring": "Restore the original view limits.",
+      "methods": []
+    },
+    {
+      "name": "ToolBack",
+      "docstring": "Move back up the view limits stack.",
+      "methods": []
+    },
+    {
+      "name": "ToolForward",
+      "docstring": "Move forward in the view lim stack.",
+      "methods": []
+    },
+    {
+      "name": "ConfigureSubplotsBase",
+      "docstring": "Base tool for the configuration of subplots.",
+      "methods": []
+    },
+    {
+      "name": "SaveFigureBase",
+      "docstring": "Base tool for figure saving.",
+      "methods": []
+    },
+    {
+      "name": "ZoomPanBase",
+      "docstring": "Base class for `ToolZoom` and `ToolPan`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "enable",
+          "docstring": "Connect press/release events and lock the canvas."
+        },
+        {
+          "name": "disable",
+          "docstring": "Release the canvas and disconnect press/release events."
+        },
+        {
+          "name": "trigger",
+          "docstring": null
+        },
+        {
+          "name": "scroll_zoom",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolZoom",
+      "docstring": "A Tool for zooming using a rectangle selector.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolPan",
+      "docstring": "Pan Axes with left mouse, zoom with right.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolHelpBase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "format_shortcut",
+          "docstring": "Convert a shortcut string from the notation used in rc config to the\nstandard notation for displaying shortcuts, e.g. 'ctrl+a' -> 'Ctrl+A'."
+        }
+      ]
+    },
+    {
+      "name": "ToolCopyToClipboardBase",
+      "docstring": "Tool to copy the figure to the clipboard.",
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "add_tools_to_manager",
+      "docstring": "Add multiple tools to a `.ToolManager`.\n\nParameters\n----------\ntoolmanager : `.backend_managers.ToolManager`\n    Manager to which the tools are added.\ntools : {str: class_like}, optional\n    The tools to add in a {name: tool} dict, see\n    `.backend_managers.ToolManager.add_tool` for more info."
+    },
+    {
+      "name": "add_tools_to_container",
+      "docstring": "Add multiple tools to the container.\n\nParameters\n----------\ncontainer : Container\n    `.backend_bases.ToolContainerBase` object that will get the tools\n    added.\ntools : list, optional\n    List in the form ``[[group1, [tool1, tool2 ...]], [group2, [...]]]``\n    where the tools ``[tool1, tool2, ...]`` will display in group1.\n    See `.backend_bases.ToolContainerBase.add_tool` for details."
+    },
+    {
+      "name": "set_figure",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": "Called when this tool gets used.\n\nThis method is called by `.ToolManager.trigger_tool`.\n\nParameters\n----------\nevent : `.Event`\n    The canvas event that caused this tool to be called.\nsender : object\n    Object that requested the tool to be triggered.\ndata : object\n    Extra data."
+    },
+    {
+      "name": "trigger",
+      "docstring": "Calls `enable` or `disable` based on `toggled` value."
+    },
+    {
+      "name": "enable",
+      "docstring": "Enable the toggle tool.\n\n`trigger` calls this method when `toggled` is False."
+    },
+    {
+      "name": "disable",
+      "docstring": "Disable the toggle tool.\n\n`trigger` call this method when `toggled` is True.\n\nThis can happen in different circumstances.\n\n* Click on the toolbar tool button.\n* Call to `matplotlib.backend_managers.ToolManager.trigger_tool`.\n* Another `ToolToggleBase` derived tool is triggered\n  (from the same `.ToolManager`)."
+    },
+    {
+      "name": "toggled",
+      "docstring": "State of the toggled tool."
+    },
+    {
+      "name": "set_figure",
+      "docstring": null
+    },
+    {
+      "name": "set_figure",
+      "docstring": null
+    },
+    {
+      "name": "set_figure",
+      "docstring": null
+    },
+    {
+      "name": "send_message",
+      "docstring": "Call `matplotlib.backend_managers.ToolManager.message_event`."
+    },
+    {
+      "name": "trigger",
+      "docstring": "Call `draw_rubberband` or `remove_rubberband` based on data."
+    },
+    {
+      "name": "draw_rubberband",
+      "docstring": "Draw rubberband.\n\nThis method must get implemented per backend."
+    },
+    {
+      "name": "remove_rubberband",
+      "docstring": "Remove rubberband.\n\nThis method should get implemented per backend."
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "enable",
+      "docstring": null
+    },
+    {
+      "name": "disable",
+      "docstring": null
+    },
+    {
+      "name": "set_scale",
+      "docstring": null
+    },
+    {
+      "name": "set_scale",
+      "docstring": null
+    },
+    {
+      "name": "add_figure",
+      "docstring": "Add the current figure to the stack of views and positions."
+    },
+    {
+      "name": "clear",
+      "docstring": "Reset the Axes stack."
+    },
+    {
+      "name": "update_view",
+      "docstring": "Update the view limits and position for each Axes from the current\nstack position. If any Axes are present in the figure that aren't in\nthe current stack position, use the home view limits for those Axes and\ndon't update *any* positions."
+    },
+    {
+      "name": "push_current",
+      "docstring": "Push the current view limits and position onto their respective stacks."
+    },
+    {
+      "name": "update_home_views",
+      "docstring": "Make sure that ``self.home_views`` has an entry for all Axes present\nin the figure."
+    },
+    {
+      "name": "home",
+      "docstring": "Recall the first view and position from the stack."
+    },
+    {
+      "name": "back",
+      "docstring": "Back one step in the stack of views and positions."
+    },
+    {
+      "name": "forward",
+      "docstring": "Forward one step in the stack of views and positions."
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "enable",
+      "docstring": "Connect press/release events and lock the canvas."
+    },
+    {
+      "name": "disable",
+      "docstring": "Release the canvas and disconnect press/release events."
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "scroll_zoom",
+      "docstring": null
+    },
+    {
+      "name": "format_shortcut",
+      "docstring": "Convert a shortcut string from the notation used in rc config to the\nstandard notation for displaying shortcuts, e.g. 'ctrl+a' -> 'Ctrl+A'."
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

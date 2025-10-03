@@ -1,0 +1,120 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\acquisition_profiles.py",
+  "classes": [
+    {
+      "name": "AcquisitionProfile",
+      "docstring": "Configuration profile for image acquisition scenarios.\nStores parameters for camera settings, preprocessing steps, and other configuration.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a new acquisition profile.\n\nArgs:\n    name: Name of the profile.\n    description: Optional description of the profile."
+        },
+        {
+          "name": "set_camera_settings",
+          "docstring": "Configure camera settings for the profile.\n\nArgs:\n    settings: Dictionary of camera settings."
+        },
+        {
+          "name": "set_preprocessing_settings",
+          "docstring": "Configure preprocessing settings for the profile.\n\nArgs:\n    settings: Dictionary of preprocessing settings."
+        },
+        {
+          "name": "set_format_settings",
+          "docstring": "Configure format and encoding settings for the profile.\n\nArgs:\n    settings: Dictionary of format settings."
+        },
+        {
+          "name": "set_storage_settings",
+          "docstring": "Configure storage settings for the profile.\n\nArgs:\n    settings: Dictionary of storage settings."
+        },
+        {
+          "name": "to_dict",
+          "docstring": "Convert the profile to a dictionary.\n\nReturns:\n    Dictionary representation of the profile."
+        },
+        {
+          "name": "from_dict",
+          "docstring": "Create a profile from a dictionary.\n\nArgs:\n    data: Dictionary representation of the profile.\n    \nReturns:\n    AcquisitionProfile instance."
+        }
+      ]
+    },
+    {
+      "name": "ProfileManager",
+      "docstring": "Manages acquisition profiles for different scenarios.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the profile manager.\n\nArgs:\n    profiles_dir: Directory to store profile files."
+        },
+        {
+          "name": "load_profiles",
+          "docstring": "Load all profiles from the profiles directory."
+        },
+        {
+          "name": "save_profile",
+          "docstring": "Save a profile to file.\n\nArgs:\n    profile: Profile to save."
+        },
+        {
+          "name": "get_profile",
+          "docstring": "Get a profile by name.\n\nArgs:\n    name: Name of the profile.\n    \nReturns:\n    AcquisitionProfile if found, None otherwise."
+        },
+        {
+          "name": "list_profiles",
+          "docstring": "List all available profiles.\n\nReturns:\n    List of profile names."
+        },
+        {
+          "name": "delete_profile",
+          "docstring": "Delete a profile.\n\nArgs:\n    name: Name of the profile to delete.\n    \nReturns:\n    True if successful, False otherwise."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "create_default_profiles",
+      "docstring": "Create default acquisition profiles.\n\nArgs:\n    manager: ProfileManager instance."
+    },
+    {
+      "name": "set_camera_settings",
+      "docstring": "Configure camera settings for the profile.\n\nArgs:\n    settings: Dictionary of camera settings."
+    },
+    {
+      "name": "set_preprocessing_settings",
+      "docstring": "Configure preprocessing settings for the profile.\n\nArgs:\n    settings: Dictionary of preprocessing settings."
+    },
+    {
+      "name": "set_format_settings",
+      "docstring": "Configure format and encoding settings for the profile.\n\nArgs:\n    settings: Dictionary of format settings."
+    },
+    {
+      "name": "set_storage_settings",
+      "docstring": "Configure storage settings for the profile.\n\nArgs:\n    settings: Dictionary of storage settings."
+    },
+    {
+      "name": "to_dict",
+      "docstring": "Convert the profile to a dictionary.\n\nReturns:\n    Dictionary representation of the profile."
+    },
+    {
+      "name": "from_dict",
+      "docstring": "Create a profile from a dictionary.\n\nArgs:\n    data: Dictionary representation of the profile.\n    \nReturns:\n    AcquisitionProfile instance."
+    },
+    {
+      "name": "load_profiles",
+      "docstring": "Load all profiles from the profiles directory."
+    },
+    {
+      "name": "save_profile",
+      "docstring": "Save a profile to file.\n\nArgs:\n    profile: Profile to save."
+    },
+    {
+      "name": "get_profile",
+      "docstring": "Get a profile by name.\n\nArgs:\n    name: Name of the profile.\n    \nReturns:\n    AcquisitionProfile if found, None otherwise."
+    },
+    {
+      "name": "list_profiles",
+      "docstring": "List all available profiles.\n\nReturns:\n    List of profile names."
+    },
+    {
+      "name": "delete_profile",
+      "docstring": "Delete a profile.\n\nArgs:\n    name: Name of the profile to delete.\n    \nReturns:\n    True if successful, False otherwise."
+    }
+  ],
+  "innovations": []
+}

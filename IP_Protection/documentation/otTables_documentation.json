@@ -1,0 +1,1092 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\otTables.py",
+  "classes": [
+    {
+      "name": "VarComponentFlags",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "VarComponent",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "populateDefaults",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "applyTransformDeltas",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "VarCompositeGlyph",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AATStateTable",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AATState",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AATAction",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "compileActions",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RearrangementMorphAction",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ContextualMorphAction",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LigAction",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LigatureMorphAction",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compileActions",
+          "docstring": null
+        },
+        {
+          "name": "compileLigActions",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "InsertionMorphAction",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "compileActions",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FeatureParams",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FeatureParamsSize",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "FeatureParamsStylisticSet",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "FeatureParamsCharacterVariants",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Coverage",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "populateDefaults",
+          "docstring": null
+        },
+        {
+          "name": "postRead",
+          "docstring": null
+        },
+        {
+          "name": "preWrite",
+          "docstring": null
+        },
+        {
+          "name": "toXML2",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DeltaSetIndexMap",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "populateDefaults",
+          "docstring": null
+        },
+        {
+          "name": "postRead",
+          "docstring": null
+        },
+        {
+          "name": "getEntryFormat",
+          "docstring": null
+        },
+        {
+          "name": "preWrite",
+          "docstring": null
+        },
+        {
+          "name": "toXML2",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "VarIdxMap",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "populateDefaults",
+          "docstring": null
+        },
+        {
+          "name": "postRead",
+          "docstring": null
+        },
+        {
+          "name": "preWrite",
+          "docstring": null
+        },
+        {
+          "name": "toXML2",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "VarRegionList",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "preWrite",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SingleSubst",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "populateDefaults",
+          "docstring": null
+        },
+        {
+          "name": "postRead",
+          "docstring": null
+        },
+        {
+          "name": "preWrite",
+          "docstring": null
+        },
+        {
+          "name": "toXML2",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MultipleSubst",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "populateDefaults",
+          "docstring": null
+        },
+        {
+          "name": "postRead",
+          "docstring": null
+        },
+        {
+          "name": "preWrite",
+          "docstring": null
+        },
+        {
+          "name": "toXML2",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "makeSequence_",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ClassDef",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "populateDefaults",
+          "docstring": null
+        },
+        {
+          "name": "postRead",
+          "docstring": null
+        },
+        {
+          "name": "preWrite",
+          "docstring": null
+        },
+        {
+          "name": "toXML2",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AlternateSubst",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "populateDefaults",
+          "docstring": null
+        },
+        {
+          "name": "postRead",
+          "docstring": null
+        },
+        {
+          "name": "preWrite",
+          "docstring": null
+        },
+        {
+          "name": "toXML2",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LigatureSubst",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "populateDefaults",
+          "docstring": null
+        },
+        {
+          "name": "postRead",
+          "docstring": null
+        },
+        {
+          "name": "preWrite",
+          "docstring": null
+        },
+        {
+          "name": "toXML2",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "COLR",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "preWrite",
+          "docstring": null
+        },
+        {
+          "name": "computeClipBoxes",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LookupList",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "table",
+          "docstring": null
+        },
+        {
+          "name": "toXML2",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BaseGlyphRecordArray",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "preWrite",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BaseGlyphList",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "preWrite",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ClipBoxFormat",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "is_variable",
+          "docstring": null
+        },
+        {
+          "name": "as_variable",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ClipBox",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "as_tuple",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ClipList",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "populateDefaults",
+          "docstring": null
+        },
+        {
+          "name": "postRead",
+          "docstring": null
+        },
+        {
+          "name": "groups",
+          "docstring": null
+        },
+        {
+          "name": "preWrite",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ExtendMode",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "CompositeMode",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PaintFormat",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "is_variable",
+          "docstring": null
+        },
+        {
+          "name": "as_variable",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Paint",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "getFormatName",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "iterPaintSubTables",
+          "docstring": null
+        },
+        {
+          "name": "getChildren",
+          "docstring": null
+        },
+        {
+          "name": "traverse",
+          "docstring": "Depth-first traversal of graph rooted at self, callback on each node."
+        },
+        {
+          "name": "getTransform",
+          "docstring": null
+        },
+        {
+          "name": "computeClipBox",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "fixLookupOverFlows",
+      "docstring": "Either the offset from the LookupList to a lookup overflowed, or\nan offset from a lookup to a subtable overflowed.\n\nThe table layout is::\n\n  GPSO/GUSB\n          Script List\n          Feature List\n          LookUpList\n                  Lookup[0] and contents\n                          SubTable offset list\n                                  SubTable[0] and contents\n                                  ...\n                                  SubTable[n] and contents\n                  ...\n                  Lookup[n] and contents\n                          SubTable offset list\n                                  SubTable[0] and contents\n                                  ...\n                                  SubTable[n] and contents\n\nIf the offset to a lookup overflowed (SubTableIndex is None)\n        we must promote the *previous* lookup to an Extension type.\n\nIf the offset from a lookup to subtable overflowed, then we must promote it\n        to an Extension Lookup type."
+    },
+    {
+      "name": "splitMultipleSubst",
+      "docstring": null
+    },
+    {
+      "name": "splitAlternateSubst",
+      "docstring": null
+    },
+    {
+      "name": "splitLigatureSubst",
+      "docstring": null
+    },
+    {
+      "name": "splitPairPos",
+      "docstring": null
+    },
+    {
+      "name": "splitMarkBasePos",
+      "docstring": null
+    },
+    {
+      "name": "fixSubTableOverFlows",
+      "docstring": "An offset has overflowed within a sub-table. We need to divide this subtable into smaller parts."
+    },
+    {
+      "name": "populateDefaults",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "applyTransformDeltas",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "compileActions",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compileActions",
+      "docstring": null
+    },
+    {
+      "name": "compileLigActions",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "compileActions",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "populateDefaults",
+      "docstring": null
+    },
+    {
+      "name": "postRead",
+      "docstring": null
+    },
+    {
+      "name": "preWrite",
+      "docstring": null
+    },
+    {
+      "name": "toXML2",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "populateDefaults",
+      "docstring": null
+    },
+    {
+      "name": "postRead",
+      "docstring": null
+    },
+    {
+      "name": "getEntryFormat",
+      "docstring": null
+    },
+    {
+      "name": "preWrite",
+      "docstring": null
+    },
+    {
+      "name": "toXML2",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "populateDefaults",
+      "docstring": null
+    },
+    {
+      "name": "postRead",
+      "docstring": null
+    },
+    {
+      "name": "preWrite",
+      "docstring": null
+    },
+    {
+      "name": "toXML2",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "preWrite",
+      "docstring": null
+    },
+    {
+      "name": "populateDefaults",
+      "docstring": null
+    },
+    {
+      "name": "postRead",
+      "docstring": null
+    },
+    {
+      "name": "preWrite",
+      "docstring": null
+    },
+    {
+      "name": "toXML2",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "populateDefaults",
+      "docstring": null
+    },
+    {
+      "name": "postRead",
+      "docstring": null
+    },
+    {
+      "name": "preWrite",
+      "docstring": null
+    },
+    {
+      "name": "toXML2",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "makeSequence_",
+      "docstring": null
+    },
+    {
+      "name": "populateDefaults",
+      "docstring": null
+    },
+    {
+      "name": "postRead",
+      "docstring": null
+    },
+    {
+      "name": "preWrite",
+      "docstring": null
+    },
+    {
+      "name": "toXML2",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "populateDefaults",
+      "docstring": null
+    },
+    {
+      "name": "postRead",
+      "docstring": null
+    },
+    {
+      "name": "preWrite",
+      "docstring": null
+    },
+    {
+      "name": "toXML2",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "populateDefaults",
+      "docstring": null
+    },
+    {
+      "name": "postRead",
+      "docstring": null
+    },
+    {
+      "name": "preWrite",
+      "docstring": null
+    },
+    {
+      "name": "toXML2",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "preWrite",
+      "docstring": null
+    },
+    {
+      "name": "computeClipBoxes",
+      "docstring": null
+    },
+    {
+      "name": "table",
+      "docstring": null
+    },
+    {
+      "name": "toXML2",
+      "docstring": null
+    },
+    {
+      "name": "preWrite",
+      "docstring": null
+    },
+    {
+      "name": "preWrite",
+      "docstring": null
+    },
+    {
+      "name": "is_variable",
+      "docstring": null
+    },
+    {
+      "name": "as_variable",
+      "docstring": null
+    },
+    {
+      "name": "as_tuple",
+      "docstring": null
+    },
+    {
+      "name": "populateDefaults",
+      "docstring": null
+    },
+    {
+      "name": "postRead",
+      "docstring": null
+    },
+    {
+      "name": "groups",
+      "docstring": null
+    },
+    {
+      "name": "preWrite",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "is_variable",
+      "docstring": null
+    },
+    {
+      "name": "as_variable",
+      "docstring": null
+    },
+    {
+      "name": "getFormatName",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "iterPaintSubTables",
+      "docstring": null
+    },
+    {
+      "name": "getChildren",
+      "docstring": null
+    },
+    {
+      "name": "traverse",
+      "docstring": "Depth-first traversal of graph rooted at self, callback on each node."
+    },
+    {
+      "name": "getTransform",
+      "docstring": null
+    },
+    {
+      "name": "computeClipBox",
+      "docstring": null
+    },
+    {
+      "name": "read_transform_component",
+      "docstring": null
+    },
+    {
+      "name": "write_transform_component",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "read_transform_component_delta",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

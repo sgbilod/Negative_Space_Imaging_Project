@@ -1,0 +1,29 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\otTraverse.py",
+  "classes": [
+    {
+      "name": "SubTablePath",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "dfs_base_table",
+      "docstring": "Depth-first search tree of BaseTables.\n\nArgs:\n    root (BaseTable): the root of the tree.\n    root_accessor (Optional[str]): attribute name for the root table, if any (mostly\n        useful for debugging).\n    skip_root (Optional[bool]): if True, the root itself is not visited, only its\n        children.\n    predicate (Optional[Callable[[SubTablePath], bool]]): function to filter out\n        paths. If True, the path is yielded and its subtables are added to the\n        queue. If False, the path is skipped and its subtables are not traversed.\n    iter_subtables_fn (Optional[Callable[[BaseTable], Iterable[BaseTable.SubTableEntry]]]):\n        function to iterate over subtables of a table. If None, the default\n        BaseTable.iterSubTables() is used.\n\nYields:\n    SubTablePath: tuples of BaseTable.SubTableEntry(name, table, index) namedtuples\n    for each of the nodes in the tree. The last entry in a path is the current\n    subtable, whereas preceding ones refer to its parent tables all the way up to\n    the root."
+    },
+    {
+      "name": "bfs_base_table",
+      "docstring": "Breadth-first search tree of BaseTables.\n\nArgs:\n    root\n        the root of the tree.\n    root_accessor (Optional[str]): attribute name for the root table, if any (mostly\n        useful for debugging).\n    skip_root (Optional[bool]): if True, the root itself is not visited, only its\n        children.\n    predicate (Optional[Callable[[SubTablePath], bool]]): function to filter out\n        paths. If True, the path is yielded and its subtables are added to the\n        queue. If False, the path is skipped and its subtables are not traversed.\n    iter_subtables_fn (Optional[Callable[[BaseTable], Iterable[BaseTable.SubTableEntry]]]):\n        function to iterate over subtables of a table. If None, the default\n        BaseTable.iterSubTables() is used.\n\nYields:\n    SubTablePath: tuples of BaseTable.SubTableEntry(name, table, index) namedtuples\n    for each of the nodes in the tree. The last entry in a path is the current\n    subtable, whereas preceding ones refer to its parent tables all the way up to\n    the root."
+    },
+    {
+      "name": "predicate",
+      "docstring": null
+    },
+    {
+      "name": "iter_subtables_fn",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

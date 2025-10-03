@@ -1,0 +1,248 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\_freeimage.py",
+  "classes": [
+    {
+      "name": "FI_TYPES",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "IO_FLAGS",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "METADATA_MODELS",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "METADATA_DATATYPE",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Freeimage",
+      "docstring": "Class to represent an interface to the FreeImage library.\nThis class is relatively thin. It provides a Pythonic API that converts\nFreeimage objects to Python objects, but that's about it.\nThe actual implementation should be provided by the plugins.\n\nThe recommended way to call into the Freeimage library (so that\nerrors and warnings show up in the right moment) is to use this\nobject as a context manager:\nwith imageio.fi as lib:\n    lib.FreeImage_GetPalette()",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "lib",
+          "docstring": null
+        },
+        {
+          "name": "has_lib",
+          "docstring": null
+        },
+        {
+          "name": "load_freeimage",
+          "docstring": "Try to load the freeimage lib from the system. If not successful,\ntry to download the imageio version and try again."
+        },
+        {
+          "name": "get_output_log",
+          "docstring": "Return a list of the last 256 output messages\n(warnings and errors) produced by the FreeImage library."
+        },
+        {
+          "name": "getFIF",
+          "docstring": "Get the freeimage Format (FIF) from a given filename.\nIf mode is 'r', will try to determine the format by reading\nthe file, otherwise only the filename is used.\n\nThis function also tests whether the format supports reading/writing."
+        },
+        {
+          "name": "create_bitmap",
+          "docstring": "create_bitmap(filename, ftype, flags=0)\nCreate a wrapped bitmap object."
+        },
+        {
+          "name": "create_multipage_bitmap",
+          "docstring": "create_multipage_bitmap(filename, ftype, flags=0)\nCreate a wrapped multipage bitmap object."
+        }
+      ]
+    },
+    {
+      "name": "FIBaseBitmap",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "get_meta_data",
+          "docstring": null
+        },
+        {
+          "name": "set_meta_data",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FIBitmap",
+      "docstring": "Wrapper for the FI bitmap object.",
+      "methods": [
+        {
+          "name": "allocate",
+          "docstring": null
+        },
+        {
+          "name": "load_from_filename",
+          "docstring": null
+        },
+        {
+          "name": "save_to_filename",
+          "docstring": null
+        },
+        {
+          "name": "get_image_data",
+          "docstring": null
+        },
+        {
+          "name": "set_image_data",
+          "docstring": null
+        },
+        {
+          "name": "quantize",
+          "docstring": "Quantize the bitmap to make it 8-bit (paletted). Returns a new\nFIBitmap object.\nOnly for 24 bit images."
+        }
+      ]
+    },
+    {
+      "name": "FIMultipageBitmap",
+      "docstring": "Wrapper for the multipage FI bitmap object.",
+      "methods": [
+        {
+          "name": "load_from_filename",
+          "docstring": null
+        },
+        {
+          "name": "save_to_filename",
+          "docstring": null
+        },
+        {
+          "name": "get_page",
+          "docstring": "Return the sub-bitmap for the given page index.\nPlease close the returned bitmap when done."
+        },
+        {
+          "name": "append_bitmap",
+          "docstring": "Add a sub-bitmap to the multi-page bitmap."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "download",
+      "docstring": "Download the FreeImage library to your computer.\n\nParameters\n----------\ndirectory : str | None\n    The directory where the file will be cached if a download was\n    required to obtain the file. By default, the appdata directory\n    is used. This is also the first directory that is checked for\n    a local version of the file.\nforce_download : bool | str\n    If True, the file will be downloaded even if a local copy exists\n    (and this copy will be overwritten). Can also be a YYYY-MM-DD date\n    to ensure a file is up-to-date (modified date of a file on disk,\n    if present, is checked)."
+    },
+    {
+      "name": "get_freeimage_lib",
+      "docstring": "Ensure we have our version of the binary freeimage lib."
+    },
+    {
+      "name": "efn",
+      "docstring": null
+    },
+    {
+      "name": "lib",
+      "docstring": null
+    },
+    {
+      "name": "has_lib",
+      "docstring": null
+    },
+    {
+      "name": "load_freeimage",
+      "docstring": "Try to load the freeimage lib from the system. If not successful,\ntry to download the imageio version and try again."
+    },
+    {
+      "name": "get_output_log",
+      "docstring": "Return a list of the last 256 output messages\n(warnings and errors) produced by the FreeImage library."
+    },
+    {
+      "name": "getFIF",
+      "docstring": "Get the freeimage Format (FIF) from a given filename.\nIf mode is 'r', will try to determine the format by reading\nthe file, otherwise only the filename is used.\n\nThis function also tests whether the format supports reading/writing."
+    },
+    {
+      "name": "create_bitmap",
+      "docstring": "create_bitmap(filename, ftype, flags=0)\nCreate a wrapped bitmap object."
+    },
+    {
+      "name": "create_multipage_bitmap",
+      "docstring": "create_multipage_bitmap(filename, ftype, flags=0)\nCreate a wrapped multipage bitmap object."
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "get_meta_data",
+      "docstring": null
+    },
+    {
+      "name": "set_meta_data",
+      "docstring": null
+    },
+    {
+      "name": "allocate",
+      "docstring": null
+    },
+    {
+      "name": "load_from_filename",
+      "docstring": null
+    },
+    {
+      "name": "save_to_filename",
+      "docstring": null
+    },
+    {
+      "name": "get_image_data",
+      "docstring": null
+    },
+    {
+      "name": "set_image_data",
+      "docstring": null
+    },
+    {
+      "name": "quantize",
+      "docstring": "Quantize the bitmap to make it 8-bit (paletted). Returns a new\nFIBitmap object.\nOnly for 24 bit images."
+    },
+    {
+      "name": "load_from_filename",
+      "docstring": null
+    },
+    {
+      "name": "save_to_filename",
+      "docstring": null
+    },
+    {
+      "name": "get_page",
+      "docstring": "Return the sub-bitmap for the given page index.\nPlease close the returned bitmap when done."
+    },
+    {
+      "name": "append_bitmap",
+      "docstring": "Add a sub-bitmap to the multi-page bitmap."
+    },
+    {
+      "name": "error_handler",
+      "docstring": null
+    },
+    {
+      "name": "get_tag_type_number",
+      "docstring": null
+    },
+    {
+      "name": "n",
+      "docstring": null
+    },
+    {
+      "name": "n",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

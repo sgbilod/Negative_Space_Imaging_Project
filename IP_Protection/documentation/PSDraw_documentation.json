@@ -1,0 +1,74 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\PSDraw.py",
+  "classes": [
+    {
+      "name": "PSDraw",
+      "docstring": "Sets up printing to the given file. If ``fp`` is omitted,\n``sys.stdout.buffer`` is assumed.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "begin_document",
+          "docstring": "Set up printing of a document. (Write PostScript DSC header.)"
+        },
+        {
+          "name": "end_document",
+          "docstring": "Ends printing. (Write PostScript DSC footer.)"
+        },
+        {
+          "name": "setfont",
+          "docstring": "Selects which font to use.\n\n:param font: A PostScript font name\n:param size: Size in points."
+        },
+        {
+          "name": "line",
+          "docstring": "Draws a line between the two points. Coordinates are given in\nPostScript point coordinates (72 points per inch, (0, 0) is the lower\nleft corner of the page)."
+        },
+        {
+          "name": "rectangle",
+          "docstring": "Draws a rectangle.\n\n:param box: A tuple of four integers, specifying left, bottom, width and\n   height."
+        },
+        {
+          "name": "text",
+          "docstring": "Draws text at the given position. You must use\n:py:meth:`~PIL.PSDraw.PSDraw.setfont` before calling this method."
+        },
+        {
+          "name": "image",
+          "docstring": "Draw a PIL image, centered in the given box."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "begin_document",
+      "docstring": "Set up printing of a document. (Write PostScript DSC header.)"
+    },
+    {
+      "name": "end_document",
+      "docstring": "Ends printing. (Write PostScript DSC footer.)"
+    },
+    {
+      "name": "setfont",
+      "docstring": "Selects which font to use.\n\n:param font: A PostScript font name\n:param size: Size in points."
+    },
+    {
+      "name": "line",
+      "docstring": "Draws a line between the two points. Coordinates are given in\nPostScript point coordinates (72 points per inch, (0, 0) is the lower\nleft corner of the page)."
+    },
+    {
+      "name": "rectangle",
+      "docstring": "Draws a rectangle.\n\n:param box: A tuple of four integers, specifying left, bottom, width and\n   height."
+    },
+    {
+      "name": "text",
+      "docstring": "Draws text at the given position. You must use\n:py:meth:`~PIL.PSDraw.PSDraw.setfont` before calling this method."
+    },
+    {
+      "name": "image",
+      "docstring": "Draw a PIL image, centered in the given box."
+    }
+  ],
+  "innovations": []
+}

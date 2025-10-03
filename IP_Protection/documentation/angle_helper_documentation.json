@@ -1,0 +1,100 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\mpl_toolkits\\axisartist\\angle_helper.py",
+  "classes": [
+    {
+      "name": "LocatorBase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_params",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LocatorHMS",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "LocatorHM",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "LocatorH",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "LocatorDMS",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "LocatorDM",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "LocatorD",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "FormatterDMS",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "FormatterHMS",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ExtremeFinderCycle",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "This subclass handles the case where one or both coordinates should be\ntaken modulo 360, or be restricted to not exceed a specific range.\n\nParameters\n----------\nnx, ny : int\n    The number of samples in each direction.\n\nlon_cycle, lat_cycle : 360 or None\n    If not None, values in the corresponding direction are taken modulo\n    *lon_cycle* or *lat_cycle*; in theory this can be any number but\n    the implementation actually assumes that it is 360 (if not None);\n    other values give nonsensical results.\n\n    This is done by \"unwrapping\" the transformed grid coordinates so\n    that jumps are less than a half-cycle; then normalizing the span to\n    no more than a full cycle.\n\n    For example, if values are in the union of the [0, 2] and\n    [358, 360] intervals (typically, angles measured modulo 360), the\n    values in the second interval are normalized to [-2, 0] instead so\n    that the values now cover [-2, 2].  If values are in a range of\n    [5, 1000], this gets normalized to [5, 365].\n\nlon_minmax, lat_minmax : (float, float) or None\n    If not None, the computed bounding box is clipped to the given\n    range in the corresponding direction."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "select_step_degree",
+      "docstring": null
+    },
+    {
+      "name": "select_step_hour",
+      "docstring": null
+    },
+    {
+      "name": "select_step_sub",
+      "docstring": null
+    },
+    {
+      "name": "select_step",
+      "docstring": null
+    },
+    {
+      "name": "select_step24",
+      "docstring": null
+    },
+    {
+      "name": "select_step360",
+      "docstring": null
+    },
+    {
+      "name": "set_params",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

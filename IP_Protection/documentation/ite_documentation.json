@@ -1,0 +1,184 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\negative-space-project\\ite.py",
+  "classes": [
+    {
+      "name": "InformationDensityCalculator",
+      "docstring": "Calculates information density fields in negative spaces between objects.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the calculator.\n\nArgs:\n    bandwidth: Kernel bandwidth for density estimation"
+        },
+        {
+          "name": "calculate_density_field",
+          "docstring": "Calculate an information density field from a point cloud.\n\nArgs:\n    points: Array of points (shape: N x D where D is the dimensionality)\n    resolution: Resolution of the density grid\n    \nReturns:\n    Tuple containing:\n        - grid_points: Array of grid point coordinates\n        - densities: Array of density values at each grid point"
+        },
+        {
+          "name": "calculate_information_gradient",
+          "docstring": "Calculate the gradient of the information density field.\n\nArgs:\n    grid_points: Array of grid point coordinates\n    densities: Array of density values at each grid point\n    \nReturns:\n    np.ndarray: Gradient vectors at each grid point"
+        },
+        {
+          "name": "visualize_density_field",
+          "docstring": "Visualize the information density field.\n\nArgs:\n    grid_points: Array of grid point coordinates\n    densities: Array of density values at each grid point\n    title: Title for the plot\n    output_path: Path to save the figure (if None, display instead)"
+        },
+        {
+          "name": "visualize_information_flow",
+          "docstring": "Visualize the information flow using the gradient field.\n\nArgs:\n    grid_points: Array of grid point coordinates\n    densities: Array of density values at each grid point\n    gradient: Array of gradient vectors\n    title: Title for the plot\n    output_path: Path to save the figure (if None, display instead)"
+        }
+      ]
+    },
+    {
+      "name": "TopologicalDataAnalyzer",
+      "docstring": "Analyzes the topological properties of information fields in negative spaces.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the analyzer"
+        },
+        {
+          "name": "extract_simplicial_complex",
+          "docstring": "Extract a simplicial complex from a point cloud.\n\nArgs:\n    points: Array of points\n    max_distance: Maximum distance for connecting points\n    \nReturns:\n    dict: Simplicial complex data structure"
+        },
+        {
+          "name": "compute_betti_numbers",
+          "docstring": "Compute Betti numbers from a simplicial complex.\n\nArgs:\n    complex_data: Simplicial complex data structure\n    \nReturns:\n    list: Betti numbers [b0, b1, b2]"
+        },
+        {
+          "name": "visualize_simplicial_complex",
+          "docstring": "Visualize a simplicial complex.\n\nArgs:\n    complex_data: Simplicial complex data structure\n    title: Title for the plot\n    output_path: Path to save the figure (if None, display instead)"
+        }
+      ]
+    },
+    {
+      "name": "PersistentHomologyGenerator",
+      "docstring": "Generates persistent homology features from point clouds to capture\nthe multi-scale topological features of negative spaces.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the generator"
+        },
+        {
+          "name": "compute_persistence_diagram",
+          "docstring": "Compute a persistence diagram from a point cloud.\n\nArgs:\n    points: Array of points\n    max_dimension: Maximum homology dimension to compute\n    \nReturns:\n    dict: Persistence diagram data"
+        },
+        {
+          "name": "compute_persistence_barcode",
+          "docstring": "Convert a persistence diagram to a persistence barcode representation.\n\nArgs:\n    persistence_data: Persistence diagram data\n    \nReturns:\n    dict: Persistence barcode data"
+        },
+        {
+          "name": "compute_persistence_image",
+          "docstring": "Convert a persistence diagram to a persistence image representation.\n\nArgs:\n    persistence_data: Persistence diagram data\n    resolution: Resolution of the image\n    bandwidth: Bandwidth for the kernel density estimation\n    \nReturns:\n    dict: Persistence image data"
+        },
+        {
+          "name": "visualize_persistence_diagram",
+          "docstring": "Visualize a persistence diagram.\n\nArgs:\n    persistence_data: Persistence diagram data\n    title: Title for the plot\n    output_path: Path to save the figure (if None, display instead)"
+        },
+        {
+          "name": "visualize_persistence_barcode",
+          "docstring": "Visualize a persistence barcode.\n\nArgs:\n    barcode: Persistence barcode data\n    title: Title for the plot\n    output_path: Path to save the figure (if None, display instead)"
+        }
+      ]
+    },
+    {
+      "name": "InformationTopologyExtractor",
+      "docstring": "Main class for Information Topology Extraction (ITE).\nIntegrates the components to provide a complete topological analysis system.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the extractor with its component systems"
+        },
+        {
+          "name": "analyze_point_cloud",
+          "docstring": "Perform complete topological analysis on a point cloud.\n\nArgs:\n    name: Identifier for the point cloud\n    points: Array of points\n    \nReturns:\n    dict: Analysis results"
+        },
+        {
+          "name": "analyze_negative_spaces",
+          "docstring": "Analyze the topological properties of multiple negative space regions.\n\nArgs:\n    point_cloud: The main NegativeSpacePointCloud object\n    region_points: Dictionary mapping region names to point arrays\n    \nReturns:\n    dict: Analysis results for all regions"
+        },
+        {
+          "name": "visualize_results",
+          "docstring": "Generate visualizations for the topological analysis results.\n\nArgs:\n    results: Analysis results from analyze_point_cloud or analyze_negative_spaces\n    output_dir: Directory to save visualizations"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "extract_topological_signature",
+      "docstring": "Extract a topological signature vector from a point cloud.\n\nArgs:\n    points: Array of points\n    \nReturns:\n    np.ndarray: Topological signature vector"
+    },
+    {
+      "name": "compare_topological_signatures",
+      "docstring": "Compare two topological signatures and return a similarity score.\n\nArgs:\n    sig1, sig2: Topological signature vectors\n    \nReturns:\n    float: Similarity score between 0 and 1"
+    },
+    {
+      "name": "calculate_density_field",
+      "docstring": "Calculate an information density field from a point cloud.\n\nArgs:\n    points: Array of points (shape: N x D where D is the dimensionality)\n    resolution: Resolution of the density grid\n    \nReturns:\n    Tuple containing:\n        - grid_points: Array of grid point coordinates\n        - densities: Array of density values at each grid point"
+    },
+    {
+      "name": "calculate_information_gradient",
+      "docstring": "Calculate the gradient of the information density field.\n\nArgs:\n    grid_points: Array of grid point coordinates\n    densities: Array of density values at each grid point\n    \nReturns:\n    np.ndarray: Gradient vectors at each grid point"
+    },
+    {
+      "name": "visualize_density_field",
+      "docstring": "Visualize the information density field.\n\nArgs:\n    grid_points: Array of grid point coordinates\n    densities: Array of density values at each grid point\n    title: Title for the plot\n    output_path: Path to save the figure (if None, display instead)"
+    },
+    {
+      "name": "visualize_information_flow",
+      "docstring": "Visualize the information flow using the gradient field.\n\nArgs:\n    grid_points: Array of grid point coordinates\n    densities: Array of density values at each grid point\n    gradient: Array of gradient vectors\n    title: Title for the plot\n    output_path: Path to save the figure (if None, display instead)"
+    },
+    {
+      "name": "extract_simplicial_complex",
+      "docstring": "Extract a simplicial complex from a point cloud.\n\nArgs:\n    points: Array of points\n    max_distance: Maximum distance for connecting points\n    \nReturns:\n    dict: Simplicial complex data structure"
+    },
+    {
+      "name": "compute_betti_numbers",
+      "docstring": "Compute Betti numbers from a simplicial complex.\n\nArgs:\n    complex_data: Simplicial complex data structure\n    \nReturns:\n    list: Betti numbers [b0, b1, b2]"
+    },
+    {
+      "name": "visualize_simplicial_complex",
+      "docstring": "Visualize a simplicial complex.\n\nArgs:\n    complex_data: Simplicial complex data structure\n    title: Title for the plot\n    output_path: Path to save the figure (if None, display instead)"
+    },
+    {
+      "name": "compute_persistence_diagram",
+      "docstring": "Compute a persistence diagram from a point cloud.\n\nArgs:\n    points: Array of points\n    max_dimension: Maximum homology dimension to compute\n    \nReturns:\n    dict: Persistence diagram data"
+    },
+    {
+      "name": "compute_persistence_barcode",
+      "docstring": "Convert a persistence diagram to a persistence barcode representation.\n\nArgs:\n    persistence_data: Persistence diagram data\n    \nReturns:\n    dict: Persistence barcode data"
+    },
+    {
+      "name": "compute_persistence_image",
+      "docstring": "Convert a persistence diagram to a persistence image representation.\n\nArgs:\n    persistence_data: Persistence diagram data\n    resolution: Resolution of the image\n    bandwidth: Bandwidth for the kernel density estimation\n    \nReturns:\n    dict: Persistence image data"
+    },
+    {
+      "name": "visualize_persistence_diagram",
+      "docstring": "Visualize a persistence diagram.\n\nArgs:\n    persistence_data: Persistence diagram data\n    title: Title for the plot\n    output_path: Path to save the figure (if None, display instead)"
+    },
+    {
+      "name": "visualize_persistence_barcode",
+      "docstring": "Visualize a persistence barcode.\n\nArgs:\n    barcode: Persistence barcode data\n    title: Title for the plot\n    output_path: Path to save the figure (if None, display instead)"
+    },
+    {
+      "name": "analyze_point_cloud",
+      "docstring": "Perform complete topological analysis on a point cloud.\n\nArgs:\n    name: Identifier for the point cloud\n    points: Array of points\n    \nReturns:\n    dict: Analysis results"
+    },
+    {
+      "name": "analyze_negative_spaces",
+      "docstring": "Analyze the topological properties of multiple negative space regions.\n\nArgs:\n    point_cloud: The main NegativeSpacePointCloud object\n    region_points: Dictionary mapping region names to point arrays\n    \nReturns:\n    dict: Analysis results for all regions"
+    },
+    {
+      "name": "visualize_results",
+      "docstring": "Generate visualizations for the topological analysis results.\n\nArgs:\n    results: Analysis results from analyze_point_cloud or analyze_negative_spaces\n    output_dir: Directory to save visualizations"
+    },
+    {
+      "name": "find",
+      "docstring": null
+    },
+    {
+      "name": "union",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

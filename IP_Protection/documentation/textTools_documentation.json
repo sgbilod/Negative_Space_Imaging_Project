@@ -1,0 +1,82 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\textTools.py",
+  "classes": [
+    {
+      "name": "Tag",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "transcode",
+          "docstring": null
+        },
+        {
+          "name": "tobytes",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "readHex",
+      "docstring": "Convert a list of hex strings to binary data."
+    },
+    {
+      "name": "deHexStr",
+      "docstring": "Convert a hex string to binary data."
+    },
+    {
+      "name": "hexStr",
+      "docstring": "Convert binary data to a hex string."
+    },
+    {
+      "name": "num2binary",
+      "docstring": null
+    },
+    {
+      "name": "binary2num",
+      "docstring": null
+    },
+    {
+      "name": "caselessSort",
+      "docstring": "Return a sorted copy of a list. If there are only strings\nin the list, it will not consider case."
+    },
+    {
+      "name": "pad",
+      "docstring": "Pad byte string 'data' with null bytes until its length is a\nmultiple of 'size'.\n\n>>> len(pad(b'abcd', 4))\n4\n>>> len(pad(b'abcde', 2))\n6\n>>> len(pad(b'abcde', 4))\n8\n>>> pad(b'abcdef', 4) == b'abcdef\\x00\\x00'\nTrue"
+    },
+    {
+      "name": "tostr",
+      "docstring": null
+    },
+    {
+      "name": "tobytes",
+      "docstring": null
+    },
+    {
+      "name": "bytechr",
+      "docstring": null
+    },
+    {
+      "name": "byteord",
+      "docstring": null
+    },
+    {
+      "name": "strjoin",
+      "docstring": null
+    },
+    {
+      "name": "bytesjoin",
+      "docstring": null
+    },
+    {
+      "name": "transcode",
+      "docstring": null
+    },
+    {
+      "name": "tobytes",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

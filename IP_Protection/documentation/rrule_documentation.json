@@ -1,0 +1,221 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\dateutil\\rrule.py",
+  "classes": [
+    {
+      "name": "weekday",
+      "docstring": "This version of weekday does not allow n = 0.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "rrulebase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "count",
+          "docstring": "Returns the number of recurrences in this set. It will have go\nthrough the whole recurrence, if this hasn't been done before. "
+        },
+        {
+          "name": "before",
+          "docstring": "Returns the last recurrence before the given datetime instance. The\ninc keyword defines what happens if dt is an occurrence. With\ninc=True, if dt itself is an occurrence, it will be returned. "
+        },
+        {
+          "name": "after",
+          "docstring": "Returns the first recurrence after the given datetime instance. The\ninc keyword defines what happens if dt is an occurrence. With\ninc=True, if dt itself is an occurrence, it will be returned.  "
+        },
+        {
+          "name": "xafter",
+          "docstring": "Generator which yields up to `count` recurrences after the given\ndatetime instance, equivalent to `after`.\n\n:param dt:\n    The datetime at which to start generating recurrences.\n\n:param count:\n    The maximum number of recurrences to generate. If `None` (default),\n    dates are generated until the recurrence rule is exhausted.\n\n:param inc:\n    If `dt` is an instance of the rule and `inc` is `True`, it is\n    included in the output.\n\n:yields: Yields a sequence of `datetime` objects."
+        },
+        {
+          "name": "between",
+          "docstring": "Returns all the occurrences of the rrule between after and before.\nThe inc keyword defines what happens if after and/or before are\nthemselves occurrences. With inc=True, they will be included in the\nlist, if they are found in the recurrence set. "
+        }
+      ]
+    },
+    {
+      "name": "rrule",
+      "docstring": "That's the base of the rrule operation. It accepts all the keywords\ndefined in the RFC as its constructor parameters (except byday,\nwhich was renamed to byweekday) and more. The constructor prototype is::\n\n        rrule(freq)\n\nWhere freq must be one of YEARLY, MONTHLY, WEEKLY, DAILY, HOURLY, MINUTELY,\nor SECONDLY.\n\n.. note::\n    Per RFC section 3.3.10, recurrence instances falling on invalid dates\n    and times are ignored rather than coerced:\n\n        Recurrence rules may generate recurrence instances with an invalid\n        date (e.g., February 30) or nonexistent local time (e.g., 1:30 AM\n        on a day where the local time is moved forward by an hour at 1:00\n        AM).  Such recurrence instances MUST be ignored and MUST NOT be\n        counted as part of the recurrence set.\n\n    This can lead to possibly surprising behavior when, for example, the\n    start date occurs at the end of the month:\n\n    >>> from dateutil.rrule import rrule, MONTHLY\n    >>> from datetime import datetime\n    >>> start_date = datetime(2014, 12, 31)\n    >>> list(rrule(freq=MONTHLY, count=4, dtstart=start_date))\n    ... # doctest: +NORMALIZE_WHITESPACE\n    [datetime.datetime(2014, 12, 31, 0, 0),\n     datetime.datetime(2015, 1, 31, 0, 0),\n     datetime.datetime(2015, 3, 31, 0, 0),\n     datetime.datetime(2015, 5, 31, 0, 0)]\n\nAdditionally, it supports the following keyword arguments:\n\n:param dtstart:\n    The recurrence start. Besides being the base for the recurrence,\n    missing parameters in the final recurrence instances will also be\n    extracted from this date. If not given, datetime.now() will be used\n    instead.\n:param interval:\n    The interval between each freq iteration. For example, when using\n    YEARLY, an interval of 2 means once every two years, but with HOURLY,\n    it means once every two hours. The default interval is 1.\n:param wkst:\n    The week start day. Must be one of the MO, TU, WE constants, or an\n    integer, specifying the first day of the week. This will affect\n    recurrences based on weekly periods. The default week start is got\n    from calendar.firstweekday(), and may be modified by\n    calendar.setfirstweekday().\n:param count:\n    If given, this determines how many occurrences will be generated.\n\n    .. note::\n        As of version 2.5.0, the use of the keyword ``until`` in conjunction\n        with ``count`` is deprecated, to make sure ``dateutil`` is fully\n        compliant with `RFC-5545 Sec. 3.3.10 <https://tools.ietf.org/\n        html/rfc5545#section-3.3.10>`_. Therefore, ``until`` and ``count``\n        **must not** occur in the same call to ``rrule``.\n:param until:\n    If given, this must be a datetime instance specifying the upper-bound\n    limit of the recurrence. The last recurrence in the rule is the greatest\n    datetime that is less than or equal to the value specified in the\n    ``until`` parameter.\n\n    .. note::\n        As of version 2.5.0, the use of the keyword ``until`` in conjunction\n        with ``count`` is deprecated, to make sure ``dateutil`` is fully\n        compliant with `RFC-5545 Sec. 3.3.10 <https://tools.ietf.org/\n        html/rfc5545#section-3.3.10>`_. Therefore, ``until`` and ``count``\n        **must not** occur in the same call to ``rrule``.\n:param bysetpos:\n    If given, it must be either an integer, or a sequence of integers,\n    positive or negative. Each given integer will specify an occurrence\n    number, corresponding to the nth occurrence of the rule inside the\n    frequency period. For example, a bysetpos of -1 if combined with a\n    MONTHLY frequency, and a byweekday of (MO, TU, WE, TH, FR), will\n    result in the last work day of every month.\n:param bymonth:\n    If given, it must be either an integer, or a sequence of integers,\n    meaning the months to apply the recurrence to.\n:param bymonthday:\n    If given, it must be either an integer, or a sequence of integers,\n    meaning the month days to apply the recurrence to.\n:param byyearday:\n    If given, it must be either an integer, or a sequence of integers,\n    meaning the year days to apply the recurrence to.\n:param byeaster:\n    If given, it must be either an integer, or a sequence of integers,\n    positive or negative. Each integer will define an offset from the\n    Easter Sunday. Passing the offset 0 to byeaster will yield the Easter\n    Sunday itself. This is an extension to the RFC specification.\n:param byweekno:\n    If given, it must be either an integer, or a sequence of integers,\n    meaning the week numbers to apply the recurrence to. Week numbers\n    have the meaning described in ISO8601, that is, the first week of\n    the year is that containing at least four days of the new year.\n:param byweekday:\n    If given, it must be either an integer (0 == MO), a sequence of\n    integers, one of the weekday constants (MO, TU, etc), or a sequence\n    of these constants. When given, these variables will define the\n    weekdays where the recurrence will be applied. It's also possible to\n    use an argument n for the weekday instances, which will mean the nth\n    occurrence of this weekday in the period. For example, with MONTHLY,\n    or with YEARLY and BYMONTH, using FR(+1) in byweekday will specify the\n    first friday of the month where the recurrence happens. Notice that in\n    the RFC documentation, this is specified as BYDAY, but was renamed to\n    avoid the ambiguity of that keyword.\n:param byhour:\n    If given, it must be either an integer, or a sequence of integers,\n    meaning the hours to apply the recurrence to.\n:param byminute:\n    If given, it must be either an integer, or a sequence of integers,\n    meaning the minutes to apply the recurrence to.\n:param bysecond:\n    If given, it must be either an integer, or a sequence of integers,\n    meaning the seconds to apply the recurrence to.\n:param cache:\n    If given, it must be a boolean value specifying to enable or disable\n    caching of results. If you will use the same rrule instance multiple\n    times, enabling caching will improve the performance considerably.\n ",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "replace",
+          "docstring": "Return new rrule with same attributes except for those attributes given new\nvalues by whichever keyword arguments are specified."
+        }
+      ]
+    },
+    {
+      "name": "_iterinfo",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "rebuild",
+          "docstring": null
+        },
+        {
+          "name": "ydayset",
+          "docstring": null
+        },
+        {
+          "name": "mdayset",
+          "docstring": null
+        },
+        {
+          "name": "wdayset",
+          "docstring": null
+        },
+        {
+          "name": "ddayset",
+          "docstring": null
+        },
+        {
+          "name": "htimeset",
+          "docstring": null
+        },
+        {
+          "name": "mtimeset",
+          "docstring": null
+        },
+        {
+          "name": "stimeset",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "rruleset",
+      "docstring": "The rruleset type allows more complex recurrence setups, mixing\nmultiple rules, dates, exclusion rules, and exclusion dates. The type\nconstructor takes the following keyword arguments:\n\n:param cache: If True, caching of results will be enabled, improving\n              performance of multiple queries considerably. ",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "rrule",
+          "docstring": "Include the given :py:class:`rrule` instance in the recurrence set\ngeneration. "
+        },
+        {
+          "name": "rdate",
+          "docstring": "Include the given :py:class:`datetime` instance in the recurrence\nset generation. "
+        },
+        {
+          "name": "exrule",
+          "docstring": "Include the given rrule instance in the recurrence set exclusion\nlist. Dates which are part of the given recurrence rules will not\nbe generated, even if some inclusive rrule or rdate matches them."
+        },
+        {
+          "name": "exdate",
+          "docstring": "Include the given datetime instance in the recurrence set\nexclusion list. Dates included that way will not be generated,\neven if some inclusive rrule or rdate matches them. "
+        }
+      ]
+    },
+    {
+      "name": "_rrulestr",
+      "docstring": "Parses a string representation of a recurrence rule or set of\nrecurrence rules.\n\n:param s:\n    Required, a string defining one or more recurrence rules.\n\n:param dtstart:\n    If given, used as the default recurrence start if not specified in the\n    rule string.\n\n:param cache:\n    If set ``True`` caching of results will be enabled, improving\n    performance of multiple queries considerably.\n\n:param unfold:\n    If set ``True`` indicates that a rule string is split over more\n    than one line and should be joined before processing.\n\n:param forceset:\n    If set ``True`` forces a :class:`dateutil.rrule.rruleset` to\n    be returned.\n\n:param compatible:\n    If set ``True`` forces ``unfold`` and ``forceset`` to be ``True``.\n\n:param ignoretz:\n    If set ``True``, time zones in parsed strings are ignored and a naive\n    :class:`datetime.datetime` object is returned.\n\n:param tzids:\n    If given, a callable or mapping used to retrieve a\n    :class:`datetime.tzinfo` from a string representation.\n    Defaults to :func:`dateutil.tz.gettz`.\n\n:param tzinfos:\n    Additional time zone names / aliases which may be present in a string\n    representation.  See :func:`dateutil.parser.parse` for more\n    information.\n\n:return:\n    Returns a :class:`dateutil.rrule.rruleset` or\n    :class:`dateutil.rrule.rrule`",
+      "methods": []
+    },
+    {
+      "name": "_genitem",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "inner_func",
+      "docstring": null
+    },
+    {
+      "name": "count",
+      "docstring": "Returns the number of recurrences in this set. It will have go\nthrough the whole recurrence, if this hasn't been done before. "
+    },
+    {
+      "name": "before",
+      "docstring": "Returns the last recurrence before the given datetime instance. The\ninc keyword defines what happens if dt is an occurrence. With\ninc=True, if dt itself is an occurrence, it will be returned. "
+    },
+    {
+      "name": "after",
+      "docstring": "Returns the first recurrence after the given datetime instance. The\ninc keyword defines what happens if dt is an occurrence. With\ninc=True, if dt itself is an occurrence, it will be returned.  "
+    },
+    {
+      "name": "xafter",
+      "docstring": "Generator which yields up to `count` recurrences after the given\ndatetime instance, equivalent to `after`.\n\n:param dt:\n    The datetime at which to start generating recurrences.\n\n:param count:\n    The maximum number of recurrences to generate. If `None` (default),\n    dates are generated until the recurrence rule is exhausted.\n\n:param inc:\n    If `dt` is an instance of the rule and `inc` is `True`, it is\n    included in the output.\n\n:yields: Yields a sequence of `datetime` objects."
+    },
+    {
+      "name": "between",
+      "docstring": "Returns all the occurrences of the rrule between after and before.\nThe inc keyword defines what happens if after and/or before are\nthemselves occurrences. With inc=True, they will be included in the\nlist, if they are found in the recurrence set. "
+    },
+    {
+      "name": "replace",
+      "docstring": "Return new rrule with same attributes except for those attributes given new\nvalues by whichever keyword arguments are specified."
+    },
+    {
+      "name": "rebuild",
+      "docstring": null
+    },
+    {
+      "name": "ydayset",
+      "docstring": null
+    },
+    {
+      "name": "mdayset",
+      "docstring": null
+    },
+    {
+      "name": "wdayset",
+      "docstring": null
+    },
+    {
+      "name": "ddayset",
+      "docstring": null
+    },
+    {
+      "name": "htimeset",
+      "docstring": null
+    },
+    {
+      "name": "mtimeset",
+      "docstring": null
+    },
+    {
+      "name": "stimeset",
+      "docstring": null
+    },
+    {
+      "name": "rrule",
+      "docstring": "Include the given :py:class:`rrule` instance in the recurrence set\ngeneration. "
+    },
+    {
+      "name": "rdate",
+      "docstring": "Include the given :py:class:`datetime` instance in the recurrence\nset generation. "
+    },
+    {
+      "name": "exrule",
+      "docstring": "Include the given rrule instance in the recurrence set exclusion\nlist. Dates which are part of the given recurrence rules will not\nbe generated, even if some inclusive rrule or rdate matches them."
+    },
+    {
+      "name": "exdate",
+      "docstring": "Include the given datetime instance in the recurrence set\nexclusion list. Dates included that way will not be generated,\neven if some inclusive rrule or rdate matches them. "
+    }
+  ],
+  "innovations": []
+}

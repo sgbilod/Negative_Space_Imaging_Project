@@ -1,0 +1,936 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_ticker.py",
+  "classes": [
+    {
+      "name": "TestMaxNLocator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_integer",
+          "docstring": null
+        },
+        {
+          "name": "test_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_padding",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLinearLocator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_zero_numticks",
+          "docstring": null
+        },
+        {
+          "name": "test_set_params",
+          "docstring": "Create linear locator with presets={}, numticks=2 and change it to\nsomething else. See if change was successful. Should not exception."
+        },
+        {
+          "name": "test_presets",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMultipleLocator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_basic_with_offset",
+          "docstring": null
+        },
+        {
+          "name": "test_view_limits",
+          "docstring": "Test basic behavior of view limits."
+        },
+        {
+          "name": "test_view_limits_round_numbers",
+          "docstring": "Test that everything works properly with 'round_numbers' for auto\nlimit."
+        },
+        {
+          "name": "test_view_limits_round_numbers_with_offset",
+          "docstring": "Test that everything works properly with 'round_numbers' for auto\nlimit."
+        },
+        {
+          "name": "test_view_limits_single_bin",
+          "docstring": "Test that 'round_numbers' works properly with a single bin."
+        },
+        {
+          "name": "test_set_params",
+          "docstring": "Create multiple locator with 0.7 base, and change it to something else.\nSee if change was successful."
+        }
+      ]
+    },
+    {
+      "name": "TestAutoMinorLocator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_first_and_last_minorticks",
+          "docstring": "Test that first and last minor tick appear as expected."
+        },
+        {
+          "name": "test_low_number_of_majorticks",
+          "docstring": null
+        },
+        {
+          "name": "test_using_all_default_major_steps",
+          "docstring": null
+        },
+        {
+          "name": "test_number_of_minor_ticks",
+          "docstring": null
+        },
+        {
+          "name": "test_additional",
+          "docstring": null
+        },
+        {
+          "name": "test_number_of_minor_ticks_auto",
+          "docstring": null
+        },
+        {
+          "name": "test_number_of_minor_ticks_int",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLogLocator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_polar_axes",
+          "docstring": "Polar Axes have a different ticking logic."
+        },
+        {
+          "name": "test_switch_to_autolocator",
+          "docstring": null
+        },
+        {
+          "name": "test_set_params",
+          "docstring": "Create log locator with default value, base=10.0, subs=[1.0],\nnumticks=15 and change it to something else.\nSee if change was successful. Should not raise exception."
+        },
+        {
+          "name": "test_tick_values_correct",
+          "docstring": null
+        },
+        {
+          "name": "test_tick_values_not_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_multiple_shared_axes",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNullLocator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_set_params",
+          "docstring": "Create null locator, and attempt to call set_params() on it.\nShould not exception, and should raise a warning."
+        }
+      ]
+    },
+    {
+      "name": "_LogitHelper",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "isclose",
+          "docstring": null
+        },
+        {
+          "name": "assert_almost_equal",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLogitLocator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic_major",
+          "docstring": "Create logit locator with huge number of major, and tests ticks."
+        },
+        {
+          "name": "test_maxn_major",
+          "docstring": "When the axis is zoomed, the locator must have the same behavior as\nMaxNLocator."
+        },
+        {
+          "name": "test_nbins_major",
+          "docstring": "Assert logit locator for respecting nbins param."
+        },
+        {
+          "name": "test_minor",
+          "docstring": "In large scale, test the presence of minor,\nand assert no minor when major are subsampled."
+        },
+        {
+          "name": "test_minor_attr",
+          "docstring": null
+        },
+        {
+          "name": "test_nonsingular_ok",
+          "docstring": "Create logit locator, and test the nonsingular method for acceptable\nvalue"
+        },
+        {
+          "name": "test_nonsingular_nok",
+          "docstring": "Create logit locator, and test the nonsingular method for non\nacceptable value"
+        }
+      ]
+    },
+    {
+      "name": "TestFixedLocator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_set_params",
+          "docstring": "Create fixed locator with 5 nbins, and change it to something else.\nSee if change was successful.\nShould not exception."
+        }
+      ]
+    },
+    {
+      "name": "TestIndexLocator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_set_params",
+          "docstring": "Create index locator with 3 base, 4 offset. and change it to something\nelse. See if change was successful.\nShould not exception."
+        }
+      ]
+    },
+    {
+      "name": "TestSymmetricalLogLocator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_set_params",
+          "docstring": "Create symmetrical log locator with default subs =[1.0] numticks = 15,\nand change it to something else.\nSee if change was successful.\nShould not exception."
+        },
+        {
+          "name": "test_values",
+          "docstring": null
+        },
+        {
+          "name": "test_subs",
+          "docstring": null
+        },
+        {
+          "name": "test_extending",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAsinhLocator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_init",
+          "docstring": null
+        },
+        {
+          "name": "test_set_params",
+          "docstring": null
+        },
+        {
+          "name": "test_linear_values",
+          "docstring": null
+        },
+        {
+          "name": "test_wide_values",
+          "docstring": null
+        },
+        {
+          "name": "test_near_zero",
+          "docstring": "Check that manually injected zero will supersede nearby tick"
+        },
+        {
+          "name": "test_fallback",
+          "docstring": null
+        },
+        {
+          "name": "test_symmetrizing",
+          "docstring": null
+        },
+        {
+          "name": "test_base_rounding",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestScalarFormatter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_unicode_minus",
+          "docstring": null
+        },
+        {
+          "name": "test_offset_value",
+          "docstring": null
+        },
+        {
+          "name": "test_use_offset",
+          "docstring": null
+        },
+        {
+          "name": "test_useMathText",
+          "docstring": null
+        },
+        {
+          "name": "test_set_use_offset_float",
+          "docstring": null
+        },
+        {
+          "name": "test_use_locale",
+          "docstring": null
+        },
+        {
+          "name": "test_scilimits",
+          "docstring": null
+        },
+        {
+          "name": "test_format_data",
+          "docstring": null
+        },
+        {
+          "name": "test_cursor_precision",
+          "docstring": null
+        },
+        {
+          "name": "test_cursor_dummy_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_mathtext_ticks",
+          "docstring": null
+        },
+        {
+          "name": "test_cmr10_substitutions",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_locs",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLogFormatterExponent",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_blank",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLogFormatterMathtext",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_min_exponent",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLogFormatterSciNotation",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLogFormatter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_pprint",
+          "docstring": null
+        },
+        {
+          "name": "test_format_data",
+          "docstring": null
+        },
+        {
+          "name": "test_sublabel",
+          "docstring": null
+        },
+        {
+          "name": "test_LogFormatter_call",
+          "docstring": null
+        },
+        {
+          "name": "test_LogFormatter_call_tiny",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLogitFormatter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "logit_deformatter",
+          "docstring": "Parser to convert string as r'$\\mathdefault{1.41\\cdot10^{-4}}$' in\nfloat 1.41e-4, as '0.5' or as r'$\\mathdefault{\\frac{1}{2}}$' in float\n0.5,"
+        },
+        {
+          "name": "test_logit_deformater",
+          "docstring": null
+        },
+        {
+          "name": "test_basic",
+          "docstring": "Test the formatted value correspond to the value for ideal ticks in\nlogit space."
+        },
+        {
+          "name": "test_invalid",
+          "docstring": "Test that invalid value are formatted with empty string without\nraising exception."
+        },
+        {
+          "name": "test_variablelength",
+          "docstring": "The format length should change depending on the neighbor labels."
+        },
+        {
+          "name": "test_minor_vs_major",
+          "docstring": "Test minor/major displays."
+        },
+        {
+          "name": "test_minor_number",
+          "docstring": "Test the parameter minor_number"
+        },
+        {
+          "name": "test_use_overline",
+          "docstring": "Test the parameter use_overline"
+        },
+        {
+          "name": "test_one_half",
+          "docstring": "Test the parameter one_half"
+        },
+        {
+          "name": "test_format_data_short",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFormatStrFormatter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestStrMethodFormatter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEngFormatter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_params",
+          "docstring": "Test the formatting of EngFormatter for various values of the 'places'\nargument, in several cases:\n\n0. without a unit symbol but with a (default) space separator;\n1. with both a unit symbol and a (default) space separator;\n2. with both a unit symbol and some non default separators;\n3. without a unit symbol but with some non default separators.\n\nNote that cases 2. and 3. are looped over several separator strings."
+        }
+      ]
+    },
+    {
+      "name": "TestPercentFormatter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_latex",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_engformatter_usetex_useMathText",
+      "docstring": null
+    },
+    {
+      "name": "test_engformatter_offset_oom",
+      "docstring": null
+    },
+    {
+      "name": "test_locale_comma",
+      "docstring": null
+    },
+    {
+      "name": "test_majformatter_type",
+      "docstring": null
+    },
+    {
+      "name": "test_minformatter_type",
+      "docstring": null
+    },
+    {
+      "name": "test_majlocator_type",
+      "docstring": null
+    },
+    {
+      "name": "test_minlocator_type",
+      "docstring": null
+    },
+    {
+      "name": "test_minorticks_rc",
+      "docstring": null
+    },
+    {
+      "name": "test_minorticks_toggle",
+      "docstring": "Test toggling minor ticks\n\nTest `.Axis.minorticks_on()` and `.Axis.minorticks_off()`. Testing is\nlimited to a subset of built-in scales - `'linear'`, `'log'`, `'asinh'`\nand `'logit'`. `symlog` scale does not seem to have a working minor\nlocator and is omitted. In future, this test should cover all scales in\n`matplotlib.scale.get_scale_names()`."
+    },
+    {
+      "name": "test_remove_overlap",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_locator_subs",
+      "docstring": null
+    },
+    {
+      "name": "test_small_range_loglocator",
+      "docstring": null
+    },
+    {
+      "name": "test_NullFormatter",
+      "docstring": null
+    },
+    {
+      "name": "test_set_offset_string",
+      "docstring": null
+    },
+    {
+      "name": "test_minorticks_on_multi_fig",
+      "docstring": "Turning on minor gridlines in a multi-Axes Figure\nthat contains more than one boxplot and shares the x-axis\nshould not raise an exception."
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_integer",
+      "docstring": null
+    },
+    {
+      "name": "test_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_padding",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_zero_numticks",
+      "docstring": null
+    },
+    {
+      "name": "test_set_params",
+      "docstring": "Create linear locator with presets={}, numticks=2 and change it to\nsomething else. See if change was successful. Should not exception."
+    },
+    {
+      "name": "test_presets",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_basic_with_offset",
+      "docstring": null
+    },
+    {
+      "name": "test_view_limits",
+      "docstring": "Test basic behavior of view limits."
+    },
+    {
+      "name": "test_view_limits_round_numbers",
+      "docstring": "Test that everything works properly with 'round_numbers' for auto\nlimit."
+    },
+    {
+      "name": "test_view_limits_round_numbers_with_offset",
+      "docstring": "Test that everything works properly with 'round_numbers' for auto\nlimit."
+    },
+    {
+      "name": "test_view_limits_single_bin",
+      "docstring": "Test that 'round_numbers' works properly with a single bin."
+    },
+    {
+      "name": "test_set_params",
+      "docstring": "Create multiple locator with 0.7 base, and change it to something else.\nSee if change was successful."
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_first_and_last_minorticks",
+      "docstring": "Test that first and last minor tick appear as expected."
+    },
+    {
+      "name": "test_low_number_of_majorticks",
+      "docstring": null
+    },
+    {
+      "name": "test_using_all_default_major_steps",
+      "docstring": null
+    },
+    {
+      "name": "test_number_of_minor_ticks",
+      "docstring": null
+    },
+    {
+      "name": "test_additional",
+      "docstring": null
+    },
+    {
+      "name": "test_number_of_minor_ticks_auto",
+      "docstring": null
+    },
+    {
+      "name": "test_number_of_minor_ticks_int",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_polar_axes",
+      "docstring": "Polar Axes have a different ticking logic."
+    },
+    {
+      "name": "test_switch_to_autolocator",
+      "docstring": null
+    },
+    {
+      "name": "test_set_params",
+      "docstring": "Create log locator with default value, base=10.0, subs=[1.0],\nnumticks=15 and change it to something else.\nSee if change was successful. Should not raise exception."
+    },
+    {
+      "name": "test_tick_values_correct",
+      "docstring": null
+    },
+    {
+      "name": "test_tick_values_not_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_multiple_shared_axes",
+      "docstring": null
+    },
+    {
+      "name": "test_set_params",
+      "docstring": "Create null locator, and attempt to call set_params() on it.\nShould not exception, and should raise a warning."
+    },
+    {
+      "name": "isclose",
+      "docstring": null
+    },
+    {
+      "name": "assert_almost_equal",
+      "docstring": null
+    },
+    {
+      "name": "test_basic_major",
+      "docstring": "Create logit locator with huge number of major, and tests ticks."
+    },
+    {
+      "name": "test_maxn_major",
+      "docstring": "When the axis is zoomed, the locator must have the same behavior as\nMaxNLocator."
+    },
+    {
+      "name": "test_nbins_major",
+      "docstring": "Assert logit locator for respecting nbins param."
+    },
+    {
+      "name": "test_minor",
+      "docstring": "In large scale, test the presence of minor,\nand assert no minor when major are subsampled."
+    },
+    {
+      "name": "test_minor_attr",
+      "docstring": null
+    },
+    {
+      "name": "test_nonsingular_ok",
+      "docstring": "Create logit locator, and test the nonsingular method for acceptable\nvalue"
+    },
+    {
+      "name": "test_nonsingular_nok",
+      "docstring": "Create logit locator, and test the nonsingular method for non\nacceptable value"
+    },
+    {
+      "name": "test_set_params",
+      "docstring": "Create fixed locator with 5 nbins, and change it to something else.\nSee if change was successful.\nShould not exception."
+    },
+    {
+      "name": "test_set_params",
+      "docstring": "Create index locator with 3 base, 4 offset. and change it to something\nelse. See if change was successful.\nShould not exception."
+    },
+    {
+      "name": "test_set_params",
+      "docstring": "Create symmetrical log locator with default subs =[1.0] numticks = 15,\nand change it to something else.\nSee if change was successful.\nShould not exception."
+    },
+    {
+      "name": "test_values",
+      "docstring": null
+    },
+    {
+      "name": "test_subs",
+      "docstring": null
+    },
+    {
+      "name": "test_extending",
+      "docstring": null
+    },
+    {
+      "name": "test_init",
+      "docstring": null
+    },
+    {
+      "name": "test_set_params",
+      "docstring": null
+    },
+    {
+      "name": "test_linear_values",
+      "docstring": null
+    },
+    {
+      "name": "test_wide_values",
+      "docstring": null
+    },
+    {
+      "name": "test_near_zero",
+      "docstring": "Check that manually injected zero will supersede nearby tick"
+    },
+    {
+      "name": "test_fallback",
+      "docstring": null
+    },
+    {
+      "name": "test_symmetrizing",
+      "docstring": null
+    },
+    {
+      "name": "test_base_rounding",
+      "docstring": null
+    },
+    {
+      "name": "test_unicode_minus",
+      "docstring": null
+    },
+    {
+      "name": "test_offset_value",
+      "docstring": null
+    },
+    {
+      "name": "test_use_offset",
+      "docstring": null
+    },
+    {
+      "name": "test_useMathText",
+      "docstring": null
+    },
+    {
+      "name": "test_set_use_offset_float",
+      "docstring": null
+    },
+    {
+      "name": "test_use_locale",
+      "docstring": null
+    },
+    {
+      "name": "test_scilimits",
+      "docstring": null
+    },
+    {
+      "name": "test_format_data",
+      "docstring": null
+    },
+    {
+      "name": "test_cursor_precision",
+      "docstring": null
+    },
+    {
+      "name": "test_cursor_dummy_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_mathtext_ticks",
+      "docstring": null
+    },
+    {
+      "name": "test_cmr10_substitutions",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_locs",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_blank",
+      "docstring": null
+    },
+    {
+      "name": "test_min_exponent",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_pprint",
+      "docstring": null
+    },
+    {
+      "name": "test_format_data",
+      "docstring": null
+    },
+    {
+      "name": "test_sublabel",
+      "docstring": null
+    },
+    {
+      "name": "test_LogFormatter_call",
+      "docstring": null
+    },
+    {
+      "name": "test_LogFormatter_call_tiny",
+      "docstring": null
+    },
+    {
+      "name": "logit_deformatter",
+      "docstring": "Parser to convert string as r'$\\mathdefault{1.41\\cdot10^{-4}}$' in\nfloat 1.41e-4, as '0.5' or as r'$\\mathdefault{\\frac{1}{2}}$' in float\n0.5,"
+    },
+    {
+      "name": "test_logit_deformater",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": "Test the formatted value correspond to the value for ideal ticks in\nlogit space."
+    },
+    {
+      "name": "test_invalid",
+      "docstring": "Test that invalid value are formatted with empty string without\nraising exception."
+    },
+    {
+      "name": "test_variablelength",
+      "docstring": "The format length should change depending on the neighbor labels."
+    },
+    {
+      "name": "test_minor_vs_major",
+      "docstring": "Test minor/major displays."
+    },
+    {
+      "name": "test_minor_number",
+      "docstring": "Test the parameter minor_number"
+    },
+    {
+      "name": "test_use_overline",
+      "docstring": "Test the parameter use_overline"
+    },
+    {
+      "name": "test_one_half",
+      "docstring": "Test the parameter one_half"
+    },
+    {
+      "name": "test_format_data_short",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_params",
+      "docstring": "Test the formatting of EngFormatter for various values of the 'places'\nargument, in several cases:\n\n0. without a unit symbol but with a (default) space separator;\n1. with both a unit symbol and a (default) space separator;\n2. with both a unit symbol and some non default separators;\n3. without a unit symbol but with some non default separators.\n\nNote that cases 2. and 3. are looped over several separator strings."
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_latex",
+      "docstring": null
+    },
+    {
+      "name": "minorticksubplot",
+      "docstring": null
+    },
+    {
+      "name": "minortickstoggle",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

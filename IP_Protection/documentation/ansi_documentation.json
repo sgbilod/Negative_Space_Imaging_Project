@@ -1,0 +1,43 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\ansi.py",
+  "classes": [
+    {
+      "name": "_AnsiToken",
+      "docstring": "Result of ansi tokenized string.",
+      "methods": []
+    },
+    {
+      "name": "AnsiDecoder",
+      "docstring": "Translate ANSI code in to styled Text.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "decode",
+          "docstring": "Decode ANSI codes in an iterable of lines.\n\nArgs:\n    lines (Iterable[str]): An iterable of lines of terminal output.\n\nYields:\n    Text: Marked up Text."
+        },
+        {
+          "name": "decode_line",
+          "docstring": "Decode a line containing ansi codes.\n\nArgs:\n    line (str): A line of terminal output.\n\nReturns:\n    Text: A Text instance marked up according to ansi codes."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "decode",
+      "docstring": "Decode ANSI codes in an iterable of lines.\n\nArgs:\n    lines (Iterable[str]): An iterable of lines of terminal output.\n\nYields:\n    Text: Marked up Text."
+    },
+    {
+      "name": "decode_line",
+      "docstring": "Decode a line containing ansi codes.\n\nArgs:\n    line (str): A line of terminal output.\n\nReturns:\n    Text: A Text instance marked up according to ansi codes."
+    },
+    {
+      "name": "read",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

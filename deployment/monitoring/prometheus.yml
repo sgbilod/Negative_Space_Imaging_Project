@@ -1,0 +1,53 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093
+
+rule_files:
+  # - "alert_rules.yml"
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'api-gateway'
+    scrape_interval: 5s
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['api-gateway:8080']
+
+  - job_name: 'image-processing'
+    scrape_interval: 5s
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['image-processing:9000']
+
+  - job_name: 'data-storage'
+    scrape_interval: 5s
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['data-storage:8000']
+
+  - job_name: 'distributed-computing'
+    scrape_interval: 5s
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['distributed-computing:8787']
+
+  - job_name: 'security'
+    scrape_interval: 5s
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['security:8443']
+
+  - job_name: 'node'
+    static_configs:
+      - targets: ['node-exporter:9100']
+
+  # Additional targets can be added for other services

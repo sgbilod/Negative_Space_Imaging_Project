@@ -1,0 +1,93 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\ffmpeg.py",
+  "classes": [
+    {
+      "name": "FfmpegFormat",
+      "docstring": "Read/Write ImageResources using FFMPEG.\n\nSee :mod:`imageio.plugins.ffmpeg`",
+      "methods": []
+    },
+    {
+      "name": "FrameCatcher",
+      "docstring": "Thread to keep reading the frame data from stdout. This is\nuseful when streaming from a webcam. Otherwise, if the user code\ndoes not grab frames fast enough, the buffer will fill up, leading\nto lag, and ffmpeg can also stall (experienced on Linux). The\nget_frame() method always returns the last available image.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "stop_me",
+          "docstring": null
+        },
+        {
+          "name": "get_frame",
+          "docstring": null
+        },
+        {
+          "name": "run",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "count_frames",
+          "docstring": "Count the number of frames. Note that this can take a few\nseconds for large files. Also note that it counts the number\nof frames in the original video and does not take a given fps\ninto account."
+        }
+      ]
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "set_meta_data",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "download",
+      "docstring": null
+    },
+    {
+      "name": "get_exe",
+      "docstring": "Wrapper for imageio_ffmpeg.get_ffmpeg_exe()"
+    },
+    {
+      "name": "parse_device_names",
+      "docstring": "Parse the output of the ffmpeg -list-devices command"
+    },
+    {
+      "name": "stop_me",
+      "docstring": null
+    },
+    {
+      "name": "get_frame",
+      "docstring": null
+    },
+    {
+      "name": "run",
+      "docstring": null
+    },
+    {
+      "name": "count_frames",
+      "docstring": "Count the number of frames. Note that this can take a few\nseconds for large files. Also note that it counts the number\nof frames in the original video and does not take a given fps\ninto account."
+    },
+    {
+      "name": "set_meta_data",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "            # To be written efficiently, ie. without creating an immutable\n            # buffer, by calling im.tobytes() the array must be contiguous.\n            if not im.flags.c_contiguous:\n                # checkign the flag is a micro optimization.\n                # the image will be a numpy subclass. See discussion\n                # https://github.com/numpy/numpy/issues/11804\n                im = np.ascontiguousarray(im)"
+    }
+  ]
+}

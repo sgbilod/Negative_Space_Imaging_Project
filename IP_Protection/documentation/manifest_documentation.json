@@ -1,0 +1,70 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\distlib\\manifest.py",
+  "classes": [
+    {
+      "name": "Manifest",
+      "docstring": "A list of files built by exploring the filesystem and filtered by applying various\npatterns to what we find there.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialise an instance.\n\n:param base: The base directory to explore under."
+        },
+        {
+          "name": "findall",
+          "docstring": "Find all files under the base and set ``allfiles`` to the absolute\npathnames of files found."
+        },
+        {
+          "name": "add",
+          "docstring": "Add a file to the manifest.\n\n:param item: The pathname to add. This can be relative to the base."
+        },
+        {
+          "name": "add_many",
+          "docstring": "Add a list of files to the manifest.\n\n:param items: The pathnames to add. These can be relative to the base."
+        },
+        {
+          "name": "sorted",
+          "docstring": "Return sorted files in directory order"
+        },
+        {
+          "name": "clear",
+          "docstring": "Clear all collected files."
+        },
+        {
+          "name": "process_directive",
+          "docstring": "Process a directive which either adds some files from ``allfiles`` to\n``files``, or removes some files from ``files``.\n\n:param directive: The directive to process. This should be in a format\n             compatible with distutils ``MANIFEST.in`` files:\n\n             http://docs.python.org/distutils/sourcedist.html#commands"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "findall",
+      "docstring": "Find all files under the base and set ``allfiles`` to the absolute\npathnames of files found."
+    },
+    {
+      "name": "add",
+      "docstring": "Add a file to the manifest.\n\n:param item: The pathname to add. This can be relative to the base."
+    },
+    {
+      "name": "add_many",
+      "docstring": "Add a list of files to the manifest.\n\n:param items: The pathnames to add. These can be relative to the base."
+    },
+    {
+      "name": "sorted",
+      "docstring": "Return sorted files in directory order"
+    },
+    {
+      "name": "clear",
+      "docstring": "Clear all collected files."
+    },
+    {
+      "name": "process_directive",
+      "docstring": "Process a directive which either adds some files from ``allfiles`` to\n``files``, or removes some files from ``files``.\n\n:param directive: The directive to process. This should be in a format\n             compatible with distutils ``MANIFEST.in`` files:\n\n             http://docs.python.org/distutils/sourcedist.html#commands"
+    },
+    {
+      "name": "add_dir",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

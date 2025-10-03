@@ -1,0 +1,17 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\_machar.py",
+  "classes": [
+    {
+      "name": "MachAr",
+      "docstring": "Diagnosing machine parameters.\n\nAttributes\n----------\nibeta : int\n    Radix in which numbers are represented.\nit : int\n    Number of base-`ibeta` digits in the floating point mantissa M.\nmachep : int\n    Exponent of the smallest (most negative) power of `ibeta` that,\n    added to 1.0, gives something different from 1.0\neps : float\n    Floating-point number ``beta**machep`` (floating point precision)\nnegep : int\n    Exponent of the smallest power of `ibeta` that, subtracted\n    from 1.0, gives something different from 1.0.\nepsneg : float\n    Floating-point number ``beta**negep``.\niexp : int\n    Number of bits in the exponent (including its sign and bias).\nminexp : int\n    Smallest (most negative) power of `ibeta` consistent with there\n    being no leading zeros in the mantissa.\nxmin : float\n    Floating-point number ``beta**minexp`` (the smallest [in\n    magnitude] positive floating point number with full precision).\nmaxexp : int\n    Smallest (positive) power of `ibeta` that causes overflow.\nxmax : float\n    ``(1-epsneg) * beta**maxexp`` (the largest [in magnitude]\n    usable floating value).\nirnd : int\n    In ``range(6)``, information on what kind of rounding is done\n    in addition, and on how underflow is handled.\nngrd : int\n    Number of 'guard digits' used when truncating the product\n    of two mantissas to fit the representation.\nepsilon : float\n    Same as `eps`.\ntiny : float\n    An alias for `smallest_normal`, kept for backwards compatibility.\nhuge : float\n    Same as `xmax`.\nprecision : float\n    ``- int(-log10(eps))``\nresolution : float\n    ``- 10**(-precision)``\nsmallest_normal : float\n    The smallest positive floating point number with 1 as leading bit in\n    the mantissa following IEEE-754. Same as `xmin`.\nsmallest_subnormal : float\n    The smallest positive floating point number with 0 as leading bit in\n    the mantissa following IEEE-754.\n\nParameters\n----------\nfloat_conv : function, optional\n    Function that converts an integer or integer array to a float\n    or float array. Default is `float`.\nint_conv : function, optional\n    Function that converts a float or float array to an integer or\n    integer array. Default is `int`.\nfloat_to_float : function, optional\n    Function that converts a float array to float. Default is `float`.\n    Note that this does not seem to do anything useful in the current\n    implementation.\nfloat_to_str : function, optional\n    Function that converts a single float to a string. Default is\n    ``lambda v:'%24.16e' %v``.\ntitle : str, optional\n    Title that is printed in the string representation of `MachAr`.\n\nSee Also\n--------\nfinfo : Machine limits for floating point types.\niinfo : Machine limits for integer types.\n\nReferences\n----------\n.. [1] Press, Teukolsky, Vetterling and Flannery,\n       \"Numerical Recipes in C++,\" 2nd ed,\n       Cambridge University Press, 2002, p. 31.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "float_conv - convert integer to float (array)\nint_conv   - convert float (array) to integer\nfloat_to_float - convert float array to float\nfloat_to_str - convert array float to str\ntitle        - description of used floating point numbers"
+        }
+      ]
+    }
+  ],
+  "functions": [],
+  "innovations": []
+}

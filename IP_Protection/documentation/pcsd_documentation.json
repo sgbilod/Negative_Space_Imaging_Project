@@ -1,0 +1,124 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\negative-space-project\\pcsd.py",
+  "classes": [
+    {
+      "name": "SymmetryAnalyzer",
+      "docstring": "Analyzes symmetrical properties in point clouds using phase conjugation.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the symmetry analyzer.\n\nArgs:\n    tolerance: Tolerance for symmetry detection"
+        },
+        {
+          "name": "detect_reflection_symmetry",
+          "docstring": "Detect reflection symmetry planes in a point cloud.\n\nArgs:\n    points: Array of points (N x D)\n    \nReturns:\n    dict: Detected symmetry planes and scores"
+        },
+        {
+          "name": "detect_rotational_symmetry",
+          "docstring": "Detect rotational symmetry axes and orders.\n\nArgs:\n    points: Array of points\n    max_order: Maximum symmetry order to check\n    \nReturns:\n    dict: Detected rotation axes and orders"
+        }
+      ]
+    },
+    {
+      "name": "PhaseConjugateAnalyzer",
+      "docstring": "Analyzes symmetry using phase conjugation principles.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the analyzer"
+        },
+        {
+          "name": "compute_phase_space",
+          "docstring": "Transform points into phase space representation.\n\nArgs:\n    points: Array of points\n    \nReturns:\n    dict: Phase space representation"
+        },
+        {
+          "name": "detect_conjugate_patterns",
+          "docstring": "Detect conjugate patterns in phase space.\n\nArgs:\n    phase_data: Phase space data\n    threshold: Similarity threshold\n    \nReturns:\n    list: Detected conjugate patterns"
+        }
+      ]
+    },
+    {
+      "name": "SymmetryVisualizer",
+      "docstring": "Visualizes detected symmetries and patterns.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the visualizer"
+        },
+        {
+          "name": "plot_reflection_symmetry",
+          "docstring": "Visualize reflection symmetry planes.\n\nArgs:\n    points: Original point cloud\n    symmetry_results: Results from symmetry detection\n    title: Plot title\n    output_path: Path to save the figure"
+        },
+        {
+          "name": "plot_rotational_symmetry",
+          "docstring": "Visualize rotational symmetry axes.\n\nArgs:\n    points: Original point cloud\n    symmetry_results: Results from rotational symmetry detection\n    title: Plot title\n    output_path: Path to save the figure"
+        },
+        {
+          "name": "plot_phase_space",
+          "docstring": "Visualize phase space and conjugate patterns.\n\nArgs:\n    phase_data: Phase space representation\n    patterns: Detected conjugate patterns\n    title: Plot title\n    output_path: Path to save the figure"
+        }
+      ]
+    },
+    {
+      "name": "PhaseConjugateSymmetryDetector",
+      "docstring": "Main class for Phase-Conjugate Symmetry Detection (PCSD).\nIntegrates symmetry analysis and phase conjugation methods.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the detector.\n\nArgs:\n    tolerance: Tolerance for symmetry detection"
+        },
+        {
+          "name": "analyze_symmetry",
+          "docstring": "Perform complete symmetry analysis on a point cloud.\n\nArgs:\n    points: Array of points\n    \nReturns:\n    dict: Analysis results"
+        },
+        {
+          "name": "visualize_results",
+          "docstring": "Generate visualizations for all symmetry analysis results.\n\nArgs:\n    points: Original point cloud\n    results: Analysis results\n    output_dir: Directory to save visualizations"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "detect_symmetry_in_negative_spaces",
+      "docstring": "Analyze symmetry in negative spaces from a point cloud.\n\nArgs:\n    point_cloud: NegativeSpacePointCloud object\n    \nReturns:\n    dict: Symmetry analysis results"
+    },
+    {
+      "name": "detect_reflection_symmetry",
+      "docstring": "Detect reflection symmetry planes in a point cloud.\n\nArgs:\n    points: Array of points (N x D)\n    \nReturns:\n    dict: Detected symmetry planes and scores"
+    },
+    {
+      "name": "detect_rotational_symmetry",
+      "docstring": "Detect rotational symmetry axes and orders.\n\nArgs:\n    points: Array of points\n    max_order: Maximum symmetry order to check\n    \nReturns:\n    dict: Detected rotation axes and orders"
+    },
+    {
+      "name": "compute_phase_space",
+      "docstring": "Transform points into phase space representation.\n\nArgs:\n    points: Array of points\n    \nReturns:\n    dict: Phase space representation"
+    },
+    {
+      "name": "detect_conjugate_patterns",
+      "docstring": "Detect conjugate patterns in phase space.\n\nArgs:\n    phase_data: Phase space data\n    threshold: Similarity threshold\n    \nReturns:\n    list: Detected conjugate patterns"
+    },
+    {
+      "name": "plot_reflection_symmetry",
+      "docstring": "Visualize reflection symmetry planes.\n\nArgs:\n    points: Original point cloud\n    symmetry_results: Results from symmetry detection\n    title: Plot title\n    output_path: Path to save the figure"
+    },
+    {
+      "name": "plot_rotational_symmetry",
+      "docstring": "Visualize rotational symmetry axes.\n\nArgs:\n    points: Original point cloud\n    symmetry_results: Results from rotational symmetry detection\n    title: Plot title\n    output_path: Path to save the figure"
+    },
+    {
+      "name": "plot_phase_space",
+      "docstring": "Visualize phase space and conjugate patterns.\n\nArgs:\n    phase_data: Phase space representation\n    patterns: Detected conjugate patterns\n    title: Plot title\n    output_path: Path to save the figure"
+    },
+    {
+      "name": "analyze_symmetry",
+      "docstring": "Perform complete symmetry analysis on a point cloud.\n\nArgs:\n    points: Array of points\n    \nReturns:\n    dict: Analysis results"
+    },
+    {
+      "name": "visualize_results",
+      "docstring": "Generate visualizations for all symmetry analysis results.\n\nArgs:\n    points: Original point cloud\n    results: Analysis results\n    output_dir: Directory to save visualizations"
+    }
+  ],
+  "innovations": []
+}

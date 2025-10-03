@@ -1,0 +1,96 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\dateutil\\tz\\win.py",
+  "classes": [
+    {
+      "name": "tzres",
+      "docstring": "Class for accessing ``tzres.dll``, which contains timezone name related\nresources.\n\n.. versionadded:: 2.5.0",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "load_name",
+          "docstring": "Load a timezone name from a DLL offset (integer).\n\n>>> from dateutil.tzwin import tzres\n>>> tzr = tzres()\n>>> print(tzr.load_name(112))\n'Eastern Standard Time'\n\n:param offset:\n    A positive integer value referring to a string from the tzres dll.\n\n.. note::\n\n    Offsets found in the registry are generally of the form\n    ``@tzres.dll,-114``. The offset in this case is 114, not -114."
+        },
+        {
+          "name": "name_from_string",
+          "docstring": "Parse strings as returned from the Windows registry into the time zone\nname as defined in the registry.\n\n>>> from dateutil.tzwin import tzres\n>>> tzr = tzres()\n>>> print(tzr.name_from_string('@tzres.dll,-251'))\n'Dateline Daylight Time'\n>>> print(tzr.name_from_string('Eastern Standard Time'))\n'Eastern Standard Time'\n\n:param tzname_str:\n    A timezone name string as returned from a Windows registry key.\n\n:return:\n    Returns the localized timezone string from tzres.dll if the string\n    is of the form `@tzres.dll,-offset`, else returns the input string."
+        }
+      ]
+    },
+    {
+      "name": "tzwinbase",
+      "docstring": "tzinfo class based on win32's timezones available in the registry.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "list",
+          "docstring": "Return a list of all time zones known to the system."
+        },
+        {
+          "name": "display",
+          "docstring": "Return the display name of the time zone."
+        },
+        {
+          "name": "transitions",
+          "docstring": "For a given year, get the DST on and off transition times, expressed\nalways on the standard time side. For zones with no transitions, this\nfunction returns ``None``.\n\n:param year:\n    The year whose transitions you would like to query.\n\n:return:\n    Returns a :class:`tuple` of :class:`datetime.datetime` objects,\n    ``(dston, dstoff)`` for zones with an annual DST transition, or\n    ``None`` for fixed offset zones."
+        }
+      ]
+    },
+    {
+      "name": "tzwin",
+      "docstring": "Time zone object created from the zone info in the Windows registry\n\nThese are similar to :py:class:`dateutil.tz.tzrange` objects in that\nthe time zone data is provided in the format of a single offset rule\nfor either 0 or 2 time zone transitions per year.\n\n:param: name\n    The name of a Windows time zone key, e.g. \"Eastern Standard Time\".\n    The full list of keys can be retrieved with :func:`tzwin.list`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "tzwinlocal",
+      "docstring": "Class representing the local time zone information in the Windows registry\n\nWhile :class:`dateutil.tz.tzlocal` makes system calls (via the :mod:`time`\nmodule) to retrieve time zone information, ``tzwinlocal`` retrieves the\nrules directly from the Windows registry and creates an object like\n:class:`dateutil.tz.tzwin`.\n\nBecause Windows does not have an equivalent of :func:`time.tzset`, on\nWindows, :class:`dateutil.tz.tzlocal` instances will always reflect the\ntime zone settings *at the time that the process was started*, meaning\nchanges to the machine's time zone settings during the run of a program\non Windows will **not** be reflected by :class:`dateutil.tz.tzlocal`.\nBecause ``tzwinlocal`` reads the registry directly, it is unaffected by\nthis issue.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "picknthweekday",
+      "docstring": "dayofweek == 0 means Sunday, whichweek 5 means last instance "
+    },
+    {
+      "name": "valuestodict",
+      "docstring": "Convert a registry key's values to a dictionary."
+    },
+    {
+      "name": "load_name",
+      "docstring": "Load a timezone name from a DLL offset (integer).\n\n>>> from dateutil.tzwin import tzres\n>>> tzr = tzres()\n>>> print(tzr.load_name(112))\n'Eastern Standard Time'\n\n:param offset:\n    A positive integer value referring to a string from the tzres dll.\n\n.. note::\n\n    Offsets found in the registry are generally of the form\n    ``@tzres.dll,-114``. The offset in this case is 114, not -114."
+    },
+    {
+      "name": "name_from_string",
+      "docstring": "Parse strings as returned from the Windows registry into the time zone\nname as defined in the registry.\n\n>>> from dateutil.tzwin import tzres\n>>> tzr = tzres()\n>>> print(tzr.name_from_string('@tzres.dll,-251'))\n'Dateline Daylight Time'\n>>> print(tzr.name_from_string('Eastern Standard Time'))\n'Eastern Standard Time'\n\n:param tzname_str:\n    A timezone name string as returned from a Windows registry key.\n\n:return:\n    Returns the localized timezone string from tzres.dll if the string\n    is of the form `@tzres.dll,-offset`, else returns the input string."
+    },
+    {
+      "name": "list",
+      "docstring": "Return a list of all time zones known to the system."
+    },
+    {
+      "name": "display",
+      "docstring": "Return the display name of the time zone."
+    },
+    {
+      "name": "transitions",
+      "docstring": "For a given year, get the DST on and off transition times, expressed\nalways on the standard time side. For zones with no transitions, this\nfunction returns ``None``.\n\n:param year:\n    The year whose transitions you would like to query.\n\n:return:\n    Returns a :class:`tuple` of :class:`datetime.datetime` objects,\n    ``(dston, dstoff)`` for zones with an annual DST transition, or\n    ``None`` for fixed offset zones."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,42 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\ttCollection.py",
+  "classes": [
+    {
+      "name": "TTCollection",
+      "docstring": "Object representing a TrueType Collection / OpenType Collection.\nThe main API is self.fonts being a list of TTFont instances.\n\nIf shareTables is True, then different fonts in the collection\nmight point to the same table object if the data for the table was\nthe same in the font file.  Note, however, that this might result\nin suprises and incorrect behavior if the different fonts involved\nhave different GlyphOrder.  Use only if you know what you are doing.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "save",
+          "docstring": "Save the font to disk. Similarly to the constructor,\nthe 'file' argument can be either a pathname or a writable\nfile object."
+        },
+        {
+          "name": "saveXML",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "save",
+      "docstring": "Save the font to disk. Similarly to the constructor,\nthe 'file' argument can be either a pathname or a writable\nfile object."
+    },
+    {
+      "name": "saveXML",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

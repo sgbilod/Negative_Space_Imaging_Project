@@ -1,0 +1,34 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\spinner.py",
+  "classes": [
+    {
+      "name": "Spinner",
+      "docstring": "A spinner animation.\n\nArgs:\n    name (str): Name of spinner (run python -m rich.spinner).\n    text (RenderableType, optional): A renderable to display at the right of the spinner (str or Text typically). Defaults to \"\".\n    style (StyleType, optional): Style for spinner animation. Defaults to None.\n    speed (float, optional): Speed factor for animation. Defaults to 1.0.\n\nRaises:\n    KeyError: If name isn't one of the supported spinner animations.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "render",
+          "docstring": "Render the spinner for a given time.\n\nArgs:\n    time (float): Time in seconds.\n\nReturns:\n    RenderableType: A renderable containing animation frame."
+        },
+        {
+          "name": "update",
+          "docstring": "Updates attributes of a spinner after it has been started.\n\nArgs:\n    text (RenderableType, optional): A renderable to display at the right of the spinner (str or Text typically). Defaults to \"\".\n    style (StyleType, optional): Style for spinner animation. Defaults to None.\n    speed (float, optional): Speed factor for animation. Defaults to None."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "render",
+      "docstring": "Render the spinner for a given time.\n\nArgs:\n    time (float): Time in seconds.\n\nReturns:\n    RenderableType: A renderable containing animation frame."
+    },
+    {
+      "name": "update",
+      "docstring": "Updates attributes of a spinner after it has been started.\n\nArgs:\n    text (RenderableType, optional): A renderable to display at the right of the spinner (str or Text typically). Defaults to \"\".\n    style (StyleType, optional): Style for spinner animation. Defaults to None.\n    speed (float, optional): Speed factor for animation. Defaults to None."
+    }
+  ],
+  "innovations": []
+}

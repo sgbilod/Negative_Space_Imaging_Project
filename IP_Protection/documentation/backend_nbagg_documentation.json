@@ -1,0 +1,163 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\backend_nbagg.py",
+  "classes": [
+    {
+      "name": "NavigationIPy",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "FigureManagerNbAgg",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "create_with_canvas",
+          "docstring": null
+        },
+        {
+          "name": "display_js",
+          "docstring": null
+        },
+        {
+          "name": "show",
+          "docstring": null
+        },
+        {
+          "name": "reshow",
+          "docstring": "A special method to re-show the figure in the notebook."
+        },
+        {
+          "name": "connected",
+          "docstring": null
+        },
+        {
+          "name": "get_javascript",
+          "docstring": null
+        },
+        {
+          "name": "destroy",
+          "docstring": null
+        },
+        {
+          "name": "clearup_closed",
+          "docstring": "Clear up any closed Comms."
+        },
+        {
+          "name": "remove_comm",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FigureCanvasNbAgg",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "CommSocket",
+      "docstring": "Manages the Comm connection between IPython and the browser (client).\n\nComms are 2 way, with the CommSocket being able to publish a message\nvia the send_json method, and handle a message with on_message. On the\nJS side figure.send_message and figure.ws.onmessage do the sending and\nreceiving respectively.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "is_open",
+          "docstring": null
+        },
+        {
+          "name": "on_close",
+          "docstring": null
+        },
+        {
+          "name": "send_json",
+          "docstring": null
+        },
+        {
+          "name": "send_binary",
+          "docstring": null
+        },
+        {
+          "name": "on_message",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BackendNbAgg",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "connection_info",
+      "docstring": "Return a string showing the figure and connection status for the backend.\n\nThis is intended as a diagnostic tool, and not for general use."
+    },
+    {
+      "name": "create_with_canvas",
+      "docstring": null
+    },
+    {
+      "name": "display_js",
+      "docstring": null
+    },
+    {
+      "name": "show",
+      "docstring": null
+    },
+    {
+      "name": "reshow",
+      "docstring": "A special method to re-show the figure in the notebook."
+    },
+    {
+      "name": "connected",
+      "docstring": null
+    },
+    {
+      "name": "get_javascript",
+      "docstring": null
+    },
+    {
+      "name": "destroy",
+      "docstring": null
+    },
+    {
+      "name": "clearup_closed",
+      "docstring": "Clear up any closed Comms."
+    },
+    {
+      "name": "remove_comm",
+      "docstring": null
+    },
+    {
+      "name": "is_open",
+      "docstring": null
+    },
+    {
+      "name": "on_close",
+      "docstring": null
+    },
+    {
+      "name": "send_json",
+      "docstring": null
+    },
+    {
+      "name": "send_binary",
+      "docstring": null
+    },
+    {
+      "name": "on_message",
+      "docstring": null
+    },
+    {
+      "name": "destroy",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

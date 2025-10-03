@@ -1,0 +1,17 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib\\found_candidates.py",
+  "classes": [
+    {
+      "name": "FoundCandidates",
+      "docstring": "A lazy sequence to provide candidates to the resolver.\n\nThe intended usage is to return this from `find_matches()` so the resolver\ncan iterate through the sequence multiple times, but only access the index\npage when remote packages are actually needed. This improve performances\nwhen suitable candidates are already installed on disk.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [],
+  "innovations": []
+}

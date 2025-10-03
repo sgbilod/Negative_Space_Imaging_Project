@@ -1,0 +1,170 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\vcs\\git.py",
+  "classes": [
+    {
+      "name": "Git",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "get_base_rev_args",
+          "docstring": null
+        },
+        {
+          "name": "run_command",
+          "docstring": null
+        },
+        {
+          "name": "is_immutable_rev_checkout",
+          "docstring": null
+        },
+        {
+          "name": "get_git_version",
+          "docstring": null
+        },
+        {
+          "name": "get_current_branch",
+          "docstring": "Return the current branch, or None if HEAD isn't at a branch\n(e.g. detached HEAD)."
+        },
+        {
+          "name": "get_revision_sha",
+          "docstring": "Return (sha_or_none, is_branch), where sha_or_none is a commit hash\nif the revision names a remote branch or tag, otherwise None.\n\nArgs:\n  dest: the repository directory.\n  rev: the revision name."
+        },
+        {
+          "name": "resolve_revision",
+          "docstring": "Resolve a revision to a new RevOptions object with the SHA1 of the\nbranch, tag, or ref if found.\n\nArgs:\n  rev_options: a RevOptions object."
+        },
+        {
+          "name": "is_commit_id_equal",
+          "docstring": "Return whether the current commit hash equals the given name.\n\nArgs:\n  dest: the repository directory.\n  name: a string name."
+        },
+        {
+          "name": "fetch_new",
+          "docstring": null
+        },
+        {
+          "name": "switch",
+          "docstring": null
+        },
+        {
+          "name": "update",
+          "docstring": null
+        },
+        {
+          "name": "get_remote_url",
+          "docstring": "Return URL of the first remote encountered.\n\nRaises RemoteNotFoundError if the repository does not have a remote\nurl configured."
+        },
+        {
+          "name": "has_commit",
+          "docstring": "Check if rev is a commit that is available in the local repository."
+        },
+        {
+          "name": "get_revision",
+          "docstring": null
+        },
+        {
+          "name": "get_subdirectory",
+          "docstring": "Return the path to Python project root, relative to the repo root.\nReturn None if the project root is in the repo root."
+        },
+        {
+          "name": "get_url_rev_and_auth",
+          "docstring": "Prefixes stub URLs like 'user@hostname:user/repo.git' with 'ssh://'.\nThat's required because although they use SSH they sometimes don't\nwork with a ssh:// scheme (e.g. GitHub). But we need a scheme for\nparsing. Hence we remove it again afterwards and return it as a stub."
+        },
+        {
+          "name": "update_submodules",
+          "docstring": null
+        },
+        {
+          "name": "get_repository_root",
+          "docstring": null
+        },
+        {
+          "name": "should_add_vcs_url_prefix",
+          "docstring": "In either https or ssh form, requirements must be prefixed with git+."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "looks_like_hash",
+      "docstring": null
+    },
+    {
+      "name": "get_base_rev_args",
+      "docstring": null
+    },
+    {
+      "name": "run_command",
+      "docstring": null
+    },
+    {
+      "name": "is_immutable_rev_checkout",
+      "docstring": null
+    },
+    {
+      "name": "get_git_version",
+      "docstring": null
+    },
+    {
+      "name": "get_current_branch",
+      "docstring": "Return the current branch, or None if HEAD isn't at a branch\n(e.g. detached HEAD)."
+    },
+    {
+      "name": "get_revision_sha",
+      "docstring": "Return (sha_or_none, is_branch), where sha_or_none is a commit hash\nif the revision names a remote branch or tag, otherwise None.\n\nArgs:\n  dest: the repository directory.\n  rev: the revision name."
+    },
+    {
+      "name": "resolve_revision",
+      "docstring": "Resolve a revision to a new RevOptions object with the SHA1 of the\nbranch, tag, or ref if found.\n\nArgs:\n  rev_options: a RevOptions object."
+    },
+    {
+      "name": "is_commit_id_equal",
+      "docstring": "Return whether the current commit hash equals the given name.\n\nArgs:\n  dest: the repository directory.\n  name: a string name."
+    },
+    {
+      "name": "fetch_new",
+      "docstring": null
+    },
+    {
+      "name": "switch",
+      "docstring": null
+    },
+    {
+      "name": "update",
+      "docstring": null
+    },
+    {
+      "name": "get_remote_url",
+      "docstring": "Return URL of the first remote encountered.\n\nRaises RemoteNotFoundError if the repository does not have a remote\nurl configured."
+    },
+    {
+      "name": "has_commit",
+      "docstring": "Check if rev is a commit that is available in the local repository."
+    },
+    {
+      "name": "get_revision",
+      "docstring": null
+    },
+    {
+      "name": "get_subdirectory",
+      "docstring": "Return the path to Python project root, relative to the repo root.\nReturn None if the project root is in the repo root."
+    },
+    {
+      "name": "get_url_rev_and_auth",
+      "docstring": "Prefixes stub URLs like 'user@hostname:user/repo.git' with 'ssh://'.\nThat's required because although they use SSH they sometimes don't\nwork with a ssh:// scheme (e.g. GitHub). But we need a scheme for\nparsing. Hence we remove it again afterwards and return it as a stub."
+    },
+    {
+      "name": "update_submodules",
+      "docstring": null
+    },
+    {
+      "name": "get_repository_root",
+      "docstring": null
+    },
+    {
+      "name": "should_add_vcs_url_prefix",
+      "docstring": "In either https or ssh form, requirements must be prefixed with git+."
+    }
+  ],
+  "innovations": []
+}

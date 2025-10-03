@@ -1,0 +1,98 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\multi_signature_demo.py",
+  "classes": [
+    {
+      "name": "MultiSignatureDemo",
+      "docstring": "Demo for multi-signature authentication using negative space signatures",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the multi-signature demo\n\nArgs:\n    provider_url: URL of the Ethereum provider\n    contract_address: Address of the deployed contract\n    output_dir: Directory for storing output files"
+        },
+        {
+          "name": "generate_signatures",
+          "docstring": "Generate multiple test signatures\n\nArgs:\n    count: Number of signatures to generate\n    \nReturns:\n    List[List[float]]: List of generated signatures"
+        },
+        {
+          "name": "load_signatures",
+          "docstring": "Load the most recent signatures from file\n\nReturns:\n    List[List[float]]: List of loaded signatures"
+        },
+        {
+          "name": "register_multi_signature",
+          "docstring": "Register a multi-signature\n\nArgs:\n    signatures: List of signatures to combine (loads from file if None)\n    combination_mode: Mode for combining signatures\n    \nReturns:\n    str: ID of the registered multi-signature"
+        },
+        {
+          "name": "load_registration",
+          "docstring": "Load the most recent registration\n\nReturns:\n    Dict[str, Any]: Registration information"
+        },
+        {
+          "name": "verify_threshold",
+          "docstring": "Verify signatures using threshold verification\n\nArgs:\n    signatures: List of signatures to verify (loads from file if None)\n    threshold: Threshold for verification (M of N signatures)\n    \nReturns:\n    Dict[str, Any]: Verification result"
+        },
+        {
+          "name": "verify_hierarchical",
+          "docstring": "Verify signatures using hierarchical verification\n\nArgs:\n    signatures: List of signatures to verify (loads from file if None)\n    \nReturns:\n    Dict[str, Any]: Verification result"
+        },
+        {
+          "name": "create_authentication_token",
+          "docstring": "Create an authentication token from multiple signatures\n\nArgs:\n    signatures: List of signatures to combine (loads from file if None)\n    expiration: Token expiration time in seconds\n    \nReturns:\n    Dict[str, Any]: Authentication token"
+        },
+        {
+          "name": "load_token",
+          "docstring": "Load the most recent authentication token\n\nReturns:\n    Dict[str, Any]: Authentication token"
+        },
+        {
+          "name": "verify_token",
+          "docstring": "Verify an authentication token\n\nArgs:\n    token: Authentication token to verify (loads from file if None)\n    signatures: List of signatures to verify against (loads from file if None)\n    \nReturns:\n    bool: True if token is valid"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "parse_args",
+      "docstring": "Parse command line arguments"
+    },
+    {
+      "name": "main",
+      "docstring": "Main function"
+    },
+    {
+      "name": "generate_signatures",
+      "docstring": "Generate multiple test signatures\n\nArgs:\n    count: Number of signatures to generate\n    \nReturns:\n    List[List[float]]: List of generated signatures"
+    },
+    {
+      "name": "load_signatures",
+      "docstring": "Load the most recent signatures from file\n\nReturns:\n    List[List[float]]: List of loaded signatures"
+    },
+    {
+      "name": "register_multi_signature",
+      "docstring": "Register a multi-signature\n\nArgs:\n    signatures: List of signatures to combine (loads from file if None)\n    combination_mode: Mode for combining signatures\n    \nReturns:\n    str: ID of the registered multi-signature"
+    },
+    {
+      "name": "load_registration",
+      "docstring": "Load the most recent registration\n\nReturns:\n    Dict[str, Any]: Registration information"
+    },
+    {
+      "name": "verify_threshold",
+      "docstring": "Verify signatures using threshold verification\n\nArgs:\n    signatures: List of signatures to verify (loads from file if None)\n    threshold: Threshold for verification (M of N signatures)\n    \nReturns:\n    Dict[str, Any]: Verification result"
+    },
+    {
+      "name": "verify_hierarchical",
+      "docstring": "Verify signatures using hierarchical verification\n\nArgs:\n    signatures: List of signatures to verify (loads from file if None)\n    \nReturns:\n    Dict[str, Any]: Verification result"
+    },
+    {
+      "name": "create_authentication_token",
+      "docstring": "Create an authentication token from multiple signatures\n\nArgs:\n    signatures: List of signatures to combine (loads from file if None)\n    expiration: Token expiration time in seconds\n    \nReturns:\n    Dict[str, Any]: Authentication token"
+    },
+    {
+      "name": "load_token",
+      "docstring": "Load the most recent authentication token\n\nReturns:\n    Dict[str, Any]: Authentication token"
+    },
+    {
+      "name": "verify_token",
+      "docstring": "Verify an authentication token\n\nArgs:\n    token: Authentication token to verify (loads from file if None)\n    signatures: List of signatures to verify against (loads from file if None)\n    \nReturns:\n    bool: True if token is valid"
+    }
+  ],
+  "innovations": []
+}

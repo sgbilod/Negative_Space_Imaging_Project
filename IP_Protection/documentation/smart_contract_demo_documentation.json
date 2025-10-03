@@ -1,0 +1,66 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\smart_contract_demo.py",
+  "classes": [
+    {
+      "name": "BlockchainDemo",
+      "docstring": "Blockchain integration demo for negative space signatures",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a blockchain demo\n\nArgs:\n    provider_url: URL of the Ethereum provider (optional)\n    contract_address: Address of the deployed contract (optional)\n    private_key: Private key for transaction signing (optional)"
+        },
+        {
+          "name": "generate_test_signature",
+          "docstring": "Generate a test signature\n\nArgs:\n    dimensions: Number of dimensions for the signature\n    save_to_file: Whether to save the signature to a file\n    \nReturns:\n    Tuple[List[float], Dict]: Signature data and metadata"
+        },
+        {
+          "name": "load_signature_from_file",
+          "docstring": "Load a signature from a file\n\nArgs:\n    filepath: Path to the signature file\n    \nReturns:\n    Tuple[List[float], Dict]: Signature data and metadata"
+        },
+        {
+          "name": "register_signature",
+          "docstring": "Register a signature on the blockchain\n\nArgs:\n    signature_data: Signature data (optional, generates if None)\n    metadata: Signature metadata (optional, generates if None)\n    \nReturns:\n    str: Signature ID"
+        },
+        {
+          "name": "verify_signature",
+          "docstring": "Verify a signature on the blockchain\n\nArgs:\n    signature_id: ID of the signature to verify\n    signature_data: Signature data to verify (optional, loads from file if None)\n    \nReturns:\n    bool: True if signature is valid"
+        },
+        {
+          "name": "list_signatures",
+          "docstring": "List registered signatures\n\nReturns:\n    List[Dict]: List of signature details"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "parse_args",
+      "docstring": "Parse command line arguments"
+    },
+    {
+      "name": "main",
+      "docstring": "Main function"
+    },
+    {
+      "name": "generate_test_signature",
+      "docstring": "Generate a test signature\n\nArgs:\n    dimensions: Number of dimensions for the signature\n    save_to_file: Whether to save the signature to a file\n    \nReturns:\n    Tuple[List[float], Dict]: Signature data and metadata"
+    },
+    {
+      "name": "load_signature_from_file",
+      "docstring": "Load a signature from a file\n\nArgs:\n    filepath: Path to the signature file\n    \nReturns:\n    Tuple[List[float], Dict]: Signature data and metadata"
+    },
+    {
+      "name": "register_signature",
+      "docstring": "Register a signature on the blockchain\n\nArgs:\n    signature_data: Signature data (optional, generates if None)\n    metadata: Signature metadata (optional, generates if None)\n    \nReturns:\n    str: Signature ID"
+    },
+    {
+      "name": "verify_signature",
+      "docstring": "Verify a signature on the blockchain\n\nArgs:\n    signature_id: ID of the signature to verify\n    signature_data: Signature data to verify (optional, loads from file if None)\n    \nReturns:\n    bool: True if signature is valid"
+    },
+    {
+      "name": "list_signatures",
+      "docstring": "List registered signatures\n\nReturns:\n    List[Dict]: List of signature details"
+    }
+  ],
+  "innovations": []
+}

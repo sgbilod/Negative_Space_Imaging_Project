@@ -1,0 +1,30 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\tree.py",
+  "classes": [
+    {
+      "name": "Tree",
+      "docstring": "A renderable for a tree structure.\n\nAttributes:\n    ASCII_GUIDES (GuideType): Guide lines used when Console.ascii_only is True.\n    TREE_GUIDES (List[GuideType, GuideType, GuideType]): Default guide lines.\n\nArgs:\n    label (RenderableType): The renderable or str for the tree label.\n    style (StyleType, optional): Style of this tree. Defaults to \"tree\".\n    guide_style (StyleType, optional): Style of the guide lines. Defaults to \"tree.line\".\n    expanded (bool, optional): Also display children. Defaults to True.\n    highlight (bool, optional): Highlight renderable (if str). Defaults to False.\n    hide_root (bool, optional): Hide the root node. Defaults to False.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "add",
+          "docstring": "Add a child tree.\n\nArgs:\n    label (RenderableType): The renderable or str for the tree label.\n    style (StyleType, optional): Style of this tree. Defaults to \"tree\".\n    guide_style (StyleType, optional): Style of the guide lines. Defaults to \"tree.line\".\n    expanded (bool, optional): Also display children. Defaults to True.\n    highlight (Optional[bool], optional): Highlight renderable (if str). Defaults to False.\n\nReturns:\n    Tree: A new child Tree, which may be further modified."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "add",
+      "docstring": "Add a child tree.\n\nArgs:\n    label (RenderableType): The renderable or str for the tree label.\n    style (StyleType, optional): Style of this tree. Defaults to \"tree\".\n    guide_style (StyleType, optional): Style of the guide lines. Defaults to \"tree.line\".\n    expanded (bool, optional): Also display children. Defaults to True.\n    highlight (Optional[bool], optional): Highlight renderable (if str). Defaults to False.\n\nReturns:\n    Tree: A new child Tree, which may be further modified."
+    },
+    {
+      "name": "make_guide",
+      "docstring": "Make a Segment for a level of the guide lines."
+    }
+  ],
+  "innovations": []
+}

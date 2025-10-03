@@ -1,0 +1,56 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\ctypeslib.py",
+  "classes": [
+    {
+      "name": "_ndptr",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "from_param",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_concrete_ndptr",
+      "docstring": "Like _ndptr, but with `_shape_` and `_dtype_` specified.\n\nNotably, this means the pointer has enough information to reconstruct\nthe array, which is not generally true.",
+      "methods": [
+        {
+          "name": "contents",
+          "docstring": "Get an ndarray viewing the data pointed to by this pointer.\n\nThis mirrors the `contents` attribute of a normal ctypes pointer"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "ndpointer",
+      "docstring": "Array-checking restype/argtypes.\n\nAn ndpointer instance is used to describe an ndarray in restypes\nand argtypes specifications.  This approach is more flexible than\nusing, for example, ``POINTER(c_double)``, since several restrictions\ncan be specified, which are verified upon calling the ctypes function.\nThese include data type, number of dimensions, shape and flags.  If a\ngiven array does not satisfy the specified restrictions,\na ``TypeError`` is raised.\n\nParameters\n----------\ndtype : data-type, optional\n    Array data-type.\nndim : int, optional\n    Number of array dimensions.\nshape : tuple of ints, optional\n    Array shape.\nflags : str or tuple of str\n    Array flags; may be one or more of:\n\n    - C_CONTIGUOUS / C / CONTIGUOUS\n    - F_CONTIGUOUS / F / FORTRAN\n    - OWNDATA / O\n    - WRITEABLE / W\n    - ALIGNED / A\n    - WRITEBACKIFCOPY / X\n\nReturns\n-------\nklass : ndpointer type object\n    A type object, which is an ``_ndtpr`` instance containing\n    dtype, ndim, shape and flags information.\n\nRaises\n------\nTypeError\n    If a given array does not satisfy the specified restrictions.\n\nExamples\n--------\n>>> clib.somefunc.argtypes = [np.ctypeslib.ndpointer(dtype=np.float64,\n...                                                  ndim=1,\n...                                                  flags='C_CONTIGUOUS')]\n... #doctest: +SKIP\n>>> clib.somefunc(np.array([1, 2, 3], dtype=np.float64))\n... #doctest: +SKIP"
+    },
+    {
+      "name": "load_library",
+      "docstring": "It is possible to load a library using\n\n>>> lib = ctypes.cdll[<full_path_name>] # doctest: +SKIP\n\nBut there are cross-platform considerations, such as library file extensions,\nplus the fact Windows will just load the first library it finds with that name.\nNumPy supplies the load_library function as a convenience.\n\n.. versionchanged:: 1.20.0\n    Allow libname and loader_path to take any\n    :term:`python:path-like object`.\n\nParameters\n----------\nlibname : path-like\n    Name of the library, which can have 'lib' as a prefix,\n    but without an extension.\nloader_path : path-like\n    Where the library can be found.\n\nReturns\n-------\nctypes.cdll[libpath] : library object\n   A ctypes library object\n\nRaises\n------\nOSError\n    If there is no library with the expected extension, or the\n    library is defective and cannot be loaded."
+    },
+    {
+      "name": "from_param",
+      "docstring": null
+    },
+    {
+      "name": "contents",
+      "docstring": "Get an ndarray viewing the data pointed to by this pointer.\n\nThis mirrors the `contents` attribute of a normal ctypes pointer"
+    },
+    {
+      "name": "as_ctypes_type",
+      "docstring": "Convert a dtype into a ctypes type.\n\nParameters\n----------\ndtype : dtype\n    The dtype to convert\n\nReturns\n-------\nctype\n    A ctype scalar, union, array, or struct\n\nRaises\n------\nNotImplementedError\n    If the conversion is not possible\n\nNotes\n-----\nThis function does not losslessly round-trip in either direction.\n\n``np.dtype(as_ctypes_type(dt))`` will:\n\n- insert padding fields\n- reorder fields to be sorted by offset\n- discard field titles\n\n``as_ctypes_type(np.dtype(ctype))`` will:\n\n- discard the class names of `ctypes.Structure`\\ s and\n  `ctypes.Union`\\ s\n- convert single-element `ctypes.Union`\\ s into single-element\n  `ctypes.Structure`\\ s\n- insert padding fields\n\nExamples\n--------\nConverting a simple dtype:\n\n>>> dt = np.dtype('int8')\n>>> ctype = np.ctypeslib.as_ctypes_type(dt)\n>>> ctype\n<class 'ctypes.c_byte'>\n\nConverting a structured dtype:\n\n>>> dt = np.dtype([('x', 'i4'), ('y', 'f4')])\n>>> ctype = np.ctypeslib.as_ctypes_type(dt)\n>>> ctype\n<class 'struct'>"
+    },
+    {
+      "name": "as_array",
+      "docstring": "Create a numpy array from a ctypes array or POINTER.\n\nThe numpy array shares the memory with the ctypes object.\n\nThe shape parameter must be given if converting from a ctypes POINTER.\nThe shape parameter is ignored if converting from a ctypes array\n\nExamples\n--------\nConverting a ctypes integer array:\n\n>>> import ctypes\n>>> ctypes_array = (ctypes.c_int * 5)(0, 1, 2, 3, 4)\n>>> np_array = np.ctypeslib.as_array(ctypes_array)\n>>> np_array\narray([0, 1, 2, 3, 4], dtype=int32)\n\nConverting a ctypes POINTER:\n\n>>> import ctypes\n>>> buffer = (ctypes.c_int * 5)(0, 1, 2, 3, 4)\n>>> pointer = ctypes.cast(buffer, ctypes.POINTER(ctypes.c_int))\n>>> np_array = np.ctypeslib.as_array(pointer, (5,))\n>>> np_array\narray([0, 1, 2, 3, 4], dtype=int32)"
+    },
+    {
+      "name": "as_ctypes",
+      "docstring": "Create and return a ctypes object from a numpy array.  Actually\nanything that exposes the __array_interface__ is accepted.\n\nExamples\n--------\nCreate ctypes object from inferred int ``np.array``:\n\n>>> inferred_int_array = np.array([1, 2, 3])\n>>> c_int_array = np.ctypeslib.as_ctypes(inferred_int_array)\n>>> type(c_int_array)\n<class 'c_long_Array_3'>\n>>> c_int_array[:]\n[1, 2, 3]\n\nCreate ctypes object from explicit 8 bit unsigned int ``np.array`` :\n\n>>> exp_int_array = np.array([1, 2, 3], dtype=np.uint8)\n>>> c_int_array = np.ctypeslib.as_ctypes(exp_int_array)\n>>> type(c_int_array)\n<class 'c_ubyte_Array_3'>\n>>> c_int_array[:]\n[1, 2, 3]"
+    }
+  ],
+  "innovations": []
+}

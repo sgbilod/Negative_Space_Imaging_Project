@@ -1,0 +1,19 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\cli\\autocompletion.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "autocomplete",
+      "docstring": "Entry Point for completion of main and subcommand options."
+    },
+    {
+      "name": "get_path_completion_type",
+      "docstring": "Get the type of path completion (``file``, ``dir``, ``path`` or None)\n\n:param cwords: same as the environmental variable ``COMP_WORDS``\n:param cword: same as the environmental variable ``COMP_CWORD``\n:param opts: The available options to check\n:return: path completion type (``file``, ``dir``, ``path`` or None)"
+    },
+    {
+      "name": "auto_complete_paths",
+      "docstring": "If ``completion_type`` is ``file`` or ``path``, list all regular files\nand directories starting with ``current``; otherwise only list directories\nstarting with ``current``.\n\n:param current: The word to be completed\n:param completion_type: path completion type(``file``, ``path`` or ``dir``)\n:return: A generator of regular files and/or directories"
+    }
+  ],
+  "innovations": []
+}

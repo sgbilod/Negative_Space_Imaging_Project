@@ -1,0 +1,74 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\ma\\mrecords.py",
+  "classes": [
+    {
+      "name": "MaskedRecords",
+      "docstring": "Attributes\n----------\n_data : recarray\n    Underlying data, as a record array.\n_mask : boolean array\n    Mask of the records. A record is masked when all its fields are\n    masked.\n_fieldmask : boolean recarray\n    Record array of booleans, setting the mask of each individual field\n    of each record.\n_fill_value : record\n    Filling values for each field.",
+      "methods": [
+        {
+          "name": "view",
+          "docstring": "Returns a view of the mrecarray."
+        },
+        {
+          "name": "harden_mask",
+          "docstring": "Forces the mask to hard."
+        },
+        {
+          "name": "soften_mask",
+          "docstring": "Forces the mask to soft"
+        },
+        {
+          "name": "copy",
+          "docstring": "Returns a copy of the masked record."
+        },
+        {
+          "name": "tolist",
+          "docstring": "Return the data portion of the array as a list.\n\nData items are converted to the nearest compatible Python type.\nMasked values are converted to fill_value. If fill_value is None,\nthe corresponding entries in the output list will be ``None``."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "fromarrays",
+      "docstring": "Creates a mrecarray from a (flat) list of masked arrays.\n\nParameters\n----------\narraylist : sequence\n    A list of (masked) arrays. Each element of the sequence is first converted\n    to a masked array if needed. If a 2D array is passed as argument, it is\n    processed line by line\ndtype : {None, dtype}, optional\n    Data type descriptor.\nshape : {None, integer}, optional\n    Number of records. If None, shape is defined from the shape of the\n    first array in the list.\nformats : {None, sequence}, optional\n    Sequence of formats for each individual field. If None, the formats will\n    be autodetected by inspecting the fields and selecting the highest dtype\n    possible.\nnames : {None, sequence}, optional\n    Sequence of the names of each field.\nfill_value : {None, sequence}, optional\n    Sequence of data to be used as filling values.\n\nNotes\n-----\nLists of tuples should be preferred over lists of lists for faster processing."
+    },
+    {
+      "name": "fromrecords",
+      "docstring": "Creates a MaskedRecords from a list of records.\n\nParameters\n----------\nreclist : sequence\n    A list of records. Each element of the sequence is first converted\n    to a masked array if needed. If a 2D array is passed as argument, it is\n    processed line by line\ndtype : {None, dtype}, optional\n    Data type descriptor.\nshape : {None,int}, optional\n    Number of records. If None, ``shape`` is defined from the shape of the\n    first array in the list.\nformats : {None, sequence}, optional\n    Sequence of formats for each individual field. If None, the formats will\n    be autodetected by inspecting the fields and selecting the highest dtype\n    possible.\nnames : {None, sequence}, optional\n    Sequence of the names of each field.\nfill_value : {None, sequence}, optional\n    Sequence of data to be used as filling values.\nmask : {nomask, sequence}, optional.\n    External mask to apply on the data.\n\nNotes\n-----\nLists of tuples should be preferred over lists of lists for faster processing."
+    },
+    {
+      "name": "openfile",
+      "docstring": "Opens the file handle of file `fname`."
+    },
+    {
+      "name": "fromtextfile",
+      "docstring": "Creates a mrecarray from data stored in the file `filename`.\n\nParameters\n----------\nfname : {file name/handle}\n    Handle of an opened file.\ndelimiter : {None, string}, optional\n    Alphanumeric character used to separate columns in the file.\n    If None, any (group of) white spacestring(s) will be used.\ncommentchar : {'#', string}, optional\n    Alphanumeric character used to mark the start of a comment.\nmissingchar : {'', string}, optional\n    String indicating missing data, and used to create the masks.\nvarnames : {None, sequence}, optional\n    Sequence of the variable names. If None, a list will be created from\n    the first non empty line of the file.\nvartypes : {None, sequence}, optional\n    Sequence of the variables dtypes. If None, it will be estimated from\n    the first non-commented line.\n\n\nUltra simple: the varnames are in the header, one line"
+    },
+    {
+      "name": "addfield",
+      "docstring": "Adds a new field to the masked record array\n\nUses `newfield` as data and `newfieldname` as name. If `newfieldname`\nis None, the new field name is set to 'fi', where `i` is the number of\nexisting fields."
+    },
+    {
+      "name": "view",
+      "docstring": "Returns a view of the mrecarray."
+    },
+    {
+      "name": "harden_mask",
+      "docstring": "Forces the mask to hard."
+    },
+    {
+      "name": "soften_mask",
+      "docstring": "Forces the mask to soft"
+    },
+    {
+      "name": "copy",
+      "docstring": "Returns a copy of the masked record."
+    },
+    {
+      "name": "tolist",
+      "docstring": "Return the data portion of the array as a list.\n\nData items are converted to the nearest compatible Python type.\nMasked values are converted to fill_value. If fill_value is None,\nthe corresponding entries in the output list will be ``None``."
+    }
+  ],
+  "innovations": []
+}

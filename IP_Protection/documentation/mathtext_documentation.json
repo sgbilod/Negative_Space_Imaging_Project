@@ -1,0 +1,30 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\mathtext.py",
+  "classes": [
+    {
+      "name": "MathTextParser",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a MathTextParser for the given backend *output*.\n\nParameters\n----------\noutput : {\"path\", \"agg\"}\n    Whether to return a `VectorParse` (\"path\") or a\n    `RasterParse` (\"agg\", or its synonym \"macosx\")."
+        },
+        {
+          "name": "parse",
+          "docstring": "Parse the given math expression *s* at the given *dpi*.  If *prop* is\nprovided, it is a `.FontProperties` object specifying the \"default\"\nfont to use in the math expression, used for all non-math text.\n\nThe results are cached, so multiple calls to `parse`\nwith the same expression should be fast.\n\nDepending on the *output* type, this returns either a `VectorParse` or\na `RasterParse`."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "math_to_image",
+      "docstring": "Given a math expression, renders it in a closely-clipped bounding\nbox to an image file.\n\nParameters\n----------\ns : str\n    A math expression.  The math portion must be enclosed in dollar signs.\nfilename_or_obj : str or path-like or file-like\n    Where to write the image data.\nprop : `.FontProperties`, optional\n    The size and style of the text.\ndpi : float, optional\n    The output dpi.  If not set, the dpi is determined as for\n    `.Figure.savefig`.\nformat : str, optional\n    The output format, e.g., 'svg', 'pdf', 'ps' or 'png'.  If not set, the\n    format is determined as for `.Figure.savefig`.\ncolor : str, optional\n    Foreground color, defaults to :rc:`text.color`."
+    },
+    {
+      "name": "parse",
+      "docstring": "Parse the given math expression *s* at the given *dpi*.  If *prop* is\nprovided, it is a `.FontProperties` object specifying the \"default\"\nfont to use in the math expression, used for all non-math text.\n\nThe results are cached, so multiple calls to `parse`\nwith the same expression should be fast.\n\nDepending on the *output* type, this returns either a `VectorParse` or\na `RasterParse`."
+    }
+  ],
+  "innovations": []
+}

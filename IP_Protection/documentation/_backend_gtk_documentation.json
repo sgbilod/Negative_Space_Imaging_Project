@@ -1,0 +1,188 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\_backend_gtk.py",
+  "classes": [
+    {
+      "name": "TimerGTK",
+      "docstring": "Subclass of `.TimerBase` using GTK timer events.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_FigureCanvasGTK",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_FigureManagerGTK",
+      "docstring": "Attributes\n----------\ncanvas : `FigureCanvas`\n    The FigureCanvas instance\nnum : int or str\n    The Figure number\ntoolbar : Gtk.Toolbar or Gtk.Box\n    The toolbar\nvbox : Gtk.VBox\n    The Gtk.VBox containing the canvas and toolbar\nwindow : Gtk.Window\n    The Gtk.Window",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "destroy",
+          "docstring": null
+        },
+        {
+          "name": "start_main_loop",
+          "docstring": null
+        },
+        {
+          "name": "show",
+          "docstring": null
+        },
+        {
+          "name": "full_screen_toggle",
+          "docstring": null
+        },
+        {
+          "name": "get_window_title",
+          "docstring": null
+        },
+        {
+          "name": "set_window_title",
+          "docstring": null
+        },
+        {
+          "name": "resize",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_NavigationToolbar2GTK",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "set_message",
+          "docstring": null
+        },
+        {
+          "name": "draw_rubberband",
+          "docstring": null
+        },
+        {
+          "name": "remove_rubberband",
+          "docstring": null
+        },
+        {
+          "name": "pan",
+          "docstring": null
+        },
+        {
+          "name": "zoom",
+          "docstring": null
+        },
+        {
+          "name": "set_history_buttons",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RubberbandGTK",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "draw_rubberband",
+          "docstring": null
+        },
+        {
+          "name": "remove_rubberband",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ConfigureSubplotsGTK",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BackendGTK",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "mpl_to_gtk_cursor_name",
+      "docstring": null
+    },
+    {
+      "name": "destroy",
+      "docstring": null
+    },
+    {
+      "name": "start_main_loop",
+      "docstring": null
+    },
+    {
+      "name": "show",
+      "docstring": null
+    },
+    {
+      "name": "full_screen_toggle",
+      "docstring": null
+    },
+    {
+      "name": "get_window_title",
+      "docstring": null
+    },
+    {
+      "name": "set_window_title",
+      "docstring": null
+    },
+    {
+      "name": "resize",
+      "docstring": null
+    },
+    {
+      "name": "set_message",
+      "docstring": null
+    },
+    {
+      "name": "draw_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "remove_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "pan",
+      "docstring": null
+    },
+    {
+      "name": "zoom",
+      "docstring": null
+    },
+    {
+      "name": "set_history_buttons",
+      "docstring": null
+    },
+    {
+      "name": "draw_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "remove_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

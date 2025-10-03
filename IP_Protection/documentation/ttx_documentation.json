@@ -1,0 +1,52 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttx.py",
+  "classes": [
+    {
+      "name": "Options",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "ttList",
+      "docstring": null
+    },
+    {
+      "name": "ttDump",
+      "docstring": null
+    },
+    {
+      "name": "ttCompile",
+      "docstring": null
+    },
+    {
+      "name": "guessFileType",
+      "docstring": null
+    },
+    {
+      "name": "parseOptions",
+      "docstring": null
+    },
+    {
+      "name": "process",
+      "docstring": null
+    },
+    {
+      "name": "main",
+      "docstring": "Convert OpenType fonts to XML and back"
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "             Use Zopfli instead of Zlib to compress WOFF. The Python\n             extension is available at https://pypi.python.org/pypi/zopfli\n--optimize-font-speed\n             Enable optimizations that prioritize speed over file size.\n             This mainly affects how glyf t able and gvar / VARC tables are\n             compiled. The produced fonts will be larger, but rendering\n             performance will be improved with HarfBuzz and other text"
+    }
+  ]
+}

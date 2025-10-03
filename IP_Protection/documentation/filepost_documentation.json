@@ -1,0 +1,23 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\filepost.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "choose_boundary",
+      "docstring": "Our embarrassingly-simple replacement for mimetools.choose_boundary."
+    },
+    {
+      "name": "iter_field_objects",
+      "docstring": "Iterate over fields.\n\nSupports list of (k, v) tuples and dicts, and lists of\n:class:`~urllib3.fields.RequestField`."
+    },
+    {
+      "name": "iter_fields",
+      "docstring": ".. deprecated:: 1.6\n\nIterate over fields.\n\nThe addition of :class:`~urllib3.fields.RequestField` makes this function\nobsolete. Instead, use :func:`iter_field_objects`, which returns\n:class:`~urllib3.fields.RequestField` objects.\n\nSupports list of (k, v) tuples and dicts."
+    },
+    {
+      "name": "encode_multipart_formdata",
+      "docstring": "Encode a dictionary of ``fields`` using the multipart/form-data MIME format.\n\n:param fields:\n    Dictionary of fields or list of (key, :class:`~urllib3.fields.RequestField`).\n\n:param boundary:\n    If not specified, then a random boundary will be generated using\n    :func:`urllib3.filepost.choose_boundary`."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,54 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\colorLib\\geometry.py",
+  "classes": [
+    {
+      "name": "Circle",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "round",
+          "docstring": null
+        },
+        {
+          "name": "inside",
+          "docstring": null
+        },
+        {
+          "name": "concentric",
+          "docstring": null
+        },
+        {
+          "name": "move",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "round_start_circle_stable_containment",
+      "docstring": "Round start circle so that it stays inside/outside end circle after rounding.\n\nThe rounding of circle coordinates to integers may cause an abrupt change\nif the start circle c0 is so close to the end circle c1's perimiter that\nit ends up falling outside (or inside) as a result of the rounding.\nTo keep the gradient unchanged, we nudge it in the right direction.\n\nSee:\nhttps://github.com/googlefonts/colr-gradients-spec/issues/204\nhttps://github.com/googlefonts/picosvg/issues/158"
+    },
+    {
+      "name": "round",
+      "docstring": null
+    },
+    {
+      "name": "inside",
+      "docstring": null
+    },
+    {
+      "name": "concentric",
+      "docstring": null
+    },
+    {
+      "name": "move",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,15 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\_wrap.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "words",
+      "docstring": "Yields each word from the text as a tuple\ncontaining (start_index, end_index, word). A \"word\" in this context may\ninclude the actual word and any whitespace to the right."
+    },
+    {
+      "name": "divide_line",
+      "docstring": "Given a string of text, and a width (measured in cells), return a list\nof cell offsets which the string should be split at in order for it to fit\nwithin the given width.\n\nArgs:\n    text: The text to examine.\n    width: The available cell width.\n    fold: If True, words longer than `width` will be folded onto a new line.\n\nReturns:\n    A list of indices to break the line at."
+    }
+  ],
+  "innovations": []
+}

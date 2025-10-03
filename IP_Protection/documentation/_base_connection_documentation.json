@@ -1,0 +1,102 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\urllib3\\_base_connection.py",
+  "classes": [
+    {
+      "name": "ProxyConfig",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_ResponseOptions",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "BaseHTTPConnection",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_tunnel",
+          "docstring": null
+        },
+        {
+          "name": "connect",
+          "docstring": null
+        },
+        {
+          "name": "request",
+          "docstring": null
+        },
+        {
+          "name": "getresponse",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "is_closed",
+          "docstring": "Whether the connection either is brand new or has been previously closed.\nIf this property is True then both ``is_connected`` and ``has_connected_to_proxy``\nproperties must be False."
+        },
+        {
+          "name": "is_connected",
+          "docstring": "Whether the connection is actively connected to any origin (proxy or target)"
+        },
+        {
+          "name": "has_connected_to_proxy",
+          "docstring": "Whether the connection has successfully connected to its proxy.\nThis returns False if no proxy is in use. Used to determine whether\nerrors are coming from the proxy layer or from tunnelling to the target origin."
+        }
+      ]
+    },
+    {
+      "name": "BaseHTTPSConnection",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "set_tunnel",
+      "docstring": null
+    },
+    {
+      "name": "connect",
+      "docstring": null
+    },
+    {
+      "name": "request",
+      "docstring": null
+    },
+    {
+      "name": "getresponse",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "is_closed",
+      "docstring": "Whether the connection either is brand new or has been previously closed.\nIf this property is True then both ``is_connected`` and ``has_connected_to_proxy``\nproperties must be False."
+    },
+    {
+      "name": "is_connected",
+      "docstring": "Whether the connection is actively connected to any origin (proxy or target)"
+    },
+    {
+      "name": "has_connected_to_proxy",
+      "docstring": "Whether the connection has successfully connected to its proxy.\nThis returns False if no proxy is in use. Used to determine whether\nerrors are coming from the proxy layer or from tunnelling to the target origin."
+    }
+  ],
+  "innovations": []
+}

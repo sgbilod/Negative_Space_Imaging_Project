@@ -1,0 +1,1356 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\linalg\\tests\\test_linalg.py",
+  "classes": [
+    {
+      "name": "LinalgCase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "A bundle of arguments to be passed to a test case, with an identifying\nname, the operands a and b, and a set of tags to filter the tests"
+        },
+        {
+          "name": "check",
+          "docstring": "Run the function `do` on this test case, expanding arguments"
+        }
+      ]
+    },
+    {
+      "name": "LinalgTestCase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "check_cases",
+          "docstring": "Run func on each of the cases with all of the tags in require, and none\nof the tags in exclude"
+        }
+      ]
+    },
+    {
+      "name": "LinalgSquareTestCase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_sq_cases",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_sq_cases",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LinalgNonsquareTestCase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_nonsq_cases",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_nonsq_cases",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HermitianTestCase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_herm_cases",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_herm_cases",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LinalgGeneralizedSquareTestCase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_generalized_sq_cases",
+          "docstring": null
+        },
+        {
+          "name": "test_generalized_empty_sq_cases",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LinalgGeneralizedNonsquareTestCase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_generalized_nonsq_cases",
+          "docstring": null
+        },
+        {
+          "name": "test_generalized_empty_nonsq_cases",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HermitianGeneralizedTestCase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_generalized_herm_cases",
+          "docstring": null
+        },
+        {
+          "name": "test_generalized_empty_herm_cases",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SolveCases",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "do",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSolve",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_types",
+          "docstring": null
+        },
+        {
+          "name": "test_1_d",
+          "docstring": null
+        },
+        {
+          "name": "test_0_size",
+          "docstring": null
+        },
+        {
+          "name": "test_0_size_k",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "InvCases",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "do",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestInv",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_types",
+          "docstring": null
+        },
+        {
+          "name": "test_0_size",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "EigvalsCases",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "do",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEigvals",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_types",
+          "docstring": null
+        },
+        {
+          "name": "test_0_size",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "EigCases",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "do",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEig",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_types",
+          "docstring": null
+        },
+        {
+          "name": "test_0_size",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SVDBaseTests",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_types",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SVDCases",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "do",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSVD",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_empty_identity",
+          "docstring": "Empty input should put an identity matrix in u or vh "
+        },
+        {
+          "name": "test_svdvals",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SVDHermitianCases",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "do",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSVDHermitian",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "CondCases",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "do",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCond",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic_nonsvd",
+          "docstring": null
+        },
+        {
+          "name": "test_singular",
+          "docstring": null
+        },
+        {
+          "name": "test_nan",
+          "docstring": null
+        },
+        {
+          "name": "test_stacked_singular",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PinvCases",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "do",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPinv",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PinvHermitianCases",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "do",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPinvHermitian",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "DetCases",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "do",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDet",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_zero",
+          "docstring": null
+        },
+        {
+          "name": "test_types",
+          "docstring": null
+        },
+        {
+          "name": "test_0_size",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LstsqCases",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "do",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLstsq",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_rcond",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_a_b",
+          "docstring": null
+        },
+        {
+          "name": "test_incompatible_dims",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMatrixPower",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_large_power",
+          "docstring": null
+        },
+        {
+          "name": "test_power_is_zero",
+          "docstring": null
+        },
+        {
+          "name": "test_power_is_one",
+          "docstring": null
+        },
+        {
+          "name": "test_power_is_two",
+          "docstring": null
+        },
+        {
+          "name": "test_power_is_minus_one",
+          "docstring": null
+        },
+        {
+          "name": "test_exceptions_bad_power",
+          "docstring": null
+        },
+        {
+          "name": "test_exceptions_non_square",
+          "docstring": null
+        },
+        {
+          "name": "test_exceptions_not_invertible",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEigvalshCases",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "do",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEigvalsh",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_types",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid",
+          "docstring": null
+        },
+        {
+          "name": "test_UPLO",
+          "docstring": null
+        },
+        {
+          "name": "test_0_size",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEighCases",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "do",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEigh",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_types",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid",
+          "docstring": null
+        },
+        {
+          "name": "test_UPLO",
+          "docstring": null
+        },
+        {
+          "name": "test_0_size",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_TestNormBase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "check_dtype",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_TestNormGeneral",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_vector_return_type",
+          "docstring": null
+        },
+        {
+          "name": "test_vector",
+          "docstring": null
+        },
+        {
+          "name": "test_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_keepdims",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_TestNorm2D",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_matrix_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_matrix_return_type",
+          "docstring": null
+        },
+        {
+          "name": "test_matrix_2x2",
+          "docstring": null
+        },
+        {
+          "name": "test_matrix_3x3",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_args",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_TestNorm",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "TestNorm_NonSystematic",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_longdouble_norm",
+          "docstring": null
+        },
+        {
+          "name": "test_intmin",
+          "docstring": null
+        },
+        {
+          "name": "test_complex_high_ord",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_TestNormDoubleBase",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_TestNormSingleBase",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_TestNormInt64Base",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "TestNormDouble",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "TestNormSingle",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "TestNormInt64",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "TestMatrixRank",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_matrix_rank",
+          "docstring": null
+        },
+        {
+          "name": "test_symmetric_rank",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestQR",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "check_qr",
+          "docstring": null
+        },
+        {
+          "name": "test_qr_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_mode_raw",
+          "docstring": null
+        },
+        {
+          "name": "test_mode_all_but_economic",
+          "docstring": null
+        },
+        {
+          "name": "check_qr_stacked",
+          "docstring": null
+        },
+        {
+          "name": "test_stacked_inputs",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCholesky",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic_property",
+          "docstring": null
+        },
+        {
+          "name": "test_0_size",
+          "docstring": null
+        },
+        {
+          "name": "test_upper_lower_arg",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestOuter",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "TestMultiDot",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic_function_with_three_arguments",
+          "docstring": null
+        },
+        {
+          "name": "test_basic_function_with_two_arguments",
+          "docstring": null
+        },
+        {
+          "name": "test_basic_function_with_dynamic_programming_optimization",
+          "docstring": null
+        },
+        {
+          "name": "test_vector_as_first_argument",
+          "docstring": null
+        },
+        {
+          "name": "test_vector_as_last_argument",
+          "docstring": null
+        },
+        {
+          "name": "test_vector_as_first_and_last_argument",
+          "docstring": null
+        },
+        {
+          "name": "test_three_arguments_and_out",
+          "docstring": null
+        },
+        {
+          "name": "test_two_arguments_and_out",
+          "docstring": null
+        },
+        {
+          "name": "test_dynamic_programming_optimization_and_out",
+          "docstring": null
+        },
+        {
+          "name": "test_dynamic_programming_logic",
+          "docstring": null
+        },
+        {
+          "name": "test_too_few_input_arrays",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestTensorinv",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_non_square_handling",
+          "docstring": null
+        },
+        {
+          "name": "test_tensorinv_shape",
+          "docstring": null
+        },
+        {
+          "name": "test_tensorinv_ind_limit",
+          "docstring": null
+        },
+        {
+          "name": "test_tensorinv_result",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestTensorsolve",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_non_square_handling",
+          "docstring": null
+        },
+        {
+          "name": "test_tensorsolve_result",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ArraySubclass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArraySubclass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArraySubclass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArraySubclass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArraySubclass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArraySubclass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArraySubclass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArraySubclass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArraySubclass",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "consistent_subclass",
+      "docstring": null
+    },
+    {
+      "name": "assert_almost_equal",
+      "docstring": null
+    },
+    {
+      "name": "get_real_dtype",
+      "docstring": null
+    },
+    {
+      "name": "get_complex_dtype",
+      "docstring": null
+    },
+    {
+      "name": "get_rtol",
+      "docstring": null
+    },
+    {
+      "name": "apply_tag",
+      "docstring": "Add the given tag (a string) to each of the cases (a list of LinalgCase\nobjects)"
+    },
+    {
+      "name": "identity_like_generalized",
+      "docstring": null
+    },
+    {
+      "name": "test_pinv_rtol_arg",
+      "docstring": null
+    },
+    {
+      "name": "test_reduced_rank",
+      "docstring": null
+    },
+    {
+      "name": "test_byteorder_check",
+      "docstring": null
+    },
+    {
+      "name": "test_generalized_raise_multiloop",
+      "docstring": null
+    },
+    {
+      "name": "test_xerbla_override",
+      "docstring": null
+    },
+    {
+      "name": "test_sdot_bug_8577",
+      "docstring": null
+    },
+    {
+      "name": "test_unsupported_commontype",
+      "docstring": null
+    },
+    {
+      "name": "test_blas64_dot",
+      "docstring": null
+    },
+    {
+      "name": "test_blas64_geqrf_lwork_smoketest",
+      "docstring": null
+    },
+    {
+      "name": "test_diagonal",
+      "docstring": null
+    },
+    {
+      "name": "test_trace",
+      "docstring": null
+    },
+    {
+      "name": "test_cross",
+      "docstring": null
+    },
+    {
+      "name": "test_tensordot",
+      "docstring": null
+    },
+    {
+      "name": "test_matmul",
+      "docstring": null
+    },
+    {
+      "name": "test_matrix_transpose",
+      "docstring": null
+    },
+    {
+      "name": "test_matrix_norm",
+      "docstring": null
+    },
+    {
+      "name": "test_vector_norm",
+      "docstring": null
+    },
+    {
+      "name": "check",
+      "docstring": "Run the function `do` on this test case, expanding arguments"
+    },
+    {
+      "name": "check_cases",
+      "docstring": "Run func on each of the cases with all of the tags in require, and none\nof the tags in exclude"
+    },
+    {
+      "name": "test_sq_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_sq_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_nonsq_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_nonsq_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_herm_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_herm_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_generalized_sq_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_generalized_empty_sq_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_generalized_nonsq_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_generalized_empty_nonsq_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_generalized_herm_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_generalized_empty_herm_cases",
+      "docstring": null
+    },
+    {
+      "name": "do",
+      "docstring": null
+    },
+    {
+      "name": "test_types",
+      "docstring": null
+    },
+    {
+      "name": "test_1_d",
+      "docstring": null
+    },
+    {
+      "name": "test_0_size",
+      "docstring": null
+    },
+    {
+      "name": "test_0_size_k",
+      "docstring": null
+    },
+    {
+      "name": "do",
+      "docstring": null
+    },
+    {
+      "name": "test_types",
+      "docstring": null
+    },
+    {
+      "name": "test_0_size",
+      "docstring": null
+    },
+    {
+      "name": "do",
+      "docstring": null
+    },
+    {
+      "name": "test_types",
+      "docstring": null
+    },
+    {
+      "name": "test_0_size",
+      "docstring": null
+    },
+    {
+      "name": "do",
+      "docstring": null
+    },
+    {
+      "name": "test_types",
+      "docstring": null
+    },
+    {
+      "name": "test_0_size",
+      "docstring": null
+    },
+    {
+      "name": "test_types",
+      "docstring": null
+    },
+    {
+      "name": "do",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_identity",
+      "docstring": "Empty input should put an identity matrix in u or vh "
+    },
+    {
+      "name": "test_svdvals",
+      "docstring": null
+    },
+    {
+      "name": "do",
+      "docstring": null
+    },
+    {
+      "name": "do",
+      "docstring": null
+    },
+    {
+      "name": "test_basic_nonsvd",
+      "docstring": null
+    },
+    {
+      "name": "test_singular",
+      "docstring": null
+    },
+    {
+      "name": "test_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_stacked_singular",
+      "docstring": null
+    },
+    {
+      "name": "do",
+      "docstring": null
+    },
+    {
+      "name": "do",
+      "docstring": null
+    },
+    {
+      "name": "do",
+      "docstring": null
+    },
+    {
+      "name": "test_zero",
+      "docstring": null
+    },
+    {
+      "name": "test_types",
+      "docstring": null
+    },
+    {
+      "name": "test_0_size",
+      "docstring": null
+    },
+    {
+      "name": "do",
+      "docstring": null
+    },
+    {
+      "name": "test_rcond",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_a_b",
+      "docstring": null
+    },
+    {
+      "name": "test_incompatible_dims",
+      "docstring": null
+    },
+    {
+      "name": "test_large_power",
+      "docstring": null
+    },
+    {
+      "name": "test_power_is_zero",
+      "docstring": null
+    },
+    {
+      "name": "test_power_is_one",
+      "docstring": null
+    },
+    {
+      "name": "test_power_is_two",
+      "docstring": null
+    },
+    {
+      "name": "test_power_is_minus_one",
+      "docstring": null
+    },
+    {
+      "name": "test_exceptions_bad_power",
+      "docstring": null
+    },
+    {
+      "name": "test_exceptions_non_square",
+      "docstring": null
+    },
+    {
+      "name": "test_exceptions_not_invertible",
+      "docstring": null
+    },
+    {
+      "name": "do",
+      "docstring": null
+    },
+    {
+      "name": "test_types",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_UPLO",
+      "docstring": null
+    },
+    {
+      "name": "test_0_size",
+      "docstring": null
+    },
+    {
+      "name": "do",
+      "docstring": null
+    },
+    {
+      "name": "test_types",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_UPLO",
+      "docstring": null
+    },
+    {
+      "name": "test_0_size",
+      "docstring": null
+    },
+    {
+      "name": "check_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_vector_return_type",
+      "docstring": null
+    },
+    {
+      "name": "test_vector",
+      "docstring": null
+    },
+    {
+      "name": "test_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_keepdims",
+      "docstring": null
+    },
+    {
+      "name": "test_matrix_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_matrix_return_type",
+      "docstring": null
+    },
+    {
+      "name": "test_matrix_2x2",
+      "docstring": null
+    },
+    {
+      "name": "test_matrix_3x3",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_args",
+      "docstring": null
+    },
+    {
+      "name": "test_longdouble_norm",
+      "docstring": null
+    },
+    {
+      "name": "test_intmin",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_high_ord",
+      "docstring": null
+    },
+    {
+      "name": "test_matrix_rank",
+      "docstring": null
+    },
+    {
+      "name": "test_symmetric_rank",
+      "docstring": null
+    },
+    {
+      "name": "check_qr",
+      "docstring": null
+    },
+    {
+      "name": "test_qr_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_mode_raw",
+      "docstring": null
+    },
+    {
+      "name": "test_mode_all_but_economic",
+      "docstring": null
+    },
+    {
+      "name": "check_qr_stacked",
+      "docstring": null
+    },
+    {
+      "name": "test_stacked_inputs",
+      "docstring": null
+    },
+    {
+      "name": "test_basic_property",
+      "docstring": null
+    },
+    {
+      "name": "test_0_size",
+      "docstring": null
+    },
+    {
+      "name": "test_upper_lower_arg",
+      "docstring": null
+    },
+    {
+      "name": "test_basic_function_with_three_arguments",
+      "docstring": null
+    },
+    {
+      "name": "test_basic_function_with_two_arguments",
+      "docstring": null
+    },
+    {
+      "name": "test_basic_function_with_dynamic_programming_optimization",
+      "docstring": null
+    },
+    {
+      "name": "test_vector_as_first_argument",
+      "docstring": null
+    },
+    {
+      "name": "test_vector_as_last_argument",
+      "docstring": null
+    },
+    {
+      "name": "test_vector_as_first_and_last_argument",
+      "docstring": null
+    },
+    {
+      "name": "test_three_arguments_and_out",
+      "docstring": null
+    },
+    {
+      "name": "test_two_arguments_and_out",
+      "docstring": null
+    },
+    {
+      "name": "test_dynamic_programming_optimization_and_out",
+      "docstring": null
+    },
+    {
+      "name": "test_dynamic_programming_logic",
+      "docstring": null
+    },
+    {
+      "name": "test_too_few_input_arrays",
+      "docstring": null
+    },
+    {
+      "name": "test_non_square_handling",
+      "docstring": null
+    },
+    {
+      "name": "test_tensorinv_shape",
+      "docstring": null
+    },
+    {
+      "name": "test_tensorinv_ind_limit",
+      "docstring": null
+    },
+    {
+      "name": "test_tensorinv_result",
+      "docstring": null
+    },
+    {
+      "name": "test_non_square_handling",
+      "docstring": null
+    },
+    {
+      "name": "test_tensorsolve_result",
+      "docstring": null
+    },
+    {
+      "name": "hermitian",
+      "docstring": null
+    },
+    {
+      "name": "tz",
+      "docstring": null
+    },
+    {
+      "name": "tz",
+      "docstring": null
+    },
+    {
+      "name": "tz",
+      "docstring": null
+    },
+    {
+      "name": "tz",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        assert_almost_equal(multi_dot([A, B]), A.dot(B))\n        assert_almost_equal(multi_dot([A, B]), np.dot(A, B))\n\n    def test_basic_function_with_dynamic_programming_optimization(self):\n        # multi_dot with four or more arguments uses the dynamic programming\n        # optimization and therefore deserve a separate\n        A = np.random.random((6, 2))"
+    }
+  ]
+}

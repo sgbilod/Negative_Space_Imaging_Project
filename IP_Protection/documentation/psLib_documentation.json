@@ -1,0 +1,222 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\psLib.py",
+  "classes": [
+    {
+      "name": "PSTokenError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PSError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PSTokenizer",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": "Read at most 'n' bytes from the buffer, or less if the read\nhits EOF before obtaining 'n' bytes.\nIf 'n' is negative or omitted, read all data until EOF is reached."
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "getnexttoken",
+          "docstring": null
+        },
+        {
+          "name": "skipwhite",
+          "docstring": null
+        },
+        {
+          "name": "starteexec",
+          "docstring": null
+        },
+        {
+          "name": "stopeexec",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PSInterpreter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "fillsystemdict",
+          "docstring": null
+        },
+        {
+          "name": "suckoperators",
+          "docstring": null
+        },
+        {
+          "name": "interpret",
+          "docstring": null
+        },
+        {
+          "name": "handle_object",
+          "docstring": null
+        },
+        {
+          "name": "call_procedure",
+          "docstring": null
+        },
+        {
+          "name": "resolve_name",
+          "docstring": null
+        },
+        {
+          "name": "do_token",
+          "docstring": null
+        },
+        {
+          "name": "do_comment",
+          "docstring": null
+        },
+        {
+          "name": "do_literal",
+          "docstring": null
+        },
+        {
+          "name": "do_string",
+          "docstring": null
+        },
+        {
+          "name": "do_hexstring",
+          "docstring": null
+        },
+        {
+          "name": "do_special",
+          "docstring": null
+        },
+        {
+          "name": "push",
+          "docstring": null
+        },
+        {
+          "name": "pop",
+          "docstring": null
+        },
+        {
+          "name": "do_makearray",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": "Remove circular references."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "unpack_item",
+      "docstring": null
+    },
+    {
+      "name": "suckfont",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": "Read at most 'n' bytes from the buffer, or less if the read\nhits EOF before obtaining 'n' bytes.\nIf 'n' is negative or omitted, read all data until EOF is reached."
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "getnexttoken",
+      "docstring": null
+    },
+    {
+      "name": "skipwhite",
+      "docstring": null
+    },
+    {
+      "name": "starteexec",
+      "docstring": null
+    },
+    {
+      "name": "stopeexec",
+      "docstring": null
+    },
+    {
+      "name": "fillsystemdict",
+      "docstring": null
+    },
+    {
+      "name": "suckoperators",
+      "docstring": null
+    },
+    {
+      "name": "interpret",
+      "docstring": null
+    },
+    {
+      "name": "handle_object",
+      "docstring": null
+    },
+    {
+      "name": "call_procedure",
+      "docstring": null
+    },
+    {
+      "name": "resolve_name",
+      "docstring": null
+    },
+    {
+      "name": "do_token",
+      "docstring": null
+    },
+    {
+      "name": "do_comment",
+      "docstring": null
+    },
+    {
+      "name": "do_literal",
+      "docstring": null
+    },
+    {
+      "name": "do_string",
+      "docstring": null
+    },
+    {
+      "name": "do_hexstring",
+      "docstring": null
+    },
+    {
+      "name": "do_special",
+      "docstring": null
+    },
+    {
+      "name": "push",
+      "docstring": null
+    },
+    {
+      "name": "pop",
+      "docstring": null
+    },
+    {
+      "name": "do_makearray",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": "Remove circular references."
+    }
+  ],
+  "innovations": []
+}

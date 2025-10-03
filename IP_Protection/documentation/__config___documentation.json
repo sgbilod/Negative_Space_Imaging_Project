@@ -1,0 +1,21 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\__config__.py",
+  "classes": [
+    {
+      "name": "DisplayModes",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "show",
+      "docstring": "Show libraries and system information on which NumPy was built\nand is being used\n\nParameters\n----------\nmode : {`'stdout'`, `'dicts'`}, optional.\n    Indicates how to display the config information.\n    `'stdout'` prints to console, `'dicts'` returns a dictionary\n    of the configuration.\n\nReturns\n-------\nout : {`dict`, `None`}\n    If mode is `'dicts'`, a dict is returned, else None\n\nSee Also\n--------\nget_include : Returns the directory containing NumPy C\n              header files.\n\nNotes\n-----\n1. The `'stdout'` mode will give more readable\n   output if ``pyyaml`` is installed"
+    },
+    {
+      "name": "show_config",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,104 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\fft\\tests\\test_helper.py",
+  "classes": [
+    {
+      "name": "TestFFTShift",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_definition",
+          "docstring": null
+        },
+        {
+          "name": "test_inverse",
+          "docstring": null
+        },
+        {
+          "name": "test_axes_keyword",
+          "docstring": null
+        },
+        {
+          "name": "test_uneven_dims",
+          "docstring": "Test 2D input, which has uneven dimension sizes "
+        },
+        {
+          "name": "test_equal_to_original",
+          "docstring": "Test that the new (>=v1.15) implementation (see #10073) is equal to the original (<=v1.14) "
+        }
+      ]
+    },
+    {
+      "name": "TestFFTFreq",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_definition",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestRFFTFreq",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_definition",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIRFFTN",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_not_last_axis_success",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_definition",
+      "docstring": null
+    },
+    {
+      "name": "test_inverse",
+      "docstring": null
+    },
+    {
+      "name": "test_axes_keyword",
+      "docstring": null
+    },
+    {
+      "name": "test_uneven_dims",
+      "docstring": "Test 2D input, which has uneven dimension sizes "
+    },
+    {
+      "name": "test_equal_to_original",
+      "docstring": "Test that the new (>=v1.15) implementation (see #10073) is equal to the original (<=v1.14) "
+    },
+    {
+      "name": "test_definition",
+      "docstring": null
+    },
+    {
+      "name": "test_definition",
+      "docstring": null
+    },
+    {
+      "name": "test_not_last_axis_success",
+      "docstring": null
+    },
+    {
+      "name": "original_fftshift",
+      "docstring": "How fftshift was implemented in v1.14"
+    },
+    {
+      "name": "original_ifftshift",
+      "docstring": "How ifftshift was implemented in v1.14 "
+    }
+  ],
+  "innovations": []
+}

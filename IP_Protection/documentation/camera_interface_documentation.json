@@ -1,0 +1,82 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\acquisition\\camera_interface.py",
+  "classes": [
+    {
+      "name": "CameraInterface",
+      "docstring": "Handles connection and communication with various camera types.\nSupports standard webcams, DSLR cameras via gphoto2, and specialized\ndepth cameras like Intel RealSense.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize camera interface with specific camera type and settings.\n\nArgs:\n    camera_type: Type of camera (\"webcam\", \"dslr\", \"realsense\", etc.)\n    camera_id: ID or index of the camera\n    config: Additional configuration parameters"
+        },
+        {
+          "name": "connect",
+          "docstring": "Establish connection to the camera.\n\nReturns:\n    bool: True if connection successful, False otherwise"
+        },
+        {
+          "name": "capture_image",
+          "docstring": "Capture a single image from the camera.\n\nReturns:\n    Tuple[bool, numpy.ndarray]: Success flag and the captured image"
+        },
+        {
+          "name": "capture_sequence",
+          "docstring": "Capture a sequence of images, useful for multi-view reconstruction.\n\nArgs:\n    num_frames: Number of frames to capture\n    delay: Delay between captures (seconds)\n    \nReturns:\n    List of captured images"
+        },
+        {
+          "name": "calibrate",
+          "docstring": "Perform camera calibration using a checkerboard pattern.\n\nArgs:\n    checkerboard_size: Number of internal corners in the checkerboard pattern\n    num_images: Number of calibration images to capture\n    \nReturns:\n    bool: True if calibration successful"
+        },
+        {
+          "name": "save_calibration",
+          "docstring": "Save camera calibration data to a JSON file.\n\nArgs:\n    file_path: Path to save the calibration data\n    \nReturns:\n    bool: True if saved successfully"
+        },
+        {
+          "name": "load_calibration",
+          "docstring": "Load camera calibration data from a JSON file.\n\nArgs:\n    file_path: Path to the calibration data file\n    \nReturns:\n    bool: True if loaded successfully"
+        },
+        {
+          "name": "set_resolution",
+          "docstring": "Set camera resolution.\n\nArgs:\n    width: Desired width in pixels\n    height: Desired height in pixels\n    \nReturns:\n    bool: True if resolution was set successfully"
+        },
+        {
+          "name": "disconnect",
+          "docstring": "Release camera resources and disconnect."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "connect",
+      "docstring": "Establish connection to the camera.\n\nReturns:\n    bool: True if connection successful, False otherwise"
+    },
+    {
+      "name": "capture_image",
+      "docstring": "Capture a single image from the camera.\n\nReturns:\n    Tuple[bool, numpy.ndarray]: Success flag and the captured image"
+    },
+    {
+      "name": "capture_sequence",
+      "docstring": "Capture a sequence of images, useful for multi-view reconstruction.\n\nArgs:\n    num_frames: Number of frames to capture\n    delay: Delay between captures (seconds)\n    \nReturns:\n    List of captured images"
+    },
+    {
+      "name": "calibrate",
+      "docstring": "Perform camera calibration using a checkerboard pattern.\n\nArgs:\n    checkerboard_size: Number of internal corners in the checkerboard pattern\n    num_images: Number of calibration images to capture\n    \nReturns:\n    bool: True if calibration successful"
+    },
+    {
+      "name": "save_calibration",
+      "docstring": "Save camera calibration data to a JSON file.\n\nArgs:\n    file_path: Path to save the calibration data\n    \nReturns:\n    bool: True if saved successfully"
+    },
+    {
+      "name": "load_calibration",
+      "docstring": "Load camera calibration data from a JSON file.\n\nArgs:\n    file_path: Path to the calibration data file\n    \nReturns:\n    bool: True if loaded successfully"
+    },
+    {
+      "name": "set_resolution",
+      "docstring": "Set camera resolution.\n\nArgs:\n    width: Desired width in pixels\n    height: Desired height in pixels\n    \nReturns:\n    bool: True if resolution was set successfully"
+    },
+    {
+      "name": "disconnect",
+      "docstring": "Release camera resources and disconnect."
+    }
+  ],
+  "innovations": []
+}

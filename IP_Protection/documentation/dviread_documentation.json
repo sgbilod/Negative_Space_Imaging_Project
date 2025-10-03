@@ -1,0 +1,125 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\dviread.py",
+  "classes": [
+    {
+      "name": "Text",
+      "docstring": "A glyph in the dvi file.\n\nThe *x* and *y* attributes directly position the glyph.  The *font*,\n*glyph*, and *width* attributes are kept public for back-compatibility,\nbut users wanting to draw the glyph themselves are encouraged to instead\nload the font specified by `font_path` at `font_size`, warp it with the\neffects specified by `font_effects`, and load the glyph specified by\n`glyph_name_or_index`.",
+      "methods": [
+        {
+          "name": "font_path",
+          "docstring": "The `~pathlib.Path` to the font for this glyph."
+        },
+        {
+          "name": "font_size",
+          "docstring": "The font size."
+        },
+        {
+          "name": "font_effects",
+          "docstring": "The \"font effects\" dict for this glyph.\n\nThis dict contains the values for this glyph of SlantFont and\nExtendFont (if any), read off :file:`pdftex.map`."
+        },
+        {
+          "name": "glyph_name_or_index",
+          "docstring": "Either the glyph name or the native charmap glyph index.\n\nIf :file:`pdftex.map` specifies an encoding for this glyph's font, that\nis a mapping of glyph indices to Adobe glyph names; use it to convert\ndvi indices to glyph names.  Callers can then convert glyph names to\nglyph indices (with FT_Get_Name_Index/get_name_index), and load the\nglyph using FT_Load_Glyph/load_glyph.\n\nIf :file:`pdftex.map` specifies no encoding, the indices directly map\nto the font's \"native\" charmap; glyphs should directly load using\nFT_Load_Char/load_char after selecting the native charmap."
+        }
+      ]
+    },
+    {
+      "name": "Dvi",
+      "docstring": "A reader for a dvi (\"device-independent\") file, as produced by TeX.\n\nThe current implementation can only iterate through pages in order,\nand does not even attempt to verify the postamble.\n\nThis class can be used as a context manager to close the underlying\nfile upon exit. Pages can be read via iteration. Here is an overly\nsimple way to extract text without trying to detect whitespace::\n\n    >>> with matplotlib.dviread.Dvi('input.dvi', 72) as dvi:\n    ...     for page in dvi:\n    ...         print(''.join(chr(t.glyph) for t in page.text))",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Read the data from the file named *filename* and convert\nTeX's internal units to units of *dpi* per inch.\n*dpi* only sets the units and does not limit the resolution.\nUse None to return TeX's internal units."
+        },
+        {
+          "name": "close",
+          "docstring": "Close the underlying file if it is open."
+        }
+      ]
+    },
+    {
+      "name": "DviFont",
+      "docstring": "Encapsulation of a font that a DVI file can refer to.\n\nThis class holds a font's texname and size, supports comparison,\nand knows the widths of glyphs in the same units as the AFM file.\nThere are also internal attributes (for use by dviread.py) that\nare *not* used for comparison.\n\nThe size is in Adobe points (converted from TeX points).\n\nParameters\n----------\nscale : float\n    Factor by which the font is scaled from its natural size.\ntfm : Tfm\n    TeX font metrics for this font\ntexname : bytes\n   Name of the font as used internally by TeX and friends, as an ASCII\n   bytestring.  This is usually very different from any external font\n   names; `PsfontsMap` can be used to find the external name of the font.\nvf : Vf\n   A TeX \"virtual font\" file, or None if this font is not virtual.\n\nAttributes\n----------\ntexname : bytes\nsize : float\n   Size of the font in Adobe points, converted from the slightly\n   smaller TeX points.\nwidths : list\n   Widths of glyphs in glyph-space units, typically 1/1000ths of\n   the point size.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Vf",
+      "docstring": "A virtual font (\\*.vf file) containing subroutines for dvi files.\n\nParameters\n----------\nfilename : str or path-like\n\nNotes\n-----\nThe virtual font format is a derivative of dvi:\nhttp://mirrors.ctan.org/info/knuth/virtual-fonts\nThis class reuses some of the machinery of `Dvi`\nbut replaces the `_read` loop and dispatch mechanism.\n\nExamples\n--------\n::\n\n    vf = Vf(filename)\n    glyph = vf[code]\n    glyph.text, glyph.boxes, glyph.width",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Tfm",
+      "docstring": "A TeX Font Metric file.\n\nThis implementation covers only the bare minimum needed by the Dvi class.\n\nParameters\n----------\nfilename : str or path-like\n\nAttributes\n----------\nchecksum : int\n   Used for verifying against the dvi file.\ndesign_size : int\n   Design size of the font (unknown units)\nwidth, height, depth : dict\n   Dimensions of each character, need to be scaled by the factor\n   specified in the dvi file. These are dicts because indexing may\n   not start from 0.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PsfontsMap",
+      "docstring": "A psfonts.map formatted file, mapping TeX fonts to PS fonts.\n\nParameters\n----------\nfilename : str or path-like\n\nNotes\n-----\nFor historical reasons, TeX knows many Type-1 fonts by different\nnames than the outside world. (For one thing, the names have to\nfit in eight characters.) Also, TeX's native fonts are not Type-1\nbut Metafont, which is nontrivial to convert to PostScript except\nas a bitmap. While high-quality conversions to Type-1 format exist\nand are shipped with modern TeX distributions, we need to know\nwhich Type-1 fonts are the counterparts of which native fonts. For\nthese reasons a mapping is needed from internal font names to font\nfile names.\n\nA texmf tree typically includes mapping files called e.g.\n:file:`psfonts.map`, :file:`pdftex.map`, or :file:`dvipdfm.map`.\nThe file :file:`psfonts.map` is used by :program:`dvips`,\n:file:`pdftex.map` by :program:`pdfTeX`, and :file:`dvipdfm.map`\nby :program:`dvipdfm`. :file:`psfonts.map` might avoid embedding\nthe 35 PostScript fonts (i.e., have no filename for them, as in\nthe Times-Bold example above), while the pdf-related files perhaps\nonly avoid the \"Base 14\" pdf fonts. But the user may have\nconfigured these files differently.\n\nExamples\n--------\n>>> map = PsfontsMap(find_tex_file('pdftex.map'))\n>>> entry = map[b'ptmbo8r']\n>>> entry.texname\nb'ptmbo8r'\n>>> entry.psname\nb'Times-Bold'\n>>> entry.encoding\n'/usr/local/texlive/2008/texmf-dist/fonts/enc/dvips/base/8r.enc'\n>>> entry.effects\n{'slant': 0.16700000000000001}\n>>> entry.filename",
+      "methods": []
+    },
+    {
+      "name": "_LuatexKpsewhich",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "search",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "find_tex_file",
+      "docstring": "Find a file in the texmf tree using kpathsea_.\n\nThe kpathsea library, provided by most existing TeX distributions, both\non Unix-like systems and on Windows (MikTeX), is invoked via a long-lived\nluatex process if luatex is installed, or via kpsewhich otherwise.\n\n.. _kpathsea: https://www.tug.org/kpathsea/\n\nParameters\n----------\nfilename : str or path-like\n\nRaises\n------\nFileNotFoundError\n    If the file is not found."
+    },
+    {
+      "name": "font_path",
+      "docstring": "The `~pathlib.Path` to the font for this glyph."
+    },
+    {
+      "name": "font_size",
+      "docstring": "The font size."
+    },
+    {
+      "name": "font_effects",
+      "docstring": "The \"font effects\" dict for this glyph.\n\nThis dict contains the values for this glyph of SlantFont and\nExtendFont (if any), read off :file:`pdftex.map`."
+    },
+    {
+      "name": "glyph_name_or_index",
+      "docstring": "Either the glyph name or the native charmap glyph index.\n\nIf :file:`pdftex.map` specifies an encoding for this glyph's font, that\nis a mapping of glyph indices to Adobe glyph names; use it to convert\ndvi indices to glyph names.  Callers can then convert glyph names to\nglyph indices (with FT_Get_Name_Index/get_name_index), and load the\nglyph using FT_Load_Glyph/load_glyph.\n\nIf :file:`pdftex.map` specifies no encoding, the indices directly map\nto the font's \"native\" charmap; glyphs should directly load using\nFT_Load_Char/load_char after selecting the native charmap."
+    },
+    {
+      "name": "decorate",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": "Close the underlying file if it is open."
+    },
+    {
+      "name": "search",
+      "docstring": null
+    },
+    {
+      "name": "wrapper",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

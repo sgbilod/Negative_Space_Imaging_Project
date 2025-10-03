@@ -1,0 +1,38 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\config\\plugins.py",
+  "classes": [
+    {
+      "name": "PluginConfig",
+      "docstring": "Plugin Configuration Metadata\n\nThis class holds the information needed to lazy-import plugins.\n\nParameters\n----------\nname : str\n    The name of the plugin.\nclass_name : str\n    The name of the plugin class inside the plugin module.\nmodule_name : str\n    The name of the module/package from which to import the plugin.\nis_legacy : bool\n    If True, this plugin is a v2 plugin and will be wrapped in a\n    LegacyPlugin. Default: False.\npackage_name : str\n    If the given module name points to a relative module, then the package\n    name determines the package it is relative to.\ninstall_name : str\n    The name of the optional dependency that can be used to install this\n    plugin if it is missing.\nlegacy_args : Dict\n    A dictionary of kwargs to pass to the v2 plugin (Format) upon construction.\n\nExamples\n--------\n>>> PluginConfig(\n        name=\"TIFF\",\n        class_name=\"TiffFormat\",\n        module_name=\"imageio.plugins.tifffile\",\n        is_legacy=True,\n        install_name=\"tifffile\",\n        legacy_args={\n            \"description\": \"TIFF format\",\n            \"extensions\": \".tif .tiff .stk .lsm\",\n            \"modes\": \"iIvV\",\n        },\n    )\n>>> PluginConfig(\n        name=\"pillow\",\n        class_name=\"PillowPlugin\",\n        module_name=\"imageio.plugins.pillow\"\n    )",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "format",
+          "docstring": "For backwards compatibility with FormatManager\n\nDelete when migrating to v3"
+        },
+        {
+          "name": "plugin_class",
+          "docstring": "Get the plugin class (import if needed)\n\nReturns\n-------\nplugin_class : Any\n    The class that can be used to instantiate plugins."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "format",
+      "docstring": "For backwards compatibility with FormatManager\n\nDelete when migrating to v3"
+    },
+    {
+      "name": "plugin_class",
+      "docstring": "Get the plugin class (import if needed)\n\nReturns\n-------\nplugin_class : Any\n    The class that can be used to instantiate plugins."
+    },
+    {
+      "name": "partial_legacy_plugin",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

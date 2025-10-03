@@ -1,0 +1,412 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\dates.py",
+  "classes": [
+    {
+      "name": "DateFormatter",
+      "docstring": "Format a tick (in days since the epoch) with a\n`~datetime.datetime.strftime` format string.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nfmt : str\n    `~datetime.datetime.strftime` format string\ntz : str or `~datetime.tzinfo`, default: :rc:`timezone`\n    Ticks timezone. If a string, *tz* is passed to `dateutil.tz`.\nusetex : bool, default: :rc:`text.usetex`\n    To enable/disable the use of TeX's math mode for rendering the\n    results of the formatter."
+        },
+        {
+          "name": "set_tzinfo",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ConciseDateFormatter",
+      "docstring": "A `.Formatter` which attempts to figure out the best format to use for the\ndate, and to make it as compact as possible, but still be complete. This is\nmost useful when used with the `AutoDateLocator`::\n\n>>> locator = AutoDateLocator()\n>>> formatter = ConciseDateFormatter(locator)\n\nParameters\n----------\nlocator : `.ticker.Locator`\n    Locator that this axis is using.\n\ntz : str or `~datetime.tzinfo`, default: :rc:`timezone`\n    Ticks timezone, passed to `.dates.num2date`.\n\nformats : list of 6 strings, optional\n    Format strings for 6 levels of tick labelling: mostly years,\n    months, days, hours, minutes, and seconds.  Strings use\n    the same format codes as `~datetime.datetime.strftime`.  Default is\n    ``['%Y', '%b', '%d', '%H:%M', '%H:%M', '%S.%f']``\n\nzero_formats : list of 6 strings, optional\n    Format strings for tick labels that are \"zeros\" for a given tick\n    level.  For instance, if most ticks are months, ticks around 1 Jan 2005\n    will be labeled \"Dec\", \"2005\", \"Feb\".  The default is\n    ``['', '%Y', '%b', '%b-%d', '%H:%M', '%H:%M']``\n\noffset_formats : list of 6 strings, optional\n    Format strings for the 6 levels that is applied to the \"offset\"\n    string found on the right side of an x-axis, or top of a y-axis.\n    Combined with the tick labels this should completely specify the\n    date.  The default is::\n\n        ['', '%Y', '%Y-%b', '%Y-%b-%d', '%Y-%b-%d', '%Y-%b-%d %H:%M']\n\nshow_offset : bool, default: True\n    Whether to show the offset or not.\n\nusetex : bool, default: :rc:`text.usetex`\n    To enable/disable the use of TeX's math mode for rendering the results\n    of the formatter.\n\nExamples\n--------\nSee :doc:`/gallery/ticks/date_concise_formatter`\n\n.. plot::\n\n    import datetime\n    import matplotlib.dates as mdates\n\n    base = datetime.datetime(2005, 2, 1)\n    dates = np.array([base + datetime.timedelta(hours=(2 * i))\n                      for i in range(732)])\n    N = len(dates)\n    np.random.seed(19680801)\n    y = np.cumsum(np.random.randn(N))\n\n    fig, ax = plt.subplots(constrained_layout=True)\n    locator = mdates.AutoDateLocator()\n    formatter = mdates.ConciseDateFormatter(locator)\n    ax.xaxis.set_major_locator(locator)\n    ax.xaxis.set_major_formatter(formatter)\n\n    ax.plot(dates, y)\n    ax.set_title('Concise Date Formatter')",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Autoformat the date labels.  The default format is used to form an\ninitial string, and then redundant elements are removed."
+        },
+        {
+          "name": "format_ticks",
+          "docstring": null
+        },
+        {
+          "name": "get_offset",
+          "docstring": null
+        },
+        {
+          "name": "format_data_short",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AutoDateFormatter",
+      "docstring": "A `.Formatter` which attempts to figure out the best format to use.  This\nis most useful when used with the `AutoDateLocator`.\n\n`.AutoDateFormatter` has a ``.scale`` dictionary that maps tick scales (the\ninterval in days between one major tick) to format strings; this dictionary\ndefaults to ::\n\n    self.scaled = {\n        DAYS_PER_YEAR: rcParams['date.autoformatter.year'],\n        DAYS_PER_MONTH: rcParams['date.autoformatter.month'],\n        1: rcParams['date.autoformatter.day'],\n        1 / HOURS_PER_DAY: rcParams['date.autoformatter.hour'],\n        1 / MINUTES_PER_DAY: rcParams['date.autoformatter.minute'],\n        1 / SEC_PER_DAY: rcParams['date.autoformatter.second'],\n        1 / MUSECONDS_PER_DAY: rcParams['date.autoformatter.microsecond'],\n    }\n\nThe formatter uses the format string corresponding to the lowest key in\nthe dictionary that is greater or equal to the current scale.  Dictionary\nentries can be customized::\n\n    locator = AutoDateLocator()\n    formatter = AutoDateFormatter(locator)\n    formatter.scaled[1/(24*60)] = '%M:%S' # only show min and sec\n\nCustom callables can also be used instead of format strings.  The following\nexample shows how to use a custom format function to strip trailing zeros\nfrom decimal seconds and adds the date to the first ticklabel::\n\n    def my_format_function(x, pos=None):\n        x = matplotlib.dates.num2date(x)\n        if pos == 0:\n            fmt = '%D %H:%M:%S.%f'\n        else:\n            fmt = '%H:%M:%S.%f'\n        label = x.strftime(fmt)\n        label = label.rstrip(\"0\")\n        label = label.rstrip(\".\")\n        return label\n\n    formatter.scaled[1/(24*60)] = my_format_function",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Autoformat the date labels.\n\nParameters\n----------\nlocator : `.ticker.Locator`\n    Locator that this axis is using.\n\ntz : str or `~datetime.tzinfo`, default: :rc:`timezone`\n    Ticks timezone. If a string, *tz* is passed to `dateutil.tz`.\n\ndefaultfmt : str\n    The default format to use if none of the values in ``self.scaled``\n    are greater than the unit returned by ``locator._get_unit()``.\n\nusetex : bool, default: :rc:`text.usetex`\n    To enable/disable the use of TeX's math mode for rendering the\n    results of the formatter. If any entries in ``self.scaled`` are set\n    as functions, then it is up to the customized function to enable or\n    disable TeX's math mode itself."
+        }
+      ]
+    },
+    {
+      "name": "rrulewrapper",
+      "docstring": "A simple wrapper around a `dateutil.rrule` allowing flexible\ndate tick specifications.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nfreq : {YEARLY, MONTHLY, WEEKLY, DAILY, HOURLY, MINUTELY, SECONDLY}\n    Tick frequency. These constants are defined in `dateutil.rrule`,\n    but they are accessible from `matplotlib.dates` as well.\ntzinfo : `datetime.tzinfo`, optional\n    Time zone information. The default is None.\n**kwargs\n    Additional keyword arguments are passed to the `dateutil.rrule`."
+        },
+        {
+          "name": "set",
+          "docstring": "Set parameters for an existing wrapper."
+        }
+      ]
+    },
+    {
+      "name": "DateLocator",
+      "docstring": "Determines the tick locations when plotting dates.\n\nThis class is subclassed by other Locators and\nis not meant to be used on its own.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\ntz : str or `~datetime.tzinfo`, default: :rc:`timezone`\n    Ticks timezone. If a string, *tz* is passed to `dateutil.tz`."
+        },
+        {
+          "name": "set_tzinfo",
+          "docstring": "Set timezone info.\n\nParameters\n----------\ntz : str or `~datetime.tzinfo`, default: :rc:`timezone`\n    Ticks timezone. If a string, *tz* is passed to `dateutil.tz`."
+        },
+        {
+          "name": "datalim_to_dt",
+          "docstring": "Convert axis data interval to datetime objects."
+        },
+        {
+          "name": "viewlim_to_dt",
+          "docstring": "Convert the view interval to datetime objects."
+        },
+        {
+          "name": "nonsingular",
+          "docstring": "Given the proposed upper and lower extent, adjust the range\nif it is too close to being singular (i.e. a range of ~0)."
+        }
+      ]
+    },
+    {
+      "name": "RRuleLocator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "tick_values",
+          "docstring": null
+        },
+        {
+          "name": "get_unit_generic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AutoDateLocator",
+      "docstring": "On autoscale, this class picks the best `DateLocator` to set the view\nlimits and the tick locations.\n\nAttributes\n----------\nintervald : dict\n\n    Mapping of tick frequencies to multiples allowed for that ticking.\n    The default is ::\n\n        self.intervald = {\n            YEARLY  : [1, 2, 4, 5, 10, 20, 40, 50, 100, 200, 400, 500,\n                       1000, 2000, 4000, 5000, 10000],\n            MONTHLY : [1, 2, 3, 4, 6],\n            DAILY   : [1, 2, 3, 7, 14, 21],\n            HOURLY  : [1, 2, 3, 4, 6, 12],\n            MINUTELY: [1, 5, 10, 15, 30],\n            SECONDLY: [1, 5, 10, 15, 30],\n            MICROSECONDLY: [1, 2, 5, 10, 20, 50, 100, 200, 500,\n                            1000, 2000, 5000, 10000, 20000, 50000,\n                            100000, 200000, 500000, 1000000],\n        }\n\n    where the keys are defined in `dateutil.rrule`.\n\n    The interval is used to specify multiples that are appropriate for\n    the frequency of ticking. For instance, every 7 days is sensible\n    for daily ticks, but for minutes/seconds, 15 or 30 make sense.\n\n    When customizing, you should only modify the values for the existing\n    keys. You should not add or delete entries.\n\n    Example for forcing ticks every 3 hours::\n\n        locator = AutoDateLocator()\n        locator.intervald[HOURLY] = [3]  # only show every 3 hours",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\ntz : str or `~datetime.tzinfo`, default: :rc:`timezone`\n    Ticks timezone. If a string, *tz* is passed to `dateutil.tz`.\nminticks : int\n    The minimum number of ticks desired; controls whether ticks occur\n    yearly, monthly, etc.\nmaxticks : int\n    The maximum number of ticks desired; controls the interval between\n    ticks (ticking every other, every 3, etc.).  For fine-grained\n    control, this can be a dictionary mapping individual rrule\n    frequency constants (YEARLY, MONTHLY, etc.) to their own maximum\n    number of ticks.  This can be used to keep the number of ticks\n    appropriate to the format chosen in `AutoDateFormatter`. Any\n    frequency not specified in this dictionary is given a default\n    value.\ninterval_multiples : bool, default: True\n    Whether ticks should be chosen to be multiple of the interval,\n    locking them to 'nicer' locations.  For example, this will force\n    the ticks to be at hours 0, 6, 12, 18 when hourly ticking is done\n    at 6 hour intervals."
+        },
+        {
+          "name": "tick_values",
+          "docstring": null
+        },
+        {
+          "name": "nonsingular",
+          "docstring": null
+        },
+        {
+          "name": "get_locator",
+          "docstring": "Pick the best locator based on a distance."
+        }
+      ]
+    },
+    {
+      "name": "YearLocator",
+      "docstring": "Make ticks on a given day of each year that is a multiple of base.\n\nExamples::\n\n  # Tick every year on Jan 1st\n  locator = YearLocator()\n\n  # Tick every 5 years on July 4th\n  locator = YearLocator(5, month=7, day=4)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nbase : int, default: 1\n    Mark ticks every *base* years.\nmonth : int, default: 1\n    The month on which to place the ticks, starting from 1. Default is\n    January.\nday : int, default: 1\n    The day on which to place the ticks.\ntz : str or `~datetime.tzinfo`, default: :rc:`timezone`\n    Ticks timezone. If a string, *tz* is passed to `dateutil.tz`."
+        }
+      ]
+    },
+    {
+      "name": "MonthLocator",
+      "docstring": "Make ticks on occurrences of each month, e.g., 1, 3, 12.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nbymonth : int or list of int, default: all months\n    Ticks will be placed on every month in *bymonth*. Default is\n    ``range(1, 13)``, i.e. every month.\nbymonthday : int, default: 1\n    The day on which to place the ticks.\ninterval : int, default: 1\n    The interval between each iteration. For example, if\n    ``interval=2``, mark every second occurrence.\ntz : str or `~datetime.tzinfo`, default: :rc:`timezone`\n    Ticks timezone. If a string, *tz* is passed to `dateutil.tz`."
+        }
+      ]
+    },
+    {
+      "name": "WeekdayLocator",
+      "docstring": "Make ticks on occurrences of each weekday.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nbyweekday : int or list of int, default: all days\n    Ticks will be placed on every weekday in *byweekday*. Default is\n    every day.\n\n    Elements of *byweekday* must be one of MO, TU, WE, TH, FR, SA,\n    SU, the constants from :mod:`dateutil.rrule`, which have been\n    imported into the :mod:`matplotlib.dates` namespace.\ninterval : int, default: 1\n    The interval between each iteration. For example, if\n    ``interval=2``, mark every second occurrence.\ntz : str or `~datetime.tzinfo`, default: :rc:`timezone`\n    Ticks timezone. If a string, *tz* is passed to `dateutil.tz`."
+        }
+      ]
+    },
+    {
+      "name": "DayLocator",
+      "docstring": "Make ticks on occurrences of each day of the month.  For example,\n1, 15, 30.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nbymonthday : int or list of int, default: all days\n    Ticks will be placed on every day in *bymonthday*. Default is\n    ``bymonthday=range(1, 32)``, i.e., every day of the month.\ninterval : int, default: 1\n    The interval between each iteration. For example, if\n    ``interval=2``, mark every second occurrence.\ntz : str or `~datetime.tzinfo`, default: :rc:`timezone`\n    Ticks timezone. If a string, *tz* is passed to `dateutil.tz`."
+        }
+      ]
+    },
+    {
+      "name": "HourLocator",
+      "docstring": "Make ticks on occurrences of each hour.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nbyhour : int or list of int, default: all hours\n    Ticks will be placed on every hour in *byhour*. Default is\n    ``byhour=range(24)``, i.e., every hour.\ninterval : int, default: 1\n    The interval between each iteration. For example, if\n    ``interval=2``, mark every second occurrence.\ntz : str or `~datetime.tzinfo`, default: :rc:`timezone`\n    Ticks timezone. If a string, *tz* is passed to `dateutil.tz`."
+        }
+      ]
+    },
+    {
+      "name": "MinuteLocator",
+      "docstring": "Make ticks on occurrences of each minute.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nbyminute : int or list of int, default: all minutes\n    Ticks will be placed on every minute in *byminute*. Default is\n    ``byminute=range(60)``, i.e., every minute.\ninterval : int, default: 1\n    The interval between each iteration. For example, if\n    ``interval=2``, mark every second occurrence.\ntz : str or `~datetime.tzinfo`, default: :rc:`timezone`\n    Ticks timezone. If a string, *tz* is passed to `dateutil.tz`."
+        }
+      ]
+    },
+    {
+      "name": "SecondLocator",
+      "docstring": "Make ticks on occurrences of each second.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nbysecond : int or list of int, default: all seconds\n    Ticks will be placed on every second in *bysecond*. Default is\n    ``bysecond = range(60)``, i.e., every second.\ninterval : int, default: 1\n    The interval between each iteration. For example, if\n    ``interval=2``, mark every second occurrence.\ntz : str or `~datetime.tzinfo`, default: :rc:`timezone`\n    Ticks timezone. If a string, *tz* is passed to `dateutil.tz`."
+        }
+      ]
+    },
+    {
+      "name": "MicrosecondLocator",
+      "docstring": "Make ticks on regular intervals of one or more microsecond(s).\n\n.. note::\n\n    By default, Matplotlib uses a floating point representation of time in\n    days since the epoch, so plotting data with\n    microsecond time resolution does not work well for\n    dates that are far (about 70 years) from the epoch (check with\n    `~.dates.get_epoch`).\n\n    If you want sub-microsecond resolution time plots, it is strongly\n    recommended to use floating point seconds, not datetime-like\n    time representation.\n\n    If you really must use datetime.datetime() or similar and still\n    need microsecond precision, change the time origin via\n    `.dates.set_epoch` to something closer to the dates being plotted.\n    See :doc:`/gallery/ticks/date_precision_and_epochs`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\ninterval : int, default: 1\n    The interval between each iteration. For example, if\n    ``interval=2``, mark every second occurrence.\ntz : str or `~datetime.tzinfo`, default: :rc:`timezone`\n    Ticks timezone. If a string, *tz* is passed to `dateutil.tz`."
+        },
+        {
+          "name": "set_axis",
+          "docstring": null
+        },
+        {
+          "name": "tick_values",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DateConverter",
+      "docstring": "Converter for `datetime.date` and `datetime.datetime` data, or for\ndate/time data represented as it would be converted by `date2num`.\n\nThe 'unit' tag for such data is None or a `~datetime.tzinfo` instance.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "axisinfo",
+          "docstring": "Return the `~matplotlib.units.AxisInfo` for *unit*.\n\n*unit* is a `~datetime.tzinfo` instance or None.\nThe *axis* argument is required but not used."
+        },
+        {
+          "name": "convert",
+          "docstring": "If *value* is not already a number or sequence of numbers, convert it\nwith `date2num`.\n\nThe *unit* and *axis* arguments are not used."
+        },
+        {
+          "name": "default_units",
+          "docstring": "Return the `~datetime.tzinfo` instance of *x* or of its first element,\nor None"
+        }
+      ]
+    },
+    {
+      "name": "ConciseDateConverter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "axisinfo",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_SwitchableDateConverter",
+      "docstring": "Helper converter-like object that generates and dispatches to\ntemporary ConciseDateConverter or DateConverter instances based on\n:rc:`date.converter` and :rc:`date.interval_multiples`.",
+      "methods": [
+        {
+          "name": "axisinfo",
+          "docstring": null
+        },
+        {
+          "name": "default_units",
+          "docstring": null
+        },
+        {
+          "name": "convert",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "set_epoch",
+      "docstring": "Set the epoch (origin for dates) for datetime calculations.\n\nThe default epoch is :rc:`date.epoch`.\n\nIf microsecond accuracy is desired, the date being plotted needs to be\nwithin approximately 70 years of the epoch. Matplotlib internally\nrepresents dates as days since the epoch, so floating point dynamic\nrange needs to be within a factor of 2^52.\n\n`~.dates.set_epoch` must be called before any dates are converted\n(i.e. near the import section) or a RuntimeError will be raised.\n\nSee also :doc:`/gallery/ticks/date_precision_and_epochs`.\n\nParameters\n----------\nepoch : str\n    valid UTC date parsable by `numpy.datetime64` (do not include\n    timezone)."
+    },
+    {
+      "name": "get_epoch",
+      "docstring": "Get the epoch used by `.dates`.\n\nReturns\n-------\nepoch : str\n    String for the epoch (parsable by `numpy.datetime64`)."
+    },
+    {
+      "name": "datestr2num",
+      "docstring": "Convert a date string to a datenum using `dateutil.parser.parse`.\n\nParameters\n----------\nd : str or sequence of str\n    The dates to convert.\n\ndefault : datetime.datetime, optional\n    The default date to use when fields are missing in *d*."
+    },
+    {
+      "name": "date2num",
+      "docstring": "Convert datetime objects to Matplotlib dates.\n\nParameters\n----------\nd : `datetime.datetime` or `numpy.datetime64` or sequences of these\n\nReturns\n-------\nfloat or sequence of floats\n    Number of days since the epoch.  See `.get_epoch` for the\n    epoch, which can be changed by :rc:`date.epoch` or `.set_epoch`.  If\n    the epoch is \"1970-01-01T00:00:00\" (default) then noon Jan 1 1970\n    (\"1970-01-01T12:00:00\") returns 0.5.\n\nNotes\n-----\nThe Gregorian calendar is assumed; this is not universal practice.\nFor details see the module docstring."
+    },
+    {
+      "name": "num2date",
+      "docstring": "Convert Matplotlib dates to `~datetime.datetime` objects.\n\nParameters\n----------\nx : float or sequence of floats\n    Number of days (fraction part represents hours, minutes, seconds)\n    since the epoch.  See `.get_epoch` for the\n    epoch, which can be changed by :rc:`date.epoch` or `.set_epoch`.\ntz : str or `~datetime.tzinfo`, default: :rc:`timezone`\n    Timezone of *x*. If a string, *tz* is passed to `dateutil.tz`.\n\nReturns\n-------\n`~datetime.datetime` or sequence of `~datetime.datetime`\n    Dates are returned in timezone *tz*.\n\n    If *x* is a sequence, a sequence of `~datetime.datetime` objects will\n    be returned.\n\nNotes\n-----\nThe Gregorian calendar is assumed; this is not universal practice.\nFor details, see the module docstring."
+    },
+    {
+      "name": "num2timedelta",
+      "docstring": "Convert number of days to a `~datetime.timedelta` object.\n\nIf *x* is a sequence, a sequence of `~datetime.timedelta` objects will\nbe returned.\n\nParameters\n----------\nx : float, sequence of floats\n    Number of days. The fraction part represents hours, minutes, seconds.\n\nReturns\n-------\n`datetime.timedelta` or list[`datetime.timedelta`]"
+    },
+    {
+      "name": "drange",
+      "docstring": "Return a sequence of equally spaced Matplotlib dates.\n\nThe dates start at *dstart* and reach up to, but not including *dend*.\nThey are spaced by *delta*.\n\nParameters\n----------\ndstart, dend : `~datetime.datetime`\n    The date limits.\ndelta : `datetime.timedelta`\n    Spacing of the dates.\n\nReturns\n-------\n`numpy.array`\n    A list floats representing Matplotlib dates."
+    },
+    {
+      "name": "set_tzinfo",
+      "docstring": null
+    },
+    {
+      "name": "format_ticks",
+      "docstring": null
+    },
+    {
+      "name": "get_offset",
+      "docstring": null
+    },
+    {
+      "name": "format_data_short",
+      "docstring": null
+    },
+    {
+      "name": "set",
+      "docstring": "Set parameters for an existing wrapper."
+    },
+    {
+      "name": "set_tzinfo",
+      "docstring": "Set timezone info.\n\nParameters\n----------\ntz : str or `~datetime.tzinfo`, default: :rc:`timezone`\n    Ticks timezone. If a string, *tz* is passed to `dateutil.tz`."
+    },
+    {
+      "name": "datalim_to_dt",
+      "docstring": "Convert axis data interval to datetime objects."
+    },
+    {
+      "name": "viewlim_to_dt",
+      "docstring": "Convert the view interval to datetime objects."
+    },
+    {
+      "name": "nonsingular",
+      "docstring": "Given the proposed upper and lower extent, adjust the range\nif it is too close to being singular (i.e. a range of ~0)."
+    },
+    {
+      "name": "tick_values",
+      "docstring": null
+    },
+    {
+      "name": "get_unit_generic",
+      "docstring": null
+    },
+    {
+      "name": "tick_values",
+      "docstring": null
+    },
+    {
+      "name": "nonsingular",
+      "docstring": null
+    },
+    {
+      "name": "get_locator",
+      "docstring": "Pick the best locator based on a distance."
+    },
+    {
+      "name": "set_axis",
+      "docstring": null
+    },
+    {
+      "name": "tick_values",
+      "docstring": null
+    },
+    {
+      "name": "axisinfo",
+      "docstring": "Return the `~matplotlib.units.AxisInfo` for *unit*.\n\n*unit* is a `~datetime.tzinfo` instance or None.\nThe *axis* argument is required but not used."
+    },
+    {
+      "name": "convert",
+      "docstring": "If *value* is not already a number or sequence of numbers, convert it\nwith `date2num`.\n\nThe *unit* and *axis* arguments are not used."
+    },
+    {
+      "name": "default_units",
+      "docstring": "Return the `~datetime.tzinfo` instance of *x* or of its first element,\nor None"
+    },
+    {
+      "name": "axisinfo",
+      "docstring": null
+    },
+    {
+      "name": "axisinfo",
+      "docstring": null
+    },
+    {
+      "name": "default_units",
+      "docstring": null
+    },
+    {
+      "name": "convert",
+      "docstring": null
+    },
+    {
+      "name": "normalize_arg",
+      "docstring": null
+    },
+    {
+      "name": "normalize_args",
+      "docstring": null
+    },
+    {
+      "name": "inner_func",
+      "docstring": null
+    },
+    {
+      "name": "inner_func",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

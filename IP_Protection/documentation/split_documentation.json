@@ -1,0 +1,27 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\designspaceLib\\split.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "defaultMakeInstanceFilename",
+      "docstring": "Default callable to synthesize an instance filename\nwhen makeNames=True, for instances that don't specify an instance name\nin the designspace. This part of the name generation can be overriden\nbecause it's not specified by the STAT table."
+    },
+    {
+      "name": "splitInterpolable",
+      "docstring": "Split the given DS5 into several interpolable sub-designspaces.\nThere are as many interpolable sub-spaces as there are combinations of\ndiscrete axis values.\n\nE.g. with axes:\n    - italic (discrete) Upright or Italic\n    - style (discrete) Sans or Serif\n    - weight (continuous) 100 to 900\n\nThere are 4 sub-spaces in which the Weight axis should interpolate:\n(Upright, Sans), (Upright, Serif), (Italic, Sans) and (Italic, Serif).\n\nThe sub-designspaces still include the full axis definitions and STAT data,\nbut the rules, sources, variable fonts, instances are trimmed down to only\nkeep what falls within the interpolable sub-space.\n\nArgs:\n  - ``makeNames``: Whether to compute the instance family and style\n    names using the STAT data.\n  - ``expandLocations``: Whether to turn all locations into \"full\"\n    locations, including implicit default axis values where missing.\n  - ``makeInstanceFilename``: Callable to synthesize an instance filename\n    when makeNames=True, for instances that don't specify an instance name\n    in the designspace. This part of the name generation can be overridden\n    because it's not specified by the STAT table.\n\n.. versionadded:: 5.0"
+    },
+    {
+      "name": "splitVariableFonts",
+      "docstring": "Convert each variable font listed in this document into a standalone\ndesignspace. This can be used to compile all the variable fonts from a\nformat 5 designspace using tools that can only deal with 1 VF at a time.\n\nArgs:\n  - ``makeNames``: Whether to compute the instance family and style\n    names using the STAT data.\n  - ``expandLocations``: Whether to turn all locations into \"full\"\n    locations, including implicit default axis values where missing.\n  - ``makeInstanceFilename``: Callable to synthesize an instance filename\n    when makeNames=True, for instances that don't specify an instance name\n    in the designspace. This part of the name generation can be overridden\n    because it's not specified by the STAT table.\n\n.. versionadded:: 5.0"
+    },
+    {
+      "name": "convert5to4",
+      "docstring": "Convert each variable font listed in this document into a standalone\nformat 4 designspace. This can be used to compile all the variable fonts\nfrom a format 5 designspace using tools that only know about format 4.\n\n.. versionadded:: 5.0"
+    },
+    {
+      "name": "maybeExpandDesignLocation",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

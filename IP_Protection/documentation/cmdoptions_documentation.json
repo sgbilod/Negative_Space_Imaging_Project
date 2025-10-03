@@ -1,0 +1,77 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\cli\\cmdoptions.py",
+  "classes": [
+    {
+      "name": "PipOption",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "raise_option_error",
+      "docstring": "Raise an option parsing error using parser.error().\n\nArgs:\n  parser: an OptionParser instance.\n  option: an Option instance.\n  msg: the error text."
+    },
+    {
+      "name": "make_option_group",
+      "docstring": "Return an OptionGroup object\ngroup  -- assumed to be dict with 'name' and 'options' keys\nparser -- an optparse Parser"
+    },
+    {
+      "name": "check_dist_restriction",
+      "docstring": "Function for determining if custom platform options are allowed.\n\n:param options: The OptionParser options.\n:param check_target: Whether or not to check if --target is being used."
+    },
+    {
+      "name": "exists_action",
+      "docstring": null
+    },
+    {
+      "name": "extra_index_url",
+      "docstring": null
+    },
+    {
+      "name": "find_links",
+      "docstring": null
+    },
+    {
+      "name": "trusted_host",
+      "docstring": null
+    },
+    {
+      "name": "constraints",
+      "docstring": null
+    },
+    {
+      "name": "requirements",
+      "docstring": null
+    },
+    {
+      "name": "editable",
+      "docstring": null
+    },
+    {
+      "name": "no_binary",
+      "docstring": null
+    },
+    {
+      "name": "only_binary",
+      "docstring": null
+    },
+    {
+      "name": "add_target_python_options",
+      "docstring": null
+    },
+    {
+      "name": "make_target_python",
+      "docstring": null
+    },
+    {
+      "name": "prefer_binary",
+      "docstring": null
+    },
+    {
+      "name": "check_list_path_option",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,74 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\highlighter.py",
+  "classes": [
+    {
+      "name": "Highlighter",
+      "docstring": "Abstract base class for highlighters.",
+      "methods": [
+        {
+          "name": "highlight",
+          "docstring": "Apply highlighting in place to text.\n\nArgs:\n    text (~Text): A text object highlight."
+        }
+      ]
+    },
+    {
+      "name": "NullHighlighter",
+      "docstring": "A highlighter object that doesn't highlight.\n\nMay be used to disable highlighting entirely.",
+      "methods": [
+        {
+          "name": "highlight",
+          "docstring": "Nothing to do"
+        }
+      ]
+    },
+    {
+      "name": "RegexHighlighter",
+      "docstring": "Applies highlighting from a list of regular expressions.",
+      "methods": [
+        {
+          "name": "highlight",
+          "docstring": "Highlight :class:`rich.text.Text` using regular expressions.\n\nArgs:\n    text (~Text): Text to highlighted."
+        }
+      ]
+    },
+    {
+      "name": "ReprHighlighter",
+      "docstring": "Highlights the text typically produced from ``__repr__`` methods.",
+      "methods": []
+    },
+    {
+      "name": "JSONHighlighter",
+      "docstring": "Highlights JSON",
+      "methods": [
+        {
+          "name": "highlight",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ISO8601Highlighter",
+      "docstring": "Highlights the ISO8601 date time strings.\nRegex reference: https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s07.html",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "highlight",
+      "docstring": "Apply highlighting in place to text.\n\nArgs:\n    text (~Text): A text object highlight."
+    },
+    {
+      "name": "highlight",
+      "docstring": "Nothing to do"
+    },
+    {
+      "name": "highlight",
+      "docstring": "Highlight :class:`rich.text.Text` using regular expressions.\n\nArgs:\n    text (~Text): Text to highlighted."
+    },
+    {
+      "name": "highlight",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

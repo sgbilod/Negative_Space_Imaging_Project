@@ -1,0 +1,26 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\json.py",
+  "classes": [
+    {
+      "name": "JSON",
+      "docstring": "A renderable which pretty prints JSON.\n\nArgs:\n    json (str): JSON encoded data.\n    indent (Union[None, int, str], optional): Number of characters to indent by. Defaults to 2.\n    highlight (bool, optional): Enable highlighting. Defaults to True.\n    skip_keys (bool, optional): Skip keys not of a basic type. Defaults to False.\n    ensure_ascii (bool, optional): Escape all non-ascii characters. Defaults to False.\n    check_circular (bool, optional): Check for circular references. Defaults to True.\n    allow_nan (bool, optional): Allow NaN and Infinity values. Defaults to True.\n    default (Callable, optional): A callable that converts values that can not be encoded\n        in to something that can be JSON encoded. Defaults to None.\n    sort_keys (bool, optional): Sort dictionary keys. Defaults to False.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "from_data",
+          "docstring": "Encodes a JSON object from arbitrary data.\n\nArgs:\n    data (Any): An object that may be encoded in to JSON\n    indent (Union[None, int, str], optional): Number of characters to indent by. Defaults to 2.\n    highlight (bool, optional): Enable highlighting. Defaults to True.\n    default (Callable, optional): Optional callable which will be called for objects that cannot be serialized. Defaults to None.\n    skip_keys (bool, optional): Skip keys not of a basic type. Defaults to False.\n    ensure_ascii (bool, optional): Escape all non-ascii characters. Defaults to False.\n    check_circular (bool, optional): Check for circular references. Defaults to True.\n    allow_nan (bool, optional): Allow NaN and Infinity values. Defaults to True.\n    default (Callable, optional): A callable that converts values that can not be encoded\n        in to something that can be JSON encoded. Defaults to None.\n    sort_keys (bool, optional): Sort dictionary keys. Defaults to False.\n\nReturns:\n    JSON: New JSON object from the given data."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "from_data",
+      "docstring": "Encodes a JSON object from arbitrary data.\n\nArgs:\n    data (Any): An object that may be encoded in to JSON\n    indent (Union[None, int, str], optional): Number of characters to indent by. Defaults to 2.\n    highlight (bool, optional): Enable highlighting. Defaults to True.\n    default (Callable, optional): Optional callable which will be called for objects that cannot be serialized. Defaults to None.\n    skip_keys (bool, optional): Skip keys not of a basic type. Defaults to False.\n    ensure_ascii (bool, optional): Escape all non-ascii characters. Defaults to False.\n    check_circular (bool, optional): Check for circular references. Defaults to True.\n    allow_nan (bool, optional): Allow NaN and Infinity values. Defaults to True.\n    default (Callable, optional): A callable that converts values that can not be encoded\n        in to something that can be JSON encoded. Defaults to None.\n    sort_keys (bool, optional): Sort dictionary keys. Defaults to False.\n\nReturns:\n    JSON: New JSON object from the given data."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,132 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\index\\collector.py",
+  "classes": [
+    {
+      "name": "_NotAPIContent",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_NotHTTP",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "CacheablePageContent",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ParseLinks",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "IndexContent",
+      "docstring": "Represents one response (or page), along with its URL.\n\n:param encoding: the encoding to decode the given content.\n:param url: the URL from which the HTML was downloaded.\n:param cache_link_parsing: whether links parsed from this page's url\n                           should be cached. PyPI index urls should\n                           have this set to False, for example.",
+      "methods": []
+    },
+    {
+      "name": "HTMLLinkParser",
+      "docstring": "HTMLParser that keeps the first base HREF and a list of all anchor\nelements' attributes.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "handle_starttag",
+          "docstring": null
+        },
+        {
+          "name": "get_href",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CollectedSources",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "LinkCollector",
+      "docstring": "Responsible for collecting Link objects from all configured locations,\nmaking network requests as needed.\n\nThe class's main method is its collect_sources() method.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "create",
+          "docstring": ":param session: The Session to use to make requests.\n:param suppress_no_index: Whether to ignore the --no-index option\n    when constructing the SearchScope object."
+        },
+        {
+          "name": "find_links",
+          "docstring": null
+        },
+        {
+          "name": "fetch_response",
+          "docstring": "Fetch an HTML page containing package links."
+        },
+        {
+          "name": "collect_sources",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "with_cached_index_content",
+      "docstring": "Given a function that parses an Iterable[Link] from an IndexContent, cache the\nfunction's result (keyed by CacheablePageContent), unless the IndexContent\n`page` has `page.cache_link_parsing == False`."
+    },
+    {
+      "name": "parse_links",
+      "docstring": "Parse a Simple API's Index Content, and yield its anchor elements as Link objects."
+    },
+    {
+      "name": "wrapper",
+      "docstring": null
+    },
+    {
+      "name": "wrapper_wrapper",
+      "docstring": null
+    },
+    {
+      "name": "handle_starttag",
+      "docstring": null
+    },
+    {
+      "name": "get_href",
+      "docstring": null
+    },
+    {
+      "name": "create",
+      "docstring": ":param session: The Session to use to make requests.\n:param suppress_no_index: Whether to ignore the --no-index option\n    when constructing the SearchScope object."
+    },
+    {
+      "name": "find_links",
+      "docstring": null
+    },
+    {
+      "name": "fetch_response",
+      "docstring": "Fetch an HTML page containing package links."
+    },
+    {
+      "name": "collect_sources",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

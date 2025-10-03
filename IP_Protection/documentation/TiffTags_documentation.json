@@ -1,0 +1,31 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\TiffTags.py",
+  "classes": [
+    {
+      "name": "_TagInfo",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "TagInfo",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "cvt_enum",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "lookup",
+      "docstring": ":param tag: Integer tag number\n:param group: Which :py:data:`~PIL.TiffTags.TAGS_V2_GROUPS` to look in\n\n.. versionadded:: 8.3.0\n\n:returns: Taginfo namedtuple, From the ``TAGS_V2`` info if possible,\n    otherwise just populating the value and name from ``TAGS``.\n    If the tag is not recognized, \"unknown\" is returned for the name"
+    },
+    {
+      "name": "cvt_enum",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

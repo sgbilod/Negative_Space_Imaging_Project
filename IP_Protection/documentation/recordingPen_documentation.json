@@ -1,0 +1,166 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\pens\\recordingPen.py",
+  "classes": [
+    {
+      "name": "RecordingPen",
+      "docstring": "Pen recording operations that can be accessed or replayed.\n\nThe recording can be accessed as pen.value; or replayed using\npen.replay(otherPen).\n\n:Example:\n    .. code-block::\n\n        from fontTools.ttLib import TTFont\n        from fontTools.pens.recordingPen import RecordingPen\n\n        glyph_name = 'dollar'\n        font_path = 'MyFont.otf'\n\n        font = TTFont(font_path)\n        glyphset = font.getGlyphSet()\n        glyph = glyphset[glyph_name]\n\n        pen = RecordingPen()\n        glyph.draw(pen)\n        print(pen.value)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "moveTo",
+          "docstring": null
+        },
+        {
+          "name": "lineTo",
+          "docstring": null
+        },
+        {
+          "name": "qCurveTo",
+          "docstring": null
+        },
+        {
+          "name": "curveTo",
+          "docstring": null
+        },
+        {
+          "name": "closePath",
+          "docstring": null
+        },
+        {
+          "name": "endPath",
+          "docstring": null
+        },
+        {
+          "name": "addComponent",
+          "docstring": null
+        },
+        {
+          "name": "addVarComponent",
+          "docstring": null
+        },
+        {
+          "name": "replay",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DecomposingRecordingPen",
+      "docstring": "Same as RecordingPen, except that it doesn't keep components\nas references, but draws them decomposed as regular contours.\n\nThe constructor takes a required 'glyphSet' positional argument,\na dictionary of glyph objects (i.e. with a 'draw' method) keyed\nby thir name; other arguments are forwarded to the DecomposingPen's\nconstructor::\n\n    >>> class SimpleGlyph(object):\n    ...     def draw(self, pen):\n    ...         pen.moveTo((0, 0))\n    ...         pen.curveTo((1, 1), (2, 2), (3, 3))\n    ...         pen.closePath()\n    >>> class CompositeGlyph(object):\n    ...     def draw(self, pen):\n    ...         pen.addComponent('a', (1, 0, 0, 1, -1, 1))\n    >>> class MissingComponent(object):\n    ...     def draw(self, pen):\n    ...         pen.addComponent('foobar', (1, 0, 0, 1, 0, 0))\n    >>> class FlippedComponent(object):\n    ...     def draw(self, pen):\n    ...         pen.addComponent('a', (-1, 0, 0, 1, 0, 0))\n    >>> glyphSet = {\n    ...    'a': SimpleGlyph(),\n    ...    'b': CompositeGlyph(),\n    ...    'c': MissingComponent(),\n    ...    'd': FlippedComponent(),\n    ... }\n    >>> for name, glyph in sorted(glyphSet.items()):\n    ...     pen = DecomposingRecordingPen(glyphSet)\n    ...     try:\n    ...         glyph.draw(pen)\n    ...     except pen.MissingComponentError:\n    ...         pass\n    ...     print(\"{}: {}\".format(name, pen.value))\n    a: [('moveTo', ((0, 0),)), ('curveTo', ((1, 1), (2, 2), (3, 3))), ('closePath', ())]\n    b: [('moveTo', ((-1, 1),)), ('curveTo', ((0, 2), (1, 3), (2, 4))), ('closePath', ())]\n    c: []\n    d: [('moveTo', ((0, 0),)), ('curveTo', ((-1, 1), (-2, 2), (-3, 3))), ('closePath', ())]\n\n    >>> for name, glyph in sorted(glyphSet.items()):\n    ...     pen = DecomposingRecordingPen(\n    ...         glyphSet, skipMissingComponents=True, reverseFlipped=True,\n    ...     )\n    ...     glyph.draw(pen)\n    ...     print(\"{}: {}\".format(name, pen.value))\n    a: [('moveTo', ((0, 0),)), ('curveTo', ((1, 1), (2, 2), (3, 3))), ('closePath', ())]\n    b: [('moveTo', ((-1, 1),)), ('curveTo', ((0, 2), (1, 3), (2, 4))), ('closePath', ())]\n    c: []\n    d: [('moveTo', ((0, 0),)), ('lineTo', ((-3, 3),)), ('curveTo', ((-2, 2), (-1, 1), (0, 0))), ('closePath', ())]",
+      "methods": []
+    },
+    {
+      "name": "RecordingPointPen",
+      "docstring": "PointPen recording operations that can be accessed or replayed.\n\nThe recording can be accessed as pen.value; or replayed using\npointPen.replay(otherPointPen).\n\n:Example:\n    .. code-block::\n\n        from defcon import Font\n        from fontTools.pens.recordingPen import RecordingPointPen\n\n        glyph_name = 'a'\n        font_path = 'MyFont.ufo'\n\n        font = Font(font_path)\n        glyph = font[glyph_name]\n\n        pen = RecordingPointPen()\n        glyph.drawPoints(pen)\n        print(pen.value)\n\n        new_glyph = font.newGlyph('b')\n        pen.replay(new_glyph.getPointPen())",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "beginPath",
+          "docstring": null
+        },
+        {
+          "name": "endPath",
+          "docstring": null
+        },
+        {
+          "name": "addPoint",
+          "docstring": null
+        },
+        {
+          "name": "addComponent",
+          "docstring": null
+        },
+        {
+          "name": "addVarComponent",
+          "docstring": null
+        },
+        {
+          "name": "replay",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DecomposingRecordingPointPen",
+      "docstring": "Same as RecordingPointPen, except that it doesn't keep components\nas references, but draws them decomposed as regular contours.\n\nThe constructor takes a required 'glyphSet' positional argument,\na dictionary of pointPen-drawable glyph objects (i.e. with a 'drawPoints' method)\nkeyed by thir name; other arguments are forwarded to the DecomposingPointPen's\nconstructor::\n\n    >>> from pprint import pprint\n    >>> class SimpleGlyph(object):\n    ...     def drawPoints(self, pen):\n    ...         pen.beginPath()\n    ...         pen.addPoint((0, 0), \"line\")\n    ...         pen.addPoint((1, 1))\n    ...         pen.addPoint((2, 2))\n    ...         pen.addPoint((3, 3), \"curve\")\n    ...         pen.endPath()\n    >>> class CompositeGlyph(object):\n    ...     def drawPoints(self, pen):\n    ...         pen.addComponent('a', (1, 0, 0, 1, -1, 1))\n    >>> class MissingComponent(object):\n    ...     def drawPoints(self, pen):\n    ...         pen.addComponent('foobar', (1, 0, 0, 1, 0, 0))\n    >>> class FlippedComponent(object):\n    ...     def drawPoints(self, pen):\n    ...         pen.addComponent('a', (-1, 0, 0, 1, 0, 0))\n    >>> glyphSet = {\n    ...    'a': SimpleGlyph(),\n    ...    'b': CompositeGlyph(),\n    ...    'c': MissingComponent(),\n    ...    'd': FlippedComponent(),\n    ... }\n    >>> for name, glyph in sorted(glyphSet.items()):\n    ...     pen = DecomposingRecordingPointPen(glyphSet)\n    ...     try:\n    ...         glyph.drawPoints(pen)\n    ...     except pen.MissingComponentError:\n    ...         pass\n    ...     pprint({name: pen.value})\n    {'a': [('beginPath', (), {}),\n           ('addPoint', ((0, 0), 'line', False, None), {}),\n           ('addPoint', ((1, 1), None, False, None), {}),\n           ('addPoint', ((2, 2), None, False, None), {}),\n           ('addPoint', ((3, 3), 'curve', False, None), {}),\n           ('endPath', (), {})]}\n    {'b': [('beginPath', (), {}),\n           ('addPoint', ((-1, 1), 'line', False, None), {}),\n           ('addPoint', ((0, 2), None, False, None), {}),\n           ('addPoint', ((1, 3), None, False, None), {}),\n           ('addPoint', ((2, 4), 'curve', False, None), {}),\n           ('endPath', (), {})]}\n    {'c': []}\n    {'d': [('beginPath', (), {}),\n           ('addPoint', ((0, 0), 'line', False, None), {}),\n           ('addPoint', ((-1, 1), None, False, None), {}),\n           ('addPoint', ((-2, 2), None, False, None), {}),\n           ('addPoint', ((-3, 3), 'curve', False, None), {}),\n           ('endPath', (), {})]}\n\n    >>> for name, glyph in sorted(glyphSet.items()):\n    ...     pen = DecomposingRecordingPointPen(\n    ...         glyphSet, skipMissingComponents=True, reverseFlipped=True,\n    ...     )\n    ...     glyph.drawPoints(pen)\n    ...     pprint({name: pen.value})\n    {'a': [('beginPath', (), {}),\n           ('addPoint', ((0, 0), 'line', False, None), {}),\n           ('addPoint', ((1, 1), None, False, None), {}),\n           ('addPoint', ((2, 2), None, False, None), {}),\n           ('addPoint', ((3, 3), 'curve', False, None), {}),\n           ('endPath', (), {})]}\n    {'b': [('beginPath', (), {}),\n           ('addPoint', ((-1, 1), 'line', False, None), {}),\n           ('addPoint', ((0, 2), None, False, None), {}),\n           ('addPoint', ((1, 3), None, False, None), {}),\n           ('addPoint', ((2, 4), 'curve', False, None), {}),\n           ('endPath', (), {})]}\n    {'c': []}\n    {'d': [('beginPath', (), {}),\n           ('addPoint', ((0, 0), 'curve', False, None), {}),\n           ('addPoint', ((-3, 3), 'line', False, None), {}),\n           ('addPoint', ((-2, 2), None, False, None), {}),\n           ('addPoint', ((-1, 1), None, False, None), {}),\n           ('endPath', (), {})]}",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "replayRecording",
+      "docstring": "Replay a recording, as produced by RecordingPen or DecomposingRecordingPen,\nto a pen.\n\nNote that recording does not have to be produced by those pens.\nIt can be any iterable of tuples of method name and tuple-of-arguments.\nLikewise, pen can be any objects receiving those method calls."
+    },
+    {
+      "name": "lerpRecordings",
+      "docstring": "Linearly interpolate between two recordings. The recordings\nmust be decomposed, i.e. they must not contain any components.\n\nFactor is typically between 0 and 1. 0 means the first recording,\n1 means the second recording, and 0.5 means the average of the\ntwo recordings. Other values are possible, and can be useful to\nextrapolate. Defaults to 0.5.\n\nReturns a generator with the new recording."
+    },
+    {
+      "name": "moveTo",
+      "docstring": null
+    },
+    {
+      "name": "lineTo",
+      "docstring": null
+    },
+    {
+      "name": "qCurveTo",
+      "docstring": null
+    },
+    {
+      "name": "curveTo",
+      "docstring": null
+    },
+    {
+      "name": "closePath",
+      "docstring": null
+    },
+    {
+      "name": "endPath",
+      "docstring": null
+    },
+    {
+      "name": "addComponent",
+      "docstring": null
+    },
+    {
+      "name": "addVarComponent",
+      "docstring": null
+    },
+    {
+      "name": "replay",
+      "docstring": null
+    },
+    {
+      "name": "beginPath",
+      "docstring": null
+    },
+    {
+      "name": "endPath",
+      "docstring": null
+    },
+    {
+      "name": "addPoint",
+      "docstring": null
+    },
+    {
+      "name": "addComponent",
+      "docstring": null
+    },
+    {
+      "name": "addVarComponent",
+      "docstring": null
+    },
+    {
+      "name": "replay",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

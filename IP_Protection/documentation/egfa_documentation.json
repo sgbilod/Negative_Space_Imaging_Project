@@ -1,0 +1,132 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\negative-space-project\\egfa.py",
+  "classes": [
+    {
+      "name": "EntropyFieldGenerator",
+      "docstring": "Generates entropy fields from point cloud data using kernel density estimation\nand information theory principles.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the entropy field generator.\n\nArgs:\n    bandwidth: Bandwidth for kernel density estimation\n    kernel: Type of kernel to use ('gaussian' or 'epanechnikov')"
+        },
+        {
+          "name": "compute_local_entropy",
+          "docstring": "Compute local entropy values at query points.\n\nArgs:\n    points: Input point cloud\n    query_points: Points where entropy will be evaluated\n    \nReturns:\n    np.ndarray: Local entropy values"
+        },
+        {
+          "name": "generate_entropy_field",
+          "docstring": "Generate a complete entropy field from point cloud data.\n\nArgs:\n    points: Input point cloud\n    resolution: Grid resolution for field computation\n    \nReturns:\n    dict: Entropy field data including values and gradients"
+        }
+      ]
+    },
+    {
+      "name": "GradientFlowAnalyzer",
+      "docstring": "Analyzes gradient flows in entropy fields to detect information currents\nand patterns.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the gradient flow analyzer"
+        },
+        {
+          "name": "compute_flow_field",
+          "docstring": "Compute flow field from entropy gradients.\n\nArgs:\n    entropy_field: Entropy field data\n    \nReturns:\n    dict: Flow field data"
+        },
+        {
+          "name": "detect_flow_patterns",
+          "docstring": "Detect significant flow patterns in the field.\n\nArgs:\n    flow_field: Flow field data\n    threshold: Detection threshold\n    \nReturns:\n    list: Detected flow patterns"
+        },
+        {
+          "name": "compute_flow_trajectories",
+          "docstring": "Compute flow trajectories through the field.\n\nArgs:\n    flow_field: Flow field data\n    n_points: Number of trajectory starting points\n    max_steps: Maximum steps per trajectory\n    \nReturns:\n    list: Flow trajectories"
+        }
+      ]
+    },
+    {
+      "name": "FlowVisualizer",
+      "docstring": "Visualizes entropy fields, gradient flows, and detected patterns.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the visualizer"
+        },
+        {
+          "name": "plot_entropy_field",
+          "docstring": "Visualize the entropy field.\n\nArgs:\n    entropy_field: Entropy field data\n    title: Plot title\n    output_path: Path to save the figure"
+        },
+        {
+          "name": "plot_flow_field",
+          "docstring": "Visualize the gradient flow field.\n\nArgs:\n    flow_field: Flow field data\n    title: Plot title\n    output_path: Path to save the figure"
+        },
+        {
+          "name": "plot_flow_patterns",
+          "docstring": "Visualize detected flow patterns.\n\nArgs:\n    patterns: Detected flow patterns\n    flow_field: Flow field data\n    title: Plot title\n    output_path: Path to save the figure"
+        }
+      ]
+    },
+    {
+      "name": "EntropicGradientFlowAnalyzer",
+      "docstring": "Main class for Entropic Gradient Flow Analysis (EGFA).\nIntegrates entropy field generation and gradient flow analysis.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the analyzer.\n\nArgs:\n    bandwidth: Bandwidth for entropy estimation"
+        },
+        {
+          "name": "analyze_flow",
+          "docstring": "Perform complete flow analysis on a point cloud.\n\nArgs:\n    points: Input point cloud\n    resolution: Grid resolution\n    \nReturns:\n    dict: Analysis results"
+        },
+        {
+          "name": "visualize_results",
+          "docstring": "Generate visualizations for all analysis results.\n\nArgs:\n    results: Analysis results\n    output_dir: Directory to save visualizations"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "analyze_entropic_gradient_flow",
+      "docstring": "Analyze entropic gradient flow in negative spaces from a point cloud.\n\nArgs:\n    point_cloud: NegativeSpacePointCloud object\n    \nReturns:\n    dict: Flow analysis results"
+    },
+    {
+      "name": "compute_local_entropy",
+      "docstring": "Compute local entropy values at query points.\n\nArgs:\n    points: Input point cloud\n    query_points: Points where entropy will be evaluated\n    \nReturns:\n    np.ndarray: Local entropy values"
+    },
+    {
+      "name": "generate_entropy_field",
+      "docstring": "Generate a complete entropy field from point cloud data.\n\nArgs:\n    points: Input point cloud\n    resolution: Grid resolution for field computation\n    \nReturns:\n    dict: Entropy field data including values and gradients"
+    },
+    {
+      "name": "compute_flow_field",
+      "docstring": "Compute flow field from entropy gradients.\n\nArgs:\n    entropy_field: Entropy field data\n    \nReturns:\n    dict: Flow field data"
+    },
+    {
+      "name": "detect_flow_patterns",
+      "docstring": "Detect significant flow patterns in the field.\n\nArgs:\n    flow_field: Flow field data\n    threshold: Detection threshold\n    \nReturns:\n    list: Detected flow patterns"
+    },
+    {
+      "name": "compute_flow_trajectories",
+      "docstring": "Compute flow trajectories through the field.\n\nArgs:\n    flow_field: Flow field data\n    n_points: Number of trajectory starting points\n    max_steps: Maximum steps per trajectory\n    \nReturns:\n    list: Flow trajectories"
+    },
+    {
+      "name": "plot_entropy_field",
+      "docstring": "Visualize the entropy field.\n\nArgs:\n    entropy_field: Entropy field data\n    title: Plot title\n    output_path: Path to save the figure"
+    },
+    {
+      "name": "plot_flow_field",
+      "docstring": "Visualize the gradient flow field.\n\nArgs:\n    flow_field: Flow field data\n    title: Plot title\n    output_path: Path to save the figure"
+    },
+    {
+      "name": "plot_flow_patterns",
+      "docstring": "Visualize detected flow patterns.\n\nArgs:\n    patterns: Detected flow patterns\n    flow_field: Flow field data\n    title: Plot title\n    output_path: Path to save the figure"
+    },
+    {
+      "name": "analyze_flow",
+      "docstring": "Perform complete flow analysis on a point cloud.\n\nArgs:\n    points: Input point cloud\n    resolution: Grid resolution\n    \nReturns:\n    dict: Analysis results"
+    },
+    {
+      "name": "visualize_results",
+      "docstring": "Generate visualizations for all analysis results.\n\nArgs:\n    results: Analysis results\n    output_dir: Directory to save visualizations"
+    }
+  ],
+  "innovations": []
+}

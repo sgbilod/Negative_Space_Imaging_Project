@@ -1,0 +1,70 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\ImageMath.py",
+  "classes": [
+    {
+      "name": "_Operand",
+      "docstring": "Wraps an image operand, providing standard operators",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "apply",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "imagemath_int",
+      "docstring": null
+    },
+    {
+      "name": "imagemath_float",
+      "docstring": null
+    },
+    {
+      "name": "imagemath_equal",
+      "docstring": null
+    },
+    {
+      "name": "imagemath_notequal",
+      "docstring": null
+    },
+    {
+      "name": "imagemath_min",
+      "docstring": null
+    },
+    {
+      "name": "imagemath_max",
+      "docstring": null
+    },
+    {
+      "name": "imagemath_convert",
+      "docstring": null
+    },
+    {
+      "name": "lambda_eval",
+      "docstring": "Returns the result of an image function.\n\n:py:mod:`~PIL.ImageMath` only supports single-layer images. To process multi-band\nimages, use the :py:meth:`~PIL.Image.Image.split` method or\n:py:func:`~PIL.Image.merge` function.\n\n:param expression: A function that receives a dictionary.\n:param options: Values to add to the function's dictionary. Deprecated.\n                You can instead use one or more keyword arguments.\n:param **kw: Values to add to the function's dictionary.\n:return: The expression result. This is usually an image object, but can\n         also be an integer, a floating point value, or a pixel tuple,\n         depending on the expression."
+    },
+    {
+      "name": "unsafe_eval",
+      "docstring": "Evaluates an image expression. This uses Python's ``eval()`` function to process\nthe expression string, and carries the security risks of doing so. It is not\nrecommended to process expressions without considering this.\n:py:meth:`~lambda_eval` is a more secure alternative.\n\n:py:mod:`~PIL.ImageMath` only supports single-layer images. To process multi-band\nimages, use the :py:meth:`~PIL.Image.Image.split` method or\n:py:func:`~PIL.Image.merge` function.\n\n:param expression: A string containing a Python-style expression.\n:param options: Values to add to the evaluation context. Deprecated.\n                You can instead use one or more keyword arguments.\n:param **kw: Values to add to the evaluation context.\n:return: The evaluated expression. This is usually an image object, but can\n         also be an integer, a floating point value, or a pixel tuple,\n         depending on the expression."
+    },
+    {
+      "name": "eval",
+      "docstring": "Evaluates an image expression.\n\nDeprecated. Use lambda_eval() or unsafe_eval() instead.\n\n:param expression: A string containing a Python-style expression.\n:param _dict: Values to add to the evaluation context.  You\n              can either use a dictionary, or one or more keyword\n              arguments.\n:return: The evaluated expression. This is usually an image object, but can\n         also be an integer, a floating point value, or a pixel tuple,\n         depending on the expression.\n\n..  deprecated:: 10.3.0"
+    },
+    {
+      "name": "apply",
+      "docstring": null
+    },
+    {
+      "name": "scan",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

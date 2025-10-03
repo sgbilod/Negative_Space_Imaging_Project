@@ -1,0 +1,226 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\urllib3\\contrib\\emscripten\\fetch.py",
+  "classes": [
+    {
+      "name": "_RequestError",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_StreamingError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_TimeoutError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_ReadStream",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "is_closed",
+          "docstring": null
+        },
+        {
+          "name": "closed",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "readable",
+          "docstring": null
+        },
+        {
+          "name": "writable",
+          "docstring": null
+        },
+        {
+          "name": "seekable",
+          "docstring": null
+        },
+        {
+          "name": "readinto",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_StreamingFetcher",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "send",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_JSPIReadStream",
+      "docstring": "A read stream that uses pyodide.ffi.run_sync to read from a JavaScript fetch\nresponse. This requires support for WebAssembly JavaScript Promise Integration\nin the containing browser, and for pyodide to be launched via runPythonAsync.\n\n:param js_read_stream:\n    The JavaScript stream reader\n\n:param timeout:\n    Timeout in seconds\n\n:param request:\n    The request we're handling\n\n:param response:\n    The response this stream relates to\n\n:param js_abort_controller:\n    A JavaScript AbortController object, used for timeouts",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "is_closed",
+          "docstring": null
+        },
+        {
+          "name": "closed",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "readable",
+          "docstring": null
+        },
+        {
+          "name": "writable",
+          "docstring": null
+        },
+        {
+          "name": "seekable",
+          "docstring": null
+        },
+        {
+          "name": "readinto",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "is_in_browser_main_thread",
+      "docstring": null
+    },
+    {
+      "name": "is_cross_origin_isolated",
+      "docstring": null
+    },
+    {
+      "name": "is_in_node",
+      "docstring": null
+    },
+    {
+      "name": "is_worker_available",
+      "docstring": null
+    },
+    {
+      "name": "send_streaming_request",
+      "docstring": null
+    },
+    {
+      "name": "send_request",
+      "docstring": null
+    },
+    {
+      "name": "send_jspi_request",
+      "docstring": "Send a request using WebAssembly JavaScript Promise Integration\nto wrap the asynchronous JavaScript fetch api (experimental).\n\n:param request:\n    Request to send\n\n:param streaming:\n    Whether to stream the response\n\n:return: The response object\n:rtype: EmscriptenResponse"
+    },
+    {
+      "name": "has_jspi",
+      "docstring": "Return true if jspi can be used.\n\nThis requires both browser support and also WebAssembly\nto be in the correct state - i.e. that the javascript\ncall into python was async not sync.\n\n:return: True if jspi can be used.\n:rtype: bool"
+    },
+    {
+      "name": "streaming_ready",
+      "docstring": null
+    },
+    {
+      "name": "is_closed",
+      "docstring": null
+    },
+    {
+      "name": "closed",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "readable",
+      "docstring": null
+    },
+    {
+      "name": "writable",
+      "docstring": null
+    },
+    {
+      "name": "seekable",
+      "docstring": null
+    },
+    {
+      "name": "readinto",
+      "docstring": null
+    },
+    {
+      "name": "send",
+      "docstring": null
+    },
+    {
+      "name": "is_closed",
+      "docstring": null
+    },
+    {
+      "name": "closed",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "readable",
+      "docstring": null
+    },
+    {
+      "name": "writable",
+      "docstring": null
+    },
+    {
+      "name": "seekable",
+      "docstring": null
+    },
+    {
+      "name": "readinto",
+      "docstring": null
+    },
+    {
+      "name": "promise_resolver",
+      "docstring": null
+    },
+    {
+      "name": "onMsg",
+      "docstring": null
+    },
+    {
+      "name": "onErr",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,224 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\shared\\astronomical_engine.py",
+  "classes": [
+    {
+      "name": "CelestialObject",
+      "docstring": "Represents a celestial object (planet, star, moon, etc.) with its\ncurrent position and properties.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a celestial object.\n\nArgs:\n    name: Name of the celestial object\n    object_type: Type of object (planet, star, moon, etc.)\n    coordinates: Current coordinates [RA, Dec, distance] if known\n    properties: Additional properties of the object"
+        },
+        {
+          "name": "to_dict",
+          "docstring": "Convert to dictionary."
+        },
+        {
+          "name": "from_dict",
+          "docstring": "Create from dictionary."
+        }
+      ]
+    },
+    {
+      "name": "AstronomicalEvent",
+      "docstring": "Represents an astronomical event such as a planetary alignment,\neclipse, full moon, etc.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize an astronomical event.\n\nArgs:\n    event_type: Type of event (from EVENT_TYPES)\n    start_time: ISO format start time of the event\n    end_time: ISO format end time of the event\n    objects_involved: Celestial objects involved in the event\n    parameters: Additional parameters specific to the event type\n    description: Human-readable description of the event"
+        },
+        {
+          "name": "is_active",
+          "docstring": "Check if the event is currently active.\n\nArgs:\n    timestamp: ISO format timestamp to check (defaults to now)\n    \nReturns:\n    True if the event is active at the specified time"
+        },
+        {
+          "name": "time_until",
+          "docstring": "Calculate time until the event starts.\n\nArgs:\n    timestamp: ISO format timestamp to calculate from (defaults to now)\n    \nReturns:\n    Timedelta to event start (negative if event has already started)"
+        },
+        {
+          "name": "to_dict",
+          "docstring": "Convert to dictionary."
+        },
+        {
+          "name": "from_dict",
+          "docstring": "Create from dictionary."
+        }
+      ]
+    },
+    {
+      "name": "SpatialTemporalState",
+      "docstring": "Represents the complete state of the celestial sphere at a specific moment,\nincluding object positions and relationships.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a spatial-temporal state.\n\nArgs:\n    timestamp: ISO format timestamp of the state (defaults to now)"
+        },
+        {
+          "name": "add_celestial_object",
+          "docstring": "Add a celestial object to the state.\n\nArgs:\n    obj: The celestial object to add"
+        },
+        {
+          "name": "add_relationship",
+          "docstring": "Add a relationship between two celestial objects.\n\nArgs:\n    obj1_name: Name of the first object\n    obj2_name: Name of the second object\n    relationship_data: Data describing the relationship"
+        },
+        {
+          "name": "get_angular_separation",
+          "docstring": "Get the angular separation between two celestial objects.\n\nArgs:\n    obj1_name: Name of the first object\n    obj2_name: Name of the second object\n    \nReturns:\n    Angular separation in degrees, or None if not available"
+        },
+        {
+          "name": "is_aligned",
+          "docstring": "Check if a list of celestial objects are aligned within a maximum angle.\n\nArgs:\n    objects: List of object names to check\n    max_angle: Maximum angular separation allowed (in degrees)\n    \nReturns:\n    True if all objects are aligned within the maximum angle"
+        },
+        {
+          "name": "add_active_event",
+          "docstring": "Add an active astronomical event to the state.\n\nArgs:\n    event_id: ID of the active event"
+        },
+        {
+          "name": "to_dict",
+          "docstring": "Convert to dictionary."
+        },
+        {
+          "name": "from_dict",
+          "docstring": "Create from dictionary."
+        }
+      ]
+    },
+    {
+      "name": "AstronomicalCalculationEngine",
+      "docstring": "Central engine for astronomical calculations across the system.\nProvides a unified interface for various astronomical libraries\nand fallback calculations when libraries aren't available.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the astronomical calculation engine.\n\nArgs:\n    data_source: Source of astronomical data"
+        },
+        {
+          "name": "set_observer_location",
+          "docstring": "Set the observer's location on Earth.\n\nArgs:\n    latitude: Observer's latitude in degrees\n    longitude: Observer's longitude in degrees\n    elevation: Observer's elevation in meters"
+        },
+        {
+          "name": "set_time",
+          "docstring": "Set the time for calculations.\n\nArgs:\n    timestamp: ISO format timestamp"
+        },
+        {
+          "name": "get_current_state",
+          "docstring": "Get the current spatial-temporal state.\n\nReturns:\n    Current spatial-temporal state"
+        },
+        {
+          "name": "find_next_event",
+          "docstring": "Find the next occurrence of a specific astronomical event.\n\nArgs:\n    event_type: Type of event to find\n    start_date: ISO format date to start searching from (defaults to now)\n    \nReturns:\n    The next occurrence of the event, or None if not found"
+        },
+        {
+          "name": "find_events_in_range",
+          "docstring": "Find all astronomical events within a date range.\n\nArgs:\n    start_date: ISO format start date\n    end_date: ISO format end date\n    event_types: List of event types to find (defaults to all)\n    \nReturns:\n    List of astronomical events within the range"
+        },
+        {
+          "name": "calculate_historical_state",
+          "docstring": "Calculate the spatial-temporal state at a historical time.\n\nArgs:\n    timestamp: ISO format timestamp\n    \nReturns:\n    Spatial-temporal state at the specified time"
+        },
+        {
+          "name": "verify_historical_alignment",
+          "docstring": "Verify if specified celestial objects were aligned at a historical time.\n\nArgs:\n    objects: List of celestial object names\n    timestamp: ISO format timestamp\n    max_angle: Maximum angular separation for alignment (degrees)\n    \nReturns:\n    Verification result"
+        },
+        {
+          "name": "get_celestial_coordinates",
+          "docstring": "Get current celestial coordinates for use with spatial signatures.\n\nArgs:\n    timestamp: ISO format timestamp (defaults to now)\n    \nReturns:\n    List of [x, y, z] coordinates for major celestial objects"
+        },
+        {
+          "name": "verify_spatial_temporal_signature",
+          "docstring": "Verify if a spatial signature is consistent with celestial positions at a given time.\n\nArgs:\n    signature: The spatial signature to verify\n    timestamp: ISO format timestamp when the signature was created\n    \nReturns:\n    Verification result with probability score"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "to_dict",
+      "docstring": "Convert to dictionary."
+    },
+    {
+      "name": "from_dict",
+      "docstring": "Create from dictionary."
+    },
+    {
+      "name": "is_active",
+      "docstring": "Check if the event is currently active.\n\nArgs:\n    timestamp: ISO format timestamp to check (defaults to now)\n    \nReturns:\n    True if the event is active at the specified time"
+    },
+    {
+      "name": "time_until",
+      "docstring": "Calculate time until the event starts.\n\nArgs:\n    timestamp: ISO format timestamp to calculate from (defaults to now)\n    \nReturns:\n    Timedelta to event start (negative if event has already started)"
+    },
+    {
+      "name": "to_dict",
+      "docstring": "Convert to dictionary."
+    },
+    {
+      "name": "from_dict",
+      "docstring": "Create from dictionary."
+    },
+    {
+      "name": "add_celestial_object",
+      "docstring": "Add a celestial object to the state.\n\nArgs:\n    obj: The celestial object to add"
+    },
+    {
+      "name": "add_relationship",
+      "docstring": "Add a relationship between two celestial objects.\n\nArgs:\n    obj1_name: Name of the first object\n    obj2_name: Name of the second object\n    relationship_data: Data describing the relationship"
+    },
+    {
+      "name": "get_angular_separation",
+      "docstring": "Get the angular separation between two celestial objects.\n\nArgs:\n    obj1_name: Name of the first object\n    obj2_name: Name of the second object\n    \nReturns:\n    Angular separation in degrees, or None if not available"
+    },
+    {
+      "name": "is_aligned",
+      "docstring": "Check if a list of celestial objects are aligned within a maximum angle.\n\nArgs:\n    objects: List of object names to check\n    max_angle: Maximum angular separation allowed (in degrees)\n    \nReturns:\n    True if all objects are aligned within the maximum angle"
+    },
+    {
+      "name": "add_active_event",
+      "docstring": "Add an active astronomical event to the state.\n\nArgs:\n    event_id: ID of the active event"
+    },
+    {
+      "name": "to_dict",
+      "docstring": "Convert to dictionary."
+    },
+    {
+      "name": "from_dict",
+      "docstring": "Create from dictionary."
+    },
+    {
+      "name": "set_observer_location",
+      "docstring": "Set the observer's location on Earth.\n\nArgs:\n    latitude: Observer's latitude in degrees\n    longitude: Observer's longitude in degrees\n    elevation: Observer's elevation in meters"
+    },
+    {
+      "name": "set_time",
+      "docstring": "Set the time for calculations.\n\nArgs:\n    timestamp: ISO format timestamp"
+    },
+    {
+      "name": "get_current_state",
+      "docstring": "Get the current spatial-temporal state.\n\nReturns:\n    Current spatial-temporal state"
+    },
+    {
+      "name": "find_next_event",
+      "docstring": "Find the next occurrence of a specific astronomical event.\n\nArgs:\n    event_type: Type of event to find\n    start_date: ISO format date to start searching from (defaults to now)\n    \nReturns:\n    The next occurrence of the event, or None if not found"
+    },
+    {
+      "name": "find_events_in_range",
+      "docstring": "Find all astronomical events within a date range.\n\nArgs:\n    start_date: ISO format start date\n    end_date: ISO format end date\n    event_types: List of event types to find (defaults to all)\n    \nReturns:\n    List of astronomical events within the range"
+    },
+    {
+      "name": "calculate_historical_state",
+      "docstring": "Calculate the spatial-temporal state at a historical time.\n\nArgs:\n    timestamp: ISO format timestamp\n    \nReturns:\n    Spatial-temporal state at the specified time"
+    },
+    {
+      "name": "verify_historical_alignment",
+      "docstring": "Verify if specified celestial objects were aligned at a historical time.\n\nArgs:\n    objects: List of celestial object names\n    timestamp: ISO format timestamp\n    max_angle: Maximum angular separation for alignment (degrees)\n    \nReturns:\n    Verification result"
+    },
+    {
+      "name": "get_celestial_coordinates",
+      "docstring": "Get current celestial coordinates for use with spatial signatures.\n\nArgs:\n    timestamp: ISO format timestamp (defaults to now)\n    \nReturns:\n    List of [x, y, z] coordinates for major celestial objects"
+    },
+    {
+      "name": "verify_spatial_temporal_signature",
+      "docstring": "Verify if a spatial signature is consistent with celestial positions at a given time.\n\nArgs:\n    signature: The spatial signature to verify\n    timestamp: ISO format timestamp when the signature was created\n    \nReturns:\n    Verification result with probability score"
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,494 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_numerictypes.py",
+  "classes": [
+    {
+      "name": "CreateZeros",
+      "docstring": "Check the creation of heterogeneous arrays zero-valued",
+      "methods": [
+        {
+          "name": "test_zeros0D",
+          "docstring": "Check creation of 0-dimensional objects"
+        },
+        {
+          "name": "test_zerosSD",
+          "docstring": "Check creation of single-dimensional objects"
+        },
+        {
+          "name": "test_zerosMD",
+          "docstring": "Check creation of multi-dimensional objects"
+        }
+      ]
+    },
+    {
+      "name": "TestCreateZerosPlain",
+      "docstring": "Check the creation of heterogeneous arrays zero-valued (plain)",
+      "methods": []
+    },
+    {
+      "name": "TestCreateZerosNested",
+      "docstring": "Check the creation of heterogeneous arrays zero-valued (nested)",
+      "methods": []
+    },
+    {
+      "name": "CreateValues",
+      "docstring": "Check the creation of heterogeneous arrays with values",
+      "methods": [
+        {
+          "name": "test_tuple",
+          "docstring": "Check creation from tuples"
+        },
+        {
+          "name": "test_list_of_tuple",
+          "docstring": "Check creation from list of tuples"
+        },
+        {
+          "name": "test_list_of_list_of_tuple",
+          "docstring": "Check creation from list of list of tuples"
+        }
+      ]
+    },
+    {
+      "name": "TestCreateValuesPlainSingle",
+      "docstring": "Check the creation of heterogeneous arrays (plain, single row)",
+      "methods": []
+    },
+    {
+      "name": "TestCreateValuesPlainMultiple",
+      "docstring": "Check the creation of heterogeneous arrays (plain, multiple rows)",
+      "methods": []
+    },
+    {
+      "name": "TestCreateValuesNestedSingle",
+      "docstring": "Check the creation of heterogeneous arrays (nested, single row)",
+      "methods": []
+    },
+    {
+      "name": "TestCreateValuesNestedMultiple",
+      "docstring": "Check the creation of heterogeneous arrays (nested, multiple rows)",
+      "methods": []
+    },
+    {
+      "name": "ReadValuesPlain",
+      "docstring": "Check the reading of values in heterogeneous arrays (plain)",
+      "methods": [
+        {
+          "name": "test_access_fields",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestReadValuesPlainSingle",
+      "docstring": "Check the creation of heterogeneous arrays (plain, single row)",
+      "methods": []
+    },
+    {
+      "name": "TestReadValuesPlainMultiple",
+      "docstring": "Check the values of heterogeneous arrays (plain, multiple rows)",
+      "methods": []
+    },
+    {
+      "name": "ReadValuesNested",
+      "docstring": "Check the reading of values in heterogeneous arrays (nested)",
+      "methods": [
+        {
+          "name": "test_access_top_fields",
+          "docstring": "Check reading the top fields of a nested array"
+        },
+        {
+          "name": "test_nested1_acessors",
+          "docstring": "Check reading the nested fields of a nested array (1st level)"
+        },
+        {
+          "name": "test_nested2_acessors",
+          "docstring": "Check reading the nested fields of a nested array (2nd level)"
+        },
+        {
+          "name": "test_nested1_descriptor",
+          "docstring": "Check access nested descriptors of a nested array (1st level)"
+        },
+        {
+          "name": "test_nested2_descriptor",
+          "docstring": "Check access nested descriptors of a nested array (2nd level)"
+        }
+      ]
+    },
+    {
+      "name": "TestReadValuesNestedSingle",
+      "docstring": "Check the values of heterogeneous arrays (nested, single row)",
+      "methods": []
+    },
+    {
+      "name": "TestReadValuesNestedMultiple",
+      "docstring": "Check the values of heterogeneous arrays (nested, multiple rows)",
+      "methods": []
+    },
+    {
+      "name": "TestEmptyField",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_assign",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMultipleFields",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_no_tuple",
+          "docstring": null
+        },
+        {
+          "name": "test_return",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIsSubDType",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_both_abstract",
+          "docstring": null
+        },
+        {
+          "name": "test_same",
+          "docstring": null
+        },
+        {
+          "name": "test_subclass",
+          "docstring": null
+        },
+        {
+          "name": "test_subclass_backwards",
+          "docstring": null
+        },
+        {
+          "name": "test_sibling_class",
+          "docstring": null
+        },
+        {
+          "name": "test_nondtype_nonscalartype",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIsDType",
+      "docstring": "Check correctness of `np.isdtype`. The test considers different argument\nconfigurations: `np.isdtype(dtype, k1)` and `np.isdtype(dtype, (k1, k2))`\nwith concrete dtypes and dtype groups.",
+      "methods": [
+        {
+          "name": "test_isdtype",
+          "docstring": null
+        },
+        {
+          "name": "test_isdtype_invalid_args",
+          "docstring": null
+        },
+        {
+          "name": "test_sctypes_complete",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSctypeDict",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_longdouble",
+          "docstring": null
+        },
+        {
+          "name": "test_ulong",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMaximumSctype",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_int",
+          "docstring": null
+        },
+        {
+          "name": "test_uint",
+          "docstring": null
+        },
+        {
+          "name": "test_float",
+          "docstring": null
+        },
+        {
+          "name": "test_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_other",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Test_sctype2char",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_scalar_type",
+          "docstring": null
+        },
+        {
+          "name": "test_other_type",
+          "docstring": null
+        },
+        {
+          "name": "test_third_party_scalar_type",
+          "docstring": null
+        },
+        {
+          "name": "test_array_instance",
+          "docstring": null
+        },
+        {
+          "name": "test_abstract_type",
+          "docstring": null
+        },
+        {
+          "name": "test_non_type",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDocStrings",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_platform_dependent_aliases",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestScalarTypeNames",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_names_are_unique",
+          "docstring": null
+        },
+        {
+          "name": "test_names_reflect_attributes",
+          "docstring": "Test that names correspond to where the type is under ``np.`` "
+        },
+        {
+          "name": "test_names_are_undersood_by_dtype",
+          "docstring": "Test the dtype constructor maps names back to the type "
+        }
+      ]
+    },
+    {
+      "name": "TestBoolDefinition",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_bool_definition",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "normalize_descr",
+      "docstring": "Normalize a description adding the platform byteorder."
+    },
+    {
+      "name": "test_issctype",
+      "docstring": null
+    },
+    {
+      "name": "test_zeros0D",
+      "docstring": "Check creation of 0-dimensional objects"
+    },
+    {
+      "name": "test_zerosSD",
+      "docstring": "Check creation of single-dimensional objects"
+    },
+    {
+      "name": "test_zerosMD",
+      "docstring": "Check creation of multi-dimensional objects"
+    },
+    {
+      "name": "test_tuple",
+      "docstring": "Check creation from tuples"
+    },
+    {
+      "name": "test_list_of_tuple",
+      "docstring": "Check creation from list of tuples"
+    },
+    {
+      "name": "test_list_of_list_of_tuple",
+      "docstring": "Check creation from list of list of tuples"
+    },
+    {
+      "name": "test_access_fields",
+      "docstring": null
+    },
+    {
+      "name": "test_access_top_fields",
+      "docstring": "Check reading the top fields of a nested array"
+    },
+    {
+      "name": "test_nested1_acessors",
+      "docstring": "Check reading the nested fields of a nested array (1st level)"
+    },
+    {
+      "name": "test_nested2_acessors",
+      "docstring": "Check reading the nested fields of a nested array (2nd level)"
+    },
+    {
+      "name": "test_nested1_descriptor",
+      "docstring": "Check access nested descriptors of a nested array (1st level)"
+    },
+    {
+      "name": "test_nested2_descriptor",
+      "docstring": "Check access nested descriptors of a nested array (2nd level)"
+    },
+    {
+      "name": "test_assign",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_no_tuple",
+      "docstring": null
+    },
+    {
+      "name": "test_return",
+      "docstring": null
+    },
+    {
+      "name": "test_both_abstract",
+      "docstring": null
+    },
+    {
+      "name": "test_same",
+      "docstring": null
+    },
+    {
+      "name": "test_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_subclass_backwards",
+      "docstring": null
+    },
+    {
+      "name": "test_sibling_class",
+      "docstring": null
+    },
+    {
+      "name": "test_nondtype_nonscalartype",
+      "docstring": null
+    },
+    {
+      "name": "test_isdtype",
+      "docstring": null
+    },
+    {
+      "name": "test_isdtype_invalid_args",
+      "docstring": null
+    },
+    {
+      "name": "test_sctypes_complete",
+      "docstring": null
+    },
+    {
+      "name": "test_longdouble",
+      "docstring": null
+    },
+    {
+      "name": "test_ulong",
+      "docstring": null
+    },
+    {
+      "name": "test_int",
+      "docstring": null
+    },
+    {
+      "name": "test_uint",
+      "docstring": null
+    },
+    {
+      "name": "test_float",
+      "docstring": null
+    },
+    {
+      "name": "test_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_other",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_type",
+      "docstring": null
+    },
+    {
+      "name": "test_other_type",
+      "docstring": null
+    },
+    {
+      "name": "test_third_party_scalar_type",
+      "docstring": null
+    },
+    {
+      "name": "test_array_instance",
+      "docstring": null
+    },
+    {
+      "name": "test_abstract_type",
+      "docstring": null
+    },
+    {
+      "name": "test_non_type",
+      "docstring": null
+    },
+    {
+      "name": "test_platform_dependent_aliases",
+      "docstring": null
+    },
+    {
+      "name": "test_names_are_unique",
+      "docstring": null
+    },
+    {
+      "name": "test_names_reflect_attributes",
+      "docstring": "Test that names correspond to where the type is under ``np.`` "
+    },
+    {
+      "name": "test_names_are_undersood_by_dtype",
+      "docstring": "Test the dtype constructor maps names back to the type "
+    },
+    {
+      "name": "test_bool_definition",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

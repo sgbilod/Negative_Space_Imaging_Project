@@ -1,0 +1,756 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\tests\\test_arraypad.py",
+  "classes": [
+    {
+      "name": "TestAsPairs",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_single_value",
+          "docstring": "Test casting for a single value."
+        },
+        {
+          "name": "test_two_values",
+          "docstring": "Test proper casting for two different values."
+        },
+        {
+          "name": "test_with_none",
+          "docstring": null
+        },
+        {
+          "name": "test_pass_through",
+          "docstring": "Test if `x` already matching desired output are passed through."
+        },
+        {
+          "name": "test_as_index",
+          "docstring": "Test results if `as_index=True`."
+        },
+        {
+          "name": "test_exceptions",
+          "docstring": "Ensure faulty usage is discovered."
+        }
+      ]
+    },
+    {
+      "name": "TestConditionalShortcuts",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_zero_padding_shortcuts",
+          "docstring": null
+        },
+        {
+          "name": "test_shallow_statistic_range",
+          "docstring": null
+        },
+        {
+          "name": "test_clip_statistic_range",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestStatistic",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_check_mean_stat_length",
+          "docstring": null
+        },
+        {
+          "name": "test_check_maximum_1",
+          "docstring": null
+        },
+        {
+          "name": "test_check_maximum_2",
+          "docstring": null
+        },
+        {
+          "name": "test_check_maximum_stat_length",
+          "docstring": null
+        },
+        {
+          "name": "test_check_minimum_1",
+          "docstring": null
+        },
+        {
+          "name": "test_check_minimum_2",
+          "docstring": null
+        },
+        {
+          "name": "test_check_minimum_stat_length",
+          "docstring": null
+        },
+        {
+          "name": "test_check_median",
+          "docstring": null
+        },
+        {
+          "name": "test_check_median_01",
+          "docstring": null
+        },
+        {
+          "name": "test_check_median_02",
+          "docstring": null
+        },
+        {
+          "name": "test_check_median_stat_length",
+          "docstring": null
+        },
+        {
+          "name": "test_check_mean_shape_one",
+          "docstring": null
+        },
+        {
+          "name": "test_check_mean_2",
+          "docstring": null
+        },
+        {
+          "name": "test_same_prepend_append",
+          "docstring": "Test that appended and prepended values are equal "
+        },
+        {
+          "name": "test_check_negative_stat_length",
+          "docstring": null
+        },
+        {
+          "name": "test_simple_stat_length",
+          "docstring": null
+        },
+        {
+          "name": "test_zero_stat_length_valid",
+          "docstring": null
+        },
+        {
+          "name": "test_zero_stat_length_invalid",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestConstant",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_check_constant",
+          "docstring": null
+        },
+        {
+          "name": "test_check_constant_zeros",
+          "docstring": null
+        },
+        {
+          "name": "test_check_constant_float",
+          "docstring": null
+        },
+        {
+          "name": "test_check_constant_float2",
+          "docstring": null
+        },
+        {
+          "name": "test_check_constant_float3",
+          "docstring": null
+        },
+        {
+          "name": "test_check_constant_odd_pad_amount",
+          "docstring": null
+        },
+        {
+          "name": "test_check_constant_pad_2d",
+          "docstring": null
+        },
+        {
+          "name": "test_check_large_integers",
+          "docstring": null
+        },
+        {
+          "name": "test_check_object_array",
+          "docstring": null
+        },
+        {
+          "name": "test_pad_empty_dimension",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLinearRamp",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_check_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_check_2d",
+          "docstring": null
+        },
+        {
+          "name": "test_object_array",
+          "docstring": null
+        },
+        {
+          "name": "test_end_values",
+          "docstring": "Ensure that end values are exact."
+        },
+        {
+          "name": "test_negative_difference",
+          "docstring": "Check correct behavior of unsigned dtypes if there is a negative\ndifference between the edge to pad and `end_values`. Check both cases\nto be independent of implementation. Test behavior for all other dtypes\nin case dtype casting interferes with complex dtypes. See gh-14191."
+        }
+      ]
+    },
+    {
+      "name": "TestReflect",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_check_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_check_odd_method",
+          "docstring": null
+        },
+        {
+          "name": "test_check_large_pad",
+          "docstring": null
+        },
+        {
+          "name": "test_check_shape",
+          "docstring": null
+        },
+        {
+          "name": "test_check_01",
+          "docstring": null
+        },
+        {
+          "name": "test_check_02",
+          "docstring": null
+        },
+        {
+          "name": "test_check_03",
+          "docstring": null
+        },
+        {
+          "name": "test_check_04",
+          "docstring": null
+        },
+        {
+          "name": "test_check_05",
+          "docstring": null
+        },
+        {
+          "name": "test_check_06",
+          "docstring": null
+        },
+        {
+          "name": "test_check_07",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEmptyArray",
+      "docstring": "Check how padding behaves on arrays with an empty dimension.",
+      "methods": [
+        {
+          "name": "test_pad_empty_dimension",
+          "docstring": null
+        },
+        {
+          "name": "test_pad_non_empty_dimension",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSymmetric",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_check_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_check_odd_method",
+          "docstring": null
+        },
+        {
+          "name": "test_check_large_pad",
+          "docstring": null
+        },
+        {
+          "name": "test_check_large_pad_odd",
+          "docstring": null
+        },
+        {
+          "name": "test_check_shape",
+          "docstring": null
+        },
+        {
+          "name": "test_check_01",
+          "docstring": null
+        },
+        {
+          "name": "test_check_02",
+          "docstring": null
+        },
+        {
+          "name": "test_check_03",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestWrap",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_check_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_check_large_pad",
+          "docstring": null
+        },
+        {
+          "name": "test_check_01",
+          "docstring": null
+        },
+        {
+          "name": "test_check_02",
+          "docstring": null
+        },
+        {
+          "name": "test_pad_with_zero",
+          "docstring": null
+        },
+        {
+          "name": "test_repeated_wrapping",
+          "docstring": "Check wrapping on each side individually if the wrapped area is longer\nthan the original array."
+        },
+        {
+          "name": "test_repeated_wrapping_multiple_origin",
+          "docstring": "Assert that 'wrap' pads only with multiples of the original area if\nthe pad width is larger than the original array."
+        }
+      ]
+    },
+    {
+      "name": "TestEdge",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_check_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_check_width_shape_1_2",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEmpty",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_pad_empty_dimension",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPadWidth",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_misshaped_pad_width",
+          "docstring": null
+        },
+        {
+          "name": "test_misshaped_pad_width_2",
+          "docstring": null
+        },
+        {
+          "name": "test_negative_pad_width",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_type",
+          "docstring": null
+        },
+        {
+          "name": "test_pad_width_as_ndarray",
+          "docstring": null
+        },
+        {
+          "name": "test_zero_pad_width",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_legacy_vector_functionality",
+      "docstring": null
+    },
+    {
+      "name": "test_unicode_mode",
+      "docstring": null
+    },
+    {
+      "name": "test_object_input",
+      "docstring": null
+    },
+    {
+      "name": "test_kwargs",
+      "docstring": "Test behavior of pad's kwargs for the given mode."
+    },
+    {
+      "name": "test_constant_zero_default",
+      "docstring": null
+    },
+    {
+      "name": "test_unsupported_mode",
+      "docstring": null
+    },
+    {
+      "name": "test_non_contiguous_array",
+      "docstring": null
+    },
+    {
+      "name": "test_memory_layout_persistence",
+      "docstring": "Test if C and F order is preserved for all pad modes."
+    },
+    {
+      "name": "test_dtype_persistence",
+      "docstring": null
+    },
+    {
+      "name": "test_single_value",
+      "docstring": "Test casting for a single value."
+    },
+    {
+      "name": "test_two_values",
+      "docstring": "Test proper casting for two different values."
+    },
+    {
+      "name": "test_with_none",
+      "docstring": null
+    },
+    {
+      "name": "test_pass_through",
+      "docstring": "Test if `x` already matching desired output are passed through."
+    },
+    {
+      "name": "test_as_index",
+      "docstring": "Test results if `as_index=True`."
+    },
+    {
+      "name": "test_exceptions",
+      "docstring": "Ensure faulty usage is discovered."
+    },
+    {
+      "name": "test_zero_padding_shortcuts",
+      "docstring": null
+    },
+    {
+      "name": "test_shallow_statistic_range",
+      "docstring": null
+    },
+    {
+      "name": "test_clip_statistic_range",
+      "docstring": null
+    },
+    {
+      "name": "test_check_mean_stat_length",
+      "docstring": null
+    },
+    {
+      "name": "test_check_maximum_1",
+      "docstring": null
+    },
+    {
+      "name": "test_check_maximum_2",
+      "docstring": null
+    },
+    {
+      "name": "test_check_maximum_stat_length",
+      "docstring": null
+    },
+    {
+      "name": "test_check_minimum_1",
+      "docstring": null
+    },
+    {
+      "name": "test_check_minimum_2",
+      "docstring": null
+    },
+    {
+      "name": "test_check_minimum_stat_length",
+      "docstring": null
+    },
+    {
+      "name": "test_check_median",
+      "docstring": null
+    },
+    {
+      "name": "test_check_median_01",
+      "docstring": null
+    },
+    {
+      "name": "test_check_median_02",
+      "docstring": null
+    },
+    {
+      "name": "test_check_median_stat_length",
+      "docstring": null
+    },
+    {
+      "name": "test_check_mean_shape_one",
+      "docstring": null
+    },
+    {
+      "name": "test_check_mean_2",
+      "docstring": null
+    },
+    {
+      "name": "test_same_prepend_append",
+      "docstring": "Test that appended and prepended values are equal "
+    },
+    {
+      "name": "test_check_negative_stat_length",
+      "docstring": null
+    },
+    {
+      "name": "test_simple_stat_length",
+      "docstring": null
+    },
+    {
+      "name": "test_zero_stat_length_valid",
+      "docstring": null
+    },
+    {
+      "name": "test_zero_stat_length_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_check_constant",
+      "docstring": null
+    },
+    {
+      "name": "test_check_constant_zeros",
+      "docstring": null
+    },
+    {
+      "name": "test_check_constant_float",
+      "docstring": null
+    },
+    {
+      "name": "test_check_constant_float2",
+      "docstring": null
+    },
+    {
+      "name": "test_check_constant_float3",
+      "docstring": null
+    },
+    {
+      "name": "test_check_constant_odd_pad_amount",
+      "docstring": null
+    },
+    {
+      "name": "test_check_constant_pad_2d",
+      "docstring": null
+    },
+    {
+      "name": "test_check_large_integers",
+      "docstring": null
+    },
+    {
+      "name": "test_check_object_array",
+      "docstring": null
+    },
+    {
+      "name": "test_pad_empty_dimension",
+      "docstring": null
+    },
+    {
+      "name": "test_check_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_check_2d",
+      "docstring": null
+    },
+    {
+      "name": "test_object_array",
+      "docstring": null
+    },
+    {
+      "name": "test_end_values",
+      "docstring": "Ensure that end values are exact."
+    },
+    {
+      "name": "test_negative_difference",
+      "docstring": "Check correct behavior of unsigned dtypes if there is a negative\ndifference between the edge to pad and `end_values`. Check both cases\nto be independent of implementation. Test behavior for all other dtypes\nin case dtype casting interferes with complex dtypes. See gh-14191."
+    },
+    {
+      "name": "test_check_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_check_odd_method",
+      "docstring": null
+    },
+    {
+      "name": "test_check_large_pad",
+      "docstring": null
+    },
+    {
+      "name": "test_check_shape",
+      "docstring": null
+    },
+    {
+      "name": "test_check_01",
+      "docstring": null
+    },
+    {
+      "name": "test_check_02",
+      "docstring": null
+    },
+    {
+      "name": "test_check_03",
+      "docstring": null
+    },
+    {
+      "name": "test_check_04",
+      "docstring": null
+    },
+    {
+      "name": "test_check_05",
+      "docstring": null
+    },
+    {
+      "name": "test_check_06",
+      "docstring": null
+    },
+    {
+      "name": "test_check_07",
+      "docstring": null
+    },
+    {
+      "name": "test_pad_empty_dimension",
+      "docstring": null
+    },
+    {
+      "name": "test_pad_non_empty_dimension",
+      "docstring": null
+    },
+    {
+      "name": "test_check_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_check_odd_method",
+      "docstring": null
+    },
+    {
+      "name": "test_check_large_pad",
+      "docstring": null
+    },
+    {
+      "name": "test_check_large_pad_odd",
+      "docstring": null
+    },
+    {
+      "name": "test_check_shape",
+      "docstring": null
+    },
+    {
+      "name": "test_check_01",
+      "docstring": null
+    },
+    {
+      "name": "test_check_02",
+      "docstring": null
+    },
+    {
+      "name": "test_check_03",
+      "docstring": null
+    },
+    {
+      "name": "test_check_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_check_large_pad",
+      "docstring": null
+    },
+    {
+      "name": "test_check_01",
+      "docstring": null
+    },
+    {
+      "name": "test_check_02",
+      "docstring": null
+    },
+    {
+      "name": "test_pad_with_zero",
+      "docstring": null
+    },
+    {
+      "name": "test_repeated_wrapping",
+      "docstring": "Check wrapping on each side individually if the wrapped area is longer\nthan the original array."
+    },
+    {
+      "name": "test_repeated_wrapping_multiple_origin",
+      "docstring": "Assert that 'wrap' pads only with multiples of the original area if\nthe pad width is larger than the original array."
+    },
+    {
+      "name": "test_check_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_check_width_shape_1_2",
+      "docstring": null
+    },
+    {
+      "name": "test_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_pad_empty_dimension",
+      "docstring": null
+    },
+    {
+      "name": "test_misshaped_pad_width",
+      "docstring": null
+    },
+    {
+      "name": "test_misshaped_pad_width_2",
+      "docstring": null
+    },
+    {
+      "name": "test_negative_pad_width",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_type",
+      "docstring": null
+    },
+    {
+      "name": "test_pad_width_as_ndarray",
+      "docstring": null
+    },
+    {
+      "name": "test_zero_pad_width",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

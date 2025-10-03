@@ -1,0 +1,344 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\revenue\\acausal_oracle\\acausal_randomness_oracle.py",
+  "classes": [
+    {
+      "name": "EntropySource",
+      "docstring": "Abstract base class for entropy sources.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize an entropy source.\n\nArgs:\n    name: Name of the entropy source"
+        },
+        {
+          "name": "get_entropy",
+          "docstring": "Get entropy from the source.\n\nArgs:\n    num_bytes: Number of bytes of entropy to generate\n    \nReturns:\n    Entropy bytes"
+        },
+        {
+          "name": "get_stats",
+          "docstring": "Get statistics about the entropy source.\n\nReturns:\n    Statistics dictionary"
+        }
+      ]
+    },
+    {
+      "name": "VoidSignatureEntropySource",
+      "docstring": "Entropy source using void signatures.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a void signature entropy source.\n\nArgs:\n    coordinates_provider: Optional function that provides spatial coordinates"
+        },
+        {
+          "name": "get_entropy",
+          "docstring": "Get entropy from void signatures.\n\nArgs:\n    num_bytes: Number of bytes of entropy to generate\n    \nReturns:\n    Entropy bytes"
+        },
+        {
+          "name": "get_stats",
+          "docstring": "Get statistics about the entropy source.\n\nReturns:\n    Statistics dictionary"
+        }
+      ]
+    },
+    {
+      "name": "AstronomicalEntropySource",
+      "docstring": "Entropy source using astronomical data.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize an astronomical entropy source.\n\nArgs:\n    astronomical_data_provider: Optional function that provides astronomical data"
+        },
+        {
+          "name": "get_entropy",
+          "docstring": "Get entropy from astronomical data.\n\nArgs:\n    num_bytes: Number of bytes of entropy to generate\n    \nReturns:\n    Entropy bytes"
+        },
+        {
+          "name": "get_stats",
+          "docstring": "Get statistics about the entropy source.\n\nReturns:\n    Statistics dictionary"
+        }
+      ]
+    },
+    {
+      "name": "QuantumFluctuationEntropySource",
+      "docstring": "Entropy source simulating quantum fluctuations in space.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a quantum fluctuation entropy source."
+        },
+        {
+          "name": "get_entropy",
+          "docstring": "Get entropy from simulated quantum fluctuations.\n\nArgs:\n    num_bytes: Number of bytes of entropy to generate\n    \nReturns:\n    Entropy bytes"
+        },
+        {
+          "name": "get_stats",
+          "docstring": "Get statistics about the entropy source.\n\nReturns:\n    Statistics dictionary"
+        }
+      ]
+    },
+    {
+      "name": "EntropyPool",
+      "docstring": "Pool of entropy from multiple sources.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize an entropy pool."
+        },
+        {
+          "name": "get_entropy",
+          "docstring": "Get entropy from the pool, optionally specifying source weights.\n\nArgs:\n    num_bytes: Number of bytes of entropy to get\n    source_weights: Optional weights for each source (defaults to equal)\n    \nReturns:\n    Entropy bytes"
+        },
+        {
+          "name": "get_notarized_entropy",
+          "docstring": "Get entropy that is notarized for verification.\n\nArgs:\n    num_bytes: Number of bytes of entropy to get\n    metadata: Optional metadata to include in the notarization\n    \nReturns:\n    Dictionary with entropy and notarization information"
+        },
+        {
+          "name": "get_stats",
+          "docstring": "Get statistics about the entropy pool and sources.\n\nReturns:\n    Statistics dictionary"
+        }
+      ]
+    },
+    {
+      "name": "RandomGenerator",
+      "docstring": "Generator for various types of random values.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a random generator.\n\nArgs:\n    entropy_pool: Entropy pool to use"
+        },
+        {
+          "name": "get_random_bytes",
+          "docstring": "Get random bytes.\n\nArgs:\n    num_bytes: Number of random bytes to generate\n    \nReturns:\n    Random bytes"
+        },
+        {
+          "name": "get_random_int",
+          "docstring": "Get a random integer in the given range.\n\nArgs:\n    min_value: Minimum value (inclusive)\n    max_value: Maximum value (inclusive)\n    \nReturns:\n    Random integer"
+        },
+        {
+          "name": "get_random_float",
+          "docstring": "Get a random float between 0 and 1.\n\nReturns:\n    Random float"
+        },
+        {
+          "name": "get_random_choice",
+          "docstring": "Get a random item from a list.\n\nArgs:\n    items: List of items to choose from\n    \nReturns:\n    Random item"
+        },
+        {
+          "name": "get_random_shuffle",
+          "docstring": "Get a randomly shuffled copy of a list.\n\nArgs:\n    items: List of items to shuffle\n    \nReturns:\n    Shuffled list"
+        },
+        {
+          "name": "get_random_sample",
+          "docstring": "Get a random sample of k items from a list.\n\nArgs:\n    items: List of items to sample from\n    k: Number of items to sample\n    \nReturns:\n    Random sample"
+        },
+        {
+          "name": "get_random_uuid",
+          "docstring": "Get a random UUID.\n\nReturns:\n    Random UUID"
+        },
+        {
+          "name": "get_random_string",
+          "docstring": "Get a random string.\n\nArgs:\n    length: Length of the string\n    charset: Optional charset to use (defaults to alphanumeric)\n    \nReturns:\n    Random string"
+        },
+        {
+          "name": "get_random_notarized",
+          "docstring": "Get a notarized random value.\n\nArgs:\n    type_name: Type of random value to generate\n    **params: Parameters for the random value generation\n    \nReturns:\n    Dictionary with random value and notarization"
+        }
+      ]
+    },
+    {
+      "name": "RandomnessVerifier",
+      "docstring": "Verifies notarized random values.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a randomness verifier."
+        },
+        {
+          "name": "verify_randomness",
+          "docstring": "Verify a notarized random value.\n\nArgs:\n    notarized_data: Notarized randomness data\n    \nReturns:\n    Verification result"
+        }
+      ]
+    },
+    {
+      "name": "AcausalRandomnessOracle",
+      "docstring": "Main class for the acausal randomness oracle.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the acausal randomness oracle."
+        },
+        {
+          "name": "get_random_bytes",
+          "docstring": "Get random bytes.\n\nArgs:\n    num_bytes: Number of random bytes to generate\n    \nReturns:\n    Random bytes"
+        },
+        {
+          "name": "get_random_int",
+          "docstring": "Get a random integer in the given range.\n\nArgs:\n    min_value: Minimum value (inclusive)\n    max_value: Maximum value (inclusive)\n    \nReturns:\n    Random integer"
+        },
+        {
+          "name": "get_random_float",
+          "docstring": "Get a random float between 0 and 1.\n\nReturns:\n    Random float"
+        },
+        {
+          "name": "get_random_choice",
+          "docstring": "Get a random item from a list.\n\nArgs:\n    items: List of items to choose from\n    \nReturns:\n    Random item"
+        },
+        {
+          "name": "get_random_shuffle",
+          "docstring": "Get a randomly shuffled copy of a list.\n\nArgs:\n    items: List of items to shuffle\n    \nReturns:\n    Shuffled list"
+        },
+        {
+          "name": "get_random_sample",
+          "docstring": "Get a random sample of k items from a list.\n\nArgs:\n    items: List of items to sample from\n    k: Number of items to sample\n    \nReturns:\n    Random sample"
+        },
+        {
+          "name": "get_random_uuid",
+          "docstring": "Get a random UUID.\n\nReturns:\n    Random UUID"
+        },
+        {
+          "name": "get_random_string",
+          "docstring": "Get a random string.\n\nArgs:\n    length: Length of the string\n    charset: Optional charset to use (defaults to alphanumeric)\n    \nReturns:\n    Random string"
+        },
+        {
+          "name": "get_notarized_randomness",
+          "docstring": "Get a notarized random value.\n\nArgs:\n    type_name: Type of random value to generate\n    **params: Parameters for the random value generation\n    \nReturns:\n    Dictionary with random value and notarization"
+        },
+        {
+          "name": "verify_randomness",
+          "docstring": "Verify a notarized random value.\n\nArgs:\n    notarized_data: Notarized randomness data\n    \nReturns:\n    Verification result"
+        },
+        {
+          "name": "get_stats",
+          "docstring": "Get statistics about the oracle.\n\nReturns:\n    Statistics dictionary"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_entropy",
+      "docstring": "Get entropy from the source.\n\nArgs:\n    num_bytes: Number of bytes of entropy to generate\n    \nReturns:\n    Entropy bytes"
+    },
+    {
+      "name": "get_stats",
+      "docstring": "Get statistics about the entropy source.\n\nReturns:\n    Statistics dictionary"
+    },
+    {
+      "name": "get_entropy",
+      "docstring": "Get entropy from void signatures.\n\nArgs:\n    num_bytes: Number of bytes of entropy to generate\n    \nReturns:\n    Entropy bytes"
+    },
+    {
+      "name": "get_stats",
+      "docstring": "Get statistics about the entropy source.\n\nReturns:\n    Statistics dictionary"
+    },
+    {
+      "name": "get_entropy",
+      "docstring": "Get entropy from astronomical data.\n\nArgs:\n    num_bytes: Number of bytes of entropy to generate\n    \nReturns:\n    Entropy bytes"
+    },
+    {
+      "name": "get_stats",
+      "docstring": "Get statistics about the entropy source.\n\nReturns:\n    Statistics dictionary"
+    },
+    {
+      "name": "get_entropy",
+      "docstring": "Get entropy from simulated quantum fluctuations.\n\nArgs:\n    num_bytes: Number of bytes of entropy to generate\n    \nReturns:\n    Entropy bytes"
+    },
+    {
+      "name": "get_stats",
+      "docstring": "Get statistics about the entropy source.\n\nReturns:\n    Statistics dictionary"
+    },
+    {
+      "name": "get_entropy",
+      "docstring": "Get entropy from the pool, optionally specifying source weights.\n\nArgs:\n    num_bytes: Number of bytes of entropy to get\n    source_weights: Optional weights for each source (defaults to equal)\n    \nReturns:\n    Entropy bytes"
+    },
+    {
+      "name": "get_notarized_entropy",
+      "docstring": "Get entropy that is notarized for verification.\n\nArgs:\n    num_bytes: Number of bytes of entropy to get\n    metadata: Optional metadata to include in the notarization\n    \nReturns:\n    Dictionary with entropy and notarization information"
+    },
+    {
+      "name": "get_stats",
+      "docstring": "Get statistics about the entropy pool and sources.\n\nReturns:\n    Statistics dictionary"
+    },
+    {
+      "name": "get_random_bytes",
+      "docstring": "Get random bytes.\n\nArgs:\n    num_bytes: Number of random bytes to generate\n    \nReturns:\n    Random bytes"
+    },
+    {
+      "name": "get_random_int",
+      "docstring": "Get a random integer in the given range.\n\nArgs:\n    min_value: Minimum value (inclusive)\n    max_value: Maximum value (inclusive)\n    \nReturns:\n    Random integer"
+    },
+    {
+      "name": "get_random_float",
+      "docstring": "Get a random float between 0 and 1.\n\nReturns:\n    Random float"
+    },
+    {
+      "name": "get_random_choice",
+      "docstring": "Get a random item from a list.\n\nArgs:\n    items: List of items to choose from\n    \nReturns:\n    Random item"
+    },
+    {
+      "name": "get_random_shuffle",
+      "docstring": "Get a randomly shuffled copy of a list.\n\nArgs:\n    items: List of items to shuffle\n    \nReturns:\n    Shuffled list"
+    },
+    {
+      "name": "get_random_sample",
+      "docstring": "Get a random sample of k items from a list.\n\nArgs:\n    items: List of items to sample from\n    k: Number of items to sample\n    \nReturns:\n    Random sample"
+    },
+    {
+      "name": "get_random_uuid",
+      "docstring": "Get a random UUID.\n\nReturns:\n    Random UUID"
+    },
+    {
+      "name": "get_random_string",
+      "docstring": "Get a random string.\n\nArgs:\n    length: Length of the string\n    charset: Optional charset to use (defaults to alphanumeric)\n    \nReturns:\n    Random string"
+    },
+    {
+      "name": "get_random_notarized",
+      "docstring": "Get a notarized random value.\n\nArgs:\n    type_name: Type of random value to generate\n    **params: Parameters for the random value generation\n    \nReturns:\n    Dictionary with random value and notarization"
+    },
+    {
+      "name": "verify_randomness",
+      "docstring": "Verify a notarized random value.\n\nArgs:\n    notarized_data: Notarized randomness data\n    \nReturns:\n    Verification result"
+    },
+    {
+      "name": "get_random_bytes",
+      "docstring": "Get random bytes.\n\nArgs:\n    num_bytes: Number of random bytes to generate\n    \nReturns:\n    Random bytes"
+    },
+    {
+      "name": "get_random_int",
+      "docstring": "Get a random integer in the given range.\n\nArgs:\n    min_value: Minimum value (inclusive)\n    max_value: Maximum value (inclusive)\n    \nReturns:\n    Random integer"
+    },
+    {
+      "name": "get_random_float",
+      "docstring": "Get a random float between 0 and 1.\n\nReturns:\n    Random float"
+    },
+    {
+      "name": "get_random_choice",
+      "docstring": "Get a random item from a list.\n\nArgs:\n    items: List of items to choose from\n    \nReturns:\n    Random item"
+    },
+    {
+      "name": "get_random_shuffle",
+      "docstring": "Get a randomly shuffled copy of a list.\n\nArgs:\n    items: List of items to shuffle\n    \nReturns:\n    Shuffled list"
+    },
+    {
+      "name": "get_random_sample",
+      "docstring": "Get a random sample of k items from a list.\n\nArgs:\n    items: List of items to sample from\n    k: Number of items to sample\n    \nReturns:\n    Random sample"
+    },
+    {
+      "name": "get_random_uuid",
+      "docstring": "Get a random UUID.\n\nReturns:\n    Random UUID"
+    },
+    {
+      "name": "get_random_string",
+      "docstring": "Get a random string.\n\nArgs:\n    length: Length of the string\n    charset: Optional charset to use (defaults to alphanumeric)\n    \nReturns:\n    Random string"
+    },
+    {
+      "name": "get_notarized_randomness",
+      "docstring": "Get a notarized random value.\n\nArgs:\n    type_name: Type of random value to generate\n    **params: Parameters for the random value generation\n    \nReturns:\n    Dictionary with random value and notarization"
+    },
+    {
+      "name": "verify_randomness",
+      "docstring": "Verify a notarized random value.\n\nArgs:\n    notarized_data: Notarized randomness data\n    \nReturns:\n    Verification result"
+    },
+    {
+      "name": "get_stats",
+      "docstring": "Get statistics about the oracle.\n\nReturns:\n    Statistics dictionary"
+    }
+  ],
+  "innovations": []
+}

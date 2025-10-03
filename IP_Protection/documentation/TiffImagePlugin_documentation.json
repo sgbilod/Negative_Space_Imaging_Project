@@ -1,0 +1,466 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\TiffImagePlugin.py",
+  "classes": [
+    {
+      "name": "IFDRational",
+      "docstring": "Implements a rational class where 0/0 is a legal value to match\nthe in the wild use of exif rationals.\n\ne.g., DigitalZoomRatio - 0.00/0.00  indicates that no digital zoom was used",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": ":param value: either an integer numerator, a\nfloat/rational/other number, or an IFDRational\n:param denominator: Optional integer denominator"
+        },
+        {
+          "name": "numerator",
+          "docstring": null
+        },
+        {
+          "name": "denominator",
+          "docstring": null
+        },
+        {
+          "name": "limit_rational",
+          "docstring": ":param max_denominator: Integer, the maximum denominator value\n:returns: Tuple of (numerator, denominator)"
+        }
+      ]
+    },
+    {
+      "name": "ImageFileDirectory_v2",
+      "docstring": "This class represents a TIFF tag directory.  To speed things up, we\ndon't decode tags unless they're asked for.\n\nExposes a dictionary interface of the tags in the directory::\n\n    ifd = ImageFileDirectory_v2()\n    ifd[key] = 'Some Data'\n    ifd.tagtype[key] = TiffTags.ASCII\n    print(ifd[key])\n    'Some Data'\n\nIndividual values are returned as the strings or numbers, sequences are\nreturned as tuples of the values.\n\nThe tiff metadata type of each item is stored in a dictionary of\ntag types in\n:attr:`~PIL.TiffImagePlugin.ImageFileDirectory_v2.tagtype`. The types\nare read from a tiff file, guessed from the type added, or added\nmanually.\n\nData Structures:\n\n    * ``self.tagtype = {}``\n\n      * Key: numerical TIFF tag number\n      * Value: integer corresponding to the data type from\n        :py:data:`.TiffTags.TYPES`\n\n      .. versionadded:: 3.0.0\n\n'Internal' data structures:\n\n    * ``self._tags_v2 = {}``\n\n      * Key: numerical TIFF tag number\n      * Value: decoded data, as tuple for multiple values\n\n    * ``self._tagdata = {}``\n\n      * Key: numerical TIFF tag number\n      * Value: undecoded byte string from file\n\n    * ``self._tags_v1 = {}``\n\n      * Key: numerical TIFF tag number\n      * Value: decoded data in the v1 format\n\nTags will be found in the private attributes ``self._tagdata``, and in\n``self._tags_v2`` once decoded.\n\n``self.legacy_api`` is a value for internal use, and shouldn't be changed\nfrom outside code. In cooperation with\n:py:class:`~PIL.TiffImagePlugin.ImageFileDirectory_v1`, if ``legacy_api``\nis true, then decoded tags will be populated into both ``_tags_v1`` and\n``_tags_v2``. ``_tags_v2`` will be used if this IFD is used in the TIFF\nsave routine. Tags should be read from ``_tags_v1`` if\n``legacy_api == true``.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize an ImageFileDirectory.\n\nTo construct an ImageFileDirectory from a real file, pass the 8-byte\nmagic header to the constructor.  To only set the endianness, pass it\nas the 'prefix' keyword argument.\n\n:param ifh: One of the accepted magic headers (cf. PREFIXES); also sets\n      endianness.\n:param prefix: Override the endianness of the file."
+        },
+        {
+          "name": "legacy_api",
+          "docstring": null
+        },
+        {
+          "name": "legacy_api",
+          "docstring": null
+        },
+        {
+          "name": "reset",
+          "docstring": null
+        },
+        {
+          "name": "named",
+          "docstring": ":returns: dict of name|key: value\n\nReturns the complete tag dictionary, with named tags where possible."
+        },
+        {
+          "name": "load_byte",
+          "docstring": null
+        },
+        {
+          "name": "write_byte",
+          "docstring": null
+        },
+        {
+          "name": "load_string",
+          "docstring": null
+        },
+        {
+          "name": "write_string",
+          "docstring": null
+        },
+        {
+          "name": "load_rational",
+          "docstring": null
+        },
+        {
+          "name": "write_rational",
+          "docstring": null
+        },
+        {
+          "name": "load_undefined",
+          "docstring": null
+        },
+        {
+          "name": "write_undefined",
+          "docstring": null
+        },
+        {
+          "name": "load_signed_rational",
+          "docstring": null
+        },
+        {
+          "name": "write_signed_rational",
+          "docstring": null
+        },
+        {
+          "name": "load",
+          "docstring": null
+        },
+        {
+          "name": "tobytes",
+          "docstring": null
+        },
+        {
+          "name": "save",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ImageFileDirectory_v1",
+      "docstring": "This class represents the **legacy** interface to a TIFF tag directory.\n\nExposes a dictionary interface of the tags in the directory::\n\n    ifd = ImageFileDirectory_v1()\n    ifd[key] = 'Some Data'\n    ifd.tagtype[key] = TiffTags.ASCII\n    print(ifd[key])\n    ('Some Data',)\n\nAlso contains a dictionary of tag types as read from the tiff image file,\n:attr:`~PIL.TiffImagePlugin.ImageFileDirectory_v1.tagtype`.\n\nValues are returned as a tuple.\n\n..  deprecated:: 3.0.0",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "from_v2",
+          "docstring": "Returns an\n:py:class:`~PIL.TiffImagePlugin.ImageFileDirectory_v1`\ninstance with the same data as is contained in the original\n:py:class:`~PIL.TiffImagePlugin.ImageFileDirectory_v2`\ninstance.\n\n:returns: :py:class:`~PIL.TiffImagePlugin.ImageFileDirectory_v1`"
+        },
+        {
+          "name": "to_v2",
+          "docstring": "Returns an\n:py:class:`~PIL.TiffImagePlugin.ImageFileDirectory_v2`\ninstance with the same data as is contained in the original\n:py:class:`~PIL.TiffImagePlugin.ImageFileDirectory_v1`\ninstance.\n\n:returns: :py:class:`~PIL.TiffImagePlugin.ImageFileDirectory_v2`"
+        }
+      ]
+    },
+    {
+      "name": "TiffImageFile",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "n_frames",
+          "docstring": null
+        },
+        {
+          "name": "seek",
+          "docstring": "Select a given frame as current image"
+        },
+        {
+          "name": "tell",
+          "docstring": "Return the current frame number"
+        },
+        {
+          "name": "get_photoshop_blocks",
+          "docstring": "Returns a dictionary of Photoshop \"Image Resource Blocks\".\nThe keys are the image resource ID. For more information, see\nhttps://www.adobe.com/devnet-apps/photoshop/fileformatashtml/#50577409_pgfId-1037727\n\n:returns: Photoshop \"Image Resource Blocks\" in a dictionary."
+        },
+        {
+          "name": "load",
+          "docstring": null
+        },
+        {
+          "name": "load_prepare",
+          "docstring": null
+        },
+        {
+          "name": "load_end",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AppendingTiffWriter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "setup",
+          "docstring": null
+        },
+        {
+          "name": "finalize",
+          "docstring": null
+        },
+        {
+          "name": "newFrame",
+          "docstring": null
+        },
+        {
+          "name": "tell",
+          "docstring": null
+        },
+        {
+          "name": "seek",
+          "docstring": ":param offset: Distance to seek.\n:param whence: Whether the distance is relative to the start,\n               end or current position.\n:returns: The resulting position, relative to the start."
+        },
+        {
+          "name": "goToEnd",
+          "docstring": null
+        },
+        {
+          "name": "setEndian",
+          "docstring": null
+        },
+        {
+          "name": "skipIFDs",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "readShort",
+          "docstring": null
+        },
+        {
+          "name": "readLong",
+          "docstring": null
+        },
+        {
+          "name": "rewriteLastShortToLong",
+          "docstring": null
+        },
+        {
+          "name": "rewriteLastShort",
+          "docstring": null
+        },
+        {
+          "name": "rewriteLastLong",
+          "docstring": null
+        },
+        {
+          "name": "writeShort",
+          "docstring": null
+        },
+        {
+          "name": "writeLong",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "fixIFD",
+          "docstring": null
+        },
+        {
+          "name": "fixOffsets",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "delegate",
+      "docstring": null
+    },
+    {
+      "name": "numerator",
+      "docstring": null
+    },
+    {
+      "name": "denominator",
+      "docstring": null
+    },
+    {
+      "name": "limit_rational",
+      "docstring": ":param max_denominator: Integer, the maximum denominator value\n:returns: Tuple of (numerator, denominator)"
+    },
+    {
+      "name": "decorator",
+      "docstring": null
+    },
+    {
+      "name": "decorator",
+      "docstring": null
+    },
+    {
+      "name": "basic_handler",
+      "docstring": null
+    },
+    {
+      "name": "legacy_api",
+      "docstring": null
+    },
+    {
+      "name": "legacy_api",
+      "docstring": null
+    },
+    {
+      "name": "reset",
+      "docstring": null
+    },
+    {
+      "name": "named",
+      "docstring": ":returns: dict of name|key: value\n\nReturns the complete tag dictionary, with named tags where possible."
+    },
+    {
+      "name": "load_byte",
+      "docstring": null
+    },
+    {
+      "name": "write_byte",
+      "docstring": null
+    },
+    {
+      "name": "load_string",
+      "docstring": null
+    },
+    {
+      "name": "write_string",
+      "docstring": null
+    },
+    {
+      "name": "load_rational",
+      "docstring": null
+    },
+    {
+      "name": "write_rational",
+      "docstring": null
+    },
+    {
+      "name": "load_undefined",
+      "docstring": null
+    },
+    {
+      "name": "write_undefined",
+      "docstring": null
+    },
+    {
+      "name": "load_signed_rational",
+      "docstring": null
+    },
+    {
+      "name": "write_signed_rational",
+      "docstring": null
+    },
+    {
+      "name": "load",
+      "docstring": null
+    },
+    {
+      "name": "tobytes",
+      "docstring": null
+    },
+    {
+      "name": "save",
+      "docstring": null
+    },
+    {
+      "name": "from_v2",
+      "docstring": "Returns an\n:py:class:`~PIL.TiffImagePlugin.ImageFileDirectory_v1`\ninstance with the same data as is contained in the original\n:py:class:`~PIL.TiffImagePlugin.ImageFileDirectory_v2`\ninstance.\n\n:returns: :py:class:`~PIL.TiffImagePlugin.ImageFileDirectory_v1`"
+    },
+    {
+      "name": "to_v2",
+      "docstring": "Returns an\n:py:class:`~PIL.TiffImagePlugin.ImageFileDirectory_v2`\ninstance with the same data as is contained in the original\n:py:class:`~PIL.TiffImagePlugin.ImageFileDirectory_v1`\ninstance.\n\n:returns: :py:class:`~PIL.TiffImagePlugin.ImageFileDirectory_v2`"
+    },
+    {
+      "name": "n_frames",
+      "docstring": null
+    },
+    {
+      "name": "seek",
+      "docstring": "Select a given frame as current image"
+    },
+    {
+      "name": "tell",
+      "docstring": "Return the current frame number"
+    },
+    {
+      "name": "get_photoshop_blocks",
+      "docstring": "Returns a dictionary of Photoshop \"Image Resource Blocks\".\nThe keys are the image resource ID. For more information, see\nhttps://www.adobe.com/devnet-apps/photoshop/fileformatashtml/#50577409_pgfId-1037727\n\n:returns: Photoshop \"Image Resource Blocks\" in a dictionary."
+    },
+    {
+      "name": "load",
+      "docstring": null
+    },
+    {
+      "name": "load_prepare",
+      "docstring": null
+    },
+    {
+      "name": "load_end",
+      "docstring": null
+    },
+    {
+      "name": "setup",
+      "docstring": null
+    },
+    {
+      "name": "finalize",
+      "docstring": null
+    },
+    {
+      "name": "newFrame",
+      "docstring": null
+    },
+    {
+      "name": "tell",
+      "docstring": null
+    },
+    {
+      "name": "seek",
+      "docstring": ":param offset: Distance to seek.\n:param whence: Whether the distance is relative to the start,\n               end or current position.\n:returns: The resulting position, relative to the start."
+    },
+    {
+      "name": "goToEnd",
+      "docstring": null
+    },
+    {
+      "name": "setEndian",
+      "docstring": null
+    },
+    {
+      "name": "skipIFDs",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "readShort",
+      "docstring": null
+    },
+    {
+      "name": "readLong",
+      "docstring": null
+    },
+    {
+      "name": "rewriteLastShortToLong",
+      "docstring": null
+    },
+    {
+      "name": "rewriteLastShort",
+      "docstring": null
+    },
+    {
+      "name": "rewriteLastLong",
+      "docstring": null
+    },
+    {
+      "name": "writeShort",
+      "docstring": null
+    },
+    {
+      "name": "writeLong",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "fixIFD",
+      "docstring": null
+    },
+    {
+      "name": "fixOffsets",
+      "docstring": null
+    },
+    {
+      "name": "combine",
+      "docstring": null
+    },
+    {
+      "name": "combine",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

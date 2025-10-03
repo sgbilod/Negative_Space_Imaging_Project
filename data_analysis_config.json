@@ -1,0 +1,18 @@
+{
+    "results_directory": "analysis_results",
+    "default_analysis_types": ["statistical", "clustering", "anomaly", "pattern", "trend"],
+    "visualization_enabled": true,
+    "export_formats": ["json", "csv"],
+    "clustering": {
+        "max_clusters": 10,
+        "methods": ["kmeans", "dbscan"]
+    },
+    "anomaly_detection": {
+        "contamination": 0.05,
+        "methods": ["isolation_forest", "local_outlier_factor"]
+    },
+    "dimensionality_reduction": {
+        "target_dimensions": 2,
+        "methods": ["pca", "tsne"]
+    }
+}

@@ -1,0 +1,2646 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_umath.py",
+  "classes": [
+    {
+      "name": "_FilterInvalids",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "teardown_method",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestConstants",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_pi",
+          "docstring": null
+        },
+        {
+          "name": "test_e",
+          "docstring": null
+        },
+        {
+          "name": "test_euler_gamma",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestOut",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_out_subok",
+          "docstring": null
+        },
+        {
+          "name": "test_out_wrap_subok",
+          "docstring": null
+        },
+        {
+          "name": "test_out_wrap_no_leak",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestComparisons",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_comparison_functions",
+          "docstring": null
+        },
+        {
+          "name": "test_ignore_object_identity_in_equal",
+          "docstring": null
+        },
+        {
+          "name": "test_ignore_object_identity_in_not_equal",
+          "docstring": null
+        },
+        {
+          "name": "test_error_in_equal_reduce",
+          "docstring": null
+        },
+        {
+          "name": "test_object_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_object_nonbool_dtype_error",
+          "docstring": null
+        },
+        {
+          "name": "test_large_integer_direct_comparison",
+          "docstring": null
+        },
+        {
+          "name": "test_unsigned_signed_direct_comparison",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAdd",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_reduce_alignment",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDivision",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_division_int",
+          "docstring": null
+        },
+        {
+          "name": "test_division_int_boundary",
+          "docstring": null
+        },
+        {
+          "name": "test_division_int_reduce",
+          "docstring": null
+        },
+        {
+          "name": "test_division_int_timedelta",
+          "docstring": null
+        },
+        {
+          "name": "test_division_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_zero_division_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_floor_division_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_floor_division_signed_zero",
+          "docstring": null
+        },
+        {
+          "name": "test_floor_division_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_floor_division_corner_cases",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestRemainder",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_remainder_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_float_remainder_exact",
+          "docstring": null
+        },
+        {
+          "name": "test_float_remainder_roundoff",
+          "docstring": null
+        },
+        {
+          "name": "test_float_divmod_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_float_remainder_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_float_remainder_overflow",
+          "docstring": null
+        },
+        {
+          "name": "test_float_divmod_corner_cases",
+          "docstring": null
+        },
+        {
+          "name": "test_float_remainder_corner_cases",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDivisionIntegerOverflowsAndDivideByZero",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_signed_division_overflow",
+          "docstring": null
+        },
+        {
+          "name": "test_divide_by_zero",
+          "docstring": null
+        },
+        {
+          "name": "test_overflows",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCbrt",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_cbrt_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_cbrt",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPower",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_power_float",
+          "docstring": null
+        },
+        {
+          "name": "test_power_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_power_zero",
+          "docstring": null
+        },
+        {
+          "name": "test_zero_power_nonzero",
+          "docstring": null
+        },
+        {
+          "name": "test_fast_power",
+          "docstring": null
+        },
+        {
+          "name": "test_integer_power",
+          "docstring": null
+        },
+        {
+          "name": "test_integer_power_with_integer_zero_exponent",
+          "docstring": null
+        },
+        {
+          "name": "test_integer_power_of_1",
+          "docstring": null
+        },
+        {
+          "name": "test_integer_power_of_zero",
+          "docstring": null
+        },
+        {
+          "name": "test_integer_to_negative_power",
+          "docstring": null
+        },
+        {
+          "name": "test_float_to_inf_power",
+          "docstring": null
+        },
+        {
+          "name": "test_power_fast_paths",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFloat_power",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_type_conversion",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLog2",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_log2_values",
+          "docstring": null
+        },
+        {
+          "name": "test_log2_ints",
+          "docstring": null
+        },
+        {
+          "name": "test_log2_special",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestExp2",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_exp2_values",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLogAddExp2",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_logaddexp2_values",
+          "docstring": null
+        },
+        {
+          "name": "test_logaddexp2_range",
+          "docstring": null
+        },
+        {
+          "name": "test_inf",
+          "docstring": null
+        },
+        {
+          "name": "test_nan",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLog",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_log_values",
+          "docstring": null
+        },
+        {
+          "name": "test_log_values_maxofdtype",
+          "docstring": null
+        },
+        {
+          "name": "test_log_strides",
+          "docstring": null
+        },
+        {
+          "name": "test_log_precision_float64",
+          "docstring": null
+        },
+        {
+          "name": "test_log_precision_float32",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestExp",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_exp_values",
+          "docstring": null
+        },
+        {
+          "name": "test_exp_strides",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSpecialFloats",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_exp_values",
+          "docstring": null
+        },
+        {
+          "name": "test_exp_exceptions",
+          "docstring": null
+        },
+        {
+          "name": "test_log_values",
+          "docstring": null
+        },
+        {
+          "name": "test_sincos_values",
+          "docstring": null
+        },
+        {
+          "name": "test_sincos_underflow",
+          "docstring": null
+        },
+        {
+          "name": "test_sincos_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_sincos_overlaps",
+          "docstring": null
+        },
+        {
+          "name": "test_sqrt_values",
+          "docstring": null
+        },
+        {
+          "name": "test_abs_values",
+          "docstring": null
+        },
+        {
+          "name": "test_square_values",
+          "docstring": null
+        },
+        {
+          "name": "test_reciprocal_values",
+          "docstring": null
+        },
+        {
+          "name": "test_tan",
+          "docstring": null
+        },
+        {
+          "name": "test_arcsincos",
+          "docstring": null
+        },
+        {
+          "name": "test_arctan",
+          "docstring": null
+        },
+        {
+          "name": "test_sinh",
+          "docstring": null
+        },
+        {
+          "name": "test_cosh",
+          "docstring": null
+        },
+        {
+          "name": "test_tanh",
+          "docstring": null
+        },
+        {
+          "name": "test_arcsinh",
+          "docstring": null
+        },
+        {
+          "name": "test_arccosh",
+          "docstring": null
+        },
+        {
+          "name": "test_arctanh",
+          "docstring": null
+        },
+        {
+          "name": "test_exp2",
+          "docstring": null
+        },
+        {
+          "name": "test_expm1",
+          "docstring": null
+        },
+        {
+          "name": "test_unary_spurious_fpexception",
+          "docstring": null
+        },
+        {
+          "name": "test_divide_spurious_fpexception",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFPClass",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_fpclass",
+          "docstring": null
+        },
+        {
+          "name": "test_fp_noncontiguous",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLDExp",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_ldexp",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFRExp",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_frexp",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAVXUfuncs",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_avx_based_ufunc",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAVXFloat32Transcendental",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_exp_float32",
+          "docstring": null
+        },
+        {
+          "name": "test_log_float32",
+          "docstring": null
+        },
+        {
+          "name": "test_sincos_float32",
+          "docstring": null
+        },
+        {
+          "name": "test_strided_float32",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLogAddExp",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_logaddexp_values",
+          "docstring": null
+        },
+        {
+          "name": "test_logaddexp_range",
+          "docstring": null
+        },
+        {
+          "name": "test_inf",
+          "docstring": null
+        },
+        {
+          "name": "test_nan",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLog1p",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_log1p",
+          "docstring": null
+        },
+        {
+          "name": "test_special",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestExpm1",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_expm1",
+          "docstring": null
+        },
+        {
+          "name": "test_special",
+          "docstring": null
+        },
+        {
+          "name": "test_complex",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestHypot",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestHypotSpecialValues",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_nan_outputs",
+          "docstring": null
+        },
+        {
+          "name": "test_nan_outputs2",
+          "docstring": null
+        },
+        {
+          "name": "test_no_fpe",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestArctan2SpecialValues",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_one_one",
+          "docstring": null
+        },
+        {
+          "name": "test_zero_nzero",
+          "docstring": null
+        },
+        {
+          "name": "test_zero_pzero",
+          "docstring": null
+        },
+        {
+          "name": "test_zero_negative",
+          "docstring": null
+        },
+        {
+          "name": "test_zero_positive",
+          "docstring": null
+        },
+        {
+          "name": "test_positive_zero",
+          "docstring": null
+        },
+        {
+          "name": "test_negative_zero",
+          "docstring": null
+        },
+        {
+          "name": "test_any_ninf",
+          "docstring": null
+        },
+        {
+          "name": "test_any_pinf",
+          "docstring": null
+        },
+        {
+          "name": "test_inf_any",
+          "docstring": null
+        },
+        {
+          "name": "test_inf_ninf",
+          "docstring": null
+        },
+        {
+          "name": "test_inf_pinf",
+          "docstring": null
+        },
+        {
+          "name": "test_nan_any",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLdexp",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_ldexp",
+          "docstring": null
+        },
+        {
+          "name": "test_ldexp_overflow",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMaximum",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_reduce",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_float_nans",
+          "docstring": null
+        },
+        {
+          "name": "test_object_nans",
+          "docstring": null
+        },
+        {
+          "name": "test_complex_nans",
+          "docstring": null
+        },
+        {
+          "name": "test_object_array",
+          "docstring": null
+        },
+        {
+          "name": "test_strided_array",
+          "docstring": null
+        },
+        {
+          "name": "test_precision",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMinimum",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_reduce",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_float_nans",
+          "docstring": null
+        },
+        {
+          "name": "test_object_nans",
+          "docstring": null
+        },
+        {
+          "name": "test_complex_nans",
+          "docstring": null
+        },
+        {
+          "name": "test_object_array",
+          "docstring": null
+        },
+        {
+          "name": "test_strided_array",
+          "docstring": null
+        },
+        {
+          "name": "test_precision",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFmax",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_reduce",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_float_nans",
+          "docstring": null
+        },
+        {
+          "name": "test_complex_nans",
+          "docstring": null
+        },
+        {
+          "name": "test_precision",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFmin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_reduce",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_float_nans",
+          "docstring": null
+        },
+        {
+          "name": "test_complex_nans",
+          "docstring": null
+        },
+        {
+          "name": "test_precision",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestBool",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_exceptions",
+          "docstring": null
+        },
+        {
+          "name": "test_truth_table_logical",
+          "docstring": null
+        },
+        {
+          "name": "test_truth_table_bitwise",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestBitwiseUFuncs",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_values",
+          "docstring": null
+        },
+        {
+          "name": "test_types",
+          "docstring": null
+        },
+        {
+          "name": "test_identity",
+          "docstring": null
+        },
+        {
+          "name": "test_reduction",
+          "docstring": null
+        },
+        {
+          "name": "test_bitwise_count",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestInt",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_logical_not",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFloatingPoint",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_floating_point",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDegrees",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_degrees",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestRadians",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_radians",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestHeavside",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_heaviside",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSign",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_sign",
+          "docstring": null
+        },
+        {
+          "name": "test_sign_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_sign_dtype_object",
+          "docstring": null
+        },
+        {
+          "name": "test_sign_dtype_nan_object",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMinMax",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_minmax_blocked",
+          "docstring": null
+        },
+        {
+          "name": "test_lower_align",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce_reorder",
+          "docstring": null
+        },
+        {
+          "name": "test_minimize_no_warns",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAbsoluteNegative",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_abs_neg_blocked",
+          "docstring": null
+        },
+        {
+          "name": "test_lower_align",
+          "docstring": null
+        },
+        {
+          "name": "test_noncontiguous",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPositive",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_valid",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSpecialMethods",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_wrap",
+          "docstring": null
+        },
+        {
+          "name": "test_wrap_out",
+          "docstring": null
+        },
+        {
+          "name": "test_wrap_with_iterable",
+          "docstring": null
+        },
+        {
+          "name": "test_priority_with_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_priority",
+          "docstring": null
+        },
+        {
+          "name": "test_failing_wrap",
+          "docstring": null
+        },
+        {
+          "name": "test_failing_out_wrap",
+          "docstring": null
+        },
+        {
+          "name": "test_none_wrap",
+          "docstring": null
+        },
+        {
+          "name": "test_default_prepare",
+          "docstring": null
+        },
+        {
+          "name": "test_array_too_many_args",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_override",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_override_mro",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_override_methods",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_override_out",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_override_where",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_override_exception",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_override_not_implemented",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_override_disabled",
+          "docstring": null
+        },
+        {
+          "name": "test_gufunc_override",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_override_with_super",
+          "docstring": null
+        },
+        {
+          "name": "test_array_ufunc_direct_call",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_docstring",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestChoose",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_mixed",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestRationalFunctions",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_lcm",
+          "docstring": null
+        },
+        {
+          "name": "test_lcm_object",
+          "docstring": null
+        },
+        {
+          "name": "test_gcd",
+          "docstring": null
+        },
+        {
+          "name": "test_gcd_object",
+          "docstring": null
+        },
+        {
+          "name": "test_lcm_overflow",
+          "docstring": null
+        },
+        {
+          "name": "test_gcd_overflow",
+          "docstring": null
+        },
+        {
+          "name": "test_decimal",
+          "docstring": null
+        },
+        {
+          "name": "test_float",
+          "docstring": null
+        },
+        {
+          "name": "test_huge_integers",
+          "docstring": null
+        },
+        {
+          "name": "test_inf_and_nan",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestRoundingFunctions",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_object_direct",
+          "docstring": "test direct implementation of these magic methods "
+        },
+        {
+          "name": "test_object_indirect",
+          "docstring": "test implementations via __float__ "
+        },
+        {
+          "name": "test_fraction",
+          "docstring": null
+        },
+        {
+          "name": "test_output_dtype",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestComplexFunctions",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_it",
+          "docstring": null
+        },
+        {
+          "name": "test_precisions_consistent",
+          "docstring": null
+        },
+        {
+          "name": "test_branch_cuts",
+          "docstring": null
+        },
+        {
+          "name": "test_branch_cuts_complex64",
+          "docstring": null
+        },
+        {
+          "name": "test_against_cmath",
+          "docstring": null
+        },
+        {
+          "name": "test_loss_of_precision",
+          "docstring": "Check loss of precision in complex arc* functions"
+        },
+        {
+          "name": "test_promotion_corner_cases",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAttributes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_attributes",
+          "docstring": null
+        },
+        {
+          "name": "test_doc",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSubclass",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_subclass_op",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFrompyfunc",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_identity",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAddDocstring",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_add_same_docstring",
+          "docstring": null
+        },
+        {
+          "name": "test_different_docstring_fails",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAdd_newdoc_ufunc",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_ufunc_arg",
+          "docstring": null
+        },
+        {
+          "name": "test_string_arg",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "foo",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "BadArr1",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "BadArr2",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArrayWrap",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArrSubclass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "FunkyType",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "FunkyType",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "with_wrap",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "StoreArrayPrepareWrap",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "args",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "with_wrap",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "A",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "A",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "B",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "C",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "A",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Ok",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Bad",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "A",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "with_wrap",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "A",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "A",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MyNDArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "A",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ASub",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "B",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "C",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CSub",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "A",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "A",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "B",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "OverriddenArrayOld",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "OverriddenArrayNew",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "A",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "A",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "OptOut",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "GreedyArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "A",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "A",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "B",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "C",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "C",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "simple",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "interesting_binop_operands",
+      "docstring": "Helper to create \"interesting\" operands to cover common code paths:\n* scalar inputs\n* only first \"values\" is an array (e.g. scalar division fast-paths)\n* Longer array (SIMD) placing the value of interest at different positions\n* Oddly strided arrays which may not be SIMD compatible\n\nIt does not attempt to cover unaligned access or mixed dtypes.\nThese are normally handled by the casting/buffering machinery.\n\nThis is not a fixture (currently), since I believe a fixture normally\nonly yields once?"
+    },
+    {
+      "name": "on_powerpc",
+      "docstring": "True if we are running on a Power PC platform."
+    },
+    {
+      "name": "bad_arcsinh",
+      "docstring": "The blocklisted trig functions are not accurate on aarch64/PPC for\ncomplex256. Rather than dig through the actual problem skip the\ntest. This should be fixed when we can move past glibc2.17\nwhich is the version in manylinux2014"
+    },
+    {
+      "name": "floor_divide_and_remainder",
+      "docstring": null
+    },
+    {
+      "name": "assert_hypot_isnan",
+      "docstring": null
+    },
+    {
+      "name": "assert_hypot_isinf",
+      "docstring": null
+    },
+    {
+      "name": "assert_arctan2_isnan",
+      "docstring": null
+    },
+    {
+      "name": "assert_arctan2_ispinf",
+      "docstring": null
+    },
+    {
+      "name": "assert_arctan2_isninf",
+      "docstring": null
+    },
+    {
+      "name": "assert_arctan2_ispzero",
+      "docstring": null
+    },
+    {
+      "name": "assert_arctan2_isnzero",
+      "docstring": null
+    },
+    {
+      "name": "test_copysign",
+      "docstring": null
+    },
+    {
+      "name": "test_nextafter",
+      "docstring": null
+    },
+    {
+      "name": "test_nextafterf",
+      "docstring": null
+    },
+    {
+      "name": "test_nextafterl",
+      "docstring": null
+    },
+    {
+      "name": "test_nextafter_0",
+      "docstring": null
+    },
+    {
+      "name": "test_spacing",
+      "docstring": null
+    },
+    {
+      "name": "test_spacingf",
+      "docstring": null
+    },
+    {
+      "name": "test_spacingl",
+      "docstring": null
+    },
+    {
+      "name": "test_spacing_gfortran",
+      "docstring": null
+    },
+    {
+      "name": "test_nextafter_vs_spacing",
+      "docstring": null
+    },
+    {
+      "name": "test_pos_nan",
+      "docstring": "Check np.nan is a positive nan."
+    },
+    {
+      "name": "test_reduceat",
+      "docstring": "Test bug in reduceat when structured arrays are not copied."
+    },
+    {
+      "name": "test_reduceat_empty",
+      "docstring": "Reduceat should work with empty arrays"
+    },
+    {
+      "name": "test_complex_nan_comparisons",
+      "docstring": null
+    },
+    {
+      "name": "test_rint_big_int",
+      "docstring": null
+    },
+    {
+      "name": "test_memoverlap_accumulate",
+      "docstring": null
+    },
+    {
+      "name": "test_memoverlap_accumulate_cmp",
+      "docstring": null
+    },
+    {
+      "name": "test_memoverlap_accumulate_symmetric",
+      "docstring": null
+    },
+    {
+      "name": "test_signaling_nan_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_outer_subclass_preserve",
+      "docstring": null
+    },
+    {
+      "name": "test_outer_bad_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_outer_exceeds_maxdims",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_legacy_ufunc_silent_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_legacy_gufunc_silent_errors",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "teardown_method",
+      "docstring": null
+    },
+    {
+      "name": "test_pi",
+      "docstring": null
+    },
+    {
+      "name": "test_e",
+      "docstring": null
+    },
+    {
+      "name": "test_euler_gamma",
+      "docstring": null
+    },
+    {
+      "name": "test_out_subok",
+      "docstring": null
+    },
+    {
+      "name": "test_out_wrap_subok",
+      "docstring": null
+    },
+    {
+      "name": "test_out_wrap_no_leak",
+      "docstring": null
+    },
+    {
+      "name": "test_comparison_functions",
+      "docstring": null
+    },
+    {
+      "name": "test_ignore_object_identity_in_equal",
+      "docstring": null
+    },
+    {
+      "name": "test_ignore_object_identity_in_not_equal",
+      "docstring": null
+    },
+    {
+      "name": "test_error_in_equal_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_object_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_object_nonbool_dtype_error",
+      "docstring": null
+    },
+    {
+      "name": "test_large_integer_direct_comparison",
+      "docstring": null
+    },
+    {
+      "name": "test_unsigned_signed_direct_comparison",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce_alignment",
+      "docstring": null
+    },
+    {
+      "name": "test_division_int",
+      "docstring": null
+    },
+    {
+      "name": "test_division_int_boundary",
+      "docstring": null
+    },
+    {
+      "name": "test_division_int_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_division_int_timedelta",
+      "docstring": null
+    },
+    {
+      "name": "test_division_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_zero_division_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_floor_division_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_floor_division_signed_zero",
+      "docstring": null
+    },
+    {
+      "name": "test_floor_division_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_floor_division_corner_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_remainder_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_float_remainder_exact",
+      "docstring": null
+    },
+    {
+      "name": "test_float_remainder_roundoff",
+      "docstring": null
+    },
+    {
+      "name": "test_float_divmod_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_float_remainder_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_float_remainder_overflow",
+      "docstring": null
+    },
+    {
+      "name": "test_float_divmod_corner_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_float_remainder_corner_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_signed_division_overflow",
+      "docstring": null
+    },
+    {
+      "name": "test_divide_by_zero",
+      "docstring": null
+    },
+    {
+      "name": "test_overflows",
+      "docstring": null
+    },
+    {
+      "name": "test_cbrt_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_cbrt",
+      "docstring": null
+    },
+    {
+      "name": "test_power_float",
+      "docstring": null
+    },
+    {
+      "name": "test_power_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_power_zero",
+      "docstring": null
+    },
+    {
+      "name": "test_zero_power_nonzero",
+      "docstring": null
+    },
+    {
+      "name": "test_fast_power",
+      "docstring": null
+    },
+    {
+      "name": "test_integer_power",
+      "docstring": null
+    },
+    {
+      "name": "test_integer_power_with_integer_zero_exponent",
+      "docstring": null
+    },
+    {
+      "name": "test_integer_power_of_1",
+      "docstring": null
+    },
+    {
+      "name": "test_integer_power_of_zero",
+      "docstring": null
+    },
+    {
+      "name": "test_integer_to_negative_power",
+      "docstring": null
+    },
+    {
+      "name": "test_float_to_inf_power",
+      "docstring": null
+    },
+    {
+      "name": "test_power_fast_paths",
+      "docstring": null
+    },
+    {
+      "name": "test_type_conversion",
+      "docstring": null
+    },
+    {
+      "name": "test_log2_values",
+      "docstring": null
+    },
+    {
+      "name": "test_log2_ints",
+      "docstring": null
+    },
+    {
+      "name": "test_log2_special",
+      "docstring": null
+    },
+    {
+      "name": "test_exp2_values",
+      "docstring": null
+    },
+    {
+      "name": "test_logaddexp2_values",
+      "docstring": null
+    },
+    {
+      "name": "test_logaddexp2_range",
+      "docstring": null
+    },
+    {
+      "name": "test_inf",
+      "docstring": null
+    },
+    {
+      "name": "test_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_log_values",
+      "docstring": null
+    },
+    {
+      "name": "test_log_values_maxofdtype",
+      "docstring": null
+    },
+    {
+      "name": "test_log_strides",
+      "docstring": null
+    },
+    {
+      "name": "test_log_precision_float64",
+      "docstring": null
+    },
+    {
+      "name": "test_log_precision_float32",
+      "docstring": null
+    },
+    {
+      "name": "test_exp_values",
+      "docstring": null
+    },
+    {
+      "name": "test_exp_strides",
+      "docstring": null
+    },
+    {
+      "name": "test_exp_values",
+      "docstring": null
+    },
+    {
+      "name": "test_exp_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_log_values",
+      "docstring": null
+    },
+    {
+      "name": "test_sincos_values",
+      "docstring": null
+    },
+    {
+      "name": "test_sincos_underflow",
+      "docstring": null
+    },
+    {
+      "name": "test_sincos_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_sincos_overlaps",
+      "docstring": null
+    },
+    {
+      "name": "test_sqrt_values",
+      "docstring": null
+    },
+    {
+      "name": "test_abs_values",
+      "docstring": null
+    },
+    {
+      "name": "test_square_values",
+      "docstring": null
+    },
+    {
+      "name": "test_reciprocal_values",
+      "docstring": null
+    },
+    {
+      "name": "test_tan",
+      "docstring": null
+    },
+    {
+      "name": "test_arcsincos",
+      "docstring": null
+    },
+    {
+      "name": "test_arctan",
+      "docstring": null
+    },
+    {
+      "name": "test_sinh",
+      "docstring": null
+    },
+    {
+      "name": "test_cosh",
+      "docstring": null
+    },
+    {
+      "name": "test_tanh",
+      "docstring": null
+    },
+    {
+      "name": "test_arcsinh",
+      "docstring": null
+    },
+    {
+      "name": "test_arccosh",
+      "docstring": null
+    },
+    {
+      "name": "test_arctanh",
+      "docstring": null
+    },
+    {
+      "name": "test_exp2",
+      "docstring": null
+    },
+    {
+      "name": "test_expm1",
+      "docstring": null
+    },
+    {
+      "name": "test_unary_spurious_fpexception",
+      "docstring": null
+    },
+    {
+      "name": "test_divide_spurious_fpexception",
+      "docstring": null
+    },
+    {
+      "name": "test_fpclass",
+      "docstring": null
+    },
+    {
+      "name": "test_fp_noncontiguous",
+      "docstring": null
+    },
+    {
+      "name": "test_ldexp",
+      "docstring": null
+    },
+    {
+      "name": "test_frexp",
+      "docstring": null
+    },
+    {
+      "name": "test_avx_based_ufunc",
+      "docstring": null
+    },
+    {
+      "name": "test_exp_float32",
+      "docstring": null
+    },
+    {
+      "name": "test_log_float32",
+      "docstring": null
+    },
+    {
+      "name": "test_sincos_float32",
+      "docstring": null
+    },
+    {
+      "name": "test_strided_float32",
+      "docstring": null
+    },
+    {
+      "name": "test_logaddexp_values",
+      "docstring": null
+    },
+    {
+      "name": "test_logaddexp_range",
+      "docstring": null
+    },
+    {
+      "name": "test_inf",
+      "docstring": null
+    },
+    {
+      "name": "test_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_log1p",
+      "docstring": null
+    },
+    {
+      "name": "test_special",
+      "docstring": null
+    },
+    {
+      "name": "test_expm1",
+      "docstring": null
+    },
+    {
+      "name": "test_special",
+      "docstring": null
+    },
+    {
+      "name": "test_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_nan_outputs",
+      "docstring": null
+    },
+    {
+      "name": "test_nan_outputs2",
+      "docstring": null
+    },
+    {
+      "name": "test_no_fpe",
+      "docstring": null
+    },
+    {
+      "name": "test_one_one",
+      "docstring": null
+    },
+    {
+      "name": "test_zero_nzero",
+      "docstring": null
+    },
+    {
+      "name": "test_zero_pzero",
+      "docstring": null
+    },
+    {
+      "name": "test_zero_negative",
+      "docstring": null
+    },
+    {
+      "name": "test_zero_positive",
+      "docstring": null
+    },
+    {
+      "name": "test_positive_zero",
+      "docstring": null
+    },
+    {
+      "name": "test_negative_zero",
+      "docstring": null
+    },
+    {
+      "name": "test_any_ninf",
+      "docstring": null
+    },
+    {
+      "name": "test_any_pinf",
+      "docstring": null
+    },
+    {
+      "name": "test_inf_any",
+      "docstring": null
+    },
+    {
+      "name": "test_inf_ninf",
+      "docstring": null
+    },
+    {
+      "name": "test_inf_pinf",
+      "docstring": null
+    },
+    {
+      "name": "test_nan_any",
+      "docstring": null
+    },
+    {
+      "name": "test_ldexp",
+      "docstring": null
+    },
+    {
+      "name": "test_ldexp_overflow",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_float_nans",
+      "docstring": null
+    },
+    {
+      "name": "test_object_nans",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_nans",
+      "docstring": null
+    },
+    {
+      "name": "test_object_array",
+      "docstring": null
+    },
+    {
+      "name": "test_strided_array",
+      "docstring": null
+    },
+    {
+      "name": "test_precision",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_float_nans",
+      "docstring": null
+    },
+    {
+      "name": "test_object_nans",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_nans",
+      "docstring": null
+    },
+    {
+      "name": "test_object_array",
+      "docstring": null
+    },
+    {
+      "name": "test_strided_array",
+      "docstring": null
+    },
+    {
+      "name": "test_precision",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_float_nans",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_nans",
+      "docstring": null
+    },
+    {
+      "name": "test_precision",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_float_nans",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_nans",
+      "docstring": null
+    },
+    {
+      "name": "test_precision",
+      "docstring": null
+    },
+    {
+      "name": "test_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_truth_table_logical",
+      "docstring": null
+    },
+    {
+      "name": "test_truth_table_bitwise",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_values",
+      "docstring": null
+    },
+    {
+      "name": "test_types",
+      "docstring": null
+    },
+    {
+      "name": "test_identity",
+      "docstring": null
+    },
+    {
+      "name": "test_reduction",
+      "docstring": null
+    },
+    {
+      "name": "test_bitwise_count",
+      "docstring": null
+    },
+    {
+      "name": "test_logical_not",
+      "docstring": null
+    },
+    {
+      "name": "test_floating_point",
+      "docstring": null
+    },
+    {
+      "name": "test_degrees",
+      "docstring": null
+    },
+    {
+      "name": "test_radians",
+      "docstring": null
+    },
+    {
+      "name": "test_heaviside",
+      "docstring": null
+    },
+    {
+      "name": "test_sign",
+      "docstring": null
+    },
+    {
+      "name": "test_sign_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_sign_dtype_object",
+      "docstring": null
+    },
+    {
+      "name": "test_sign_dtype_nan_object",
+      "docstring": null
+    },
+    {
+      "name": "test_minmax_blocked",
+      "docstring": null
+    },
+    {
+      "name": "test_lower_align",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce_reorder",
+      "docstring": null
+    },
+    {
+      "name": "test_minimize_no_warns",
+      "docstring": null
+    },
+    {
+      "name": "test_abs_neg_blocked",
+      "docstring": null
+    },
+    {
+      "name": "test_lower_align",
+      "docstring": null
+    },
+    {
+      "name": "test_noncontiguous",
+      "docstring": null
+    },
+    {
+      "name": "test_valid",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_wrap",
+      "docstring": null
+    },
+    {
+      "name": "test_wrap_out",
+      "docstring": null
+    },
+    {
+      "name": "test_wrap_with_iterable",
+      "docstring": null
+    },
+    {
+      "name": "test_priority_with_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_priority",
+      "docstring": null
+    },
+    {
+      "name": "test_failing_wrap",
+      "docstring": null
+    },
+    {
+      "name": "test_failing_out_wrap",
+      "docstring": null
+    },
+    {
+      "name": "test_none_wrap",
+      "docstring": null
+    },
+    {
+      "name": "test_default_prepare",
+      "docstring": null
+    },
+    {
+      "name": "test_array_too_many_args",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_override",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_override_mro",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_override_methods",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_override_out",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_override_where",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_override_exception",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_override_not_implemented",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_override_disabled",
+      "docstring": null
+    },
+    {
+      "name": "test_gufunc_override",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_override_with_super",
+      "docstring": null
+    },
+    {
+      "name": "test_array_ufunc_direct_call",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_docstring",
+      "docstring": null
+    },
+    {
+      "name": "test_mixed",
+      "docstring": null
+    },
+    {
+      "name": "test_lcm",
+      "docstring": null
+    },
+    {
+      "name": "test_lcm_object",
+      "docstring": null
+    },
+    {
+      "name": "test_gcd",
+      "docstring": null
+    },
+    {
+      "name": "test_gcd_object",
+      "docstring": null
+    },
+    {
+      "name": "test_lcm_overflow",
+      "docstring": null
+    },
+    {
+      "name": "test_gcd_overflow",
+      "docstring": null
+    },
+    {
+      "name": "test_decimal",
+      "docstring": null
+    },
+    {
+      "name": "test_float",
+      "docstring": null
+    },
+    {
+      "name": "test_huge_integers",
+      "docstring": null
+    },
+    {
+      "name": "test_inf_and_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_object_direct",
+      "docstring": "test direct implementation of these magic methods "
+    },
+    {
+      "name": "test_object_indirect",
+      "docstring": "test implementations via __float__ "
+    },
+    {
+      "name": "test_fraction",
+      "docstring": null
+    },
+    {
+      "name": "test_output_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_it",
+      "docstring": null
+    },
+    {
+      "name": "test_precisions_consistent",
+      "docstring": null
+    },
+    {
+      "name": "test_branch_cuts",
+      "docstring": null
+    },
+    {
+      "name": "test_branch_cuts_complex64",
+      "docstring": null
+    },
+    {
+      "name": "test_against_cmath",
+      "docstring": null
+    },
+    {
+      "name": "test_loss_of_precision",
+      "docstring": "Check loss of precision in complex arc* functions"
+    },
+    {
+      "name": "test_promotion_corner_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_attributes",
+      "docstring": null
+    },
+    {
+      "name": "test_doc",
+      "docstring": null
+    },
+    {
+      "name": "test_subclass_op",
+      "docstring": null
+    },
+    {
+      "name": "test_identity",
+      "docstring": null
+    },
+    {
+      "name": "test_add_same_docstring",
+      "docstring": null
+    },
+    {
+      "name": "test_different_docstring_fails",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_arg",
+      "docstring": null
+    },
+    {
+      "name": "test_string_arg",
+      "docstring": null
+    },
+    {
+      "name": "assert_complex_equal",
+      "docstring": null
+    },
+    {
+      "name": "assert_complex_equal",
+      "docstring": null
+    },
+    {
+      "name": "assert_complex_equal",
+      "docstring": null
+    },
+    {
+      "name": "test_nan",
+      "docstring": null
+    },
+    {
+      "name": "do_test",
+      "docstring": null
+    },
+    {
+      "name": "tres_mul",
+      "docstring": null
+    },
+    {
+      "name": "quatro_mul",
+      "docstring": null
+    },
+    {
+      "name": "check",
+      "docstring": null
+    },
+    {
+      "name": "check",
+      "docstring": null
+    },
+    {
+      "name": "mul",
+      "docstring": null
+    },
+    {
+      "name": "func",
+      "docstring": "docstring"
+    },
+    {
+      "name": "func",
+      "docstring": "docstring"
+    },
+    {
+      "name": "args",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "class TestAdd:\n    def test_reduce_alignment(self):\n        # gh-9876\n        # make sure arrays with weird strides work with the optimizations in\n        # pairwise_sum_@TYPE@. On x86, the 'b' field will count as aligned at a\n        # 4 byte offset, even though its itemsize is 8.\n        a = np.zeros(2, dtype=[('a', np.int32), ('b', np.float64)])"
+    }
+  ]
+}

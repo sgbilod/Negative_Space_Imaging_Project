@@ -1,0 +1,332 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\colorizer.py",
+  "classes": [
+    {
+      "name": "Colorizer",
+      "docstring": "Data to color pipeline.\n\nThis pipeline is accessible via `.Colorizer.to_rgba` and executed via\nthe `.Colorizer.norm` and `.Colorizer.cmap` attributes.\n\nParameters\n----------\ncmap: colorbar.Colorbar or str or None, default: None\n    The colormap used to color data.\n\nnorm: colors.Normalize or str or None, default: None\n    The normalization used to normalize the data",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "norm",
+          "docstring": null
+        },
+        {
+          "name": "norm",
+          "docstring": null
+        },
+        {
+          "name": "to_rgba",
+          "docstring": "Return a normalized RGBA array corresponding to *x*.\n\nIn the normal case, *x* is a 1D or 2D sequence of scalars, and\nthe corresponding `~numpy.ndarray` of RGBA values will be returned,\nbased on the norm and colormap set for this Colorizer.\n\nThere is one special case, for handling images that are already\nRGB or RGBA, such as might have been read from an image file.\nIf *x* is an `~numpy.ndarray` with 3 dimensions,\nand the last dimension is either 3 or 4, then it will be\ntreated as an RGB or RGBA array, and no mapping will be done.\nThe array can be `~numpy.uint8`, or it can be floats with\nvalues in the 0-1 range; otherwise a ValueError will be raised.\nAny NaNs or masked elements will be set to 0 alpha.\nIf the last dimension is 3, the *alpha* kwarg (defaulting to 1)\nwill be used to fill in the transparency.  If the last dimension\nis 4, the *alpha* kwarg is ignored; it does not\nreplace the preexisting alpha.  A ValueError will be raised\nif the third dimension is other than 3 or 4.\n\nIn either case, if *bytes* is *False* (default), the RGBA\narray will be floats in the 0-1 range; if it is *True*,\nthe returned RGBA array will be `~numpy.uint8` in the 0 to 255 range.\n\nIf norm is False, no normalization of the input data is\nperformed, and it is assumed to be in the range (0-1)."
+        },
+        {
+          "name": "autoscale",
+          "docstring": "Autoscale the scalar limits on the norm instance using the\ncurrent array"
+        },
+        {
+          "name": "autoscale_None",
+          "docstring": "Autoscale the scalar limits on the norm instance using the\ncurrent array, changing only limits that are None"
+        },
+        {
+          "name": "cmap",
+          "docstring": null
+        },
+        {
+          "name": "cmap",
+          "docstring": null
+        },
+        {
+          "name": "set_clim",
+          "docstring": "Set the norm limits for image scaling.\n\nParameters\n----------\nvmin, vmax : float\n     The limits.\n\n     The limits may also be passed as a tuple (*vmin*, *vmax*) as a\n     single positional argument.\n\n     .. ACCEPTS: (vmin: float, vmax: float)"
+        },
+        {
+          "name": "get_clim",
+          "docstring": "Return the values (min, max) that are mapped to the colormap limits."
+        },
+        {
+          "name": "changed",
+          "docstring": "Call this whenever the mappable is changed to notify all the\ncallbackSM listeners to the 'changed' signal."
+        },
+        {
+          "name": "vmin",
+          "docstring": null
+        },
+        {
+          "name": "vmin",
+          "docstring": null
+        },
+        {
+          "name": "vmax",
+          "docstring": null
+        },
+        {
+          "name": "vmax",
+          "docstring": null
+        },
+        {
+          "name": "clip",
+          "docstring": null
+        },
+        {
+          "name": "clip",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_ColorizerInterface",
+      "docstring": "Base class that contains the interface to `Colorizer` objects from\na `ColorizingArtist` or `.cm.ScalarMappable`.\n\nNote: This class only contain functions that interface the .colorizer\nattribute. Other functions that as shared between `.ColorizingArtist`\nand `.cm.ScalarMappable` are not included.",
+      "methods": [
+        {
+          "name": "to_rgba",
+          "docstring": "Return a normalized RGBA array corresponding to *x*.\n\nIn the normal case, *x* is a 1D or 2D sequence of scalars, and\nthe corresponding `~numpy.ndarray` of RGBA values will be returned,\nbased on the norm and colormap set for this Colorizer.\n\nThere is one special case, for handling images that are already\nRGB or RGBA, such as might have been read from an image file.\nIf *x* is an `~numpy.ndarray` with 3 dimensions,\nand the last dimension is either 3 or 4, then it will be\ntreated as an RGB or RGBA array, and no mapping will be done.\nThe array can be `~numpy.uint8`, or it can be floats with\nvalues in the 0-1 range; otherwise a ValueError will be raised.\nAny NaNs or masked elements will be set to 0 alpha.\nIf the last dimension is 3, the *alpha* kwarg (defaulting to 1)\nwill be used to fill in the transparency.  If the last dimension\nis 4, the *alpha* kwarg is ignored; it does not\nreplace the preexisting alpha.  A ValueError will be raised\nif the third dimension is other than 3 or 4.\n\nIn either case, if *bytes* is *False* (default), the RGBA\narray will be floats in the 0-1 range; if it is *True*,\nthe returned RGBA array will be `~numpy.uint8` in the 0 to 255 range.\n\nIf norm is False, no normalization of the input data is\nperformed, and it is assumed to be in the range (0-1)."
+        },
+        {
+          "name": "get_clim",
+          "docstring": "Return the values (min, max) that are mapped to the colormap limits."
+        },
+        {
+          "name": "set_clim",
+          "docstring": "Set the norm limits for image scaling.\n\nParameters\n----------\nvmin, vmax : float\n     The limits.\n\n     For scalar data, the limits may also be passed as a\n     tuple (*vmin*, *vmax*) as a single positional argument.\n\n     .. ACCEPTS: (vmin: float, vmax: float)"
+        },
+        {
+          "name": "get_alpha",
+          "docstring": null
+        },
+        {
+          "name": "cmap",
+          "docstring": null
+        },
+        {
+          "name": "cmap",
+          "docstring": null
+        },
+        {
+          "name": "get_cmap",
+          "docstring": "Return the `.Colormap` instance."
+        },
+        {
+          "name": "set_cmap",
+          "docstring": "Set the colormap for luminance data.\n\nParameters\n----------\ncmap : `.Colormap` or str or None"
+        },
+        {
+          "name": "norm",
+          "docstring": null
+        },
+        {
+          "name": "norm",
+          "docstring": null
+        },
+        {
+          "name": "set_norm",
+          "docstring": "Set the normalization instance.\n\nParameters\n----------\nnorm : `.Normalize` or str or None\n\nNotes\n-----\nIf there are any colorbars using the mappable for this norm, setting\nthe norm of the mappable will reset the norm, locator, and formatters\non the colorbar to default."
+        },
+        {
+          "name": "autoscale",
+          "docstring": "Autoscale the scalar limits on the norm instance using the\ncurrent array"
+        },
+        {
+          "name": "autoscale_None",
+          "docstring": "Autoscale the scalar limits on the norm instance using the\ncurrent array, changing only limits that are None"
+        },
+        {
+          "name": "colorbar",
+          "docstring": "The last colorbar associated with this object. May be None"
+        },
+        {
+          "name": "colorbar",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_ScalarMappable",
+      "docstring": "A mixin class to map one or multiple sets of scalar data to RGBA.\n\nThe ScalarMappable applies data normalization before returning RGBA colors from\nthe given `~matplotlib.colors.Colormap`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nnorm : `.Normalize` (or subclass thereof) or str or None\n    The normalizing object which scales data, typically into the\n    interval ``[0, 1]``.\n    If a `str`, a `.Normalize` subclass is dynamically generated based\n    on the scale with the corresponding name.\n    If *None*, *norm* defaults to a *colors.Normalize* object which\n    initializes its scaling based on the first data processed.\ncmap : str or `~matplotlib.colors.Colormap`\n    The colormap used to map normalized data values to RGBA colors."
+        },
+        {
+          "name": "set_array",
+          "docstring": "Set the value array from array-like *A*.\n\nParameters\n----------\nA : array-like or None\n    The values that are mapped to colors.\n\n    The base class `.ScalarMappable` does not make any assumptions on\n    the dimensionality and shape of the value array *A*."
+        },
+        {
+          "name": "get_array",
+          "docstring": "Return the array of values, that are mapped to colors.\n\nThe base class `.ScalarMappable` does not make any assumptions on\nthe dimensionality and shape of the array."
+        },
+        {
+          "name": "changed",
+          "docstring": "Call this whenever the mappable is changed to notify all the\ncallbackSM listeners to the 'changed' signal."
+        }
+      ]
+    },
+    {
+      "name": "ColorizingArtist",
+      "docstring": "Base class for artists that make map data to color using a `.colorizer.Colorizer`.\n\nThe `.colorizer.Colorizer` applies data normalization before\nreturning RGBA colors from a `~matplotlib.colors.Colormap`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\ncolorizer : `.colorizer.Colorizer`"
+        },
+        {
+          "name": "colorizer",
+          "docstring": null
+        },
+        {
+          "name": "colorizer",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "norm",
+      "docstring": null
+    },
+    {
+      "name": "norm",
+      "docstring": null
+    },
+    {
+      "name": "to_rgba",
+      "docstring": "Return a normalized RGBA array corresponding to *x*.\n\nIn the normal case, *x* is a 1D or 2D sequence of scalars, and\nthe corresponding `~numpy.ndarray` of RGBA values will be returned,\nbased on the norm and colormap set for this Colorizer.\n\nThere is one special case, for handling images that are already\nRGB or RGBA, such as might have been read from an image file.\nIf *x* is an `~numpy.ndarray` with 3 dimensions,\nand the last dimension is either 3 or 4, then it will be\ntreated as an RGB or RGBA array, and no mapping will be done.\nThe array can be `~numpy.uint8`, or it can be floats with\nvalues in the 0-1 range; otherwise a ValueError will be raised.\nAny NaNs or masked elements will be set to 0 alpha.\nIf the last dimension is 3, the *alpha* kwarg (defaulting to 1)\nwill be used to fill in the transparency.  If the last dimension\nis 4, the *alpha* kwarg is ignored; it does not\nreplace the preexisting alpha.  A ValueError will be raised\nif the third dimension is other than 3 or 4.\n\nIn either case, if *bytes* is *False* (default), the RGBA\narray will be floats in the 0-1 range; if it is *True*,\nthe returned RGBA array will be `~numpy.uint8` in the 0 to 255 range.\n\nIf norm is False, no normalization of the input data is\nperformed, and it is assumed to be in the range (0-1)."
+    },
+    {
+      "name": "autoscale",
+      "docstring": "Autoscale the scalar limits on the norm instance using the\ncurrent array"
+    },
+    {
+      "name": "autoscale_None",
+      "docstring": "Autoscale the scalar limits on the norm instance using the\ncurrent array, changing only limits that are None"
+    },
+    {
+      "name": "cmap",
+      "docstring": null
+    },
+    {
+      "name": "cmap",
+      "docstring": null
+    },
+    {
+      "name": "set_clim",
+      "docstring": "Set the norm limits for image scaling.\n\nParameters\n----------\nvmin, vmax : float\n     The limits.\n\n     The limits may also be passed as a tuple (*vmin*, *vmax*) as a\n     single positional argument.\n\n     .. ACCEPTS: (vmin: float, vmax: float)"
+    },
+    {
+      "name": "get_clim",
+      "docstring": "Return the values (min, max) that are mapped to the colormap limits."
+    },
+    {
+      "name": "changed",
+      "docstring": "Call this whenever the mappable is changed to notify all the\ncallbackSM listeners to the 'changed' signal."
+    },
+    {
+      "name": "vmin",
+      "docstring": null
+    },
+    {
+      "name": "vmin",
+      "docstring": null
+    },
+    {
+      "name": "vmax",
+      "docstring": null
+    },
+    {
+      "name": "vmax",
+      "docstring": null
+    },
+    {
+      "name": "clip",
+      "docstring": null
+    },
+    {
+      "name": "clip",
+      "docstring": null
+    },
+    {
+      "name": "to_rgba",
+      "docstring": "Return a normalized RGBA array corresponding to *x*.\n\nIn the normal case, *x* is a 1D or 2D sequence of scalars, and\nthe corresponding `~numpy.ndarray` of RGBA values will be returned,\nbased on the norm and colormap set for this Colorizer.\n\nThere is one special case, for handling images that are already\nRGB or RGBA, such as might have been read from an image file.\nIf *x* is an `~numpy.ndarray` with 3 dimensions,\nand the last dimension is either 3 or 4, then it will be\ntreated as an RGB or RGBA array, and no mapping will be done.\nThe array can be `~numpy.uint8`, or it can be floats with\nvalues in the 0-1 range; otherwise a ValueError will be raised.\nAny NaNs or masked elements will be set to 0 alpha.\nIf the last dimension is 3, the *alpha* kwarg (defaulting to 1)\nwill be used to fill in the transparency.  If the last dimension\nis 4, the *alpha* kwarg is ignored; it does not\nreplace the preexisting alpha.  A ValueError will be raised\nif the third dimension is other than 3 or 4.\n\nIn either case, if *bytes* is *False* (default), the RGBA\narray will be floats in the 0-1 range; if it is *True*,\nthe returned RGBA array will be `~numpy.uint8` in the 0 to 255 range.\n\nIf norm is False, no normalization of the input data is\nperformed, and it is assumed to be in the range (0-1)."
+    },
+    {
+      "name": "get_clim",
+      "docstring": "Return the values (min, max) that are mapped to the colormap limits."
+    },
+    {
+      "name": "set_clim",
+      "docstring": "Set the norm limits for image scaling.\n\nParameters\n----------\nvmin, vmax : float\n     The limits.\n\n     For scalar data, the limits may also be passed as a\n     tuple (*vmin*, *vmax*) as a single positional argument.\n\n     .. ACCEPTS: (vmin: float, vmax: float)"
+    },
+    {
+      "name": "get_alpha",
+      "docstring": null
+    },
+    {
+      "name": "cmap",
+      "docstring": null
+    },
+    {
+      "name": "cmap",
+      "docstring": null
+    },
+    {
+      "name": "get_cmap",
+      "docstring": "Return the `.Colormap` instance."
+    },
+    {
+      "name": "set_cmap",
+      "docstring": "Set the colormap for luminance data.\n\nParameters\n----------\ncmap : `.Colormap` or str or None"
+    },
+    {
+      "name": "norm",
+      "docstring": null
+    },
+    {
+      "name": "norm",
+      "docstring": null
+    },
+    {
+      "name": "set_norm",
+      "docstring": "Set the normalization instance.\n\nParameters\n----------\nnorm : `.Normalize` or str or None\n\nNotes\n-----\nIf there are any colorbars using the mappable for this norm, setting\nthe norm of the mappable will reset the norm, locator, and formatters\non the colorbar to default."
+    },
+    {
+      "name": "autoscale",
+      "docstring": "Autoscale the scalar limits on the norm instance using the\ncurrent array"
+    },
+    {
+      "name": "autoscale_None",
+      "docstring": "Autoscale the scalar limits on the norm instance using the\ncurrent array, changing only limits that are None"
+    },
+    {
+      "name": "colorbar",
+      "docstring": "The last colorbar associated with this object. May be None"
+    },
+    {
+      "name": "colorbar",
+      "docstring": null
+    },
+    {
+      "name": "set_array",
+      "docstring": "Set the value array from array-like *A*.\n\nParameters\n----------\nA : array-like or None\n    The values that are mapped to colors.\n\n    The base class `.ScalarMappable` does not make any assumptions on\n    the dimensionality and shape of the value array *A*."
+    },
+    {
+      "name": "get_array",
+      "docstring": "Return the array of values, that are mapped to colors.\n\nThe base class `.ScalarMappable` does not make any assumptions on\nthe dimensionality and shape of the array."
+    },
+    {
+      "name": "changed",
+      "docstring": "Call this whenever the mappable is changed to notify all the\ncallbackSM listeners to the 'changed' signal."
+    },
+    {
+      "name": "colorizer",
+      "docstring": null
+    },
+    {
+      "name": "colorizer",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,322 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\f2py\\symbolic.py",
+  "classes": [
+    {
+      "name": "Language",
+      "docstring": "Used as Expr.tostring language argument.",
+      "methods": []
+    },
+    {
+      "name": "Op",
+      "docstring": "Used as Expr op attribute.",
+      "methods": []
+    },
+    {
+      "name": "RelOp",
+      "docstring": "Used in Op.RELATIONAL expression to specify the function part.",
+      "methods": [
+        {
+          "name": "fromstring",
+          "docstring": null
+        },
+        {
+          "name": "tostring",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ArithOp",
+      "docstring": "Used in Op.APPLY expression to specify the function part.",
+      "methods": []
+    },
+    {
+      "name": "OpError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Precedence",
+      "docstring": "Used as Expr.tostring precedence argument.",
+      "methods": []
+    },
+    {
+      "name": "ExprWarning",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Expr",
+      "docstring": "Represents a Fortran expression as a op-data pair.\n\nExpr instances are hashable and sortable.",
+      "methods": [
+        {
+          "name": "parse",
+          "docstring": "Parse a Fortran expression to a Expr.\n        "
+        },
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "tostring",
+          "docstring": "Return a string representation of Expr.\n        "
+        },
+        {
+          "name": "substitute",
+          "docstring": "Recursively substitute symbols with values in symbols map.\n\nSymbols map is a dictionary of symbol-expression pairs."
+        },
+        {
+          "name": "traverse",
+          "docstring": "Traverse expression tree with visit function.\n\nThe visit function is applied to an expression with given args\nand kwargs.\n\nTraverse call returns an expression returned by visit when not\nNone, otherwise return a new normalized expression with\ntraverse-visit sub-expressions."
+        },
+        {
+          "name": "contains",
+          "docstring": "Check if self contains other.\n        "
+        },
+        {
+          "name": "symbols",
+          "docstring": "Return a set of symbols contained in self.\n        "
+        },
+        {
+          "name": "polynomial_atoms",
+          "docstring": "Return a set of expressions used as atoms in polynomial self.\n        "
+        },
+        {
+          "name": "linear_solve",
+          "docstring": "Return a, b such that a * symbol + b == self.\n\nIf self is not linear with respect to symbol, raise RuntimeError."
+        }
+      ]
+    },
+    {
+      "name": "_Pair",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "substitute",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_FromStringWorker",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "finalize_string",
+          "docstring": null
+        },
+        {
+          "name": "parse",
+          "docstring": null
+        },
+        {
+          "name": "process",
+          "docstring": "Parse string within the given context.\n\nThe context may define the result in case of ambiguous\nexpressions. For instance, consider expressions `f(x, y)` and\n`(x, y) + (a, b)` where `f` is a function and pair `(x, y)`\ndenotes complex number. Specifying context as \"args\" or\n\"expr\", the subexpression `(x, y)` will be parse to an\nargument list or to a complex number, respectively."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "ewarn",
+      "docstring": null
+    },
+    {
+      "name": "normalize",
+      "docstring": "Normalize Expr and apply basic evaluation methods.\n    "
+    },
+    {
+      "name": "as_expr",
+      "docstring": "Convert non-Expr objects to Expr objects.\n    "
+    },
+    {
+      "name": "as_symbol",
+      "docstring": "Return object as SYMBOL expression (variable or unparsed expression).\n    "
+    },
+    {
+      "name": "as_number",
+      "docstring": "Return object as INTEGER or REAL constant.\n    "
+    },
+    {
+      "name": "as_integer",
+      "docstring": "Return object as INTEGER constant.\n    "
+    },
+    {
+      "name": "as_real",
+      "docstring": "Return object as REAL constant.\n    "
+    },
+    {
+      "name": "as_string",
+      "docstring": "Return object as STRING expression (string literal constant).\n    "
+    },
+    {
+      "name": "as_array",
+      "docstring": "Return object as ARRAY expression (array constant).\n    "
+    },
+    {
+      "name": "as_complex",
+      "docstring": "Return object as COMPLEX expression (complex literal constant).\n    "
+    },
+    {
+      "name": "as_apply",
+      "docstring": "Return object as APPLY expression (function call, constructor, etc.)\n    "
+    },
+    {
+      "name": "as_ternary",
+      "docstring": "Return object as TERNARY expression (cond?expr1:expr2).\n    "
+    },
+    {
+      "name": "as_ref",
+      "docstring": "Return object as referencing expression.\n    "
+    },
+    {
+      "name": "as_deref",
+      "docstring": "Return object as dereferencing expression.\n    "
+    },
+    {
+      "name": "as_eq",
+      "docstring": null
+    },
+    {
+      "name": "as_ne",
+      "docstring": null
+    },
+    {
+      "name": "as_lt",
+      "docstring": null
+    },
+    {
+      "name": "as_le",
+      "docstring": null
+    },
+    {
+      "name": "as_gt",
+      "docstring": null
+    },
+    {
+      "name": "as_ge",
+      "docstring": null
+    },
+    {
+      "name": "as_terms",
+      "docstring": "Return expression as TERMS expression.\n    "
+    },
+    {
+      "name": "as_factors",
+      "docstring": "Return expression as FACTORS expression.\n    "
+    },
+    {
+      "name": "as_term_coeff",
+      "docstring": "Return expression as term-coefficient pair.\n    "
+    },
+    {
+      "name": "as_numer_denom",
+      "docstring": "Return expression as numer-denom pair.\n    "
+    },
+    {
+      "name": "eliminate_quotes",
+      "docstring": "Replace quoted substrings of input string.\n\nReturn a new string and a mapping of replacements."
+    },
+    {
+      "name": "insert_quotes",
+      "docstring": "Inverse of eliminate_quotes.\n    "
+    },
+    {
+      "name": "replace_parenthesis",
+      "docstring": "Replace substrings of input that are enclosed in parenthesis.\n\nReturn a new string and a mapping of replacements."
+    },
+    {
+      "name": "unreplace_parenthesis",
+      "docstring": "Inverse of replace_parenthesis.\n    "
+    },
+    {
+      "name": "fromstring",
+      "docstring": "Create an expression from a string.\n\nThis is a \"lazy\" parser, that is, only arithmetic operations are\nresolved, non-arithmetic operations are treated as symbols."
+    },
+    {
+      "name": "fromstring",
+      "docstring": null
+    },
+    {
+      "name": "tostring",
+      "docstring": null
+    },
+    {
+      "name": "parse",
+      "docstring": "Parse a Fortran expression to a Expr.\n        "
+    },
+    {
+      "name": "tostring",
+      "docstring": "Return a string representation of Expr.\n        "
+    },
+    {
+      "name": "substitute",
+      "docstring": "Recursively substitute symbols with values in symbols map.\n\nSymbols map is a dictionary of symbol-expression pairs."
+    },
+    {
+      "name": "traverse",
+      "docstring": "Traverse expression tree with visit function.\n\nThe visit function is applied to an expression with given args\nand kwargs.\n\nTraverse call returns an expression returned by visit when not\nNone, otherwise return a new normalized expression with\ntraverse-visit sub-expressions."
+    },
+    {
+      "name": "contains",
+      "docstring": "Check if self contains other.\n        "
+    },
+    {
+      "name": "symbols",
+      "docstring": "Return a set of symbols contained in self.\n        "
+    },
+    {
+      "name": "polynomial_atoms",
+      "docstring": "Return a set of expressions used as atoms in polynomial self.\n        "
+    },
+    {
+      "name": "linear_solve",
+      "docstring": "Return a, b such that a * symbol + b == self.\n\nIf self is not linear with respect to symbol, raise RuntimeError."
+    },
+    {
+      "name": "repl",
+      "docstring": null
+    },
+    {
+      "name": "substitute",
+      "docstring": null
+    },
+    {
+      "name": "finalize_string",
+      "docstring": null
+    },
+    {
+      "name": "parse",
+      "docstring": null
+    },
+    {
+      "name": "process",
+      "docstring": "Parse string within the given context.\n\nThe context may define the result in case of ambiguous\nexpressions. For instance, consider expressions `f(x, y)` and\n`(x, y) + (a, b)` where `f` is a function and pair `(x, y)`\ndenotes complex number. Specifying context as \"args\" or\n\"expr\", the subexpression `(x, y)` will be parse to an\nargument list or to a complex number, respectively."
+    },
+    {
+      "name": "visit",
+      "docstring": null
+    },
+    {
+      "name": "visit",
+      "docstring": null
+    },
+    {
+      "name": "visit",
+      "docstring": null
+    },
+    {
+      "name": "restore",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

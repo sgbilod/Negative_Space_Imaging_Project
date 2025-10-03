@@ -1,0 +1,54 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\reorderGlyphs.py",
+  "classes": [
+    {
+      "name": "ReorderRule",
+      "docstring": "A rule to reorder something in a font to match the fonts glyph order.",
+      "methods": [
+        {
+          "name": "apply",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ReorderCoverage",
+      "docstring": "Reorder a Coverage table, and optionally a list that is sorted parallel to it.",
+      "methods": [
+        {
+          "name": "apply",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ReorderList",
+      "docstring": "Reorder the items within a list to match the updated glyph order.\n\nUseful when a list ordered by coverage itself contains something ordered by a gid.\nFor example, the PairSet table of https://docs.microsoft.com/en-us/typography/opentype/spec/gpos#lookup-type-2-pair-adjustment-positioning-subtable.",
+      "methods": [
+        {
+          "name": "apply",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "reorderGlyphs",
+      "docstring": null
+    },
+    {
+      "name": "apply",
+      "docstring": null
+    },
+    {
+      "name": "apply",
+      "docstring": null
+    },
+    {
+      "name": "apply",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

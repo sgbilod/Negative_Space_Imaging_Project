@@ -1,0 +1,116 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib\\factory.py",
+  "classes": [
+    {
+      "name": "CollectedRootRequirements",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Factory",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "force_reinstall",
+          "docstring": null
+        },
+        {
+          "name": "find_candidates",
+          "docstring": null
+        },
+        {
+          "name": "collect_root_requirements",
+          "docstring": null
+        },
+        {
+          "name": "make_requirement_from_candidate",
+          "docstring": null
+        },
+        {
+          "name": "make_requirements_from_spec",
+          "docstring": "Returns requirement objects associated with the given specifier. In most cases\nthis will be a single object but the following special cases exist:\n    - the specifier has markers that do not apply -> result is empty\n    - the specifier has both a constraint and extras -> result is split\n        in two requirement objects: one with the constraint and one with the\n        extra. This allows centralized constraint handling for the base,\n        resulting in fewer candidate rejections."
+        },
+        {
+          "name": "make_requires_python_requirement",
+          "docstring": null
+        },
+        {
+          "name": "get_wheel_cache_entry",
+          "docstring": "Look up the link in the wheel cache.\n\nIf ``preparer.require_hashes`` is True, don't use the wheel cache,\nbecause cached wheels, always built locally, have different hashes\nthan the files downloaded from the index server and thus throw false\nhash mismatches. Furthermore, cached wheels at present have\nnondeterministic contents due to file modification times."
+        },
+        {
+          "name": "get_dist_to_uninstall",
+          "docstring": null
+        },
+        {
+          "name": "get_installation_error",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ConflictCause",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "force_reinstall",
+      "docstring": null
+    },
+    {
+      "name": "find_candidates",
+      "docstring": null
+    },
+    {
+      "name": "collect_root_requirements",
+      "docstring": null
+    },
+    {
+      "name": "make_requirement_from_candidate",
+      "docstring": null
+    },
+    {
+      "name": "make_requirements_from_spec",
+      "docstring": "Returns requirement objects associated with the given specifier. In most cases\nthis will be a single object but the following special cases exist:\n    - the specifier has markers that do not apply -> result is empty\n    - the specifier has both a constraint and extras -> result is split\n        in two requirement objects: one with the constraint and one with the\n        extra. This allows centralized constraint handling for the base,\n        resulting in fewer candidate rejections."
+    },
+    {
+      "name": "make_requires_python_requirement",
+      "docstring": null
+    },
+    {
+      "name": "get_wheel_cache_entry",
+      "docstring": "Look up the link in the wheel cache.\n\nIf ``preparer.require_hashes`` is True, don't use the wheel cache,\nbecause cached wheels, always built locally, have different hashes\nthan the files downloaded from the index server and thus throw false\nhash mismatches. Furthermore, cached wheels at present have\nnondeterministic contents due to file modification times."
+    },
+    {
+      "name": "get_dist_to_uninstall",
+      "docstring": null
+    },
+    {
+      "name": "get_installation_error",
+      "docstring": null
+    },
+    {
+      "name": "iter_index_candidate_infos",
+      "docstring": null
+    },
+    {
+      "name": "text_join",
+      "docstring": null
+    },
+    {
+      "name": "describe_trigger",
+      "docstring": null
+    },
+    {
+      "name": "is_pinned",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

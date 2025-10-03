@@ -1,0 +1,568 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\tests\\test_type_check.py",
+  "classes": [
+    {
+      "name": "TestCommonType",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMintypecode",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_default_1",
+          "docstring": null
+        },
+        {
+          "name": "test_default_2",
+          "docstring": null
+        },
+        {
+          "name": "test_default_3",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIsscalar",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestReal",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_real",
+          "docstring": null
+        },
+        {
+          "name": "test_cmplx",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestImag",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_real",
+          "docstring": null
+        },
+        {
+          "name": "test_cmplx",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIscomplex",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_fail",
+          "docstring": null
+        },
+        {
+          "name": "test_pass",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIsreal",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_pass",
+          "docstring": null
+        },
+        {
+          "name": "test_fail",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIscomplexobj",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_list",
+          "docstring": null
+        },
+        {
+          "name": "test_duck",
+          "docstring": null
+        },
+        {
+          "name": "test_pandas_duck",
+          "docstring": null
+        },
+        {
+          "name": "test_custom_dtype_duck",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIsrealobj",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIsnan",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_goodvalues",
+          "docstring": null
+        },
+        {
+          "name": "test_posinf",
+          "docstring": null
+        },
+        {
+          "name": "test_neginf",
+          "docstring": null
+        },
+        {
+          "name": "test_ind",
+          "docstring": null
+        },
+        {
+          "name": "test_integer",
+          "docstring": null
+        },
+        {
+          "name": "test_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_complex1",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIsfinite",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_goodvalues",
+          "docstring": null
+        },
+        {
+          "name": "test_posinf",
+          "docstring": null
+        },
+        {
+          "name": "test_neginf",
+          "docstring": null
+        },
+        {
+          "name": "test_ind",
+          "docstring": null
+        },
+        {
+          "name": "test_integer",
+          "docstring": null
+        },
+        {
+          "name": "test_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_complex1",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIsinf",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_goodvalues",
+          "docstring": null
+        },
+        {
+          "name": "test_posinf",
+          "docstring": null
+        },
+        {
+          "name": "test_posinf_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_neginf",
+          "docstring": null
+        },
+        {
+          "name": "test_neginf_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_ind",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIsposinf",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_generic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIsneginf",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_generic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNanToNum",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_generic",
+          "docstring": null
+        },
+        {
+          "name": "test_array",
+          "docstring": null
+        },
+        {
+          "name": "test_integer",
+          "docstring": null
+        },
+        {
+          "name": "test_float",
+          "docstring": null
+        },
+        {
+          "name": "test_complex_good",
+          "docstring": null
+        },
+        {
+          "name": "test_complex_bad",
+          "docstring": null
+        },
+        {
+          "name": "test_complex_bad2",
+          "docstring": null
+        },
+        {
+          "name": "test_do_not_rewrite_previous_keyword",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestRealIfClose",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DummyComplexArray",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "dtype",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PdComplex",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PdDtype",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "DummyPd",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "dtype",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyArray",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "dtype",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "assert_all",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_default_1",
+      "docstring": null
+    },
+    {
+      "name": "test_default_2",
+      "docstring": null
+    },
+    {
+      "name": "test_default_3",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_real",
+      "docstring": null
+    },
+    {
+      "name": "test_cmplx",
+      "docstring": null
+    },
+    {
+      "name": "test_real",
+      "docstring": null
+    },
+    {
+      "name": "test_cmplx",
+      "docstring": null
+    },
+    {
+      "name": "test_fail",
+      "docstring": null
+    },
+    {
+      "name": "test_pass",
+      "docstring": null
+    },
+    {
+      "name": "test_pass",
+      "docstring": null
+    },
+    {
+      "name": "test_fail",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_list",
+      "docstring": null
+    },
+    {
+      "name": "test_duck",
+      "docstring": null
+    },
+    {
+      "name": "test_pandas_duck",
+      "docstring": null
+    },
+    {
+      "name": "test_custom_dtype_duck",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_goodvalues",
+      "docstring": null
+    },
+    {
+      "name": "test_posinf",
+      "docstring": null
+    },
+    {
+      "name": "test_neginf",
+      "docstring": null
+    },
+    {
+      "name": "test_ind",
+      "docstring": null
+    },
+    {
+      "name": "test_integer",
+      "docstring": null
+    },
+    {
+      "name": "test_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_complex1",
+      "docstring": null
+    },
+    {
+      "name": "test_goodvalues",
+      "docstring": null
+    },
+    {
+      "name": "test_posinf",
+      "docstring": null
+    },
+    {
+      "name": "test_neginf",
+      "docstring": null
+    },
+    {
+      "name": "test_ind",
+      "docstring": null
+    },
+    {
+      "name": "test_integer",
+      "docstring": null
+    },
+    {
+      "name": "test_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_complex1",
+      "docstring": null
+    },
+    {
+      "name": "test_goodvalues",
+      "docstring": null
+    },
+    {
+      "name": "test_posinf",
+      "docstring": null
+    },
+    {
+      "name": "test_posinf_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_neginf",
+      "docstring": null
+    },
+    {
+      "name": "test_neginf_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_ind",
+      "docstring": null
+    },
+    {
+      "name": "test_generic",
+      "docstring": null
+    },
+    {
+      "name": "test_generic",
+      "docstring": null
+    },
+    {
+      "name": "test_generic",
+      "docstring": null
+    },
+    {
+      "name": "test_array",
+      "docstring": null
+    },
+    {
+      "name": "test_integer",
+      "docstring": null
+    },
+    {
+      "name": "test_float",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_good",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_bad",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_bad2",
+      "docstring": null
+    },
+    {
+      "name": "test_do_not_rewrite_previous_keyword",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "dtype",
+      "docstring": null
+    },
+    {
+      "name": "dtype",
+      "docstring": null
+    },
+    {
+      "name": "dtype",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

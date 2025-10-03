@@ -1,0 +1,60 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\revenue\\encryption_service\\spatial_key_generator.py",
+  "classes": [
+    {
+      "name": "SpatialKeyGenerator",
+      "docstring": "Generates dynamic, geofenced encryption keys based on negative space signatures.\nThese \"Living Keys\" are only valid when the physical environment matches the initial AR capture.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the spatial key generator.\n\nArgs:\n    key_length: Length of the generated key in bits (256, 384, 512)\n    hash_algorithm: Hash algorithm to use for key derivation\n    time_sensitivity: How sensitive the key is to time changes (1.0 = normal)\n    geo_precision: Precision of geofencing in meters"
+        },
+        {
+          "name": "generate_key",
+          "docstring": "Generate a spatial encryption key from a negative space signature.\n\nArgs:\n    spatial_signature: Either a pre-computed signature string or raw coordinates\n    gps_coordinates: Optional GPS coordinates (latitude, longitude) for geofencing\n    metadata: Optional metadata to include in the key\n    \nReturns:\n    A dictionary containing the key and its metadata"
+        },
+        {
+          "name": "validate_key",
+          "docstring": "Validate a spatial key against the current environment.\n\nArgs:\n    key_data: The key data returned from generate_key\n    current_signature: Current spatial signature or coordinates\n    current_gps: Current GPS coordinates\n    \nReturns:\n    Validation result with status and details"
+        }
+      ]
+    },
+    {
+      "name": "KeyManagementAPI",
+      "docstring": "RESTful API for managing spatial encryption keys.\nThis is a skeleton implementation for Phase 1.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the Key Management API."
+        },
+        {
+          "name": "generate_key",
+          "docstring": "Generate a new spatial encryption key.\n\nArgs:\n    request_data: Dictionary containing spatial signature, GPS, and metadata\n    \nReturns:\n    Generated key and metadata"
+        },
+        {
+          "name": "validate_key",
+          "docstring": "Validate a spatial encryption key against the current environment.\n\nArgs:\n    request_data: Dictionary containing key_id, current signature, and GPS\n    \nReturns:\n    Validation result"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "generate_key",
+      "docstring": "Generate a spatial encryption key from a negative space signature.\n\nArgs:\n    spatial_signature: Either a pre-computed signature string or raw coordinates\n    gps_coordinates: Optional GPS coordinates (latitude, longitude) for geofencing\n    metadata: Optional metadata to include in the key\n    \nReturns:\n    A dictionary containing the key and its metadata"
+    },
+    {
+      "name": "validate_key",
+      "docstring": "Validate a spatial key against the current environment.\n\nArgs:\n    key_data: The key data returned from generate_key\n    current_signature: Current spatial signature or coordinates\n    current_gps: Current GPS coordinates\n    \nReturns:\n    Validation result with status and details"
+    },
+    {
+      "name": "generate_key",
+      "docstring": "Generate a new spatial encryption key.\n\nArgs:\n    request_data: Dictionary containing spatial signature, GPS, and metadata\n    \nReturns:\n    Generated key and metadata"
+    },
+    {
+      "name": "validate_key",
+      "docstring": "Validate a spatial encryption key against the current environment.\n\nArgs:\n    request_data: Dictionary containing key_id, current signature, and GPS\n    \nReturns:\n    Validation result"
+    }
+  ],
+  "innovations": []
+}

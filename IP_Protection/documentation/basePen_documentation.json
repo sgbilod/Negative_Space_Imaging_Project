@@ -1,0 +1,265 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\pens\\basePen.py",
+  "classes": [
+    {
+      "name": "PenError",
+      "docstring": "Represents an error during penning.",
+      "methods": []
+    },
+    {
+      "name": "OpenContourError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "AbstractPen",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "moveTo",
+          "docstring": "Begin a new sub path, set the current point to 'pt'. You must\nend each sub path with a call to pen.closePath() or pen.endPath()."
+        },
+        {
+          "name": "lineTo",
+          "docstring": "Draw a straight line from the current point to 'pt'."
+        },
+        {
+          "name": "curveTo",
+          "docstring": "Draw a cubic bezier with an arbitrary number of control points.\n\nThe last point specified is on-curve, all others are off-curve\n(control) points. If the number of control points is > 2, the\nsegment is split into multiple bezier segments. This works\nlike this:\n\nLet n be the number of control points (which is the number of\narguments to this call minus 1). If n==2, a plain vanilla cubic\nbezier is drawn. If n==1, we fall back to a quadratic segment and\nif n==0 we draw a straight line. It gets interesting when n>2:\nn-1 PostScript-style cubic segments will be drawn as if it were\none curve. See decomposeSuperBezierSegment().\n\nThe conversion algorithm used for n>2 is inspired by NURB\nsplines, and is conceptually equivalent to the TrueType \"implied\npoints\" principle. See also decomposeQuadraticSegment()."
+        },
+        {
+          "name": "qCurveTo",
+          "docstring": "Draw a whole string of quadratic curve segments.\n\nThe last point specified is on-curve, all others are off-curve\npoints.\n\nThis method implements TrueType-style curves, breaking up curves\nusing 'implied points': between each two consequtive off-curve points,\nthere is one implied point exactly in the middle between them. See\nalso decomposeQuadraticSegment().\n\nThe last argument (normally the on-curve point) may be None.\nThis is to support contours that have NO on-curve points (a rarely\nseen feature of TrueType outlines)."
+        },
+        {
+          "name": "closePath",
+          "docstring": "Close the current sub path. You must call either pen.closePath()\nor pen.endPath() after each sub path."
+        },
+        {
+          "name": "endPath",
+          "docstring": "End the current sub path, but don't close it. You must call\neither pen.closePath() or pen.endPath() after each sub path."
+        },
+        {
+          "name": "addComponent",
+          "docstring": "Add a sub glyph. The 'transformation' argument must be a 6-tuple\ncontaining an affine transformation, or a Transform object from the\nfontTools.misc.transform module. More precisely: it should be a\nsequence containing 6 numbers."
+        },
+        {
+          "name": "addVarComponent",
+          "docstring": "Add a VarComponent sub glyph. The 'transformation' argument\nmust be a DecomposedTransform from the fontTools.misc.transform module,\nand the 'location' argument must be a dictionary mapping axis tags\nto their locations."
+        }
+      ]
+    },
+    {
+      "name": "NullPen",
+      "docstring": "A pen that does nothing.",
+      "methods": [
+        {
+          "name": "moveTo",
+          "docstring": null
+        },
+        {
+          "name": "lineTo",
+          "docstring": null
+        },
+        {
+          "name": "curveTo",
+          "docstring": null
+        },
+        {
+          "name": "qCurveTo",
+          "docstring": null
+        },
+        {
+          "name": "closePath",
+          "docstring": null
+        },
+        {
+          "name": "endPath",
+          "docstring": null
+        },
+        {
+          "name": "addComponent",
+          "docstring": null
+        },
+        {
+          "name": "addVarComponent",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LoggingPen",
+      "docstring": "A pen with a ``log`` property (see fontTools.misc.loggingTools.LogMixin)",
+      "methods": []
+    },
+    {
+      "name": "MissingComponentError",
+      "docstring": "Indicates a component pointing to a non-existent glyph in the glyphset.",
+      "methods": []
+    },
+    {
+      "name": "DecomposingPen",
+      "docstring": "Implements a 'addComponent' method that decomposes components\n(i.e. draws them onto self as simple contours).\nIt can also be used as a mixin class (e.g. see ContourRecordingPen).\n\nYou must override moveTo, lineTo, curveTo and qCurveTo. You may\nadditionally override closePath, endPath and addComponent.\n\nBy default a warning message is logged when a base glyph is missing;\nset the class variable ``skipMissingComponents`` to False if you want\nall instances of a sub-class to raise a :class:`MissingComponentError`\nexception by default.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Takes a 'glyphSet' argument (dict), in which the glyphs that are referenced\nas components are looked up by their name.\n\nIf the optional 'reverseFlipped' argument is True, components whose transformation\nmatrix has a negative determinant will be decomposed with a reversed path direction\nto compensate for the flip.\n\nThe optional 'skipMissingComponents' argument can be set to True/False to\noverride the homonymous class attribute for a given pen instance."
+        },
+        {
+          "name": "addComponent",
+          "docstring": "Transform the points of the base glyph and draw it onto self."
+        },
+        {
+          "name": "addVarComponent",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BasePen",
+      "docstring": "Base class for drawing pens. You must override _moveTo, _lineTo and\n_curveToOne. You may additionally override _closePath, _endPath,\naddComponent, addVarComponent, and/or _qCurveToOne. You should not\noverride any other methods.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "closePath",
+          "docstring": null
+        },
+        {
+          "name": "endPath",
+          "docstring": null
+        },
+        {
+          "name": "moveTo",
+          "docstring": null
+        },
+        {
+          "name": "lineTo",
+          "docstring": null
+        },
+        {
+          "name": "curveTo",
+          "docstring": null
+        },
+        {
+          "name": "qCurveTo",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_TestPen",
+      "docstring": "Test class that prints PostScript to stdout.",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "decomposeSuperBezierSegment",
+      "docstring": "Split the SuperBezier described by 'points' into a list of regular\nbezier segments. The 'points' argument must be a sequence with length\n3 or greater, containing (x, y) coordinates. The last point is the\ndestination on-curve point, the rest of the points are off-curve points.\nThe start point should not be supplied.\n\nThis function returns a list of (pt1, pt2, pt3) tuples, which each\nspecify a regular curveto-style bezier segment."
+    },
+    {
+      "name": "decomposeQuadraticSegment",
+      "docstring": "Split the quadratic curve segment described by 'points' into a list\nof \"atomic\" quadratic segments. The 'points' argument must be a sequence\nwith length 2 or greater, containing (x, y) coordinates. The last point\nis the destination on-curve point, the rest of the points are off-curve\npoints. The start point should not be supplied.\n\nThis function returns a list of (pt1, pt2) tuples, which each specify a\nplain quadratic bezier segment."
+    },
+    {
+      "name": "moveTo",
+      "docstring": "Begin a new sub path, set the current point to 'pt'. You must\nend each sub path with a call to pen.closePath() or pen.endPath()."
+    },
+    {
+      "name": "lineTo",
+      "docstring": "Draw a straight line from the current point to 'pt'."
+    },
+    {
+      "name": "curveTo",
+      "docstring": "Draw a cubic bezier with an arbitrary number of control points.\n\nThe last point specified is on-curve, all others are off-curve\n(control) points. If the number of control points is > 2, the\nsegment is split into multiple bezier segments. This works\nlike this:\n\nLet n be the number of control points (which is the number of\narguments to this call minus 1). If n==2, a plain vanilla cubic\nbezier is drawn. If n==1, we fall back to a quadratic segment and\nif n==0 we draw a straight line. It gets interesting when n>2:\nn-1 PostScript-style cubic segments will be drawn as if it were\none curve. See decomposeSuperBezierSegment().\n\nThe conversion algorithm used for n>2 is inspired by NURB\nsplines, and is conceptually equivalent to the TrueType \"implied\npoints\" principle. See also decomposeQuadraticSegment()."
+    },
+    {
+      "name": "qCurveTo",
+      "docstring": "Draw a whole string of quadratic curve segments.\n\nThe last point specified is on-curve, all others are off-curve\npoints.\n\nThis method implements TrueType-style curves, breaking up curves\nusing 'implied points': between each two consequtive off-curve points,\nthere is one implied point exactly in the middle between them. See\nalso decomposeQuadraticSegment().\n\nThe last argument (normally the on-curve point) may be None.\nThis is to support contours that have NO on-curve points (a rarely\nseen feature of TrueType outlines)."
+    },
+    {
+      "name": "closePath",
+      "docstring": "Close the current sub path. You must call either pen.closePath()\nor pen.endPath() after each sub path."
+    },
+    {
+      "name": "endPath",
+      "docstring": "End the current sub path, but don't close it. You must call\neither pen.closePath() or pen.endPath() after each sub path."
+    },
+    {
+      "name": "addComponent",
+      "docstring": "Add a sub glyph. The 'transformation' argument must be a 6-tuple\ncontaining an affine transformation, or a Transform object from the\nfontTools.misc.transform module. More precisely: it should be a\nsequence containing 6 numbers."
+    },
+    {
+      "name": "addVarComponent",
+      "docstring": "Add a VarComponent sub glyph. The 'transformation' argument\nmust be a DecomposedTransform from the fontTools.misc.transform module,\nand the 'location' argument must be a dictionary mapping axis tags\nto their locations."
+    },
+    {
+      "name": "moveTo",
+      "docstring": null
+    },
+    {
+      "name": "lineTo",
+      "docstring": null
+    },
+    {
+      "name": "curveTo",
+      "docstring": null
+    },
+    {
+      "name": "qCurveTo",
+      "docstring": null
+    },
+    {
+      "name": "closePath",
+      "docstring": null
+    },
+    {
+      "name": "endPath",
+      "docstring": null
+    },
+    {
+      "name": "addComponent",
+      "docstring": null
+    },
+    {
+      "name": "addVarComponent",
+      "docstring": null
+    },
+    {
+      "name": "addComponent",
+      "docstring": "Transform the points of the base glyph and draw it onto self."
+    },
+    {
+      "name": "addVarComponent",
+      "docstring": null
+    },
+    {
+      "name": "closePath",
+      "docstring": null
+    },
+    {
+      "name": "endPath",
+      "docstring": null
+    },
+    {
+      "name": "moveTo",
+      "docstring": null
+    },
+    {
+      "name": "lineTo",
+      "docstring": null
+    },
+    {
+      "name": "curveTo",
+      "docstring": null
+    },
+    {
+      "name": "qCurveTo",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,70 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\cli\\req_command.py",
+  "classes": [
+    {
+      "name": "RequirementCommand",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "determine_resolver_variant",
+          "docstring": "Determines which resolver should be used, based on the given options."
+        },
+        {
+          "name": "make_requirement_preparer",
+          "docstring": "Create a RequirementPreparer instance for the given parameters."
+        },
+        {
+          "name": "make_resolver",
+          "docstring": "Create a Resolver instance for the given parameters."
+        },
+        {
+          "name": "get_requirements",
+          "docstring": "Parse command-line arguments into the corresponding requirements."
+        },
+        {
+          "name": "trace_basic_info",
+          "docstring": "Trace basic information about the provided objects."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "with_cleanup",
+      "docstring": "Decorator for common logic related to managing temporary\ndirectories."
+    },
+    {
+      "name": "configure_tempdir_registry",
+      "docstring": null
+    },
+    {
+      "name": "wrapper",
+      "docstring": null
+    },
+    {
+      "name": "determine_resolver_variant",
+      "docstring": "Determines which resolver should be used, based on the given options."
+    },
+    {
+      "name": "make_requirement_preparer",
+      "docstring": "Create a RequirementPreparer instance for the given parameters."
+    },
+    {
+      "name": "make_resolver",
+      "docstring": "Create a Resolver instance for the given parameters."
+    },
+    {
+      "name": "get_requirements",
+      "docstring": "Parse command-line arguments into the corresponding requirements."
+    },
+    {
+      "name": "trace_basic_info",
+      "docstring": "Trace basic information about the provided objects."
+    }
+  ],
+  "innovations": []
+}

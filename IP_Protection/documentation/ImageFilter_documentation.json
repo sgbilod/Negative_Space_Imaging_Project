@@ -1,0 +1,255 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\ImageFilter.py",
+  "classes": [
+    {
+      "name": "Filter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "filter",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MultibandFilter",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "BuiltinFilter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "filter",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Kernel",
+      "docstring": "Create a convolution kernel. This only supports 3x3 and 5x5 integer and floating\npoint kernels.\n\nKernels can only be applied to \"L\" and \"RGB\" images.\n\n:param size: Kernel size, given as (width, height). This must be (3,3) or (5,5).\n:param kernel: A sequence containing kernel weights. The kernel will be flipped\n               vertically before being applied to the image.\n:param scale: Scale factor. If given, the result for each pixel is divided by this\n              value. The default is the sum of the kernel weights.\n:param offset: Offset. If given, this value is added to the result, after it has\n               been divided by the scale factor.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RankFilter",
+      "docstring": "Create a rank filter.  The rank filter sorts all pixels in\na window of the given size, and returns the ``rank``'th value.\n\n:param size: The kernel size, in pixels.\n:param rank: What pixel value to pick.  Use 0 for a min filter,\n             ``size * size / 2`` for a median filter, ``size * size - 1``\n             for a max filter, etc.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "filter",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MedianFilter",
+      "docstring": "Create a median filter. Picks the median pixel value in a window with the\ngiven size.\n\n:param size: The kernel size, in pixels.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MinFilter",
+      "docstring": "Create a min filter.  Picks the lowest pixel value in a window with the\ngiven size.\n\n:param size: The kernel size, in pixels.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MaxFilter",
+      "docstring": "Create a max filter.  Picks the largest pixel value in a window with the\ngiven size.\n\n:param size: The kernel size, in pixels.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ModeFilter",
+      "docstring": "Create a mode filter. Picks the most frequent pixel value in a box with the\ngiven size.  Pixel values that occur only once or twice are ignored; if no\npixel value occurs more than twice, the original pixel value is preserved.\n\n:param size: The kernel size, in pixels.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "filter",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GaussianBlur",
+      "docstring": "Blurs the image with a sequence of extended box filters, which\napproximates a Gaussian kernel. For details on accuracy see\n<https://www.mia.uni-saarland.de/Publications/gwosdek-ssvm11.pdf>\n\n:param radius: Standard deviation of the Gaussian kernel. Either a sequence of two\n               numbers for x and y, or a single number for both.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "filter",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BoxBlur",
+      "docstring": "Blurs the image by setting each pixel to the average value of the pixels\nin a square box extending radius pixels in each direction.\nSupports float radius of arbitrary size. Uses an optimized implementation\nwhich runs in linear time relative to the size of the image\nfor any radius value.\n\n:param radius: Size of the box in a direction. Either a sequence of two numbers for\n               x and y, or a single number for both.\n\n               Radius 0 does not blur, returns an identical image.\n               Radius 1 takes 1 pixel in each direction, i.e. 9 pixels in total.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "filter",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "UnsharpMask",
+      "docstring": "Unsharp mask filter.\n\nSee Wikipedia's entry on `digital unsharp masking`_ for an explanation of\nthe parameters.\n\n:param radius: Blur Radius\n:param percent: Unsharp strength, in percent\n:param threshold: Threshold controls the minimum brightness change that\n  will be sharpened\n\n.. _digital unsharp masking: https://en.wikipedia.org/wiki/Unsharp_masking#Digital_unsharp_masking",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "filter",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BLUR",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "CONTOUR",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "DETAIL",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "EDGE_ENHANCE",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "EDGE_ENHANCE_MORE",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "EMBOSS",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "FIND_EDGES",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "SHARPEN",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "SMOOTH",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "SMOOTH_MORE",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Color3DLUT",
+      "docstring": "Three-dimensional color lookup table.\n\nTransforms 3-channel pixels using the values of the channels as coordinates\nin the 3D lookup table and interpolating the nearest elements.\n\nThis method allows you to apply almost any color transformation\nin constant time by using pre-calculated decimated tables.\n\n.. versionadded:: 5.2.0\n\n:param size: Size of the table. One int or tuple of (int, int, int).\n             Minimal size in any dimension is 2, maximum is 65.\n:param table: Flat lookup table. A list of ``channels * size**3``\n              float elements or a list of ``size**3`` channels-sized\n              tuples with floats. Channels are changed first,\n              then first dimension, then second, then third.\n              Value 0.0 corresponds lowest value of output, 1.0 highest.\n:param channels: Number of channels in the table. Could be 3 or 4.\n                 Default is 3.\n:param target_mode: A mode for the result image. Should have not less\n                    than ``channels`` channels. Default is ``None``,\n                    which means that mode wouldn't be changed.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "generate",
+          "docstring": "Generates new LUT using provided callback.\n\n:param size: Size of the table. Passed to the constructor.\n:param callback: Function with three parameters which correspond\n                 three color channels. Will be called ``size**3``\n                 times with values from 0.0 to 1.0 and should return\n                 a tuple with ``channels`` elements.\n:param channels: The number of channels which should return callback.\n:param target_mode: Passed to the constructor of the resulting\n                    lookup table."
+        },
+        {
+          "name": "transform",
+          "docstring": "Transforms the table values using provided callback and returns\na new LUT with altered values.\n\n:param callback: A function which takes old lookup table values\n                 and returns a new set of values. The number\n                 of arguments which function should take is\n                 ``self.channels`` or ``3 + self.channels``\n                 if ``with_normals`` flag is set.\n                 Should return a tuple of ``self.channels`` or\n                 ``channels`` elements if it is set.\n:param with_normals: If true, ``callback`` will be called with\n                     coordinates in the color cube as the first\n                     three arguments. Otherwise, ``callback``\n                     will be called only with actual color values.\n:param channels: The number of channels in the resulting lookup table.\n:param target_mode: Passed to the constructor of the resulting\n                    lookup table."
+        },
+        {
+          "name": "filter",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "filter",
+      "docstring": null
+    },
+    {
+      "name": "filter",
+      "docstring": null
+    },
+    {
+      "name": "filter",
+      "docstring": null
+    },
+    {
+      "name": "filter",
+      "docstring": null
+    },
+    {
+      "name": "filter",
+      "docstring": null
+    },
+    {
+      "name": "filter",
+      "docstring": null
+    },
+    {
+      "name": "filter",
+      "docstring": null
+    },
+    {
+      "name": "generate",
+      "docstring": "Generates new LUT using provided callback.\n\n:param size: Size of the table. Passed to the constructor.\n:param callback: Function with three parameters which correspond\n                 three color channels. Will be called ``size**3``\n                 times with values from 0.0 to 1.0 and should return\n                 a tuple with ``channels`` elements.\n:param channels: The number of channels which should return callback.\n:param target_mode: Passed to the constructor of the resulting\n                    lookup table."
+    },
+    {
+      "name": "transform",
+      "docstring": "Transforms the table values using provided callback and returns\na new LUT with altered values.\n\n:param callback: A function which takes old lookup table values\n                 and returns a new set of values. The number\n                 of arguments which function should take is\n                 ``self.channels`` or ``3 + self.channels``\n                 if ``with_normals`` flag is set.\n                 Should return a tuple of ``self.channels`` or\n                 ``channels`` elements if it is set.\n:param with_normals: If true, ``callback`` will be called with\n                     coordinates in the color cube as the first\n                     three arguments. Otherwise, ``callback``\n                     will be called only with actual color values.\n:param channels: The number of channels in the resulting lookup table.\n:param target_mode: Passed to the constructor of the resulting\n                    lookup table."
+    },
+    {
+      "name": "filter",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,112 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\GifImagePlugin.py",
+  "classes": [
+    {
+      "name": "LoadingStrategy",
+      "docstring": ".. versionadded:: 9.1.0",
+      "methods": []
+    },
+    {
+      "name": "GifImageFile",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "data",
+          "docstring": null
+        },
+        {
+          "name": "n_frames",
+          "docstring": null
+        },
+        {
+          "name": "is_animated",
+          "docstring": null
+        },
+        {
+          "name": "seek",
+          "docstring": null
+        },
+        {
+          "name": "load_prepare",
+          "docstring": null
+        },
+        {
+          "name": "load_end",
+          "docstring": null
+        },
+        {
+          "name": "tell",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_Frame",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Collector",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "write",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_interlace",
+      "docstring": null
+    },
+    {
+      "name": "getheader",
+      "docstring": "Legacy Method to get Gif data from image.\n\nWarning:: May modify image data.\n\n:param im: Image object\n:param palette: bytes object containing the source palette, or ....\n:param info: encoderinfo\n:returns: tuple of(list of header items, optimized palette)"
+    },
+    {
+      "name": "getdata",
+      "docstring": "Legacy Method\n\nReturn a list of strings representing this image.\nThe first string is a local image header, the rest contains\nencoded image data.\n\nTo specify duration, add the time in milliseconds,\ne.g. ``getdata(im_frame, duration=1000)``\n\n:param im: Image object\n:param offset: Tuple of (x, y) pixels. Defaults to (0, 0)\n:param \\**params: e.g. duration or other encoder info parameters\n:returns: List of bytes containing GIF encoded frame data"
+    },
+    {
+      "name": "data",
+      "docstring": null
+    },
+    {
+      "name": "n_frames",
+      "docstring": null
+    },
+    {
+      "name": "is_animated",
+      "docstring": null
+    },
+    {
+      "name": "seek",
+      "docstring": null
+    },
+    {
+      "name": "load_prepare",
+      "docstring": null
+    },
+    {
+      "name": "load_end",
+      "docstring": null
+    },
+    {
+      "name": "tell",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "# 1998-07-09 fl   Handle all modes when saving (0.5)\n# 1998-07-15 fl   Renamed offset attribute to avoid name clash\n# 2001-04-16 fl   Added rewind support (seek to frame 0) (0.6)\n# 2001-04-17 fl   Added palette optimization (0.7)\n# 2002-06-06 fl   Added transparency support for save (0.8)\n# 2004-02-24 fl   Disable interlacing for small images\n#"
+    }
+  ]
+}

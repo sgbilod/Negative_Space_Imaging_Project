@@ -1,0 +1,27 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pywt\\data\\_readers.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "ascent",
+      "docstring": "Get an 8-bit grayscale bit-depth, 512 x 512 derived image for\neasy use in demos\n\nThe image is derived from accent-to-the-top.jpg at\nhttp://www.public-domain-image.com/people-public-domain-images-pictures/\n\nParameters\n----------\nNone\n\nReturns\n-------\nascent : ndarray\n   convenient image to use for testing and demonstration\n\nExamples\n--------\n>>> import pywt.data\n>>> ascent = pywt.data.ascent()\n>>> ascent.shape == (512, 512)\nTrue\n>>> ascent.max()\n255\n\n>>> import matplotlib.pyplot as plt\n>>> plt.gray()\n>>> plt.imshow(ascent)\n<matplotlib.image.AxesImage object at ...>\n>>> plt.show()"
+    },
+    {
+      "name": "aero",
+      "docstring": "Get an 8-bit grayscale bit-depth, 512 x 512 derived image for\neasy use in demos\n\nParameters\n----------\nNone\n\nReturns\n-------\naero : ndarray\n   convenient image to use for testing and demonstration\n\nExamples\n--------\n>>> import pywt.data\n>>> aero = pywt.data.ascent()\n>>> aero.shape == (512, 512)\nTrue\n>>> aero.max()\n255\n\n>>> import matplotlib.pyplot as plt\n>>> plt.gray()\n>>> plt.imshow(aero)\n<matplotlib.image.AxesImage object at ...>\n>>> plt.show()"
+    },
+    {
+      "name": "camera",
+      "docstring": "Get an 8-bit grayscale bit-depth, 512 x 512 derived image for\neasy use in demos\n\nParameters\n----------\nNone\n\nReturns\n-------\ncamera : ndarray\n   convenient image to use for testing and demonstration\n\nNotes\n-----\nNo copyright restrictions. CC0 by the photographer (Lav Varshney).\n\n.. versionchanged:: 0.18\n    This image was replaced due to copyright restrictions. For more\n    information, please see [1]_, where the same change was made in\n    scikit-image.\n\nReferences\n----------\n.. [1] https://github.com/scikit-image/scikit-image/issues/3927\n\nExamples\n--------\n>>> import pywt.data\n>>> camera = pywt.data.ascent()\n>>> camera.shape == (512, 512)\nTrue\n\n>>> import matplotlib.pyplot as plt\n>>> plt.gray()\n>>> plt.imshow(camera)\n<matplotlib.image.AxesImage object at ...>\n>>> plt.show()"
+    },
+    {
+      "name": "ecg",
+      "docstring": "Get 1024 points of an ECG timeseries.\n\nParameters\n----------\nNone\n\nReturns\n-------\necg : ndarray\n   convenient timeseries to use for testing and demonstration\n\nExamples\n--------\n>>> import pywt.data\n>>> ecg = pywt.data.ecg()\n>>> ecg.shape == (1024,)\nTrue\n\n>>> import matplotlib.pyplot as plt\n>>> plt.plot(ecg)\n[<matplotlib.lines.Line2D object at ...>]\n>>> plt.show()"
+    },
+    {
+      "name": "nino",
+      "docstring": "This data contains the averaged monthly sea surface temperature in degrees\nCelsius of the Pacific Ocean, between 0-10 degrees South and 90-80 degrees West, from 1950 to 2016.\nThis dataset is in the public domain and was obtained from NOAA.\nNational Oceanic and Atmospheric Administration's National Weather Service\nERSSTv4 dataset, nino 3, http://www.cpc.ncep.noaa.gov/data/indices/\n\nParameters\n----------\nNone\n\nReturns\n-------\ntime : ndarray\n   convenient timeseries to use for testing and demonstration\nsst : ndarray\n   convenient timeseries to use for testing and demonstration\n\nExamples\n--------\n>>> import pywt.data\n>>> time, sst = pywt.data.nino()\n>>> sst.shape == (264,)\nTrue\n\n>>> import matplotlib.pyplot as plt\n>>> plt.plot(time,sst)\n[<matplotlib.lines.Line2D object at ...>]\n>>> plt.show()"
+    }
+  ],
+  "innovations": []
+}

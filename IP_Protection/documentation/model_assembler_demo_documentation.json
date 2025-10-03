@@ -1,0 +1,35 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\model_assembler_demo.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "parse_arguments",
+      "docstring": "Parse command line arguments"
+    },
+    {
+      "name": "ensure_directory",
+      "docstring": "Ensure a directory exists"
+    },
+    {
+      "name": "generate_test_scene",
+      "docstring": "Generate a test scene with multiple objects and interesting negative space.\n\nArgs:\n    num_points: Number of points to generate\n    \nReturns:\n    NegativeSpacePointCloud object with labeled points"
+    },
+    {
+      "name": "analyze_interstitial_spaces",
+      "docstring": "Analyze interstitial spaces in the point cloud.\n\nArgs:\n    point_cloud: Input point cloud\n    method: Method for interstitial space analysis\n    \nReturns:\n    InterstitialAnalyzer object"
+    },
+    {
+      "name": "assemble_model",
+      "docstring": "Assemble a complete model from the point cloud and interstitial analysis.\n\nArgs:\n    point_cloud: Input point cloud\n    analyzer: Interstitial analyzer with identified regions\n    mesh_method: Method for mesh creation\n    \nReturns:\n    ModelAssembler object"
+    },
+    {
+      "name": "create_visualizations",
+      "docstring": "Create visualizations of the point cloud, interstitial regions, and assembled model.\n\nArgs:\n    point_cloud: Input point cloud\n    analyzer: Interstitial analyzer\n    assembler: Model assembler\n    output_dir: Directory to save visualizations\n    show_vis: Whether to show interactive visualizations"
+    },
+    {
+      "name": "main",
+      "docstring": "Main function"
+    }
+  ],
+  "innovations": []
+}

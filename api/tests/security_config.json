@@ -1,0 +1,61 @@
+{
+    "min_confidence": 0.95,
+    "max_attempts": 3,
+    "lockout_duration": 300,
+    "template_expiry": 86400,
+    "salt_length": 32,
+    "hash_iterations": 100000,
+    "quantum": {
+        "key_size": 32,
+        "nonce_size": 12,
+        "salt_size": 16,
+        "info_string": "cXVhbnR1bV9lbmhhbmNlZF9lbmNyeXB0aW9u",
+        "key_rotation_interval": 86400,
+        "curve": "secp521r1"
+    },
+    "rbac": {
+        "max_role_depth": 5,
+        "default_roles": [
+            "user"
+        ],
+        "system_roles": [
+            "admin",
+            "auditor"
+        ],
+        "role_name_pattern": "^[a-zA-Z0-9_-]{3,32}$",
+        "case_sensitive": false,
+        "enable_inheritance": true,
+        "cache_ttl": 3600
+    },
+    "audit": {
+        "max_log_size": 10485760,
+        "max_log_age": 2592000,
+        "rotation_interval": 86400,
+        "compression_enabled": true,
+        "encryption_enabled": true,
+        "integrity_check_interval": 3600,
+        "max_workers": 4,
+        "severity_levels": [
+            "INFO",
+            "WARNING",
+            "ERROR",
+            "CRITICAL",
+            "SECURITY"
+        ]
+    },
+    "monitor": {
+        "max_workers": 4,
+        "queue_size": 10000,
+        "batch_size": 100,
+        "processing_interval": 1.0,
+        "retention_days": 90,
+        "compression_enabled": true,
+        "alert_thresholds": {
+            "authentication_failures": 5,
+            "unauthorized_access": 3,
+            "system_errors": 10
+        },
+        "correlation_window": 300,
+        "correlation_enabled": true
+    }
+}

@@ -1,0 +1,152 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\negative-space-project\\fdrm.py",
+  "classes": [
+    {
+      "name": "HausdorffDimensionCalculator",
+      "docstring": "Calculates the Hausdorff dimension of point sets representing negative spaces.\nThe Hausdorff dimension characterizes the \"roughness\" or complexity of the space.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the calculator"
+        },
+        {
+          "name": "box_counting_dimension",
+          "docstring": "Calculate the box-counting dimension (an approximation of Hausdorff dimension)\nusing the box-counting method.\n\nArgs:\n    points: Array of points (shape: N x D where D is the dimensionality)\n    min_scale: Minimum box size relative to the point cloud size\n    max_scale: Maximum box size relative to the point cloud size\n    num_scales: Number of different scales to use\n    \nReturns:\n    float: The estimated box-counting dimension"
+        },
+        {
+          "name": "generalized_dimension",
+          "docstring": "Calculate generalized dimensions D_q for different q values.\n\nArgs:\n    points: Array of points\n    q_values: List of q values for generalized dimensions (default: [-2, -1, 0, 1, 2])\n    \nReturns:\n    dict: Mapping from q values to corresponding dimensions"
+        }
+      ]
+    },
+    {
+      "name": "MultifractalSpectrumAnalyzer",
+      "docstring": "Analyzes multifractal properties of negative space point clouds.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the analyzer.\n\nArgs:\n    hausdorff_calculator: Calculator for Hausdorff dimensions"
+        },
+        {
+          "name": "calculate_multifractal_spectrum",
+          "docstring": "Calculate the multifractal spectrum f(\u03b1) vs \u03b1.\n\nArgs:\n    points: Array of points\n    q_range: Range of q values\n    num_q: Number of q values to sample\n    \nReturns:\n    Tuple containing:\n        - alpha values (np.ndarray)\n        - f(alpha) values (np.ndarray)"
+        },
+        {
+          "name": "spectrum_width",
+          "docstring": "Calculate the width of the multifractal spectrum, which indicates\nthe degree of multifractality.\n\nArgs:\n    alpha: Array of alpha values\n    f_alpha: Array of f(alpha) values\n    \nReturns:\n    float: Width of the spectrum"
+        },
+        {
+          "name": "visualize_spectrum",
+          "docstring": "Visualize the multifractal spectrum.\n\nArgs:\n    alpha: Array of alpha values\n    f_alpha: Array of f(alpha) values\n    title: Title for the plot\n    output_path: Path to save the figure (if None, display instead)"
+        }
+      ]
+    },
+    {
+      "name": "DimensionalResonanceDetector",
+      "docstring": "Detects resonant patterns in the fractal dimensions of negative spaces.\nThese resonances reveal hidden mathematical relationships between objects.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the detector.\n\nArgs:\n    spectrum_analyzer: Analyzer for multifractal spectra"
+        },
+        {
+          "name": "add_reference_spectrum",
+          "docstring": "Add a reference spectrum for comparison.\n\nArgs:\n    name: Identifier for the reference spectrum\n    alpha: Array of alpha values\n    f_alpha: Array of f(alpha) values"
+        },
+        {
+          "name": "detect_resonances",
+          "docstring": "Detect resonances between the given spectrum and all reference spectra.\n\nArgs:\n    alpha: Array of alpha values\n    f_alpha: Array of f(alpha) values\n    \nReturns:\n    dict: Mapping from reference spectrum names to resonance scores"
+        },
+        {
+          "name": "create_resonance_network",
+          "docstring": "Create a network of resonances between multiple point clouds.\n\nArgs:\n    point_clouds: Dictionary mapping names to point clouds\n    \nReturns:\n    dict: Adjacency matrix of resonances between point clouds"
+        },
+        {
+          "name": "visualize_resonance_network",
+          "docstring": "Visualize the resonance network as a graph.\n\nArgs:\n    network: Adjacency matrix of resonances\n    threshold: Minimum resonance strength to display\n    output_path: Path to save the figure (if None, display instead)"
+        }
+      ]
+    },
+    {
+      "name": "FractalDimensionMapper",
+      "docstring": "Main class for Fractal Dimension Resonance Mapping (FDRM).\nIntegrates the components to provide a complete fractal analysis system.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the mapper with its component systems"
+        },
+        {
+          "name": "analyze_point_cloud",
+          "docstring": "Perform complete fractal analysis on a point cloud.\n\nArgs:\n    name: Identifier for the point cloud\n    points: Array of points\n    \nReturns:\n    dict: Analysis results including dimensions and spectra"
+        },
+        {
+          "name": "analyze_negative_spaces",
+          "docstring": "Analyze the fractal properties of multiple negative space regions.\n\nArgs:\n    point_cloud: The main NegativeSpacePointCloud object\n    region_points: Dictionary mapping region names to point arrays\n    \nReturns:\n    dict: Analysis results for all regions"
+        },
+        {
+          "name": "visualize_results",
+          "docstring": "Generate visualizations for the fractal analysis results.\n\nArgs:\n    results: Analysis results from analyze_point_cloud or analyze_negative_spaces\n    output_dir: Directory to save visualizations"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "extract_fractal_signature",
+      "docstring": "Extract a fractal signature vector from a point cloud.\n\nArgs:\n    points: Array of points\n    \nReturns:\n    np.ndarray: Fractal signature vector"
+    },
+    {
+      "name": "compare_fractal_signatures",
+      "docstring": "Compare two fractal signatures and return a similarity score.\n\nArgs:\n    sig1, sig2: Fractal signature vectors\n    \nReturns:\n    float: Similarity score between 0 and 1"
+    },
+    {
+      "name": "box_counting_dimension",
+      "docstring": "Calculate the box-counting dimension (an approximation of Hausdorff dimension)\nusing the box-counting method.\n\nArgs:\n    points: Array of points (shape: N x D where D is the dimensionality)\n    min_scale: Minimum box size relative to the point cloud size\n    max_scale: Maximum box size relative to the point cloud size\n    num_scales: Number of different scales to use\n    \nReturns:\n    float: The estimated box-counting dimension"
+    },
+    {
+      "name": "generalized_dimension",
+      "docstring": "Calculate generalized dimensions D_q for different q values.\n\nArgs:\n    points: Array of points\n    q_values: List of q values for generalized dimensions (default: [-2, -1, 0, 1, 2])\n    \nReturns:\n    dict: Mapping from q values to corresponding dimensions"
+    },
+    {
+      "name": "calculate_multifractal_spectrum",
+      "docstring": "Calculate the multifractal spectrum f(\u03b1) vs \u03b1.\n\nArgs:\n    points: Array of points\n    q_range: Range of q values\n    num_q: Number of q values to sample\n    \nReturns:\n    Tuple containing:\n        - alpha values (np.ndarray)\n        - f(alpha) values (np.ndarray)"
+    },
+    {
+      "name": "spectrum_width",
+      "docstring": "Calculate the width of the multifractal spectrum, which indicates\nthe degree of multifractality.\n\nArgs:\n    alpha: Array of alpha values\n    f_alpha: Array of f(alpha) values\n    \nReturns:\n    float: Width of the spectrum"
+    },
+    {
+      "name": "visualize_spectrum",
+      "docstring": "Visualize the multifractal spectrum.\n\nArgs:\n    alpha: Array of alpha values\n    f_alpha: Array of f(alpha) values\n    title: Title for the plot\n    output_path: Path to save the figure (if None, display instead)"
+    },
+    {
+      "name": "add_reference_spectrum",
+      "docstring": "Add a reference spectrum for comparison.\n\nArgs:\n    name: Identifier for the reference spectrum\n    alpha: Array of alpha values\n    f_alpha: Array of f(alpha) values"
+    },
+    {
+      "name": "detect_resonances",
+      "docstring": "Detect resonances between the given spectrum and all reference spectra.\n\nArgs:\n    alpha: Array of alpha values\n    f_alpha: Array of f(alpha) values\n    \nReturns:\n    dict: Mapping from reference spectrum names to resonance scores"
+    },
+    {
+      "name": "create_resonance_network",
+      "docstring": "Create a network of resonances between multiple point clouds.\n\nArgs:\n    point_clouds: Dictionary mapping names to point clouds\n    \nReturns:\n    dict: Adjacency matrix of resonances between point clouds"
+    },
+    {
+      "name": "visualize_resonance_network",
+      "docstring": "Visualize the resonance network as a graph.\n\nArgs:\n    network: Adjacency matrix of resonances\n    threshold: Minimum resonance strength to display\n    output_path: Path to save the figure (if None, display instead)"
+    },
+    {
+      "name": "analyze_point_cloud",
+      "docstring": "Perform complete fractal analysis on a point cloud.\n\nArgs:\n    name: Identifier for the point cloud\n    points: Array of points\n    \nReturns:\n    dict: Analysis results including dimensions and spectra"
+    },
+    {
+      "name": "analyze_negative_spaces",
+      "docstring": "Analyze the fractal properties of multiple negative space regions.\n\nArgs:\n    point_cloud: The main NegativeSpacePointCloud object\n    region_points: Dictionary mapping region names to point arrays\n    \nReturns:\n    dict: Analysis results for all regions"
+    },
+    {
+      "name": "visualize_results",
+      "docstring": "Generate visualizations for the fractal analysis results.\n\nArgs:\n    results: Analysis results from analyze_point_cloud or analyze_negative_spaces\n    output_dir: Directory to save visualizations"
+    }
+  ],
+  "innovations": []
+}

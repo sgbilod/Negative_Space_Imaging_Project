@@ -1,0 +1,38 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\f2py\\tests\\test_kind.py",
+  "classes": [
+    {
+      "name": "TestKind",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_int",
+          "docstring": "Test `int` kind_func for integers up to 10**40."
+        },
+        {
+          "name": "test_real",
+          "docstring": "Test (processor-dependent) `real` kind_func for real numbers\nof up to 31 digits precision (extended/quadruple)."
+        },
+        {
+          "name": "test_quad_precision",
+          "docstring": "Test kind_func for quadruple precision [`real(16)`] of 32+ digits ."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_int",
+      "docstring": "Test `int` kind_func for integers up to 10**40."
+    },
+    {
+      "name": "test_real",
+      "docstring": "Test (processor-dependent) `real` kind_func for real numbers\nof up to 31 digits precision (extended/quadruple)."
+    },
+    {
+      "name": "test_quad_precision",
+      "docstring": "Test kind_func for quadruple precision [`real(16)`] of 32+ digits ."
+    }
+  ],
+  "innovations": []
+}

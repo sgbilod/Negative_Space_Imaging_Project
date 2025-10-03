@@ -1,0 +1,37 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\varLib\\iup.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "iup_segment",
+      "docstring": "Given two reference coordinates `rc1` & `rc2` and their respective\ndelta vectors `rd1` & `rd2`, returns interpolated deltas for the set of\ncoordinates `coords`."
+    },
+    {
+      "name": "iup_contour",
+      "docstring": "For the contour given in `coords`, interpolate any missing\ndelta values in delta vector `deltas`.\n\nReturns fully filled-out delta vector."
+    },
+    {
+      "name": "iup_delta",
+      "docstring": "For the outline given in `coords`, with contour endpoints given\nin sorted increasing order in `ends`, interpolate any missing\ndelta values in delta vector `deltas`.\n\nReturns fully filled-out delta vector."
+    },
+    {
+      "name": "can_iup_in_between",
+      "docstring": "Return true if the deltas for points at `i` and `j` (`i < j`) can be\nsuccessfully used to interpolate deltas for points in between them within\nprovided error tolerance."
+    },
+    {
+      "name": "iup_contour_optimize",
+      "docstring": "For contour with coordinates `coords`, optimize a set of delta\nvalues `deltas` within error `tolerance`.\n\nReturns delta vector that has most number of None items instead of\nthe input delta."
+    },
+    {
+      "name": "iup_delta_optimize",
+      "docstring": "For the outline given in `coords`, with contour endpoints given\nin sorted increasing order in `ends`, optimize a set of delta\nvalues `deltas` within error `tolerance`.\n\nReturns delta vector that has most number of None items instead of\nthe input delta."
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "                # Interpolate\n                #\n                # NOTE: we assign an explicit intermediate variable here in\n                # order to disable a fused mul-add optimization. See:\n                #\n                # - https://godbolt.org/z/YsP4T3TqK,\n                # - https://github.com/fonttools/fonttools/issues/3703"
+    }
+  ]
+}

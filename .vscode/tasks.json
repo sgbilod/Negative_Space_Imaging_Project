@@ -1,0 +1,209 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Multi-Signature Demo",
+			"type": "shell",
+			"command": "python multi_signature_demo.py --mode threshold --signatures 5 --threshold 3",
+			"group": "test",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "build",
+			"type": "shell",
+			"command": "npm run build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "test",
+			"type": "shell",
+			"command": "npm test",
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			},
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "dev",
+			"type": "shell",
+			"command": "npm run dev",
+			"group": "none",
+			"isBackground": true,
+			"problemMatcher": {
+				"owner": "typescript",
+				"pattern": "$tsc",
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "^.*Starting.*$",
+					"endsPattern": "^.*Compiled successfully.*$"
+				}
+			}
+		},
+		{
+			"label": "lint",
+			"type": "shell",
+			"command": "npm run lint",
+			"group": "none",
+			"problemMatcher": [
+				"$eslint-stylish"
+			]
+		},
+		{
+			"label": "security:scan",
+			"type": "shell",
+			"command": "npm run security:scan",
+			"group": "none",
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Secure Imaging Workflow",
+			"type": "shell",
+			"command": "python secure_imaging_workflow.py --mode threshold --signatures 5 --threshold 3",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Run Negative Space Imaging Test Suite",
+			"type": "shell",
+			"command": "python test_suite.py --all",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Run Secure Workflow CLI",
+			"type": "shell",
+			"command": "python cli.py workflow --mode threshold --signatures 5 --threshold 3",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Setup Negative Space Imaging System",
+			"type": "shell",
+			"command": "python setup.py --all",
+			"isBackground": false,
+			"group": "setup"
+		},
+		{
+			"label": "Setup Negative Space System",
+			"type": "shell",
+			"command": "python setup.py --dev-setup",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Run Environment Verification",
+			"type": "shell",
+			"command": "python environment_verification.py",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Run Demo Script",
+			"type": "shell",
+			"command": "python demo.py",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Run Sovereign Pipeline Implementation",
+			"type": "shell",
+			"command": "python -m sovereign.pipeline.implementation",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Run Sovereign Pipeline Implementation (Patched)",
+			"type": "shell",
+			"command": "python -m sovereign.pipeline.implementation",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Run Sovereign Pipeline Implementation (QuantumState Patched)",
+			"type": "shell",
+			"command": "python -m sovereign.pipeline.implementation",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Run Sovereign Pipeline Implementation (activate_quantum_layer patched)",
+			"type": "shell",
+			"command": "python -m sovereign.pipeline.implementation",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Run Sovereign Pipeline Implementation (indentation fixed)",
+			"type": "shell",
+			"command": "python -m sovereign.pipeline.implementation",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Run Sovereign Pipeline Implementation (final indentation fix)",
+			"type": "shell",
+			"command": "python -m sovereign.pipeline.implementation",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Run Sovereign Pipeline Implementation (activate_quantum_layer correctly placed)",
+			"type": "shell",
+			"command": "python -m sovereign.pipeline.implementation",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Run Sovereign Pipeline Implementation (enable_hypercognition patched)",
+			"type": "shell",
+			"command": "python -m sovereign.pipeline.implementation",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Run Sovereign Pipeline Implementation (AccelerationMode.INFINITE patched)",
+			"type": "shell",
+			"command": "python -m sovereign.pipeline.implementation",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Run Sovereign Pipeline Implementation (AccelerationMode.INFINITE patched everywhere)",
+			"type": "shell",
+			"command": "python -m sovereign.pipeline.implementation",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Run Sovereign Pipeline Implementation (all stubs and logger patched)",
+			"type": "shell",
+			"command": "python -m sovereign.pipeline.implementation",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Run Sovereign Pipeline Implementation (RealityManipulator.configure patched)",
+			"type": "shell",
+			"command": "python -m sovereign.pipeline.implementation",
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Run Sovereign Pipeline Implementation (MasterController.start patched)",
+			"type": "shell",
+			"command": "python -m sovereign.pipeline.implementation",
+			"isBackground": false,
+			"group": "test"
+		}
+	]
+}

@@ -1,0 +1,107 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\spe.py",
+  "classes": [
+    {
+      "name": "Spec",
+      "docstring": "SPE file specification data\n\nTuples of (offset, datatype, count), where offset is the offset in the SPE\nfile and datatype is the datatype as used in `numpy.fromfile`()\n\n`data_start` is the offset of actual image data.\n\n`dtypes` translates SPE datatypes (0...4) to numpy ones, e. g. dtypes[0]\nis dtype(\"<f\") (which is np.float32).\n\n`controllers` maps the `type` metadata to a human readable name\n\n`readout_modes` maps the `readoutMode` metadata to something human readable\nalthough this may not be accurate since there is next to no documentation\nto be found.",
+      "methods": []
+    },
+    {
+      "name": "SDTControlSpec",
+      "docstring": "Extract metadata written by the SDT-control software\n\nSome of it is encoded in the comment strings\n(see :py:meth:`parse_comments`). Also, date and time are encoded in a\npeculiar way (see :py:meth:`get_datetime`). Use :py:meth:`extract_metadata`\nto update the metadata dict.",
+      "methods": [
+        {
+          "name": "get_comment_version",
+          "docstring": "Get the version of SDT-control metadata encoded in the comments\n\nParameters\n----------\ncomments\n    List of SPE file comments, typically ``metadata[\"comments\"]``.\n\nReturns\n-------\nMajor and minor version. ``-1, -1`` if detection failed."
+        },
+        {
+          "name": "parse_comments",
+          "docstring": "Extract SDT-control metadata from comments\n\nParameters\n----------\ncomments\n    List of SPE file comments, typically ``metadata[\"comments\"]``.\nversion\n    Major and minor version of SDT-control metadata format\n\nReturns\n-------\nDict of metadata"
+        },
+        {
+          "name": "get_datetime",
+          "docstring": "Turn date and time saved by SDT-control into proper datetime object\n\nParameters\n----------\ndate\n    SPE file date, typically ``metadata[\"date\"]``.\ntime\n    SPE file date, typically ``metadata[\"time_local\"]``.\n\nReturns\n-------\nFile's datetime if parsing was succsessful, else None."
+        },
+        {
+          "name": "extract_metadata",
+          "docstring": "Extract SDT-control metadata from SPE metadata\n\nSDT-control stores some metadata in comments and other fields.\nExtract them and remove unused entries.\n\nParameters\n----------\nmeta\n    SPE file metadata. Modified in place.\nchar_encoding\n    Character encoding used to decode strings in the metadata."
+        }
+      ]
+    },
+    {
+      "name": "SpePlugin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Instantiate a new SPE file plugin object\n\nParameters\n----------\nrequest : Request\n    A request object representing the resource to be operated on.\ncheck_filesize : bool\n    If True, compute the number of frames from the filesize, compare it\n    to the frame count in the file header, and raise a warning if the\n    counts don't match. (Certain software may create files with\nchar_encoding : str\n    Deprecated. Exists for backwards compatibility; use ``char_encoding`` of\n    ``metadata`` instead.\nsdt_meta : bool\n    Deprecated. Exists for backwards compatibility; use ``sdt_control`` of\n    ``metadata`` instead."
+        },
+        {
+          "name": "read",
+          "docstring": "Read a frame or all frames from the file\n\nParameters\n----------\nindex : int\n    Select the index-th frame from the file. If index is `...`,\n    select all frames and stack them along a new axis.\n\nReturns\n-------\nA Numpy array of pixel values."
+        },
+        {
+          "name": "iter",
+          "docstring": "Iterate over the frames in the file\n\nYields\n------\nA Numpy array of pixel values."
+        },
+        {
+          "name": "metadata",
+          "docstring": "SPE specific metadata.\n\nParameters\n----------\nindex : int\n    Ignored as SPE files only store global metadata.\nexclude_applied : bool\n    Ignored. Exists for API compatibility.\nchar_encoding : str\n    The encoding to use when parsing strings.\nsdt_control : bool\n    If `True`, decode special metadata written by the\n    SDT-control software if present.\n\nReturns\n-------\nmetadata : dict\n    Key-value pairs of metadata.\n\nNotes\n-----\nSPE v3 stores metadata as XML, whereas SPE v2 uses a binary format.\n\n.. rubric:: Supported SPE v2 Metadata fields\n\nROIs : list of dict\n    Regions of interest used for recording images. Each dict has the\n    \"top_left\" key containing x and y coordinates of the top left corner,\n    the \"bottom_right\" key with x and y coordinates of the bottom right\n    corner, and the \"bin\" key with number of binned pixels in x and y\n    directions.\ncomments : list of str\n    The SPE format allows for 5 comment strings of 80 characters each.\ncontroller_version : int\n    Hardware version\nlogic_output : int\n    Definition of output BNC\namp_hi_cap_low_noise : int\n    Amp switching mode\nmode : int\n    Timing mode\nexp_sec : float\n    Alternative exposure in seconds\ndate : str\n    Date string\ndetector_temp : float\n    Detector temperature\ndetector_type : int\n    CCD / diode array type\nst_diode : int\n    Trigger diode\ndelay_time : float\n    Used with async mode\nshutter_control : int\n    Normal, disabled open, or disabled closed\nabsorb_live : bool\n    on / off\nabsorb_mode : int\n    Reference strip or file\ncan_do_virtual_chip : bool\n    True or False whether chip can do virtual chip\nthreshold_min_live : bool\n    on / off\nthreshold_min_val : float\n    Threshold minimum value\nthreshold_max_live : bool\n    on / off\nthreshold_max_val : float\n    Threshold maximum value\ntime_local : str\n    Experiment local time\ntime_utc : str\n    Experiment UTC time\nadc_offset : int\n    ADC offset\nadc_rate : int\n    ADC rate\nadc_type : int\n    ADC type\nadc_resolution : int\n    ADC resolution\nadc_bit_adjust : int\n    ADC bit adjust\ngain : int\n    gain\nsw_version : str\n    Version of software which created this file\nspare_4 : bytes\n    Reserved space\nreadout_time : float\n    Experiment readout time\ntype : str\n    Controller type\nclockspeed_us : float\n    Vertical clock speed in microseconds\nreadout_mode : [\"full frame\", \"frame transfer\", \"kinetics\", \"\"]\n    Readout mode. Empty string means that this was not set by the\n    Software.\nwindow_size : int\n    Window size for Kinetics mode\nfile_header_ver : float\n    File header version\nchip_size : [int, int]\n    x and y dimensions of the camera chip\nvirt_chip_size : [int, int]\n    Virtual chip x and y dimensions\npre_pixels : [int, int]\n    Pre pixels in x and y dimensions\npost_pixels : [int, int],\n    Post pixels in x and y dimensions\ngeometric : list of {\"rotate\", \"reverse\", \"flip\"}\n    Geometric operations\nsdt_major_version : int\n    (only for files created by SDT-control)\n    Major version of SDT-control software\nsdt_minor_version : int\n    (only for files created by SDT-control)\n    Minor version of SDT-control software\nsdt_controller_name : str\n    (only for files created by SDT-control)\n    Controller name\nexposure_time : float\n    (only for files created by SDT-control)\n    Exposure time in seconds\ncolor_code : str\n    (only for files created by SDT-control)\n    Color channels used\ndetection_channels : int\n    (only for files created by SDT-control)\n    Number of channels\nbackground_subtraction : bool\n    (only for files created by SDT-control)\n    Whether background subtraction war turned on\nem_active : bool\n    (only for files created by SDT-control)\n    Whether EM was turned on\nem_gain : int\n    (only for files created by SDT-control)\n    EM gain\nmodulation_active : bool\n    (only for files created by SDT-control)\n    Whether laser modulation (\u201cattenuate\u201d) was turned on\npixel_size : float\n    (only for files created by SDT-control)\n    Camera pixel size\nsequence_type : str\n    (only for files created by SDT-control)\n    Type of sequnce (standard, TOCCSL, arbitrary, \u2026)\ngrid : float\n    (only for files created by SDT-control)\n    Sequence time unit (\u201cgrid size\u201d) in seconds\nn_macro : int\n    (only for files created by SDT-control)\n    Number of macro loops\ndelay_macro : float\n    (only for files created by SDT-control)\n    Time between macro loops in seconds\nn_mini : int\n    (only for files created by SDT-control)\n    Number of mini loops\ndelay_mini : float\n    (only for files created by SDT-control)\n    Time between mini loops in seconds\nn_micro : int (only for files created by SDT-control)\n    Number of micro loops\ndelay_micro : float (only for files created by SDT-control)\n    Time between micro loops in seconds\nn_subpics : int\n    (only for files created by SDT-control)\n    Number of sub-pictures\ndelay_shutter : float\n    (only for files created by SDT-control)\n    Camera shutter delay in seconds\ndelay_prebleach : float\n    (only for files created by SDT-control)\n    Pre-bleach delay in seconds\nbleach_time : float\n    (only for files created by SDT-control)\n    Bleaching time in seconds\nrecovery_time : float\n    (only for files created by SDT-control)\n    Recovery time in seconds\ncomment : str\n    (only for files created by SDT-control)\n    User-entered comment. This replaces the \"comments\" field.\ndatetime : datetime.datetime\n    (only for files created by SDT-control)\n    Combines the \"date\" and \"time_local\" keys. The latter two plus\n    \"time_utc\" are removed.\nmodulation_script : str\n    (only for files created by SDT-control)\n    Laser modulation script. Replaces the \"spare_4\" key.\nbleach_piezo_active : bool\n    (only for files created by SDT-control)\n    Whether piezo for bleaching was enabled"
+        },
+        {
+          "name": "properties",
+          "docstring": "Standardized ndimage metadata.\n\nParameters\n----------\nindex : int\n    If the index is an integer, select the index-th frame and return\n    its properties. If index is an Ellipsis (...), return the\n    properties of all frames in the file stacked along a new batch\n    dimension.\n\nReturns\n-------\nproperties : ImageProperties\n    A dataclass filled with standardized image metadata."
+        }
+      ]
+    },
+    {
+      "name": "CommentDesc",
+      "docstring": "Describe how to extract a metadata entry from a comment string",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "roi_array_to_dict",
+      "docstring": "Convert the `ROIs` structured arrays to :py:class:`dict`\n\nParameters\n----------\na\n    Structured array containing ROI data\n\nReturns\n-------\nOne dict per ROI. Keys are \"top_left\", \"bottom_right\", and \"bin\",\nvalues are tuples whose first element is the x axis value and the\nsecond element is the y axis value."
+    },
+    {
+      "name": "get_comment_version",
+      "docstring": "Get the version of SDT-control metadata encoded in the comments\n\nParameters\n----------\ncomments\n    List of SPE file comments, typically ``metadata[\"comments\"]``.\n\nReturns\n-------\nMajor and minor version. ``-1, -1`` if detection failed."
+    },
+    {
+      "name": "parse_comments",
+      "docstring": "Extract SDT-control metadata from comments\n\nParameters\n----------\ncomments\n    List of SPE file comments, typically ``metadata[\"comments\"]``.\nversion\n    Major and minor version of SDT-control metadata format\n\nReturns\n-------\nDict of metadata"
+    },
+    {
+      "name": "get_datetime",
+      "docstring": "Turn date and time saved by SDT-control into proper datetime object\n\nParameters\n----------\ndate\n    SPE file date, typically ``metadata[\"date\"]``.\ntime\n    SPE file date, typically ``metadata[\"time_local\"]``.\n\nReturns\n-------\nFile's datetime if parsing was succsessful, else None."
+    },
+    {
+      "name": "extract_metadata",
+      "docstring": "Extract SDT-control metadata from SPE metadata\n\nSDT-control stores some metadata in comments and other fields.\nExtract them and remove unused entries.\n\nParameters\n----------\nmeta\n    SPE file metadata. Modified in place.\nchar_encoding\n    Character encoding used to decode strings in the metadata."
+    },
+    {
+      "name": "read",
+      "docstring": "Read a frame or all frames from the file\n\nParameters\n----------\nindex : int\n    Select the index-th frame from the file. If index is `...`,\n    select all frames and stack them along a new axis.\n\nReturns\n-------\nA Numpy array of pixel values."
+    },
+    {
+      "name": "iter",
+      "docstring": "Iterate over the frames in the file\n\nYields\n------\nA Numpy array of pixel values."
+    },
+    {
+      "name": "metadata",
+      "docstring": "SPE specific metadata.\n\nParameters\n----------\nindex : int\n    Ignored as SPE files only store global metadata.\nexclude_applied : bool\n    Ignored. Exists for API compatibility.\nchar_encoding : str\n    The encoding to use when parsing strings.\nsdt_control : bool\n    If `True`, decode special metadata written by the\n    SDT-control software if present.\n\nReturns\n-------\nmetadata : dict\n    Key-value pairs of metadata.\n\nNotes\n-----\nSPE v3 stores metadata as XML, whereas SPE v2 uses a binary format.\n\n.. rubric:: Supported SPE v2 Metadata fields\n\nROIs : list of dict\n    Regions of interest used for recording images. Each dict has the\n    \"top_left\" key containing x and y coordinates of the top left corner,\n    the \"bottom_right\" key with x and y coordinates of the bottom right\n    corner, and the \"bin\" key with number of binned pixels in x and y\n    directions.\ncomments : list of str\n    The SPE format allows for 5 comment strings of 80 characters each.\ncontroller_version : int\n    Hardware version\nlogic_output : int\n    Definition of output BNC\namp_hi_cap_low_noise : int\n    Amp switching mode\nmode : int\n    Timing mode\nexp_sec : float\n    Alternative exposure in seconds\ndate : str\n    Date string\ndetector_temp : float\n    Detector temperature\ndetector_type : int\n    CCD / diode array type\nst_diode : int\n    Trigger diode\ndelay_time : float\n    Used with async mode\nshutter_control : int\n    Normal, disabled open, or disabled closed\nabsorb_live : bool\n    on / off\nabsorb_mode : int\n    Reference strip or file\ncan_do_virtual_chip : bool\n    True or False whether chip can do virtual chip\nthreshold_min_live : bool\n    on / off\nthreshold_min_val : float\n    Threshold minimum value\nthreshold_max_live : bool\n    on / off\nthreshold_max_val : float\n    Threshold maximum value\ntime_local : str\n    Experiment local time\ntime_utc : str\n    Experiment UTC time\nadc_offset : int\n    ADC offset\nadc_rate : int\n    ADC rate\nadc_type : int\n    ADC type\nadc_resolution : int\n    ADC resolution\nadc_bit_adjust : int\n    ADC bit adjust\ngain : int\n    gain\nsw_version : str\n    Version of software which created this file\nspare_4 : bytes\n    Reserved space\nreadout_time : float\n    Experiment readout time\ntype : str\n    Controller type\nclockspeed_us : float\n    Vertical clock speed in microseconds\nreadout_mode : [\"full frame\", \"frame transfer\", \"kinetics\", \"\"]\n    Readout mode. Empty string means that this was not set by the\n    Software.\nwindow_size : int\n    Window size for Kinetics mode\nfile_header_ver : float\n    File header version\nchip_size : [int, int]\n    x and y dimensions of the camera chip\nvirt_chip_size : [int, int]\n    Virtual chip x and y dimensions\npre_pixels : [int, int]\n    Pre pixels in x and y dimensions\npost_pixels : [int, int],\n    Post pixels in x and y dimensions\ngeometric : list of {\"rotate\", \"reverse\", \"flip\"}\n    Geometric operations\nsdt_major_version : int\n    (only for files created by SDT-control)\n    Major version of SDT-control software\nsdt_minor_version : int\n    (only for files created by SDT-control)\n    Minor version of SDT-control software\nsdt_controller_name : str\n    (only for files created by SDT-control)\n    Controller name\nexposure_time : float\n    (only for files created by SDT-control)\n    Exposure time in seconds\ncolor_code : str\n    (only for files created by SDT-control)\n    Color channels used\ndetection_channels : int\n    (only for files created by SDT-control)\n    Number of channels\nbackground_subtraction : bool\n    (only for files created by SDT-control)\n    Whether background subtraction war turned on\nem_active : bool\n    (only for files created by SDT-control)\n    Whether EM was turned on\nem_gain : int\n    (only for files created by SDT-control)\n    EM gain\nmodulation_active : bool\n    (only for files created by SDT-control)\n    Whether laser modulation (\u201cattenuate\u201d) was turned on\npixel_size : float\n    (only for files created by SDT-control)\n    Camera pixel size\nsequence_type : str\n    (only for files created by SDT-control)\n    Type of sequnce (standard, TOCCSL, arbitrary, \u2026)\ngrid : float\n    (only for files created by SDT-control)\n    Sequence time unit (\u201cgrid size\u201d) in seconds\nn_macro : int\n    (only for files created by SDT-control)\n    Number of macro loops\ndelay_macro : float\n    (only for files created by SDT-control)\n    Time between macro loops in seconds\nn_mini : int\n    (only for files created by SDT-control)\n    Number of mini loops\ndelay_mini : float\n    (only for files created by SDT-control)\n    Time between mini loops in seconds\nn_micro : int (only for files created by SDT-control)\n    Number of micro loops\ndelay_micro : float (only for files created by SDT-control)\n    Time between micro loops in seconds\nn_subpics : int\n    (only for files created by SDT-control)\n    Number of sub-pictures\ndelay_shutter : float\n    (only for files created by SDT-control)\n    Camera shutter delay in seconds\ndelay_prebleach : float\n    (only for files created by SDT-control)\n    Pre-bleach delay in seconds\nbleach_time : float\n    (only for files created by SDT-control)\n    Bleaching time in seconds\nrecovery_time : float\n    (only for files created by SDT-control)\n    Recovery time in seconds\ncomment : str\n    (only for files created by SDT-control)\n    User-entered comment. This replaces the \"comments\" field.\ndatetime : datetime.datetime\n    (only for files created by SDT-control)\n    Combines the \"date\" and \"time_local\" keys. The latter two plus\n    \"time_utc\" are removed.\nmodulation_script : str\n    (only for files created by SDT-control)\n    Laser modulation script. Replaces the \"spare_4\" key.\nbleach_piezo_active : bool\n    (only for files created by SDT-control)\n    Whether piezo for bleaching was enabled"
+    },
+    {
+      "name": "properties",
+      "docstring": "Standardized ndimage metadata.\n\nParameters\n----------\nindex : int\n    If the index is an integer, select the index-th frame and return\n    its properties. If index is an Ellipsis (...), return the\n    properties of all frames in the file stacked along a new batch\n    dimension.\n\nReturns\n-------\nproperties : ImageProperties\n    A dataclass filled with standardized image metadata."
+    }
+  ],
+  "innovations": []
+}

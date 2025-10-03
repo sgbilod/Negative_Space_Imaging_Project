@@ -1,0 +1,23 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\utils\\glibc.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "glibc_version_string",
+      "docstring": "Returns glibc version string, or None if not using glibc."
+    },
+    {
+      "name": "glibc_version_string_confstr",
+      "docstring": "Primary implementation of glibc_version_string using os.confstr."
+    },
+    {
+      "name": "glibc_version_string_ctypes",
+      "docstring": "Fallback implementation of glibc_version_string using ctypes."
+    },
+    {
+      "name": "libc_ver",
+      "docstring": "Try to determine the glibc version\n\nReturns a tuple of strings (lib, version) which default to empty strings\nin case the lookup fails."
+    }
+  ],
+  "innovations": []
+}

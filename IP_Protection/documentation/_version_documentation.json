@@ -1,0 +1,17 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\_version.py",
+  "classes": [
+    {
+      "name": "NumpyVersion",
+      "docstring": "Parse and compare numpy version strings.\n\nNumPy has the following versioning scheme (numbers given are examples; they\ncan be > 9 in principle):\n\n- Released version: '1.8.0', '1.8.1', etc.\n- Alpha: '1.8.0a1', '1.8.0a2', etc.\n- Beta: '1.8.0b1', '1.8.0b2', etc.\n- Release candidates: '1.8.0rc1', '1.8.0rc2', etc.\n- Development versions: '1.8.0.dev-f1234afa' (git commit hash appended)\n- Development versions after a1: '1.8.0a1.dev-f1234afa',\n                                 '1.8.0b2.dev-f1234afa',\n                                 '1.8.1rc1.dev-f1234afa', etc.\n- Development versions (no git hash available): '1.8.0.dev-Unknown'\n\nComparing needs to be done against a valid version string or other\n`NumpyVersion` instance. Note that all development versions of the same\n(pre-)release compare equal.\n\nParameters\n----------\nvstring : str\n    NumPy version string (``np.__version__``).\n\nExamples\n--------\n>>> from numpy.lib import NumpyVersion\n>>> if NumpyVersion(np.__version__) < '1.7.0':\n...     print('skip')\n>>> # skip\n\n>>> NumpyVersion('1.7')  # raises ValueError, add \".0\"\nTraceback (most recent call last):\n    ...\nValueError: Not a valid numpy version string",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [],
+  "innovations": []
+}

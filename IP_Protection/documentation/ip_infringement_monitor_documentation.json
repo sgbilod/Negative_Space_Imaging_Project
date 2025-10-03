@@ -1,0 +1,54 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\ip_infringement_monitor.py",
+  "classes": [
+    {
+      "name": "IPInfringementMonitor",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "add_monitored_signature",
+          "docstring": "Add a signature to monitor."
+        },
+        {
+          "name": "scan_for_infringement",
+          "docstring": "Scan content for potential infringement."
+        },
+        {
+          "name": "generate_alert",
+          "docstring": "Generate an alert for potential infringement."
+        },
+        {
+          "name": "generate_report",
+          "docstring": "Generate a monitoring report."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "main",
+      "docstring": null
+    },
+    {
+      "name": "add_monitored_signature",
+      "docstring": "Add a signature to monitor."
+    },
+    {
+      "name": "scan_for_infringement",
+      "docstring": "Scan content for potential infringement."
+    },
+    {
+      "name": "generate_alert",
+      "docstring": "Generate an alert for potential infringement."
+    },
+    {
+      "name": "generate_report",
+      "docstring": "Generate a monitoring report."
+    }
+  ],
+  "innovations": []
+}

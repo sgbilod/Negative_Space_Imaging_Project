@@ -1,0 +1,52 @@
+{
+    "analysis": {
+        "neural_network": {
+            "enabled": true,
+            "model_types": ["dense", "cnn", "lstm", "autoencoder"],
+            "default_model": "dense",
+            "training": {
+                "epochs": 50,
+                "batch_size": 32,
+                "validation_split": 0.2,
+                "early_stopping": true,
+                "patience": 10
+            }
+        },
+        "visualization": {
+            "enabled": true,
+            "types": ["pca", "tsne", "umap", "correlation", "heatmap"],
+            "default_type": "pca"
+        },
+        "reporting": {
+            "enabled": true,
+            "templates": ["standard", "detailed", "executive"],
+            "default_template": "standard"
+        }
+    },
+    "data": {
+        "input_formats": ["csv", "json", "npy", "jpg", "png", "tiff"],
+        "preprocessing": {
+            "normalization": "standard",
+            "augmentation": false
+        },
+        "default_dirs": {
+            "input": "data/processed",
+            "output": "analysis_results"
+        }
+    },
+    "system": {
+        "logging": {
+            "level": "INFO",
+            "file": "analysis/analysis.log",
+            "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        },
+        "gpu": {
+            "enabled": true,
+            "memory_limit": 4096
+        },
+        "parallel_processing": {
+            "enabled": true,
+            "num_workers": 4
+        }
+    }
+}

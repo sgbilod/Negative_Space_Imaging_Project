@@ -1,0 +1,319 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\varLib\\merger.py",
+  "classes": [
+    {
+      "name": "Merger",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "merger",
+          "docstring": null
+        },
+        {
+          "name": "mergersFor",
+          "docstring": null
+        },
+        {
+          "name": "mergeObjects",
+          "docstring": null
+        },
+        {
+          "name": "mergeLists",
+          "docstring": null
+        },
+        {
+          "name": "mergeThings",
+          "docstring": null
+        },
+        {
+          "name": "mergeTables",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AligningMerger",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "InstancerMerger",
+      "docstring": "A merger that takes multiple master fonts, and instantiates\nan instance.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MutatorMerger",
+      "docstring": "A merger that takes a variable font, and instantiates\nan instance.  While there's no \"merging\" to be done per se,\nthe operation can benefit from many operations that the\naligning merger does.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "VariationMerger",
+      "docstring": "A merger that takes multiple master fonts, and builds a\nvariable font.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "setModel",
+          "docstring": null
+        },
+        {
+          "name": "mergeThings",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "COLRVariationMerger",
+      "docstring": "A specialized VariationMerger that takes multiple master fonts containing\nCOLRv1 tables, and builds a variable COLR font.\n\nCOLR tables are special in that variable subtables can be associated with\nmultiple delta-set indices (via VarIndexBase).\nThey also contain tables that must change their type (not simply the Format)\nas they become variable (e.g. Affine2x3 -> VarAffine2x3) so this merger takes\ncare of that too.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "mergeTables",
+          "docstring": null
+        },
+        {
+          "name": "checkFormatEnum",
+          "docstring": null
+        },
+        {
+          "name": "mergeSparseDict",
+          "docstring": null
+        },
+        {
+          "name": "mergeAttrs",
+          "docstring": null
+        },
+        {
+          "name": "storeMastersForAttr",
+          "docstring": null
+        },
+        {
+          "name": "storeVariationIndices",
+          "docstring": null
+        },
+        {
+          "name": "mergeVariableAttrs",
+          "docstring": null
+        },
+        {
+          "name": "convertSubTablesToVarType",
+          "docstring": null
+        },
+        {
+          "name": "expandPaintColrLayers",
+          "docstring": "Rebuild LayerList without PaintColrLayers reuse.\n\nEach base paint graph is fully DFS-traversed (with exception of PaintColrGlyph\nwhich are irrelevant for this); any layers referenced via PaintColrLayers are\ncollected into a new LayerList and duplicated when reuse is detected, to ensure\nthat all paints are distinct objects at the end of the process.\nPaintColrLayers's FirstLayerIndex/NumLayers are updated so that no overlap\nis left. Also, any consecutively nested PaintColrLayers are flattened.\nThe COLR table's LayerList is replaced with the new unique layers.\nA side effect is also that any layer from the old LayerList which is not\nreferenced by any PaintColrLayers is dropped."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "buildVarDevTable",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "merger",
+      "docstring": null
+    },
+    {
+      "name": "mergersFor",
+      "docstring": null
+    },
+    {
+      "name": "mergeObjects",
+      "docstring": null
+    },
+    {
+      "name": "mergeLists",
+      "docstring": null
+    },
+    {
+      "name": "mergeThings",
+      "docstring": null
+    },
+    {
+      "name": "mergeTables",
+      "docstring": null
+    },
+    {
+      "name": "setModel",
+      "docstring": null
+    },
+    {
+      "name": "mergeThings",
+      "docstring": null
+    },
+    {
+      "name": "mergeTables",
+      "docstring": null
+    },
+    {
+      "name": "checkFormatEnum",
+      "docstring": null
+    },
+    {
+      "name": "mergeSparseDict",
+      "docstring": null
+    },
+    {
+      "name": "mergeAttrs",
+      "docstring": null
+    },
+    {
+      "name": "storeMastersForAttr",
+      "docstring": null
+    },
+    {
+      "name": "storeVariationIndices",
+      "docstring": null
+    },
+    {
+      "name": "mergeVariableAttrs",
+      "docstring": null
+    },
+    {
+      "name": "convertSubTablesToVarType",
+      "docstring": null
+    },
+    {
+      "name": "expandPaintColrLayers",
+      "docstring": "Rebuild LayerList without PaintColrLayers reuse.\n\nEach base paint graph is fully DFS-traversed (with exception of PaintColrGlyph\nwhich are irrelevant for this); any layers referenced via PaintColrLayers are\ncollected into a new LayerList and duplicated when reuse is detected, to ensure\nthat all paints are distinct objects at the end of the process.\nPaintColrLayers's FirstLayerIndex/NumLayers are updated so that no overlap\nis left. Also, any consecutively nested PaintColrLayers are flattened.\nThe COLR table's LayerList is replaced with the new unique layers.\nA side effect is also that any layer from the old LayerList which is not\nreferenced by any PaintColrLayers is dropped."
+    },
+    {
+      "name": "listToColrLayers",
+      "docstring": null
+    },
+    {
+      "name": "wrapper",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

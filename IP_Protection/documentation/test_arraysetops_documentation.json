@@ -1,0 +1,369 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\tests\\test_arraysetops.py",
+  "classes": [
+    {
+      "name": "TestSetOps",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_intersect1d",
+          "docstring": null
+        },
+        {
+          "name": "test_intersect1d_array_like",
+          "docstring": null
+        },
+        {
+          "name": "test_intersect1d_indices",
+          "docstring": null
+        },
+        {
+          "name": "test_setxor1d",
+          "docstring": null
+        },
+        {
+          "name": "test_setxor1d_unique",
+          "docstring": null
+        },
+        {
+          "name": "test_ediff1d",
+          "docstring": null
+        },
+        {
+          "name": "test_ediff1d_forbidden_type_casts",
+          "docstring": null
+        },
+        {
+          "name": "test_ediff1d_scalar_handling",
+          "docstring": null
+        },
+        {
+          "name": "test_isin",
+          "docstring": null
+        },
+        {
+          "name": "test_isin_additional",
+          "docstring": null
+        },
+        {
+          "name": "test_isin_char_array",
+          "docstring": null
+        },
+        {
+          "name": "test_isin_invert",
+          "docstring": "Test isin's invert parameter"
+        },
+        {
+          "name": "test_isin_hit_alternate_algorithm",
+          "docstring": "Hit the standard isin code with integers"
+        },
+        {
+          "name": "test_isin_boolean",
+          "docstring": "Test that isin works for boolean input"
+        },
+        {
+          "name": "test_isin_timedelta",
+          "docstring": "Test that isin works for timedelta input"
+        },
+        {
+          "name": "test_isin_table_timedelta_fails",
+          "docstring": null
+        },
+        {
+          "name": "test_isin_mixed_dtype",
+          "docstring": "Test that isin works as expected for mixed dtype input."
+        },
+        {
+          "name": "test_isin_mixed_huge_vals",
+          "docstring": "Test values outside intp range (negative ones if 32bit system)"
+        },
+        {
+          "name": "test_isin_mixed_boolean",
+          "docstring": "Test that isin works as expected for bool/int input."
+        },
+        {
+          "name": "test_isin_first_array_is_object",
+          "docstring": null
+        },
+        {
+          "name": "test_isin_second_array_is_object",
+          "docstring": null
+        },
+        {
+          "name": "test_isin_both_arrays_are_object",
+          "docstring": null
+        },
+        {
+          "name": "test_isin_both_arrays_have_structured_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_isin_with_arrays_containing_tuples",
+          "docstring": null
+        },
+        {
+          "name": "test_isin_errors",
+          "docstring": "Test that isin raises expected errors."
+        },
+        {
+          "name": "test_union1d",
+          "docstring": null
+        },
+        {
+          "name": "test_setdiff1d",
+          "docstring": null
+        },
+        {
+          "name": "test_setdiff1d_unique",
+          "docstring": null
+        },
+        {
+          "name": "test_setdiff1d_char_array",
+          "docstring": null
+        },
+        {
+          "name": "test_manyways",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestUnique",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_unique_1d",
+          "docstring": null
+        },
+        {
+          "name": "test_unique_axis_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_unique_axis_list",
+          "docstring": null
+        },
+        {
+          "name": "test_unique_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_unique_1d_with_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_unique_inverse_with_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_unique_axis_zeros",
+          "docstring": null
+        },
+        {
+          "name": "test_unique_masked",
+          "docstring": null
+        },
+        {
+          "name": "test_unique_sort_order_with_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_unique_nanequals",
+          "docstring": null
+        },
+        {
+          "name": "test_unique_array_api_functions",
+          "docstring": null
+        },
+        {
+          "name": "test_unique_inverse_shape",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Test",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_intersect1d",
+      "docstring": null
+    },
+    {
+      "name": "test_intersect1d_array_like",
+      "docstring": null
+    },
+    {
+      "name": "test_intersect1d_indices",
+      "docstring": null
+    },
+    {
+      "name": "test_setxor1d",
+      "docstring": null
+    },
+    {
+      "name": "test_setxor1d_unique",
+      "docstring": null
+    },
+    {
+      "name": "test_ediff1d",
+      "docstring": null
+    },
+    {
+      "name": "test_ediff1d_forbidden_type_casts",
+      "docstring": null
+    },
+    {
+      "name": "test_ediff1d_scalar_handling",
+      "docstring": null
+    },
+    {
+      "name": "test_isin",
+      "docstring": null
+    },
+    {
+      "name": "test_isin_additional",
+      "docstring": null
+    },
+    {
+      "name": "test_isin_char_array",
+      "docstring": null
+    },
+    {
+      "name": "test_isin_invert",
+      "docstring": "Test isin's invert parameter"
+    },
+    {
+      "name": "test_isin_hit_alternate_algorithm",
+      "docstring": "Hit the standard isin code with integers"
+    },
+    {
+      "name": "test_isin_boolean",
+      "docstring": "Test that isin works for boolean input"
+    },
+    {
+      "name": "test_isin_timedelta",
+      "docstring": "Test that isin works for timedelta input"
+    },
+    {
+      "name": "test_isin_table_timedelta_fails",
+      "docstring": null
+    },
+    {
+      "name": "test_isin_mixed_dtype",
+      "docstring": "Test that isin works as expected for mixed dtype input."
+    },
+    {
+      "name": "test_isin_mixed_huge_vals",
+      "docstring": "Test values outside intp range (negative ones if 32bit system)"
+    },
+    {
+      "name": "test_isin_mixed_boolean",
+      "docstring": "Test that isin works as expected for bool/int input."
+    },
+    {
+      "name": "test_isin_first_array_is_object",
+      "docstring": null
+    },
+    {
+      "name": "test_isin_second_array_is_object",
+      "docstring": null
+    },
+    {
+      "name": "test_isin_both_arrays_are_object",
+      "docstring": null
+    },
+    {
+      "name": "test_isin_both_arrays_have_structured_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_isin_with_arrays_containing_tuples",
+      "docstring": null
+    },
+    {
+      "name": "test_isin_errors",
+      "docstring": "Test that isin raises expected errors."
+    },
+    {
+      "name": "test_union1d",
+      "docstring": null
+    },
+    {
+      "name": "test_setdiff1d",
+      "docstring": null
+    },
+    {
+      "name": "test_setdiff1d_unique",
+      "docstring": null
+    },
+    {
+      "name": "test_setdiff1d_char_array",
+      "docstring": null
+    },
+    {
+      "name": "test_manyways",
+      "docstring": null
+    },
+    {
+      "name": "test_unique_1d",
+      "docstring": null
+    },
+    {
+      "name": "test_unique_axis_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_unique_axis_list",
+      "docstring": null
+    },
+    {
+      "name": "test_unique_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_unique_1d_with_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_unique_inverse_with_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_unique_axis_zeros",
+      "docstring": null
+    },
+    {
+      "name": "test_unique_masked",
+      "docstring": null
+    },
+    {
+      "name": "test_unique_sort_order_with_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_unique_nanequals",
+      "docstring": null
+    },
+    {
+      "name": "test_unique_array_api_functions",
+      "docstring": null
+    },
+    {
+      "name": "test_unique_inverse_shape",
+      "docstring": null
+    },
+    {
+      "name": "assert_isin_equal",
+      "docstring": null
+    },
+    {
+      "name": "check_all",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

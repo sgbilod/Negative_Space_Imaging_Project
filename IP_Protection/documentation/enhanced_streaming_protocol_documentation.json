@@ -1,0 +1,308 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\revenue\\streaming_verification\\enhanced_streaming_protocol.py",
+  "classes": [
+    {
+      "name": "StreamSignature",
+      "docstring": "Represents a cryptographic signature for a stream fragment.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a stream signature.\n\nArgs:\n    stream_id: ID of the stream\n    fragment_id: ID of the fragment\n    timestamp: ISO format timestamp of the signature\n    spatial_coordinates: Spatial coordinates for the signature\n    previous_signature: Signature of the previous fragment (for chaining)"
+        },
+        {
+          "name": "verify",
+          "docstring": "Verify the signature.\n\nArgs:\n    spatial_coordinates: Optional coordinates to verify against\n    previous_signature: Optional previous signature to verify against\n    \nReturns:\n    True if verified, False otherwise"
+        },
+        {
+          "name": "to_dict",
+          "docstring": "Convert the signature to a dictionary."
+        },
+        {
+          "name": "from_dict",
+          "docstring": "Create a signature from a dictionary.\n\nArgs:\n    data: Dictionary containing signature data\n    \nReturns:\n    A StreamSignature instance"
+        }
+      ]
+    },
+    {
+      "name": "StreamFragment",
+      "docstring": "Represents a fragment of a verified stream.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a stream fragment.\n\nArgs:\n    stream_id: ID of the stream\n    fragment_id: ID of the fragment\n    data: Fragment data\n    timestamp: ISO format timestamp of the fragment\n    signature: Signature of the fragment"
+        },
+        {
+          "name": "verify",
+          "docstring": "Verify the fragment.\n\nArgs:\n    previous_fragment: Optional previous fragment for chain verification\n    \nReturns:\n    True if verified, False otherwise"
+        },
+        {
+          "name": "to_dict",
+          "docstring": "Convert the fragment to a dictionary."
+        },
+        {
+          "name": "from_dict",
+          "docstring": "Create a fragment from a dictionary and raw data.\n\nArgs:\n    data: Dictionary containing fragment metadata\n    fragment_data: Raw fragment data\n    \nReturns:\n    A StreamFragment instance"
+        }
+      ]
+    },
+    {
+      "name": "ChallengeResponse",
+      "docstring": "Represents a challenge-response pair for stream verification.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a challenge-response pair.\n\nArgs:\n    stream_id: ID of the stream\n    challenge_id: ID of the challenge\n    challenge_type: Type of challenge\n    challenge_data: Challenge data\n    timestamp: ISO format timestamp of the challenge\n    expiration: ISO format timestamp of the expiration"
+        },
+        {
+          "name": "is_expired",
+          "docstring": "Check if the challenge has expired.\n\nReturns:\n    True if expired, False otherwise"
+        },
+        {
+          "name": "submit_response",
+          "docstring": "Submit a response to the challenge.\n\nArgs:\n    response_data: Response data\n    \nReturns:\n    Verification result"
+        },
+        {
+          "name": "verify_response",
+          "docstring": "Verify the response against the challenge.\n\nReturns:\n    Verification result"
+        },
+        {
+          "name": "to_dict",
+          "docstring": "Convert the challenge to a dictionary."
+        },
+        {
+          "name": "from_dict",
+          "docstring": "Create a challenge from a dictionary.\n\nArgs:\n    data: Dictionary containing challenge data\n    \nReturns:\n    A ChallengeResponse instance"
+        }
+      ]
+    },
+    {
+      "name": "StreamVerifier",
+      "docstring": "Verifies the authenticity of a stream.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the stream verifier."
+        },
+        {
+          "name": "verify_fragment",
+          "docstring": "Verify a stream fragment.\n\nArgs:\n    fragment: Fragment to verify\n    previous_fragment: Optional previous fragment for chain verification\n    \nReturns:\n    Verification result"
+        },
+        {
+          "name": "generate_challenge",
+          "docstring": "Generate a challenge for a stream.\n\nArgs:\n    stream_id: ID of the stream\n    challenge_type: Optional type of challenge to generate\n    \nReturns:\n    A ChallengeResponse instance"
+        },
+        {
+          "name": "verify_challenge_response",
+          "docstring": "Verify a response to a challenge.\n\nArgs:\n    challenge: The challenge\n    response_data: Response data\n    \nReturns:\n    Verification result"
+        }
+      ]
+    },
+    {
+      "name": "StreamAuthenticator",
+      "docstring": "Authenticates streams and manages the verification process.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the stream authenticator."
+        },
+        {
+          "name": "register_stream",
+          "docstring": "Register a new stream.\n\nArgs:\n    stream_id: Optional ID for the stream (generated if not provided)\n    metadata: Optional metadata for the stream\n    \nReturns:\n    Registration result"
+        },
+        {
+          "name": "add_fragment",
+          "docstring": "Add a fragment to a stream.\n\nArgs:\n    stream_id: ID of the stream\n    data: Fragment data\n    coordinates: Optional spatial coordinates for the fragment\n    \nReturns:\n    Addition result"
+        },
+        {
+          "name": "challenge_stream",
+          "docstring": "Challenge a stream to verify its authenticity.\n\nArgs:\n    stream_id: ID of the stream to challenge\n    challenge_type: Optional type of challenge\n    \nReturns:\n    Challenge result"
+        },
+        {
+          "name": "respond_to_challenge",
+          "docstring": "Respond to a challenge.\n\nArgs:\n    stream_id: ID of the stream\n    challenge_id: ID of the challenge\n    response_data: Response data\n    \nReturns:\n    Response result"
+        },
+        {
+          "name": "get_stream_status",
+          "docstring": "Get the status of a stream.\n\nArgs:\n    stream_id: ID of the stream\n    \nReturns:\n    Stream status"
+        }
+      ]
+    },
+    {
+      "name": "StreamProcessor",
+      "docstring": "Processes stream data and manages the verification workflow.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the stream processor."
+        },
+        {
+          "name": "start_stream",
+          "docstring": "Start a new verified stream.\n\nArgs:\n    metadata: Optional metadata for the stream\n    challenge_interval: Interval in seconds between challenges\n    verification_callback: Optional callback for verification events\n    \nReturns:\n    Stream start result"
+        },
+        {
+          "name": "stop_stream",
+          "docstring": "Stop a verified stream.\n\nArgs:\n    stream_id: ID of the stream\n    \nReturns:\n    Stream stop result"
+        },
+        {
+          "name": "add_stream_data",
+          "docstring": "Add data to a stream.\n\nArgs:\n    stream_id: ID of the stream\n    data: Stream data\n    coordinates: Optional spatial coordinates\n    \nReturns:\n    Data addition result"
+        },
+        {
+          "name": "handle_challenge",
+          "docstring": "Handle a challenge for a stream.\n\nArgs:\n    stream_id: ID of the stream\n    challenge_id: ID of the challenge\n    coordinates: Optional spatial coordinates for the response\n    \nReturns:\n    Challenge handling result"
+        }
+      ]
+    },
+    {
+      "name": "EnhancedStreamingVerificationProtocol",
+      "docstring": "Main class for the Enhanced Streaming Verification Protocol.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the streaming verification protocol."
+        },
+        {
+          "name": "start_verified_stream",
+          "docstring": "Start a new verified stream.\n\nArgs:\n    metadata: Optional metadata for the stream\n    challenge_interval: Interval in seconds between challenges\n    verification_callback: Optional callback for verification events\n    \nReturns:\n    Stream start result"
+        },
+        {
+          "name": "stop_verified_stream",
+          "docstring": "Stop a verified stream.\n\nArgs:\n    stream_id: ID of the stream\n    \nReturns:\n    Stream stop result"
+        },
+        {
+          "name": "add_stream_data",
+          "docstring": "Add data to a stream.\n\nArgs:\n    stream_id: ID of the stream\n    data: Stream data\n    coordinates: Optional spatial coordinates\n    \nReturns:\n    Data addition result"
+        },
+        {
+          "name": "get_stream_status",
+          "docstring": "Get the status of a stream.\n\nArgs:\n    stream_id: ID of the stream\n    \nReturns:\n    Stream status"
+        },
+        {
+          "name": "verify_stream_fragment",
+          "docstring": "Verify a specific fragment in a stream.\n\nArgs:\n    stream_id: ID of the stream\n    fragment_id: ID of the fragment\n    \nReturns:\n    Verification result"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "verify",
+      "docstring": "Verify the signature.\n\nArgs:\n    spatial_coordinates: Optional coordinates to verify against\n    previous_signature: Optional previous signature to verify against\n    \nReturns:\n    True if verified, False otherwise"
+    },
+    {
+      "name": "to_dict",
+      "docstring": "Convert the signature to a dictionary."
+    },
+    {
+      "name": "from_dict",
+      "docstring": "Create a signature from a dictionary.\n\nArgs:\n    data: Dictionary containing signature data\n    \nReturns:\n    A StreamSignature instance"
+    },
+    {
+      "name": "verify",
+      "docstring": "Verify the fragment.\n\nArgs:\n    previous_fragment: Optional previous fragment for chain verification\n    \nReturns:\n    True if verified, False otherwise"
+    },
+    {
+      "name": "to_dict",
+      "docstring": "Convert the fragment to a dictionary."
+    },
+    {
+      "name": "from_dict",
+      "docstring": "Create a fragment from a dictionary and raw data.\n\nArgs:\n    data: Dictionary containing fragment metadata\n    fragment_data: Raw fragment data\n    \nReturns:\n    A StreamFragment instance"
+    },
+    {
+      "name": "is_expired",
+      "docstring": "Check if the challenge has expired.\n\nReturns:\n    True if expired, False otherwise"
+    },
+    {
+      "name": "submit_response",
+      "docstring": "Submit a response to the challenge.\n\nArgs:\n    response_data: Response data\n    \nReturns:\n    Verification result"
+    },
+    {
+      "name": "verify_response",
+      "docstring": "Verify the response against the challenge.\n\nReturns:\n    Verification result"
+    },
+    {
+      "name": "to_dict",
+      "docstring": "Convert the challenge to a dictionary."
+    },
+    {
+      "name": "from_dict",
+      "docstring": "Create a challenge from a dictionary.\n\nArgs:\n    data: Dictionary containing challenge data\n    \nReturns:\n    A ChallengeResponse instance"
+    },
+    {
+      "name": "verify_fragment",
+      "docstring": "Verify a stream fragment.\n\nArgs:\n    fragment: Fragment to verify\n    previous_fragment: Optional previous fragment for chain verification\n    \nReturns:\n    Verification result"
+    },
+    {
+      "name": "generate_challenge",
+      "docstring": "Generate a challenge for a stream.\n\nArgs:\n    stream_id: ID of the stream\n    challenge_type: Optional type of challenge to generate\n    \nReturns:\n    A ChallengeResponse instance"
+    },
+    {
+      "name": "verify_challenge_response",
+      "docstring": "Verify a response to a challenge.\n\nArgs:\n    challenge: The challenge\n    response_data: Response data\n    \nReturns:\n    Verification result"
+    },
+    {
+      "name": "register_stream",
+      "docstring": "Register a new stream.\n\nArgs:\n    stream_id: Optional ID for the stream (generated if not provided)\n    metadata: Optional metadata for the stream\n    \nReturns:\n    Registration result"
+    },
+    {
+      "name": "add_fragment",
+      "docstring": "Add a fragment to a stream.\n\nArgs:\n    stream_id: ID of the stream\n    data: Fragment data\n    coordinates: Optional spatial coordinates for the fragment\n    \nReturns:\n    Addition result"
+    },
+    {
+      "name": "challenge_stream",
+      "docstring": "Challenge a stream to verify its authenticity.\n\nArgs:\n    stream_id: ID of the stream to challenge\n    challenge_type: Optional type of challenge\n    \nReturns:\n    Challenge result"
+    },
+    {
+      "name": "respond_to_challenge",
+      "docstring": "Respond to a challenge.\n\nArgs:\n    stream_id: ID of the stream\n    challenge_id: ID of the challenge\n    response_data: Response data\n    \nReturns:\n    Response result"
+    },
+    {
+      "name": "get_stream_status",
+      "docstring": "Get the status of a stream.\n\nArgs:\n    stream_id: ID of the stream\n    \nReturns:\n    Stream status"
+    },
+    {
+      "name": "start_stream",
+      "docstring": "Start a new verified stream.\n\nArgs:\n    metadata: Optional metadata for the stream\n    challenge_interval: Interval in seconds between challenges\n    verification_callback: Optional callback for verification events\n    \nReturns:\n    Stream start result"
+    },
+    {
+      "name": "stop_stream",
+      "docstring": "Stop a verified stream.\n\nArgs:\n    stream_id: ID of the stream\n    \nReturns:\n    Stream stop result"
+    },
+    {
+      "name": "add_stream_data",
+      "docstring": "Add data to a stream.\n\nArgs:\n    stream_id: ID of the stream\n    data: Stream data\n    coordinates: Optional spatial coordinates\n    \nReturns:\n    Data addition result"
+    },
+    {
+      "name": "handle_challenge",
+      "docstring": "Handle a challenge for a stream.\n\nArgs:\n    stream_id: ID of the stream\n    challenge_id: ID of the challenge\n    coordinates: Optional spatial coordinates for the response\n    \nReturns:\n    Challenge handling result"
+    },
+    {
+      "name": "start_verified_stream",
+      "docstring": "Start a new verified stream.\n\nArgs:\n    metadata: Optional metadata for the stream\n    challenge_interval: Interval in seconds between challenges\n    verification_callback: Optional callback for verification events\n    \nReturns:\n    Stream start result"
+    },
+    {
+      "name": "stop_verified_stream",
+      "docstring": "Stop a verified stream.\n\nArgs:\n    stream_id: ID of the stream\n    \nReturns:\n    Stream stop result"
+    },
+    {
+      "name": "add_stream_data",
+      "docstring": "Add data to a stream.\n\nArgs:\n    stream_id: ID of the stream\n    data: Stream data\n    coordinates: Optional spatial coordinates\n    \nReturns:\n    Data addition result"
+    },
+    {
+      "name": "get_stream_status",
+      "docstring": "Get the status of a stream.\n\nArgs:\n    stream_id: ID of the stream\n    \nReturns:\n    Stream status"
+    },
+    {
+      "name": "verify_stream_fragment",
+      "docstring": "Verify a specific fragment in a stream.\n\nArgs:\n    stream_id: ID of the stream\n    fragment_id: ID of the fragment\n    \nReturns:\n    Verification result"
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "\"\"\"\nEnhanced Streaming Verification Protocol\n\nThis module implements a continuous authentication protocol for live streams, broadcasts,\nand data feeds. It enables real-time verification of the temporal and spatial authenticity"
+    }
+  ]
+}

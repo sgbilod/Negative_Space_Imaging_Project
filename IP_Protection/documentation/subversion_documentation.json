@@ -1,0 +1,130 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\vcs\\subversion.py",
+  "classes": [
+    {
+      "name": "Subversion",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "should_add_vcs_url_prefix",
+          "docstring": null
+        },
+        {
+          "name": "get_base_rev_args",
+          "docstring": null
+        },
+        {
+          "name": "get_revision",
+          "docstring": "Return the maximum revision for all files under a given location"
+        },
+        {
+          "name": "get_netloc_and_auth",
+          "docstring": "This override allows the auth information to be passed to svn via the\n--username and --password options instead of via the URL."
+        },
+        {
+          "name": "get_url_rev_and_auth",
+          "docstring": null
+        },
+        {
+          "name": "make_rev_args",
+          "docstring": null
+        },
+        {
+          "name": "get_remote_url",
+          "docstring": null
+        },
+        {
+          "name": "is_commit_id_equal",
+          "docstring": "Always assume the versions don't match"
+        },
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "call_vcs_version",
+          "docstring": "Query the version of the currently installed Subversion client.\n\n:return: A tuple containing the parts of the version information or\n    ``()`` if the version returned from ``svn`` could not be parsed.\n:raises: BadCommand: If ``svn`` is not installed."
+        },
+        {
+          "name": "get_vcs_version",
+          "docstring": "Return the version of the currently installed Subversion client.\n\nIf the version of the Subversion client has already been queried,\na cached value will be used.\n\n:return: A tuple containing the parts of the version information or\n    ``()`` if the version returned from ``svn`` could not be parsed.\n:raises: BadCommand: If ``svn`` is not installed."
+        },
+        {
+          "name": "get_remote_call_options",
+          "docstring": "Return options to be used on calls to Subversion that contact the server.\n\nThese options are applicable for the following ``svn`` subcommands used\nin this class.\n\n    - checkout\n    - switch\n    - update\n\n:return: A list of command line arguments to pass to ``svn``."
+        },
+        {
+          "name": "fetch_new",
+          "docstring": null
+        },
+        {
+          "name": "switch",
+          "docstring": null
+        },
+        {
+          "name": "update",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "should_add_vcs_url_prefix",
+      "docstring": null
+    },
+    {
+      "name": "get_base_rev_args",
+      "docstring": null
+    },
+    {
+      "name": "get_revision",
+      "docstring": "Return the maximum revision for all files under a given location"
+    },
+    {
+      "name": "get_netloc_and_auth",
+      "docstring": "This override allows the auth information to be passed to svn via the\n--username and --password options instead of via the URL."
+    },
+    {
+      "name": "get_url_rev_and_auth",
+      "docstring": null
+    },
+    {
+      "name": "make_rev_args",
+      "docstring": null
+    },
+    {
+      "name": "get_remote_url",
+      "docstring": null
+    },
+    {
+      "name": "is_commit_id_equal",
+      "docstring": "Always assume the versions don't match"
+    },
+    {
+      "name": "call_vcs_version",
+      "docstring": "Query the version of the currently installed Subversion client.\n\n:return: A tuple containing the parts of the version information or\n    ``()`` if the version returned from ``svn`` could not be parsed.\n:raises: BadCommand: If ``svn`` is not installed."
+    },
+    {
+      "name": "get_vcs_version",
+      "docstring": "Return the version of the currently installed Subversion client.\n\nIf the version of the Subversion client has already been queried,\na cached value will be used.\n\n:return: A tuple containing the parts of the version information or\n    ``()`` if the version returned from ``svn`` could not be parsed.\n:raises: BadCommand: If ``svn`` is not installed."
+    },
+    {
+      "name": "get_remote_call_options",
+      "docstring": "Return options to be used on calls to Subversion that contact the server.\n\nThese options are applicable for the following ``svn`` subcommands used\nin this class.\n\n    - checkout\n    - switch\n    - update\n\n:return: A list of command line arguments to pass to ``svn``."
+    },
+    {
+      "name": "fetch_new",
+      "docstring": null
+    },
+    {
+      "name": "switch",
+      "docstring": null
+    },
+    {
+      "name": "update",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

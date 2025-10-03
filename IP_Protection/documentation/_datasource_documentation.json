@@ -1,0 +1,106 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\_datasource.py",
+  "classes": [
+    {
+      "name": "_FileOpeners",
+      "docstring": "Container for different methods to open (un-)compressed files.\n\n`_FileOpeners` contains a dictionary that holds one method for each\nsupported file format. Attribute lookup is implemented in such a way\nthat an instance of `_FileOpeners` itself can be indexed with the keys\nof that dictionary. Currently uncompressed files as well as files\ncompressed with ``gzip``, ``bz2`` or ``xz`` compression are supported.\n\nNotes\n-----\n`_file_openers`, an instance of `_FileOpeners`, is made available for\nuse in the `_datasource` module.\n\nExamples\n--------\n>>> import gzip\n>>> np.lib._datasource._file_openers.keys()\n[None, '.bz2', '.gz', '.xz', '.lzma']\n>>> np.lib._datasource._file_openers['.gz'] is gzip.open\nTrue",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "keys",
+          "docstring": "Return the keys of currently supported file openers.\n\nParameters\n----------\nNone\n\nReturns\n-------\nkeys : list\n    The keys are None for uncompressed files and the file extension\n    strings (i.e. ``'.gz'``, ``'.xz'``) for supported compression\n    methods."
+        }
+      ]
+    },
+    {
+      "name": "DataSource",
+      "docstring": "DataSource(destpath='.')\n\nA generic data source file (file, http, ftp, ...).\n\nDataSources can be local files or remote files/URLs.  The files may\nalso be compressed or uncompressed. DataSource hides some of the\nlow-level details of downloading the file, allowing you to simply pass\nin a valid file path (or URL) and obtain a file object.\n\nParameters\n----------\ndestpath : str or None, optional\n    Path to the directory where the source file gets downloaded to for\n    use.  If `destpath` is None, a temporary directory will be created.\n    The default path is the current directory.\n\nNotes\n-----\nURLs require a scheme string (``http://``) to be used, without it they\nwill fail::\n\n    >>> repos = np.lib.npyio.DataSource()\n    >>> repos.exists('www.google.com/index.html')\n    False\n    >>> repos.exists('http://www.google.com/index.html')\n    True\n\nTemporary directories are deleted when the DataSource is deleted.\n\nExamples\n--------\n::\n\n    >>> ds = np.lib.npyio.DataSource('/home/guido')\n    >>> urlname = 'http://www.google.com/'\n    >>> gfile = ds.open('http://www.google.com/')\n    >>> ds.abspath(urlname)\n    '/home/guido/www.google.com/index.html'\n\n    >>> ds = np.lib.npyio.DataSource(None)  # use with temporary file\n    >>> ds.open('/home/guido/foobar.txt')\n    <open file '/home/guido.foobar.txt', mode 'r' at 0x91d4430>\n    >>> ds.abspath('/home/guido/foobar.txt')\n    '/tmp/.../home/guido/foobar.txt'",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a DataSource with a local path at destpath."
+        },
+        {
+          "name": "abspath",
+          "docstring": "Return absolute path of file in the DataSource directory.\n\nIf `path` is an URL, then `abspath` will return either the location\nthe file exists locally or the location it would exist when opened\nusing the `open` method.\n\nParameters\n----------\npath : str or pathlib.Path\n    Can be a local file or a remote URL.\n\nReturns\n-------\nout : str\n    Complete path, including the `DataSource` destination directory.\n\nNotes\n-----\nThe functionality is based on `os.path.abspath`."
+        },
+        {
+          "name": "exists",
+          "docstring": "Test if path exists.\n\nTest if `path` exists as (and in this order):\n\n- a local file.\n- a remote URL that has been downloaded and stored locally in the\n  `DataSource` directory.\n- a remote URL that has not been downloaded, but is valid and\n  accessible.\n\nParameters\n----------\npath : str or pathlib.Path\n    Can be a local file or a remote URL.\n\nReturns\n-------\nout : bool\n    True if `path` exists.\n\nNotes\n-----\nWhen `path` is an URL, `exists` will return True if it's either\nstored locally in the `DataSource` directory, or is a valid remote\nURL.  `DataSource` does not discriminate between the two, the file\nis accessible if it exists in either location."
+        },
+        {
+          "name": "open",
+          "docstring": "Open and return file-like object.\n\nIf `path` is an URL, it will be downloaded, stored in the\n`DataSource` directory and opened from there.\n\nParameters\n----------\npath : str or pathlib.Path\n    Local file path or URL to open.\nmode : {'r', 'w', 'a'}, optional\n    Mode to open `path`.  Mode 'r' for reading, 'w' for writing,\n    'a' to append. Available modes depend on the type of object\n    specified by `path`. Default is 'r'.\nencoding : {None, str}, optional\n    Open text file with given encoding. The default encoding will be\n    what `open` uses.\nnewline : {None, str}, optional\n    Newline to use when reading text file.\n\nReturns\n-------\nout : file object\n    File object."
+        }
+      ]
+    },
+    {
+      "name": "Repository",
+      "docstring": "Repository(baseurl, destpath='.')\n\nA data repository where multiple DataSource's share a base\nURL/directory.\n\n`Repository` extends `DataSource` by prepending a base URL (or\ndirectory) to all the files it handles. Use `Repository` when you will\nbe working with multiple files from one base URL.  Initialize\n`Repository` with the base URL, then refer to each file by its filename\nonly.\n\nParameters\n----------\nbaseurl : str\n    Path to the local directory or remote location that contains the\n    data files.\ndestpath : str or None, optional\n    Path to the directory where the source file gets downloaded to for\n    use.  If `destpath` is None, a temporary directory will be created.\n    The default path is the current directory.\n\nExamples\n--------\nTo analyze all files in the repository, do something like this\n(note: this is not self-contained code)::\n\n    >>> repos = np.lib._datasource.Repository('/home/user/data/dir/')\n    >>> for filename in filelist:\n    ...     fp = repos.open(filename)\n    ...     fp.analyze()\n    ...     fp.close()\n\nSimilarly you could use a URL for a repository::\n\n    >>> repos = np.lib._datasource.Repository('http://www.xyz.edu/data')",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a Repository with a shared url or directory of baseurl."
+        },
+        {
+          "name": "abspath",
+          "docstring": "Return absolute path of file in the Repository directory.\n\nIf `path` is an URL, then `abspath` will return either the location\nthe file exists locally or the location it would exist when opened\nusing the `open` method.\n\nParameters\n----------\npath : str or pathlib.Path\n    Can be a local file or a remote URL. This may, but does not\n    have to, include the `baseurl` with which the `Repository` was\n    initialized.\n\nReturns\n-------\nout : str\n    Complete path, including the `DataSource` destination directory."
+        },
+        {
+          "name": "exists",
+          "docstring": "Test if path exists prepending Repository base URL to path.\n\nTest if `path` exists as (and in this order):\n\n- a local file.\n- a remote URL that has been downloaded and stored locally in the\n  `DataSource` directory.\n- a remote URL that has not been downloaded, but is valid and\n  accessible.\n\nParameters\n----------\npath : str or pathlib.Path\n    Can be a local file or a remote URL. This may, but does not\n    have to, include the `baseurl` with which the `Repository` was\n    initialized.\n\nReturns\n-------\nout : bool\n    True if `path` exists.\n\nNotes\n-----\nWhen `path` is an URL, `exists` will return True if it's either\nstored locally in the `DataSource` directory, or is a valid remote\nURL.  `DataSource` does not discriminate between the two, the file\nis accessible if it exists in either location."
+        },
+        {
+          "name": "open",
+          "docstring": "Open and return file-like object prepending Repository base URL.\n\nIf `path` is an URL, it will be downloaded, stored in the\nDataSource directory and opened from there.\n\nParameters\n----------\npath : str or pathlib.Path\n    Local file path or URL to open. This may, but does not have to,\n    include the `baseurl` with which the `Repository` was\n    initialized.\nmode : {'r', 'w', 'a'}, optional\n    Mode to open `path`.  Mode 'r' for reading, 'w' for writing,\n    'a' to append. Available modes depend on the type of object\n    specified by `path`. Default is 'r'.\nencoding : {None, str}, optional\n    Open text file with given encoding. The default encoding will be\n    what `open` uses.\nnewline : {None, str}, optional\n    Newline to use when reading text file.\n\nReturns\n-------\nout : file object\n    File object."
+        },
+        {
+          "name": "listdir",
+          "docstring": "List files in the source Repository.\n\nReturns\n-------\nfiles : list of str or pathlib.Path\n    List of file names (not containing a directory part).\n\nNotes\n-----\nDoes not currently work for remote repositories."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "open",
+      "docstring": "Open `path` with `mode` and return the file object.\n\nIf ``path`` is an URL, it will be downloaded, stored in the\n`DataSource` `destpath` directory and opened from there.\n\nParameters\n----------\npath : str or pathlib.Path\n    Local file path or URL to open.\nmode : str, optional\n    Mode to open `path`. Mode 'r' for reading, 'w' for writing, 'a' to\n    append. Available modes depend on the type of object specified by\n    path.  Default is 'r'.\ndestpath : str, optional\n    Path to the directory where the source file gets downloaded to for\n    use.  If `destpath` is None, a temporary directory will be created.\n    The default path is the current directory.\nencoding : {None, str}, optional\n    Open text file with given encoding. The default encoding will be\n    what `open` uses.\nnewline : {None, str}, optional\n    Newline to use when reading text file.\n\nReturns\n-------\nout : file object\n    The opened file.\n\nNotes\n-----\nThis is a convenience function that instantiates a `DataSource` and\nreturns the file object from ``DataSource.open(path)``."
+    },
+    {
+      "name": "keys",
+      "docstring": "Return the keys of currently supported file openers.\n\nParameters\n----------\nNone\n\nReturns\n-------\nkeys : list\n    The keys are None for uncompressed files and the file extension\n    strings (i.e. ``'.gz'``, ``'.xz'``) for supported compression\n    methods."
+    },
+    {
+      "name": "abspath",
+      "docstring": "Return absolute path of file in the DataSource directory.\n\nIf `path` is an URL, then `abspath` will return either the location\nthe file exists locally or the location it would exist when opened\nusing the `open` method.\n\nParameters\n----------\npath : str or pathlib.Path\n    Can be a local file or a remote URL.\n\nReturns\n-------\nout : str\n    Complete path, including the `DataSource` destination directory.\n\nNotes\n-----\nThe functionality is based on `os.path.abspath`."
+    },
+    {
+      "name": "exists",
+      "docstring": "Test if path exists.\n\nTest if `path` exists as (and in this order):\n\n- a local file.\n- a remote URL that has been downloaded and stored locally in the\n  `DataSource` directory.\n- a remote URL that has not been downloaded, but is valid and\n  accessible.\n\nParameters\n----------\npath : str or pathlib.Path\n    Can be a local file or a remote URL.\n\nReturns\n-------\nout : bool\n    True if `path` exists.\n\nNotes\n-----\nWhen `path` is an URL, `exists` will return True if it's either\nstored locally in the `DataSource` directory, or is a valid remote\nURL.  `DataSource` does not discriminate between the two, the file\nis accessible if it exists in either location."
+    },
+    {
+      "name": "open",
+      "docstring": "Open and return file-like object.\n\nIf `path` is an URL, it will be downloaded, stored in the\n`DataSource` directory and opened from there.\n\nParameters\n----------\npath : str or pathlib.Path\n    Local file path or URL to open.\nmode : {'r', 'w', 'a'}, optional\n    Mode to open `path`.  Mode 'r' for reading, 'w' for writing,\n    'a' to append. Available modes depend on the type of object\n    specified by `path`. Default is 'r'.\nencoding : {None, str}, optional\n    Open text file with given encoding. The default encoding will be\n    what `open` uses.\nnewline : {None, str}, optional\n    Newline to use when reading text file.\n\nReturns\n-------\nout : file object\n    File object."
+    },
+    {
+      "name": "abspath",
+      "docstring": "Return absolute path of file in the Repository directory.\n\nIf `path` is an URL, then `abspath` will return either the location\nthe file exists locally or the location it would exist when opened\nusing the `open` method.\n\nParameters\n----------\npath : str or pathlib.Path\n    Can be a local file or a remote URL. This may, but does not\n    have to, include the `baseurl` with which the `Repository` was\n    initialized.\n\nReturns\n-------\nout : str\n    Complete path, including the `DataSource` destination directory."
+    },
+    {
+      "name": "exists",
+      "docstring": "Test if path exists prepending Repository base URL to path.\n\nTest if `path` exists as (and in this order):\n\n- a local file.\n- a remote URL that has been downloaded and stored locally in the\n  `DataSource` directory.\n- a remote URL that has not been downloaded, but is valid and\n  accessible.\n\nParameters\n----------\npath : str or pathlib.Path\n    Can be a local file or a remote URL. This may, but does not\n    have to, include the `baseurl` with which the `Repository` was\n    initialized.\n\nReturns\n-------\nout : bool\n    True if `path` exists.\n\nNotes\n-----\nWhen `path` is an URL, `exists` will return True if it's either\nstored locally in the `DataSource` directory, or is a valid remote\nURL.  `DataSource` does not discriminate between the two, the file\nis accessible if it exists in either location."
+    },
+    {
+      "name": "open",
+      "docstring": "Open and return file-like object prepending Repository base URL.\n\nIf `path` is an URL, it will be downloaded, stored in the\nDataSource directory and opened from there.\n\nParameters\n----------\npath : str or pathlib.Path\n    Local file path or URL to open. This may, but does not have to,\n    include the `baseurl` with which the `Repository` was\n    initialized.\nmode : {'r', 'w', 'a'}, optional\n    Mode to open `path`.  Mode 'r' for reading, 'w' for writing,\n    'a' to append. Available modes depend on the type of object\n    specified by `path`. Default is 'r'.\nencoding : {None, str}, optional\n    Open text file with given encoding. The default encoding will be\n    what `open` uses.\nnewline : {None, str}, optional\n    Newline to use when reading text file.\n\nReturns\n-------\nout : file object\n    File object."
+    },
+    {
+      "name": "listdir",
+      "docstring": "List files in the source Repository.\n\nReturns\n-------\nfiles : list of str or pathlib.Path\n    List of file names (not containing a directory part).\n\nNotes\n-----\nDoes not currently work for remote repositories."
+    }
+  ],
+  "innovations": []
+}

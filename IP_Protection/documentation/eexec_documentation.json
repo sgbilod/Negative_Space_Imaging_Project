@@ -1,0 +1,23 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\eexec.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "decrypt",
+      "docstring": "Decrypts a string using the Type 1 encryption algorithm.\n\nArgs:\n        cipherstring: String of ciphertext.\n        R: Initial key.\n\nReturns:\n        decryptedStr: Plaintext string.\n        R: Output key for subsequent decryptions.\n\nExamples::\n\n        >>> testStr = b\"\\0\\0asdadads asds\\265\"\n        >>> decryptedStr, R = decrypt(testStr, 12321)\n        >>> decryptedStr == b'0d\\nh\\x15\\xe8\\xc4\\xb2\\x15\\x1d\\x108\\x1a<6\\xa1'\n        True\n        >>> R == 36142\n        True"
+    },
+    {
+      "name": "encrypt",
+      "docstring": "Encrypts a string using the Type 1 encryption algorithm.\n\nNote that the algorithm as described in the Type 1 specification requires the\nplaintext to be prefixed with a number of random bytes. (For ``eexec`` the\nnumber of random bytes is set to 4.) This routine does *not* add the random\nprefix to its input.\n\nArgs:\n        plainstring: String of plaintext.\n        R: Initial key.\n\nReturns:\n        cipherstring: Ciphertext string.\n        R: Output key for subsequent encryptions.\n\nExamples::\n\n        >>> testStr = b\"\\0\\0asdadads asds\\265\"\n        >>> decryptedStr, R = decrypt(testStr, 12321)\n        >>> decryptedStr == b'0d\\nh\\x15\\xe8\\xc4\\xb2\\x15\\x1d\\x108\\x1a<6\\xa1'\n        True\n        >>> R == 36142\n        True\n\n>>> testStr = b'0d\\nh\\x15\\xe8\\xc4\\xb2\\x15\\x1d\\x108\\x1a<6\\xa1'\n>>> encryptedStr, R = encrypt(testStr, 12321)\n>>> encryptedStr == b\"\\0\\0asdadads asds\\265\"\nTrue\n>>> R == 36142\nTrue"
+    },
+    {
+      "name": "hexString",
+      "docstring": null
+    },
+    {
+      "name": "deHexString",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

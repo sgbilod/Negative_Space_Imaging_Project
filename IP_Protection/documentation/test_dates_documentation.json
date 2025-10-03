@@ -1,0 +1,291 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_dates.py",
+  "classes": [
+    {
+      "name": "_Locator",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "dt_tzaware",
+      "docstring": "This bug specifically occurs because of the normalization behavior of\npandas Timestamp objects, so in order to replicate it, we need a\ndatetime-like object that applies timezone normalization after\nsubtraction.",
+      "methods": [
+        {
+          "name": "astimezone",
+          "docstring": null
+        },
+        {
+          "name": "mk_tzaware",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_date_numpyx",
+      "docstring": null
+    },
+    {
+      "name": "test_date_date2num_numpy",
+      "docstring": null
+    },
+    {
+      "name": "test_date2num_NaT",
+      "docstring": null
+    },
+    {
+      "name": "test_date2num_NaT_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_date2num_masked",
+      "docstring": null
+    },
+    {
+      "name": "test_date_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_date_not_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_axhline",
+      "docstring": null
+    },
+    {
+      "name": "test_date_axhspan",
+      "docstring": null
+    },
+    {
+      "name": "test_date_axvspan",
+      "docstring": null
+    },
+    {
+      "name": "test_date_axhline",
+      "docstring": null
+    },
+    {
+      "name": "test_date_axvline",
+      "docstring": null
+    },
+    {
+      "name": "test_too_many_date_ticks",
+      "docstring": null
+    },
+    {
+      "name": "test_RRuleLocator",
+      "docstring": null
+    },
+    {
+      "name": "test_RRuleLocator_dayrange",
+      "docstring": null
+    },
+    {
+      "name": "test_RRuleLocator_close_minmax",
+      "docstring": null
+    },
+    {
+      "name": "test_DateFormatter",
+      "docstring": null
+    },
+    {
+      "name": "test_locator_set_formatter",
+      "docstring": "Test if setting the locator only will update the AutoDateFormatter to use\nthe new locator."
+    },
+    {
+      "name": "test_date_formatter_callable",
+      "docstring": null
+    },
+    {
+      "name": "test_date_formatter_usetex",
+      "docstring": null
+    },
+    {
+      "name": "test_drange",
+      "docstring": "This test should check if drange works as expected, and if all the\nrounding errors are fixed"
+    },
+    {
+      "name": "test_auto_date_locator",
+      "docstring": null
+    },
+    {
+      "name": "test_auto_date_locator_intmult",
+      "docstring": null
+    },
+    {
+      "name": "test_concise_formatter_subsecond",
+      "docstring": null
+    },
+    {
+      "name": "test_concise_formatter",
+      "docstring": null
+    },
+    {
+      "name": "test_concise_formatter_show_offset",
+      "docstring": null
+    },
+    {
+      "name": "test_concise_formatter_show_offset_inverted",
+      "docstring": null
+    },
+    {
+      "name": "test_concise_converter_stays",
+      "docstring": null
+    },
+    {
+      "name": "test_offset_changes",
+      "docstring": null
+    },
+    {
+      "name": "test_concise_formatter_usetex",
+      "docstring": null
+    },
+    {
+      "name": "test_concise_formatter_formats",
+      "docstring": null
+    },
+    {
+      "name": "test_concise_formatter_zformats",
+      "docstring": null
+    },
+    {
+      "name": "test_concise_formatter_tz",
+      "docstring": null
+    },
+    {
+      "name": "test_auto_date_locator_intmult_tz",
+      "docstring": null
+    },
+    {
+      "name": "test_date_inverted_limit",
+      "docstring": null
+    },
+    {
+      "name": "test_date2num_dst",
+      "docstring": null
+    },
+    {
+      "name": "test_date2num_dst_pandas",
+      "docstring": null
+    },
+    {
+      "name": "test_rrulewrapper",
+      "docstring": null
+    },
+    {
+      "name": "test_rrulewrapper_pytz",
+      "docstring": null
+    },
+    {
+      "name": "test_yearlocator_pytz",
+      "docstring": null
+    },
+    {
+      "name": "test_YearLocator",
+      "docstring": null
+    },
+    {
+      "name": "test_DayLocator",
+      "docstring": null
+    },
+    {
+      "name": "test_tz_utc",
+      "docstring": null
+    },
+    {
+      "name": "test_num2timedelta",
+      "docstring": null
+    },
+    {
+      "name": "test_datetime64_in_list",
+      "docstring": null
+    },
+    {
+      "name": "test_change_epoch",
+      "docstring": null
+    },
+    {
+      "name": "test_warn_notintervals",
+      "docstring": null
+    },
+    {
+      "name": "test_change_converter",
+      "docstring": null
+    },
+    {
+      "name": "test_change_interval_multiples",
+      "docstring": null
+    },
+    {
+      "name": "test_DateLocator",
+      "docstring": null
+    },
+    {
+      "name": "test_datestr2num",
+      "docstring": null
+    },
+    {
+      "name": "test_concise_formatter_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_concise_formatter_call",
+      "docstring": null
+    },
+    {
+      "name": "test_datetime_masked",
+      "docstring": null
+    },
+    {
+      "name": "test_num2date_error",
+      "docstring": null
+    },
+    {
+      "name": "test_num2date_roundoff",
+      "docstring": null
+    },
+    {
+      "name": "test_DateFormatter_settz",
+      "docstring": null
+    },
+    {
+      "name": "wrapper",
+      "docstring": null
+    },
+    {
+      "name": "callable_formatting_function",
+      "docstring": null
+    },
+    {
+      "name": "date_range",
+      "docstring": null
+    },
+    {
+      "name": "tz_convert",
+      "docstring": null
+    },
+    {
+      "name": "tz_convert",
+      "docstring": null
+    },
+    {
+      "name": "attach_tz",
+      "docstring": null
+    },
+    {
+      "name": "attach_tz",
+      "docstring": null
+    },
+    {
+      "name": "astimezone",
+      "docstring": null
+    },
+    {
+      "name": "mk_tzaware",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

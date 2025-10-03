@@ -1,0 +1,15 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\macCreatorType.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "getMacCreatorAndType",
+      "docstring": "Returns file creator and file type codes for a path.\n\nArgs:\n        path (str): A file path.\n\nReturns:\n        A tuple of two :py:class:`fontTools.textTools.Tag` objects, the first\n        representing the file creator and the second representing the\n        file type."
+    },
+    {
+      "name": "setMacCreatorAndType",
+      "docstring": "Set file creator and file type codes for a path.\n\nNote that if the ``xattr`` module is not installed, no action is\ntaken but no error is raised.\n\nArgs:\n        path (str): A file path.\n        fileCreator: A four-character file creator tag.\n        fileType: A four-character file type tag."
+    }
+  ],
+  "innovations": []
+}

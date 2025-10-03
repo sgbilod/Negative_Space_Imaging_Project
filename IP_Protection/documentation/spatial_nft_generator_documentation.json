@@ -1,0 +1,200 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\revenue\\dynamic_nft\\spatial_nft_generator.py",
+  "classes": [
+    {
+      "name": "SpatialColorPalette",
+      "docstring": "Generates color palettes based on spatial coordinates.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a spatial color palette.\n\nArgs:\n    seed_coordinates: Optional coordinates to seed the palette"
+        },
+        {
+          "name": "get_color_at_position",
+          "docstring": "Get a color from the palette based on a position parameter.\n\nArgs:\n    position: A value between 0 and 1 representing the position in the palette\n    \nReturns:\n    RGB color tuple"
+        },
+        {
+          "name": "get_palette",
+          "docstring": "Get the full palette."
+        }
+      ]
+    },
+    {
+      "name": "CelestialNoiseGenerator",
+      "docstring": "Generates spatial noise patterns based on celestial positions.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a celestial noise generator.\n\nArgs:\n    seed: Optional seed for the noise generator"
+        },
+        {
+          "name": "perlin_noise_2d",
+          "docstring": "Generate a 2D Perlin noise value.\n\nArgs:\n    x: X coordinate\n    y: Y coordinate\n    scale: Scale factor for the noise\n    \nReturns:\n    Noise value between 0 and 1"
+        },
+        {
+          "name": "celestial_noise",
+          "docstring": "Generate noise based on celestial positions.\n\nArgs:\n    x: X coordinate\n    y: Y coordinate\n    celestial_positions: Dictionary of celestial object positions\n    \nReturns:\n    Noise value between 0 and 1"
+        }
+      ]
+    },
+    {
+      "name": "NFTCompositionEngine",
+      "docstring": "Engine for composing NFT art from spatial data.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the NFT composition engine."
+        },
+        {
+          "name": "generate_composition",
+          "docstring": "Generate an NFT composition from spatial data.\n\nArgs:\n    spatial_data: Spatial data to use for the composition\n    width: Width of the composition\n    height: Height of the composition\n    \nReturns:\n    Composition data"
+        }
+      ]
+    },
+    {
+      "name": "SpatialNFTMetadata",
+      "docstring": "Generates and manages metadata for spatial NFTs.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the spatial NFT metadata generator."
+        },
+        {
+          "name": "generate_metadata",
+          "docstring": "Generate metadata for an NFT.\n\nArgs:\n    composition: NFT composition data\n    title: Optional title for the NFT\n    description: Optional description for the NFT\n    artist: Optional artist name\n    \nReturns:\n    NFT metadata"
+        }
+      ]
+    },
+    {
+      "name": "DynamicNFTEvolution",
+      "docstring": "Manages the evolution of dynamic NFTs over time.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the dynamic NFT evolution manager."
+        },
+        {
+          "name": "calculate_evolution",
+          "docstring": "Calculate how an NFT should evolve based on time and rules.\n\nArgs:\n    original_composition: The original NFT composition\n    current_time: The current time\n    evolution_rules: Optional rules for the evolution\n    \nReturns:\n    Updated composition"
+        }
+      ]
+    },
+    {
+      "name": "SpatialNFTRenderer",
+      "docstring": "Renders NFT art based on composition data.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the spatial NFT renderer."
+        },
+        {
+          "name": "render_preview",
+          "docstring": "Generate a simple ASCII art preview of the composition.\n\nArgs:\n    composition: NFT composition data\n    \nReturns:\n    ASCII art preview"
+        },
+        {
+          "name": "render_to_image",
+          "docstring": "Render the composition to an image.\n\nArgs:\n    composition: NFT composition data\n    \nReturns:\n    Image data as bytes"
+        }
+      ]
+    },
+    {
+      "name": "SpatialNFTMinter",
+      "docstring": "Mints NFTs on blockchain from spatial compositions.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the spatial NFT minter.\n\nArgs:\n    blockchain_connector: Optional blockchain connector"
+        },
+        {
+          "name": "mint_nft",
+          "docstring": "Mint an NFT from a composition.\n\nArgs:\n    composition: NFT composition data\n    metadata: NFT metadata\n    owner_address: Blockchain address of the owner\n    \nReturns:\n    Minting result"
+        },
+        {
+          "name": "update_nft",
+          "docstring": "Update an existing NFT.\n\nArgs:\n    token_id: ID of the token to update\n    new_composition: New composition data\n    new_metadata: New metadata\n    owner_address: Blockchain address of the owner\n    \nReturns:\n    Update result"
+        }
+      ]
+    },
+    {
+      "name": "DynamicSpatialNFTArtGenerator",
+      "docstring": "Main class for generating dynamic spatial NFT art.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the dynamic spatial NFT art generator.\n\nArgs:\n    blockchain_connector: Optional blockchain connector"
+        },
+        {
+          "name": "generate_nft",
+          "docstring": "Generate a complete NFT from spatial data.\n\nArgs:\n    spatial_data: Spatial data to use for the NFT\n    title: Optional title for the NFT\n    description: Optional description for the NFT\n    artist: Optional artist name\n    owner_address: Optional blockchain address of the owner\n    \nReturns:\n    NFT generation result"
+        },
+        {
+          "name": "evolve_nft",
+          "docstring": "Evolve an existing NFT.\n\nArgs:\n    token_id: ID of the token to evolve\n    owner_address: Blockchain address of the owner\n    evolution_rules: Optional rules for the evolution\n    \nReturns:\n    Evolution result"
+        },
+        {
+          "name": "create_nft_collection",
+          "docstring": "Create a collection of related NFTs.\n\nArgs:\n    theme: Theme for the collection\n    count: Number of NFTs to create\n    artist: Optional artist name\n    owner_address: Optional blockchain address of the owner\n    \nReturns:\n    List of NFT generation results"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_color_at_position",
+      "docstring": "Get a color from the palette based on a position parameter.\n\nArgs:\n    position: A value between 0 and 1 representing the position in the palette\n    \nReturns:\n    RGB color tuple"
+    },
+    {
+      "name": "get_palette",
+      "docstring": "Get the full palette."
+    },
+    {
+      "name": "perlin_noise_2d",
+      "docstring": "Generate a 2D Perlin noise value.\n\nArgs:\n    x: X coordinate\n    y: Y coordinate\n    scale: Scale factor for the noise\n    \nReturns:\n    Noise value between 0 and 1"
+    },
+    {
+      "name": "celestial_noise",
+      "docstring": "Generate noise based on celestial positions.\n\nArgs:\n    x: X coordinate\n    y: Y coordinate\n    celestial_positions: Dictionary of celestial object positions\n    \nReturns:\n    Noise value between 0 and 1"
+    },
+    {
+      "name": "generate_composition",
+      "docstring": "Generate an NFT composition from spatial data.\n\nArgs:\n    spatial_data: Spatial data to use for the composition\n    width: Width of the composition\n    height: Height of the composition\n    \nReturns:\n    Composition data"
+    },
+    {
+      "name": "generate_metadata",
+      "docstring": "Generate metadata for an NFT.\n\nArgs:\n    composition: NFT composition data\n    title: Optional title for the NFT\n    description: Optional description for the NFT\n    artist: Optional artist name\n    \nReturns:\n    NFT metadata"
+    },
+    {
+      "name": "calculate_evolution",
+      "docstring": "Calculate how an NFT should evolve based on time and rules.\n\nArgs:\n    original_composition: The original NFT composition\n    current_time: The current time\n    evolution_rules: Optional rules for the evolution\n    \nReturns:\n    Updated composition"
+    },
+    {
+      "name": "render_preview",
+      "docstring": "Generate a simple ASCII art preview of the composition.\n\nArgs:\n    composition: NFT composition data\n    \nReturns:\n    ASCII art preview"
+    },
+    {
+      "name": "render_to_image",
+      "docstring": "Render the composition to an image.\n\nArgs:\n    composition: NFT composition data\n    \nReturns:\n    Image data as bytes"
+    },
+    {
+      "name": "mint_nft",
+      "docstring": "Mint an NFT from a composition.\n\nArgs:\n    composition: NFT composition data\n    metadata: NFT metadata\n    owner_address: Blockchain address of the owner\n    \nReturns:\n    Minting result"
+    },
+    {
+      "name": "update_nft",
+      "docstring": "Update an existing NFT.\n\nArgs:\n    token_id: ID of the token to update\n    new_composition: New composition data\n    new_metadata: New metadata\n    owner_address: Blockchain address of the owner\n    \nReturns:\n    Update result"
+    },
+    {
+      "name": "generate_nft",
+      "docstring": "Generate a complete NFT from spatial data.\n\nArgs:\n    spatial_data: Spatial data to use for the NFT\n    title: Optional title for the NFT\n    description: Optional description for the NFT\n    artist: Optional artist name\n    owner_address: Optional blockchain address of the owner\n    \nReturns:\n    NFT generation result"
+    },
+    {
+      "name": "evolve_nft",
+      "docstring": "Evolve an existing NFT.\n\nArgs:\n    token_id: ID of the token to evolve\n    owner_address: Blockchain address of the owner\n    evolution_rules: Optional rules for the evolution\n    \nReturns:\n    Evolution result"
+    },
+    {
+      "name": "create_nft_collection",
+      "docstring": "Create a collection of related NFTs.\n\nArgs:\n    theme: Theme for the collection\n    count: Number of NFTs to create\n    artist: Optional artist name\n    owner_address: Optional blockchain address of the owner\n    \nReturns:\n    List of NFT generation results"
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,19 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\varLib\\stat.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "buildVFStatTable",
+      "docstring": "Build the STAT table for the variable font identified by its name in\nthe given document.\n\nKnowing which variable we're building STAT data for is needed to subset\nthe STAT locations to only include what the variable font actually ships.\n\n.. versionadded:: 5.0\n\n.. seealso::\n    - :func:`getStatAxes()`\n    - :func:`getStatLocations()`\n    - :func:`fontTools.otlLib.builder.buildStatTable()`"
+    },
+    {
+      "name": "getStatAxes",
+      "docstring": "Return a list of axis dicts suitable for use as the ``axes``\nargument to :func:`fontTools.otlLib.builder.buildStatTable()`.\n\n.. versionadded:: 5.0"
+    },
+    {
+      "name": "getStatLocations",
+      "docstring": "Return a list of location dicts suitable for use as the ``locations``\nargument to :func:`fontTools.otlLib.builder.buildStatTable()`.\n\n.. versionadded:: 5.0"
+    }
+  ],
+  "innovations": []
+}

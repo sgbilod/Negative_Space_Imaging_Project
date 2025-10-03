@@ -1,0 +1,450 @@
+version: '3.8'
+
+# Docker Compose configuration for Negative Space Imaging Project
+# This is a template for multi-node deployment
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+  data:
+    driver: bridge
+
+volumes:
+  data:
+    driver: local
+  models:
+    driver: local
+  processing:
+    driver: local
+  postgres_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+
+services:
+  # API Gateway Service
+  api-gateway:
+    image: ${REGISTRY:-localhost}/negativespaceimagingproject/api-gateway:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: deployment/dockerfiles/api-gateway.Dockerfile
+    ports:
+      - '8080:8080'
+      - '8443:8443'
+    environment:
+      - LOG_LEVEL=INFO
+      - API_PORT=8080
+      - SSL_ENABLED=true
+      - SECURITY_SERVICE_URL=http://security:8443
+      - IMAGE_PROCESSING_SERVICE_URL=http://image-processing:9000
+      - DATA_STORAGE_SERVICE_URL=http://data-storage:8000
+      - DISTRIBUTED_COMPUTING_SERVICE_URL=http://distributed-computing:8787
+      - DATABASE_HOST=database
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=nsi
+      - DATABASE_USER=nsi_user
+      - DATABASE_PASSWORD_FILE=/run/secrets/db_password
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - security
+      - image-processing
+      - data-storage
+      - distributed-computing
+      - database
+    deploy:
+      mode: replicated
+      replicas: 2
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+        reservations:
+          cpus: '1'
+          memory: 2G
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+    secrets:
+      - db_password
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:8080/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Image Processing Service
+  image-processing:
+    image: ${REGISTRY:-localhost}/negativespaceimagingproject/image-processing:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: deployment/dockerfiles/image-processing.Dockerfile
+    ports:
+      - '9000:9000'
+    environment:
+      - LOG_LEVEL=INFO
+      - PROCESSING_PORT=9000
+      - GPU_ENABLED=true
+      - MAX_BATCH_SIZE=8
+      - SECURITY_SERVICE_URL=http://security:8443
+      - DATA_STORAGE_SERVICE_URL=http://data-storage:8000
+    volumes:
+      - models:/app/models:ro
+      - processing:/app/processing
+      - data:/app/data
+    networks:
+      - backend
+      - data
+    depends_on:
+      - security
+      - data-storage
+    deploy:
+      mode: replicated
+      replicas: 2
+      resources:
+        limits:
+          cpus: '8'
+          memory: 16G
+        reservations:
+          cpus: '4'
+          memory: 8G
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:9000/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Data Storage Service
+  data-storage:
+    image: ${REGISTRY:-localhost}/negativespaceimagingproject/data-storage:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: deployment/dockerfiles/data-storage.Dockerfile
+    ports:
+      - '8000:8000'
+    environment:
+      - LOG_LEVEL=INFO
+      - STORAGE_PORT=8000
+      - DATA_PATH=/app/data
+      - SECURITY_SERVICE_URL=http://security:8443
+      - DATABASE_HOST=database
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=nsi
+      - DATABASE_USER=nsi_user
+      - DATABASE_PASSWORD_FILE=/run/secrets/db_password
+    volumes:
+      - data:/app/data
+    networks:
+      - backend
+      - data
+    depends_on:
+      - security
+      - database
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          cpus: '2'
+          memory: 8G
+        reservations:
+          cpus: '1'
+          memory: 4G
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+    secrets:
+      - db_password
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:8000/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Distributed Computing Service
+  distributed-computing:
+    image: ${REGISTRY:-localhost}/negativespaceimagingproject/distributed-computing:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: deployment/dockerfiles/distributed-computing.Dockerfile
+    ports:
+      - '8787:8787'
+      - '8786:8786'
+    environment:
+      - LOG_LEVEL=INFO
+      - SCHEDULER_PORT=8787
+      - NUM_WORKERS=4
+      - SECURITY_SERVICE_URL=http://security:8443
+      - DATA_STORAGE_SERVICE_URL=http://data-storage:8000
+    volumes:
+      - data:/app/data
+      - processing:/app/processing
+    networks:
+      - backend
+      - data
+    depends_on:
+      - security
+      - data-storage
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          cpus: '4'
+          memory: 16G
+        reservations:
+          cpus: '2'
+          memory: 8G
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:8787/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Security Service
+  security:
+    image: ${REGISTRY:-localhost}/negativespaceimagingproject/security:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: deployment/dockerfiles/security.Dockerfile
+    ports:
+      - '8443:8443'
+    environment:
+      - LOG_LEVEL=INFO
+      - SECURITY_PORT=8443
+      - CONFIG_PATH=/app/config
+      - JWT_EXPIRY=3600
+      - DATABASE_HOST=database
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=nsi
+      - DATABASE_USER=nsi_user
+      - DATABASE_PASSWORD_FILE=/run/secrets/db_password
+    volumes:
+      - type: bind
+        source: ./security_config.json
+        target: /app/config/security_config.json
+        read_only: true
+    networks:
+      - backend
+    depends_on:
+      - database
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 1G
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+    secrets:
+      - db_password
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:8443/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Database Service
+  database:
+    image: ${REGISTRY:-localhost}/negativespaceimagingproject/database:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: deployment/dockerfiles/database.Dockerfile
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_DB=nsi
+      - POSTGRES_USER=nsi_user
+      - POSTGRES_PASSWORD_FILE=/run/secrets/db_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+      - data
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+        reservations:
+          cpus: '1'
+          memory: 2G
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+    secrets:
+      - db_password
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U nsi_user -d nsi']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # Monitoring: Prometheus
+  prometheus:
+    image: prom/prometheus:v2.40.0
+    ports:
+      - '9090:9090'
+    volumes:
+      - type: bind
+        source: ./deployment/monitoring/prometheus.yml
+        target: /etc/prometheus/prometheus.yml
+        read_only: true
+      - prometheus_data:/prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention.time=15d
+      - --web.console.libraries=/usr/share/prometheus/console_libraries
+      - --web.console.templates=/usr/share/prometheus/consoles
+    networks:
+      - backend
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 1G
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+
+  # Monitoring: Grafana
+  grafana:
+    image: grafana/grafana:9.3.0
+    ports:
+      - '3000:3000'
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=changeme
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_SERVER_DOMAIN=localhost
+      - GF_INSTALL_PLUGINS=grafana-piechart-panel,grafana-worldmap-panel
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - type: bind
+        source: ./deployment/monitoring/dashboards
+        target: /etc/grafana/dashboards
+        read_only: true
+      - type: bind
+        source: ./deployment/monitoring/datasources
+        target: /etc/grafana/provisioning/datasources
+        read_only: true
+      - type: bind
+        source: ./deployment/monitoring/dashboard-providers
+        target: /etc/grafana/provisioning/dashboards
+        read_only: true
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - prometheus
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+        reservations:
+          cpus: '0.2'
+          memory: 512M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+
+  # Logging: Loki
+  loki:
+    image: grafana/loki:2.7.0
+    ports:
+      - '3100:3100'
+    command: -config.file=/etc/loki/local-config.yaml
+    volumes:
+      - type: bind
+        source: ./deployment/logging/loki-config.yaml
+        target: /etc/loki/local-config.yaml
+        read_only: true
+    networks:
+      - backend
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 1G
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+
+  # Logging: Promtail
+  promtail:
+    image: grafana/promtail:2.7.0
+    volumes:
+      - type: bind
+        source: ./deployment/logging/promtail-config.yaml
+        target: /etc/promtail/config.yaml
+        read_only: true
+      - type: bind
+        source: /var/log
+        target: /var/log
+        read_only: true
+      - type: bind
+        source: /var/lib/docker/containers
+        target: /var/lib/docker/containers
+        read_only: true
+    command: -config.file=/etc/promtail/config.yaml
+    networks:
+      - backend
+    depends_on:
+      - loki
+    deploy:
+      mode: global
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+        reservations:
+          cpus: '0.2'
+          memory: 512M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+
+secrets:
+  db_password:
+    file: ./deployment/secrets/db_password.txt

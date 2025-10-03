@@ -1,0 +1,266 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\fontBuilder.py",
+  "classes": [
+    {
+      "name": "FontBuilder",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a FontBuilder instance.\n\nIf the `font` argument is not given, a new `TTFont` will be\nconstructed, and `unitsPerEm` must be given. If `isTTF` is True,\nthe font will be a glyf-based TTF; if `isTTF` is False it will be\na CFF-based OTF.\n\nThe `glyphDataFormat` argument corresponds to the `head` table field\nthat defines the format of the TrueType `glyf` table (default=0).\nTrueType glyphs historically can only contain quadratic splines and static\ncomponents, but there's a proposal to add support for cubic Bezier curves as well\nas variable composites/components at\nhttps://github.com/harfbuzz/boring-expansion-spec/blob/main/glyf1.md\nYou can experiment with the new features by setting `glyphDataFormat` to 1.\nA ValueError is raised if `glyphDataFormat` is left at 0 but glyphs are added\nthat contain cubic splines or varcomposites. This is to prevent accidentally\ncreating fonts that are incompatible with existing TrueType implementations.\n\nIf `font` is given, it must be a `TTFont` instance and `unitsPerEm`\nmust _not_ be given. The `isTTF` and `glyphDataFormat` arguments will be ignored."
+        },
+        {
+          "name": "save",
+          "docstring": "Save the font. The 'file' argument can be either a pathname or a\nwritable file object."
+        },
+        {
+          "name": "setupHead",
+          "docstring": "Create a new `head` table and initialize it with default values,\nwhich can be overridden by keyword arguments."
+        },
+        {
+          "name": "updateHead",
+          "docstring": "Update the head table with the fields and values passed as\nkeyword arguments."
+        },
+        {
+          "name": "setupGlyphOrder",
+          "docstring": "Set the glyph order for the font."
+        },
+        {
+          "name": "setupCharacterMap",
+          "docstring": "Build the `cmap` table for the font. The `cmapping` argument should\nbe a dict mapping unicode code points as integers to glyph names.\n\nThe `uvs` argument, when passed, must be a list of tuples, describing\nUnicode Variation Sequences. These tuples have three elements:\n    (unicodeValue, variationSelector, glyphName)\n`unicodeValue` and `variationSelector` are integer code points.\n`glyphName` may be None, to indicate this is the default variation.\nText processors will then use the cmap to find the glyph name.\nEach Unicode Variation Sequence should be an officially supported\nsequence, but this is not policed."
+        },
+        {
+          "name": "setupNameTable",
+          "docstring": "Create the `name` table for the font. The `nameStrings` argument must\nbe a dict, mapping nameIDs or descriptive names for the nameIDs to name\nrecord values. A value is either a string, or a dict, mapping language codes\nto strings, to allow localized name table entries.\n\nBy default, both Windows (platformID=3) and Macintosh (platformID=1) name\nrecords are added, unless any of `windows` or `mac` arguments is False.\n\nThe following descriptive names are available for nameIDs:\n\n    copyright (nameID 0)\n    familyName (nameID 1)\n    styleName (nameID 2)\n    uniqueFontIdentifier (nameID 3)\n    fullName (nameID 4)\n    version (nameID 5)\n    psName (nameID 6)\n    trademark (nameID 7)\n    manufacturer (nameID 8)\n    designer (nameID 9)\n    description (nameID 10)\n    vendorURL (nameID 11)\n    designerURL (nameID 12)\n    licenseDescription (nameID 13)\n    licenseInfoURL (nameID 14)\n    typographicFamily (nameID 16)\n    typographicSubfamily (nameID 17)\n    compatibleFullName (nameID 18)\n    sampleText (nameID 19)\n    postScriptCIDFindfontName (nameID 20)\n    wwsFamilyName (nameID 21)\n    wwsSubfamilyName (nameID 22)\n    lightBackgroundPalette (nameID 23)\n    darkBackgroundPalette (nameID 24)\n    variationsPostScriptNamePrefix (nameID 25)"
+        },
+        {
+          "name": "setupOS2",
+          "docstring": "Create a new `OS/2` table and initialize it with default values,\nwhich can be overridden by keyword arguments."
+        },
+        {
+          "name": "setupCFF",
+          "docstring": null
+        },
+        {
+          "name": "setupCFF2",
+          "docstring": null
+        },
+        {
+          "name": "setupCFF2Regions",
+          "docstring": null
+        },
+        {
+          "name": "setupGlyf",
+          "docstring": "Create the `glyf` table from a dict, that maps glyph names\nto `fontTools.ttLib.tables._g_l_y_f.Glyph` objects, for example\nas made by `fontTools.pens.ttGlyphPen.TTGlyphPen`.\n\nIf `calcGlyphBounds` is True, the bounds of all glyphs will be\ncalculated. Only pass False if your glyph objects already have\ntheir bounding box values set.\n\nIf `validateGlyphFormat` is True, raise ValueError if any of the glyphs contains\ncubic curves or is a variable composite but head.glyphDataFormat=0.\nSet it to False to skip the check if you know in advance all the glyphs are\ncompatible with the specified glyphDataFormat."
+        },
+        {
+          "name": "setupFvar",
+          "docstring": "Adds an font variations table to the font.\n\nArgs:\n    axes (list): See below.\n    instances (list): See below.\n\n``axes`` should be a list of axes, with each axis either supplied as\na py:class:`.designspaceLib.AxisDescriptor` object, or a tuple in the\nformat ```tupletag, minValue, defaultValue, maxValue, name``.\nThe ``name`` is either a string, or a dict, mapping language codes\nto strings, to allow localized name table entries.\n\n```instances`` should be a list of instances, with each instance either\nsupplied as a py:class:`.designspaceLib.InstanceDescriptor` object, or a\ndict with keys ``location`` (mapping of axis tags to float values),\n``stylename`` and (optionally) ``postscriptfontname``.\nThe ``stylename`` is either a string, or a dict, mapping language codes\nto strings, to allow localized name table entries."
+        },
+        {
+          "name": "setupAvar",
+          "docstring": "Adds an axis variations table to the font.\n\nArgs:\n    axes (list): A list of py:class:`.designspaceLib.AxisDescriptor` objects."
+        },
+        {
+          "name": "setupGvar",
+          "docstring": null
+        },
+        {
+          "name": "setupGVAR",
+          "docstring": null
+        },
+        {
+          "name": "calcGlyphBounds",
+          "docstring": "Calculate the bounding boxes of all glyphs in the `glyf` table.\nThis is usually not called explicitly by client code."
+        },
+        {
+          "name": "setupHorizontalMetrics",
+          "docstring": "Create a new `hmtx` table, for horizontal metrics.\n\nThe `metrics` argument must be a dict, mapping glyph names to\n`(width, leftSidebearing)` tuples."
+        },
+        {
+          "name": "setupVerticalMetrics",
+          "docstring": "Create a new `vmtx` table, for horizontal metrics.\n\nThe `metrics` argument must be a dict, mapping glyph names to\n`(height, topSidebearing)` tuples."
+        },
+        {
+          "name": "setupMetrics",
+          "docstring": "See `setupHorizontalMetrics()` and `setupVerticalMetrics()`."
+        },
+        {
+          "name": "setupHorizontalHeader",
+          "docstring": "Create a new `hhea` table initialize it with default values,\nwhich can be overridden by keyword arguments."
+        },
+        {
+          "name": "setupVerticalHeader",
+          "docstring": "Create a new `vhea` table initialize it with default values,\nwhich can be overridden by keyword arguments."
+        },
+        {
+          "name": "setupVerticalOrigins",
+          "docstring": "Create a new `VORG` table. The `verticalOrigins` argument must be\na dict, mapping glyph names to vertical origin values.\n\nThe `defaultVerticalOrigin` argument should be the most common vertical\norigin value. If omitted, this value will be derived from the actual\nvalues in the `verticalOrigins` argument."
+        },
+        {
+          "name": "setupPost",
+          "docstring": "Create a new `post` table and initialize it with default values,\nwhich can be overridden by keyword arguments."
+        },
+        {
+          "name": "setupMaxp",
+          "docstring": "Create a new `maxp` table. This is called implicitly by FontBuilder\nitself and is usually not called by client code."
+        },
+        {
+          "name": "setupDummyDSIG",
+          "docstring": "This adds an empty DSIG table to the font to make some MS applications\nhappy. This does not properly sign the font."
+        },
+        {
+          "name": "addOpenTypeFeatures",
+          "docstring": "Add OpenType features to the font from a string containing\nFeature File syntax.\n\nThe `filename` argument is used in error messages and to determine\nwhere to look for \"include\" files.\n\nThe optional `tables` argument can be a list of OTL tables tags to\nbuild, allowing the caller to only build selected OTL tables. See\n`fontTools.feaLib` for details.\n\nThe optional `debug` argument controls whether to add source debugging\ninformation to the font in the `Debg` table."
+        },
+        {
+          "name": "addFeatureVariations",
+          "docstring": "Add conditional substitutions to a Variable Font.\n\nSee `fontTools.varLib.featureVars.addFeatureVariations`."
+        },
+        {
+          "name": "setupCOLR",
+          "docstring": "Build new COLR table using color layers dictionary.\n\nCf. `fontTools.colorLib.builder.buildCOLR`."
+        },
+        {
+          "name": "setupCPAL",
+          "docstring": "Build new CPAL table using list of palettes.\n\nOptionally build CPAL v1 table using paletteTypes, paletteLabels and\npaletteEntryLabels.\n\nCf. `fontTools.colorLib.builder.buildCPAL`."
+        },
+        {
+          "name": "setupStat",
+          "docstring": "Build a new 'STAT' table.\n\nSee `fontTools.otlLib.builder.buildStatTable` for details about\nthe arguments."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "buildCmapSubTable",
+      "docstring": null
+    },
+    {
+      "name": "addFvar",
+      "docstring": null
+    },
+    {
+      "name": "save",
+      "docstring": "Save the font. The 'file' argument can be either a pathname or a\nwritable file object."
+    },
+    {
+      "name": "setupHead",
+      "docstring": "Create a new `head` table and initialize it with default values,\nwhich can be overridden by keyword arguments."
+    },
+    {
+      "name": "updateHead",
+      "docstring": "Update the head table with the fields and values passed as\nkeyword arguments."
+    },
+    {
+      "name": "setupGlyphOrder",
+      "docstring": "Set the glyph order for the font."
+    },
+    {
+      "name": "setupCharacterMap",
+      "docstring": "Build the `cmap` table for the font. The `cmapping` argument should\nbe a dict mapping unicode code points as integers to glyph names.\n\nThe `uvs` argument, when passed, must be a list of tuples, describing\nUnicode Variation Sequences. These tuples have three elements:\n    (unicodeValue, variationSelector, glyphName)\n`unicodeValue` and `variationSelector` are integer code points.\n`glyphName` may be None, to indicate this is the default variation.\nText processors will then use the cmap to find the glyph name.\nEach Unicode Variation Sequence should be an officially supported\nsequence, but this is not policed."
+    },
+    {
+      "name": "setupNameTable",
+      "docstring": "Create the `name` table for the font. The `nameStrings` argument must\nbe a dict, mapping nameIDs or descriptive names for the nameIDs to name\nrecord values. A value is either a string, or a dict, mapping language codes\nto strings, to allow localized name table entries.\n\nBy default, both Windows (platformID=3) and Macintosh (platformID=1) name\nrecords are added, unless any of `windows` or `mac` arguments is False.\n\nThe following descriptive names are available for nameIDs:\n\n    copyright (nameID 0)\n    familyName (nameID 1)\n    styleName (nameID 2)\n    uniqueFontIdentifier (nameID 3)\n    fullName (nameID 4)\n    version (nameID 5)\n    psName (nameID 6)\n    trademark (nameID 7)\n    manufacturer (nameID 8)\n    designer (nameID 9)\n    description (nameID 10)\n    vendorURL (nameID 11)\n    designerURL (nameID 12)\n    licenseDescription (nameID 13)\n    licenseInfoURL (nameID 14)\n    typographicFamily (nameID 16)\n    typographicSubfamily (nameID 17)\n    compatibleFullName (nameID 18)\n    sampleText (nameID 19)\n    postScriptCIDFindfontName (nameID 20)\n    wwsFamilyName (nameID 21)\n    wwsSubfamilyName (nameID 22)\n    lightBackgroundPalette (nameID 23)\n    darkBackgroundPalette (nameID 24)\n    variationsPostScriptNamePrefix (nameID 25)"
+    },
+    {
+      "name": "setupOS2",
+      "docstring": "Create a new `OS/2` table and initialize it with default values,\nwhich can be overridden by keyword arguments."
+    },
+    {
+      "name": "setupCFF",
+      "docstring": null
+    },
+    {
+      "name": "setupCFF2",
+      "docstring": null
+    },
+    {
+      "name": "setupCFF2Regions",
+      "docstring": null
+    },
+    {
+      "name": "setupGlyf",
+      "docstring": "Create the `glyf` table from a dict, that maps glyph names\nto `fontTools.ttLib.tables._g_l_y_f.Glyph` objects, for example\nas made by `fontTools.pens.ttGlyphPen.TTGlyphPen`.\n\nIf `calcGlyphBounds` is True, the bounds of all glyphs will be\ncalculated. Only pass False if your glyph objects already have\ntheir bounding box values set.\n\nIf `validateGlyphFormat` is True, raise ValueError if any of the glyphs contains\ncubic curves or is a variable composite but head.glyphDataFormat=0.\nSet it to False to skip the check if you know in advance all the glyphs are\ncompatible with the specified glyphDataFormat."
+    },
+    {
+      "name": "setupFvar",
+      "docstring": "Adds an font variations table to the font.\n\nArgs:\n    axes (list): See below.\n    instances (list): See below.\n\n``axes`` should be a list of axes, with each axis either supplied as\na py:class:`.designspaceLib.AxisDescriptor` object, or a tuple in the\nformat ```tupletag, minValue, defaultValue, maxValue, name``.\nThe ``name`` is either a string, or a dict, mapping language codes\nto strings, to allow localized name table entries.\n\n```instances`` should be a list of instances, with each instance either\nsupplied as a py:class:`.designspaceLib.InstanceDescriptor` object, or a\ndict with keys ``location`` (mapping of axis tags to float values),\n``stylename`` and (optionally) ``postscriptfontname``.\nThe ``stylename`` is either a string, or a dict, mapping language codes\nto strings, to allow localized name table entries."
+    },
+    {
+      "name": "setupAvar",
+      "docstring": "Adds an axis variations table to the font.\n\nArgs:\n    axes (list): A list of py:class:`.designspaceLib.AxisDescriptor` objects."
+    },
+    {
+      "name": "setupGvar",
+      "docstring": null
+    },
+    {
+      "name": "setupGVAR",
+      "docstring": null
+    },
+    {
+      "name": "calcGlyphBounds",
+      "docstring": "Calculate the bounding boxes of all glyphs in the `glyf` table.\nThis is usually not called explicitly by client code."
+    },
+    {
+      "name": "setupHorizontalMetrics",
+      "docstring": "Create a new `hmtx` table, for horizontal metrics.\n\nThe `metrics` argument must be a dict, mapping glyph names to\n`(width, leftSidebearing)` tuples."
+    },
+    {
+      "name": "setupVerticalMetrics",
+      "docstring": "Create a new `vmtx` table, for horizontal metrics.\n\nThe `metrics` argument must be a dict, mapping glyph names to\n`(height, topSidebearing)` tuples."
+    },
+    {
+      "name": "setupMetrics",
+      "docstring": "See `setupHorizontalMetrics()` and `setupVerticalMetrics()`."
+    },
+    {
+      "name": "setupHorizontalHeader",
+      "docstring": "Create a new `hhea` table initialize it with default values,\nwhich can be overridden by keyword arguments."
+    },
+    {
+      "name": "setupVerticalHeader",
+      "docstring": "Create a new `vhea` table initialize it with default values,\nwhich can be overridden by keyword arguments."
+    },
+    {
+      "name": "setupVerticalOrigins",
+      "docstring": "Create a new `VORG` table. The `verticalOrigins` argument must be\na dict, mapping glyph names to vertical origin values.\n\nThe `defaultVerticalOrigin` argument should be the most common vertical\norigin value. If omitted, this value will be derived from the actual\nvalues in the `verticalOrigins` argument."
+    },
+    {
+      "name": "setupPost",
+      "docstring": "Create a new `post` table and initialize it with default values,\nwhich can be overridden by keyword arguments."
+    },
+    {
+      "name": "setupMaxp",
+      "docstring": "Create a new `maxp` table. This is called implicitly by FontBuilder\nitself and is usually not called by client code."
+    },
+    {
+      "name": "setupDummyDSIG",
+      "docstring": "This adds an empty DSIG table to the font to make some MS applications\nhappy. This does not properly sign the font."
+    },
+    {
+      "name": "addOpenTypeFeatures",
+      "docstring": "Add OpenType features to the font from a string containing\nFeature File syntax.\n\nThe `filename` argument is used in error messages and to determine\nwhere to look for \"include\" files.\n\nThe optional `tables` argument can be a list of OTL tables tags to\nbuild, allowing the caller to only build selected OTL tables. See\n`fontTools.feaLib` for details.\n\nThe optional `debug` argument controls whether to add source debugging\ninformation to the font in the `Debg` table."
+    },
+    {
+      "name": "addFeatureVariations",
+      "docstring": "Add conditional substitutions to a Variable Font.\n\nSee `fontTools.varLib.featureVars.addFeatureVariations`."
+    },
+    {
+      "name": "setupCOLR",
+      "docstring": "Build new COLR table using color layers dictionary.\n\nCf. `fontTools.colorLib.builder.buildCOLR`."
+    },
+    {
+      "name": "setupCPAL",
+      "docstring": "Build new CPAL table using list of palettes.\n\nOptionally build CPAL v1 table using paletteTypes, paletteLabels and\npaletteEntryLabels.\n\nCf. `fontTools.colorLib.builder.buildCPAL`."
+    },
+    {
+      "name": "setupStat",
+      "docstring": "Build a new 'STAT' table.\n\nSee `fontTools.otlLib.builder.buildStatTable` for details about\nthe arguments."
+    }
+  ],
+  "innovations": []
+}

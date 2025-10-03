@@ -1,0 +1,50 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\authentication_demo.py",
+  "classes": [
+    {
+      "name": "AuthenticationDemo",
+      "docstring": "Demo for authentication using negative space signatures",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the authentication demo\n\nArgs:\n    provider_url: URL of the Ethereum provider\n    contract_address: Address of the deployed contract\n    profiles_dir: Directory for storing authentication profiles"
+        },
+        {
+          "name": "setup_profile",
+          "docstring": "Set up a new authentication profile\n\nArgs:\n    user_id: ID of the user to set up\n    \nReturns:\n    str: Profile ID"
+        },
+        {
+          "name": "authenticate_user",
+          "docstring": "Authenticate a user\n\nArgs:\n    user_id: ID of the user to authenticate\n    \nReturns:\n    bool: True if authentication successful"
+        },
+        {
+          "name": "list_profiles",
+          "docstring": "List all authentication profiles\n\nReturns:\n    List[Dict]: List of profiles"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "parse_args",
+      "docstring": "Parse command line arguments"
+    },
+    {
+      "name": "main",
+      "docstring": "Main function"
+    },
+    {
+      "name": "setup_profile",
+      "docstring": "Set up a new authentication profile\n\nArgs:\n    user_id: ID of the user to set up\n    \nReturns:\n    str: Profile ID"
+    },
+    {
+      "name": "authenticate_user",
+      "docstring": "Authenticate a user\n\nArgs:\n    user_id: ID of the user to authenticate\n    \nReturns:\n    bool: True if authentication successful"
+    },
+    {
+      "name": "list_profiles",
+      "docstring": "List all authentication profiles\n\nReturns:\n    List[Dict]: List of profiles"
+    }
+  ],
+  "innovations": []
+}

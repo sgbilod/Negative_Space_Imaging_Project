@@ -1,0 +1,25 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\core\\imopen.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "imopen",
+      "docstring": "Open an ImageResource.\n\n.. warning::\n    This warning is for pypy users. If you are not using a context manager,\n    remember to deconstruct the returned plugin to avoid leaking the file\n    handle to an unclosed file.\n\nParameters\n----------\nuri : str or pathlib.Path or bytes or file or Request\n    The :doc:`ImageResource <../../user_guide/requests>` to load the\n    image from.\nio_mode : str\n    The mode in which the file is opened. Possible values are::\n\n        ``r`` - open the file for reading\n        ``w`` - open the file for writing\n\n    Depreciated since v2.9:\n    A second character can be added to give the reader a hint on what\n    the user expects. This will be ignored by new plugins and will\n    only have an effect on legacy plugins. Possible values are::\n\n        ``i`` for a single image,\n        ``I`` for multiple images,\n        ``v`` for a single volume,\n        ``V`` for multiple volumes,\n        ``?`` for don't care\n\nplugin : str, Plugin, or None\n    The plugin to use. If set to None imopen will perform a\n    search for a matching plugin. If not None, this takes priority over\n    the provided format hint.\nextension : str\n    If not None, treat the provided ImageResource as if it had the given\n    extension. This affects the order in which backends are considered, and\n    when writing this may also influence the format used when encoding.\nformat_hint : str\n    Deprecated. Use `extension` instead.\nlegacy_mode : bool\n    If true use the v2 behavior when searching for a suitable\n    plugin. This will ignore v3 plugins and will check ``plugin``\n    against known extensions if no plugin with the given name can be found.\n**kwargs : Any\n    Additional keyword arguments will be passed to the plugin upon\n    construction.\n\nNotes\n-----\nRegistered plugins are controlled via the ``known_plugins`` dict in\n``imageio.config``.\n\nPassing a ``Request`` as the uri is only supported if ``legacy_mode``\nis ``True``. In this case ``io_mode`` is ignored.\n\nUsing the kwarg ``format_hint`` does not enforce the given format. It merely\nprovides a `hint` to the selection process and plugin. The selection\nprocesses uses this hint for optimization; however, a plugin's decision how\nto read a ImageResource will - typically - still be based on the content of\nthe resource.\n\n\nExamples\n--------\n\n>>> import imageio.v3 as iio\n>>> with iio.imopen(\"/path/to/image.png\", \"r\") as file:\n>>>     im = file.read()\n\n>>> with iio.imopen(\"/path/to/output.jpg\", \"w\") as file:\n>>>     file.write(im)"
+    },
+    {
+      "name": "loader",
+      "docstring": null
+    },
+    {
+      "name": "loader",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "\n    Using the kwarg ``format_hint`` does not enforce the given format. It merely\n    provides a `hint` to the selection process and plugin. The selection\n    processes uses this hint for optimization; however, a plugin's decision how\n    to read a ImageResource will - typically - still be based on the content of\n    the resource.\n"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\utils\\subprocess.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "make_command",
+      "docstring": "Create a CommandArgs object."
+    },
+    {
+      "name": "format_command_args",
+      "docstring": "Format command arguments for display."
+    },
+    {
+      "name": "reveal_command_args",
+      "docstring": "Return the arguments in their raw, unredacted form."
+    },
+    {
+      "name": "call_subprocess",
+      "docstring": "Args:\n  show_stdout: if true, use INFO to log the subprocess's stderr and\n    stdout streams.  Otherwise, use DEBUG.  Defaults to False.\n  extra_ok_returncodes: an iterable of integer return codes that are\n    acceptable, in addition to 0. Defaults to None, which means [].\n  unset_environ: an iterable of environment variable names to unset\n    prior to calling subprocess.Popen().\n  log_failed_cmd: if false, failed commands are not logged, only raised.\n  stdout_only: if true, return only stdout, else return both. When true,\n    logging of both stdout and stderr occurs when the subprocess has\n    terminated, else logging occurs as subprocess output is produced."
+    },
+    {
+      "name": "runner_with_spinner_message",
+      "docstring": "Provide a subprocess_runner that shows a spinner message.\n\nIntended for use with for BuildBackendHookCaller. Thus, the runner has\nan API that matches what's expected by BuildBackendHookCaller.subprocess_runner."
+    },
+    {
+      "name": "runner",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,1353 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_dtype.py",
+  "classes": [
+    {
+      "name": "TestBuiltin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_run",
+          "docstring": "Only test hash runs at all."
+        },
+        {
+          "name": "test_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_equivalent_dtype_hashing",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_types",
+          "docstring": null
+        },
+        {
+          "name": "test_richcompare_invalid_dtype_equality",
+          "docstring": null
+        },
+        {
+          "name": "test_richcompare_invalid_dtype_comparison",
+          "docstring": null
+        },
+        {
+          "name": "test_numeric_style_types_are_invalid",
+          "docstring": null
+        },
+        {
+          "name": "test_expired_dtypes_with_bad_bytesize",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_bytes_str_equivalence",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_from_bytes",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_param",
+          "docstring": null
+        },
+        {
+          "name": "test_field_order_equality",
+          "docstring": null
+        },
+        {
+          "name": "test_create_string_dtypes_directly",
+          "docstring": null
+        },
+        {
+          "name": "test_create_invalid_string_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_leading_zero_parsing",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestRecord",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_equivalent_record",
+          "docstring": "Test whether equivalent record dtypes hash the same."
+        },
+        {
+          "name": "test_different_names",
+          "docstring": null
+        },
+        {
+          "name": "test_different_titles",
+          "docstring": null
+        },
+        {
+          "name": "test_refcount_dictionary_setting",
+          "docstring": null
+        },
+        {
+          "name": "test_mutate",
+          "docstring": null
+        },
+        {
+          "name": "test_init_simple_structured",
+          "docstring": null
+        },
+        {
+          "name": "test_mutate_error",
+          "docstring": null
+        },
+        {
+          "name": "test_not_lists",
+          "docstring": "Test if an appropriate exception is raised when passing bad values to\nthe dtype constructor."
+        },
+        {
+          "name": "test_aligned_size",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_struct_alignment",
+          "docstring": null
+        },
+        {
+          "name": "test_union_struct",
+          "docstring": null
+        },
+        {
+          "name": "test_subarray_list",
+          "docstring": null
+        },
+        {
+          "name": "test_parenthesized_single_number",
+          "docstring": null
+        },
+        {
+          "name": "test_comma_datetime",
+          "docstring": null
+        },
+        {
+          "name": "test_from_dictproxy",
+          "docstring": null
+        },
+        {
+          "name": "test_from_dict_with_zero_width_field",
+          "docstring": null
+        },
+        {
+          "name": "test_bool_commastring",
+          "docstring": null
+        },
+        {
+          "name": "test_nonint_offsets",
+          "docstring": null
+        },
+        {
+          "name": "test_fields_by_index",
+          "docstring": null
+        },
+        {
+          "name": "test_multifield_index",
+          "docstring": null
+        },
+        {
+          "name": "test_partial_dict",
+          "docstring": null
+        },
+        {
+          "name": "test_fieldless_views",
+          "docstring": null
+        },
+        {
+          "name": "test_nonstructured_with_object",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSubarray",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_single_subarray",
+          "docstring": null
+        },
+        {
+          "name": "test_equivalent_record",
+          "docstring": "Test whether equivalent subarray dtypes hash the same."
+        },
+        {
+          "name": "test_nonequivalent_record",
+          "docstring": "Test whether different subarray dtypes hash differently."
+        },
+        {
+          "name": "test_shape_equal",
+          "docstring": "Test some data types that are equal"
+        },
+        {
+          "name": "test_shape_simple",
+          "docstring": "Test some simple cases that shouldn't be equal"
+        },
+        {
+          "name": "test_shape_monster",
+          "docstring": "Test some more complicated cases that shouldn't be equal"
+        },
+        {
+          "name": "test_shape_sequence",
+          "docstring": null
+        },
+        {
+          "name": "test_shape_matches_ndim",
+          "docstring": null
+        },
+        {
+          "name": "test_shape_invalid",
+          "docstring": null
+        },
+        {
+          "name": "test_alignment",
+          "docstring": null
+        },
+        {
+          "name": "test_aligned_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_subarray_base_item",
+          "docstring": null
+        },
+        {
+          "name": "test_subarray_cast_copies",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestStructuredObjectRefcounting",
+      "docstring": "These tests cover various uses of complicated structured types which\ninclude objects and thus require reference counting.",
+      "methods": [
+        {
+          "name": "test_structured_object_create_delete",
+          "docstring": "Structured object reference counting in creation and deletion"
+        },
+        {
+          "name": "test_structured_object_item_setting",
+          "docstring": "Structured object reference counting for simple item setting"
+        },
+        {
+          "name": "test_structured_object_indexing",
+          "docstring": "Structured object reference counting for advanced indexing."
+        },
+        {
+          "name": "test_structured_object_take_and_repeat",
+          "docstring": "Structured object reference counting for specialized functions.\nThe older functions such as take and repeat use different code paths\nthen item setting (when writing this)."
+        }
+      ]
+    },
+    {
+      "name": "TestStructuredDtypeSparseFields",
+      "docstring": "Tests subarray fields which contain sparse dtypes so that\nnot all memory is used by the dtype work. Such dtype's should\nleave the underlying memory unchanged.",
+      "methods": [
+        {
+          "name": "test_sparse_field_assignment",
+          "docstring": null
+        },
+        {
+          "name": "test_sparse_field_assignment_fancy",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMonsterType",
+      "docstring": "Test deeply nested subtypes.",
+      "methods": [
+        {
+          "name": "test1",
+          "docstring": null
+        },
+        {
+          "name": "test_list_recursion",
+          "docstring": null
+        },
+        {
+          "name": "test_tuple_recursion",
+          "docstring": null
+        },
+        {
+          "name": "test_dict_recursion",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMetadata",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_no_metadata",
+          "docstring": null
+        },
+        {
+          "name": "test_metadata_takes_dict",
+          "docstring": null
+        },
+        {
+          "name": "test_metadata_rejects_nondict",
+          "docstring": null
+        },
+        {
+          "name": "test_nested_metadata",
+          "docstring": null
+        },
+        {
+          "name": "test_base_metadata_copied",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestString",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_complex_dtype_str",
+          "docstring": null
+        },
+        {
+          "name": "test_repr_structured",
+          "docstring": null
+        },
+        {
+          "name": "test_repr_structured_not_packed",
+          "docstring": null
+        },
+        {
+          "name": "test_repr_structured_datetime",
+          "docstring": null
+        },
+        {
+          "name": "test_repr_str_subarray",
+          "docstring": null
+        },
+        {
+          "name": "test_base_dtype_with_object_type",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_string_to_object",
+          "docstring": null
+        },
+        {
+          "name": "test_void_subclass_unsized",
+          "docstring": null
+        },
+        {
+          "name": "test_void_subclass_sized",
+          "docstring": null
+        },
+        {
+          "name": "test_void_subclass_fields",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDtypeAttributeDeletion",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_dtype_non_writable_attributes_deletion",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_writable_attributes_deletion",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDtypeAttributes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_descr_has_trailing_void",
+          "docstring": null
+        },
+        {
+          "name": "test_name_dtype_subclass",
+          "docstring": null
+        },
+        {
+          "name": "test_zero_stride",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDTypeMakeCanonical",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "check_canonical",
+          "docstring": "Check most properties relevant to \"canonical\" versions of a dtype,\nwhich is mainly native byte order for datatypes supporting this.\n\nThe main work is checking structured dtypes with fields, where we\nreproduce most the actual logic used in the C-code."
+        },
+        {
+          "name": "test_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_object_flag_not_inherited",
+          "docstring": null
+        },
+        {
+          "name": "test_make_canonical_hypothesis",
+          "docstring": null
+        },
+        {
+          "name": "test_structured",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPickling",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "check_pickling",
+          "docstring": null
+        },
+        {
+          "name": "test_builtin",
+          "docstring": null
+        },
+        {
+          "name": "test_structured",
+          "docstring": null
+        },
+        {
+          "name": "test_structured_aligned",
+          "docstring": null
+        },
+        {
+          "name": "test_structured_unaligned",
+          "docstring": null
+        },
+        {
+          "name": "test_structured_padded",
+          "docstring": null
+        },
+        {
+          "name": "test_structured_titles",
+          "docstring": null
+        },
+        {
+          "name": "test_datetime",
+          "docstring": null
+        },
+        {
+          "name": "test_metadata",
+          "docstring": null
+        },
+        {
+          "name": "test_pickle_dtype_class",
+          "docstring": null
+        },
+        {
+          "name": "test_pickle_dtype",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPromotion",
+      "docstring": "Test cases related to more complex DType promotions.  Further promotion\ntests are defined in `test_numeric.py`",
+      "methods": [
+        {
+          "name": "test_complex_other_value_based",
+          "docstring": null
+        },
+        {
+          "name": "test_complex_scalar_value_based",
+          "docstring": null
+        },
+        {
+          "name": "test_complex_pyscalar_promote_rational",
+          "docstring": null
+        },
+        {
+          "name": "test_python_integer_promotion",
+          "docstring": null
+        },
+        {
+          "name": "test_float_int_pyscalar_promote_rational",
+          "docstring": null
+        },
+        {
+          "name": "test_permutations_do_not_influence_result",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFromDTypeAttribute",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_recursion",
+          "docstring": null
+        },
+        {
+          "name": "test_void_subtype",
+          "docstring": null
+        },
+        {
+          "name": "test_void_subtype_recursion",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDTypeClasses",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic_dtypes_subclass_properties",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_superclass",
+          "docstring": null
+        },
+        {
+          "name": "test_is_numeric",
+          "docstring": null
+        },
+        {
+          "name": "test_integer_alias_names",
+          "docstring": null
+        },
+        {
+          "name": "test_float_alias_names",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFromCTypes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "check",
+          "docstring": null
+        },
+        {
+          "name": "test_array",
+          "docstring": null
+        },
+        {
+          "name": "test_padded_structure",
+          "docstring": null
+        },
+        {
+          "name": "test_bit_fields",
+          "docstring": null
+        },
+        {
+          "name": "test_pointer",
+          "docstring": null
+        },
+        {
+          "name": "test_size_t",
+          "docstring": null
+        },
+        {
+          "name": "test_void_pointer",
+          "docstring": null
+        },
+        {
+          "name": "test_union",
+          "docstring": null
+        },
+        {
+          "name": "test_union_with_struct_packed",
+          "docstring": null
+        },
+        {
+          "name": "test_union_packed",
+          "docstring": null
+        },
+        {
+          "name": "test_packed_structure",
+          "docstring": null
+        },
+        {
+          "name": "test_large_packed_structure",
+          "docstring": null
+        },
+        {
+          "name": "test_big_endian_structure_packed",
+          "docstring": null
+        },
+        {
+          "name": "test_little_endian_structure_packed",
+          "docstring": null
+        },
+        {
+          "name": "test_little_endian_structure",
+          "docstring": null
+        },
+        {
+          "name": "test_big_endian_structure",
+          "docstring": null
+        },
+        {
+          "name": "test_simple_endian_types",
+          "docstring": null
+        },
+        {
+          "name": "test_pairs",
+          "docstring": "Check that np.dtype('x,y') matches [np.dtype('x'), np.dtype('y')]\nExample: np.dtype('d,I') -> dtype([('f0', '<f8'), ('f1', '<u4')])"
+        }
+      ]
+    },
+    {
+      "name": "TestUserDType",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_custom_structured_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_custom_structured_dtype_errors",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestClassGetItem",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_subclass",
+          "docstring": null
+        },
+        {
+          "name": "test_subscript_tuple",
+          "docstring": null
+        },
+        {
+          "name": "test_subscript_scalar",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "IntLike",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "user_def_subcls",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "dt",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "dt",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "dt",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "vdt",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PaddedStruct",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "BitfieldStruct",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Union",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Struct",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Union",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Struct",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Union",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PackedStructure",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PackedStructure",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "BigEndStruct",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "LittleEndStruct",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PaddedStruct",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PaddedStruct",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "mytype",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "mytype",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "assert_dtype_equal",
+      "docstring": null
+    },
+    {
+      "name": "assert_dtype_not_equal",
+      "docstring": null
+    },
+    {
+      "name": "iter_struct_object_dtypes",
+      "docstring": "Iterates over a few complex dtypes and object pattern which\nfill the array with a given object (defaults to a singleton).\n\nYields\n------\ndtype : dtype\npattern : tuple\n    Structured tuple for use with `np.array`.\ncount : int\n    Number of objects stored in the dtype.\nsingleton : object\n    A singleton object. The returned pattern is constructed so that\n    all objects inside the datatype are set to the singleton."
+    },
+    {
+      "name": "test_rational_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_dtypes_are_true",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_dtype_string",
+      "docstring": null
+    },
+    {
+      "name": "test_keyword_argument",
+      "docstring": null
+    },
+    {
+      "name": "test_result_type_integers_and_unitless_timedelta64",
+      "docstring": null
+    },
+    {
+      "name": "test_creating_dtype_with_dtype_class_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_run",
+      "docstring": "Only test hash runs at all."
+    },
+    {
+      "name": "test_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_equivalent_dtype_hashing",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_types",
+      "docstring": null
+    },
+    {
+      "name": "test_richcompare_invalid_dtype_equality",
+      "docstring": null
+    },
+    {
+      "name": "test_richcompare_invalid_dtype_comparison",
+      "docstring": null
+    },
+    {
+      "name": "test_numeric_style_types_are_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_expired_dtypes_with_bad_bytesize",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_bytes_str_equivalence",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_from_bytes",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_param",
+      "docstring": null
+    },
+    {
+      "name": "test_field_order_equality",
+      "docstring": null
+    },
+    {
+      "name": "test_create_string_dtypes_directly",
+      "docstring": null
+    },
+    {
+      "name": "test_create_invalid_string_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_leading_zero_parsing",
+      "docstring": null
+    },
+    {
+      "name": "test_equivalent_record",
+      "docstring": "Test whether equivalent record dtypes hash the same."
+    },
+    {
+      "name": "test_different_names",
+      "docstring": null
+    },
+    {
+      "name": "test_different_titles",
+      "docstring": null
+    },
+    {
+      "name": "test_refcount_dictionary_setting",
+      "docstring": null
+    },
+    {
+      "name": "test_mutate",
+      "docstring": null
+    },
+    {
+      "name": "test_init_simple_structured",
+      "docstring": null
+    },
+    {
+      "name": "test_mutate_error",
+      "docstring": null
+    },
+    {
+      "name": "test_not_lists",
+      "docstring": "Test if an appropriate exception is raised when passing bad values to\nthe dtype constructor."
+    },
+    {
+      "name": "test_aligned_size",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_struct_alignment",
+      "docstring": null
+    },
+    {
+      "name": "test_union_struct",
+      "docstring": null
+    },
+    {
+      "name": "test_subarray_list",
+      "docstring": null
+    },
+    {
+      "name": "test_parenthesized_single_number",
+      "docstring": null
+    },
+    {
+      "name": "test_comma_datetime",
+      "docstring": null
+    },
+    {
+      "name": "test_from_dictproxy",
+      "docstring": null
+    },
+    {
+      "name": "test_from_dict_with_zero_width_field",
+      "docstring": null
+    },
+    {
+      "name": "test_bool_commastring",
+      "docstring": null
+    },
+    {
+      "name": "test_nonint_offsets",
+      "docstring": null
+    },
+    {
+      "name": "test_fields_by_index",
+      "docstring": null
+    },
+    {
+      "name": "test_multifield_index",
+      "docstring": null
+    },
+    {
+      "name": "test_partial_dict",
+      "docstring": null
+    },
+    {
+      "name": "test_fieldless_views",
+      "docstring": null
+    },
+    {
+      "name": "test_nonstructured_with_object",
+      "docstring": null
+    },
+    {
+      "name": "test_single_subarray",
+      "docstring": null
+    },
+    {
+      "name": "test_equivalent_record",
+      "docstring": "Test whether equivalent subarray dtypes hash the same."
+    },
+    {
+      "name": "test_nonequivalent_record",
+      "docstring": "Test whether different subarray dtypes hash differently."
+    },
+    {
+      "name": "test_shape_equal",
+      "docstring": "Test some data types that are equal"
+    },
+    {
+      "name": "test_shape_simple",
+      "docstring": "Test some simple cases that shouldn't be equal"
+    },
+    {
+      "name": "test_shape_monster",
+      "docstring": "Test some more complicated cases that shouldn't be equal"
+    },
+    {
+      "name": "test_shape_sequence",
+      "docstring": null
+    },
+    {
+      "name": "test_shape_matches_ndim",
+      "docstring": null
+    },
+    {
+      "name": "test_shape_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_alignment",
+      "docstring": null
+    },
+    {
+      "name": "test_aligned_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_subarray_base_item",
+      "docstring": null
+    },
+    {
+      "name": "test_subarray_cast_copies",
+      "docstring": null
+    },
+    {
+      "name": "test_structured_object_create_delete",
+      "docstring": "Structured object reference counting in creation and deletion"
+    },
+    {
+      "name": "test_structured_object_item_setting",
+      "docstring": "Structured object reference counting for simple item setting"
+    },
+    {
+      "name": "test_structured_object_indexing",
+      "docstring": "Structured object reference counting for advanced indexing."
+    },
+    {
+      "name": "test_structured_object_take_and_repeat",
+      "docstring": "Structured object reference counting for specialized functions.\nThe older functions such as take and repeat use different code paths\nthen item setting (when writing this)."
+    },
+    {
+      "name": "test_sparse_field_assignment",
+      "docstring": null
+    },
+    {
+      "name": "test_sparse_field_assignment_fancy",
+      "docstring": null
+    },
+    {
+      "name": "test1",
+      "docstring": null
+    },
+    {
+      "name": "test_list_recursion",
+      "docstring": null
+    },
+    {
+      "name": "test_tuple_recursion",
+      "docstring": null
+    },
+    {
+      "name": "test_dict_recursion",
+      "docstring": null
+    },
+    {
+      "name": "test_no_metadata",
+      "docstring": null
+    },
+    {
+      "name": "test_metadata_takes_dict",
+      "docstring": null
+    },
+    {
+      "name": "test_metadata_rejects_nondict",
+      "docstring": null
+    },
+    {
+      "name": "test_nested_metadata",
+      "docstring": null
+    },
+    {
+      "name": "test_base_metadata_copied",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_dtype_str",
+      "docstring": null
+    },
+    {
+      "name": "test_repr_structured",
+      "docstring": null
+    },
+    {
+      "name": "test_repr_structured_not_packed",
+      "docstring": null
+    },
+    {
+      "name": "test_repr_structured_datetime",
+      "docstring": null
+    },
+    {
+      "name": "test_repr_str_subarray",
+      "docstring": null
+    },
+    {
+      "name": "test_base_dtype_with_object_type",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_string_to_object",
+      "docstring": null
+    },
+    {
+      "name": "test_void_subclass_unsized",
+      "docstring": null
+    },
+    {
+      "name": "test_void_subclass_sized",
+      "docstring": null
+    },
+    {
+      "name": "test_void_subclass_fields",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_non_writable_attributes_deletion",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_writable_attributes_deletion",
+      "docstring": null
+    },
+    {
+      "name": "test_descr_has_trailing_void",
+      "docstring": null
+    },
+    {
+      "name": "test_name_dtype_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_zero_stride",
+      "docstring": null
+    },
+    {
+      "name": "check_canonical",
+      "docstring": "Check most properties relevant to \"canonical\" versions of a dtype,\nwhich is mainly native byte order for datatypes supporting this.\n\nThe main work is checking structured dtypes with fields, where we\nreproduce most the actual logic used in the C-code."
+    },
+    {
+      "name": "test_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_object_flag_not_inherited",
+      "docstring": null
+    },
+    {
+      "name": "test_make_canonical_hypothesis",
+      "docstring": null
+    },
+    {
+      "name": "test_structured",
+      "docstring": null
+    },
+    {
+      "name": "check_pickling",
+      "docstring": null
+    },
+    {
+      "name": "test_builtin",
+      "docstring": null
+    },
+    {
+      "name": "test_structured",
+      "docstring": null
+    },
+    {
+      "name": "test_structured_aligned",
+      "docstring": null
+    },
+    {
+      "name": "test_structured_unaligned",
+      "docstring": null
+    },
+    {
+      "name": "test_structured_padded",
+      "docstring": null
+    },
+    {
+      "name": "test_structured_titles",
+      "docstring": null
+    },
+    {
+      "name": "test_datetime",
+      "docstring": null
+    },
+    {
+      "name": "test_metadata",
+      "docstring": null
+    },
+    {
+      "name": "test_pickle_dtype_class",
+      "docstring": null
+    },
+    {
+      "name": "test_pickle_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_other_value_based",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_scalar_value_based",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_pyscalar_promote_rational",
+      "docstring": null
+    },
+    {
+      "name": "test_python_integer_promotion",
+      "docstring": null
+    },
+    {
+      "name": "test_float_int_pyscalar_promote_rational",
+      "docstring": null
+    },
+    {
+      "name": "test_permutations_do_not_influence_result",
+      "docstring": null
+    },
+    {
+      "name": "test_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_recursion",
+      "docstring": null
+    },
+    {
+      "name": "test_void_subtype",
+      "docstring": null
+    },
+    {
+      "name": "test_void_subtype_recursion",
+      "docstring": null
+    },
+    {
+      "name": "test_basic_dtypes_subclass_properties",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_superclass",
+      "docstring": null
+    },
+    {
+      "name": "test_is_numeric",
+      "docstring": null
+    },
+    {
+      "name": "test_integer_alias_names",
+      "docstring": null
+    },
+    {
+      "name": "test_float_alias_names",
+      "docstring": null
+    },
+    {
+      "name": "check",
+      "docstring": null
+    },
+    {
+      "name": "test_array",
+      "docstring": null
+    },
+    {
+      "name": "test_padded_structure",
+      "docstring": null
+    },
+    {
+      "name": "test_bit_fields",
+      "docstring": null
+    },
+    {
+      "name": "test_pointer",
+      "docstring": null
+    },
+    {
+      "name": "test_size_t",
+      "docstring": null
+    },
+    {
+      "name": "test_void_pointer",
+      "docstring": null
+    },
+    {
+      "name": "test_union",
+      "docstring": null
+    },
+    {
+      "name": "test_union_with_struct_packed",
+      "docstring": null
+    },
+    {
+      "name": "test_union_packed",
+      "docstring": null
+    },
+    {
+      "name": "test_packed_structure",
+      "docstring": null
+    },
+    {
+      "name": "test_large_packed_structure",
+      "docstring": null
+    },
+    {
+      "name": "test_big_endian_structure_packed",
+      "docstring": null
+    },
+    {
+      "name": "test_little_endian_structure_packed",
+      "docstring": null
+    },
+    {
+      "name": "test_little_endian_structure",
+      "docstring": null
+    },
+    {
+      "name": "test_big_endian_structure",
+      "docstring": null
+    },
+    {
+      "name": "test_simple_endian_types",
+      "docstring": null
+    },
+    {
+      "name": "test_pairs",
+      "docstring": "Check that np.dtype('x,y') matches [np.dtype('x'), np.dtype('y')]\nExample: np.dtype('d,I') -> dtype([('f0', '<f8'), ('f1', '<u4')])"
+    },
+    {
+      "name": "test_custom_structured_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_custom_structured_dtype_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_subscript_tuple",
+      "docstring": null
+    },
+    {
+      "name": "test_subscript_scalar",
+      "docstring": null
+    },
+    {
+      "name": "make_dtype",
+      "docstring": null
+    },
+    {
+      "name": "aligned_offset",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,196 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\requests\\sessions.py",
+  "classes": [
+    {
+      "name": "SessionRedirectMixin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "get_redirect_target",
+          "docstring": "Receives a Response. Returns a redirect URI or ``None``"
+        },
+        {
+          "name": "should_strip_auth",
+          "docstring": "Decide whether Authorization header should be removed when redirecting"
+        },
+        {
+          "name": "resolve_redirects",
+          "docstring": "Receives a Response. Returns a generator of Responses or Requests."
+        },
+        {
+          "name": "rebuild_auth",
+          "docstring": "When being redirected we may want to strip authentication from the\nrequest to avoid leaking credentials. This method intelligently removes\nand reapplies authentication where possible to avoid credential loss."
+        },
+        {
+          "name": "rebuild_proxies",
+          "docstring": "This method re-evaluates the proxy configuration by considering the\nenvironment variables. If we are redirected to a URL covered by\nNO_PROXY, we strip the proxy configuration. Otherwise, we set missing\nproxy keys for this URL (in case they were stripped by a previous\nredirect).\n\nThis method also replaces the Proxy-Authorization header where\nnecessary.\n\n:rtype: dict"
+        },
+        {
+          "name": "rebuild_method",
+          "docstring": "When being redirected we may want to change the method of the request\nbased on certain specs or browser behavior."
+        }
+      ]
+    },
+    {
+      "name": "Session",
+      "docstring": "A Requests session.\n\nProvides cookie persistence, connection-pooling, and configuration.\n\nBasic Usage::\n\n  >>> import requests\n  >>> s = requests.Session()\n  >>> s.get('https://httpbin.org/get')\n  <Response [200]>\n\nOr as a context manager::\n\n  >>> with requests.Session() as s:\n  ...     s.get('https://httpbin.org/get')\n  <Response [200]>",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "prepare_request",
+          "docstring": "Constructs a :class:`PreparedRequest <PreparedRequest>` for\ntransmission and returns it. The :class:`PreparedRequest` has settings\nmerged from the :class:`Request <Request>` instance and those of the\n:class:`Session`.\n\n:param request: :class:`Request` instance to prepare with this\n    session's settings.\n:rtype: requests.PreparedRequest"
+        },
+        {
+          "name": "request",
+          "docstring": "Constructs a :class:`Request <Request>`, prepares it and sends it.\nReturns :class:`Response <Response>` object.\n\n:param method: method for the new :class:`Request` object.\n:param url: URL for the new :class:`Request` object.\n:param params: (optional) Dictionary or bytes to be sent in the query\n    string for the :class:`Request`.\n:param data: (optional) Dictionary, list of tuples, bytes, or file-like\n    object to send in the body of the :class:`Request`.\n:param json: (optional) json to send in the body of the\n    :class:`Request`.\n:param headers: (optional) Dictionary of HTTP Headers to send with the\n    :class:`Request`.\n:param cookies: (optional) Dict or CookieJar object to send with the\n    :class:`Request`.\n:param files: (optional) Dictionary of ``'filename': file-like-objects``\n    for multipart encoding upload.\n:param auth: (optional) Auth tuple or callable to enable\n    Basic/Digest/Custom HTTP Auth.\n:param timeout: (optional) How long to wait for the server to send\n    data before giving up, as a float, or a :ref:`(connect timeout,\n    read timeout) <timeouts>` tuple.\n:type timeout: float or tuple\n:param allow_redirects: (optional) Set to True by default.\n:type allow_redirects: bool\n:param proxies: (optional) Dictionary mapping protocol or protocol and\n    hostname to the URL of the proxy.\n:param hooks: (optional) Dictionary mapping hook name to one event or\n    list of events, event must be callable.\n:param stream: (optional) whether to immediately download the response\n    content. Defaults to ``False``.\n:param verify: (optional) Either a boolean, in which case it controls whether we verify\n    the server's TLS certificate, or a string, in which case it must be a path\n    to a CA bundle to use. Defaults to ``True``. When set to\n    ``False``, requests will accept any TLS certificate presented by\n    the server, and will ignore hostname mismatches and/or expired\n    certificates, which will make your application vulnerable to\n    man-in-the-middle (MitM) attacks. Setting verify to ``False``\n    may be useful during local development or testing.\n:param cert: (optional) if String, path to ssl client cert file (.pem).\n    If Tuple, ('cert', 'key') pair.\n:rtype: requests.Response"
+        },
+        {
+          "name": "get",
+          "docstring": "Sends a GET request. Returns :class:`Response` object.\n\n:param url: URL for the new :class:`Request` object.\n:param \\*\\*kwargs: Optional arguments that ``request`` takes.\n:rtype: requests.Response"
+        },
+        {
+          "name": "options",
+          "docstring": "Sends a OPTIONS request. Returns :class:`Response` object.\n\n:param url: URL for the new :class:`Request` object.\n:param \\*\\*kwargs: Optional arguments that ``request`` takes.\n:rtype: requests.Response"
+        },
+        {
+          "name": "head",
+          "docstring": "Sends a HEAD request. Returns :class:`Response` object.\n\n:param url: URL for the new :class:`Request` object.\n:param \\*\\*kwargs: Optional arguments that ``request`` takes.\n:rtype: requests.Response"
+        },
+        {
+          "name": "post",
+          "docstring": "Sends a POST request. Returns :class:`Response` object.\n\n:param url: URL for the new :class:`Request` object.\n:param data: (optional) Dictionary, list of tuples, bytes, or file-like\n    object to send in the body of the :class:`Request`.\n:param json: (optional) json to send in the body of the :class:`Request`.\n:param \\*\\*kwargs: Optional arguments that ``request`` takes.\n:rtype: requests.Response"
+        },
+        {
+          "name": "put",
+          "docstring": "Sends a PUT request. Returns :class:`Response` object.\n\n:param url: URL for the new :class:`Request` object.\n:param data: (optional) Dictionary, list of tuples, bytes, or file-like\n    object to send in the body of the :class:`Request`.\n:param \\*\\*kwargs: Optional arguments that ``request`` takes.\n:rtype: requests.Response"
+        },
+        {
+          "name": "patch",
+          "docstring": "Sends a PATCH request. Returns :class:`Response` object.\n\n:param url: URL for the new :class:`Request` object.\n:param data: (optional) Dictionary, list of tuples, bytes, or file-like\n    object to send in the body of the :class:`Request`.\n:param \\*\\*kwargs: Optional arguments that ``request`` takes.\n:rtype: requests.Response"
+        },
+        {
+          "name": "delete",
+          "docstring": "Sends a DELETE request. Returns :class:`Response` object.\n\n:param url: URL for the new :class:`Request` object.\n:param \\*\\*kwargs: Optional arguments that ``request`` takes.\n:rtype: requests.Response"
+        },
+        {
+          "name": "send",
+          "docstring": "Send a given PreparedRequest.\n\n:rtype: requests.Response"
+        },
+        {
+          "name": "merge_environment_settings",
+          "docstring": "Check the environment and merge it with some settings.\n\n:rtype: dict"
+        },
+        {
+          "name": "get_adapter",
+          "docstring": "Returns the appropriate connection adapter for the given URL.\n\n:rtype: requests.adapters.BaseAdapter"
+        },
+        {
+          "name": "close",
+          "docstring": "Closes all adapters and as such the session"
+        },
+        {
+          "name": "mount",
+          "docstring": "Registers a connection adapter to a prefix.\n\nAdapters are sorted in descending order by prefix length."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "merge_setting",
+      "docstring": "Determines appropriate setting for a given request, taking into account\nthe explicit setting on that request, and the setting in the session. If a\nsetting is a dictionary, they will be merged together using `dict_class`"
+    },
+    {
+      "name": "merge_hooks",
+      "docstring": "Properly merges both requests and session hooks.\n\nThis is necessary because when request_hooks == {'response': []}, the\nmerge breaks Session hooks entirely."
+    },
+    {
+      "name": "session",
+      "docstring": "Returns a :class:`Session` for context-management.\n\n.. deprecated:: 1.0.0\n\n    This method has been deprecated since version 1.0.0 and is only kept for\n    backwards compatibility. New code should use :class:`~requests.sessions.Session`\n    to create a session. This may be removed at a future date.\n\n:rtype: Session"
+    },
+    {
+      "name": "get_redirect_target",
+      "docstring": "Receives a Response. Returns a redirect URI or ``None``"
+    },
+    {
+      "name": "should_strip_auth",
+      "docstring": "Decide whether Authorization header should be removed when redirecting"
+    },
+    {
+      "name": "resolve_redirects",
+      "docstring": "Receives a Response. Returns a generator of Responses or Requests."
+    },
+    {
+      "name": "rebuild_auth",
+      "docstring": "When being redirected we may want to strip authentication from the\nrequest to avoid leaking credentials. This method intelligently removes\nand reapplies authentication where possible to avoid credential loss."
+    },
+    {
+      "name": "rebuild_proxies",
+      "docstring": "This method re-evaluates the proxy configuration by considering the\nenvironment variables. If we are redirected to a URL covered by\nNO_PROXY, we strip the proxy configuration. Otherwise, we set missing\nproxy keys for this URL (in case they were stripped by a previous\nredirect).\n\nThis method also replaces the Proxy-Authorization header where\nnecessary.\n\n:rtype: dict"
+    },
+    {
+      "name": "rebuild_method",
+      "docstring": "When being redirected we may want to change the method of the request\nbased on certain specs or browser behavior."
+    },
+    {
+      "name": "prepare_request",
+      "docstring": "Constructs a :class:`PreparedRequest <PreparedRequest>` for\ntransmission and returns it. The :class:`PreparedRequest` has settings\nmerged from the :class:`Request <Request>` instance and those of the\n:class:`Session`.\n\n:param request: :class:`Request` instance to prepare with this\n    session's settings.\n:rtype: requests.PreparedRequest"
+    },
+    {
+      "name": "request",
+      "docstring": "Constructs a :class:`Request <Request>`, prepares it and sends it.\nReturns :class:`Response <Response>` object.\n\n:param method: method for the new :class:`Request` object.\n:param url: URL for the new :class:`Request` object.\n:param params: (optional) Dictionary or bytes to be sent in the query\n    string for the :class:`Request`.\n:param data: (optional) Dictionary, list of tuples, bytes, or file-like\n    object to send in the body of the :class:`Request`.\n:param json: (optional) json to send in the body of the\n    :class:`Request`.\n:param headers: (optional) Dictionary of HTTP Headers to send with the\n    :class:`Request`.\n:param cookies: (optional) Dict or CookieJar object to send with the\n    :class:`Request`.\n:param files: (optional) Dictionary of ``'filename': file-like-objects``\n    for multipart encoding upload.\n:param auth: (optional) Auth tuple or callable to enable\n    Basic/Digest/Custom HTTP Auth.\n:param timeout: (optional) How long to wait for the server to send\n    data before giving up, as a float, or a :ref:`(connect timeout,\n    read timeout) <timeouts>` tuple.\n:type timeout: float or tuple\n:param allow_redirects: (optional) Set to True by default.\n:type allow_redirects: bool\n:param proxies: (optional) Dictionary mapping protocol or protocol and\n    hostname to the URL of the proxy.\n:param hooks: (optional) Dictionary mapping hook name to one event or\n    list of events, event must be callable.\n:param stream: (optional) whether to immediately download the response\n    content. Defaults to ``False``.\n:param verify: (optional) Either a boolean, in which case it controls whether we verify\n    the server's TLS certificate, or a string, in which case it must be a path\n    to a CA bundle to use. Defaults to ``True``. When set to\n    ``False``, requests will accept any TLS certificate presented by\n    the server, and will ignore hostname mismatches and/or expired\n    certificates, which will make your application vulnerable to\n    man-in-the-middle (MitM) attacks. Setting verify to ``False``\n    may be useful during local development or testing.\n:param cert: (optional) if String, path to ssl client cert file (.pem).\n    If Tuple, ('cert', 'key') pair.\n:rtype: requests.Response"
+    },
+    {
+      "name": "get",
+      "docstring": "Sends a GET request. Returns :class:`Response` object.\n\n:param url: URL for the new :class:`Request` object.\n:param \\*\\*kwargs: Optional arguments that ``request`` takes.\n:rtype: requests.Response"
+    },
+    {
+      "name": "options",
+      "docstring": "Sends a OPTIONS request. Returns :class:`Response` object.\n\n:param url: URL for the new :class:`Request` object.\n:param \\*\\*kwargs: Optional arguments that ``request`` takes.\n:rtype: requests.Response"
+    },
+    {
+      "name": "head",
+      "docstring": "Sends a HEAD request. Returns :class:`Response` object.\n\n:param url: URL for the new :class:`Request` object.\n:param \\*\\*kwargs: Optional arguments that ``request`` takes.\n:rtype: requests.Response"
+    },
+    {
+      "name": "post",
+      "docstring": "Sends a POST request. Returns :class:`Response` object.\n\n:param url: URL for the new :class:`Request` object.\n:param data: (optional) Dictionary, list of tuples, bytes, or file-like\n    object to send in the body of the :class:`Request`.\n:param json: (optional) json to send in the body of the :class:`Request`.\n:param \\*\\*kwargs: Optional arguments that ``request`` takes.\n:rtype: requests.Response"
+    },
+    {
+      "name": "put",
+      "docstring": "Sends a PUT request. Returns :class:`Response` object.\n\n:param url: URL for the new :class:`Request` object.\n:param data: (optional) Dictionary, list of tuples, bytes, or file-like\n    object to send in the body of the :class:`Request`.\n:param \\*\\*kwargs: Optional arguments that ``request`` takes.\n:rtype: requests.Response"
+    },
+    {
+      "name": "patch",
+      "docstring": "Sends a PATCH request. Returns :class:`Response` object.\n\n:param url: URL for the new :class:`Request` object.\n:param data: (optional) Dictionary, list of tuples, bytes, or file-like\n    object to send in the body of the :class:`Request`.\n:param \\*\\*kwargs: Optional arguments that ``request`` takes.\n:rtype: requests.Response"
+    },
+    {
+      "name": "delete",
+      "docstring": "Sends a DELETE request. Returns :class:`Response` object.\n\n:param url: URL for the new :class:`Request` object.\n:param \\*\\*kwargs: Optional arguments that ``request`` takes.\n:rtype: requests.Response"
+    },
+    {
+      "name": "send",
+      "docstring": "Send a given PreparedRequest.\n\n:rtype: requests.Response"
+    },
+    {
+      "name": "merge_environment_settings",
+      "docstring": "Check the environment and merge it with some settings.\n\n:rtype: dict"
+    },
+    {
+      "name": "get_adapter",
+      "docstring": "Returns the appropriate connection adapter for the given URL.\n\n:rtype: requests.adapters.BaseAdapter"
+    },
+    {
+      "name": "close",
+      "docstring": "Closes all adapters and as such the session"
+    },
+    {
+      "name": "mount",
+      "docstring": "Registers a connection adapter to a prefix.\n\nAdapters are sorted in descending order by prefix length."
+    }
+  ],
+  "innovations": []
+}

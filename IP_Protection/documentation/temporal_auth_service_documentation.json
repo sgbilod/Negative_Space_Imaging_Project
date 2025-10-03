@@ -1,0 +1,118 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\revenue\\temporal_auth\\temporal_auth_service.py",
+  "classes": [
+    {
+      "name": "GestureRecognizer",
+      "docstring": "Recognizes and validates AR gestures in 3D space.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the gesture recognizer.\n\nArgs:\n    similarity_threshold: Threshold for gesture similarity (0.0-1.0)\n    time_sensitivity: How sensitive authentication is to timing variations"
+        },
+        {
+          "name": "register_gesture",
+          "docstring": "Register a new gesture pattern.\n\nArgs:\n    gesture_path: List of 3D coordinates representing the gesture path\n    \nReturns:\n    Gesture registration data"
+        },
+        {
+          "name": "verify_gesture",
+          "docstring": "Verify an input gesture against a registered pattern.\n\nArgs:\n    registered_pattern: The registered gesture pattern\n    input_path: The input gesture path to verify\n    \nReturns:\n    Verification result with similarity score"
+        }
+      ]
+    },
+    {
+      "name": "TemporalAuthService",
+      "docstring": "Service for temporal-based authentication using AR gestures and spatial signatures.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the authentication service.\n\nArgs:\n    token_expiry_minutes: How long tokens are valid, in minutes\n    jwt_secret: Secret for JWT token signing (generates random if None)"
+        },
+        {
+          "name": "register_user",
+          "docstring": "Register a new user.\n\nArgs:\n    user_id: Unique identifier for the user\n    user_data: User metadata\n    \nReturns:\n    User registration data"
+        },
+        {
+          "name": "register_gesture",
+          "docstring": "Register a gesture for a user.\n\nArgs:\n    user_id: User ID\n    gesture_path: List of 3D coordinates representing the gesture\n    gesture_name: Name for this gesture\n    \nReturns:\n    Gesture registration data"
+        },
+        {
+          "name": "authenticate",
+          "docstring": "Authenticate a user with spatial signature and gesture.\n\nArgs:\n    user_id: User ID\n    spatial_signature: Spatial signature or raw coordinates\n    gesture_path: Gesture path for verification\n    gesture_name: Name of the gesture to verify against\n    \nReturns:\n    Authentication result with token if successful"
+        },
+        {
+          "name": "verify_token",
+          "docstring": "Verify an authentication token.\n\nArgs:\n    token: JWT token to verify\n    \nReturns:\n    Token verification result"
+        }
+      ]
+    },
+    {
+      "name": "TemporalAuthAPI",
+      "docstring": "API for the Temporal Authentication service.\nThis is a skeleton implementation for Phase 1.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the Temporal Auth API."
+        },
+        {
+          "name": "register_user",
+          "docstring": "Register a new user.\n\nArgs:\n    request_data: Dictionary containing user_id and user_data\n    \nReturns:\n    User registration data"
+        },
+        {
+          "name": "register_gesture",
+          "docstring": "Register a gesture for a user.\n\nArgs:\n    request_data: Dictionary containing user_id, gesture_path, and gesture_name\n    \nReturns:\n    Gesture registration data"
+        },
+        {
+          "name": "authenticate",
+          "docstring": "Authenticate a user.\n\nArgs:\n    request_data: Dictionary containing authentication parameters\n    \nReturns:\n    Authentication result"
+        },
+        {
+          "name": "verify_token",
+          "docstring": "Verify an authentication token.\n\nArgs:\n    request_data: Dictionary containing token\n    \nReturns:\n    Token verification result"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "register_gesture",
+      "docstring": "Register a new gesture pattern.\n\nArgs:\n    gesture_path: List of 3D coordinates representing the gesture path\n    \nReturns:\n    Gesture registration data"
+    },
+    {
+      "name": "verify_gesture",
+      "docstring": "Verify an input gesture against a registered pattern.\n\nArgs:\n    registered_pattern: The registered gesture pattern\n    input_path: The input gesture path to verify\n    \nReturns:\n    Verification result with similarity score"
+    },
+    {
+      "name": "register_user",
+      "docstring": "Register a new user.\n\nArgs:\n    user_id: Unique identifier for the user\n    user_data: User metadata\n    \nReturns:\n    User registration data"
+    },
+    {
+      "name": "register_gesture",
+      "docstring": "Register a gesture for a user.\n\nArgs:\n    user_id: User ID\n    gesture_path: List of 3D coordinates representing the gesture\n    gesture_name: Name for this gesture\n    \nReturns:\n    Gesture registration data"
+    },
+    {
+      "name": "authenticate",
+      "docstring": "Authenticate a user with spatial signature and gesture.\n\nArgs:\n    user_id: User ID\n    spatial_signature: Spatial signature or raw coordinates\n    gesture_path: Gesture path for verification\n    gesture_name: Name of the gesture to verify against\n    \nReturns:\n    Authentication result with token if successful"
+    },
+    {
+      "name": "verify_token",
+      "docstring": "Verify an authentication token.\n\nArgs:\n    token: JWT token to verify\n    \nReturns:\n    Token verification result"
+    },
+    {
+      "name": "register_user",
+      "docstring": "Register a new user.\n\nArgs:\n    request_data: Dictionary containing user_id and user_data\n    \nReturns:\n    User registration data"
+    },
+    {
+      "name": "register_gesture",
+      "docstring": "Register a gesture for a user.\n\nArgs:\n    request_data: Dictionary containing user_id, gesture_path, and gesture_name\n    \nReturns:\n    Gesture registration data"
+    },
+    {
+      "name": "authenticate",
+      "docstring": "Authenticate a user.\n\nArgs:\n    request_data: Dictionary containing authentication parameters\n    \nReturns:\n    Authentication result"
+    },
+    {
+      "name": "verify_token",
+      "docstring": "Verify an authentication token.\n\nArgs:\n    request_data: Dictionary containing token\n    \nReturns:\n    Token verification result"
+    }
+  ],
+  "innovations": []
+}

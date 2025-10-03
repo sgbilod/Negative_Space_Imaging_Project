@@ -1,0 +1,57 @@
+# Monitoring Stack Configuration
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: negative-space-prometheus
+  namespace: monitoring
+spec:
+  replicas: 3
+  retention: 30d
+  serviceAccountName: prometheus
+  securityContext:
+    fsGroup: 2000
+    runAsNonRoot: true
+    runAsUser: 1000
+  storage:
+    volumeClaimTemplate:
+      spec:
+        storageClassName: premium-ssd
+        resources:
+          requests:
+            storage: 100Ti
+  serviceMonitorSelector:
+    matchLabels:
+      app: negative-space
+  resources:
+    requests:
+      memory: "8Gi"
+      cpu: "4"
+    limits:
+      memory: "16Gi"
+      cpu: "8"
+  additionalScrapeConfigs:
+    name: additional-scrape-configs
+    key: prometheus-additional.yaml
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: negative-space-monitor
+  namespace: monitoring
+  labels:
+    app: negative-space
+spec:
+  selector:
+    matchLabels:
+      app: negative-space
+  endpoints:
+  - port: metrics
+    interval: 15s
+    scrapeTimeout: 10s
+    honorLabels: true
+    metricRelabelings:
+    - action: keep
+      regex: negative_space_.+
+      sourceLabels: [__name__]

@@ -1,0 +1,398 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_image.py",
+  "classes": [
+    {
+      "name": "QuantityND",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "v",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_alpha_interp",
+      "docstring": "Test the interpolation of the alpha channel on RGBA images"
+    },
+    {
+      "name": "test_interp_nearest_vs_none",
+      "docstring": "Test the effect of \"nearest\" and \"none\" interpolation"
+    },
+    {
+      "name": "test_figimage",
+      "docstring": null
+    },
+    {
+      "name": "test_image_python_io",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_antialiased",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_zoom",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_pil",
+      "docstring": null
+    },
+    {
+      "name": "test_imread_pil_uint16",
+      "docstring": null
+    },
+    {
+      "name": "test_imread_fspath",
+      "docstring": null
+    },
+    {
+      "name": "test_imsave",
+      "docstring": null
+    },
+    {
+      "name": "test_imsave_python_sequences",
+      "docstring": null
+    },
+    {
+      "name": "test_imsave_rgba_origin",
+      "docstring": null
+    },
+    {
+      "name": "test_imsave_fspath",
+      "docstring": null
+    },
+    {
+      "name": "test_imsave_color_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_imsave_pil_kwargs_png",
+      "docstring": null
+    },
+    {
+      "name": "test_imsave_pil_kwargs_tiff",
+      "docstring": null
+    },
+    {
+      "name": "test_image_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_cursor_data",
+      "docstring": null
+    },
+    {
+      "name": "test_cursor_data_nonuniform",
+      "docstring": null
+    },
+    {
+      "name": "test_format_cursor_data",
+      "docstring": null
+    },
+    {
+      "name": "test_image_clip",
+      "docstring": null
+    },
+    {
+      "name": "test_image_cliprect",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_10_10_1",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_10_10_2",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_10_10_5",
+      "docstring": null
+    },
+    {
+      "name": "test_no_interpolation_origin",
+      "docstring": null
+    },
+    {
+      "name": "test_image_shift",
+      "docstring": null
+    },
+    {
+      "name": "test_image_edges",
+      "docstring": null
+    },
+    {
+      "name": "test_image_composite_background",
+      "docstring": null
+    },
+    {
+      "name": "test_image_composite_alpha",
+      "docstring": "Tests that the alpha value is recognized and correctly applied in the\nprocess of compositing images together."
+    },
+    {
+      "name": "test_clip_path_disables_compositing",
+      "docstring": null
+    },
+    {
+      "name": "test_rasterize_dpi",
+      "docstring": null
+    },
+    {
+      "name": "test_bbox_image_inverted",
+      "docstring": null
+    },
+    {
+      "name": "test_get_window_extent_for_AxisImage",
+      "docstring": null
+    },
+    {
+      "name": "test_zoom_and_clip_upper_origin",
+      "docstring": null
+    },
+    {
+      "name": "test_nonuniformimage_setcmap",
+      "docstring": null
+    },
+    {
+      "name": "test_nonuniformimage_setnorm",
+      "docstring": null
+    },
+    {
+      "name": "test_jpeg_2d",
+      "docstring": null
+    },
+    {
+      "name": "test_jpeg_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_axesimage_setdata",
+      "docstring": null
+    },
+    {
+      "name": "test_figureimage_setdata",
+      "docstring": null
+    },
+    {
+      "name": "test_setdata_xya",
+      "docstring": null
+    },
+    {
+      "name": "test_minimized_rasterized",
+      "docstring": null
+    },
+    {
+      "name": "test_load_from_url",
+      "docstring": null
+    },
+    {
+      "name": "test_log_scale_image",
+      "docstring": null
+    },
+    {
+      "name": "test_rotate_image",
+      "docstring": null
+    },
+    {
+      "name": "test_image_preserve_size",
+      "docstring": null
+    },
+    {
+      "name": "test_image_preserve_size2",
+      "docstring": null
+    },
+    {
+      "name": "test_mask_image_over_under",
+      "docstring": null
+    },
+    {
+      "name": "test_mask_image",
+      "docstring": null
+    },
+    {
+      "name": "test_mask_image_all",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_endianess",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_masked_interpolation",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_no_warn_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_clips_rgb_to_valid_range",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_flatfield",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_bignumbers",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_bignumbers_real",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_imshow",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_float16",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_float128",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_bool",
+      "docstring": null
+    },
+    {
+      "name": "test_full_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_composite",
+      "docstring": null
+    },
+    {
+      "name": "test_relim",
+      "docstring": null
+    },
+    {
+      "name": "test_unclipped",
+      "docstring": null
+    },
+    {
+      "name": "test_respects_bbox",
+      "docstring": null
+    },
+    {
+      "name": "test_image_cursor_formatting",
+      "docstring": null
+    },
+    {
+      "name": "test_image_array_alpha",
+      "docstring": "Per-pixel alpha channel test."
+    },
+    {
+      "name": "test_image_array_alpha_validation",
+      "docstring": null
+    },
+    {
+      "name": "test_exact_vmin",
+      "docstring": null
+    },
+    {
+      "name": "test_image_placement",
+      "docstring": "The red box should line up exactly with the outside of the image."
+    },
+    {
+      "name": "test_quantitynd",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_quantitynd",
+      "docstring": null
+    },
+    {
+      "name": "test_norm_change",
+      "docstring": null
+    },
+    {
+      "name": "test_huge_range_log",
+      "docstring": null
+    },
+    {
+      "name": "test_spy_box",
+      "docstring": null
+    },
+    {
+      "name": "test_nonuniform_and_pcolor",
+      "docstring": null
+    },
+    {
+      "name": "test_nonuniform_logscale",
+      "docstring": null
+    },
+    {
+      "name": "test_rgba_antialias",
+      "docstring": null
+    },
+    {
+      "name": "test_upsample_interpolation_stage",
+      "docstring": "Show that interpolation_stage='auto' gives the same as 'data'\nfor upsampling."
+    },
+    {
+      "name": "test_downsample_interpolation_stage",
+      "docstring": "Show that interpolation_stage='auto' gives the same as 'rgba'\nfor downsampling."
+    },
+    {
+      "name": "test_rc_interpolation_stage",
+      "docstring": null
+    },
+    {
+      "name": "test_large_image",
+      "docstring": null
+    },
+    {
+      "name": "test_str_norms",
+      "docstring": null
+    },
+    {
+      "name": "test__resample_valid_output",
+      "docstring": null
+    },
+    {
+      "name": "test_axesimage_get_shape",
+      "docstring": null
+    },
+    {
+      "name": "test_non_transdata_image_does_not_touch_aspect",
+      "docstring": null
+    },
+    {
+      "name": "test_downsampling",
+      "docstring": null
+    },
+    {
+      "name": "test_downsampling_speckle",
+      "docstring": null
+    },
+    {
+      "name": "test_upsampling",
+      "docstring": null
+    },
+    {
+      "name": "test_resample_dtypes",
+      "docstring": null
+    },
+    {
+      "name": "test_interpolation_stage_rgba_respects_alpha_param",
+      "docstring": null
+    },
+    {
+      "name": "v",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

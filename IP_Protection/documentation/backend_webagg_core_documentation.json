@@ -1,0 +1,343 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\backend_webagg_core.py",
+  "classes": [
+    {
+      "name": "TimerTornado",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TimerAsyncio",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FigureCanvasWebAggCore",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "show",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        },
+        {
+          "name": "blit",
+          "docstring": null
+        },
+        {
+          "name": "draw_idle",
+          "docstring": null
+        },
+        {
+          "name": "set_cursor",
+          "docstring": null
+        },
+        {
+          "name": "set_image_mode",
+          "docstring": "Set the image mode for any subsequent images which will be sent\nto the clients. The modes may currently be either 'full' or 'diff'.\n\nNote: diff images may not contain transparency, therefore upon\ndraw this mode may be changed if the resulting image has any\ntransparent component."
+        },
+        {
+          "name": "get_diff_image",
+          "docstring": null
+        },
+        {
+          "name": "handle_event",
+          "docstring": null
+        },
+        {
+          "name": "handle_unknown_event",
+          "docstring": null
+        },
+        {
+          "name": "handle_ack",
+          "docstring": null
+        },
+        {
+          "name": "handle_draw",
+          "docstring": null
+        },
+        {
+          "name": "handle_toolbar_button",
+          "docstring": null
+        },
+        {
+          "name": "handle_refresh",
+          "docstring": null
+        },
+        {
+          "name": "handle_resize",
+          "docstring": null
+        },
+        {
+          "name": "handle_send_image_mode",
+          "docstring": null
+        },
+        {
+          "name": "handle_set_device_pixel_ratio",
+          "docstring": null
+        },
+        {
+          "name": "handle_set_dpi_ratio",
+          "docstring": null
+        },
+        {
+          "name": "send_event",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "NavigationToolbar2WebAgg",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_message",
+          "docstring": null
+        },
+        {
+          "name": "draw_rubberband",
+          "docstring": null
+        },
+        {
+          "name": "remove_rubberband",
+          "docstring": null
+        },
+        {
+          "name": "save_figure",
+          "docstring": "Save the current figure."
+        },
+        {
+          "name": "pan",
+          "docstring": null
+        },
+        {
+          "name": "zoom",
+          "docstring": null
+        },
+        {
+          "name": "set_history_buttons",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FigureManagerWebAgg",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "show",
+          "docstring": null
+        },
+        {
+          "name": "resize",
+          "docstring": null
+        },
+        {
+          "name": "set_window_title",
+          "docstring": null
+        },
+        {
+          "name": "get_window_title",
+          "docstring": null
+        },
+        {
+          "name": "add_web_socket",
+          "docstring": null
+        },
+        {
+          "name": "remove_web_socket",
+          "docstring": null
+        },
+        {
+          "name": "handle_json",
+          "docstring": null
+        },
+        {
+          "name": "refresh_all",
+          "docstring": null
+        },
+        {
+          "name": "get_javascript",
+          "docstring": null
+        },
+        {
+          "name": "get_static_file_path",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BackendWebAggCoreAgg",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "show",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "blit",
+      "docstring": null
+    },
+    {
+      "name": "draw_idle",
+      "docstring": null
+    },
+    {
+      "name": "set_cursor",
+      "docstring": null
+    },
+    {
+      "name": "set_image_mode",
+      "docstring": "Set the image mode for any subsequent images which will be sent\nto the clients. The modes may currently be either 'full' or 'diff'.\n\nNote: diff images may not contain transparency, therefore upon\ndraw this mode may be changed if the resulting image has any\ntransparent component."
+    },
+    {
+      "name": "get_diff_image",
+      "docstring": null
+    },
+    {
+      "name": "handle_event",
+      "docstring": null
+    },
+    {
+      "name": "handle_unknown_event",
+      "docstring": null
+    },
+    {
+      "name": "handle_ack",
+      "docstring": null
+    },
+    {
+      "name": "handle_draw",
+      "docstring": null
+    },
+    {
+      "name": "handle_toolbar_button",
+      "docstring": null
+    },
+    {
+      "name": "handle_refresh",
+      "docstring": null
+    },
+    {
+      "name": "handle_resize",
+      "docstring": null
+    },
+    {
+      "name": "handle_send_image_mode",
+      "docstring": null
+    },
+    {
+      "name": "handle_set_device_pixel_ratio",
+      "docstring": null
+    },
+    {
+      "name": "handle_set_dpi_ratio",
+      "docstring": null
+    },
+    {
+      "name": "send_event",
+      "docstring": null
+    },
+    {
+      "name": "set_message",
+      "docstring": null
+    },
+    {
+      "name": "draw_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "remove_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "save_figure",
+      "docstring": "Save the current figure."
+    },
+    {
+      "name": "pan",
+      "docstring": null
+    },
+    {
+      "name": "zoom",
+      "docstring": null
+    },
+    {
+      "name": "set_history_buttons",
+      "docstring": null
+    },
+    {
+      "name": "show",
+      "docstring": null
+    },
+    {
+      "name": "resize",
+      "docstring": null
+    },
+    {
+      "name": "set_window_title",
+      "docstring": null
+    },
+    {
+      "name": "get_window_title",
+      "docstring": null
+    },
+    {
+      "name": "add_web_socket",
+      "docstring": null
+    },
+    {
+      "name": "remove_web_socket",
+      "docstring": null
+    },
+    {
+      "name": "handle_json",
+      "docstring": null
+    },
+    {
+      "name": "refresh_all",
+      "docstring": null
+    },
+    {
+      "name": "get_javascript",
+      "docstring": null
+    },
+    {
+      "name": "get_static_file_path",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,194 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\_afm.py",
+  "classes": [
+    {
+      "name": "AFM",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parse the AFM file in file object *fh*."
+        },
+        {
+          "name": "get_bbox_char",
+          "docstring": null
+        },
+        {
+          "name": "string_width_height",
+          "docstring": "Return the string width (including kerning) and string height\nas a (*w*, *h*) tuple."
+        },
+        {
+          "name": "get_str_bbox_and_descent",
+          "docstring": "Return the string bounding box and the maximal descent."
+        },
+        {
+          "name": "get_str_bbox",
+          "docstring": "Return the string bounding box."
+        },
+        {
+          "name": "get_name_char",
+          "docstring": "Get the name of the character, i.e., ';' is 'semicolon'."
+        },
+        {
+          "name": "get_width_char",
+          "docstring": "Get the width of the character from the character metric WX field."
+        },
+        {
+          "name": "get_width_from_char_name",
+          "docstring": "Get the width of the character from a type1 character name."
+        },
+        {
+          "name": "get_height_char",
+          "docstring": "Get the bounding box (ink) height of character *c* (space is 0)."
+        },
+        {
+          "name": "get_kern_dist",
+          "docstring": "Return the kerning pair distance (possibly 0) for chars *c1* and *c2*."
+        },
+        {
+          "name": "get_kern_dist_from_name",
+          "docstring": "Return the kerning pair distance (possibly 0) for chars\n*name1* and *name2*."
+        },
+        {
+          "name": "get_fontname",
+          "docstring": "Return the font name, e.g., 'Times-Roman'."
+        },
+        {
+          "name": "postscript_name",
+          "docstring": null
+        },
+        {
+          "name": "get_fullname",
+          "docstring": "Return the font full name, e.g., 'Times-Roman'."
+        },
+        {
+          "name": "get_familyname",
+          "docstring": "Return the font family name, e.g., 'Times'."
+        },
+        {
+          "name": "family_name",
+          "docstring": "The font family name, e.g., 'Times'."
+        },
+        {
+          "name": "get_weight",
+          "docstring": "Return the font weight, e.g., 'Bold' or 'Roman'."
+        },
+        {
+          "name": "get_angle",
+          "docstring": "Return the fontangle as float."
+        },
+        {
+          "name": "get_capheight",
+          "docstring": "Return the cap height as float."
+        },
+        {
+          "name": "get_xheight",
+          "docstring": "Return the xheight as float."
+        },
+        {
+          "name": "get_underline_thickness",
+          "docstring": "Return the underline thickness as float."
+        },
+        {
+          "name": "get_horizontal_stem_width",
+          "docstring": "Return the standard horizontal stem width as float, or *None* if\nnot specified in AFM file."
+        },
+        {
+          "name": "get_vertical_stem_width",
+          "docstring": "Return the standard vertical stem width as float, or *None* if\nnot specified in AFM file."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_bbox_char",
+      "docstring": null
+    },
+    {
+      "name": "string_width_height",
+      "docstring": "Return the string width (including kerning) and string height\nas a (*w*, *h*) tuple."
+    },
+    {
+      "name": "get_str_bbox_and_descent",
+      "docstring": "Return the string bounding box and the maximal descent."
+    },
+    {
+      "name": "get_str_bbox",
+      "docstring": "Return the string bounding box."
+    },
+    {
+      "name": "get_name_char",
+      "docstring": "Get the name of the character, i.e., ';' is 'semicolon'."
+    },
+    {
+      "name": "get_width_char",
+      "docstring": "Get the width of the character from the character metric WX field."
+    },
+    {
+      "name": "get_width_from_char_name",
+      "docstring": "Get the width of the character from a type1 character name."
+    },
+    {
+      "name": "get_height_char",
+      "docstring": "Get the bounding box (ink) height of character *c* (space is 0)."
+    },
+    {
+      "name": "get_kern_dist",
+      "docstring": "Return the kerning pair distance (possibly 0) for chars *c1* and *c2*."
+    },
+    {
+      "name": "get_kern_dist_from_name",
+      "docstring": "Return the kerning pair distance (possibly 0) for chars\n*name1* and *name2*."
+    },
+    {
+      "name": "get_fontname",
+      "docstring": "Return the font name, e.g., 'Times-Roman'."
+    },
+    {
+      "name": "postscript_name",
+      "docstring": null
+    },
+    {
+      "name": "get_fullname",
+      "docstring": "Return the font full name, e.g., 'Times-Roman'."
+    },
+    {
+      "name": "get_familyname",
+      "docstring": "Return the font family name, e.g., 'Times'."
+    },
+    {
+      "name": "family_name",
+      "docstring": "The font family name, e.g., 'Times'."
+    },
+    {
+      "name": "get_weight",
+      "docstring": "Return the font weight, e.g., 'Bold' or 'Roman'."
+    },
+    {
+      "name": "get_angle",
+      "docstring": "Return the fontangle as float."
+    },
+    {
+      "name": "get_capheight",
+      "docstring": "Return the cap height as float."
+    },
+    {
+      "name": "get_xheight",
+      "docstring": "Return the xheight as float."
+    },
+    {
+      "name": "get_underline_thickness",
+      "docstring": "Return the underline thickness as float."
+    },
+    {
+      "name": "get_horizontal_stem_width",
+      "docstring": "Return the standard horizontal stem width as float, or *None* if\nnot specified in AFM file."
+    },
+    {
+      "name": "get_vertical_stem_width",
+      "docstring": "Return the standard vertical stem width as float, or *None* if\nnot specified in AFM file."
+    }
+  ],
+  "innovations": []
+}

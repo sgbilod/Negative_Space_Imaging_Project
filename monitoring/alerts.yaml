@@ -1,0 +1,73 @@
+# Alerting Configuration
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: negative-space-alerts
+  namespace: monitoring
+  labels:
+    app: negative-space
+spec:
+  groups:
+  - name: infrastructure
+    rules:
+    - alert: HighCPUUsage
+      expr: cpu_usage_percent > 80
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        description: "CPU usage above 80% for 5 minutes"
+
+    - alert: HighMemoryUsage
+      expr: memory_usage_percent > 85
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        description: "Memory usage above 85% for 5 minutes"
+
+    - alert: StorageNearCapacity
+      expr: disk_used_percent > 85
+      for: 10m
+      labels:
+        severity: warning
+      annotations:
+        description: "Storage usage above 85% for 10 minutes"
+
+  - name: application
+    rules:
+    - alert: HighLatency
+      expr: http_request_duration_seconds > 2
+      for: 5m
+      labels:
+        severity: critical
+      annotations:
+        description: "HTTP requests taking longer than 2 seconds"
+
+    - alert: HighErrorRate
+      expr: rate(http_requests_total{status=~"5.."}[5m]) > 1
+      for: 2m
+      labels:
+        severity: critical
+      annotations:
+        description: "High rate of 5xx errors detected"
+
+  - name: security
+    rules:
+    - alert: UnauthorizedAccessAttempts
+      expr: rate(unauthorized_access_attempts[5m]) > 10
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        description: "Multiple unauthorized access attempts detected"
+
+    - alert: DataExfiltrationAttempt
+      expr: rate(data_transfer_bytes_total) > 1000000000
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        description: "Potential data exfiltration attempt detected"

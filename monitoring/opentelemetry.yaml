@@ -1,0 +1,57 @@
+# OpenTelemetry Configuration
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+apiVersion: opentelemetry.io/v1alpha1
+kind: OpenTelemetryCollector
+metadata:
+  name: negative-space-otel
+  namespace: monitoring
+spec:
+  mode: deployment
+  replicas: 3
+  config: |
+    receivers:
+      otlp:
+        protocols:
+          grpc:
+            endpoint: 0.0.0.0:4317
+          http:
+            endpoint: 0.0.0.0:4318
+
+    processors:
+      batch:
+        timeout: 1s
+        send_batch_size: 1024
+      memory_limiter:
+        check_interval: 1s
+        limit_mib: 4096
+      attributes:
+        actions:
+          - key: environment
+            value: production
+            action: insert
+
+    exporters:
+      prometheus:
+        endpoint: 0.0.0.0:8889
+      jaeger:
+        endpoint: jaeger-collector:14250
+        tls:
+          insecure: false
+      elasticsearch:
+        endpoints: ["https://elasticsearch-master:9200"]
+        index: negative-space-traces
+
+    service:
+      telemetry:
+        metrics:
+          level: detailed
+      pipelines:
+        traces:
+          receivers: [otlp]
+          processors: [memory_limiter, batch, attributes]
+          exporters: [jaeger, elasticsearch]
+        metrics:
+          receivers: [otlp]
+          processors: [memory_limiter, batch, attributes]
+          exporters: [prometheus]

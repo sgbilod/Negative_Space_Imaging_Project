@@ -1,0 +1,30 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_typing\\_nested_sequence.py",
+  "classes": [
+    {
+      "name": "_NestedSequence",
+      "docstring": "A protocol for representing nested sequences.\n\nWarning\n-------\n`_NestedSequence` currently does not work in combination with typevars,\n*e.g.* ``def func(a: _NestedSequnce[T]) -> T: ...``.\n\nSee Also\n--------\ncollections.abc.Sequence\n    ABCs for read-only and mutable :term:`sequences`.\n\nExamples\n--------\n.. code-block:: python\n\n    >>> from __future__ import annotations\n\n    >>> from typing import TYPE_CHECKING\n    >>> import numpy as np\n    >>> from numpy._typing import _NestedSequence\n\n    >>> def get_dtype(seq: _NestedSequence[float]) -> np.dtype[np.float64]:\n    ...     return np.asarray(seq).dtype\n\n    >>> a = get_dtype([1.0])\n    >>> b = get_dtype([[1.0]])\n    >>> c = get_dtype([[[1.0]]])\n    >>> d = get_dtype([[[[1.0]]]])\n\n    >>> if TYPE_CHECKING:\n    ...     reveal_locals()\n    ...     # note: Revealed local types are:\n    ...     # note:     a: numpy.dtype[numpy.floating[numpy._typing._64Bit]]\n    ...     # note:     b: numpy.dtype[numpy.floating[numpy._typing._64Bit]]\n    ...     # note:     c: numpy.dtype[numpy.floating[numpy._typing._64Bit]]\n    ...     # note:     d: numpy.dtype[numpy.floating[numpy._typing._64Bit]]",
+      "methods": [
+        {
+          "name": "count",
+          "docstring": "Return the number of occurrences of `value`."
+        },
+        {
+          "name": "index",
+          "docstring": "Return the first index of `value`."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "count",
+      "docstring": "Return the number of occurrences of `value`."
+    },
+    {
+      "name": "index",
+      "docstring": "Return the first index of `value`."
+    }
+  ],
+  "innovations": []
+}

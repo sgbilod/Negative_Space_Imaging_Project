@@ -1,0 +1,148 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\transform.py",
+  "classes": [
+    {
+      "name": "Transform",
+      "docstring": "2x2 transformation matrix plus offset, a.k.a. Affine transform.\nTransform instances are immutable: all transforming methods, eg.\nrotate(), return a new Transform instance.\n\n:Example:\n\n        >>> t = Transform()\n        >>> t\n        <Transform [1 0 0 1 0 0]>\n        >>> t.scale(2)\n        <Transform [2 0 0 2 0 0]>\n        >>> t.scale(2.5, 5.5)\n        <Transform [2.5 0 0 5.5 0 0]>\n        >>>\n        >>> t.scale(2, 3).transformPoint((100, 100))\n        (200, 300)\n\nTransform's constructor takes six arguments, all of which are\noptional, and can be used as keyword arguments::\n\n        >>> Transform(12)\n        <Transform [12 0 0 1 0 0]>\n        >>> Transform(dx=12)\n        <Transform [1 0 0 1 12 0]>\n        >>> Transform(yx=12)\n        <Transform [1 0 12 1 0 0]>\n\nTransform instances also behave like sequences of length 6::\n\n        >>> len(Identity)\n        6\n        >>> list(Identity)\n        [1, 0, 0, 1, 0, 0]\n        >>> tuple(Identity)\n        (1, 0, 0, 1, 0, 0)\n\nTransform instances are comparable::\n\n        >>> t1 = Identity.scale(2, 3).translate(4, 6)\n        >>> t2 = Identity.translate(8, 18).scale(2, 3)\n        >>> t1 == t2\n        1\n\nBut beware of floating point rounding errors::\n\n        >>> t1 = Identity.scale(0.2, 0.3).translate(0.4, 0.6)\n        >>> t2 = Identity.translate(0.08, 0.18).scale(0.2, 0.3)\n        >>> t1\n        <Transform [0.2 0 0 0.3 0.08 0.18]>\n        >>> t2\n        <Transform [0.2 0 0 0.3 0.08 0.18]>\n        >>> t1 == t2\n        0\n\nTransform instances are hashable, meaning you can use them as\nkeys in dictionaries::\n\n        >>> d = {Scale(12, 13): None}\n        >>> d\n        {<Transform [12 0 0 13 0 0]>: None}\n\nBut again, beware of floating point rounding errors::\n\n        >>> t1 = Identity.scale(0.2, 0.3).translate(0.4, 0.6)\n        >>> t2 = Identity.translate(0.08, 0.18).scale(0.2, 0.3)\n        >>> t1\n        <Transform [0.2 0 0 0.3 0.08 0.18]>\n        >>> t2\n        <Transform [0.2 0 0 0.3 0.08 0.18]>\n        >>> d = {t1: None}\n        >>> d\n        {<Transform [0.2 0 0 0.3 0.08 0.18]>: None}\n        >>> d[t2]\n        Traceback (most recent call last):\n          File \"<stdin>\", line 1, in ?\n        KeyError: <Transform [0.2 0 0 0.3 0.08 0.18]>",
+      "methods": [
+        {
+          "name": "transformPoint",
+          "docstring": "Transform a point.\n\n:Example:\n\n        >>> t = Transform()\n        >>> t = t.scale(2.5, 5.5)\n        >>> t.transformPoint((100, 100))\n        (250.0, 550.0)"
+        },
+        {
+          "name": "transformPoints",
+          "docstring": "Transform a list of points.\n\n:Example:\n\n        >>> t = Scale(2, 3)\n        >>> t.transformPoints([(0, 0), (0, 100), (100, 100), (100, 0)])\n        [(0, 0), (0, 300), (200, 300), (200, 0)]\n        >>>"
+        },
+        {
+          "name": "transformVector",
+          "docstring": "Transform an (dx, dy) vector, treating translation as zero.\n\n:Example:\n\n        >>> t = Transform(2, 0, 0, 2, 10, 20)\n        >>> t.transformVector((3, -4))\n        (6, -8)\n        >>>"
+        },
+        {
+          "name": "transformVectors",
+          "docstring": "Transform a list of (dx, dy) vector, treating translation as zero.\n\n:Example:\n        >>> t = Transform(2, 0, 0, 2, 10, 20)\n        >>> t.transformVectors([(3, -4), (5, -6)])\n        [(6, -8), (10, -12)]\n        >>>"
+        },
+        {
+          "name": "translate",
+          "docstring": "Return a new transformation, translated (offset) by x, y.\n\n:Example:\n        >>> t = Transform()\n        >>> t.translate(20, 30)\n        <Transform [1 0 0 1 20 30]>\n        >>>"
+        },
+        {
+          "name": "scale",
+          "docstring": "Return a new transformation, scaled by x, y. The 'y' argument\nmay be None, which implies to use the x value for y as well.\n\n:Example:\n        >>> t = Transform()\n        >>> t.scale(5)\n        <Transform [5 0 0 5 0 0]>\n        >>> t.scale(5, 6)\n        <Transform [5 0 0 6 0 0]>\n        >>>"
+        },
+        {
+          "name": "rotate",
+          "docstring": "Return a new transformation, rotated by 'angle' (radians).\n\n:Example:\n        >>> import math\n        >>> t = Transform()\n        >>> t.rotate(math.pi / 2)\n        <Transform [0 1 -1 0 0 0]>\n        >>>"
+        },
+        {
+          "name": "skew",
+          "docstring": "Return a new transformation, skewed by x and y.\n\n:Example:\n        >>> import math\n        >>> t = Transform()\n        >>> t.skew(math.pi / 4)\n        <Transform [1 0 1 1 0 0]>\n        >>>"
+        },
+        {
+          "name": "transform",
+          "docstring": "Return a new transformation, transformed by another\ntransformation.\n\n:Example:\n        >>> t = Transform(2, 0, 0, 3, 1, 6)\n        >>> t.transform((4, 3, 2, 1, 5, 6))\n        <Transform [8 9 4 3 11 24]>\n        >>>"
+        },
+        {
+          "name": "reverseTransform",
+          "docstring": "Return a new transformation, which is the other transformation\ntransformed by self. self.reverseTransform(other) is equivalent to\nother.transform(self).\n\n:Example:\n        >>> t = Transform(2, 0, 0, 3, 1, 6)\n        >>> t.reverseTransform((4, 3, 2, 1, 5, 6))\n        <Transform [8 6 6 3 21 15]>\n        >>> Transform(4, 3, 2, 1, 5, 6).transform((2, 0, 0, 3, 1, 6))\n        <Transform [8 6 6 3 21 15]>\n        >>>"
+        },
+        {
+          "name": "inverse",
+          "docstring": "Return the inverse transformation.\n\n:Example:\n        >>> t = Identity.translate(2, 3).scale(4, 5)\n        >>> t.transformPoint((10, 20))\n        (42, 103)\n        >>> it = t.inverse()\n        >>> it.transformPoint((42, 103))\n        (10.0, 20.0)\n        >>>"
+        },
+        {
+          "name": "toPS",
+          "docstring": "Return a PostScript representation\n\n:Example:\n\n        >>> t = Identity.scale(2, 3).translate(4, 5)\n        >>> t.toPS()\n        '[2 0 0 3 8 15]'\n        >>>"
+        },
+        {
+          "name": "toDecomposed",
+          "docstring": "Decompose into a DecomposedTransform."
+        }
+      ]
+    },
+    {
+      "name": "DecomposedTransform",
+      "docstring": "The DecomposedTransform class implements a transformation with separate\ntranslate, rotation, scale, skew, and transformation-center components.",
+      "methods": [
+        {
+          "name": "fromTransform",
+          "docstring": "Return a DecomposedTransform() equivalent of this transformation.\nThe returned solution always has skewY = 0, and angle in the (-180, 180].\n\n:Example:\n        >>> DecomposedTransform.fromTransform(Transform(3, 0, 0, 2, 0, 0))\n        DecomposedTransform(translateX=0, translateY=0, rotation=0.0, scaleX=3.0, scaleY=2.0, skewX=0.0, skewY=0.0, tCenterX=0, tCenterY=0)\n        >>> DecomposedTransform.fromTransform(Transform(0, 0, 0, 1, 0, 0))\n        DecomposedTransform(translateX=0, translateY=0, rotation=0.0, scaleX=0.0, scaleY=1.0, skewX=0.0, skewY=0.0, tCenterX=0, tCenterY=0)\n        >>> DecomposedTransform.fromTransform(Transform(0, 0, 1, 1, 0, 0))\n        DecomposedTransform(translateX=0, translateY=0, rotation=-45.0, scaleX=0.0, scaleY=1.4142135623730951, skewX=0.0, skewY=0.0, tCenterX=0, tCenterY=0)"
+        },
+        {
+          "name": "toTransform",
+          "docstring": "Return the Transform() equivalent of this transformation.\n\n:Example:\n        >>> DecomposedTransform(scaleX=2, scaleY=2).toTransform()\n        <Transform [2 0 0 2 0 0]>\n        >>>"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "Offset",
+      "docstring": "Return the identity transformation offset by x, y.\n\n:Example:\n        >>> Offset(2, 3)\n        <Transform [1 0 0 1 2 3]>\n        >>>"
+    },
+    {
+      "name": "Scale",
+      "docstring": "Return the identity transformation scaled by x, y. The 'y' argument\nmay be None, which implies to use the x value for y as well.\n\n:Example:\n        >>> Scale(2, 3)\n        <Transform [2 0 0 3 0 0]>\n        >>>"
+    },
+    {
+      "name": "transformPoint",
+      "docstring": "Transform a point.\n\n:Example:\n\n        >>> t = Transform()\n        >>> t = t.scale(2.5, 5.5)\n        >>> t.transformPoint((100, 100))\n        (250.0, 550.0)"
+    },
+    {
+      "name": "transformPoints",
+      "docstring": "Transform a list of points.\n\n:Example:\n\n        >>> t = Scale(2, 3)\n        >>> t.transformPoints([(0, 0), (0, 100), (100, 100), (100, 0)])\n        [(0, 0), (0, 300), (200, 300), (200, 0)]\n        >>>"
+    },
+    {
+      "name": "transformVector",
+      "docstring": "Transform an (dx, dy) vector, treating translation as zero.\n\n:Example:\n\n        >>> t = Transform(2, 0, 0, 2, 10, 20)\n        >>> t.transformVector((3, -4))\n        (6, -8)\n        >>>"
+    },
+    {
+      "name": "transformVectors",
+      "docstring": "Transform a list of (dx, dy) vector, treating translation as zero.\n\n:Example:\n        >>> t = Transform(2, 0, 0, 2, 10, 20)\n        >>> t.transformVectors([(3, -4), (5, -6)])\n        [(6, -8), (10, -12)]\n        >>>"
+    },
+    {
+      "name": "translate",
+      "docstring": "Return a new transformation, translated (offset) by x, y.\n\n:Example:\n        >>> t = Transform()\n        >>> t.translate(20, 30)\n        <Transform [1 0 0 1 20 30]>\n        >>>"
+    },
+    {
+      "name": "scale",
+      "docstring": "Return a new transformation, scaled by x, y. The 'y' argument\nmay be None, which implies to use the x value for y as well.\n\n:Example:\n        >>> t = Transform()\n        >>> t.scale(5)\n        <Transform [5 0 0 5 0 0]>\n        >>> t.scale(5, 6)\n        <Transform [5 0 0 6 0 0]>\n        >>>"
+    },
+    {
+      "name": "rotate",
+      "docstring": "Return a new transformation, rotated by 'angle' (radians).\n\n:Example:\n        >>> import math\n        >>> t = Transform()\n        >>> t.rotate(math.pi / 2)\n        <Transform [0 1 -1 0 0 0]>\n        >>>"
+    },
+    {
+      "name": "skew",
+      "docstring": "Return a new transformation, skewed by x and y.\n\n:Example:\n        >>> import math\n        >>> t = Transform()\n        >>> t.skew(math.pi / 4)\n        <Transform [1 0 1 1 0 0]>\n        >>>"
+    },
+    {
+      "name": "transform",
+      "docstring": "Return a new transformation, transformed by another\ntransformation.\n\n:Example:\n        >>> t = Transform(2, 0, 0, 3, 1, 6)\n        >>> t.transform((4, 3, 2, 1, 5, 6))\n        <Transform [8 9 4 3 11 24]>\n        >>>"
+    },
+    {
+      "name": "reverseTransform",
+      "docstring": "Return a new transformation, which is the other transformation\ntransformed by self. self.reverseTransform(other) is equivalent to\nother.transform(self).\n\n:Example:\n        >>> t = Transform(2, 0, 0, 3, 1, 6)\n        >>> t.reverseTransform((4, 3, 2, 1, 5, 6))\n        <Transform [8 6 6 3 21 15]>\n        >>> Transform(4, 3, 2, 1, 5, 6).transform((2, 0, 0, 3, 1, 6))\n        <Transform [8 6 6 3 21 15]>\n        >>>"
+    },
+    {
+      "name": "inverse",
+      "docstring": "Return the inverse transformation.\n\n:Example:\n        >>> t = Identity.translate(2, 3).scale(4, 5)\n        >>> t.transformPoint((10, 20))\n        (42, 103)\n        >>> it = t.inverse()\n        >>> it.transformPoint((42, 103))\n        (10.0, 20.0)\n        >>>"
+    },
+    {
+      "name": "toPS",
+      "docstring": "Return a PostScript representation\n\n:Example:\n\n        >>> t = Identity.scale(2, 3).translate(4, 5)\n        >>> t.toPS()\n        '[2 0 0 3 8 15]'\n        >>>"
+    },
+    {
+      "name": "toDecomposed",
+      "docstring": "Decompose into a DecomposedTransform."
+    },
+    {
+      "name": "fromTransform",
+      "docstring": "Return a DecomposedTransform() equivalent of this transformation.\nThe returned solution always has skewY = 0, and angle in the (-180, 180].\n\n:Example:\n        >>> DecomposedTransform.fromTransform(Transform(3, 0, 0, 2, 0, 0))\n        DecomposedTransform(translateX=0, translateY=0, rotation=0.0, scaleX=3.0, scaleY=2.0, skewX=0.0, skewY=0.0, tCenterX=0, tCenterY=0)\n        >>> DecomposedTransform.fromTransform(Transform(0, 0, 0, 1, 0, 0))\n        DecomposedTransform(translateX=0, translateY=0, rotation=0.0, scaleX=0.0, scaleY=1.0, skewX=0.0, skewY=0.0, tCenterX=0, tCenterY=0)\n        >>> DecomposedTransform.fromTransform(Transform(0, 0, 1, 1, 0, 0))\n        DecomposedTransform(translateX=0, translateY=0, rotation=-45.0, scaleX=0.0, scaleY=1.4142135623730951, skewX=0.0, skewY=0.0, tCenterX=0, tCenterY=0)"
+    },
+    {
+      "name": "toTransform",
+      "docstring": "Return the Transform() equivalent of this transformation.\n\n:Example:\n        >>> DecomposedTransform(scaleX=2, scaleY=2).toTransform()\n        <Transform [2 0 0 2 0 0]>\n        >>>"
+    }
+  ],
+  "innovations": []
+}

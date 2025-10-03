@@ -1,0 +1,54 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\negative-space-project\\src\\negative_mapping\\theoretical_unification.py",
+  "classes": [
+    {
+      "name": "TheoreticalUnificationEngine",
+      "docstring": "Integrates multiple advanced theoretical frameworks for negative space analysis.\n\nThis engine combines concepts from fractal geometry, holographic universe theory,\nquantum entanglement, and information theory to provide unprecedented analysis\nand security capabilities for negative space data.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the theoretical unification engine.\n\nArgs:\n    fractal_analysis_level: Level of fractal analysis detail (\"basic\", \"standard\", \"comprehensive\")\n    holographic_encoding: Whether to use holographic encoding\n    quantum_correlations: Whether to use quantum-inspired correlations\n    security_level: Security level (\"standard\", \"high\", \"quantum-resistant\")"
+        },
+        {
+          "name": "analyze_negative_space",
+          "docstring": "Perform comprehensive analysis of negative space using all enabled theoretical frameworks.\n\nArgs:\n    coordinates: Array of 3D coordinates representing negative space\n    \nReturns:\n    Dictionary containing comprehensive analysis results"
+        },
+        {
+          "name": "compare_negative_spaces",
+          "docstring": "Compare two negative spaces using all enabled theoretical frameworks.\n\nArgs:\n    space_a: First negative space coordinates\n    space_b: Second negative space coordinates\n    \nReturns:\n    Dictionary containing comparison results"
+        },
+        {
+          "name": "create_secure_signature",
+          "docstring": "Create a secure signature for negative space with optional metadata.\n\nArgs:\n    coordinates: Negative space coordinates\n    metadata: Optional metadata to include in the signature\n    \nReturns:\n    Dictionary containing secure signature information"
+        },
+        {
+          "name": "verify_secure_signature",
+          "docstring": "Verify a secure signature against provided negative space coordinates.\n\nArgs:\n    coordinates: Negative space coordinates to verify\n    signature: Previously created signature\n    \nReturns:\n    True if signature is valid for the coordinates"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "analyze_negative_space",
+      "docstring": "Perform comprehensive analysis of negative space using all enabled theoretical frameworks.\n\nArgs:\n    coordinates: Array of 3D coordinates representing negative space\n    \nReturns:\n    Dictionary containing comprehensive analysis results"
+    },
+    {
+      "name": "compare_negative_spaces",
+      "docstring": "Compare two negative spaces using all enabled theoretical frameworks.\n\nArgs:\n    space_a: First negative space coordinates\n    space_b: Second negative space coordinates\n    \nReturns:\n    Dictionary containing comparison results"
+    },
+    {
+      "name": "create_secure_signature",
+      "docstring": "Create a secure signature for negative space with optional metadata.\n\nArgs:\n    coordinates: Negative space coordinates\n    metadata: Optional metadata to include in the signature\n    \nReturns:\n    Dictionary containing secure signature information"
+    },
+    {
+      "name": "verify_secure_signature",
+      "docstring": "Verify a secure signature against provided negative space coordinates.\n\nArgs:\n    coordinates: Negative space coordinates to verify\n    signature: Previously created signature\n    \nReturns:\n    True if signature is valid for the coordinates"
+    },
+    {
+      "name": "normalize_space",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,496 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_transforms.py",
+  "classes": [
+    {
+      "name": "TestAffine2D",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_init",
+          "docstring": null
+        },
+        {
+          "name": "test_values",
+          "docstring": null
+        },
+        {
+          "name": "test_modify_inplace",
+          "docstring": null
+        },
+        {
+          "name": "test_clear",
+          "docstring": null
+        },
+        {
+          "name": "test_rotate",
+          "docstring": null
+        },
+        {
+          "name": "test_rotate_around",
+          "docstring": null
+        },
+        {
+          "name": "test_scale",
+          "docstring": null
+        },
+        {
+          "name": "test_skew",
+          "docstring": null
+        },
+        {
+          "name": "test_translate",
+          "docstring": null
+        },
+        {
+          "name": "test_rotate_plus_other",
+          "docstring": null
+        },
+        {
+          "name": "test_rotate_around_plus_other",
+          "docstring": null
+        },
+        {
+          "name": "test_scale_plus_other",
+          "docstring": null
+        },
+        {
+          "name": "test_skew_plus_other",
+          "docstring": null
+        },
+        {
+          "name": "test_translate_plus_other",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_transform",
+          "docstring": null
+        },
+        {
+          "name": "test_copy",
+          "docstring": null
+        },
+        {
+          "name": "test_deepcopy",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAffineDeltaTransform",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_invalidate",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "NonAffineForTest",
+      "docstring": "A class which looks like a non affine transform, but does whatever\nthe given transform does (even if it is affine). This is very useful\nfor testing NonAffine behaviour with a simple Affine transform.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "transform_path_non_affine",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestBasicTransform",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_transform_depth",
+          "docstring": null
+        },
+        {
+          "name": "test_left_to_right_iteration",
+          "docstring": null
+        },
+        {
+          "name": "test_transform_shortcuts",
+          "docstring": null
+        },
+        {
+          "name": "test_contains_branch",
+          "docstring": null
+        },
+        {
+          "name": "test_affine_simplification",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestTransformPlotInterface",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_line_extent_axes_coords",
+          "docstring": null
+        },
+        {
+          "name": "test_line_extent_data_coords",
+          "docstring": null
+        },
+        {
+          "name": "test_line_extent_compound_coords1",
+          "docstring": null
+        },
+        {
+          "name": "test_line_extent_predata_transform_coords",
+          "docstring": null
+        },
+        {
+          "name": "test_line_extent_compound_coords2",
+          "docstring": null
+        },
+        {
+          "name": "test_line_extents_affine",
+          "docstring": null
+        },
+        {
+          "name": "test_line_extents_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "test_pathc_extents_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "test_pathc_extents_affine",
+          "docstring": null
+        },
+        {
+          "name": "test_line_extents_for_non_affine_transData",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AssertingNonAffineTransform",
+      "docstring": "This transform raises an assertion error when called when it\nshouldn't be and ``self.raise_on_transform`` is True.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "transform_path_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ScaledBy",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_non_affine_caching",
+      "docstring": null
+    },
+    {
+      "name": "test_external_transform_api",
+      "docstring": null
+    },
+    {
+      "name": "test_pre_transform_plotting",
+      "docstring": null
+    },
+    {
+      "name": "test_contour_pre_transform_limits",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolor_pre_transform_limits",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolormesh_pre_transform_limits",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolormesh_gouraud_nans",
+      "docstring": null
+    },
+    {
+      "name": "test_Affine2D_from_values",
+      "docstring": null
+    },
+    {
+      "name": "test_affine_inverted_invalidated",
+      "docstring": null
+    },
+    {
+      "name": "test_clipping_of_log",
+      "docstring": null
+    },
+    {
+      "name": "assert_bbox_eq",
+      "docstring": null
+    },
+    {
+      "name": "test_bbox_frozen_copies_minpos",
+      "docstring": null
+    },
+    {
+      "name": "test_bbox_intersection",
+      "docstring": null
+    },
+    {
+      "name": "test_bbox_as_strings",
+      "docstring": null
+    },
+    {
+      "name": "test_str_transform",
+      "docstring": null
+    },
+    {
+      "name": "test_transform_single_point",
+      "docstring": null
+    },
+    {
+      "name": "test_log_transform",
+      "docstring": null
+    },
+    {
+      "name": "test_nan_overlap",
+      "docstring": null
+    },
+    {
+      "name": "test_transform_angles",
+      "docstring": null
+    },
+    {
+      "name": "test_nonsingular",
+      "docstring": null
+    },
+    {
+      "name": "test_transformed_path",
+      "docstring": null
+    },
+    {
+      "name": "test_transformed_patch_path",
+      "docstring": null
+    },
+    {
+      "name": "test_lockable_bbox",
+      "docstring": null
+    },
+    {
+      "name": "test_transformwrapper",
+      "docstring": null
+    },
+    {
+      "name": "test_scale_swapping",
+      "docstring": null
+    },
+    {
+      "name": "test_offset_copy_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_transformedbbox_contains",
+      "docstring": null
+    },
+    {
+      "name": "test_interval_contains",
+      "docstring": null
+    },
+    {
+      "name": "test_interval_contains_open",
+      "docstring": null
+    },
+    {
+      "name": "test_scaledrotation_initialization",
+      "docstring": "Test that the ScaledRotation object is initialized correctly."
+    },
+    {
+      "name": "test_scaledrotation_get_matrix_invalid",
+      "docstring": "Test get_matrix when the matrix is invalid and needs recalculation."
+    },
+    {
+      "name": "test_init",
+      "docstring": null
+    },
+    {
+      "name": "test_values",
+      "docstring": null
+    },
+    {
+      "name": "test_modify_inplace",
+      "docstring": null
+    },
+    {
+      "name": "test_clear",
+      "docstring": null
+    },
+    {
+      "name": "test_rotate",
+      "docstring": null
+    },
+    {
+      "name": "test_rotate_around",
+      "docstring": null
+    },
+    {
+      "name": "test_scale",
+      "docstring": null
+    },
+    {
+      "name": "test_skew",
+      "docstring": null
+    },
+    {
+      "name": "test_translate",
+      "docstring": null
+    },
+    {
+      "name": "test_rotate_plus_other",
+      "docstring": null
+    },
+    {
+      "name": "test_rotate_around_plus_other",
+      "docstring": null
+    },
+    {
+      "name": "test_scale_plus_other",
+      "docstring": null
+    },
+    {
+      "name": "test_skew_plus_other",
+      "docstring": null
+    },
+    {
+      "name": "test_translate_plus_other",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_transform",
+      "docstring": null
+    },
+    {
+      "name": "test_copy",
+      "docstring": null
+    },
+    {
+      "name": "test_deepcopy",
+      "docstring": null
+    },
+    {
+      "name": "test_invalidate",
+      "docstring": null
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "transform_path_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_transform_depth",
+      "docstring": null
+    },
+    {
+      "name": "test_left_to_right_iteration",
+      "docstring": null
+    },
+    {
+      "name": "test_transform_shortcuts",
+      "docstring": null
+    },
+    {
+      "name": "test_contains_branch",
+      "docstring": null
+    },
+    {
+      "name": "test_affine_simplification",
+      "docstring": null
+    },
+    {
+      "name": "test_line_extent_axes_coords",
+      "docstring": null
+    },
+    {
+      "name": "test_line_extent_data_coords",
+      "docstring": null
+    },
+    {
+      "name": "test_line_extent_compound_coords1",
+      "docstring": null
+    },
+    {
+      "name": "test_line_extent_predata_transform_coords",
+      "docstring": null
+    },
+    {
+      "name": "test_line_extent_compound_coords2",
+      "docstring": null
+    },
+    {
+      "name": "test_line_extents_affine",
+      "docstring": null
+    },
+    {
+      "name": "test_line_extents_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "test_pathc_extents_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "test_pathc_extents_affine",
+      "docstring": null
+    },
+    {
+      "name": "test_line_extents_for_non_affine_transData",
+      "docstring": null
+    },
+    {
+      "name": "transform_path_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "\n    def test_affine_simplification(self):\n        # tests that a transform stack only calls as much is absolutely\n        # necessary \"non-affine\" allowing the best possible optimization with\n        # complex transformation stacks.\n        points = np.array([[0, 0], [10, 20], [np.nan, 1], [-1, 0]],\n                          dtype=np.float64)"
+    }
+  ]
+}

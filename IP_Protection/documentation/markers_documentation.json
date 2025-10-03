@@ -1,0 +1,54 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\markers.py",
+  "classes": [
+    {
+      "name": "InvalidMarker",
+      "docstring": "An invalid marker was found, users should refer to PEP 508.",
+      "methods": []
+    },
+    {
+      "name": "UndefinedComparison",
+      "docstring": "An invalid operation was attempted on a value that doesn't support it.",
+      "methods": []
+    },
+    {
+      "name": "UndefinedEnvironmentName",
+      "docstring": "A name was attempted to be used that does not exist inside of the\nenvironment.",
+      "methods": []
+    },
+    {
+      "name": "Environment",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Marker",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "evaluate",
+          "docstring": "Evaluate a marker.\n\nReturn the boolean from evaluating the given marker against the\nenvironment. environment is an optional argument to override all or\npart of the determined environment. The *context* parameter specifies what\ncontext the markers are being evaluated for, which influences what markers\nare considered valid. Acceptable values are \"metadata\" (for core metadata;\ndefault), \"lock_file\", and \"requirement\" (i.e. all other situations).\n\nThe environment is determined from the current Python process."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "format_full_version",
+      "docstring": null
+    },
+    {
+      "name": "default_environment",
+      "docstring": null
+    },
+    {
+      "name": "evaluate",
+      "docstring": "Evaluate a marker.\n\nReturn the boolean from evaluating the given marker against the\nenvironment. environment is an optional argument to override all or\npart of the determined environment. The *context* parameter specifies what\ncontext the markers are being evaluated for, which influences what markers\nare considered valid. Acceptable values are \"metadata\" (for core metadata;\ndefault), \"lock_file\", and \"requirement\" (i.e. all other situations).\n\nThe environment is determined from the current Python process."
+    }
+  ],
+  "innovations": []
+}

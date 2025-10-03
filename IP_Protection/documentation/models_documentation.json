@@ -1,0 +1,174 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\varLib\\models.py",
+  "classes": [
+    {
+      "name": "VariationModel",
+      "docstring": "Locations must have the base master at the origin (ie. 0).\n\nIf axis-ranges are not provided, values are assumed to be normalized to\nthe range [-1, 1].\n\nIf the extrapolate argument is set to True, then values are extrapolated\noutside the axis range.\n\n  >>> from pprint import pprint\n  >>> axisRanges = {'wght': (-180, +180), 'wdth': (-1, +1)}\n  >>> locations = [       {'wght':100},       {'wght':-100},       {'wght':-180},       {'wdth':+.3},       {'wght':+120,'wdth':.3},       {'wght':+120,'wdth':.2},       {},       {'wght':+180,'wdth':.3},       {'wght':+180},       ]\n  >>> model = VariationModel(locations, axisOrder=['wght'], axisRanges=axisRanges)\n  >>> pprint(model.locations)\n  [{},\n   {'wght': -100},\n   {'wght': -180},\n   {'wght': 100},\n   {'wght': 180},\n   {'wdth': 0.3},\n   {'wdth': 0.3, 'wght': 180},\n   {'wdth': 0.3, 'wght': 120},\n   {'wdth': 0.2, 'wght': 120}]\n  >>> pprint(model.deltaWeights)\n  [{},\n   {0: 1.0},\n   {0: 1.0},\n   {0: 1.0},\n   {0: 1.0},\n   {0: 1.0},\n   {0: 1.0, 4: 1.0, 5: 1.0},\n   {0: 1.0, 3: 0.75, 4: 0.25, 5: 1.0, 6: 0.6666666666666666},\n   {0: 1.0,\n    3: 0.75,\n    4: 0.25,\n    5: 0.6666666666666667,\n    6: 0.4444444444444445,\n    7: 0.6666666666666667}]",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "getSubModel",
+          "docstring": "Return a sub-model and the items that are not None.\n\nThe sub-model is necessary for working with the subset\nof items when some are None.\n\nThe sub-model is cached."
+        },
+        {
+          "name": "computeAxisRanges",
+          "docstring": null
+        },
+        {
+          "name": "getMasterLocationsSortKeyFunc",
+          "docstring": null
+        },
+        {
+          "name": "reorderMasters",
+          "docstring": null
+        },
+        {
+          "name": "getDeltas",
+          "docstring": null
+        },
+        {
+          "name": "getDeltasAndSupports",
+          "docstring": null
+        },
+        {
+          "name": "getScalars",
+          "docstring": "Return scalars for each delta, for the given location.\nIf interpolating many master-values at the same location,\nthis function allows speed up by fetching the scalars once\nand using them with interpolateFromMastersAndScalars()."
+        },
+        {
+          "name": "getMasterScalars",
+          "docstring": "Return multipliers for each master, for the given location.\nIf interpolating many master-values at the same location,\nthis function allows speed up by fetching the scalars once\nand using them with interpolateFromValuesAndScalars().\n\nNote that the scalars used in interpolateFromMastersAndScalars(),\nare *not* the same as the ones returned here. They are the result\nof getScalars()."
+        },
+        {
+          "name": "interpolateFromValuesAndScalars",
+          "docstring": "Interpolate from values and scalars coefficients.\n\nIf the values are master-values, then the scalars should be\nfetched from getMasterScalars().\n\nIf the values are deltas, then the scalars should be fetched\nfrom getScalars(); in which case this is the same as\ninterpolateFromDeltasAndScalars()."
+        },
+        {
+          "name": "interpolateFromDeltasAndScalars",
+          "docstring": "Interpolate from deltas and scalars fetched from getScalars()."
+        },
+        {
+          "name": "interpolateFromDeltas",
+          "docstring": "Interpolate from deltas, at location loc."
+        },
+        {
+          "name": "interpolateFromMasters",
+          "docstring": "Interpolate from master-values, at location loc."
+        },
+        {
+          "name": "interpolateFromMastersAndScalars",
+          "docstring": "Interpolate from master-values, and scalars fetched from\ngetScalars(), which is useful when you want to interpolate\nmultiple master-values with the same location."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "nonNone",
+      "docstring": null
+    },
+    {
+      "name": "allNone",
+      "docstring": null
+    },
+    {
+      "name": "allEqualTo",
+      "docstring": null
+    },
+    {
+      "name": "allEqual",
+      "docstring": null
+    },
+    {
+      "name": "subList",
+      "docstring": null
+    },
+    {
+      "name": "normalizeValue",
+      "docstring": "Normalizes value based on a min/default/max triple.\n\n>>> normalizeValue(400, (100, 400, 900))\n0.0\n>>> normalizeValue(100, (100, 400, 900))\n-1.0\n>>> normalizeValue(650, (100, 400, 900))\n0.5"
+    },
+    {
+      "name": "normalizeLocation",
+      "docstring": "Normalizes location based on axis min/default/max values from axes.\n\n>>> axes = {\"wght\": (100, 400, 900)}\n>>> normalizeLocation({\"wght\": 400}, axes)\n{'wght': 0.0}\n>>> normalizeLocation({\"wght\": 100}, axes)\n{'wght': -1.0}\n>>> normalizeLocation({\"wght\": 900}, axes)\n{'wght': 1.0}\n>>> normalizeLocation({\"wght\": 650}, axes)\n{'wght': 0.5}\n>>> normalizeLocation({\"wght\": 1000}, axes)\n{'wght': 1.0}\n>>> normalizeLocation({\"wght\": 0}, axes)\n{'wght': -1.0}\n>>> axes = {\"wght\": (0, 0, 1000)}\n>>> normalizeLocation({\"wght\": 0}, axes)\n{'wght': 0.0}\n>>> normalizeLocation({\"wght\": -1}, axes)\n{'wght': 0.0}\n>>> normalizeLocation({\"wght\": 1000}, axes)\n{'wght': 1.0}\n>>> normalizeLocation({\"wght\": 500}, axes)\n{'wght': 0.5}\n>>> normalizeLocation({\"wght\": 1001}, axes)\n{'wght': 1.0}\n>>> axes = {\"wght\": (0, 1000, 1000)}\n>>> normalizeLocation({\"wght\": 0}, axes)\n{'wght': -1.0}\n>>> normalizeLocation({\"wght\": -1}, axes)\n{'wght': -1.0}\n>>> normalizeLocation({\"wght\": 500}, axes)\n{'wght': -0.5}\n>>> normalizeLocation({\"wght\": 1000}, axes)\n{'wght': 0.0}\n>>> normalizeLocation({\"wght\": 1001}, axes)\n{'wght': 0.0}"
+    },
+    {
+      "name": "supportScalar",
+      "docstring": "Returns the scalar multiplier at location, for a master\nwith support.  If ot is True, then a peak value of zero\nfor support of an axis means \"axis does not participate\".  That\nis how OpenType Variation Font technology works.\n\nIf extrapolate is True, axisRanges must be a dict that maps axis\nnames to (axisMin, axisMax) tuples.\n\n  >>> supportScalar({}, {})\n  1.0\n  >>> supportScalar({'wght':.2}, {})\n  1.0\n  >>> supportScalar({'wght':.2}, {'wght':(0,2,3)})\n  0.1\n  >>> supportScalar({'wght':2.5}, {'wght':(0,2,4)})\n  0.75\n  >>> supportScalar({'wght':2.5, 'wdth':0}, {'wght':(0,2,4), 'wdth':(-1,0,+1)})\n  0.75\n  >>> supportScalar({'wght':2.5, 'wdth':.5}, {'wght':(0,2,4), 'wdth':(-1,0,+1)}, ot=False)\n  0.375\n  >>> supportScalar({'wght':2.5, 'wdth':0}, {'wght':(0,2,4), 'wdth':(-1,0,+1)})\n  0.75\n  >>> supportScalar({'wght':2.5, 'wdth':.5}, {'wght':(0,2,4), 'wdth':(-1,0,+1)})\n  0.75\n  >>> supportScalar({'wght':3}, {'wght':(0,1,2)}, extrapolate=True, axisRanges={'wght':(0, 2)})\n  -1.0\n  >>> supportScalar({'wght':-1}, {'wght':(0,1,2)}, extrapolate=True, axisRanges={'wght':(0, 2)})\n  -1.0\n  >>> supportScalar({'wght':3}, {'wght':(0,2,2)}, extrapolate=True, axisRanges={'wght':(0, 2)})\n  1.5\n  >>> supportScalar({'wght':-1}, {'wght':(0,2,2)}, extrapolate=True, axisRanges={'wght':(0, 2)})\n  -0.5"
+    },
+    {
+      "name": "piecewiseLinearMap",
+      "docstring": null
+    },
+    {
+      "name": "main",
+      "docstring": "Normalize locations on a given designspace"
+    },
+    {
+      "name": "getSubModel",
+      "docstring": "Return a sub-model and the items that are not None.\n\nThe sub-model is necessary for working with the subset\nof items when some are None.\n\nThe sub-model is cached."
+    },
+    {
+      "name": "computeAxisRanges",
+      "docstring": null
+    },
+    {
+      "name": "getMasterLocationsSortKeyFunc",
+      "docstring": null
+    },
+    {
+      "name": "reorderMasters",
+      "docstring": null
+    },
+    {
+      "name": "getDeltas",
+      "docstring": null
+    },
+    {
+      "name": "getDeltasAndSupports",
+      "docstring": null
+    },
+    {
+      "name": "getScalars",
+      "docstring": "Return scalars for each delta, for the given location.\nIf interpolating many master-values at the same location,\nthis function allows speed up by fetching the scalars once\nand using them with interpolateFromMastersAndScalars()."
+    },
+    {
+      "name": "getMasterScalars",
+      "docstring": "Return multipliers for each master, for the given location.\nIf interpolating many master-values at the same location,\nthis function allows speed up by fetching the scalars once\nand using them with interpolateFromValuesAndScalars().\n\nNote that the scalars used in interpolateFromMastersAndScalars(),\nare *not* the same as the ones returned here. They are the result\nof getScalars()."
+    },
+    {
+      "name": "interpolateFromValuesAndScalars",
+      "docstring": "Interpolate from values and scalars coefficients.\n\nIf the values are master-values, then the scalars should be\nfetched from getMasterScalars().\n\nIf the values are deltas, then the scalars should be fetched\nfrom getScalars(); in which case this is the same as\ninterpolateFromDeltasAndScalars()."
+    },
+    {
+      "name": "interpolateFromDeltasAndScalars",
+      "docstring": "Interpolate from deltas and scalars fetched from getScalars()."
+    },
+    {
+      "name": "interpolateFromDeltas",
+      "docstring": "Interpolate from deltas, at location loc."
+    },
+    {
+      "name": "interpolateFromMasters",
+      "docstring": "Interpolate from master-values, at location loc."
+    },
+    {
+      "name": "interpolateFromMastersAndScalars",
+      "docstring": "Interpolate from master-values, and scalars fetched from\ngetScalars(), which is useful when you want to interpolate\nmultiple master-values with the same location."
+    },
+    {
+      "name": "getKey",
+      "docstring": null
+    },
+    {
+      "name": "sign",
+      "docstring": null
+    },
+    {
+      "name": "key",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

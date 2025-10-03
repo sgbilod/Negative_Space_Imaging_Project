@@ -1,0 +1,29 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\merge\\cmap.py",
+  "classes": [
+    {
+      "name": "_CmapUnicodePlatEncodings",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "computeMegaGlyphOrder",
+      "docstring": "Modifies passed-in glyphOrders to reflect new glyph names.\nStores merger.glyphOrder."
+    },
+    {
+      "name": "computeMegaUvs",
+      "docstring": "Returns merged UVS subtable (cmap format=14)."
+    },
+    {
+      "name": "computeMegaCmap",
+      "docstring": "Sets merger.cmap and merger.uvsDict."
+    },
+    {
+      "name": "renameCFFCharStrings",
+      "docstring": "Rename topDictIndex charStrings based on glyphOrder."
+    }
+  ],
+  "innovations": []
+}

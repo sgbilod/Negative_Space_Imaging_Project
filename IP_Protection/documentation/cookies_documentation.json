@@ -1,0 +1,315 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\requests\\cookies.py",
+  "classes": [
+    {
+      "name": "MockRequest",
+      "docstring": "Wraps a `requests.Request` to mimic a `urllib2.Request`.\n\nThe code in `http.cookiejar.CookieJar` expects this interface in order to correctly\nmanage cookie policies, i.e., determine whether a cookie can be set, given the\ndomains of the request and the cookie.\n\nThe original request object is read-only. The client is responsible for collecting\nthe new headers via `get_new_headers()` and interpreting them appropriately. You\nprobably want `get_cookie_header`, defined below.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_type",
+          "docstring": null
+        },
+        {
+          "name": "get_host",
+          "docstring": null
+        },
+        {
+          "name": "get_origin_req_host",
+          "docstring": null
+        },
+        {
+          "name": "get_full_url",
+          "docstring": null
+        },
+        {
+          "name": "is_unverifiable",
+          "docstring": null
+        },
+        {
+          "name": "has_header",
+          "docstring": null
+        },
+        {
+          "name": "get_header",
+          "docstring": null
+        },
+        {
+          "name": "add_header",
+          "docstring": "cookiejar has no legitimate use for this method; add it back if you find one."
+        },
+        {
+          "name": "add_unredirected_header",
+          "docstring": null
+        },
+        {
+          "name": "get_new_headers",
+          "docstring": null
+        },
+        {
+          "name": "unverifiable",
+          "docstring": null
+        },
+        {
+          "name": "origin_req_host",
+          "docstring": null
+        },
+        {
+          "name": "host",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MockResponse",
+      "docstring": "Wraps a `httplib.HTTPMessage` to mimic a `urllib.addinfourl`.\n\n...what? Basically, expose the parsed HTTP headers from the server response\nthe way `http.cookiejar` expects to see them.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Make a MockResponse for `cookiejar` to read.\n\n:param headers: a httplib.HTTPMessage or analogous carrying the headers"
+        },
+        {
+          "name": "info",
+          "docstring": null
+        },
+        {
+          "name": "getheaders",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CookieConflictError",
+      "docstring": "There are two cookies that meet the criteria specified in the cookie jar.\nUse .get and .set and include domain and path args in order to be more specific.",
+      "methods": []
+    },
+    {
+      "name": "RequestsCookieJar",
+      "docstring": "Compatibility class; is a http.cookiejar.CookieJar, but exposes a dict\ninterface.\n\nThis is the CookieJar we create by default for requests and sessions that\ndon't specify one, since some clients may expect response.cookies and\nsession.cookies to support dict operations.\n\nRequests does not use the dict interface internally; it's just for\ncompatibility with external client code. All requests code should work\nout of the box with externally provided instances of ``CookieJar``, e.g.\n``LWPCookieJar`` and ``FileCookieJar``.\n\nUnlike a regular CookieJar, this class is pickleable.\n\n.. warning:: dictionary operations that are normally O(1) may be O(n).",
+      "methods": [
+        {
+          "name": "get",
+          "docstring": "Dict-like get() that also supports optional domain and path args in\norder to resolve naming collisions from using one cookie jar over\nmultiple domains.\n\n.. warning:: operation is O(n), not O(1)."
+        },
+        {
+          "name": "set",
+          "docstring": "Dict-like set() that also supports optional domain and path args in\norder to resolve naming collisions from using one cookie jar over\nmultiple domains."
+        },
+        {
+          "name": "iterkeys",
+          "docstring": "Dict-like iterkeys() that returns an iterator of names of cookies\nfrom the jar.\n\n.. seealso:: itervalues() and iteritems()."
+        },
+        {
+          "name": "keys",
+          "docstring": "Dict-like keys() that returns a list of names of cookies from the\njar.\n\n.. seealso:: values() and items()."
+        },
+        {
+          "name": "itervalues",
+          "docstring": "Dict-like itervalues() that returns an iterator of values of cookies\nfrom the jar.\n\n.. seealso:: iterkeys() and iteritems()."
+        },
+        {
+          "name": "values",
+          "docstring": "Dict-like values() that returns a list of values of cookies from the\njar.\n\n.. seealso:: keys() and items()."
+        },
+        {
+          "name": "iteritems",
+          "docstring": "Dict-like iteritems() that returns an iterator of name-value tuples\nfrom the jar.\n\n.. seealso:: iterkeys() and itervalues()."
+        },
+        {
+          "name": "items",
+          "docstring": "Dict-like items() that returns a list of name-value tuples from the\njar. Allows client-code to call ``dict(RequestsCookieJar)`` and get a\nvanilla python dict of key value pairs.\n\n.. seealso:: keys() and values()."
+        },
+        {
+          "name": "list_domains",
+          "docstring": "Utility method to list all the domains in the jar."
+        },
+        {
+          "name": "list_paths",
+          "docstring": "Utility method to list all the paths in the jar."
+        },
+        {
+          "name": "multiple_domains",
+          "docstring": "Returns True if there are multiple domains in the jar.\nReturns False otherwise.\n\n:rtype: bool"
+        },
+        {
+          "name": "get_dict",
+          "docstring": "Takes as an argument an optional domain and path and returns a plain\nold Python dict of name-value pairs of cookies that meet the\nrequirements.\n\n:rtype: dict"
+        },
+        {
+          "name": "set_cookie",
+          "docstring": null
+        },
+        {
+          "name": "update",
+          "docstring": "Updates this jar with cookies from another CookieJar or dict-like"
+        },
+        {
+          "name": "copy",
+          "docstring": "Return a copy of this RequestsCookieJar."
+        },
+        {
+          "name": "get_policy",
+          "docstring": "Return the CookiePolicy instance used."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "extract_cookies_to_jar",
+      "docstring": "Extract the cookies from the response into a CookieJar.\n\n:param jar: http.cookiejar.CookieJar (not necessarily a RequestsCookieJar)\n:param request: our own requests.Request object\n:param response: urllib3.HTTPResponse object"
+    },
+    {
+      "name": "get_cookie_header",
+      "docstring": "Produce an appropriate Cookie header string to be sent with `request`, or None.\n\n:rtype: str"
+    },
+    {
+      "name": "remove_cookie_by_name",
+      "docstring": "Unsets a cookie by name, by default over all domains and paths.\n\nWraps CookieJar.clear(), is O(n)."
+    },
+    {
+      "name": "create_cookie",
+      "docstring": "Make a cookie from underspecified parameters.\n\nBy default, the pair of `name` and `value` will be set for the domain ''\nand sent on every request (this is sometimes called a \"supercookie\")."
+    },
+    {
+      "name": "morsel_to_cookie",
+      "docstring": "Convert a Morsel object into a Cookie containing the one k/v pair."
+    },
+    {
+      "name": "cookiejar_from_dict",
+      "docstring": "Returns a CookieJar from a key/value dictionary.\n\n:param cookie_dict: Dict of key/values to insert into CookieJar.\n:param cookiejar: (optional) A cookiejar to add the cookies to.\n:param overwrite: (optional) If False, will not replace cookies\n    already in the jar with new ones.\n:rtype: CookieJar"
+    },
+    {
+      "name": "merge_cookies",
+      "docstring": "Add cookies to cookiejar and returns a merged CookieJar.\n\n:param cookiejar: CookieJar object to add the cookies to.\n:param cookies: Dictionary or CookieJar object to be added.\n:rtype: CookieJar"
+    },
+    {
+      "name": "get_type",
+      "docstring": null
+    },
+    {
+      "name": "get_host",
+      "docstring": null
+    },
+    {
+      "name": "get_origin_req_host",
+      "docstring": null
+    },
+    {
+      "name": "get_full_url",
+      "docstring": null
+    },
+    {
+      "name": "is_unverifiable",
+      "docstring": null
+    },
+    {
+      "name": "has_header",
+      "docstring": null
+    },
+    {
+      "name": "get_header",
+      "docstring": null
+    },
+    {
+      "name": "add_header",
+      "docstring": "cookiejar has no legitimate use for this method; add it back if you find one."
+    },
+    {
+      "name": "add_unredirected_header",
+      "docstring": null
+    },
+    {
+      "name": "get_new_headers",
+      "docstring": null
+    },
+    {
+      "name": "unverifiable",
+      "docstring": null
+    },
+    {
+      "name": "origin_req_host",
+      "docstring": null
+    },
+    {
+      "name": "host",
+      "docstring": null
+    },
+    {
+      "name": "info",
+      "docstring": null
+    },
+    {
+      "name": "getheaders",
+      "docstring": null
+    },
+    {
+      "name": "get",
+      "docstring": "Dict-like get() that also supports optional domain and path args in\norder to resolve naming collisions from using one cookie jar over\nmultiple domains.\n\n.. warning:: operation is O(n), not O(1)."
+    },
+    {
+      "name": "set",
+      "docstring": "Dict-like set() that also supports optional domain and path args in\norder to resolve naming collisions from using one cookie jar over\nmultiple domains."
+    },
+    {
+      "name": "iterkeys",
+      "docstring": "Dict-like iterkeys() that returns an iterator of names of cookies\nfrom the jar.\n\n.. seealso:: itervalues() and iteritems()."
+    },
+    {
+      "name": "keys",
+      "docstring": "Dict-like keys() that returns a list of names of cookies from the\njar.\n\n.. seealso:: values() and items()."
+    },
+    {
+      "name": "itervalues",
+      "docstring": "Dict-like itervalues() that returns an iterator of values of cookies\nfrom the jar.\n\n.. seealso:: iterkeys() and iteritems()."
+    },
+    {
+      "name": "values",
+      "docstring": "Dict-like values() that returns a list of values of cookies from the\njar.\n\n.. seealso:: keys() and items()."
+    },
+    {
+      "name": "iteritems",
+      "docstring": "Dict-like iteritems() that returns an iterator of name-value tuples\nfrom the jar.\n\n.. seealso:: iterkeys() and itervalues()."
+    },
+    {
+      "name": "items",
+      "docstring": "Dict-like items() that returns a list of name-value tuples from the\njar. Allows client-code to call ``dict(RequestsCookieJar)`` and get a\nvanilla python dict of key value pairs.\n\n.. seealso:: keys() and values()."
+    },
+    {
+      "name": "list_domains",
+      "docstring": "Utility method to list all the domains in the jar."
+    },
+    {
+      "name": "list_paths",
+      "docstring": "Utility method to list all the paths in the jar."
+    },
+    {
+      "name": "multiple_domains",
+      "docstring": "Returns True if there are multiple domains in the jar.\nReturns False otherwise.\n\n:rtype: bool"
+    },
+    {
+      "name": "get_dict",
+      "docstring": "Takes as an argument an optional domain and path and returns a plain\nold Python dict of name-value pairs of cookies that meet the\nrequirements.\n\n:rtype: dict"
+    },
+    {
+      "name": "set_cookie",
+      "docstring": null
+    },
+    {
+      "name": "update",
+      "docstring": "Updates this jar with cookies from another CookieJar or dict-like"
+    },
+    {
+      "name": "copy",
+      "docstring": "Return a copy of this RequestsCookieJar."
+    },
+    {
+      "name": "get_policy",
+      "docstring": "Return the CookiePolicy instance used."
+    }
+  ],
+  "innovations": []
+}

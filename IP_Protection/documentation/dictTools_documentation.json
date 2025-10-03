@@ -1,0 +1,54 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\dictTools.py",
+  "classes": [
+    {
+      "name": "hashdict",
+      "docstring": "hashable dict implementation, suitable for use as a key into\nother dicts.\n\n    >>> h1 = hashdict({\"apples\": 1, \"bananas\":2})\n    >>> h2 = hashdict({\"bananas\": 3, \"mangoes\": 5})\n    >>> h1+h2\n    hashdict(apples=1, bananas=3, mangoes=5)\n    >>> d1 = {}\n    >>> d1[h1] = \"salad\"\n    >>> d1[h1]\n    'salad'\n    >>> d1[h2]\n    Traceback (most recent call last):\n    ...\n    KeyError: hashdict(bananas=3, mangoes=5)\n\nbased on answers from\n   http://stackoverflow.com/questions/1151658/python-hashable-dicts",
+      "methods": [
+        {
+          "name": "clear",
+          "docstring": null
+        },
+        {
+          "name": "pop",
+          "docstring": null
+        },
+        {
+          "name": "popitem",
+          "docstring": null
+        },
+        {
+          "name": "setdefault",
+          "docstring": null
+        },
+        {
+          "name": "update",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "clear",
+      "docstring": null
+    },
+    {
+      "name": "pop",
+      "docstring": null
+    },
+    {
+      "name": "popitem",
+      "docstring": null
+    },
+    {
+      "name": "setdefault",
+      "docstring": null
+    },
+    {
+      "name": "update",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

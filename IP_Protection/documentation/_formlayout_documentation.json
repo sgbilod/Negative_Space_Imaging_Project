@@ -1,0 +1,274 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\qt_editor\\_formlayout.py",
+  "classes": [
+    {
+      "name": "ColorButton",
+      "docstring": "Color choosing push button",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "choose_color",
+          "docstring": null
+        },
+        {
+          "name": "get_color",
+          "docstring": null
+        },
+        {
+          "name": "set_color",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ColorLayout",
+      "docstring": "Color-specialized QLineEdit layout",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "update_color",
+          "docstring": null
+        },
+        {
+          "name": "update_text",
+          "docstring": null
+        },
+        {
+          "name": "text",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FontLayout",
+      "docstring": "Font selection",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_font",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FormWidget",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\ndata : list of (label, value) pairs\n    The data to be edited in the form.\ncomment : str, optional\nwith_margin : bool, default: False\n    If False, the form elements reach to the border of the widget.\n    This is the desired behavior if the FormWidget is used as a widget\n    alongside with other widgets such as a QComboBox, which also do\n    not have a margin around them.\n    However, a margin can be desired if the FormWidget is the only\n    widget within a container, e.g. a tab in a QTabWidget.\nparent : QWidget or None\n    The parent widget."
+        },
+        {
+          "name": "get_dialog",
+          "docstring": "Return FormDialog instance"
+        },
+        {
+          "name": "setup",
+          "docstring": null
+        },
+        {
+          "name": "get",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FormComboWidget",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "setup",
+          "docstring": null
+        },
+        {
+          "name": "get",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FormTabWidget",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "setup",
+          "docstring": null
+        },
+        {
+          "name": "get",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FormDialog",
+      "docstring": "Form Dialog",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "register_float_field",
+          "docstring": null
+        },
+        {
+          "name": "update_buttons",
+          "docstring": null
+        },
+        {
+          "name": "accept",
+          "docstring": null
+        },
+        {
+          "name": "reject",
+          "docstring": null
+        },
+        {
+          "name": "apply",
+          "docstring": null
+        },
+        {
+          "name": "get",
+          "docstring": "Return form result"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "to_qcolor",
+      "docstring": "Create a QColor from a matplotlib color"
+    },
+    {
+      "name": "font_is_installed",
+      "docstring": "Check if font is installed"
+    },
+    {
+      "name": "tuple_to_qfont",
+      "docstring": "Create a QFont from tuple:\n    (family [string], size [int], italic [bool], bold [bool])"
+    },
+    {
+      "name": "qfont_to_tuple",
+      "docstring": null
+    },
+    {
+      "name": "is_edit_valid",
+      "docstring": null
+    },
+    {
+      "name": "fedit",
+      "docstring": "Create form dialog\n\ndata: datalist, datagroup\ntitle: str\ncomment: str\nicon: QIcon instance\nparent: parent QWidget\napply: apply callback (function)\n\ndatalist: list/tuple of (field_name, field_value)\ndatagroup: list/tuple of (datalist *or* datagroup, title, comment)\n\n-> one field for each member of a datalist\n-> one tab for each member of a top-level datagroup\n-> one page (of a multipage widget, each page can be selected with a combo\n   box) for each member of a datagroup inside a datagroup\n\nSupported types for field_value:\n  - int, float, str, bool\n  - colors: in Qt-compatible text form, i.e. in hex format or name\n            (red, ...) (automatically detected from a string)\n  - list/tuple:\n      * the first element will be the selected index (or value)\n      * the other elements can be couples (key, value) or only values"
+    },
+    {
+      "name": "choose_color",
+      "docstring": null
+    },
+    {
+      "name": "get_color",
+      "docstring": null
+    },
+    {
+      "name": "set_color",
+      "docstring": null
+    },
+    {
+      "name": "update_color",
+      "docstring": null
+    },
+    {
+      "name": "update_text",
+      "docstring": null
+    },
+    {
+      "name": "text",
+      "docstring": null
+    },
+    {
+      "name": "get_font",
+      "docstring": null
+    },
+    {
+      "name": "get_dialog",
+      "docstring": "Return FormDialog instance"
+    },
+    {
+      "name": "setup",
+      "docstring": null
+    },
+    {
+      "name": "get",
+      "docstring": null
+    },
+    {
+      "name": "setup",
+      "docstring": null
+    },
+    {
+      "name": "get",
+      "docstring": null
+    },
+    {
+      "name": "setup",
+      "docstring": null
+    },
+    {
+      "name": "get",
+      "docstring": null
+    },
+    {
+      "name": "register_float_field",
+      "docstring": null
+    },
+    {
+      "name": "update_buttons",
+      "docstring": null
+    },
+    {
+      "name": "accept",
+      "docstring": null
+    },
+    {
+      "name": "reject",
+      "docstring": null
+    },
+    {
+      "name": "apply",
+      "docstring": null
+    },
+    {
+      "name": "get",
+      "docstring": "Return form result"
+    },
+    {
+      "name": "create_datalist_example",
+      "docstring": null
+    },
+    {
+      "name": "create_datagroup_example",
+      "docstring": null
+    },
+    {
+      "name": "apply_test",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

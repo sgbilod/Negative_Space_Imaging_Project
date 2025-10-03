@@ -1,0 +1,286 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\realtime\\visualization.py",
+  "classes": [
+    {
+      "name": "VisualizationMode",
+      "docstring": "Visualization modes for the real-time visualizer",
+      "methods": []
+    },
+    {
+      "name": "OverlayType",
+      "docstring": "Types of overlays for visualization",
+      "methods": []
+    },
+    {
+      "name": "ColorPalette",
+      "docstring": "Color palette for visualization",
+      "methods": [
+        {
+          "name": "get_sequential_color",
+          "docstring": "Get a color from a sequential palette\n\nArgs:\n    index: Index of the color\n    total: Total number of colors needed\n    \nReturns:\n    RGB color tuple"
+        },
+        {
+          "name": "get_diverging_color",
+          "docstring": "Get a color from a diverging palette (blue to red)\n\nArgs:\n    value: Value to map to color\n    min_val: Minimum value in range\n    max_val: Maximum value in range\n    \nReturns:\n    RGB color tuple"
+        },
+        {
+          "name": "to_uint8",
+          "docstring": "Convert a color from float [0, 1] to uint8 [0, 255]\n\nArgs:\n    color: RGB color tuple with values between 0 and 1\n    \nReturns:\n    RGB color tuple with values between 0 and 255"
+        },
+        {
+          "name": "to_bgr",
+          "docstring": "Convert an RGB color to BGR (for OpenCV)\n\nArgs:\n    color: RGB color tuple with values between 0 and 1\n    \nReturns:\n    BGR color tuple with values between 0 and 255"
+        }
+      ]
+    },
+    {
+      "name": "PerformanceDisplay",
+      "docstring": "Display for real-time performance metrics",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a performance display\n\nArgs:\n    position: Position of the first line of text (x, y)\n    font_scale: Font scale for text\n    thickness: Thickness of text"
+        },
+        {
+          "name": "update_metric",
+          "docstring": "Update a performance metric\n\nArgs:\n    name: Name of the metric\n    value: Current value of the metric"
+        },
+        {
+          "name": "draw",
+          "docstring": "Draw performance metrics on a frame\n\nArgs:\n    frame: Frame to draw on\n    \nReturns:\n    Frame with metrics drawn on it"
+        },
+        {
+          "name": "create_history_plot",
+          "docstring": "Create a plot of a metric's history\n\nArgs:\n    metric_name: Name of the metric to plot\n    width: Width of the plot\n    height: Height of the plot\n    \nReturns:\n    Image of the plot, or None if matplotlib is not available"
+        }
+      ]
+    },
+    {
+      "name": "AROverlay",
+      "docstring": "Augmented reality overlay for real-time visualization",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize an AR overlay"
+        },
+        {
+          "name": "add_overlay",
+          "docstring": "Add an overlay\n\nArgs:\n    name: Name of the overlay\n    overlay_type: Type of overlay"
+        },
+        {
+          "name": "update_overlay_data",
+          "docstring": "Update overlay data\n\nArgs:\n    name: Name of the overlay\n    data: Data for the overlay"
+        },
+        {
+          "name": "enable_overlay",
+          "docstring": "Enable an overlay\n\nArgs:\n    name: Name of the overlay"
+        },
+        {
+          "name": "disable_overlay",
+          "docstring": "Disable an overlay\n\nArgs:\n    name: Name of the overlay"
+        },
+        {
+          "name": "draw",
+          "docstring": "Draw AR overlays on a frame\n\nArgs:\n    frame: Frame to draw on\n    point_cloud: Point cloud data\n    \nReturns:\n    Frame with overlays drawn on it"
+        }
+      ]
+    },
+    {
+      "name": "InteractiveControls",
+      "docstring": "Interactive control elements for visualization",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize interactive controls"
+        },
+        {
+          "name": "add_button",
+          "docstring": "Add a button control\n\nArgs:\n    name: Name of the button\n    position: Position of the button (x, y)\n    size: Size of the button (width, height)\n    label: Label text for the button\n    callback: Function to call when the button is clicked"
+        },
+        {
+          "name": "add_slider",
+          "docstring": "Add a slider control\n\nArgs:\n    name: Name of the slider\n    position: Position of the slider (x, y)\n    size: Size of the slider (width, height)\n    label: Label text for the slider\n    min_value: Minimum value\n    max_value: Maximum value\n    current_value: Current value\n    callback: Function to call when the slider value changes"
+        },
+        {
+          "name": "add_checkbox",
+          "docstring": "Add a checkbox control\n\nArgs:\n    name: Name of the checkbox\n    position: Position of the checkbox (x, y)\n    size: Size of the checkbox (width, height)\n    label: Label text for the checkbox\n    checked: Whether the checkbox is checked\n    callback: Function to call when the checkbox state changes"
+        },
+        {
+          "name": "handle_mouse_move",
+          "docstring": "Handle mouse movement\n\nArgs:\n    x: Mouse x coordinate\n    y: Mouse y coordinate"
+        },
+        {
+          "name": "handle_mouse_down",
+          "docstring": "Handle mouse button press\n\nArgs:\n    x: Mouse x coordinate\n    y: Mouse y coordinate"
+        },
+        {
+          "name": "handle_mouse_up",
+          "docstring": "Handle mouse button release\n\nArgs:\n    x: Mouse x coordinate\n    y: Mouse y coordinate"
+        },
+        {
+          "name": "handle_mouse_drag",
+          "docstring": "Handle mouse drag\n\nArgs:\n    x: Mouse x coordinate\n    y: Mouse y coordinate"
+        },
+        {
+          "name": "draw",
+          "docstring": "Draw interactive controls on a frame\n\nArgs:\n    frame: Frame to draw on\n    \nReturns:\n    Frame with controls drawn on it"
+        }
+      ]
+    },
+    {
+      "name": "RealTimeVisualizer",
+      "docstring": "Core visualization framework for real-time negative space analysis",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a real-time visualizer\n\nArgs:\n    mode: Visualization mode"
+        },
+        {
+          "name": "set_mode",
+          "docstring": "Set the visualization mode\n\nArgs:\n    mode: New visualization mode"
+        },
+        {
+          "name": "update_performance_metrics",
+          "docstring": "Update performance metrics\n\nArgs:\n    metrics: Dictionary of performance metrics"
+        },
+        {
+          "name": "update_overlay_data",
+          "docstring": "Update overlay data\n\nArgs:\n    name: Name of the overlay\n    data: New data for the overlay"
+        },
+        {
+          "name": "update_3d_visualization",
+          "docstring": "Update 3D visualization with a new point cloud\n\nArgs:\n    point_cloud: Point cloud to visualize"
+        },
+        {
+          "name": "visualize",
+          "docstring": "Visualize a frame and point cloud\n\nArgs:\n    frame: Video frame to visualize\n    point_cloud: Point cloud to visualize\n    \nReturns:\n    Visualization frame"
+        },
+        {
+          "name": "close",
+          "docstring": "Close the visualizer and release resources"
+        },
+        {
+          "name": "save_screenshot",
+          "docstring": "Save a screenshot of the current visualization\n\nArgs:\n    filename: Filename to save the screenshot to\n    \nReturns:\n    True if successful, False otherwise"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_sequential_color",
+      "docstring": "Get a color from a sequential palette\n\nArgs:\n    index: Index of the color\n    total: Total number of colors needed\n    \nReturns:\n    RGB color tuple"
+    },
+    {
+      "name": "get_diverging_color",
+      "docstring": "Get a color from a diverging palette (blue to red)\n\nArgs:\n    value: Value to map to color\n    min_val: Minimum value in range\n    max_val: Maximum value in range\n    \nReturns:\n    RGB color tuple"
+    },
+    {
+      "name": "to_uint8",
+      "docstring": "Convert a color from float [0, 1] to uint8 [0, 255]\n\nArgs:\n    color: RGB color tuple with values between 0 and 1\n    \nReturns:\n    RGB color tuple with values between 0 and 255"
+    },
+    {
+      "name": "to_bgr",
+      "docstring": "Convert an RGB color to BGR (for OpenCV)\n\nArgs:\n    color: RGB color tuple with values between 0 and 1\n    \nReturns:\n    BGR color tuple with values between 0 and 255"
+    },
+    {
+      "name": "update_metric",
+      "docstring": "Update a performance metric\n\nArgs:\n    name: Name of the metric\n    value: Current value of the metric"
+    },
+    {
+      "name": "draw",
+      "docstring": "Draw performance metrics on a frame\n\nArgs:\n    frame: Frame to draw on\n    \nReturns:\n    Frame with metrics drawn on it"
+    },
+    {
+      "name": "create_history_plot",
+      "docstring": "Create a plot of a metric's history\n\nArgs:\n    metric_name: Name of the metric to plot\n    width: Width of the plot\n    height: Height of the plot\n    \nReturns:\n    Image of the plot, or None if matplotlib is not available"
+    },
+    {
+      "name": "add_overlay",
+      "docstring": "Add an overlay\n\nArgs:\n    name: Name of the overlay\n    overlay_type: Type of overlay"
+    },
+    {
+      "name": "update_overlay_data",
+      "docstring": "Update overlay data\n\nArgs:\n    name: Name of the overlay\n    data: Data for the overlay"
+    },
+    {
+      "name": "enable_overlay",
+      "docstring": "Enable an overlay\n\nArgs:\n    name: Name of the overlay"
+    },
+    {
+      "name": "disable_overlay",
+      "docstring": "Disable an overlay\n\nArgs:\n    name: Name of the overlay"
+    },
+    {
+      "name": "draw",
+      "docstring": "Draw AR overlays on a frame\n\nArgs:\n    frame: Frame to draw on\n    point_cloud: Point cloud data\n    \nReturns:\n    Frame with overlays drawn on it"
+    },
+    {
+      "name": "add_button",
+      "docstring": "Add a button control\n\nArgs:\n    name: Name of the button\n    position: Position of the button (x, y)\n    size: Size of the button (width, height)\n    label: Label text for the button\n    callback: Function to call when the button is clicked"
+    },
+    {
+      "name": "add_slider",
+      "docstring": "Add a slider control\n\nArgs:\n    name: Name of the slider\n    position: Position of the slider (x, y)\n    size: Size of the slider (width, height)\n    label: Label text for the slider\n    min_value: Minimum value\n    max_value: Maximum value\n    current_value: Current value\n    callback: Function to call when the slider value changes"
+    },
+    {
+      "name": "add_checkbox",
+      "docstring": "Add a checkbox control\n\nArgs:\n    name: Name of the checkbox\n    position: Position of the checkbox (x, y)\n    size: Size of the checkbox (width, height)\n    label: Label text for the checkbox\n    checked: Whether the checkbox is checked\n    callback: Function to call when the checkbox state changes"
+    },
+    {
+      "name": "handle_mouse_move",
+      "docstring": "Handle mouse movement\n\nArgs:\n    x: Mouse x coordinate\n    y: Mouse y coordinate"
+    },
+    {
+      "name": "handle_mouse_down",
+      "docstring": "Handle mouse button press\n\nArgs:\n    x: Mouse x coordinate\n    y: Mouse y coordinate"
+    },
+    {
+      "name": "handle_mouse_up",
+      "docstring": "Handle mouse button release\n\nArgs:\n    x: Mouse x coordinate\n    y: Mouse y coordinate"
+    },
+    {
+      "name": "handle_mouse_drag",
+      "docstring": "Handle mouse drag\n\nArgs:\n    x: Mouse x coordinate\n    y: Mouse y coordinate"
+    },
+    {
+      "name": "draw",
+      "docstring": "Draw interactive controls on a frame\n\nArgs:\n    frame: Frame to draw on\n    \nReturns:\n    Frame with controls drawn on it"
+    },
+    {
+      "name": "set_mode",
+      "docstring": "Set the visualization mode\n\nArgs:\n    mode: New visualization mode"
+    },
+    {
+      "name": "update_performance_metrics",
+      "docstring": "Update performance metrics\n\nArgs:\n    metrics: Dictionary of performance metrics"
+    },
+    {
+      "name": "update_overlay_data",
+      "docstring": "Update overlay data\n\nArgs:\n    name: Name of the overlay\n    data: New data for the overlay"
+    },
+    {
+      "name": "update_3d_visualization",
+      "docstring": "Update 3D visualization with a new point cloud\n\nArgs:\n    point_cloud: Point cloud to visualize"
+    },
+    {
+      "name": "visualize",
+      "docstring": "Visualize a frame and point cloud\n\nArgs:\n    frame: Video frame to visualize\n    point_cloud: Point cloud to visualize\n    \nReturns:\n    Visualization frame"
+    },
+    {
+      "name": "close",
+      "docstring": "Close the visualizer and release resources"
+    },
+    {
+      "name": "save_screenshot",
+      "docstring": "Save a screenshot of the current visualization\n\nArgs:\n    filename: Filename to save the screenshot to\n    \nReturns:\n    True if successful, False otherwise"
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "\"\"\"\nAdvanced Visualization Module for Real-time Negative Space Analysis\n\nThis module provides enhanced visualization capabilities for real-time negative space\nanalysis, including 3D rendering, interactive displays, and augmented reality overlays.\n\nClasses:"
+    }
+  ]
+}

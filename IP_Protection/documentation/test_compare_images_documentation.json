@@ -1,0 +1,11 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_compare_images.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "test_image_comparison_expect_rms",
+      "docstring": "Compare two images, expecting a particular RMS error.\n\nim1 and im2 are filenames relative to the baseline_dir directory.\n\ntol is the tolerance to pass to compare_images.\n\nexpect_rms is the expected RMS value, or None. If None, the test will\nsucceed if compare_images succeeds. Otherwise, the test will succeed if\ncompare_images fails and returns an RMS error almost equal to this value."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,34 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\formatter.py",
+  "classes": [
+    {
+      "name": "Formatter",
+      "docstring": "Converts a token stream to text.\n\nFormatters should have attributes to help selecting them. These\nare similar to the corresponding :class:`~pygments.lexer.Lexer`\nattributes.\n\n.. autoattribute:: name\n   :no-value:\n\n.. autoattribute:: aliases\n   :no-value:\n\n.. autoattribute:: filenames\n   :no-value:\n\nYou can pass options as keyword arguments to the constructor.\nAll formatters accept these basic options:\n\n``style``\n    The style to use, can be a string or a Style subclass\n    (default: \"default\"). Not used by e.g. the\n    TerminalFormatter.\n``full``\n    Tells the formatter to output a \"full\" document, i.e.\n    a complete self-contained document. This doesn't have\n    any effect for some formatters (default: false).\n``title``\n    If ``full`` is true, the title that should be used to\n    caption the document (default: '').\n``encoding``\n    If given, must be an encoding name. This will be used to\n    convert the Unicode token strings to byte strings in the\n    output. If it is \"\" or None, Unicode strings will be written\n    to the output file, which most file-like objects do not\n    support (default: None).\n``outencoding``\n    Overrides ``encoding`` if given.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "As with lexers, this constructor takes arbitrary optional arguments,\nand if you override it, you should first process your own options, then\ncall the base class implementation."
+        },
+        {
+          "name": "get_style_defs",
+          "docstring": "This method must return statements or declarations suitable to define\nthe current style for subsequent highlighted text (e.g. CSS classes\nin the `HTMLFormatter`).\n\nThe optional argument `arg` can be used to modify the generation and\nis formatter dependent (it is standardized because it can be given on\nthe command line).\n\nThis method is called by the ``-S`` :doc:`command-line option <cmdline>`,\nthe `arg` is then given by the ``-a`` option."
+        },
+        {
+          "name": "format",
+          "docstring": "This method must format the tokens from the `tokensource` iterable and\nwrite the formatted version to the file object `outfile`.\n\nFormatter options can control how exactly the tokens are converted."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_style_defs",
+      "docstring": "This method must return statements or declarations suitable to define\nthe current style for subsequent highlighted text (e.g. CSS classes\nin the `HTMLFormatter`).\n\nThe optional argument `arg` can be used to modify the generation and\nis formatter dependent (it is standardized because it can be given on\nthe command line).\n\nThis method is called by the ``-S`` :doc:`command-line option <cmdline>`,\nthe `arg` is then given by the ``-a`` option."
+    },
+    {
+      "name": "format",
+      "docstring": "This method must format the tokens from the `tokensource` iterable and\nwrite the formatted version to the file object `outfile`.\n\nFormatter options can control how exactly the tokens are converted."
+    }
+  ],
+  "innovations": []
+}

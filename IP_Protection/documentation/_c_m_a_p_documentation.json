@@ -1,0 +1,472 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\_c_m_a_p.py",
+  "classes": [
+    {
+      "name": "table__c_m_a_p",
+      "docstring": "Character to Glyph Index Mapping Table\n\nThis class represents the `cmap <https://docs.microsoft.com/en-us/typography/opentype/spec/cmap>`_\ntable, which maps between input characters (in Unicode or other system encodings)\nand glyphs within the font. The ``cmap`` table contains one or more subtables\nwhich determine the mapping of of characters to glyphs across different platforms\nand encoding systems.\n\n``table__c_m_a_p`` objects expose an accessor ``.tables`` which provides access\nto the subtables, although it is normally easier to retrieve individual subtables\nthrough the utility methods described below. To add new subtables to a font,\nfirst determine the subtable format (if in doubt use format 4 for glyphs within\nthe BMP, format 12 for glyphs outside the BMP, and format 14 for Unicode Variation\nSequences) construct subtable objects with ``CmapSubtable.newSubtable(format)``,\nand append them to the ``.tables`` list.\n\nWithin a subtable, the mapping of characters to glyphs is provided by the ``.cmap``\nattribute.\n\nExample::\n\n        cmap4_0_3 = CmapSubtable.newSubtable(4)\n        cmap4_0_3.platformID = 0\n        cmap4_0_3.platEncID = 3\n        cmap4_0_3.language = 0\n        cmap4_0_3.cmap = { 0xC1: \"Aacute\" }\n\n        cmap = newTable(\"cmap\")\n        cmap.tableVersion = 0\n        cmap.tables = [cmap4_0_3]\n\nSee also https://learn.microsoft.com/en-us/typography/opentype/spec/cmap",
+      "methods": [
+        {
+          "name": "getcmap",
+          "docstring": "Returns the first subtable which matches the given platform and encoding.\n\nArgs:\n        platformID (int): The platform ID. Use 0 for Unicode, 1 for Macintosh\n                (deprecated for new fonts), 2 for ISO (deprecated) and 3 for Windows.\n        encodingID (int): Encoding ID. Interpretation depends on the platform ID.\n                See the OpenType specification for details.\n\nReturns:\n        An object which is a subclass of :py:class:`CmapSubtable` if a matching\n        subtable is found within the font, or ``None`` otherwise."
+        },
+        {
+          "name": "getBestCmap",
+          "docstring": "Returns the 'best' Unicode cmap dictionary available in the font\nor ``None``, if no Unicode cmap subtable is available.\n\nBy default it will search for the following (platformID, platEncID)\npairs in order::\n\n                (3, 10), # Windows Unicode full repertoire\n                (0, 6),  # Unicode full repertoire (format 13 subtable)\n                (0, 4),  # Unicode 2.0 full repertoire\n                (3, 1),  # Windows Unicode BMP\n                (0, 3),  # Unicode 2.0 BMP\n                (0, 2),  # Unicode ISO/IEC 10646\n                (0, 1),  # Unicode 1.1\n                (0, 0)   # Unicode 1.0\n\nThis particular order matches what HarfBuzz uses to choose what\nsubtable to use by default. This order prefers the largest-repertoire\nsubtable, and among those, prefers the Windows-platform over the\nUnicode-platform as the former has wider support.\n\nThis order can be customized via the ``cmapPreferences`` argument."
+        },
+        {
+          "name": "buildReversed",
+          "docstring": "Builds a reverse mapping dictionary\n\nIterates over all Unicode cmap tables and returns a dictionary mapping\nglyphs to sets of codepoints, such as::\n\n        {\n                'one': {0x31}\n                'A': {0x41,0x391}\n        }\n\nThe values are sets of Unicode codepoints because\nsome fonts map different codepoints to the same glyph.\nFor example, ``U+0041 LATIN CAPITAL LETTER A`` and ``U+0391\nGREEK CAPITAL LETTER ALPHA`` are sometimes the same glyph."
+        },
+        {
+          "name": "buildReversedMin",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "ensureDecompiled",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CmapSubtable",
+      "docstring": "Base class for all cmap subtable formats.\n\nSubclasses which handle the individual subtable formats are named\n``cmap_format_0``, ``cmap_format_2`` etc. Use :py:meth:`getSubtableClass`\nto retrieve the concrete subclass, or :py:meth:`newSubtable` to get a\nnew subtable object for a given format.\n\nThe object exposes a ``.cmap`` attribute, which contains a dictionary mapping\ncharacter codepoints to glyph names.",
+      "methods": [
+        {
+          "name": "getSubtableClass",
+          "docstring": "Return the subtable class for a format."
+        },
+        {
+          "name": "newSubtable",
+          "docstring": "Return a new instance of a subtable for the given format\n."
+        },
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "ensureDecompiled",
+          "docstring": null
+        },
+        {
+          "name": "decompileHeader",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "getEncoding",
+          "docstring": "Returns the Python encoding name for this cmap subtable based on its platformID,\nplatEncID, and language.  If encoding for these values is not known, by default\n``None`` is returned.  That can be overridden by passing a value to the ``default``\nargument.\n\nNote that if you want to choose a \"preferred\" cmap subtable, most of the time\n``self.isUnicode()`` is what you want as that one only returns true for the modern,\ncommonly used, Unicode-compatible triplets, not the legacy ones."
+        },
+        {
+          "name": "isUnicode",
+          "docstring": "Returns true if the characters are interpreted as Unicode codepoints."
+        },
+        {
+          "name": "isSymbol",
+          "docstring": "Returns true if the subtable is for the Symbol encoding (3,0)"
+        }
+      ]
+    },
+    {
+      "name": "cmap_format_0",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SubHeader",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "cmap_format_2",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setIDDelta",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "cmap_format_4",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "cmap_format_6",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "cmap_format_12_or_13",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "decompileHeader",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "cmap_format_12",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "cmap_format_13",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "cmap_format_14",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompileHeader",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "cmap_format_unknown",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "decompileHeader",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "splitRange",
+      "docstring": null
+    },
+    {
+      "name": "cvtToUVS",
+      "docstring": null
+    },
+    {
+      "name": "cvtFromUVS",
+      "docstring": null
+    },
+    {
+      "name": "getcmap",
+      "docstring": "Returns the first subtable which matches the given platform and encoding.\n\nArgs:\n        platformID (int): The platform ID. Use 0 for Unicode, 1 for Macintosh\n                (deprecated for new fonts), 2 for ISO (deprecated) and 3 for Windows.\n        encodingID (int): Encoding ID. Interpretation depends on the platform ID.\n                See the OpenType specification for details.\n\nReturns:\n        An object which is a subclass of :py:class:`CmapSubtable` if a matching\n        subtable is found within the font, or ``None`` otherwise."
+    },
+    {
+      "name": "getBestCmap",
+      "docstring": "Returns the 'best' Unicode cmap dictionary available in the font\nor ``None``, if no Unicode cmap subtable is available.\n\nBy default it will search for the following (platformID, platEncID)\npairs in order::\n\n                (3, 10), # Windows Unicode full repertoire\n                (0, 6),  # Unicode full repertoire (format 13 subtable)\n                (0, 4),  # Unicode 2.0 full repertoire\n                (3, 1),  # Windows Unicode BMP\n                (0, 3),  # Unicode 2.0 BMP\n                (0, 2),  # Unicode ISO/IEC 10646\n                (0, 1),  # Unicode 1.1\n                (0, 0)   # Unicode 1.0\n\nThis particular order matches what HarfBuzz uses to choose what\nsubtable to use by default. This order prefers the largest-repertoire\nsubtable, and among those, prefers the Windows-platform over the\nUnicode-platform as the former has wider support.\n\nThis order can be customized via the ``cmapPreferences`` argument."
+    },
+    {
+      "name": "buildReversed",
+      "docstring": "Builds a reverse mapping dictionary\n\nIterates over all Unicode cmap tables and returns a dictionary mapping\nglyphs to sets of codepoints, such as::\n\n        {\n                'one': {0x31}\n                'A': {0x41,0x391}\n        }\n\nThe values are sets of Unicode codepoints because\nsome fonts map different codepoints to the same glyph.\nFor example, ``U+0041 LATIN CAPITAL LETTER A`` and ``U+0391\nGREEK CAPITAL LETTER ALPHA`` are sometimes the same glyph."
+    },
+    {
+      "name": "buildReversedMin",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "ensureDecompiled",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "getSubtableClass",
+      "docstring": "Return the subtable class for a format."
+    },
+    {
+      "name": "newSubtable",
+      "docstring": "Return a new instance of a subtable for the given format\n."
+    },
+    {
+      "name": "ensureDecompiled",
+      "docstring": null
+    },
+    {
+      "name": "decompileHeader",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "getEncoding",
+      "docstring": "Returns the Python encoding name for this cmap subtable based on its platformID,\nplatEncID, and language.  If encoding for these values is not known, by default\n``None`` is returned.  That can be overridden by passing a value to the ``default``\nargument.\n\nNote that if you want to choose a \"preferred\" cmap subtable, most of the time\n``self.isUnicode()`` is what you want as that one only returns true for the modern,\ncommonly used, Unicode-compatible triplets, not the legacy ones."
+    },
+    {
+      "name": "isUnicode",
+      "docstring": "Returns true if the characters are interpreted as Unicode codepoints."
+    },
+    {
+      "name": "isSymbol",
+      "docstring": "Returns true if the subtable is for the Symbol encoding (3,0)"
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "setIDDelta",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "decompileHeader",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "decompileHeader",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "decompileHeader",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

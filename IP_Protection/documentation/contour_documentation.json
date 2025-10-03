@@ -1,0 +1,153 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\contour.py",
+  "classes": [
+    {
+      "name": "ContourLabeler",
+      "docstring": "Mixin to provide labelling capability to `.ContourSet`.",
+      "methods": [
+        {
+          "name": "clabel",
+          "docstring": "Label a contour plot.\n\nAdds labels to line contours in this `.ContourSet` (which inherits from\nthis mixin class).\n\nParameters\n----------\nlevels : array-like, optional\n    A list of level values, that should be labeled. The list must be\n    a subset of ``cs.levels``. If not given, all levels are labeled.\n\nfontsize : str or float, default: :rc:`font.size`\n    Size in points or relative size e.g., 'smaller', 'x-large'.\n    See `.Text.set_size` for accepted string values.\n\ncolors : :mpltype:`color` or colors or None, default: None\n    The label colors:\n\n    - If *None*, the color of each label matches the color of\n      the corresponding contour.\n\n    - If one string color, e.g., *colors* = 'r' or *colors* =\n      'red', all labels will be plotted in this color.\n\n    - If a tuple of colors (string, float, RGB, etc), different labels\n      will be plotted in different colors in the order specified.\n\ninline : bool, default: True\n    If ``True`` the underlying contour is removed where the label is\n    placed.\n\ninline_spacing : float, default: 5\n    Space in pixels to leave on each side of label when placing inline.\n\n    This spacing will be exact for labels at locations where the\n    contour is straight, less so for labels on curved contours.\n\nfmt : `.Formatter` or str or callable or dict, optional\n    How the levels are formatted:\n\n    - If a `.Formatter`, it is used to format all levels at once, using\n      its `.Formatter.format_ticks` method.\n    - If a str, it is interpreted as a %-style format string.\n    - If a callable, it is called with one level at a time and should\n      return the corresponding label.\n    - If a dict, it should directly map levels to labels.\n\n    The default is to use a standard `.ScalarFormatter`.\n\nmanual : bool or iterable, default: False\n    If ``True``, contour labels will be placed manually using\n    mouse clicks. Click the first button near a contour to\n    add a label, click the second button (or potentially both\n    mouse buttons at once) to finish adding labels. The third\n    button can be used to remove the last label added, but\n    only if labels are not inline. Alternatively, the keyboard\n    can be used to select label locations (enter to end label\n    placement, delete or backspace act like the third mouse button,\n    and any other key will select a label location).\n\n    *manual* can also be an iterable object of (x, y) tuples.\n    Contour labels will be created as if mouse is clicked at each\n    (x, y) position.\n\nrightside_up : bool, default: True\n    If ``True``, label rotations will always be plus\n    or minus 90 degrees from level.\n\nuse_clabeltext : bool, default: False\n    If ``True``, use `.Text.set_transform_rotates_text` to ensure that\n    label rotation is updated whenever the Axes aspect changes.\n\nzorder : float or None, default: ``(2 + contour.get_zorder())``\n    zorder of the contour labels.\n\nReturns\n-------\nlabels\n    A list of `.Text` instances for the labels."
+        },
+        {
+          "name": "print_label",
+          "docstring": "Return whether a contour is long enough to hold a label."
+        },
+        {
+          "name": "too_close",
+          "docstring": "Return whether a label is already near this location."
+        },
+        {
+          "name": "get_text",
+          "docstring": "Get the text of the label."
+        },
+        {
+          "name": "locate_label",
+          "docstring": "Find good place to draw a label (relatively flat part of the contour)."
+        },
+        {
+          "name": "add_label",
+          "docstring": "Add a contour label, respecting whether *use_clabeltext* was set."
+        },
+        {
+          "name": "add_label_near",
+          "docstring": "Add a label near the point ``(x, y)``.\n\nParameters\n----------\nx, y : float\n    The approximate location of the label.\ninline : bool, default: True\n    If *True* remove the segment of the contour beneath the label.\ninline_spacing : int, default: 5\n    Space in pixels to leave on each side of label when placing\n    inline. This spacing will be exact for labels at locations where\n    the contour is straight, less so for labels on curved contours.\ntransform : `.Transform` or `False`, default: ``self.axes.transData``\n    A transform applied to ``(x, y)`` before labeling.  The default\n    causes ``(x, y)`` to be interpreted as data coordinates.  `False`\n    is a synonym for `.IdentityTransform`; i.e. ``(x, y)`` should be\n    interpreted as display coordinates."
+        },
+        {
+          "name": "pop_label",
+          "docstring": "Defaults to removing last label, but any index can be supplied"
+        },
+        {
+          "name": "labels",
+          "docstring": null
+        },
+        {
+          "name": "remove",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ContourSet",
+      "docstring": "Store a set of contour lines or filled regions.\n\nUser-callable method: `~.Axes.clabel`\n\nParameters\n----------\nax : `~matplotlib.axes.Axes`\n\nlevels : [level0, level1, ..., leveln]\n    A list of floating point numbers indicating the contour levels.\n\nallsegs : [level0segs, level1segs, ...]\n    List of all the polygon segments for all the *levels*.\n    For contour lines ``len(allsegs) == len(levels)``, and for\n    filled contour regions ``len(allsegs) = len(levels)-1``. The lists\n    should look like ::\n\n        level0segs = [polygon0, polygon1, ...]\n        polygon0 = [[x0, y0], [x1, y1], ...]\n\nallkinds : ``None`` or [level0kinds, level1kinds, ...]\n    Optional list of all the polygon vertex kinds (code types), as\n    described and used in Path. This is used to allow multiply-\n    connected paths such as holes within filled polygons.\n    If not ``None``, ``len(allkinds) == len(allsegs)``. The lists\n    should look like ::\n\n        level0kinds = [polygon0kinds, ...]\n        polygon0kinds = [vertexcode0, vertexcode1, ...]\n\n    If *allkinds* is not ``None``, usually all polygons for a\n    particular contour level are grouped together so that\n    ``level0segs = [polygon0]`` and ``level0kinds = [polygon0kinds]``.\n\n**kwargs\n    Keyword arguments are as described in the docstring of\n    `~.Axes.contour`.\n\n%(contour_set_attributes)s",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Draw contour lines or filled regions, depending on\nwhether keyword arg *filled* is ``False`` (default) or ``True``.\n\nCall signature::\n\n    ContourSet(ax, levels, allsegs, [allkinds], **kwargs)\n\nParameters\n----------\nax : `~matplotlib.axes.Axes`\n    The `~.axes.Axes` object to draw on.\n\nlevels : [level0, level1, ..., leveln]\n    A list of floating point numbers indicating the contour\n    levels.\n\nallsegs : [level0segs, level1segs, ...]\n    List of all the polygon segments for all the *levels*.\n    For contour lines ``len(allsegs) == len(levels)``, and for\n    filled contour regions ``len(allsegs) = len(levels)-1``. The lists\n    should look like ::\n\n        level0segs = [polygon0, polygon1, ...]\n        polygon0 = [[x0, y0], [x1, y1], ...]\n\nallkinds : [level0kinds, level1kinds, ...], optional\n    Optional list of all the polygon vertex kinds (code types), as\n    described and used in Path. This is used to allow multiply-\n    connected paths such as holes within filled polygons.\n    If not ``None``, ``len(allkinds) == len(allsegs)``. The lists\n    should look like ::\n\n        level0kinds = [polygon0kinds, ...]\n        polygon0kinds = [vertexcode0, vertexcode1, ...]\n\n    If *allkinds* is not ``None``, usually all polygons for a\n    particular contour level are grouped together so that\n    ``level0segs = [polygon0]`` and ``level0kinds = [polygon0kinds]``.\n\n**kwargs\n    Keyword arguments are as described in the docstring of\n    `~.Axes.contour`."
+        },
+        {
+          "name": "get_transform",
+          "docstring": "Return the `.Transform` instance used by this ContourSet."
+        },
+        {
+          "name": "legend_elements",
+          "docstring": "Return a list of artists and labels suitable for passing through\nto `~.Axes.legend` which represent this ContourSet.\n\nThe labels have the form \"0 < x <= 1\" stating the data ranges which\nthe artists represent.\n\nParameters\n----------\nvariable_name : str\n    The string used inside the inequality used on the labels.\nstr_format : function: float -> str\n    Function used to format the numbers in the labels.\n\nReturns\n-------\nartists : list[`.Artist`]\n    A list of the artists.\nlabels : list[str]\n    A list of the labels."
+        },
+        {
+          "name": "changed",
+          "docstring": null
+        },
+        {
+          "name": "find_nearest_contour",
+          "docstring": "Find the point in the contour plot that is closest to ``(x, y)``.\n\nThis method does not support filled contours.\n\nParameters\n----------\nx, y : float\n    The reference point.\nindices : list of int or None, default: None\n    Indices of contour levels to consider.  If None (the default), all\n    levels are considered.\npixel : bool, default: True\n    If *True*, measure distance in pixel (screen) space, which is\n    useful for manual contour labeling; else, measure distance in axes\n    space.\n\nReturns\n-------\npath : int\n    The index of the path that is closest to ``(x, y)``.  Each path corresponds\n    to one contour level.\nsubpath : int\n    The index within that closest path of the subpath that is closest to\n    ``(x, y)``.  Each subpath corresponds to one unbroken contour line.\nindex : int\n    The index of the vertices within that subpath that are closest to\n    ``(x, y)``.\nxmin, ymin : float\n    The point in the contour plot that is closest to ``(x, y)``.\nd2 : float\n    The squared distance from ``(xmin, ymin)`` to ``(x, y)``."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "QuadContourSet",
+      "docstring": "Create and store a set of contour lines or filled regions.\n\nThis class is typically not instantiated directly by the user but by\n`~.Axes.contour` and `~.Axes.contourf`.\n\n%(contour_set_attributes)s",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "clabel",
+      "docstring": "Label a contour plot.\n\nAdds labels to line contours in this `.ContourSet` (which inherits from\nthis mixin class).\n\nParameters\n----------\nlevels : array-like, optional\n    A list of level values, that should be labeled. The list must be\n    a subset of ``cs.levels``. If not given, all levels are labeled.\n\nfontsize : str or float, default: :rc:`font.size`\n    Size in points or relative size e.g., 'smaller', 'x-large'.\n    See `.Text.set_size` for accepted string values.\n\ncolors : :mpltype:`color` or colors or None, default: None\n    The label colors:\n\n    - If *None*, the color of each label matches the color of\n      the corresponding contour.\n\n    - If one string color, e.g., *colors* = 'r' or *colors* =\n      'red', all labels will be plotted in this color.\n\n    - If a tuple of colors (string, float, RGB, etc), different labels\n      will be plotted in different colors in the order specified.\n\ninline : bool, default: True\n    If ``True`` the underlying contour is removed where the label is\n    placed.\n\ninline_spacing : float, default: 5\n    Space in pixels to leave on each side of label when placing inline.\n\n    This spacing will be exact for labels at locations where the\n    contour is straight, less so for labels on curved contours.\n\nfmt : `.Formatter` or str or callable or dict, optional\n    How the levels are formatted:\n\n    - If a `.Formatter`, it is used to format all levels at once, using\n      its `.Formatter.format_ticks` method.\n    - If a str, it is interpreted as a %-style format string.\n    - If a callable, it is called with one level at a time and should\n      return the corresponding label.\n    - If a dict, it should directly map levels to labels.\n\n    The default is to use a standard `.ScalarFormatter`.\n\nmanual : bool or iterable, default: False\n    If ``True``, contour labels will be placed manually using\n    mouse clicks. Click the first button near a contour to\n    add a label, click the second button (or potentially both\n    mouse buttons at once) to finish adding labels. The third\n    button can be used to remove the last label added, but\n    only if labels are not inline. Alternatively, the keyboard\n    can be used to select label locations (enter to end label\n    placement, delete or backspace act like the third mouse button,\n    and any other key will select a label location).\n\n    *manual* can also be an iterable object of (x, y) tuples.\n    Contour labels will be created as if mouse is clicked at each\n    (x, y) position.\n\nrightside_up : bool, default: True\n    If ``True``, label rotations will always be plus\n    or minus 90 degrees from level.\n\nuse_clabeltext : bool, default: False\n    If ``True``, use `.Text.set_transform_rotates_text` to ensure that\n    label rotation is updated whenever the Axes aspect changes.\n\nzorder : float or None, default: ``(2 + contour.get_zorder())``\n    zorder of the contour labels.\n\nReturns\n-------\nlabels\n    A list of `.Text` instances for the labels."
+    },
+    {
+      "name": "print_label",
+      "docstring": "Return whether a contour is long enough to hold a label."
+    },
+    {
+      "name": "too_close",
+      "docstring": "Return whether a label is already near this location."
+    },
+    {
+      "name": "get_text",
+      "docstring": "Get the text of the label."
+    },
+    {
+      "name": "locate_label",
+      "docstring": "Find good place to draw a label (relatively flat part of the contour)."
+    },
+    {
+      "name": "add_label",
+      "docstring": "Add a contour label, respecting whether *use_clabeltext* was set."
+    },
+    {
+      "name": "add_label_near",
+      "docstring": "Add a label near the point ``(x, y)``.\n\nParameters\n----------\nx, y : float\n    The approximate location of the label.\ninline : bool, default: True\n    If *True* remove the segment of the contour beneath the label.\ninline_spacing : int, default: 5\n    Space in pixels to leave on each side of label when placing\n    inline. This spacing will be exact for labels at locations where\n    the contour is straight, less so for labels on curved contours.\ntransform : `.Transform` or `False`, default: ``self.axes.transData``\n    A transform applied to ``(x, y)`` before labeling.  The default\n    causes ``(x, y)`` to be interpreted as data coordinates.  `False`\n    is a synonym for `.IdentityTransform`; i.e. ``(x, y)`` should be\n    interpreted as display coordinates."
+    },
+    {
+      "name": "pop_label",
+      "docstring": "Defaults to removing last label, but any index can be supplied"
+    },
+    {
+      "name": "labels",
+      "docstring": null
+    },
+    {
+      "name": "remove",
+      "docstring": null
+    },
+    {
+      "name": "get_transform",
+      "docstring": "Return the `.Transform` instance used by this ContourSet."
+    },
+    {
+      "name": "legend_elements",
+      "docstring": "Return a list of artists and labels suitable for passing through\nto `~.Axes.legend` which represent this ContourSet.\n\nThe labels have the form \"0 < x <= 1\" stating the data ranges which\nthe artists represent.\n\nParameters\n----------\nvariable_name : str\n    The string used inside the inequality used on the labels.\nstr_format : function: float -> str\n    Function used to format the numbers in the labels.\n\nReturns\n-------\nartists : list[`.Artist`]\n    A list of the artists.\nlabels : list[str]\n    A list of the labels."
+    },
+    {
+      "name": "changed",
+      "docstring": null
+    },
+    {
+      "name": "find_nearest_contour",
+      "docstring": "Find the point in the contour plot that is closest to ``(x, y)``.\n\nThis method does not support filled contours.\n\nParameters\n----------\nx, y : float\n    The reference point.\nindices : list of int or None, default: None\n    Indices of contour levels to consider.  If None (the default), all\n    levels are considered.\npixel : bool, default: True\n    If *True*, measure distance in pixel (screen) space, which is\n    useful for manual contour labeling; else, measure distance in axes\n    space.\n\nReturns\n-------\npath : int\n    The index of the path that is closest to ``(x, y)``.  Each path corresponds\n    to one contour level.\nsubpath : int\n    The index within that closest path of the subpath that is closest to\n    ``(x, y)``.  Each subpath corresponds to one unbroken contour line.\nindex : int\n    The index of the vertices within that subpath that are closest to\n    ``(x, y)``.\nxmin, ymin : float\n    The point in the contour plot that is closest to ``(x, y)``.\nd2 : float\n    The squared distance from ``(xmin, ymin)`` to ``(x, y)``."
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "interp_vec",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

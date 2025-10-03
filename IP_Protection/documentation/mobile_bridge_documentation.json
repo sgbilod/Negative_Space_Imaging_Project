@@ -1,0 +1,26 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\mobile\\api\\mobile_bridge.py",
+  "classes": [
+    {
+      "name": "MobileBridge",
+      "docstring": "Bridge between mobile application and Python backend",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the mobile bridge\n\nArgs:\n    host: Host to bind the server to\n    port: Port to bind the server to"
+        },
+        {
+          "name": "setup_routes",
+          "docstring": "Setup the API routes"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "setup_routes",
+      "docstring": "Setup the API routes"
+    }
+  ],
+  "innovations": []
+}

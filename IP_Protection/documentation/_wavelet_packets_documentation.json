@@ -1,0 +1,233 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pywt\\_wavelet_packets.py",
+  "classes": [
+    {
+      "name": "BaseNode",
+      "docstring": "BaseNode for wavelet packet 1D and 2D tree nodes.\n\nThe BaseNode is a base class for `Node` and `Node2D`.\nIt should not be used directly unless creating a new transformation\ntype. It is included here to document the common interface of 1D\nand 2D node and wavelet packet transform classes.\n\nParameters\n----------\nparent :\n    Parent node. If parent is None then the node is considered detached\n    (ie root).\ndata : 1D or 2D array\n    Data associated with the node. 1D or 2D numeric array, depending on the\n    transform type.\nnode_name :\n    A name identifying the coefficients type.\n    See `Node.node_name` and `Node2D.node_name`\n    for information on the accepted subnodes names.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "path_tuple",
+          "docstring": "The path to the current node in tuple form.\n\nThe length of the tuple is equal to the number of decomposition levels."
+        },
+        {
+          "name": "maxlevel",
+          "docstring": null
+        },
+        {
+          "name": "node_name",
+          "docstring": null
+        },
+        {
+          "name": "decompose",
+          "docstring": "Decompose node data creating DWT coefficients subnodes.\n\nPerforms Discrete Wavelet Transform on the `~BaseNode.data` and\nreturns transform coefficients.\n\nNote\n----\nDescends to subnodes and recursively\ncalls `~BaseNode.reconstruct` on them."
+        },
+        {
+          "name": "reconstruct",
+          "docstring": "Reconstruct node from subnodes.\n\nParameters\n----------\nupdate : bool, optional\n    If True, then reconstructed data replaces the current\n    node data (default: False).\n\nReturns:\n    - original node data if subnodes do not exist\n    - IDWT of subnodes otherwise."
+        },
+        {
+          "name": "get_subnode",
+          "docstring": "Returns subnode or None (see `decomposition` flag description).\n\nParameters\n----------\npart :\n    Subnode name\ndecompose : bool, optional\n    If the param is True and corresponding subnode does not\n    exist, the subnode will be created using coefficients\n    from the DWT decomposition of the current node.\n    (default: True)"
+        },
+        {
+          "name": "is_empty",
+          "docstring": null
+        },
+        {
+          "name": "has_any_subnode",
+          "docstring": null
+        },
+        {
+          "name": "get_leaf_nodes",
+          "docstring": "Returns leaf nodes.\n\nParameters\n----------\ndecompose : bool, optional\n    (default: True)"
+        },
+        {
+          "name": "walk",
+          "docstring": "Traverses the decomposition tree and calls\n``func(node, *args, **kwargs)`` on every node. If `func` returns True,\ndescending to subnodes will continue.\n\nParameters\n----------\nfunc : callable\n    Callable accepting `BaseNode` as the first param and\n    optional positional and keyword arguments\nargs :\n    func params\nkwargs :\n    func keyword params\ndecompose : bool, optional\n    If True (default), the method will also try to decompose the tree\n    up to the `maximum level <BaseNode.maxlevel>`."
+        },
+        {
+          "name": "walk_depth",
+          "docstring": "Walk tree and call func on every node starting from the bottom-most\nnodes.\n\nParameters\n----------\nfunc : callable\n    Callable accepting :class:`BaseNode` as the first param and\n    optional positional and keyword arguments\nargs :\n    func params\nkwargs :\n    func keyword params\ndecompose : bool, optional\n    (default: False)"
+        }
+      ]
+    },
+    {
+      "name": "Node",
+      "docstring": "WaveletPacket tree node.\n\nSubnodes are called `a` and `d`, just like approximation\nand detail coefficients in the Discrete Wavelet Transform.",
+      "methods": []
+    },
+    {
+      "name": "Node2D",
+      "docstring": "WaveletPacket tree node.\n\nSubnodes are called 'a' (LL), 'h' (HL), 'v' (LH) and  'd' (HH), like\napproximation and detail coefficients in the 2D Discrete Wavelet Transform",
+      "methods": [
+        {
+          "name": "expand_2d_path",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "NodeND",
+      "docstring": "WaveletPacket tree node.\n\nUnlike Node and Node2D self.PARTS is a dictionary.\nFor 1D:  self.PARTS has keys 'a' and 'd'\nFor 2D:  self.PARTS has keys 'aa', 'ad', 'da', 'dd'\nFor 3D:  self.PARTS has keys 'aaa', 'aad', 'ada', 'daa', ..., 'ddd'\n\nParameters\n----------\nparent :\n    Parent node. If parent is None then the node is considered detached\n    (ie root).\ndata : 1D or 2D array\n    Data associated with the node. 1D or 2D numeric array, depending on the\n    transform type.\nnode_name : string\n    A name identifying the coefficients type.\n    See `Node.node_name` and `Node2D.node_name`\n    for information on the accepted subnodes names.\nndim : int\n    The number of data dimensions.\nndim_transform : int\n    The number of dimensions that are to be transformed.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "WaveletPacket",
+      "docstring": "Data structure representing Wavelet Packet decomposition of signal.\n\nParameters\n----------\ndata : 1D ndarray\n    Original data (signal)\nwavelet : Wavelet object or name string\n    Wavelet used in DWT decomposition and reconstruction\nmode : str, optional\n    Signal extension mode for the `dwt` and `idwt` decomposition and\n    reconstruction functions.\nmaxlevel : int, optional\n    Maximum level of decomposition.\n    If None, it will be calculated based on the `wavelet` and `data`\n    length using `pywt.dwt_max_level`.\naxis : int, optional\n    The axis to transform.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "reconstruct",
+          "docstring": "Reconstruct data value using coefficients from subnodes.\n\nParameters\n----------\nupdate : bool, optional\n    If True (default), then data values will be replaced by\n    reconstruction values, also in subnodes."
+        },
+        {
+          "name": "get_level",
+          "docstring": "Returns all nodes on the specified level.\n\nParameters\n----------\nlevel : int\n    Specifies decomposition `level` from which the nodes will be\n    collected.\norder : {'natural', 'freq'}, optional\n    - \"natural\" - left to right in tree (default)\n    - \"freq\" - band ordered\ndecompose : bool, optional\n    If set then the method will try to decompose the data up\n    to the specified `level` (default: True).\n\nNotes\n-----\nIf nodes at the given level are missing (i.e. the tree is partially\ndecomposed) and `decompose` is set to False, only existing nodes\nwill be returned.\n\nFrequency order (``order=\"freq\"``) is also known as sequency order\nand \"natural\" order is sometimes referred to as Paley order. A detailed\ndiscussion of these orderings is also given in [1]_, [2]_.\n\nReferences\n----------\n..[1] M.V. Wickerhauser. Adapted Wavelet Analysis from Theory to\n      Software. Wellesley. Massachusetts: A K Peters. 1994.\n..[2] D.B. Percival and A.T. Walden.  Wavelet Methods for Time Series\n      Analysis. Cambridge University Press. 2000.\n      DOI:10.1017/CBO9780511841040"
+        }
+      ]
+    },
+    {
+      "name": "WaveletPacket2D",
+      "docstring": "Data structure representing 2D Wavelet Packet decomposition of signal.\n\nParameters\n----------\ndata : 2D ndarray\n    Data associated with the node.\nwavelet : Wavelet object or name string\n    Wavelet used in DWT decomposition and reconstruction\nmode : str, optional\n    Signal extension mode for the `dwt` and `idwt` decomposition and\n    reconstruction functions.\nmaxlevel : int\n    Maximum level of decomposition.\n    If None, it will be calculated based on the `wavelet` and `data`\n    length using `pywt.dwt_max_level`.\naxes : 2-tuple of ints, optional\n    The axes that will be transformed.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "reconstruct",
+          "docstring": "Reconstruct data using coefficients from subnodes.\n\nParameters\n----------\nupdate : bool, optional\n    If True (default) then the coefficients of the current node\n    and its subnodes will be replaced with values from reconstruction."
+        },
+        {
+          "name": "get_level",
+          "docstring": "Returns all nodes from specified level.\n\nParameters\n----------\nlevel : int\n    Decomposition `level` from which the nodes will be\n    collected.\norder : {'natural', 'freq'}, optional\n    If `natural` (default) a flat list is returned.\n    If `freq`, a 2d structure with rows and cols\n    sorted by corresponding dimension frequency of 2d\n    coefficient array (adapted from 1d case).\ndecompose : bool, optional\n    If set then the method will try to decompose the data up\n    to the specified `level` (default: True).\n\nNotes\n-----\nFrequency order (``order=\"freq\"``) is also known as as sequency order\nand \"natural\" order is sometimes referred to as Paley order. A detailed\ndiscussion of these orderings is also given in [1]_, [2]_.\n\nReferences\n----------\n..[1] M.V. Wickerhauser. Adapted Wavelet Analysis from Theory to\n      Software. Wellesley. Massachusetts: A K Peters. 1994.\n..[2] D.B. Percival and A.T. Walden.  Wavelet Methods for Time Series\n      Analysis. Cambridge University Press. 2000.\n      DOI:10.1017/CBO9780511841040"
+        }
+      ]
+    },
+    {
+      "name": "WaveletPacketND",
+      "docstring": "Data structure representing ND Wavelet Packet decomposition of signal.\n\nParameters\n----------\ndata : ND ndarray\n    Data associated with the node.\nwavelet : Wavelet object or name string\n    Wavelet used in DWT decomposition and reconstruction\nmode : str, optional\n    Signal extension mode for the `dwt` and `idwt` decomposition and\n    reconstruction functions.\nmaxlevel : int, optional\n    Maximum level of decomposition.\n    If None, it will be calculated based on the `wavelet` and `data`\n    length using `pywt.dwt_max_level`.\naxes : tuple of int, optional\n    The axes to transform.  The default value of `None` corresponds to all\n    axes.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "reconstruct",
+          "docstring": "Reconstruct data using coefficients from subnodes.\n\nParameters\n----------\nupdate : bool, optional\n    If True (default) then the coefficients of the current node\n    and its subnodes will be replaced with values from reconstruction."
+        },
+        {
+          "name": "get_level",
+          "docstring": "Returns all nodes from specified level.\n\nParameters\n----------\nlevel : int\n    Decomposition `level` from which the nodes will be\n    collected.\ndecompose : bool, optional\n    If set then the method will try to decompose the data up\n    to the specified `level` (default: True)."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_graycode_order",
+      "docstring": null
+    },
+    {
+      "name": "path_tuple",
+      "docstring": "The path to the current node in tuple form.\n\nThe length of the tuple is equal to the number of decomposition levels."
+    },
+    {
+      "name": "maxlevel",
+      "docstring": null
+    },
+    {
+      "name": "node_name",
+      "docstring": null
+    },
+    {
+      "name": "decompose",
+      "docstring": "Decompose node data creating DWT coefficients subnodes.\n\nPerforms Discrete Wavelet Transform on the `~BaseNode.data` and\nreturns transform coefficients.\n\nNote\n----\nDescends to subnodes and recursively\ncalls `~BaseNode.reconstruct` on them."
+    },
+    {
+      "name": "reconstruct",
+      "docstring": "Reconstruct node from subnodes.\n\nParameters\n----------\nupdate : bool, optional\n    If True, then reconstructed data replaces the current\n    node data (default: False).\n\nReturns:\n    - original node data if subnodes do not exist\n    - IDWT of subnodes otherwise."
+    },
+    {
+      "name": "get_subnode",
+      "docstring": "Returns subnode or None (see `decomposition` flag description).\n\nParameters\n----------\npart :\n    Subnode name\ndecompose : bool, optional\n    If the param is True and corresponding subnode does not\n    exist, the subnode will be created using coefficients\n    from the DWT decomposition of the current node.\n    (default: True)"
+    },
+    {
+      "name": "is_empty",
+      "docstring": null
+    },
+    {
+      "name": "has_any_subnode",
+      "docstring": null
+    },
+    {
+      "name": "get_leaf_nodes",
+      "docstring": "Returns leaf nodes.\n\nParameters\n----------\ndecompose : bool, optional\n    (default: True)"
+    },
+    {
+      "name": "walk",
+      "docstring": "Traverses the decomposition tree and calls\n``func(node, *args, **kwargs)`` on every node. If `func` returns True,\ndescending to subnodes will continue.\n\nParameters\n----------\nfunc : callable\n    Callable accepting `BaseNode` as the first param and\n    optional positional and keyword arguments\nargs :\n    func params\nkwargs :\n    func keyword params\ndecompose : bool, optional\n    If True (default), the method will also try to decompose the tree\n    up to the `maximum level <BaseNode.maxlevel>`."
+    },
+    {
+      "name": "walk_depth",
+      "docstring": "Walk tree and call func on every node starting from the bottom-most\nnodes.\n\nParameters\n----------\nfunc : callable\n    Callable accepting :class:`BaseNode` as the first param and\n    optional positional and keyword arguments\nargs :\n    func params\nkwargs :\n    func keyword params\ndecompose : bool, optional\n    (default: False)"
+    },
+    {
+      "name": "expand_2d_path",
+      "docstring": null
+    },
+    {
+      "name": "reconstruct",
+      "docstring": "Reconstruct data value using coefficients from subnodes.\n\nParameters\n----------\nupdate : bool, optional\n    If True (default), then data values will be replaced by\n    reconstruction values, also in subnodes."
+    },
+    {
+      "name": "get_level",
+      "docstring": "Returns all nodes on the specified level.\n\nParameters\n----------\nlevel : int\n    Specifies decomposition `level` from which the nodes will be\n    collected.\norder : {'natural', 'freq'}, optional\n    - \"natural\" - left to right in tree (default)\n    - \"freq\" - band ordered\ndecompose : bool, optional\n    If set then the method will try to decompose the data up\n    to the specified `level` (default: True).\n\nNotes\n-----\nIf nodes at the given level are missing (i.e. the tree is partially\ndecomposed) and `decompose` is set to False, only existing nodes\nwill be returned.\n\nFrequency order (``order=\"freq\"``) is also known as sequency order\nand \"natural\" order is sometimes referred to as Paley order. A detailed\ndiscussion of these orderings is also given in [1]_, [2]_.\n\nReferences\n----------\n..[1] M.V. Wickerhauser. Adapted Wavelet Analysis from Theory to\n      Software. Wellesley. Massachusetts: A K Peters. 1994.\n..[2] D.B. Percival and A.T. Walden.  Wavelet Methods for Time Series\n      Analysis. Cambridge University Press. 2000.\n      DOI:10.1017/CBO9780511841040"
+    },
+    {
+      "name": "reconstruct",
+      "docstring": "Reconstruct data using coefficients from subnodes.\n\nParameters\n----------\nupdate : bool, optional\n    If True (default) then the coefficients of the current node\n    and its subnodes will be replaced with values from reconstruction."
+    },
+    {
+      "name": "get_level",
+      "docstring": "Returns all nodes from specified level.\n\nParameters\n----------\nlevel : int\n    Decomposition `level` from which the nodes will be\n    collected.\norder : {'natural', 'freq'}, optional\n    If `natural` (default) a flat list is returned.\n    If `freq`, a 2d structure with rows and cols\n    sorted by corresponding dimension frequency of 2d\n    coefficient array (adapted from 1d case).\ndecompose : bool, optional\n    If set then the method will try to decompose the data up\n    to the specified `level` (default: True).\n\nNotes\n-----\nFrequency order (``order=\"freq\"``) is also known as as sequency order\nand \"natural\" order is sometimes referred to as Paley order. A detailed\ndiscussion of these orderings is also given in [1]_, [2]_.\n\nReferences\n----------\n..[1] M.V. Wickerhauser. Adapted Wavelet Analysis from Theory to\n      Software. Wellesley. Massachusetts: A K Peters. 1994.\n..[2] D.B. Percival and A.T. Walden.  Wavelet Methods for Time Series\n      Analysis. Cambridge University Press. 2000.\n      DOI:10.1017/CBO9780511841040"
+    },
+    {
+      "name": "reconstruct",
+      "docstring": "Reconstruct data using coefficients from subnodes.\n\nParameters\n----------\nupdate : bool, optional\n    If True (default) then the coefficients of the current node\n    and its subnodes will be replaced with values from reconstruction."
+    },
+    {
+      "name": "get_level",
+      "docstring": "Returns all nodes from specified level.\n\nParameters\n----------\nlevel : int\n    Decomposition `level` from which the nodes will be\n    collected.\ndecompose : bool, optional\n    If set then the method will try to decompose the data up\n    to the specified `level` (default: True)."
+    },
+    {
+      "name": "collect",
+      "docstring": null
+    },
+    {
+      "name": "collect",
+      "docstring": null
+    },
+    {
+      "name": "collect",
+      "docstring": null
+    },
+    {
+      "name": "collect",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

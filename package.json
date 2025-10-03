@@ -1,0 +1,137 @@
+{
+  "name": "negative-space-imaging",
+  "version": "1.0.0",
+  "description": "Advanced imaging system for negative space analysis with HIPAA compliance",
+  "author": "Negative Space Systems Team",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2025 Stephen Bilodeau. All rights reserved.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "db:init": "ts-node scripts/db-init.ts",
+    "db:migrate": "ts-node scripts/db-migrate.ts",
+    "db:seed": "ts-node scripts/db-seed.ts",
+    "security:scan": "npm audit && snyk test",
+    "prepare": "husky install",
+    "validate": "npm run lint && npm run test && npm run security:scan",
+    "docs:generate": "typedoc --entryPointStrategy expand ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/negative-space-imaging.git"
+  },
+  "keywords": [
+    "imaging",
+    "medical",
+    "astronomical",
+    "negative-space",
+    "analysis",
+    "HIPAA",
+    "security"
+  ],
+  "dependencies": {
+    "@types/uuid": "^10.0.0",
+    "bcrypt": "^5.1.1",
+    "compression": "^1.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.1",
+    "fs": "^0.0.1-security",
+    "helmet": "^7.2.0",
+    "hpp": "^0.2.3",
+    "joi": "^17.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.1",
+    "path": "^0.12.7",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0",
+    "redis": "^5.8.2",
+    "sequelize": "^6.37.7",
+    "sharp": "^0.33.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^11.1.0",
+    "winston": "^3.17.0",
+    "xss-clean": "^0.1.4",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@types/bcrypt": "^5.0.2",
+    "@types/compression": "^1.7.5",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.14",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^20.19.11",
+    "@types/pg": "^8.10.9",
+    "@types/react": "^18.2.39",
+    "@types/react-dom": "^18.2.17",
+    "@types/supertest": "^2.0.16",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jest": "^27.6.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.1.0",
+    "snyk": "^1.1240.0",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typedoc": "^0.25.3",
+    "typescript": "^5.3.2"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/**/*.d.ts",
+      "!src/types/**/*.ts"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

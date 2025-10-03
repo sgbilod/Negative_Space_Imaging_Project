@@ -1,0 +1,122 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\backend_template.py",
+  "classes": [
+    {
+      "name": "RendererTemplate",
+      "docstring": "The renderer handles drawing/rendering operations.\n\nThis is a minimal do-nothing class that can be used to get started when\nwriting a new backend.  Refer to `.backend_bases.RendererBase` for\ndocumentation of the methods.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "draw_path",
+          "docstring": null
+        },
+        {
+          "name": "draw_image",
+          "docstring": null
+        },
+        {
+          "name": "draw_text",
+          "docstring": null
+        },
+        {
+          "name": "flipy",
+          "docstring": null
+        },
+        {
+          "name": "get_canvas_width_height",
+          "docstring": null
+        },
+        {
+          "name": "get_text_width_height_descent",
+          "docstring": null
+        },
+        {
+          "name": "new_gc",
+          "docstring": null
+        },
+        {
+          "name": "points_to_pixels",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GraphicsContextTemplate",
+      "docstring": "The graphics context provides the color, line styles, etc.  See the cairo\nand postscript backends for examples of mapping the graphics context\nattributes (cap styles, join styles, line widths, colors) to a particular\nbackend.  In cairo this is done by wrapping a cairo.Context object and\nforwarding the appropriate calls to it using a dictionary mapping styles\nto gdk constants.  In Postscript, all the work is done by the renderer,\nmapping line styles to postscript calls.\n\nIf it's more appropriate to do the mapping at the renderer level (as in\nthe postscript backend), you don't need to override any of the GC methods.\nIf it's more appropriate to wrap an instance (as in the cairo backend) and\ndo the mapping here, you'll need to override several of the setter\nmethods.\n\nThe base GraphicsContext stores colors as an RGB tuple on the unit\ninterval, e.g., (0.5, 0.0, 1.0). You may need to map this to colors\nappropriate for your backend.",
+      "methods": []
+    },
+    {
+      "name": "FigureManagerTemplate",
+      "docstring": "Helper class for pyplot mode, wraps everything up into a neat bundle.\n\nFor non-interactive backends, the base class is sufficient.  For\ninteractive backends, see the documentation of the `.FigureManagerBase`\nclass for the list of methods that can/should be overridden.",
+      "methods": []
+    },
+    {
+      "name": "FigureCanvasTemplate",
+      "docstring": "The canvas the figure renders into.  Calls the draw and print fig\nmethods, creates the renderers, etc.\n\nNote: GUI templates will want to connect events for button presses,\nmouse movements and key presses to functions that call the base\nclass methods button_press_event, button_release_event,\nmotion_notify_event, key_press_event, and key_release_event.  See the\nimplementations of the interactive backends for examples.\n\nAttributes\n----------\nfigure : `~matplotlib.figure.Figure`\n    A high-level Figure instance",
+      "methods": [
+        {
+          "name": "draw",
+          "docstring": "Draw the figure using the renderer.\n\nIt is important that this method actually walk the artist tree\neven if not output is produced because this will trigger\ndeferred work (like computing limits auto-limits and tick\nvalues) that users may want access to before saving to disk."
+        },
+        {
+          "name": "print_foo",
+          "docstring": "Write out format foo.\n\nThis method is normally called via `.Figure.savefig` and\n`.FigureCanvasBase.print_figure`, which take care of setting the figure\nfacecolor, edgecolor, and dpi to the desired output values, and will\nrestore them to the original values.  Therefore, `print_foo` does not\nneed to handle these settings."
+        },
+        {
+          "name": "get_default_filetype",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "draw_path",
+      "docstring": null
+    },
+    {
+      "name": "draw_image",
+      "docstring": null
+    },
+    {
+      "name": "draw_text",
+      "docstring": null
+    },
+    {
+      "name": "flipy",
+      "docstring": null
+    },
+    {
+      "name": "get_canvas_width_height",
+      "docstring": null
+    },
+    {
+      "name": "get_text_width_height_descent",
+      "docstring": null
+    },
+    {
+      "name": "new_gc",
+      "docstring": null
+    },
+    {
+      "name": "points_to_pixels",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": "Draw the figure using the renderer.\n\nIt is important that this method actually walk the artist tree\neven if not output is produced because this will trigger\ndeferred work (like computing limits auto-limits and tick\nvalues) that users may want access to before saving to disk."
+    },
+    {
+      "name": "print_foo",
+      "docstring": "Write out format foo.\n\nThis method is normally called via `.Figure.savefig` and\n`.FigureCanvasBase.print_figure`, which take care of setting the figure\nfacecolor, edgecolor, and dpi to the desired output values, and will\nrestore them to the original values.  Therefore, `print_foo` does not\nneed to handle these settings."
+    },
+    {
+      "name": "get_default_filetype",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

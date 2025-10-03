@@ -1,0 +1,328 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\truststore\\_api.py",
+  "classes": [
+    {
+      "name": "SSLContext",
+      "docstring": "SSLContext API that uses system certificates on all platforms",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "wrap_socket",
+          "docstring": null
+        },
+        {
+          "name": "wrap_bio",
+          "docstring": null
+        },
+        {
+          "name": "load_verify_locations",
+          "docstring": null
+        },
+        {
+          "name": "load_cert_chain",
+          "docstring": null
+        },
+        {
+          "name": "load_default_certs",
+          "docstring": null
+        },
+        {
+          "name": "set_alpn_protocols",
+          "docstring": null
+        },
+        {
+          "name": "set_npn_protocols",
+          "docstring": null
+        },
+        {
+          "name": "set_ciphers",
+          "docstring": null
+        },
+        {
+          "name": "get_ciphers",
+          "docstring": null
+        },
+        {
+          "name": "session_stats",
+          "docstring": null
+        },
+        {
+          "name": "cert_store_stats",
+          "docstring": null
+        },
+        {
+          "name": "set_default_verify_paths",
+          "docstring": null
+        },
+        {
+          "name": "get_ca_certs",
+          "docstring": null
+        },
+        {
+          "name": "get_ca_certs",
+          "docstring": null
+        },
+        {
+          "name": "get_ca_certs",
+          "docstring": null
+        },
+        {
+          "name": "get_ca_certs",
+          "docstring": null
+        },
+        {
+          "name": "check_hostname",
+          "docstring": null
+        },
+        {
+          "name": "check_hostname",
+          "docstring": null
+        },
+        {
+          "name": "hostname_checks_common_name",
+          "docstring": null
+        },
+        {
+          "name": "hostname_checks_common_name",
+          "docstring": null
+        },
+        {
+          "name": "keylog_filename",
+          "docstring": null
+        },
+        {
+          "name": "keylog_filename",
+          "docstring": null
+        },
+        {
+          "name": "maximum_version",
+          "docstring": null
+        },
+        {
+          "name": "maximum_version",
+          "docstring": null
+        },
+        {
+          "name": "minimum_version",
+          "docstring": null
+        },
+        {
+          "name": "minimum_version",
+          "docstring": null
+        },
+        {
+          "name": "options",
+          "docstring": null
+        },
+        {
+          "name": "options",
+          "docstring": null
+        },
+        {
+          "name": "post_handshake_auth",
+          "docstring": null
+        },
+        {
+          "name": "post_handshake_auth",
+          "docstring": null
+        },
+        {
+          "name": "protocol",
+          "docstring": null
+        },
+        {
+          "name": "security_level",
+          "docstring": null
+        },
+        {
+          "name": "verify_flags",
+          "docstring": null
+        },
+        {
+          "name": "verify_flags",
+          "docstring": null
+        },
+        {
+          "name": "verify_mode",
+          "docstring": null
+        },
+        {
+          "name": "verify_mode",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TruststoreSSLObject",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "do_handshake",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "inject_into_ssl",
+      "docstring": "Injects the :class:`truststore.SSLContext` into the ``ssl``\nmodule by replacing :class:`ssl.SSLContext`."
+    },
+    {
+      "name": "extract_from_ssl",
+      "docstring": "Restores the :class:`ssl.SSLContext` class to its original state"
+    },
+    {
+      "name": "wrap_socket",
+      "docstring": null
+    },
+    {
+      "name": "wrap_bio",
+      "docstring": null
+    },
+    {
+      "name": "load_verify_locations",
+      "docstring": null
+    },
+    {
+      "name": "load_cert_chain",
+      "docstring": null
+    },
+    {
+      "name": "load_default_certs",
+      "docstring": null
+    },
+    {
+      "name": "set_alpn_protocols",
+      "docstring": null
+    },
+    {
+      "name": "set_npn_protocols",
+      "docstring": null
+    },
+    {
+      "name": "set_ciphers",
+      "docstring": null
+    },
+    {
+      "name": "get_ciphers",
+      "docstring": null
+    },
+    {
+      "name": "session_stats",
+      "docstring": null
+    },
+    {
+      "name": "cert_store_stats",
+      "docstring": null
+    },
+    {
+      "name": "set_default_verify_paths",
+      "docstring": null
+    },
+    {
+      "name": "get_ca_certs",
+      "docstring": null
+    },
+    {
+      "name": "get_ca_certs",
+      "docstring": null
+    },
+    {
+      "name": "get_ca_certs",
+      "docstring": null
+    },
+    {
+      "name": "get_ca_certs",
+      "docstring": null
+    },
+    {
+      "name": "check_hostname",
+      "docstring": null
+    },
+    {
+      "name": "check_hostname",
+      "docstring": null
+    },
+    {
+      "name": "hostname_checks_common_name",
+      "docstring": null
+    },
+    {
+      "name": "hostname_checks_common_name",
+      "docstring": null
+    },
+    {
+      "name": "keylog_filename",
+      "docstring": null
+    },
+    {
+      "name": "keylog_filename",
+      "docstring": null
+    },
+    {
+      "name": "maximum_version",
+      "docstring": null
+    },
+    {
+      "name": "maximum_version",
+      "docstring": null
+    },
+    {
+      "name": "minimum_version",
+      "docstring": null
+    },
+    {
+      "name": "minimum_version",
+      "docstring": null
+    },
+    {
+      "name": "options",
+      "docstring": null
+    },
+    {
+      "name": "options",
+      "docstring": null
+    },
+    {
+      "name": "post_handshake_auth",
+      "docstring": null
+    },
+    {
+      "name": "post_handshake_auth",
+      "docstring": null
+    },
+    {
+      "name": "protocol",
+      "docstring": null
+    },
+    {
+      "name": "security_level",
+      "docstring": null
+    },
+    {
+      "name": "verify_flags",
+      "docstring": null
+    },
+    {
+      "name": "verify_flags",
+      "docstring": null
+    },
+    {
+      "name": "verify_mode",
+      "docstring": null
+    },
+    {
+      "name": "verify_mode",
+      "docstring": null
+    },
+    {
+      "name": "do_handshake",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

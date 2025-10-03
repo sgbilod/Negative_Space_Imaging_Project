@@ -1,0 +1,68 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\containers.py",
+  "classes": [
+    {
+      "name": "Renderables",
+      "docstring": "A list subclass which renders its contents to the console.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "append",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Lines",
+      "docstring": "A list subclass which can render to the console.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "append",
+          "docstring": null
+        },
+        {
+          "name": "extend",
+          "docstring": null
+        },
+        {
+          "name": "pop",
+          "docstring": null
+        },
+        {
+          "name": "justify",
+          "docstring": "Justify and overflow text to a given width.\n\nArgs:\n    console (Console): Console instance.\n    width (int): Number of cells available per line.\n    justify (str, optional): Default justify method for text: \"left\", \"center\", \"full\" or \"right\". Defaults to \"left\".\n    overflow (str, optional): Default overflow for text: \"crop\", \"fold\", or \"ellipsis\". Defaults to \"fold\"."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "append",
+      "docstring": null
+    },
+    {
+      "name": "append",
+      "docstring": null
+    },
+    {
+      "name": "extend",
+      "docstring": null
+    },
+    {
+      "name": "pop",
+      "docstring": null
+    },
+    {
+      "name": "justify",
+      "docstring": "Justify and overflow text to a given width.\n\nArgs:\n    console (Console): Console instance.\n    width (int): Number of cells available per line.\n    justify (str, optional): Default justify method for text: \"left\", \"center\", \"full\" or \"right\". Defaults to \"left\".\n    overflow (str, optional): Default overflow for text: \"crop\", \"fold\", or \"ellipsis\". Defaults to \"fold\"."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,252 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\revenue\\mnemonic_architecture\\mnemonic_data_architecture.py",
+  "classes": [
+    {
+      "name": "SpatialNode",
+      "docstring": "A node in the spatial data architecture.\nEach node represents a piece of data placed in a specific position in 3D space.",
+      "methods": [
+        {
+          "name": "distance_to",
+          "docstring": "Calculate Euclidean distance to another node."
+        },
+        {
+          "name": "semantic_distance_to",
+          "docstring": "Calculate semantic distance to another node based on content similarity.\n\nArgs:\n    other: The other node to compare with\n    semantic_space: Dictionary mapping content to semantic vectors\n    \nReturns:\n    Semantic distance score (lower means more similar)"
+        },
+        {
+          "name": "to_dict",
+          "docstring": "Convert to dictionary for serialization."
+        },
+        {
+          "name": "from_dict",
+          "docstring": "Create from dictionary after deserialization."
+        }
+      ]
+    },
+    {
+      "name": "Cluster",
+      "docstring": "A cluster of related nodes in the spatial architecture.\nClusters group semantically related data in proximity.",
+      "methods": [
+        {
+          "name": "to_dict",
+          "docstring": "Convert to dictionary for serialization."
+        },
+        {
+          "name": "from_dict",
+          "docstring": "Create from dictionary after deserialization."
+        }
+      ]
+    },
+    {
+      "name": "Path",
+      "docstring": "A path represents a journey through the spatial data structure.\nPaths can be used for guided tours, presentations, or navigation aids.",
+      "methods": [
+        {
+          "name": "to_dict",
+          "docstring": "Convert to dictionary for serialization."
+        },
+        {
+          "name": "from_dict",
+          "docstring": "Create from dictionary after deserialization."
+        }
+      ]
+    },
+    {
+      "name": "AIDataCartographer",
+      "docstring": "AI system that organizes data into an intuitive 3D spatial layout.\nThis system analyzes data relationships and builds a 3D \"memory palace\".",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the AI Data Cartographer.\n\nArgs:\n    initial_volume_size: Size of the initial 3D space [x, y, z]\n    learning_rate: Rate of adjustment for spatial positioning\n    similarity_threshold: Threshold for considering items similar"
+        },
+        {
+          "name": "analyze_data_relationships",
+          "docstring": "Analyze relationships between data items to determine spatial positions.\n\nArgs:\n    data_items: List of data items to analyze\n    \nReturns:\n    Analysis results"
+        },
+        {
+          "name": "suggest_node_placement",
+          "docstring": "Suggest where to place a new data item within the existing spatial structure.\n\nArgs:\n    data_item: The data item to place\n    existing_nodes: Existing nodes in the spatial structure\n    \nReturns:\n    Placement suggestion"
+        },
+        {
+          "name": "generate_semantic_vector",
+          "docstring": "Generate a semantic vector for content.\n\nArgs:\n    content: The content to generate a vector for\n    \nReturns:\n    Semantic vector"
+        }
+      ]
+    },
+    {
+      "name": "MnemonicDataArchitecture",
+      "docstring": "Main class for the Mnemonic Data Architecture system.\nThis system creates a 3D spatial organization of data for intuitive navigation and recall.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the Mnemonic Data Architecture system."
+        },
+        {
+          "name": "add_node",
+          "docstring": "Add a new node to the spatial structure.\n\nArgs:\n    data_type: Type of data (\"file\", \"folder\", \"tag\", etc.)\n    content: The data content\n    position: Optional manual position, otherwise AI will determine\n    metadata: Additional metadata\n    \nReturns:\n    Node creation result"
+        },
+        {
+          "name": "update_node",
+          "docstring": "Update an existing node.\n\nArgs:\n    node_id: ID of the node to update\n    updates: Dictionary of fields to update\n    \nReturns:\n    Update result"
+        },
+        {
+          "name": "delete_node",
+          "docstring": "Delete a node from the spatial structure.\n\nArgs:\n    node_id: ID of the node to delete\n    \nReturns:\n    Deletion result"
+        },
+        {
+          "name": "create_cluster",
+          "docstring": "Create a new cluster in the spatial structure.\n\nArgs:\n    name: Name of the cluster\n    center: Center position [x, y, z]\n    radius: Radius of influence\n    theme: Visual/conceptual theme\n    metadata: Additional metadata\n    \nReturns:\n    Cluster creation result"
+        },
+        {
+          "name": "create_path",
+          "docstring": "Create a new path through the spatial structure.\n\nArgs:\n    name: Name of the path\n    nodes: Ordered list of node_ids to visit\n    metadata: Additional metadata\n    \nReturns:\n    Path creation result"
+        },
+        {
+          "name": "auto_organize_data",
+          "docstring": "Automatically organize a set of data items into the spatial structure.\n\nArgs:\n    data_items: List of data items to organize\n    \nReturns:\n    Organization results"
+        },
+        {
+          "name": "query_spatial_region",
+          "docstring": "Query nodes within a spatial region.\n\nArgs:\n    center: Center of the region [x, y, z]\n    radius: Radius of the region\n    \nReturns:\n    Query results"
+        },
+        {
+          "name": "get_node_by_id",
+          "docstring": "Get a node by its ID.\n\nArgs:\n    node_id: ID of the node to get\n    \nReturns:\n    Node data"
+        },
+        {
+          "name": "get_cluster_by_id",
+          "docstring": "Get a cluster by its ID.\n\nArgs:\n    cluster_id: ID of the cluster to get\n    \nReturns:\n    Cluster data"
+        },
+        {
+          "name": "get_path_by_id",
+          "docstring": "Get a path by its ID.\n\nArgs:\n    path_id: ID of the path to get\n    \nReturns:\n    Path data"
+        },
+        {
+          "name": "search_by_content",
+          "docstring": "Search for nodes by content.\n\nArgs:\n    query: Search query\n    max_results: Maximum number of results\n    \nReturns:\n    Search results"
+        },
+        {
+          "name": "query_cognitive_api",
+          "docstring": "Perform a cognitive query on the spatial data structure.\n\nArgs:\n    query: Query parameters\n    \nReturns:\n    Query results"
+        },
+        {
+          "name": "export_state",
+          "docstring": "Export the current state of the mnemonic data architecture.\n\nReturns:\n    The complete state"
+        },
+        {
+          "name": "import_state",
+          "docstring": "Import a state into the mnemonic data architecture.\n\nArgs:\n    state: The state to import\n    \nReturns:\n    Import result"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "distance_to",
+      "docstring": "Calculate Euclidean distance to another node."
+    },
+    {
+      "name": "semantic_distance_to",
+      "docstring": "Calculate semantic distance to another node based on content similarity.\n\nArgs:\n    other: The other node to compare with\n    semantic_space: Dictionary mapping content to semantic vectors\n    \nReturns:\n    Semantic distance score (lower means more similar)"
+    },
+    {
+      "name": "to_dict",
+      "docstring": "Convert to dictionary for serialization."
+    },
+    {
+      "name": "from_dict",
+      "docstring": "Create from dictionary after deserialization."
+    },
+    {
+      "name": "to_dict",
+      "docstring": "Convert to dictionary for serialization."
+    },
+    {
+      "name": "from_dict",
+      "docstring": "Create from dictionary after deserialization."
+    },
+    {
+      "name": "to_dict",
+      "docstring": "Convert to dictionary for serialization."
+    },
+    {
+      "name": "from_dict",
+      "docstring": "Create from dictionary after deserialization."
+    },
+    {
+      "name": "analyze_data_relationships",
+      "docstring": "Analyze relationships between data items to determine spatial positions.\n\nArgs:\n    data_items: List of data items to analyze\n    \nReturns:\n    Analysis results"
+    },
+    {
+      "name": "suggest_node_placement",
+      "docstring": "Suggest where to place a new data item within the existing spatial structure.\n\nArgs:\n    data_item: The data item to place\n    existing_nodes: Existing nodes in the spatial structure\n    \nReturns:\n    Placement suggestion"
+    },
+    {
+      "name": "generate_semantic_vector",
+      "docstring": "Generate a semantic vector for content.\n\nArgs:\n    content: The content to generate a vector for\n    \nReturns:\n    Semantic vector"
+    },
+    {
+      "name": "add_node",
+      "docstring": "Add a new node to the spatial structure.\n\nArgs:\n    data_type: Type of data (\"file\", \"folder\", \"tag\", etc.)\n    content: The data content\n    position: Optional manual position, otherwise AI will determine\n    metadata: Additional metadata\n    \nReturns:\n    Node creation result"
+    },
+    {
+      "name": "update_node",
+      "docstring": "Update an existing node.\n\nArgs:\n    node_id: ID of the node to update\n    updates: Dictionary of fields to update\n    \nReturns:\n    Update result"
+    },
+    {
+      "name": "delete_node",
+      "docstring": "Delete a node from the spatial structure.\n\nArgs:\n    node_id: ID of the node to delete\n    \nReturns:\n    Deletion result"
+    },
+    {
+      "name": "create_cluster",
+      "docstring": "Create a new cluster in the spatial structure.\n\nArgs:\n    name: Name of the cluster\n    center: Center position [x, y, z]\n    radius: Radius of influence\n    theme: Visual/conceptual theme\n    metadata: Additional metadata\n    \nReturns:\n    Cluster creation result"
+    },
+    {
+      "name": "create_path",
+      "docstring": "Create a new path through the spatial structure.\n\nArgs:\n    name: Name of the path\n    nodes: Ordered list of node_ids to visit\n    metadata: Additional metadata\n    \nReturns:\n    Path creation result"
+    },
+    {
+      "name": "auto_organize_data",
+      "docstring": "Automatically organize a set of data items into the spatial structure.\n\nArgs:\n    data_items: List of data items to organize\n    \nReturns:\n    Organization results"
+    },
+    {
+      "name": "query_spatial_region",
+      "docstring": "Query nodes within a spatial region.\n\nArgs:\n    center: Center of the region [x, y, z]\n    radius: Radius of the region\n    \nReturns:\n    Query results"
+    },
+    {
+      "name": "get_node_by_id",
+      "docstring": "Get a node by its ID.\n\nArgs:\n    node_id: ID of the node to get\n    \nReturns:\n    Node data"
+    },
+    {
+      "name": "get_cluster_by_id",
+      "docstring": "Get a cluster by its ID.\n\nArgs:\n    cluster_id: ID of the cluster to get\n    \nReturns:\n    Cluster data"
+    },
+    {
+      "name": "get_path_by_id",
+      "docstring": "Get a path by its ID.\n\nArgs:\n    path_id: ID of the path to get\n    \nReturns:\n    Path data"
+    },
+    {
+      "name": "search_by_content",
+      "docstring": "Search for nodes by content.\n\nArgs:\n    query: Search query\n    max_results: Maximum number of results\n    \nReturns:\n    Search results"
+    },
+    {
+      "name": "query_cognitive_api",
+      "docstring": "Perform a cognitive query on the spatial data structure.\n\nArgs:\n    query: Query parameters\n    \nReturns:\n    Query results"
+    },
+    {
+      "name": "export_state",
+      "docstring": "Export the current state of the mnemonic data architecture.\n\nReturns:\n    The complete state"
+    },
+    {
+      "name": "import_state",
+      "docstring": "Import a state into the mnemonic data architecture.\n\nArgs:\n    state: The state to import\n    \nReturns:\n    Import result"
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        Returns:\n            Optimized positions\n        \"\"\"\n        # Number of iterations for position optimization\n        n_iterations = 100\n        n_items = len(positions)\n        "
+    }
+  ]
+}

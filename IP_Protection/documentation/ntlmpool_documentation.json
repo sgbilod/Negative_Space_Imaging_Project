@@ -1,0 +1,26 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\ntlmpool.py",
+  "classes": [
+    {
+      "name": "NTLMConnectionPool",
+      "docstring": "Implements an NTLM authentication version of an urllib3 connection pool",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "authurl is a random URL on the server that is protected by NTLM.\nuser is the Windows user, probably in the DOMAIN\\username format.\npw is the password for the user."
+        },
+        {
+          "name": "urlopen",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "urlopen",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

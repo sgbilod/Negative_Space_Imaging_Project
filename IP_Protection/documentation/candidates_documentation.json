@@ -1,0 +1,312 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib\\candidates.py",
+  "classes": [
+    {
+      "name": "_InstallRequirementBackedCandidate",
+      "docstring": "A candidate backed by an ``InstallRequirement``.\n\nThis represents a package request with the target not being already\nin the environment, and needs to be fetched and installed. The backing\n``InstallRequirement`` is responsible for most of the leg work; this\nclass exposes appropriate information to the resolver.\n\n:param link: The link passed to the ``InstallRequirement``. The backing\n    ``InstallRequirement`` will use this link to fetch the distribution.\n:param source_link: The link this candidate \"originates\" from. This is\n    different from ``link`` when the link is found in the wheel cache.\n    ``link`` would point to the wheel cache, while this points to the\n    found remote link (e.g. from pypi.org).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "source_link",
+          "docstring": null
+        },
+        {
+          "name": "project_name",
+          "docstring": "The normalised name of the project the candidate refers to"
+        },
+        {
+          "name": "name",
+          "docstring": null
+        },
+        {
+          "name": "version",
+          "docstring": null
+        },
+        {
+          "name": "format_for_error",
+          "docstring": null
+        },
+        {
+          "name": "iter_dependencies",
+          "docstring": null
+        },
+        {
+          "name": "get_install_requirement",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LinkCandidate",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "EditableCandidate",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AlreadyInstalledCandidate",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "project_name",
+          "docstring": null
+        },
+        {
+          "name": "name",
+          "docstring": null
+        },
+        {
+          "name": "version",
+          "docstring": null
+        },
+        {
+          "name": "is_editable",
+          "docstring": null
+        },
+        {
+          "name": "format_for_error",
+          "docstring": null
+        },
+        {
+          "name": "iter_dependencies",
+          "docstring": null
+        },
+        {
+          "name": "get_install_requirement",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ExtrasCandidate",
+      "docstring": "A candidate that has 'extras', indicating additional dependencies.\n\nRequirements can be for a project with dependencies, something like\nfoo[extra].  The extras don't affect the project/version being installed\ndirectly, but indicate that we need additional dependencies. We model that\nby having an artificial ExtrasCandidate that wraps the \"base\" candidate.\n\nThe ExtrasCandidate differs from the base in the following ways:\n\n1. It has a unique name, of the form foo[extra]. This causes the resolver\n   to treat it as a separate node in the dependency graph.\n2. When we're getting the candidate's dependencies,\n   a) We specify that we want the extra dependencies as well.\n   b) We add a dependency on the base candidate.\n      See below for why this is needed.\n3. We return None for the underlying InstallRequirement, as the base\n   candidate will provide it, and we don't want to end up with duplicates.\n\nThe dependency on the base candidate is needed so that the resolver can't\ndecide that it should recommend foo[extra1] version 1.0 and foo[extra2]\nversion 2.0. Having those candidates depend on foo=1.0 and foo=2.0\nrespectively forces the resolver to recognise that this is a conflict.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": ":param comes_from: the InstallRequirement that led to this candidate if it\n    differs from the base's InstallRequirement. This will often be the\n    case in the sense that this candidate's requirement has the extras\n    while the base's does not. Unlike the InstallRequirement backed\n    candidates, this requirement is used solely for reporting purposes,\n    it does not do any leg work."
+        },
+        {
+          "name": "project_name",
+          "docstring": null
+        },
+        {
+          "name": "name",
+          "docstring": "The normalised name of the project the candidate refers to"
+        },
+        {
+          "name": "version",
+          "docstring": null
+        },
+        {
+          "name": "format_for_error",
+          "docstring": null
+        },
+        {
+          "name": "is_installed",
+          "docstring": null
+        },
+        {
+          "name": "is_editable",
+          "docstring": null
+        },
+        {
+          "name": "source_link",
+          "docstring": null
+        },
+        {
+          "name": "iter_dependencies",
+          "docstring": null
+        },
+        {
+          "name": "get_install_requirement",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RequiresPythonCandidate",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "project_name",
+          "docstring": null
+        },
+        {
+          "name": "name",
+          "docstring": null
+        },
+        {
+          "name": "version",
+          "docstring": null
+        },
+        {
+          "name": "format_for_error",
+          "docstring": null
+        },
+        {
+          "name": "iter_dependencies",
+          "docstring": null
+        },
+        {
+          "name": "get_install_requirement",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "as_base_candidate",
+      "docstring": "The runtime version of BaseCandidate."
+    },
+    {
+      "name": "make_install_req_from_link",
+      "docstring": null
+    },
+    {
+      "name": "make_install_req_from_editable",
+      "docstring": null
+    },
+    {
+      "name": "source_link",
+      "docstring": null
+    },
+    {
+      "name": "project_name",
+      "docstring": "The normalised name of the project the candidate refers to"
+    },
+    {
+      "name": "name",
+      "docstring": null
+    },
+    {
+      "name": "version",
+      "docstring": null
+    },
+    {
+      "name": "format_for_error",
+      "docstring": null
+    },
+    {
+      "name": "iter_dependencies",
+      "docstring": null
+    },
+    {
+      "name": "get_install_requirement",
+      "docstring": null
+    },
+    {
+      "name": "project_name",
+      "docstring": null
+    },
+    {
+      "name": "name",
+      "docstring": null
+    },
+    {
+      "name": "version",
+      "docstring": null
+    },
+    {
+      "name": "is_editable",
+      "docstring": null
+    },
+    {
+      "name": "format_for_error",
+      "docstring": null
+    },
+    {
+      "name": "iter_dependencies",
+      "docstring": null
+    },
+    {
+      "name": "get_install_requirement",
+      "docstring": null
+    },
+    {
+      "name": "project_name",
+      "docstring": null
+    },
+    {
+      "name": "name",
+      "docstring": "The normalised name of the project the candidate refers to"
+    },
+    {
+      "name": "version",
+      "docstring": null
+    },
+    {
+      "name": "format_for_error",
+      "docstring": null
+    },
+    {
+      "name": "is_installed",
+      "docstring": null
+    },
+    {
+      "name": "is_editable",
+      "docstring": null
+    },
+    {
+      "name": "source_link",
+      "docstring": null
+    },
+    {
+      "name": "iter_dependencies",
+      "docstring": null
+    },
+    {
+      "name": "get_install_requirement",
+      "docstring": null
+    },
+    {
+      "name": "project_name",
+      "docstring": null
+    },
+    {
+      "name": "name",
+      "docstring": null
+    },
+    {
+      "name": "version",
+      "docstring": null
+    },
+    {
+      "name": "format_for_error",
+      "docstring": null
+    },
+    {
+      "name": "iter_dependencies",
+      "docstring": null
+    },
+    {
+      "name": "get_install_requirement",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,19 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\response.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "is_fp_closed",
+      "docstring": "Checks whether a given file-like object is closed.\n\n:param obj:\n    The file-like object to check."
+    },
+    {
+      "name": "assert_header_parsing",
+      "docstring": "Asserts whether all headers have been successfully parsed.\nExtracts encountered errors from the result of parsing headers.\n\nOnly works on Python 3.\n\n:param http.client.HTTPMessage headers: Headers to verify.\n\n:raises urllib3.exceptions.HeaderParsingError:\n    If parsing errors are found."
+    },
+    {
+      "name": "is_response_to_head",
+      "docstring": "Checks whether the request of a response has been a HEAD-request.\nHandles the quirks of AppEngine.\n\n:param http.client.HTTPResponse response:\n    Response to check if the originating request\n    used 'HEAD' as a method."
+    }
+  ],
+  "innovations": []
+}

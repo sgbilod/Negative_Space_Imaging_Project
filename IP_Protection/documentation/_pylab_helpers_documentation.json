@@ -1,0 +1,94 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\_pylab_helpers.py",
+  "classes": [
+    {
+      "name": "Gcf",
+      "docstring": "Singleton to maintain the relation between figures and their managers, and\nkeep track of and \"active\" figure and manager.\n\nThe canvas of a figure created through pyplot is associated with a figure\nmanager, which handles the interaction between the figure and the backend.\npyplot keeps track of figure managers using an identifier, the \"figure\nnumber\" or \"manager number\" (which can actually be any hashable value);\nthis number is available as the :attr:`number` attribute of the manager.\n\nThis class is never instantiated; it consists of an `OrderedDict` mapping\nfigure/manager numbers to managers, and a set of class methods that\nmanipulate this `OrderedDict`.\n\nAttributes\n----------\nfigs : OrderedDict\n    `OrderedDict` mapping numbers to managers; the active manager is at the\n    end.",
+      "methods": [
+        {
+          "name": "get_fig_manager",
+          "docstring": "If manager number *num* exists, make it the active one and return it;\notherwise return *None*."
+        },
+        {
+          "name": "destroy",
+          "docstring": "Destroy manager *num* -- either a manager instance or a manager number.\n\nIn the interactive backends, this is bound to the window \"destroy\" and\n\"delete\" events.\n\nIt is recommended to pass a manager instance, to avoid confusion when\ntwo managers share the same number."
+        },
+        {
+          "name": "destroy_fig",
+          "docstring": "Destroy figure *fig*."
+        },
+        {
+          "name": "destroy_all",
+          "docstring": "Destroy all figures."
+        },
+        {
+          "name": "has_fignum",
+          "docstring": "Return whether figure number *num* exists."
+        },
+        {
+          "name": "get_all_fig_managers",
+          "docstring": "Return a list of figure managers."
+        },
+        {
+          "name": "get_num_fig_managers",
+          "docstring": "Return the number of figures being managed."
+        },
+        {
+          "name": "get_active",
+          "docstring": "Return the active manager, or *None* if there is no manager."
+        },
+        {
+          "name": "set_active",
+          "docstring": "Make *manager* the active manager."
+        },
+        {
+          "name": "draw_all",
+          "docstring": "Redraw all stale managed figures, or, if *force* is True, all managed\nfigures."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_fig_manager",
+      "docstring": "If manager number *num* exists, make it the active one and return it;\notherwise return *None*."
+    },
+    {
+      "name": "destroy",
+      "docstring": "Destroy manager *num* -- either a manager instance or a manager number.\n\nIn the interactive backends, this is bound to the window \"destroy\" and\n\"delete\" events.\n\nIt is recommended to pass a manager instance, to avoid confusion when\ntwo managers share the same number."
+    },
+    {
+      "name": "destroy_fig",
+      "docstring": "Destroy figure *fig*."
+    },
+    {
+      "name": "destroy_all",
+      "docstring": "Destroy all figures."
+    },
+    {
+      "name": "has_fignum",
+      "docstring": "Return whether figure number *num* exists."
+    },
+    {
+      "name": "get_all_fig_managers",
+      "docstring": "Return a list of figure managers."
+    },
+    {
+      "name": "get_num_fig_managers",
+      "docstring": "Return the number of figures being managed."
+    },
+    {
+      "name": "get_active",
+      "docstring": "Return the active manager, or *None* if there is no manager."
+    },
+    {
+      "name": "set_active",
+      "docstring": "Make *manager* the active manager."
+    },
+    {
+      "name": "draw_all",
+      "docstring": "Redraw all stale managed figures, or, if *force* is True, all managed\nfigures."
+    }
+  ],
+  "innovations": []
+}

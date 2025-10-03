@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Execute Directive - Sovereign Control System</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}" />
+  </head>
+  <body class="quantum-dark">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 sidebar">
+          <div class="sidebar-header">
+            <h3>Sovereign Control</h3>
+          </div>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/directives">Directives</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/optimization">Optimization</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/configuration">Configuration</a>
+            </li>
+          </ul>
+        </div>
+
+        <main role="main" class="col-md-10 ml-sm-auto px-4">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+          >
+            <h1 class="h2">Execute Directive</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <button
+                type="button"
+                class="btn btn-sm btn-outline-secondary"
+                onclick="window.location.href='/'"
+              >
+                Return to Dashboard
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card quantum-card">
+                <div class="card-header">
+                  <h5>Directive Execution Console</h5>
+                </div>
+                <div class="card-body">
+                  <form id="directiveDetailForm" action="/execute" method="post">
+                    <div class="form-group">
+                      <label for="directiveName">Directive Name:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="directiveName"
+                        name="directive_name"
+                        value="{{ directive.name if directive else '' }}"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="directiveType">Directive Type:</label>
+                      <select
+                        class="form-control"
+                        id="directiveType"
+                        name="directive_type"
+                        required
+                      >
+                        <option
+                          value="acquisition"
+                          {%
+                          if
+                          directive
+                          and
+                          directive.type=""
+                          ="acquisition"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Acquisition
+                        </option>
+                        <option
+                          value="processing"
+                          {%
+                          if
+                          directive
+                          and
+                          directive.type=""
+                          ="processing"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Processing
+                        </option>
+                        <option
+                          value="analysis"
+                          {%
+                          if
+                          directive
+                          and
+                          directive.type=""
+                          ="analysis"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Analysis
+                        </option>
+                        <option
+                          value="distribution"
+                          {%
+                          if
+                          directive
+                          and
+                          directive.type=""
+                          ="distribution"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Distribution
+                        </option>
+                        <option
+                          value="system"
+                          {%
+                          if
+                          directive
+                          and
+                          directive.type=""
+                          ="system"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          System
+                        </option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="directiveParameters">Parameters (JSON):</label>
+                      <textarea
+                        class="form-control"
+                        id="directiveParameters"
+                        name="parameters"
+                        rows="10"
+                        required
+                      >
+{{ directive.parameters if directive else '{\n  "target": "",\n  "resolution": "high",\n  "dimensions": 5,\n  "quantum_entanglement": true,\n  "priority": "normal"\n}' }}</textarea
+                      >
+                    </div>
+
+                    <div class="form-group form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="sovereignOverride"
+                        name="sovereign_override"
+                      />
+                      <label class="form-check-label" for="sovereignOverride"
+                        >Enable Sovereign Override</label
+                      >
+                    </div>
+
+                    <div class="form-group">
+                      <label for="priorityLevel">Priority Level:</label>
+                      <select class="form-control" id="priorityLevel" name="priority">
+                        <option value="low">Low</option>
+                        <option value="normal" selected>Normal</option>
+                        <option value="high">High</option>
+                        <option value="critical">Critical</option>
+                      </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Execute Directive</button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      onclick="window.location.href='/'"
+                    >
+                      Cancel
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card quantum-card">
+                <div class="card-header">
+                  <h5>Directive Execution Status</h5>
+                </div>
+                <div class="card-body">
+                  <div class="alert alert-info" id="executionStatus">
+                    Ready to execute directive
+                  </div>
+
+                  <h6>Recent Directive History</h6>
+                  <ul class="list-group" id="directiveHistory">
+                    {% if history %} {% for item in history %}
+                    <li class="list-group-item quantum-list-item">
+                      {{ item.name }} - {{ item.status }}
+                      <span class="badge badge-secondary">{{ item.timestamp }}</span>
+                    </li>
+                    {% endfor %} {% else %}
+                    <li class="list-group-item quantum-list-item">No recent directives</li>
+                    {% endif %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+  </body>
+</html>

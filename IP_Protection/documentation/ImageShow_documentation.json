@@ -1,0 +1,260 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\ImageShow.py",
+  "classes": [
+    {
+      "name": "Viewer",
+      "docstring": "Base class for viewers.",
+      "methods": [
+        {
+          "name": "show",
+          "docstring": "The main function for displaying an image.\nConverts the given image to the target format and displays it."
+        },
+        {
+          "name": "get_format",
+          "docstring": "Return format name, or ``None`` to save as PGM/PPM."
+        },
+        {
+          "name": "get_command",
+          "docstring": "Returns the command used to display the file.\nNot implemented in the base class."
+        },
+        {
+          "name": "save_image",
+          "docstring": "Save to temporary file and return filename."
+        },
+        {
+          "name": "show_image",
+          "docstring": "Display the given image."
+        },
+        {
+          "name": "show_file",
+          "docstring": "Display given file."
+        }
+      ]
+    },
+    {
+      "name": "WindowsViewer",
+      "docstring": "The default viewer on Windows is the default system application for PNG files.",
+      "methods": [
+        {
+          "name": "get_command",
+          "docstring": null
+        },
+        {
+          "name": "show_file",
+          "docstring": "Display given file."
+        }
+      ]
+    },
+    {
+      "name": "MacViewer",
+      "docstring": "The default viewer on macOS using ``Preview.app``.",
+      "methods": [
+        {
+          "name": "get_command",
+          "docstring": null
+        },
+        {
+          "name": "show_file",
+          "docstring": "Display given file."
+        }
+      ]
+    },
+    {
+      "name": "UnixViewer",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "get_command_ex",
+          "docstring": null
+        },
+        {
+          "name": "get_command",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "XDGViewer",
+      "docstring": "The freedesktop.org ``xdg-open`` command.",
+      "methods": [
+        {
+          "name": "get_command_ex",
+          "docstring": null
+        },
+        {
+          "name": "show_file",
+          "docstring": "Display given file."
+        }
+      ]
+    },
+    {
+      "name": "DisplayViewer",
+      "docstring": "The ImageMagick ``display`` command.\nThis viewer supports the ``title`` parameter.",
+      "methods": [
+        {
+          "name": "get_command_ex",
+          "docstring": null
+        },
+        {
+          "name": "show_file",
+          "docstring": "Display given file."
+        }
+      ]
+    },
+    {
+      "name": "GmDisplayViewer",
+      "docstring": "The GraphicsMagick ``gm display`` command.",
+      "methods": [
+        {
+          "name": "get_command_ex",
+          "docstring": null
+        },
+        {
+          "name": "show_file",
+          "docstring": "Display given file."
+        }
+      ]
+    },
+    {
+      "name": "EogViewer",
+      "docstring": "The GNOME Image Viewer ``eog`` command.",
+      "methods": [
+        {
+          "name": "get_command_ex",
+          "docstring": null
+        },
+        {
+          "name": "show_file",
+          "docstring": "Display given file."
+        }
+      ]
+    },
+    {
+      "name": "XVViewer",
+      "docstring": "The X Viewer ``xv`` command.\nThis viewer supports the ``title`` parameter.",
+      "methods": [
+        {
+          "name": "get_command_ex",
+          "docstring": null
+        },
+        {
+          "name": "show_file",
+          "docstring": "Display given file."
+        }
+      ]
+    },
+    {
+      "name": "IPythonViewer",
+      "docstring": "The viewer for IPython frontends.",
+      "methods": [
+        {
+          "name": "show_image",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "register",
+      "docstring": "The :py:func:`register` function is used to register additional viewers::\n\n    from PIL import ImageShow\n    ImageShow.register(MyViewer())  # MyViewer will be used as a last resort\n    ImageShow.register(MySecondViewer(), 0)  # MySecondViewer will be prioritised\n    ImageShow.register(ImageShow.XVViewer(), 0)  # XVViewer will be prioritised\n\n:param viewer: The viewer to be registered.\n:param order:\n    Zero or a negative integer to prepend this viewer to the list,\n    a positive integer to append it."
+    },
+    {
+      "name": "show",
+      "docstring": "Display a given image.\n\n:param image: An image object.\n:param title: Optional title. Not all viewers can display the title.\n:param \\**options: Additional viewer options.\n:returns: ``True`` if a suitable viewer was found, ``False`` otherwise."
+    },
+    {
+      "name": "show",
+      "docstring": "The main function for displaying an image.\nConverts the given image to the target format and displays it."
+    },
+    {
+      "name": "get_format",
+      "docstring": "Return format name, or ``None`` to save as PGM/PPM."
+    },
+    {
+      "name": "get_command",
+      "docstring": "Returns the command used to display the file.\nNot implemented in the base class."
+    },
+    {
+      "name": "save_image",
+      "docstring": "Save to temporary file and return filename."
+    },
+    {
+      "name": "show_image",
+      "docstring": "Display the given image."
+    },
+    {
+      "name": "show_file",
+      "docstring": "Display given file."
+    },
+    {
+      "name": "get_command",
+      "docstring": null
+    },
+    {
+      "name": "show_file",
+      "docstring": "Display given file."
+    },
+    {
+      "name": "get_command",
+      "docstring": null
+    },
+    {
+      "name": "show_file",
+      "docstring": "Display given file."
+    },
+    {
+      "name": "get_command_ex",
+      "docstring": null
+    },
+    {
+      "name": "get_command",
+      "docstring": null
+    },
+    {
+      "name": "get_command_ex",
+      "docstring": null
+    },
+    {
+      "name": "show_file",
+      "docstring": "Display given file."
+    },
+    {
+      "name": "get_command_ex",
+      "docstring": null
+    },
+    {
+      "name": "show_file",
+      "docstring": "Display given file."
+    },
+    {
+      "name": "get_command_ex",
+      "docstring": null
+    },
+    {
+      "name": "show_file",
+      "docstring": "Display given file."
+    },
+    {
+      "name": "get_command_ex",
+      "docstring": null
+    },
+    {
+      "name": "show_file",
+      "docstring": "Display given file."
+    },
+    {
+      "name": "get_command_ex",
+      "docstring": null
+    },
+    {
+      "name": "show_file",
+      "docstring": "Display given file."
+    },
+    {
+      "name": "show_image",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

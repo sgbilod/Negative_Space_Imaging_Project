@@ -1,0 +1,73 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\theme.py",
+  "classes": [
+    {
+      "name": "Theme",
+      "docstring": "A container for style information, used by :class:`~rich.console.Console`.\n\nArgs:\n    styles (Dict[str, Style], optional): A mapping of style names on to styles. Defaults to None for a theme with no styles.\n    inherit (bool, optional): Inherit default styles. Defaults to True.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "config",
+          "docstring": "Get contents of a config file for this theme."
+        },
+        {
+          "name": "from_file",
+          "docstring": "Load a theme from a text mode file.\n\nArgs:\n    config_file (IO[str]): An open conf file.\n    source (str, optional): The filename of the open file. Defaults to None.\n    inherit (bool, optional): Inherit default styles. Defaults to True.\n\nReturns:\n    Theme: A New theme instance."
+        },
+        {
+          "name": "read",
+          "docstring": "Read a theme from a path.\n\nArgs:\n    path (str): Path to a config file readable by Python configparser module.\n    inherit (bool, optional): Inherit default styles. Defaults to True.\n    encoding (str, optional): Encoding of the config file. Defaults to None.\n\nReturns:\n    Theme: A new theme instance."
+        }
+      ]
+    },
+    {
+      "name": "ThemeStackError",
+      "docstring": "Base exception for errors related to the theme stack.",
+      "methods": []
+    },
+    {
+      "name": "ThemeStack",
+      "docstring": "A stack of themes.\n\nArgs:\n    theme (Theme): A theme instance",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "push_theme",
+          "docstring": "Push a theme on the top of the stack.\n\nArgs:\n    theme (Theme): A Theme instance.\n    inherit (boolean, optional): Inherit styles from current top of stack."
+        },
+        {
+          "name": "pop_theme",
+          "docstring": "Pop (and discard) the top-most theme."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "config",
+      "docstring": "Get contents of a config file for this theme."
+    },
+    {
+      "name": "from_file",
+      "docstring": "Load a theme from a text mode file.\n\nArgs:\n    config_file (IO[str]): An open conf file.\n    source (str, optional): The filename of the open file. Defaults to None.\n    inherit (bool, optional): Inherit default styles. Defaults to True.\n\nReturns:\n    Theme: A New theme instance."
+    },
+    {
+      "name": "read",
+      "docstring": "Read a theme from a path.\n\nArgs:\n    path (str): Path to a config file readable by Python configparser module.\n    inherit (bool, optional): Inherit default styles. Defaults to True.\n    encoding (str, optional): Encoding of the config file. Defaults to None.\n\nReturns:\n    Theme: A new theme instance."
+    },
+    {
+      "name": "push_theme",
+      "docstring": "Push a theme on the top of the stack.\n\nArgs:\n    theme (Theme): A Theme instance.\n    inherit (boolean, optional): Inherit styles from current top of stack."
+    },
+    {
+      "name": "pop_theme",
+      "docstring": "Pop (and discard) the top-most theme."
+    }
+  ],
+  "innovations": []
+}

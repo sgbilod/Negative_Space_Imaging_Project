@@ -1,0 +1,86 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\texmanager.py",
+  "classes": [
+    {
+      "name": "TexManager",
+      "docstring": "Convert strings to dvi files using TeX, caching the results to a directory.\n\nThe cache directory is called ``tex.cache`` and is located in the directory\nreturned by `.get_cachedir`.\n\nRepeated calls to this constructor always return the same instance.",
+      "methods": [
+        {
+          "name": "get_basefile",
+          "docstring": "Return a filename based on a hash of the string, fontsize, and dpi."
+        },
+        {
+          "name": "get_font_preamble",
+          "docstring": "Return a string containing font configuration for the tex preamble."
+        },
+        {
+          "name": "get_custom_preamble",
+          "docstring": "Return a string containing user additions to the tex preamble."
+        },
+        {
+          "name": "make_tex",
+          "docstring": "Generate a tex file to render the tex string at a specific font size.\n\nReturn the file name."
+        },
+        {
+          "name": "make_dvi",
+          "docstring": "Generate a dvi file containing latex's layout of tex string.\n\nReturn the file name."
+        },
+        {
+          "name": "make_png",
+          "docstring": "Generate a png file containing latex's rendering of tex string.\n\nReturn the file name."
+        },
+        {
+          "name": "get_grey",
+          "docstring": "Return the alpha channel."
+        },
+        {
+          "name": "get_rgba",
+          "docstring": "Return latex's rendering of the tex string as an RGBA array.\n\nExamples\n--------\n>>> texmanager = TexManager()\n>>> s = r\"\\TeX\\ is $\\displaystyle\\sum_n\\frac{-e^{i\\pi}}{2^n}$!\"\n>>> Z = texmanager.get_rgba(s, fontsize=12, dpi=80, rgb=(1, 0, 0))"
+        },
+        {
+          "name": "get_text_width_height_descent",
+          "docstring": "Return width, height and descent of the text."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_basefile",
+      "docstring": "Return a filename based on a hash of the string, fontsize, and dpi."
+    },
+    {
+      "name": "get_font_preamble",
+      "docstring": "Return a string containing font configuration for the tex preamble."
+    },
+    {
+      "name": "get_custom_preamble",
+      "docstring": "Return a string containing user additions to the tex preamble."
+    },
+    {
+      "name": "make_tex",
+      "docstring": "Generate a tex file to render the tex string at a specific font size.\n\nReturn the file name."
+    },
+    {
+      "name": "make_dvi",
+      "docstring": "Generate a dvi file containing latex's layout of tex string.\n\nReturn the file name."
+    },
+    {
+      "name": "make_png",
+      "docstring": "Generate a png file containing latex's rendering of tex string.\n\nReturn the file name."
+    },
+    {
+      "name": "get_grey",
+      "docstring": "Return the alpha channel."
+    },
+    {
+      "name": "get_rgba",
+      "docstring": "Return latex's rendering of the tex string as an RGBA array.\n\nExamples\n--------\n>>> texmanager = TexManager()\n>>> s = r\"\\TeX\\ is $\\displaystyle\\sum_n\\frac{-e^{i\\pi}}{2^n}$!\"\n>>> Z = texmanager.get_rgba(s, fontsize=12, dpi=80, rgb=(1, 0, 0))"
+    },
+    {
+      "name": "get_text_width_height_descent",
+      "docstring": "Return width, height and descent of the text."
+    }
+  ],
+  "innovations": []
+}

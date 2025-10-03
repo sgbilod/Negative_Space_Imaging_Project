@@ -1,0 +1,431 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\tests\\test_loadtxt.py",
+  "classes": [
+    {
+      "name": "TestCReaderUnitTests",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_not_an_filelike",
+          "docstring": null
+        },
+        {
+          "name": "test_filelike_read_fails",
+          "docstring": null
+        },
+        {
+          "name": "test_filelike_bad_read",
+          "docstring": null
+        },
+        {
+          "name": "test_not_an_iter",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_type",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_encoding",
+          "docstring": null
+        },
+        {
+          "name": "test_manual_universal_newlines",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BadSequence",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "BadFileLike",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BadFileLike",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_scientific_notation",
+      "docstring": "Test that both 'e' and 'E' are parsed correctly."
+    },
+    {
+      "name": "test_comment_multiple_chars",
+      "docstring": null
+    },
+    {
+      "name": "mixed_types_structured",
+      "docstring": "Fixture providing heterogeneous input data with a structured dtype, along\nwith the associated structured array."
+    },
+    {
+      "name": "test_structured_dtype_and_skiprows_no_empty_lines",
+      "docstring": null
+    },
+    {
+      "name": "test_unpack_structured",
+      "docstring": null
+    },
+    {
+      "name": "test_structured_dtype_with_shape",
+      "docstring": null
+    },
+    {
+      "name": "test_structured_dtype_with_multi_shape",
+      "docstring": null
+    },
+    {
+      "name": "test_nested_structured_subarray",
+      "docstring": null
+    },
+    {
+      "name": "test_structured_dtype_offsets",
+      "docstring": null
+    },
+    {
+      "name": "test_exception_negative_row_limits",
+      "docstring": "skiprows and max_rows should raise for negative parameters."
+    },
+    {
+      "name": "test_exception_noninteger_row_limits",
+      "docstring": null
+    },
+    {
+      "name": "test_ndmin_single_row_or_col",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_ndmin",
+      "docstring": null
+    },
+    {
+      "name": "test_blank_lines_spaces_delimit",
+      "docstring": null
+    },
+    {
+      "name": "test_blank_lines_normal_delimiter",
+      "docstring": null
+    },
+    {
+      "name": "test_maxrows_no_blank_lines",
+      "docstring": null
+    },
+    {
+      "name": "test_exception_message_bad_values",
+      "docstring": null
+    },
+    {
+      "name": "test_converters_negative_indices",
+      "docstring": null
+    },
+    {
+      "name": "test_converters_negative_indices_with_usecols",
+      "docstring": null
+    },
+    {
+      "name": "test_ragged_error",
+      "docstring": null
+    },
+    {
+      "name": "test_ragged_usecols",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_usecols",
+      "docstring": null
+    },
+    {
+      "name": "test_large_unicode_characters",
+      "docstring": null
+    },
+    {
+      "name": "test_unicode_with_converter",
+      "docstring": null
+    },
+    {
+      "name": "test_converter_with_structured_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_converter_with_unicode_dtype",
+      "docstring": "With the 'bytes' encoding, tokens are encoded prior to being\npassed to the converter. This means that the output of the converter may\nbe bytes instead of unicode as expected by `read_rows`.\n\nThis test checks that outputs from the above scenario are properly decoded\nprior to parsing by `read_rows`."
+    },
+    {
+      "name": "test_read_huge_row",
+      "docstring": null
+    },
+    {
+      "name": "test_huge_float",
+      "docstring": null
+    },
+    {
+      "name": "test_string_no_length_given",
+      "docstring": "The given dtype is just 'S' or 'U' with no length. In these cases, the\nlength of the resulting dtype is determined by the longest string found\nin the file."
+    },
+    {
+      "name": "test_float_conversion",
+      "docstring": "Some tests that the conversion to float64 works as accurately as the\nPython built-in `float` function. In a naive version of the float parser,\nthese strings resulted in values that were off by an ULP or two."
+    },
+    {
+      "name": "test_bool",
+      "docstring": null
+    },
+    {
+      "name": "test_integer_signs",
+      "docstring": null
+    },
+    {
+      "name": "test_implicit_cast_float_to_int_fails",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_parsing",
+      "docstring": null
+    },
+    {
+      "name": "test_read_from_generator",
+      "docstring": null
+    },
+    {
+      "name": "test_read_from_generator_multitype",
+      "docstring": null
+    },
+    {
+      "name": "test_read_from_bad_generator",
+      "docstring": null
+    },
+    {
+      "name": "test_object_cleanup_on_read_error",
+      "docstring": null
+    },
+    {
+      "name": "test_character_not_bytes_compatible",
+      "docstring": "Test exception when a character cannot be encoded as 'S'."
+    },
+    {
+      "name": "test_invalid_converter",
+      "docstring": null
+    },
+    {
+      "name": "test_converters_dict_raises_non_integer_key",
+      "docstring": null
+    },
+    {
+      "name": "test_converters_dict_raises_non_col_key",
+      "docstring": null
+    },
+    {
+      "name": "test_converters_dict_raises_val_not_callable",
+      "docstring": null
+    },
+    {
+      "name": "test_quoted_field",
+      "docstring": null
+    },
+    {
+      "name": "test_quoted_field_with_whitepace_delimiter",
+      "docstring": null
+    },
+    {
+      "name": "test_quote_support_default",
+      "docstring": "Support for quoted fields is disabled by default."
+    },
+    {
+      "name": "test_quotechar_multichar_error",
+      "docstring": null
+    },
+    {
+      "name": "test_comment_multichar_error_with_quote",
+      "docstring": null
+    },
+    {
+      "name": "test_structured_dtype_with_quotes",
+      "docstring": null
+    },
+    {
+      "name": "test_quoted_field_is_not_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_quoted_field_is_not_empty_nonstrict",
+      "docstring": null
+    },
+    {
+      "name": "test_consecutive_quotechar_escaped",
+      "docstring": null
+    },
+    {
+      "name": "test_warn_on_no_data",
+      "docstring": "Check that a UserWarning is emitted when no data is read from input."
+    },
+    {
+      "name": "test_warn_on_skipped_data",
+      "docstring": null
+    },
+    {
+      "name": "test_byteswapping_and_unaligned",
+      "docstring": null
+    },
+    {
+      "name": "test_unicode_whitespace_stripping",
+      "docstring": null
+    },
+    {
+      "name": "test_unicode_whitespace_stripping_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_nul_character_error",
+      "docstring": null
+    },
+    {
+      "name": "test_no_thousands_support",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_newline_in_iterator",
+      "docstring": null
+    },
+    {
+      "name": "test_good_newline_in_iterator",
+      "docstring": null
+    },
+    {
+      "name": "test_universal_newlines_quoted",
+      "docstring": null
+    },
+    {
+      "name": "test_null_character",
+      "docstring": null
+    },
+    {
+      "name": "test_iterator_fails_getting_next_line",
+      "docstring": null
+    },
+    {
+      "name": "test_delimiter_comment_collision_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_delimiter_quotechar_collision_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_comment_quotechar_collision_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_delimiter_and_multiple_comments_collision_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_collision_with_default_delimiter_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_control_character_newline_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_parametric_unit_discovery",
+      "docstring": "Check that the correct unit (e.g. month, day, second) is discovered from\nthe data when a user specifies a unitless datetime."
+    },
+    {
+      "name": "test_str_dtype_unit_discovery_with_converter",
+      "docstring": null
+    },
+    {
+      "name": "test_control_character_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_control_characters_as_bytes",
+      "docstring": "Byte control characters (comments, delimiter) are supported."
+    },
+    {
+      "name": "test_field_growing_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_maxrows_exceeding_chunksize",
+      "docstring": null
+    },
+    {
+      "name": "test_skiprow_exceeding_maxrows_exceeding_chunksize",
+      "docstring": null
+    },
+    {
+      "name": "gen",
+      "docstring": null
+    },
+    {
+      "name": "gen",
+      "docstring": null
+    },
+    {
+      "name": "gen",
+      "docstring": null
+    },
+    {
+      "name": "conv",
+      "docstring": null
+    },
+    {
+      "name": "test_not_an_filelike",
+      "docstring": null
+    },
+    {
+      "name": "test_filelike_read_fails",
+      "docstring": null
+    },
+    {
+      "name": "test_filelike_bad_read",
+      "docstring": null
+    },
+    {
+      "name": "test_not_an_iter",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_type",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_encoding",
+      "docstring": null
+    },
+    {
+      "name": "test_manual_universal_newlines",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

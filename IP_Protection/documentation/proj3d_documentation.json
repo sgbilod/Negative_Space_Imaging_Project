@@ -1,0 +1,23 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\mpl_toolkits\\mplot3d\\proj3d.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "world_transformation",
+      "docstring": "Produce a matrix that scales homogeneous coords in the specified ranges\nto [0, 1], or [0, pb_aspect[i]] if the plotbox aspect ratio is specified."
+    },
+    {
+      "name": "inv_transform",
+      "docstring": "Transform the points by the inverse of the projection matrix, *invM*."
+    },
+    {
+      "name": "proj_transform",
+      "docstring": "Transform the points by the projection matrix *M*."
+    },
+    {
+      "name": "proj_transform_clip",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

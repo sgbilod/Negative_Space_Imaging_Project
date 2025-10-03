@@ -1,0 +1,13 @@
+@echo off
+REM Project Creation Helper Batch File Launcher
+REM Author: Stephen Bilodeau
+REM Date: August 2025
+
+REM Path to the actual project management scripts
+SET SCRIPTS_DIR=C:\Users\sgbil\OneDrive\Desktop\Negative_Space_Imaging_Project\scripts
+
+REM Run the project manager
+cd /d "%SCRIPTS_DIR%" && call project_manager.bat
+
+REM Exit with the same code as the project manager
+exit /b %errorlevel%

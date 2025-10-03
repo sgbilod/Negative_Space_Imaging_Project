@@ -1,0 +1,67 @@
+FROM ubuntu:22.04 as monitoring-base
+
+# Install dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    gnupg2 \
+    ca-certificates \
+    wget \
+    software-properties-common \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Prometheus
+FROM monitoring-base as prometheus-install
+ARG PROMETHEUS_VERSION=2.42.0
+
+RUN curl -LO "https://github.com/prometheus/prometheus/releases/download/v${PROMETHEUS_VERSION}/prometheus-${PROMETHEUS_VERSION}.linux-amd64.tar.gz" \
+    && tar -xzf "prometheus-${PROMETHEUS_VERSION}.linux-amd64.tar.gz" \
+    && mkdir -p /etc/prometheus /var/lib/prometheus \
+    && cp prometheus-${PROMETHEUS_VERSION}.linux-amd64/prometheus /usr/local/bin/ \
+    && cp prometheus-${PROMETHEUS_VERSION}.linux-amd64/promtool /usr/local/bin/ \
+    && cp -r prometheus-${PROMETHEUS_VERSION}.linux-amd64/consoles/ /etc/prometheus/ \
+    && cp -r prometheus-${PROMETHEUS_VERSION}.linux-amd64/console_libraries/ /etc/prometheus/ \
+    && rm -rf prometheus-${PROMETHEUS_VERSION}.linux-amd64 "prometheus-${PROMETHEUS_VERSION}.linux-amd64.tar.gz"
+
+# Install Grafana
+FROM monitoring-base as grafana-install
+
+RUN apt-get update && apt-get install -y apt-transport-https \
+    && wget -q -O /usr/share/keyrings/grafana.key https://apt.grafana.com/gpg.key \
+    && echo "deb [signed-by=/usr/share/keyrings/grafana.key] https://apt.grafana.com stable main" | tee -a /etc/apt/sources.list.d/grafana.list \
+    && apt-get update && apt-get install -y grafana \
+    && rm -rf /var/lib/apt/lists/*
+
+# Build the final image
+FROM monitoring-base
+
+# Copy Prometheus from the install stage
+COPY --from=prometheus-install /usr/local/bin/prometheus /usr/local/bin/
+COPY --from=prometheus-install /usr/local/bin/promtool /usr/local/bin/
+COPY --from=prometheus-install /etc/prometheus /etc/prometheus
+
+# Copy Grafana from the install stage
+COPY --from=grafana-install /usr/sbin/grafana-server /usr/sbin/
+COPY --from=grafana-install /usr/share/grafana /usr/share/grafana
+COPY --from=grafana-install /etc/grafana /etc/grafana
+
+# Add Prometheus configuration
+COPY ./monitoring/prometheus/prometheus.yml /etc/prometheus/
+COPY ./monitoring/prometheus/alert_rules.yml /etc/prometheus/
+
+# Add Grafana configuration
+COPY ./monitoring/grafana/provisioning /etc/grafana/provisioning
+COPY ./monitoring/grafana/dashboards /var/lib/grafana/dashboards
+
+# Create directories
+RUN mkdir -p /var/lib/prometheus /var/lib/grafana \
+    && chown -R nobody:nogroup /var/lib/prometheus \
+    && chown -R 472:472 /var/lib/grafana /etc/grafana /usr/share/grafana
+
+# Expose ports
+EXPOSE 9090 3000
+
+# Set up entrypoint script
+COPY ./monitoring/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]

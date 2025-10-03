@@ -1,0 +1,88 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\C_P_A_L_.py",
+  "classes": [
+    {
+      "name": "table_C_P_A_L_",
+      "docstring": "Color Palette table\n\nThe ``CPAL`` table contains a set of one or more color palettes. The color\nrecords in each palette can be referenced by the ``COLR`` table to specify\nthe colors used in a color glyph.\n\nSee also https://learn.microsoft.com/en-us/typography/opentype/spec/cpal",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Color",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "hex",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromHex",
+          "docstring": null
+        },
+        {
+          "name": "fromRGBA",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "hex",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromHex",
+      "docstring": null
+    },
+    {
+      "name": "fromRGBA",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

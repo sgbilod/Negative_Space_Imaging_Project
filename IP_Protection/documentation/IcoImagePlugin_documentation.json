@@ -1,0 +1,93 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\IcoImagePlugin.py",
+  "classes": [
+    {
+      "name": "IconHeader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "IcoFile",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parse image from file-like object containing ico file data"
+        },
+        {
+          "name": "sizes",
+          "docstring": "Get a set of all available icon sizes and color depths."
+        },
+        {
+          "name": "getentryindex",
+          "docstring": null
+        },
+        {
+          "name": "getimage",
+          "docstring": "Get an image from the icon"
+        },
+        {
+          "name": "frame",
+          "docstring": "Get an image from frame idx"
+        }
+      ]
+    },
+    {
+      "name": "IcoImageFile",
+      "docstring": "PIL read-only image support for Microsoft Windows .ico files.\n\nBy default the largest resolution image in the file will be loaded. This\ncan be changed by altering the 'size' attribute before calling 'load'.\n\nThe info dictionary has a key 'sizes' that is a list of the sizes available\nin the icon file.\n\nHandles classic, XP and Vista icon formats.\n\nWhen saving, PNG compression is used. Support for this was only added in\nWindows Vista. If you are unable to view the icon in Windows, convert the\nimage to \"RGBA\" mode before saving.\n\nThis plugin is a refactored version of Win32IconImagePlugin by Bryan Davis\n<casadebender@gmail.com>.\nhttps://code.google.com/archive/p/casadebender/wikis/Win32IconImagePlugin.wiki",
+      "methods": [
+        {
+          "name": "size",
+          "docstring": null
+        },
+        {
+          "name": "size",
+          "docstring": null
+        },
+        {
+          "name": "load",
+          "docstring": null
+        },
+        {
+          "name": "load_seek",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "sizes",
+      "docstring": "Get a set of all available icon sizes and color depths."
+    },
+    {
+      "name": "getentryindex",
+      "docstring": null
+    },
+    {
+      "name": "getimage",
+      "docstring": "Get an image from the icon"
+    },
+    {
+      "name": "frame",
+      "docstring": "Get an image from frame idx"
+    },
+    {
+      "name": "size",
+      "docstring": null
+    },
+    {
+      "name": "size",
+      "docstring": null
+    },
+    {
+      "name": "load",
+      "docstring": null
+    },
+    {
+      "name": "load_seek",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,63 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\operations\\build\\build_tracker.py",
+  "classes": [
+    {
+      "name": "TrackerId",
+      "docstring": "Uniquely identifying string provided to the build tracker.",
+      "methods": []
+    },
+    {
+      "name": "BuildTracker",
+      "docstring": "Ensure that an sdist cannot request itself as a setup requirement.\n\nWhen an sdist is prepared, it identifies its setup requirements in the\ncontext of ``BuildTracker.track()``. If a requirement shows up recursively, this\nraises an exception.\n\nThis stops fork bombs embedded in malicious packages.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "add",
+          "docstring": "Add an InstallRequirement to build tracking."
+        },
+        {
+          "name": "remove",
+          "docstring": "Remove an InstallRequirement from build tracking."
+        },
+        {
+          "name": "cleanup",
+          "docstring": null
+        },
+        {
+          "name": "track",
+          "docstring": "Ensure that `key` cannot install itself as a setup requirement.\n\n:raises LookupError: If `key` was already provided in a parent invocation of\n                     the context introduced by this method."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "update_env_context_manager",
+      "docstring": null
+    },
+    {
+      "name": "get_build_tracker",
+      "docstring": null
+    },
+    {
+      "name": "add",
+      "docstring": "Add an InstallRequirement to build tracking."
+    },
+    {
+      "name": "remove",
+      "docstring": "Remove an InstallRequirement from build tracking."
+    },
+    {
+      "name": "cleanup",
+      "docstring": null
+    },
+    {
+      "name": "track",
+      "docstring": "Ensure that `key` cannot install itself as a setup requirement.\n\n:raises LookupError: If `key` was already provided in a parent invocation of\n                     the context introduced by this method."
+    }
+  ],
+  "innovations": []
+}

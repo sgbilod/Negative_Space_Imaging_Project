@@ -1,0 +1,50 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\image_acquisition.py",
+  "classes": [
+    {
+      "name": "ImageAcquisition",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the image acquisition system.\n:param source_type: Type of image source ('camera', 'file', 'stream').\n:param source_path: Path to the image source (optional for 'camera')."
+        },
+        {
+          "name": "get_frame",
+          "docstring": "Capture a frame from the source.\n:return: Image frame as a numpy array."
+        },
+        {
+          "name": "preprocess_frame",
+          "docstring": "Preprocess the image frame.\n:param frame: Raw image frame.\n:return: Preprocessed image frame."
+        },
+        {
+          "name": "extract_metadata",
+          "docstring": "Extract metadata from an image file.\n:param file_path: Path to the image file.\n:return: Metadata dictionary."
+        },
+        {
+          "name": "release",
+          "docstring": "Release resources."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_frame",
+      "docstring": "Capture a frame from the source.\n:return: Image frame as a numpy array."
+    },
+    {
+      "name": "preprocess_frame",
+      "docstring": "Preprocess the image frame.\n:param frame: Raw image frame.\n:return: Preprocessed image frame."
+    },
+    {
+      "name": "extract_metadata",
+      "docstring": "Extract metadata from an image file.\n:param file_path: Path to the image file.\n:return: Metadata dictionary."
+    },
+    {
+      "name": "release",
+      "docstring": "Release resources."
+    }
+  ],
+  "innovations": []
+}

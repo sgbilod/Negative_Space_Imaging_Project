@@ -1,0 +1,7 @@
+image_processing:
+  default_quality: 95
+  max_image_size: 4096
+  use_gpu: false
+multi_threading:
+  max_threads: 8
+  thread_pool_size: 4

@@ -1,0 +1,22 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\core\\fetching.py",
+  "classes": [
+    {
+      "name": "InternetNotAllowedError",
+      "docstring": "Plugins that need resources can just use get_remote_file(), but\nshould catch this error and silently ignore it.",
+      "methods": []
+    },
+    {
+      "name": "NeedDownloadError",
+      "docstring": "Is raised when a remote file is requested that is not locally\navailable, but which needs to be explicitly downloaded by the user.",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_remote_file",
+      "docstring": "Get a the filename for the local version of a file from the web\n\nParameters\n----------\nfname : str\n    The relative filename on the remote data repository to download.\n    These correspond to paths on\n    ``https://github.com/imageio/imageio-binaries/``.\ndirectory : str | None\n    The directory where the file will be cached if a download was\n    required to obtain the file. By default, the appdata directory\n    is used. This is also the first directory that is checked for\n    a local version of the file. If the directory does not exist,\n    it will be created.\nforce_download : bool | str\n    If True, the file will be downloaded even if a local copy exists\n    (and this copy will be overwritten). Can also be a YYYY-MM-DD date\n    to ensure a file is up-to-date (modified date of a file on disk,\n    if present, is checked).\nauto : bool\n    Whether to auto-download the file if its not present locally. Default\n    True. If False and a download is needed, raises NeedDownloadError.\n\nReturns\n-------\nfname : str\n    The path to the file on the local system."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,66 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\negative-space-project\\integrated_acquisition_system.py",
+  "classes": [
+    {
+      "name": "ImageAcquisitionSystem",
+      "docstring": "Mock implementation of the ImageAcquisitionSystem class.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a mock acquisition system."
+        },
+        {
+          "name": "configure_with_profile",
+          "docstring": "Configure the system with an acquisition profile.\n\nArgs:\n    profile_name: Name of the profile to use"
+        },
+        {
+          "name": "connect_to_source",
+          "docstring": "Connect to a data source.\n\nArgs:\n    source_type: Type of source (\"webcam\", \"file\", \"stream\")\n    source_id: ID or path of the source\n    \nReturns:\n    bool: True if connection successful"
+        },
+        {
+          "name": "start_acquisition",
+          "docstring": "Start the acquisition process."
+        },
+        {
+          "name": "stop_acquisition",
+          "docstring": "Stop the acquisition process."
+        },
+        {
+          "name": "get_current_frame",
+          "docstring": "Get the current frame from the acquisition process.\n\nReturns:\n    numpy.ndarray: Current frame or None if not available"
+        },
+        {
+          "name": "get_acquisition_stats",
+          "docstring": "Get statistics about the acquisition process.\n\nReturns:\n    dict: Acquisition statistics"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "configure_with_profile",
+      "docstring": "Configure the system with an acquisition profile.\n\nArgs:\n    profile_name: Name of the profile to use"
+    },
+    {
+      "name": "connect_to_source",
+      "docstring": "Connect to a data source.\n\nArgs:\n    source_type: Type of source (\"webcam\", \"file\", \"stream\")\n    source_id: ID or path of the source\n    \nReturns:\n    bool: True if connection successful"
+    },
+    {
+      "name": "start_acquisition",
+      "docstring": "Start the acquisition process."
+    },
+    {
+      "name": "stop_acquisition",
+      "docstring": "Stop the acquisition process."
+    },
+    {
+      "name": "get_current_frame",
+      "docstring": "Get the current frame from the acquisition process.\n\nReturns:\n    numpy.ndarray: Current frame or None if not available"
+    },
+    {
+      "name": "get_acquisition_stats",
+      "docstring": "Get statistics about the acquisition process.\n\nReturns:\n    dict: Acquisition statistics"
+    }
+  ],
+  "innovations": []
+}

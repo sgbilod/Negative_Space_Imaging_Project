@@ -1,0 +1,52 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\requests\\structures.py",
+  "classes": [
+    {
+      "name": "CaseInsensitiveDict",
+      "docstring": "A case-insensitive ``dict``-like object.\n\nImplements all methods and operations of\n``MutableMapping`` as well as dict's ``copy``. Also\nprovides ``lower_items``.\n\nAll keys are expected to be strings. The structure remembers the\ncase of the last key to be set, and ``iter(instance)``,\n``keys()``, ``items()``, ``iterkeys()``, and ``iteritems()``\nwill contain case-sensitive keys. However, querying and contains\ntesting is case insensitive::\n\n    cid = CaseInsensitiveDict()\n    cid['Accept'] = 'application/json'\n    cid['aCCEPT'] == 'application/json'  # True\n    list(cid) == ['Accept']  # True\n\nFor example, ``headers['content-encoding']`` will return the\nvalue of a ``'Content-Encoding'`` response header, regardless\nof how the header name was originally stored.\n\nIf the constructor, ``.update``, or equality comparison\noperations are given keys that have equal ``.lower()``s, the\nbehavior is undefined.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "lower_items",
+          "docstring": "Like iteritems(), but with all lowercase keys."
+        },
+        {
+          "name": "copy",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LookupDict",
+      "docstring": "Dictionary lookup object.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "lower_items",
+      "docstring": "Like iteritems(), but with all lowercase keys."
+    },
+    {
+      "name": "copy",
+      "docstring": null
+    },
+    {
+      "name": "get",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

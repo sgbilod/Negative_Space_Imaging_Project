@@ -1,0 +1,107 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\commands\\list.py",
+  "classes": [
+    {
+      "name": "ListCommand",
+      "docstring": "List installed packages, including editables.\n\nPackages are listed in a case-insensitive sorted order.",
+      "methods": [
+        {
+          "name": "add_options",
+          "docstring": null
+        },
+        {
+          "name": "handle_pip_version_check",
+          "docstring": null
+        },
+        {
+          "name": "run",
+          "docstring": null
+        },
+        {
+          "name": "get_outdated",
+          "docstring": null
+        },
+        {
+          "name": "get_uptodate",
+          "docstring": null
+        },
+        {
+          "name": "get_not_required",
+          "docstring": null
+        },
+        {
+          "name": "iter_packages_latest_infos",
+          "docstring": null
+        },
+        {
+          "name": "output_package_listing",
+          "docstring": null
+        },
+        {
+          "name": "output_package_listing_columns",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_DistWithLatestInfo",
+      "docstring": "Give the distribution object a couple of extra fields.\n\nThese will be populated during ``get_outdated()``. This is dirty but\nmakes the rest of the code much cleaner.",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "format_for_columns",
+      "docstring": "Convert the package data into something usable\nby output_package_listing_columns."
+    },
+    {
+      "name": "format_for_json",
+      "docstring": null
+    },
+    {
+      "name": "add_options",
+      "docstring": null
+    },
+    {
+      "name": "handle_pip_version_check",
+      "docstring": null
+    },
+    {
+      "name": "run",
+      "docstring": null
+    },
+    {
+      "name": "get_outdated",
+      "docstring": null
+    },
+    {
+      "name": "get_uptodate",
+      "docstring": null
+    },
+    {
+      "name": "get_not_required",
+      "docstring": null
+    },
+    {
+      "name": "iter_packages_latest_infos",
+      "docstring": null
+    },
+    {
+      "name": "output_package_listing",
+      "docstring": null
+    },
+    {
+      "name": "output_package_listing_columns",
+      "docstring": null
+    },
+    {
+      "name": "wheel_build_tag",
+      "docstring": null
+    },
+    {
+      "name": "latest_info",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

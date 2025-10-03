@@ -1,0 +1,62 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\_m_a_x_p.py",
+  "classes": [
+    {
+      "name": "table__m_a_x_p",
+      "docstring": "Maximum Profile table\n\nThe ``maxp`` table contains the memory requirements for the data in\nthe font.\n\nSee also https://learn.microsoft.com/en-us/typography/opentype/spec/maxp",
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "recalc",
+          "docstring": "Recalculate the font bounding box, and most other maxp values except\nfor the TT instructions values. Also recalculate the value of bit 1\nof the flags field and the font bounding box of the 'head' table."
+        },
+        {
+          "name": "testrepr",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "recalc",
+      "docstring": "Recalculate the font bounding box, and most other maxp values except\nfor the TT instructions values. Also recalculate the value of bit 1\nof the flags field and the font bounding box of the 'head' table."
+    },
+    {
+      "name": "testrepr",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

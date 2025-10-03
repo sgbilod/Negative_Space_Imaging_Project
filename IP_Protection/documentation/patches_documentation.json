@@ -1,0 +1,1742 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\patches.py",
+  "classes": [
+    {
+      "name": "Patch",
+      "docstring": "A patch is a 2D artist with a face color and an edge color.\n\nIf any of *edgecolor*, *facecolor*, *linewidth*, or *antialiased*\nare *None*, they default to their rc params setting.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "The following kwarg properties are supported\n\n%(Patch:kwdoc)s"
+        },
+        {
+          "name": "get_verts",
+          "docstring": "Return a copy of the vertices used in this patch.\n\nIf the patch contains B\u00e9zier curves, the curves will be interpolated by\nline segments.  To access the curves as curves, use `get_path`."
+        },
+        {
+          "name": "contains",
+          "docstring": "Test whether the mouse event occurred in the patch.\n\nParameters\n----------\nmouseevent : `~matplotlib.backend_bases.MouseEvent`\n    Where the user clicked.\n\nradius : float, optional\n    Additional margin on the patch in target coordinates of\n    `.Patch.get_transform`. See `.Path.contains_point` for further\n    details.\n\n    If `None`, the default value depends on the state of the object:\n\n    - If `.Artist.get_picker` is a number, the default\n      is that value.  This is so that picking works as expected.\n    - Otherwise if the edge color has a non-zero alpha, the default\n      is half of the linewidth.  This is so that all the colored\n      pixels are \"in\" the patch.\n    - Finally, if the edge has 0 alpha, the default is 0.  This is\n      so that patches without a stroked edge do not have points\n      outside of the filled region report as \"in\" due to an\n      invisible edge.\n\n\nReturns\n-------\n(bool, empty dict)"
+        },
+        {
+          "name": "contains_point",
+          "docstring": "Return whether the given point is inside the patch.\n\nParameters\n----------\npoint : (float, float)\n    The point (x, y) to check, in target coordinates of\n    ``.Patch.get_transform()``. These are display coordinates for patches\n    that are added to a figure or Axes.\nradius : float, optional\n    Additional margin on the patch in target coordinates of\n    `.Patch.get_transform`. See `.Path.contains_point` for further\n    details.\n\n    If `None`, the default value depends on the state of the object:\n\n    - If `.Artist.get_picker` is a number, the default\n      is that value.  This is so that picking works as expected.\n    - Otherwise if the edge color has a non-zero alpha, the default\n      is half of the linewidth.  This is so that all the colored\n      pixels are \"in\" the patch.\n    - Finally, if the edge has 0 alpha, the default is 0.  This is\n      so that patches without a stroked edge do not have points\n      outside of the filled region report as \"in\" due to an\n      invisible edge.\n\nReturns\n-------\nbool\n\nNotes\n-----\nThe proper use of this method depends on the transform of the patch.\nIsolated patches do not have a transform. In this case, the patch\ncreation coordinates and the point coordinates match. The following\nexample checks that the center of a circle is within the circle\n\n>>> center = 0, 0\n>>> c = Circle(center, radius=1)\n>>> c.contains_point(center)\nTrue\n\nThe convention of checking against the transformed patch stems from\nthe fact that this method is predominantly used to check if display\ncoordinates (e.g. from mouse events) are within the patch. If you want\nto do the above check with data coordinates, you have to properly\ntransform them first:\n\n>>> center = 0, 0\n>>> c = Circle(center, radius=3)\n>>> plt.gca().add_patch(c)\n>>> transformed_interior_point = c.get_data_transform().transform((0, 2))\n>>> c.contains_point(transformed_interior_point)\nTrue"
+        },
+        {
+          "name": "contains_points",
+          "docstring": "Return whether the given points are inside the patch.\n\nParameters\n----------\npoints : (N, 2) array\n    The points to check, in target coordinates of\n    ``self.get_transform()``. These are display coordinates for patches\n    that are added to a figure or Axes. Columns contain x and y values.\nradius : float, optional\n    Additional margin on the patch in target coordinates of\n    `.Patch.get_transform`. See `.Path.contains_point` for further\n    details.\n\n    If `None`, the default value depends on the state of the object:\n\n    - If `.Artist.get_picker` is a number, the default\n      is that value.  This is so that picking works as expected.\n    - Otherwise if the edge color has a non-zero alpha, the default\n      is half of the linewidth.  This is so that all the colored\n      pixels are \"in\" the patch.\n    - Finally, if the edge has 0 alpha, the default is 0.  This is\n      so that patches without a stroked edge do not have points\n      outside of the filled region report as \"in\" due to an\n      invisible edge.\n\nReturns\n-------\nlength-N bool array\n\nNotes\n-----\nThe proper use of this method depends on the transform of the patch.\nSee the notes on `.Patch.contains_point`."
+        },
+        {
+          "name": "update_from",
+          "docstring": null
+        },
+        {
+          "name": "get_extents",
+          "docstring": "Return the `Patch`'s axis-aligned extents as a `~.transforms.Bbox`."
+        },
+        {
+          "name": "get_transform",
+          "docstring": "Return the `~.transforms.Transform` applied to the `Patch`."
+        },
+        {
+          "name": "get_data_transform",
+          "docstring": "Return the `~.transforms.Transform` mapping data coordinates to\nphysical coordinates."
+        },
+        {
+          "name": "get_patch_transform",
+          "docstring": "Return the `~.transforms.Transform` instance mapping patch coordinates\nto data coordinates.\n\nFor example, one may define a patch of a circle which represents a\nradius of 5 by providing coordinates for a unit circle, and a\ntransform which scales the coordinates (the patch coordinate) by 5."
+        },
+        {
+          "name": "get_antialiased",
+          "docstring": "Return whether antialiasing is used for drawing."
+        },
+        {
+          "name": "get_edgecolor",
+          "docstring": "Return the edge color."
+        },
+        {
+          "name": "get_facecolor",
+          "docstring": "Return the face color."
+        },
+        {
+          "name": "get_linewidth",
+          "docstring": "Return the line width in points."
+        },
+        {
+          "name": "get_linestyle",
+          "docstring": "Return the linestyle."
+        },
+        {
+          "name": "set_antialiased",
+          "docstring": "Set whether to use antialiased rendering.\n\nParameters\n----------\naa : bool or None"
+        },
+        {
+          "name": "set_edgecolor",
+          "docstring": "Set the patch edge color.\n\nParameters\n----------\ncolor : :mpltype:`color` or None"
+        },
+        {
+          "name": "set_facecolor",
+          "docstring": "Set the patch face color.\n\nParameters\n----------\ncolor : :mpltype:`color` or None"
+        },
+        {
+          "name": "set_color",
+          "docstring": "Set both the edgecolor and the facecolor.\n\nParameters\n----------\nc : :mpltype:`color`\n\nSee Also\n--------\nPatch.set_facecolor, Patch.set_edgecolor\n    For setting the edge or face color individually."
+        },
+        {
+          "name": "set_alpha",
+          "docstring": null
+        },
+        {
+          "name": "set_linewidth",
+          "docstring": "Set the patch linewidth in points.\n\nParameters\n----------\nw : float or None"
+        },
+        {
+          "name": "set_linestyle",
+          "docstring": "Set the patch linestyle.\n\n==========================================  =================\nlinestyle                                   description\n==========================================  =================\n``'-'`` or ``'solid'``                      solid line\n``'--'`` or  ``'dashed'``                   dashed line\n``'-.'`` or  ``'dashdot'``                  dash-dotted line\n``':'`` or ``'dotted'``                     dotted line\n``'none'``, ``'None'``, ``' '``, or ``''``  draw nothing\n==========================================  =================\n\nAlternatively a dash tuple of the following form can be provided::\n\n    (offset, onoffseq)\n\nwhere ``onoffseq`` is an even length tuple of on and off ink in points.\n\nParameters\n----------\nls : {'-', '--', '-.', ':', '', (offset, on-off-seq), ...}\n    The line style."
+        },
+        {
+          "name": "set_fill",
+          "docstring": "Set whether to fill the patch.\n\nParameters\n----------\nb : bool"
+        },
+        {
+          "name": "get_fill",
+          "docstring": "Return whether the patch is filled."
+        },
+        {
+          "name": "set_capstyle",
+          "docstring": "Set the `.CapStyle`.\n\nThe default capstyle is 'round' for `.FancyArrowPatch` and 'butt' for\nall other patches.\n\nParameters\n----------\ns : `.CapStyle` or %(CapStyle)s"
+        },
+        {
+          "name": "get_capstyle",
+          "docstring": "Return the capstyle."
+        },
+        {
+          "name": "set_joinstyle",
+          "docstring": "Set the `.JoinStyle`.\n\nThe default joinstyle is 'round' for `.FancyArrowPatch` and 'miter' for\nall other patches.\n\nParameters\n----------\ns : `.JoinStyle` or %(JoinStyle)s"
+        },
+        {
+          "name": "get_joinstyle",
+          "docstring": "Return the joinstyle."
+        },
+        {
+          "name": "set_hatch",
+          "docstring": "Set the hatching pattern.\n\n*hatch* can be one of::\n\n  /   - diagonal hatching\n  \\   - back diagonal\n  |   - vertical\n  -   - horizontal\n  +   - crossed\n  x   - crossed diagonal\n  o   - small circle\n  O   - large circle\n  .   - dots\n  *   - stars\n\nLetters can be combined, in which case all the specified\nhatchings are done.  If same letter repeats, it increases the\ndensity of hatching of that pattern.\n\nParameters\n----------\nhatch : {'/', '\\\\', '|', '-', '+', 'x', 'o', 'O', '.', '*'}"
+        },
+        {
+          "name": "get_hatch",
+          "docstring": "Return the hatching pattern."
+        },
+        {
+          "name": "set_hatch_linewidth",
+          "docstring": "Set the hatch linewidth."
+        },
+        {
+          "name": "get_hatch_linewidth",
+          "docstring": "Return the hatch linewidth."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        },
+        {
+          "name": "get_path",
+          "docstring": "Return the path of this patch."
+        },
+        {
+          "name": "get_window_extent",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Shadow",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a shadow of the given *patch*.\n\nBy default, the shadow will have the same face color as the *patch*,\nbut darkened. The darkness can be controlled by *shade*.\n\nParameters\n----------\npatch : `~matplotlib.patches.Patch`\n    The patch to create the shadow for.\nox, oy : float\n    The shift of the shadow in data coordinates, scaled by a factor\n    of dpi/72.\nshade : float, default: 0.7\n    How the darkness of the shadow relates to the original color. If 1, the\n    shadow is black, if 0, the shadow has the same color as the *patch*.\n\n    .. versionadded:: 3.8\n\n**kwargs\n    Properties of the shadow patch. Supported keys are:\n\n    %(Patch:kwdoc)s"
+        },
+        {
+          "name": "get_path",
+          "docstring": null
+        },
+        {
+          "name": "get_patch_transform",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Rectangle",
+      "docstring": "A rectangle defined via an anchor point *xy* and its *width* and *height*.\n\nThe rectangle extends from ``xy[0]`` to ``xy[0] + width`` in x-direction\nand from ``xy[1]`` to ``xy[1] + height`` in y-direction. ::\n\n  :                +------------------+\n  :                |                  |\n  :              height               |\n  :                |                  |\n  :               (xy)---- width -----+\n\nOne may picture *xy* as the bottom left corner, but which corner *xy* is\nactually depends on the direction of the axis and the sign of *width*\nand *height*; e.g. *xy* would be the bottom right corner if the x-axis\nwas inverted or if *width* was negative.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nxy : (float, float)\n    The anchor point.\nwidth : float\n    Rectangle width.\nheight : float\n    Rectangle height.\nangle : float, default: 0\n    Rotation in degrees anti-clockwise about the rotation point.\nrotation_point : {'xy', 'center', (number, number)}, default: 'xy'\n    If ``'xy'``, rotate around the anchor point. If ``'center'`` rotate\n    around the center. If 2-tuple of number, rotate around this\n    coordinate.\n\nOther Parameters\n----------------\n**kwargs : `~matplotlib.patches.Patch` properties\n    %(Patch:kwdoc)s"
+        },
+        {
+          "name": "get_path",
+          "docstring": "Return the vertices of the rectangle."
+        },
+        {
+          "name": "get_patch_transform",
+          "docstring": null
+        },
+        {
+          "name": "rotation_point",
+          "docstring": "The rotation point of the patch."
+        },
+        {
+          "name": "rotation_point",
+          "docstring": null
+        },
+        {
+          "name": "get_x",
+          "docstring": "Return the left coordinate of the rectangle."
+        },
+        {
+          "name": "get_y",
+          "docstring": "Return the bottom coordinate of the rectangle."
+        },
+        {
+          "name": "get_xy",
+          "docstring": "Return the left and bottom coords of the rectangle as a tuple."
+        },
+        {
+          "name": "get_corners",
+          "docstring": "Return the corners of the rectangle, moving anti-clockwise from\n(x0, y0)."
+        },
+        {
+          "name": "get_center",
+          "docstring": "Return the centre of the rectangle."
+        },
+        {
+          "name": "get_width",
+          "docstring": "Return the width of the rectangle."
+        },
+        {
+          "name": "get_height",
+          "docstring": "Return the height of the rectangle."
+        },
+        {
+          "name": "get_angle",
+          "docstring": "Get the rotation angle in degrees."
+        },
+        {
+          "name": "set_x",
+          "docstring": "Set the left coordinate of the rectangle."
+        },
+        {
+          "name": "set_y",
+          "docstring": "Set the bottom coordinate of the rectangle."
+        },
+        {
+          "name": "set_angle",
+          "docstring": "Set the rotation angle in degrees.\n\nThe rotation is performed anti-clockwise around *xy*."
+        },
+        {
+          "name": "set_xy",
+          "docstring": "Set the left and bottom coordinates of the rectangle.\n\nParameters\n----------\nxy : (float, float)"
+        },
+        {
+          "name": "set_width",
+          "docstring": "Set the width of the rectangle."
+        },
+        {
+          "name": "set_height",
+          "docstring": "Set the height of the rectangle."
+        },
+        {
+          "name": "set_bounds",
+          "docstring": "Set the bounds of the rectangle as *left*, *bottom*, *width*, *height*.\n\nThe values may be passed as separate parameters or as a tuple::\n\n    set_bounds(left, bottom, width, height)\n    set_bounds((left, bottom, width, height))\n\n.. ACCEPTS: (left, bottom, width, height)"
+        },
+        {
+          "name": "get_bbox",
+          "docstring": "Return the `.Bbox`."
+        }
+      ]
+    },
+    {
+      "name": "RegularPolygon",
+      "docstring": "A regular polygon patch.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nxy : (float, float)\n    The center position.\n\nnumVertices : int\n    The number of vertices.\n\nradius : float\n    The distance from the center to each of the vertices.\n\norientation : float\n    The polygon rotation angle (in radians).\n\n**kwargs\n    `Patch` properties:\n\n    %(Patch:kwdoc)s"
+        },
+        {
+          "name": "get_path",
+          "docstring": null
+        },
+        {
+          "name": "get_patch_transform",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PathPatch",
+      "docstring": "A general polycurve path patch.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "*path* is a `.Path` object.\n\nValid keyword arguments are:\n\n%(Patch:kwdoc)s"
+        },
+        {
+          "name": "get_path",
+          "docstring": null
+        },
+        {
+          "name": "set_path",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "StepPatch",
+      "docstring": "A path patch describing a stepwise constant function.\n\nBy default, the path is not closed and starts and stops at\nbaseline value.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nvalues : array-like\n    The step heights.\n\nedges : array-like\n    The edge positions, with ``len(edges) == len(vals) + 1``,\n    between which the curve takes on vals values.\n\norientation : {'vertical', 'horizontal'}, default: 'vertical'\n    The direction of the steps. Vertical means that *values* are\n    along the y-axis, and edges are along the x-axis.\n\nbaseline : float, array-like or None, default: 0\n    The bottom value of the bounding edges or when\n    ``fill=True``, position of lower edge. If *fill* is\n    True or an array is passed to *baseline*, a closed\n    path is drawn.\n\n**kwargs\n    `Patch` properties:\n\n    %(Patch:kwdoc)s"
+        },
+        {
+          "name": "get_data",
+          "docstring": "Get `.StepPatch` values, edges and baseline as namedtuple."
+        },
+        {
+          "name": "set_data",
+          "docstring": "Set `.StepPatch` values, edges and baseline.\n\nParameters\n----------\nvalues : 1D array-like or None\n    Will not update values, if passing None\nedges : 1D array-like, optional\nbaseline : float, 1D array-like or None"
+        }
+      ]
+    },
+    {
+      "name": "Polygon",
+      "docstring": "A general polygon patch.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nxy : (N, 2) array\n\nclosed : bool, default: True\n    Whether the polygon is closed (i.e., has identical start and end\n    points).\n\n**kwargs\n    %(Patch:kwdoc)s"
+        },
+        {
+          "name": "get_path",
+          "docstring": "Get the `.Path` of the polygon."
+        },
+        {
+          "name": "get_closed",
+          "docstring": "Return whether the polygon is closed."
+        },
+        {
+          "name": "set_closed",
+          "docstring": "Set whether the polygon is closed.\n\nParameters\n----------\nclosed : bool\n    True if the polygon is closed"
+        },
+        {
+          "name": "get_xy",
+          "docstring": "Get the vertices of the path.\n\nReturns\n-------\n(N, 2) array\n    The coordinates of the vertices."
+        },
+        {
+          "name": "set_xy",
+          "docstring": "Set the vertices of the polygon.\n\nParameters\n----------\nxy : (N, 2) array-like\n    The coordinates of the vertices.\n\nNotes\n-----\nUnlike `.Path`, we do not ignore the last input vertex. If the\npolygon is meant to be closed, and the last point of the polygon is not\nequal to the first, we assume that the user has not explicitly passed a\n``CLOSEPOLY`` vertex, and add it ourselves."
+        }
+      ]
+    },
+    {
+      "name": "Wedge",
+      "docstring": "Wedge shaped patch.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "A wedge centered at *x*, *y* center with radius *r* that\nsweeps *theta1* to *theta2* (in degrees).  If *width* is given,\nthen a partial wedge is drawn from inner radius *r* - *width*\nto outer radius *r*.\n\nValid keyword arguments are:\n\n%(Patch:kwdoc)s"
+        },
+        {
+          "name": "set_center",
+          "docstring": null
+        },
+        {
+          "name": "set_radius",
+          "docstring": null
+        },
+        {
+          "name": "set_theta1",
+          "docstring": null
+        },
+        {
+          "name": "set_theta2",
+          "docstring": null
+        },
+        {
+          "name": "set_width",
+          "docstring": null
+        },
+        {
+          "name": "get_path",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Arrow",
+      "docstring": "An arrow patch.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Draws an arrow from (*x*, *y*) to (*x* + *dx*, *y* + *dy*).\nThe width of the arrow is scaled by *width*.\n\nParameters\n----------\nx : float\n    x coordinate of the arrow tail.\ny : float\n    y coordinate of the arrow tail.\ndx : float\n    Arrow length in the x direction.\ndy : float\n    Arrow length in the y direction.\nwidth : float, default: 1\n    Scale factor for the width of the arrow. With a default value of 1,\n    the tail width is 0.2 and head width is 0.6.\n**kwargs\n    Keyword arguments control the `Patch` properties:\n\n    %(Patch:kwdoc)s\n\nSee Also\n--------\nFancyArrow\n    Patch that allows independent control of the head and tail\n    properties."
+        },
+        {
+          "name": "get_path",
+          "docstring": null
+        },
+        {
+          "name": "get_patch_transform",
+          "docstring": null
+        },
+        {
+          "name": "set_data",
+          "docstring": "Set `.Arrow` x, y, dx, dy and width.\nValues left as None will not be updated.\n\nParameters\n----------\nx, y : float or None, default: None\n    The x and y coordinates of the arrow base.\n\ndx, dy : float or None, default: None\n    The length of the arrow along x and y direction.\n\nwidth : float or None, default: None\n    Width of full arrow tail."
+        }
+      ]
+    },
+    {
+      "name": "FancyArrow",
+      "docstring": "Like Arrow, but lets you set head width and head height independently.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nx, y : float\n    The x and y coordinates of the arrow base.\n\ndx, dy : float\n    The length of the arrow along x and y direction.\n\nwidth : float, default: 0.001\n    Width of full arrow tail.\n\nlength_includes_head : bool, default: False\n    True if head is to be counted in calculating the length.\n\nhead_width : float or None, default: 3*width\n    Total width of the full arrow head.\n\nhead_length : float or None, default: 1.5*head_width\n    Length of arrow head.\n\nshape : {'full', 'left', 'right'}, default: 'full'\n    Draw the left-half, right-half, or full arrow.\n\noverhang : float, default: 0\n    Fraction that the arrow is swept back (0 overhang means\n    triangular shape). Can be negative or greater than one.\n\nhead_starts_at_zero : bool, default: False\n    If True, the head starts being drawn at coordinate 0\n    instead of ending at coordinate 0.\n\n**kwargs\n    `.Patch` properties:\n\n    %(Patch:kwdoc)s"
+        },
+        {
+          "name": "set_data",
+          "docstring": "Set `.FancyArrow` x, y, dx, dy, width, head_with, and head_length.\nValues left as None will not be updated.\n\nParameters\n----------\nx, y : float or None, default: None\n    The x and y coordinates of the arrow base.\n\ndx, dy : float or None, default: None\n    The length of the arrow along x and y direction.\n\nwidth : float or None, default: None\n    Width of full arrow tail.\n\nhead_width : float or None, default: None\n    Total width of the full arrow head.\n\nhead_length : float or None, default: None\n    Length of arrow head."
+        }
+      ]
+    },
+    {
+      "name": "CirclePolygon",
+      "docstring": "A polygon-approximation of a circle patch.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a circle at *xy* = (*x*, *y*) with given *radius*.\n\nThis circle is approximated by a regular polygon with *resolution*\nsides.  For a smoother circle drawn with splines, see `Circle`.\n\nValid keyword arguments are:\n\n%(Patch:kwdoc)s"
+        }
+      ]
+    },
+    {
+      "name": "Ellipse",
+      "docstring": "A scale-free ellipse.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nxy : (float, float)\n    xy coordinates of ellipse centre.\nwidth : float\n    Total length (diameter) of horizontal axis.\nheight : float\n    Total length (diameter) of vertical axis.\nangle : float, default: 0\n    Rotation in degrees anti-clockwise.\n\nNotes\n-----\nValid keyword arguments are:\n\n%(Patch:kwdoc)s"
+        },
+        {
+          "name": "get_path",
+          "docstring": "Return the path of the ellipse."
+        },
+        {
+          "name": "get_patch_transform",
+          "docstring": null
+        },
+        {
+          "name": "set_center",
+          "docstring": "Set the center of the ellipse.\n\nParameters\n----------\nxy : (float, float)"
+        },
+        {
+          "name": "get_center",
+          "docstring": "Return the center of the ellipse."
+        },
+        {
+          "name": "set_width",
+          "docstring": "Set the width of the ellipse.\n\nParameters\n----------\nwidth : float"
+        },
+        {
+          "name": "get_width",
+          "docstring": "Return the width of the ellipse."
+        },
+        {
+          "name": "set_height",
+          "docstring": "Set the height of the ellipse.\n\nParameters\n----------\nheight : float"
+        },
+        {
+          "name": "get_height",
+          "docstring": "Return the height of the ellipse."
+        },
+        {
+          "name": "set_angle",
+          "docstring": "Set the angle of the ellipse.\n\nParameters\n----------\nangle : float"
+        },
+        {
+          "name": "get_angle",
+          "docstring": "Return the angle of the ellipse."
+        },
+        {
+          "name": "get_corners",
+          "docstring": "Return the corners of the ellipse bounding box.\n\nThe bounding box orientation is moving anti-clockwise from the\nlower left corner defined before rotation."
+        },
+        {
+          "name": "get_vertices",
+          "docstring": "Return the vertices coordinates of the ellipse.\n\nThe definition can be found `here <https://en.wikipedia.org/wiki/Ellipse>`_\n\n.. versionadded:: 3.8"
+        },
+        {
+          "name": "get_co_vertices",
+          "docstring": "Return the co-vertices coordinates of the ellipse.\n\nThe definition can be found `here <https://en.wikipedia.org/wiki/Ellipse>`_\n\n.. versionadded:: 3.8"
+        }
+      ]
+    },
+    {
+      "name": "Annulus",
+      "docstring": "An elliptical annulus.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nxy : (float, float)\n    xy coordinates of annulus centre.\nr : float or (float, float)\n    The radius, or semi-axes:\n\n    - If float: radius of the outer circle.\n    - If two floats: semi-major and -minor axes of outer ellipse.\nwidth : float\n    Width (thickness) of the annular ring. The width is measured inward\n    from the outer ellipse so that for the inner ellipse the semi-axes\n    are given by ``r - width``. *width* must be less than or equal to\n    the semi-minor axis.\nangle : float, default: 0\n    Rotation angle in degrees (anti-clockwise from the positive\n    x-axis). Ignored for circular annuli (i.e., if *r* is a scalar).\n**kwargs\n    Keyword arguments control the `Patch` properties:\n\n    %(Patch:kwdoc)s"
+        },
+        {
+          "name": "set_center",
+          "docstring": "Set the center of the annulus.\n\nParameters\n----------\nxy : (float, float)"
+        },
+        {
+          "name": "get_center",
+          "docstring": "Return the center of the annulus."
+        },
+        {
+          "name": "set_width",
+          "docstring": "Set the width (thickness) of the annulus ring.\n\nThe width is measured inwards from the outer ellipse.\n\nParameters\n----------\nwidth : float"
+        },
+        {
+          "name": "get_width",
+          "docstring": "Return the width (thickness) of the annulus ring."
+        },
+        {
+          "name": "set_angle",
+          "docstring": "Set the tilt angle of the annulus.\n\nParameters\n----------\nangle : float"
+        },
+        {
+          "name": "get_angle",
+          "docstring": "Return the angle of the annulus."
+        },
+        {
+          "name": "set_semimajor",
+          "docstring": "Set the semi-major axis *a* of the annulus.\n\nParameters\n----------\na : float"
+        },
+        {
+          "name": "set_semiminor",
+          "docstring": "Set the semi-minor axis *b* of the annulus.\n\nParameters\n----------\nb : float"
+        },
+        {
+          "name": "set_radii",
+          "docstring": "Set the semi-major (*a*) and semi-minor radii (*b*) of the annulus.\n\nParameters\n----------\nr : float or (float, float)\n    The radius, or semi-axes:\n\n    - If float: radius of the outer circle.\n    - If two floats: semi-major and -minor axes of outer ellipse."
+        },
+        {
+          "name": "get_radii",
+          "docstring": "Return the semi-major and semi-minor radii of the annulus."
+        },
+        {
+          "name": "get_path",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Circle",
+      "docstring": "A circle patch.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a true circle at center *xy* = (*x*, *y*) with given *radius*.\n\nUnlike `CirclePolygon` which is a polygonal approximation, this uses\nBezier splines and is much closer to a scale-free circle.\n\nValid keyword arguments are:\n\n%(Patch:kwdoc)s"
+        },
+        {
+          "name": "set_radius",
+          "docstring": "Set the radius of the circle.\n\nParameters\n----------\nradius : float"
+        },
+        {
+          "name": "get_radius",
+          "docstring": "Return the radius of the circle."
+        }
+      ]
+    },
+    {
+      "name": "Arc",
+      "docstring": "An elliptical arc, i.e. a segment of an ellipse.\n\nDue to internal optimizations, the arc cannot be filled.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nxy : (float, float)\n    The center of the ellipse.\n\nwidth : float\n    The length of the horizontal axis.\n\nheight : float\n    The length of the vertical axis.\n\nangle : float\n    Rotation of the ellipse in degrees (counterclockwise).\n\ntheta1, theta2 : float, default: 0, 360\n    Starting and ending angles of the arc in degrees. These values\n    are relative to *angle*, e.g. if *angle* = 45 and *theta1* = 90\n    the absolute starting angle is 135.\n    Default *theta1* = 0, *theta2* = 360, i.e. a complete ellipse.\n    The arc is drawn in the counterclockwise direction.\n    Angles greater than or equal to 360, or smaller than 0, are\n    represented by an equivalent angle in the range [0, 360), by\n    taking the input value mod 360.\n\nOther Parameters\n----------------\n**kwargs : `~matplotlib.patches.Patch` properties\n    Most `.Patch` properties are supported as keyword arguments,\n    except *fill* and *facecolor* because filling is not supported.\n\n%(Patch:kwdoc)s"
+        },
+        {
+          "name": "draw",
+          "docstring": "Draw the arc to the given *renderer*.\n\nNotes\n-----\nEllipses are normally drawn using an approximation that uses\neight cubic Bezier splines.  The error of this approximation\nis 1.89818e-6, according to this unverified source:\n\n  Lancaster, Don.  *Approximating a Circle or an Ellipse Using\n  Four Bezier Cubic Splines.*\n\n  https://www.tinaja.com/glib/ellipse4.pdf\n\nThere is a use case where very large ellipses must be drawn\nwith very high accuracy, and it is too expensive to render the\nentire ellipse with enough segments (either splines or line\nsegments).  Therefore, in the case where either radius of the\nellipse is large enough that the error of the spline\napproximation will be visible (greater than one pixel offset\nfrom the ideal), a different technique is used.\n\nIn that case, only the visible parts of the ellipse are drawn,\nwith each visible arc using a fixed number of spline segments\n(8).  The algorithm proceeds as follows:\n\n1. The points where the ellipse intersects the axes (or figure)\n   bounding box are located.  (This is done by performing an inverse\n   transformation on the bbox such that it is relative to the unit\n   circle -- this makes the intersection calculation much easier than\n   doing rotated ellipse intersection directly.)\n\n   This uses the \"line intersecting a circle\" algorithm from:\n\n       Vince, John.  *Geometry for Computer Graphics: Formulae,\n       Examples & Proofs.*  London: Springer-Verlag, 2005.\n\n2. The angles of each of the intersection points are calculated.\n\n3. Proceeding counterclockwise starting in the positive\n   x-direction, each of the visible arc-segments between the\n   pairs of vertices are drawn using the Bezier arc\n   approximation technique implemented in `.Path.arc`."
+        }
+      ]
+    },
+    {
+      "name": "_Style",
+      "docstring": "A base class for the Styles. It is meant to be a container class,\nwhere actual styles are declared as subclass of it, and it\nprovides some helper functions.",
+      "methods": [
+        {
+          "name": "get_styles",
+          "docstring": "Return a dictionary of available styles."
+        },
+        {
+          "name": "pprint_styles",
+          "docstring": "Return the available styles as pretty-printed string."
+        },
+        {
+          "name": "register",
+          "docstring": "Register a new style."
+        }
+      ]
+    },
+    {
+      "name": "BoxStyle",
+      "docstring": "`BoxStyle` is a container class which defines several\nboxstyle classes, which are used for `FancyBboxPatch`.\n\nA style object can be created as::\n\n       BoxStyle.Round(pad=0.2)\n\nor::\n\n       BoxStyle(\"Round\", pad=0.2)\n\nor::\n\n       BoxStyle(\"Round, pad=0.2\")\n\nThe following boxstyle classes are defined.\n\n%(BoxStyle:table)s\n\nAn instance of a boxstyle class is a callable object, with the signature ::\n\n   __call__(self, x0, y0, width, height, mutation_size) -> Path\n\n*x0*, *y0*, *width* and *height* specify the location and size of the box\nto be drawn; *mutation_size* scales the outline properties such as padding.",
+      "methods": []
+    },
+    {
+      "name": "ConnectionStyle",
+      "docstring": "`ConnectionStyle` is a container class which defines\nseveral connectionstyle classes, which is used to create a path\nbetween two points.  These are mainly used with `FancyArrowPatch`.\n\nA connectionstyle object can be either created as::\n\n       ConnectionStyle.Arc3(rad=0.2)\n\nor::\n\n       ConnectionStyle(\"Arc3\", rad=0.2)\n\nor::\n\n       ConnectionStyle(\"Arc3, rad=0.2\")\n\nThe following classes are defined\n\n%(ConnectionStyle:table)s\n\nAn instance of any connection style class is a callable object,\nwhose call signature is::\n\n    __call__(self, posA, posB,\n             patchA=None, patchB=None,\n             shrinkA=2., shrinkB=2.)\n\nand it returns a `.Path` instance. *posA* and *posB* are\ntuples of (x, y) coordinates of the two points to be\nconnected. *patchA* (or *patchB*) is given, the returned path is\nclipped so that it start (or end) from the boundary of the\npatch. The path is further shrunk by *shrinkA* (or *shrinkB*)\nwhich is given in points.",
+      "methods": []
+    },
+    {
+      "name": "ArrowStyle",
+      "docstring": "`ArrowStyle` is a container class which defines several\narrowstyle classes, which is used to create an arrow path along a\ngiven path.  These are mainly used with `FancyArrowPatch`.\n\nAn arrowstyle object can be either created as::\n\n       ArrowStyle.Fancy(head_length=.4, head_width=.4, tail_width=.4)\n\nor::\n\n       ArrowStyle(\"Fancy\", head_length=.4, head_width=.4, tail_width=.4)\n\nor::\n\n       ArrowStyle(\"Fancy, head_length=.4, head_width=.4, tail_width=.4\")\n\nThe following classes are defined\n\n%(ArrowStyle:table)s\n\nFor an overview of the visual appearance, see\n:doc:`/gallery/text_labels_and_annotations/fancyarrow_demo`.\n\nAn instance of any arrow style class is a callable object,\nwhose call signature is::\n\n    __call__(self, path, mutation_size, linewidth, aspect_ratio=1.)\n\nand it returns a tuple of a `.Path` instance and a boolean\nvalue. *path* is a `.Path` instance along which the arrow\nwill be drawn. *mutation_size* and *aspect_ratio* have the same\nmeaning as in `BoxStyle`. *linewidth* is a line width to be\nstroked. This is meant to be used to correct the location of the\nhead so that it does not overshoot the destination point, but not all\nclasses support it.\n\nNotes\n-----\n*angleA* and *angleB* specify the orientation of the bracket, as either a\nclockwise or counterclockwise angle depending on the arrow type. 0 degrees\nmeans perpendicular to the line connecting the arrow's head and tail.\n\n.. plot:: gallery/text_labels_and_annotations/angles_on_bracket_arrows.py",
+      "methods": []
+    },
+    {
+      "name": "FancyBboxPatch",
+      "docstring": "A fancy box around a rectangle with lower left at *xy* = (*x*, *y*)\nwith specified width and height.\n\n`.FancyBboxPatch` is similar to `.Rectangle`, but it draws a fancy box\naround the rectangle. The transformation of the rectangle box to the\nfancy box is delegated to the style classes defined in `.BoxStyle`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nxy : (float, float)\n  The lower left corner of the box.\n\nwidth : float\n    The width of the box.\n\nheight : float\n    The height of the box.\n\nboxstyle : str or `~matplotlib.patches.BoxStyle`\n    The style of the fancy box. This can either be a `.BoxStyle`\n    instance or a string of the style name and optionally comma\n    separated attributes (e.g. \"Round, pad=0.2\"). This string is\n    passed to `.BoxStyle` to construct a `.BoxStyle` object. See\n    there for a full documentation.\n\n    The following box styles are available:\n\n    %(BoxStyle:table)s\n\nmutation_scale : float, default: 1\n    Scaling factor applied to the attributes of the box style\n    (e.g. pad or rounding_size).\n\nmutation_aspect : float, default: 1\n    The height of the rectangle will be squeezed by this value before\n    the mutation and the mutated box will be stretched by the inverse\n    of it. For example, this allows different horizontal and vertical\n    padding.\n\nOther Parameters\n----------------\n**kwargs : `~matplotlib.patches.Patch` properties\n\n%(Patch:kwdoc)s"
+        },
+        {
+          "name": "set_boxstyle",
+          "docstring": "Set the box style, possibly with further attributes.\n\nAttributes from the previous box style are not reused.\n\nWithout argument (or with ``boxstyle=None``), the available box styles\nare returned as a human-readable string.\n\nParameters\n----------\nboxstyle : str or `~matplotlib.patches.BoxStyle`\n    The style of the box: either a `.BoxStyle` instance, or a string,\n    which is the style name and optionally comma separated attributes\n    (e.g. \"Round,pad=0.2\"). Such a string is used to construct a\n    `.BoxStyle` object, as documented in that class.\n\n    The following box styles are available:\n\n    %(BoxStyle:table_and_accepts)s\n\n**kwargs\n    Additional attributes for the box style. See the table above for\n    supported parameters.\n\nExamples\n--------\n::\n\n    set_boxstyle(\"Round,pad=0.2\")\n    set_boxstyle(\"round\", pad=0.2)"
+        },
+        {
+          "name": "get_boxstyle",
+          "docstring": "Return the boxstyle object."
+        },
+        {
+          "name": "set_mutation_scale",
+          "docstring": "Set the mutation scale.\n\nParameters\n----------\nscale : float"
+        },
+        {
+          "name": "get_mutation_scale",
+          "docstring": "Return the mutation scale."
+        },
+        {
+          "name": "set_mutation_aspect",
+          "docstring": "Set the aspect ratio of the bbox mutation.\n\nParameters\n----------\naspect : float"
+        },
+        {
+          "name": "get_mutation_aspect",
+          "docstring": "Return the aspect ratio of the bbox mutation."
+        },
+        {
+          "name": "get_path",
+          "docstring": "Return the mutated path of the rectangle."
+        },
+        {
+          "name": "get_x",
+          "docstring": "Return the left coord of the rectangle."
+        },
+        {
+          "name": "get_y",
+          "docstring": "Return the bottom coord of the rectangle."
+        },
+        {
+          "name": "get_width",
+          "docstring": "Return the width of the rectangle."
+        },
+        {
+          "name": "get_height",
+          "docstring": "Return the height of the rectangle."
+        },
+        {
+          "name": "set_x",
+          "docstring": "Set the left coord of the rectangle.\n\nParameters\n----------\nx : float"
+        },
+        {
+          "name": "set_y",
+          "docstring": "Set the bottom coord of the rectangle.\n\nParameters\n----------\ny : float"
+        },
+        {
+          "name": "set_width",
+          "docstring": "Set the rectangle width.\n\nParameters\n----------\nw : float"
+        },
+        {
+          "name": "set_height",
+          "docstring": "Set the rectangle height.\n\nParameters\n----------\nh : float"
+        },
+        {
+          "name": "set_bounds",
+          "docstring": "Set the bounds of the rectangle.\n\nCall signatures::\n\n    set_bounds(left, bottom, width, height)\n    set_bounds((left, bottom, width, height))\n\nParameters\n----------\nleft, bottom : float\n    The coordinates of the bottom left corner of the rectangle.\nwidth, height : float\n    The width/height of the rectangle."
+        },
+        {
+          "name": "get_bbox",
+          "docstring": "Return the `.Bbox`."
+        }
+      ]
+    },
+    {
+      "name": "FancyArrowPatch",
+      "docstring": "A fancy arrow patch.\n\nIt draws an arrow using the `ArrowStyle`. It is primarily used by the\n`~.axes.Axes.annotate` method.  For most purposes, use the annotate method for\ndrawing arrows.\n\nThe head and tail positions are fixed at the specified start and end points\nof the arrow, but the size and shape (in display coordinates) of the arrow\ndoes not change when the axis is moved or zoomed.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "**Defining the arrow position and path**\n\nThere are two ways to define the arrow position and path:\n\n- **Start, end and connection**:\n  The typical approach is to define the start and end points of the\n  arrow using *posA* and *posB*. The curve between these two can\n  further be configured using *connectionstyle*.\n\n  If given, the arrow curve is clipped by *patchA* and *patchB*,\n  allowing it to start/end at the border of these patches.\n  Additionally, the arrow curve can be shortened by *shrinkA* and *shrinkB*\n  to create a margin between start/end (after possible clipping) and the\n  drawn arrow.\n\n- **path**: Alternatively if *path* is provided, an arrow is drawn along\n  this Path. In this case, *connectionstyle*, *patchA*, *patchB*,\n  *shrinkA*, and *shrinkB* are ignored.\n\n**Styling**\n\nThe *arrowstyle* defines the styling of the arrow head, tail and shaft.\nThe resulting arrows can be styled further by setting the `.Patch`\nproperties such as *linewidth*, *color*, *facecolor*, *edgecolor*\netc. via keyword arguments.\n\nParameters\n----------\nposA, posB : (float, float), optional\n    (x, y) coordinates of start and end point of the arrow.\n    The actually drawn start and end positions may be modified\n    through *patchA*, *patchB*, *shrinkA*, and *shrinkB*.\n\n    *posA*, *posB* are exclusive of *path*.\n\npath : `~matplotlib.path.Path`, optional\n    If provided, an arrow is drawn along this path and *patchA*,\n    *patchB*, *shrinkA*, and *shrinkB* are ignored.\n\n    *path* is exclusive of *posA*, *posB*.\n\narrowstyle : str or `.ArrowStyle`, default: 'simple'\n    The styling of arrow head, tail and shaft. This can be\n\n    - `.ArrowStyle` or one of its subclasses\n    - The shorthand string name (e.g. \"->\") as given in the table below,\n      optionally containing a comma-separated list of style parameters,\n      e.g. \"->, head_length=10, head_width=5\".\n\n    The style parameters are scaled by *mutation_scale*.\n\n    The following arrow styles are available. See also\n    :doc:`/gallery/text_labels_and_annotations/fancyarrow_demo`.\n\n    %(ArrowStyle:table)s\n\n    Only the styles ``<|-``, ``-|>``, ``<|-|>`` ``simple``, ``fancy``\n    and ``wedge`` contain closed paths and can be filled.\n\nconnectionstyle : str or `.ConnectionStyle` or None, optional, default: 'arc3'\n    `.ConnectionStyle` with which *posA* and *posB* are connected.\n    This can be\n\n    - `.ConnectionStyle` or one of its subclasses\n    - The shorthand string name as given in the table below, e.g. \"arc3\".\n\n    %(ConnectionStyle:table)s\n\n    Ignored if *path* is provided.\n\npatchA, patchB : `~matplotlib.patches.Patch`, default: None\n    Optional Patches at *posA* and *posB*, respectively. If given,\n    the arrow path is clipped by these patches such that head and tail\n    are at the border of the patches.\n\n    Ignored if *path* is provided.\n\nshrinkA, shrinkB : float, default: 2\n    Shorten the arrow path at *posA* and *posB* by this amount in points.\n    This allows to add a margin between the intended start/end points and\n    the arrow.\n\n    Ignored if *path* is provided.\n\nmutation_scale : float, default: 1\n    Value with which attributes of *arrowstyle* (e.g., *head_length*)\n    will be scaled.\n\nmutation_aspect : None or float, default: None\n    The height of the rectangle will be squeezed by this value before\n    the mutation and the mutated box will be stretched by the inverse\n    of it.\n\nOther Parameters\n----------------\n**kwargs : `~matplotlib.patches.Patch` properties, optional\n    Here is a list of available `.Patch` properties:\n\n%(Patch:kwdoc)s\n\n    In contrast to other patches, the default ``capstyle`` and\n    ``joinstyle`` for `FancyArrowPatch` are set to ``\"round\"``."
+        },
+        {
+          "name": "set_positions",
+          "docstring": "Set the start and end positions of the connecting path.\n\nParameters\n----------\nposA, posB : None, tuple\n    (x, y) coordinates of arrow tail and arrow head respectively. If\n    `None` use current value."
+        },
+        {
+          "name": "set_patchA",
+          "docstring": "Set the tail patch.\n\nParameters\n----------\npatchA : `.patches.Patch`"
+        },
+        {
+          "name": "set_patchB",
+          "docstring": "Set the head patch.\n\nParameters\n----------\npatchB : `.patches.Patch`"
+        },
+        {
+          "name": "set_connectionstyle",
+          "docstring": "Set the connection style, possibly with further attributes.\n\nAttributes from the previous connection style are not reused.\n\nWithout argument (or with ``connectionstyle=None``), the available box\nstyles are returned as a human-readable string.\n\nParameters\n----------\nconnectionstyle : str or `~matplotlib.patches.ConnectionStyle`\n    The style of the connection: either a `.ConnectionStyle` instance,\n    or a string, which is the style name and optionally comma separated\n    attributes (e.g. \"Arc,armA=30,rad=10\"). Such a string is used to\n    construct a `.ConnectionStyle` object, as documented in that class.\n\n    The following connection styles are available:\n\n    %(ConnectionStyle:table_and_accepts)s\n\n**kwargs\n    Additional attributes for the connection style. See the table above\n    for supported parameters.\n\nExamples\n--------\n::\n\n    set_connectionstyle(\"Arc,armA=30,rad=10\")\n    set_connectionstyle(\"arc\", armA=30, rad=10)"
+        },
+        {
+          "name": "get_connectionstyle",
+          "docstring": "Return the `ConnectionStyle` used."
+        },
+        {
+          "name": "set_arrowstyle",
+          "docstring": "Set the arrow style, possibly with further attributes.\n\nAttributes from the previous arrow style are not reused.\n\nWithout argument (or with ``arrowstyle=None``), the available box\nstyles are returned as a human-readable string.\n\nParameters\n----------\narrowstyle : str or `~matplotlib.patches.ArrowStyle`\n    The style of the arrow: either a `.ArrowStyle` instance, or a\n    string, which is the style name and optionally comma separated\n    attributes (e.g. \"Fancy,head_length=0.2\"). Such a string is used to\n    construct a `.ArrowStyle` object, as documented in that class.\n\n    The following arrow styles are available:\n\n    %(ArrowStyle:table_and_accepts)s\n\n**kwargs\n    Additional attributes for the arrow style. See the table above for\n    supported parameters.\n\nExamples\n--------\n::\n\n    set_arrowstyle(\"Fancy,head_length=0.2\")\n    set_arrowstyle(\"fancy\", head_length=0.2)"
+        },
+        {
+          "name": "get_arrowstyle",
+          "docstring": "Return the arrowstyle object."
+        },
+        {
+          "name": "set_mutation_scale",
+          "docstring": "Set the mutation scale.\n\nParameters\n----------\nscale : float"
+        },
+        {
+          "name": "get_mutation_scale",
+          "docstring": "Return the mutation scale.\n\nReturns\n-------\nscalar"
+        },
+        {
+          "name": "set_mutation_aspect",
+          "docstring": "Set the aspect ratio of the bbox mutation.\n\nParameters\n----------\naspect : float"
+        },
+        {
+          "name": "get_mutation_aspect",
+          "docstring": "Return the aspect ratio of the bbox mutation."
+        },
+        {
+          "name": "get_path",
+          "docstring": "Return the path of the arrow in the data coordinates."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ConnectionPatch",
+      "docstring": "A patch that connects two points (possibly in different Axes).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Connect point *xyA* in *coordsA* with point *xyB* in *coordsB*.\n\nValid keys are\n\n===============  ======================================================\nKey              Description\n===============  ======================================================\narrowstyle       the arrow style\nconnectionstyle  the connection style\nrelpos           default is (0.5, 0.5)\npatchA           default is bounding box of the text\npatchB           default is None\nshrinkA          default is 2 points\nshrinkB          default is 2 points\nmutation_scale   default is text size (in points)\nmutation_aspect  default is 1.\n?                any key for `matplotlib.patches.PathPatch`\n===============  ======================================================\n\n*coordsA* and *coordsB* are strings that indicate the\ncoordinates of *xyA* and *xyB*.\n\n==================== ==================================================\nProperty             Description\n==================== ==================================================\n'figure points'      points from the lower left corner of the figure\n'figure pixels'      pixels from the lower left corner of the figure\n'figure fraction'    0, 0 is lower left of figure and 1, 1 is upper\n                     right\n'subfigure points'   points from the lower left corner of the subfigure\n'subfigure pixels'   pixels from the lower left corner of the subfigure\n'subfigure fraction' fraction of the subfigure, 0, 0 is lower left.\n'axes points'        points from lower left corner of the Axes\n'axes pixels'        pixels from lower left corner of the Axes\n'axes fraction'      0, 0 is lower left of Axes and 1, 1 is upper right\n'data'               use the coordinate system of the object being\n                     annotated (default)\n'offset points'      offset (in points) from the *xy* value\n'polar'              you can specify *theta*, *r* for the annotation,\n                     even in cartesian plots.  Note that if you are\n                     using a polar Axes, you do not need to specify\n                     polar for the coordinate system since that is the\n                     native \"data\" coordinate system.\n==================== ==================================================\n\nAlternatively they can be set to any valid\n`~matplotlib.transforms.Transform`.\n\nNote that 'subfigure pixels' and 'figure pixels' are the same\nfor the parent figure, so users who want code that is usable in\na subfigure can use 'subfigure pixels'.\n\n.. note::\n\n   Using `ConnectionPatch` across two `~.axes.Axes` instances\n   is not directly compatible with :ref:`constrained layout\n   <constrainedlayout_guide>`. Add the artist\n   directly to the `.Figure` instead of adding it to a specific Axes,\n   or exclude it from the layout using ``con.set_in_layout(False)``.\n\n   .. code-block:: default\n\n      fig, ax = plt.subplots(1, 2, constrained_layout=True)\n      con = ConnectionPatch(..., axesA=ax[0], axesB=ax[1])\n      fig.add_artist(con)"
+        },
+        {
+          "name": "set_annotation_clip",
+          "docstring": "Set the annotation's clipping behavior.\n\nParameters\n----------\nb : bool or None\n    - True: The annotation will be clipped when ``self.xy`` is\n      outside the Axes.\n    - False: The annotation will always be drawn.\n    - None: The annotation will be clipped when ``self.xy`` is\n      outside the Axes and ``self.xycoords == \"data\"``."
+        },
+        {
+          "name": "get_annotation_clip",
+          "docstring": "Return the clipping behavior.\n\nSee `.set_annotation_clip` for the meaning of the return value."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Square",
+      "docstring": "A square box.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\npad : float, default: 0.3\n    The amount of padding around the original box."
+        }
+      ]
+    },
+    {
+      "name": "Circle",
+      "docstring": "A circular box.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\npad : float, default: 0.3\n    The amount of padding around the original box."
+        }
+      ]
+    },
+    {
+      "name": "Ellipse",
+      "docstring": "An elliptical box.\n\n.. versionadded:: 3.7",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\npad : float, default: 0.3\n    The amount of padding around the original box."
+        }
+      ]
+    },
+    {
+      "name": "LArrow",
+      "docstring": "A box in the shape of a left-pointing arrow.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\npad : float, default: 0.3\n    The amount of padding around the original box."
+        }
+      ]
+    },
+    {
+      "name": "RArrow",
+      "docstring": "A box in the shape of a right-pointing arrow.",
+      "methods": []
+    },
+    {
+      "name": "DArrow",
+      "docstring": "A box in the shape of a two-way arrow.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\npad : float, default: 0.3\n    The amount of padding around the original box."
+        }
+      ]
+    },
+    {
+      "name": "Round",
+      "docstring": "A box with round corners.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\npad : float, default: 0.3\n    The amount of padding around the original box.\nrounding_size : float, default: *pad*\n    Radius of the corners."
+        }
+      ]
+    },
+    {
+      "name": "Round4",
+      "docstring": "A box with rounded edges.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\npad : float, default: 0.3\n    The amount of padding around the original box.\nrounding_size : float, default: *pad*/2\n    Rounding of edges."
+        }
+      ]
+    },
+    {
+      "name": "Sawtooth",
+      "docstring": "A box with a sawtooth outline.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\npad : float, default: 0.3\n    The amount of padding around the original box.\ntooth_size : float, default: *pad*/2\n    Size of the sawtooth."
+        }
+      ]
+    },
+    {
+      "name": "Roundtooth",
+      "docstring": "A box with a rounded sawtooth outline.",
+      "methods": []
+    },
+    {
+      "name": "_Base",
+      "docstring": "A base class for connectionstyle classes. The subclass needs\nto implement a *connect* method whose call signature is::\n\n  connect(posA, posB)\n\nwhere posA and posB are tuples of x, y coordinates to be\nconnected.  The method needs to return a path connecting two\npoints. This base class defines a __call__ method, and a few\nhelper methods.",
+      "methods": []
+    },
+    {
+      "name": "Arc3",
+      "docstring": "Creates a simple quadratic B\u00e9zier curve between two\npoints. The curve is created so that the middle control point\n(C1) is located at the same distance from the start (C0) and\nend points(C2) and the distance of the C1 to the line\nconnecting C0-C2 is *rad* times the distance of C0-C2.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nrad : float\n  Curvature of the curve."
+        },
+        {
+          "name": "connect",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Angle3",
+      "docstring": "Creates a simple quadratic B\u00e9zier curve between two points. The middle\ncontrol point is placed at the intersecting point of two lines which\ncross the start and end point, and have a slope of *angleA* and\n*angleB*, respectively.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nangleA : float\n  Starting angle of the path.\n\nangleB : float\n  Ending angle of the path."
+        },
+        {
+          "name": "connect",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Angle",
+      "docstring": "Creates a piecewise continuous quadratic B\u00e9zier path between two\npoints. The path has a one passing-through point placed at the\nintersecting point of two lines which cross the start and end point,\nand have a slope of *angleA* and *angleB*, respectively.\nThe connecting edges are rounded with *rad*.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nangleA : float\n  Starting angle of the path.\n\nangleB : float\n  Ending angle of the path.\n\nrad : float\n  Rounding radius of the edge."
+        },
+        {
+          "name": "connect",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Arc",
+      "docstring": "Creates a piecewise continuous quadratic B\u00e9zier path between two\npoints. The path can have two passing-through points, a\npoint placed at the distance of *armA* and angle of *angleA* from\npoint A, another point with respect to point B. The edges are\nrounded with *rad*.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nangleA : float\n  Starting angle of the path.\n\nangleB : float\n  Ending angle of the path.\n\narmA : float or None\n  Length of the starting arm.\n\narmB : float or None\n  Length of the ending arm.\n\nrad : float\n  Rounding radius of the edges."
+        },
+        {
+          "name": "connect",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Bar",
+      "docstring": "A line with *angle* between A and B with *armA* and *armB*. One of the\narms is extended so that they are connected in a right angle. The\nlength of *armA* is determined by (*armA* + *fraction* x AB distance).\nSame for *armB*.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\narmA : float\n    Minimum length of armA.\n\narmB : float\n    Minimum length of armB.\n\nfraction : float\n    A fraction of the distance between two points that will be\n    added to armA and armB.\n\nangle : float or None\n    Angle of the connecting line (if None, parallel to A and B)."
+        },
+        {
+          "name": "connect",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_Base",
+      "docstring": "Arrow Transmuter Base class\n\nArrowTransmuterBase and its derivatives are used to make a fancy\narrow around a given path. The __call__ method returns a path\n(which will be used to create a PathPatch instance) and a boolean\nvalue indicating the path is open therefore is not fillable.  This\nclass is not an artist and actual drawing of the fancy arrow is\ndone by the FancyArrowPatch class.",
+      "methods": [
+        {
+          "name": "ensure_quadratic_bezier",
+          "docstring": "Some ArrowStyle classes only works with a simple quadratic\nB\u00e9zier curve (created with `.ConnectionStyle.Arc3` or\n`.ConnectionStyle.Angle3`). This static method checks if the\nprovided path is a simple quadratic B\u00e9zier curve and returns its\ncontrol points if true."
+        },
+        {
+          "name": "transmute",
+          "docstring": "The transmute method is the very core of the ArrowStyle class and\nmust be overridden in the subclasses. It receives the *path*\nobject along which the arrow will be drawn, and the\n*mutation_size*, with which the arrow head etc. will be scaled.\nThe *linewidth* may be used to adjust the path so that it does not\npass beyond the given points. It returns a tuple of a `.Path`\ninstance and a boolean. The boolean value indicate whether the\npath can be filled or not. The return value can also be a list of\npaths and list of booleans of the same length."
+        }
+      ]
+    },
+    {
+      "name": "_Curve",
+      "docstring": "A simple arrow which will work with any path instance. The\nreturned path is the concatenation of the original path, and at\nmost two paths representing the arrow head or bracket at the start\npoint and at the end point. The arrow heads can be either open\nor closed.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nhead_length : float, default: 0.4\n    Length of the arrow head, relative to *mutation_size*.\nhead_width : float, default: 0.2\n    Width of the arrow head, relative to *mutation_size*.\nwidthA, widthB : float, default: 1.0\n    Width of the bracket.\nlengthA, lengthB : float, default: 0.2\n    Length of the bracket.\nangleA, angleB : float, default: 0\n    Orientation of the bracket, as a counterclockwise angle.\n    0 degrees means perpendicular to the line.\nscaleA, scaleB : float, default: *mutation_size*\n    The scale of the brackets."
+        },
+        {
+          "name": "transmute",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Curve",
+      "docstring": "A simple curve without any arrow head.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CurveA",
+      "docstring": "An arrow with a head at its start point.",
+      "methods": []
+    },
+    {
+      "name": "CurveB",
+      "docstring": "An arrow with a head at its end point.",
+      "methods": []
+    },
+    {
+      "name": "CurveAB",
+      "docstring": "An arrow with heads both at the start and the end point.",
+      "methods": []
+    },
+    {
+      "name": "CurveFilledA",
+      "docstring": "An arrow with filled triangle head at the start.",
+      "methods": []
+    },
+    {
+      "name": "CurveFilledB",
+      "docstring": "An arrow with filled triangle head at the end.",
+      "methods": []
+    },
+    {
+      "name": "CurveFilledAB",
+      "docstring": "An arrow with filled triangle heads at both ends.",
+      "methods": []
+    },
+    {
+      "name": "BracketA",
+      "docstring": "An arrow with an outward square bracket at its start.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nwidthA : float, default: 1.0\n    Width of the bracket.\nlengthA : float, default: 0.2\n    Length of the bracket.\nangleA : float, default: 0 degrees\n    Orientation of the bracket, as a counterclockwise angle.\n    0 degrees means perpendicular to the line."
+        }
+      ]
+    },
+    {
+      "name": "BracketB",
+      "docstring": "An arrow with an outward square bracket at its end.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nwidthB : float, default: 1.0\n    Width of the bracket.\nlengthB : float, default: 0.2\n    Length of the bracket.\nangleB : float, default: 0 degrees\n    Orientation of the bracket, as a counterclockwise angle.\n    0 degrees means perpendicular to the line."
+        }
+      ]
+    },
+    {
+      "name": "BracketAB",
+      "docstring": "An arrow with outward square brackets at both ends.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nwidthA, widthB : float, default: 1.0\n    Width of the bracket.\nlengthA, lengthB : float, default: 0.2\n    Length of the bracket.\nangleA, angleB : float, default: 0 degrees\n    Orientation of the bracket, as a counterclockwise angle.\n    0 degrees means perpendicular to the line."
+        }
+      ]
+    },
+    {
+      "name": "BarAB",
+      "docstring": "An arrow with vertical bars ``|`` at both ends.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nwidthA, widthB : float, default: 1.0\n    Width of the bracket.\nangleA, angleB : float, default: 0 degrees\n    Orientation of the bracket, as a counterclockwise angle.\n    0 degrees means perpendicular to the line."
+        }
+      ]
+    },
+    {
+      "name": "BracketCurve",
+      "docstring": "An arrow with an outward square bracket at its start and a head at\nthe end.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nwidthA : float, default: 1.0\n    Width of the bracket.\nlengthA : float, default: 0.2\n    Length of the bracket.\nangleA : float, default: 0 degrees\n    Orientation of the bracket, as a counterclockwise angle.\n    0 degrees means perpendicular to the line."
+        }
+      ]
+    },
+    {
+      "name": "CurveBracket",
+      "docstring": "An arrow with an outward square bracket at its end and a head at\nthe start.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nwidthB : float, default: 1.0\n    Width of the bracket.\nlengthB : float, default: 0.2\n    Length of the bracket.\nangleB : float, default: 0 degrees\n    Orientation of the bracket, as a counterclockwise angle.\n    0 degrees means perpendicular to the line."
+        }
+      ]
+    },
+    {
+      "name": "Simple",
+      "docstring": "A simple arrow. Only works with a quadratic B\u00e9zier curve.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nhead_length : float, default: 0.5\n    Length of the arrow head.\n\nhead_width : float, default: 0.5\n    Width of the arrow head.\n\ntail_width : float, default: 0.2\n    Width of the arrow tail."
+        },
+        {
+          "name": "transmute",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Fancy",
+      "docstring": "A fancy arrow. Only works with a quadratic B\u00e9zier curve.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nhead_length : float, default: 0.4\n    Length of the arrow head.\n\nhead_width : float, default: 0.4\n    Width of the arrow head.\n\ntail_width : float, default: 0.4\n    Width of the arrow tail."
+        },
+        {
+          "name": "transmute",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Wedge",
+      "docstring": "Wedge(?) shape. Only works with a quadratic B\u00e9zier curve.  The\nstart point has a width of the *tail_width* and the end point has a\nwidth of 0. At the middle, the width is *shrink_factor*x*tail_width*.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\ntail_width : float, default: 0.3\n    Width of the tail.\n\nshrink_factor : float, default: 0.5\n    Fraction of the arrow width at the middle point."
+        },
+        {
+          "name": "transmute",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "bbox_artist",
+      "docstring": "A debug function to draw a rectangle around the bounding\nbox returned by an artist's `.Artist.get_window_extent`\nto test whether the artist is returning the correct bbox.\n\n*props* is a dict of rectangle props with the additional property\n'pad' that sets the padding around the bbox in points."
+    },
+    {
+      "name": "draw_bbox",
+      "docstring": "A debug function to draw a rectangle around the bounding\nbox returned by an artist's `.Artist.get_window_extent`\nto test whether the artist is returning the correct bbox."
+    },
+    {
+      "name": "get_verts",
+      "docstring": "Return a copy of the vertices used in this patch.\n\nIf the patch contains B\u00e9zier curves, the curves will be interpolated by\nline segments.  To access the curves as curves, use `get_path`."
+    },
+    {
+      "name": "contains",
+      "docstring": "Test whether the mouse event occurred in the patch.\n\nParameters\n----------\nmouseevent : `~matplotlib.backend_bases.MouseEvent`\n    Where the user clicked.\n\nradius : float, optional\n    Additional margin on the patch in target coordinates of\n    `.Patch.get_transform`. See `.Path.contains_point` for further\n    details.\n\n    If `None`, the default value depends on the state of the object:\n\n    - If `.Artist.get_picker` is a number, the default\n      is that value.  This is so that picking works as expected.\n    - Otherwise if the edge color has a non-zero alpha, the default\n      is half of the linewidth.  This is so that all the colored\n      pixels are \"in\" the patch.\n    - Finally, if the edge has 0 alpha, the default is 0.  This is\n      so that patches without a stroked edge do not have points\n      outside of the filled region report as \"in\" due to an\n      invisible edge.\n\n\nReturns\n-------\n(bool, empty dict)"
+    },
+    {
+      "name": "contains_point",
+      "docstring": "Return whether the given point is inside the patch.\n\nParameters\n----------\npoint : (float, float)\n    The point (x, y) to check, in target coordinates of\n    ``.Patch.get_transform()``. These are display coordinates for patches\n    that are added to a figure or Axes.\nradius : float, optional\n    Additional margin on the patch in target coordinates of\n    `.Patch.get_transform`. See `.Path.contains_point` for further\n    details.\n\n    If `None`, the default value depends on the state of the object:\n\n    - If `.Artist.get_picker` is a number, the default\n      is that value.  This is so that picking works as expected.\n    - Otherwise if the edge color has a non-zero alpha, the default\n      is half of the linewidth.  This is so that all the colored\n      pixels are \"in\" the patch.\n    - Finally, if the edge has 0 alpha, the default is 0.  This is\n      so that patches without a stroked edge do not have points\n      outside of the filled region report as \"in\" due to an\n      invisible edge.\n\nReturns\n-------\nbool\n\nNotes\n-----\nThe proper use of this method depends on the transform of the patch.\nIsolated patches do not have a transform. In this case, the patch\ncreation coordinates and the point coordinates match. The following\nexample checks that the center of a circle is within the circle\n\n>>> center = 0, 0\n>>> c = Circle(center, radius=1)\n>>> c.contains_point(center)\nTrue\n\nThe convention of checking against the transformed patch stems from\nthe fact that this method is predominantly used to check if display\ncoordinates (e.g. from mouse events) are within the patch. If you want\nto do the above check with data coordinates, you have to properly\ntransform them first:\n\n>>> center = 0, 0\n>>> c = Circle(center, radius=3)\n>>> plt.gca().add_patch(c)\n>>> transformed_interior_point = c.get_data_transform().transform((0, 2))\n>>> c.contains_point(transformed_interior_point)\nTrue"
+    },
+    {
+      "name": "contains_points",
+      "docstring": "Return whether the given points are inside the patch.\n\nParameters\n----------\npoints : (N, 2) array\n    The points to check, in target coordinates of\n    ``self.get_transform()``. These are display coordinates for patches\n    that are added to a figure or Axes. Columns contain x and y values.\nradius : float, optional\n    Additional margin on the patch in target coordinates of\n    `.Patch.get_transform`. See `.Path.contains_point` for further\n    details.\n\n    If `None`, the default value depends on the state of the object:\n\n    - If `.Artist.get_picker` is a number, the default\n      is that value.  This is so that picking works as expected.\n    - Otherwise if the edge color has a non-zero alpha, the default\n      is half of the linewidth.  This is so that all the colored\n      pixels are \"in\" the patch.\n    - Finally, if the edge has 0 alpha, the default is 0.  This is\n      so that patches without a stroked edge do not have points\n      outside of the filled region report as \"in\" due to an\n      invisible edge.\n\nReturns\n-------\nlength-N bool array\n\nNotes\n-----\nThe proper use of this method depends on the transform of the patch.\nSee the notes on `.Patch.contains_point`."
+    },
+    {
+      "name": "update_from",
+      "docstring": null
+    },
+    {
+      "name": "get_extents",
+      "docstring": "Return the `Patch`'s axis-aligned extents as a `~.transforms.Bbox`."
+    },
+    {
+      "name": "get_transform",
+      "docstring": "Return the `~.transforms.Transform` applied to the `Patch`."
+    },
+    {
+      "name": "get_data_transform",
+      "docstring": "Return the `~.transforms.Transform` mapping data coordinates to\nphysical coordinates."
+    },
+    {
+      "name": "get_patch_transform",
+      "docstring": "Return the `~.transforms.Transform` instance mapping patch coordinates\nto data coordinates.\n\nFor example, one may define a patch of a circle which represents a\nradius of 5 by providing coordinates for a unit circle, and a\ntransform which scales the coordinates (the patch coordinate) by 5."
+    },
+    {
+      "name": "get_antialiased",
+      "docstring": "Return whether antialiasing is used for drawing."
+    },
+    {
+      "name": "get_edgecolor",
+      "docstring": "Return the edge color."
+    },
+    {
+      "name": "get_facecolor",
+      "docstring": "Return the face color."
+    },
+    {
+      "name": "get_linewidth",
+      "docstring": "Return the line width in points."
+    },
+    {
+      "name": "get_linestyle",
+      "docstring": "Return the linestyle."
+    },
+    {
+      "name": "set_antialiased",
+      "docstring": "Set whether to use antialiased rendering.\n\nParameters\n----------\naa : bool or None"
+    },
+    {
+      "name": "set_edgecolor",
+      "docstring": "Set the patch edge color.\n\nParameters\n----------\ncolor : :mpltype:`color` or None"
+    },
+    {
+      "name": "set_facecolor",
+      "docstring": "Set the patch face color.\n\nParameters\n----------\ncolor : :mpltype:`color` or None"
+    },
+    {
+      "name": "set_color",
+      "docstring": "Set both the edgecolor and the facecolor.\n\nParameters\n----------\nc : :mpltype:`color`\n\nSee Also\n--------\nPatch.set_facecolor, Patch.set_edgecolor\n    For setting the edge or face color individually."
+    },
+    {
+      "name": "set_alpha",
+      "docstring": null
+    },
+    {
+      "name": "set_linewidth",
+      "docstring": "Set the patch linewidth in points.\n\nParameters\n----------\nw : float or None"
+    },
+    {
+      "name": "set_linestyle",
+      "docstring": "Set the patch linestyle.\n\n==========================================  =================\nlinestyle                                   description\n==========================================  =================\n``'-'`` or ``'solid'``                      solid line\n``'--'`` or  ``'dashed'``                   dashed line\n``'-.'`` or  ``'dashdot'``                  dash-dotted line\n``':'`` or ``'dotted'``                     dotted line\n``'none'``, ``'None'``, ``' '``, or ``''``  draw nothing\n==========================================  =================\n\nAlternatively a dash tuple of the following form can be provided::\n\n    (offset, onoffseq)\n\nwhere ``onoffseq`` is an even length tuple of on and off ink in points.\n\nParameters\n----------\nls : {'-', '--', '-.', ':', '', (offset, on-off-seq), ...}\n    The line style."
+    },
+    {
+      "name": "set_fill",
+      "docstring": "Set whether to fill the patch.\n\nParameters\n----------\nb : bool"
+    },
+    {
+      "name": "get_fill",
+      "docstring": "Return whether the patch is filled."
+    },
+    {
+      "name": "set_capstyle",
+      "docstring": "Set the `.CapStyle`.\n\nThe default capstyle is 'round' for `.FancyArrowPatch` and 'butt' for\nall other patches.\n\nParameters\n----------\ns : `.CapStyle` or %(CapStyle)s"
+    },
+    {
+      "name": "get_capstyle",
+      "docstring": "Return the capstyle."
+    },
+    {
+      "name": "set_joinstyle",
+      "docstring": "Set the `.JoinStyle`.\n\nThe default joinstyle is 'round' for `.FancyArrowPatch` and 'miter' for\nall other patches.\n\nParameters\n----------\ns : `.JoinStyle` or %(JoinStyle)s"
+    },
+    {
+      "name": "get_joinstyle",
+      "docstring": "Return the joinstyle."
+    },
+    {
+      "name": "set_hatch",
+      "docstring": "Set the hatching pattern.\n\n*hatch* can be one of::\n\n  /   - diagonal hatching\n  \\   - back diagonal\n  |   - vertical\n  -   - horizontal\n  +   - crossed\n  x   - crossed diagonal\n  o   - small circle\n  O   - large circle\n  .   - dots\n  *   - stars\n\nLetters can be combined, in which case all the specified\nhatchings are done.  If same letter repeats, it increases the\ndensity of hatching of that pattern.\n\nParameters\n----------\nhatch : {'/', '\\\\', '|', '-', '+', 'x', 'o', 'O', '.', '*'}"
+    },
+    {
+      "name": "get_hatch",
+      "docstring": "Return the hatching pattern."
+    },
+    {
+      "name": "set_hatch_linewidth",
+      "docstring": "Set the hatch linewidth."
+    },
+    {
+      "name": "get_hatch_linewidth",
+      "docstring": "Return the hatch linewidth."
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "get_path",
+      "docstring": "Return the path of this patch."
+    },
+    {
+      "name": "get_window_extent",
+      "docstring": null
+    },
+    {
+      "name": "get_path",
+      "docstring": null
+    },
+    {
+      "name": "get_patch_transform",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "get_path",
+      "docstring": "Return the vertices of the rectangle."
+    },
+    {
+      "name": "get_patch_transform",
+      "docstring": null
+    },
+    {
+      "name": "rotation_point",
+      "docstring": "The rotation point of the patch."
+    },
+    {
+      "name": "rotation_point",
+      "docstring": null
+    },
+    {
+      "name": "get_x",
+      "docstring": "Return the left coordinate of the rectangle."
+    },
+    {
+      "name": "get_y",
+      "docstring": "Return the bottom coordinate of the rectangle."
+    },
+    {
+      "name": "get_xy",
+      "docstring": "Return the left and bottom coords of the rectangle as a tuple."
+    },
+    {
+      "name": "get_corners",
+      "docstring": "Return the corners of the rectangle, moving anti-clockwise from\n(x0, y0)."
+    },
+    {
+      "name": "get_center",
+      "docstring": "Return the centre of the rectangle."
+    },
+    {
+      "name": "get_width",
+      "docstring": "Return the width of the rectangle."
+    },
+    {
+      "name": "get_height",
+      "docstring": "Return the height of the rectangle."
+    },
+    {
+      "name": "get_angle",
+      "docstring": "Get the rotation angle in degrees."
+    },
+    {
+      "name": "set_x",
+      "docstring": "Set the left coordinate of the rectangle."
+    },
+    {
+      "name": "set_y",
+      "docstring": "Set the bottom coordinate of the rectangle."
+    },
+    {
+      "name": "set_angle",
+      "docstring": "Set the rotation angle in degrees.\n\nThe rotation is performed anti-clockwise around *xy*."
+    },
+    {
+      "name": "set_xy",
+      "docstring": "Set the left and bottom coordinates of the rectangle.\n\nParameters\n----------\nxy : (float, float)"
+    },
+    {
+      "name": "set_width",
+      "docstring": "Set the width of the rectangle."
+    },
+    {
+      "name": "set_height",
+      "docstring": "Set the height of the rectangle."
+    },
+    {
+      "name": "set_bounds",
+      "docstring": "Set the bounds of the rectangle as *left*, *bottom*, *width*, *height*.\n\nThe values may be passed as separate parameters or as a tuple::\n\n    set_bounds(left, bottom, width, height)\n    set_bounds((left, bottom, width, height))\n\n.. ACCEPTS: (left, bottom, width, height)"
+    },
+    {
+      "name": "get_bbox",
+      "docstring": "Return the `.Bbox`."
+    },
+    {
+      "name": "get_path",
+      "docstring": null
+    },
+    {
+      "name": "get_patch_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_path",
+      "docstring": null
+    },
+    {
+      "name": "set_path",
+      "docstring": null
+    },
+    {
+      "name": "get_data",
+      "docstring": "Get `.StepPatch` values, edges and baseline as namedtuple."
+    },
+    {
+      "name": "set_data",
+      "docstring": "Set `.StepPatch` values, edges and baseline.\n\nParameters\n----------\nvalues : 1D array-like or None\n    Will not update values, if passing None\nedges : 1D array-like, optional\nbaseline : float, 1D array-like or None"
+    },
+    {
+      "name": "get_path",
+      "docstring": "Get the `.Path` of the polygon."
+    },
+    {
+      "name": "get_closed",
+      "docstring": "Return whether the polygon is closed."
+    },
+    {
+      "name": "set_closed",
+      "docstring": "Set whether the polygon is closed.\n\nParameters\n----------\nclosed : bool\n    True if the polygon is closed"
+    },
+    {
+      "name": "get_xy",
+      "docstring": "Get the vertices of the path.\n\nReturns\n-------\n(N, 2) array\n    The coordinates of the vertices."
+    },
+    {
+      "name": "set_xy",
+      "docstring": "Set the vertices of the polygon.\n\nParameters\n----------\nxy : (N, 2) array-like\n    The coordinates of the vertices.\n\nNotes\n-----\nUnlike `.Path`, we do not ignore the last input vertex. If the\npolygon is meant to be closed, and the last point of the polygon is not\nequal to the first, we assume that the user has not explicitly passed a\n``CLOSEPOLY`` vertex, and add it ourselves."
+    },
+    {
+      "name": "set_center",
+      "docstring": null
+    },
+    {
+      "name": "set_radius",
+      "docstring": null
+    },
+    {
+      "name": "set_theta1",
+      "docstring": null
+    },
+    {
+      "name": "set_theta2",
+      "docstring": null
+    },
+    {
+      "name": "set_width",
+      "docstring": null
+    },
+    {
+      "name": "get_path",
+      "docstring": null
+    },
+    {
+      "name": "get_path",
+      "docstring": null
+    },
+    {
+      "name": "get_patch_transform",
+      "docstring": null
+    },
+    {
+      "name": "set_data",
+      "docstring": "Set `.Arrow` x, y, dx, dy and width.\nValues left as None will not be updated.\n\nParameters\n----------\nx, y : float or None, default: None\n    The x and y coordinates of the arrow base.\n\ndx, dy : float or None, default: None\n    The length of the arrow along x and y direction.\n\nwidth : float or None, default: None\n    Width of full arrow tail."
+    },
+    {
+      "name": "set_data",
+      "docstring": "Set `.FancyArrow` x, y, dx, dy, width, head_with, and head_length.\nValues left as None will not be updated.\n\nParameters\n----------\nx, y : float or None, default: None\n    The x and y coordinates of the arrow base.\n\ndx, dy : float or None, default: None\n    The length of the arrow along x and y direction.\n\nwidth : float or None, default: None\n    Width of full arrow tail.\n\nhead_width : float or None, default: None\n    Total width of the full arrow head.\n\nhead_length : float or None, default: None\n    Length of arrow head."
+    },
+    {
+      "name": "get_path",
+      "docstring": "Return the path of the ellipse."
+    },
+    {
+      "name": "get_patch_transform",
+      "docstring": null
+    },
+    {
+      "name": "set_center",
+      "docstring": "Set the center of the ellipse.\n\nParameters\n----------\nxy : (float, float)"
+    },
+    {
+      "name": "get_center",
+      "docstring": "Return the center of the ellipse."
+    },
+    {
+      "name": "set_width",
+      "docstring": "Set the width of the ellipse.\n\nParameters\n----------\nwidth : float"
+    },
+    {
+      "name": "get_width",
+      "docstring": "Return the width of the ellipse."
+    },
+    {
+      "name": "set_height",
+      "docstring": "Set the height of the ellipse.\n\nParameters\n----------\nheight : float"
+    },
+    {
+      "name": "get_height",
+      "docstring": "Return the height of the ellipse."
+    },
+    {
+      "name": "set_angle",
+      "docstring": "Set the angle of the ellipse.\n\nParameters\n----------\nangle : float"
+    },
+    {
+      "name": "get_angle",
+      "docstring": "Return the angle of the ellipse."
+    },
+    {
+      "name": "get_corners",
+      "docstring": "Return the corners of the ellipse bounding box.\n\nThe bounding box orientation is moving anti-clockwise from the\nlower left corner defined before rotation."
+    },
+    {
+      "name": "get_vertices",
+      "docstring": "Return the vertices coordinates of the ellipse.\n\nThe definition can be found `here <https://en.wikipedia.org/wiki/Ellipse>`_\n\n.. versionadded:: 3.8"
+    },
+    {
+      "name": "get_co_vertices",
+      "docstring": "Return the co-vertices coordinates of the ellipse.\n\nThe definition can be found `here <https://en.wikipedia.org/wiki/Ellipse>`_\n\n.. versionadded:: 3.8"
+    },
+    {
+      "name": "set_center",
+      "docstring": "Set the center of the annulus.\n\nParameters\n----------\nxy : (float, float)"
+    },
+    {
+      "name": "get_center",
+      "docstring": "Return the center of the annulus."
+    },
+    {
+      "name": "set_width",
+      "docstring": "Set the width (thickness) of the annulus ring.\n\nThe width is measured inwards from the outer ellipse.\n\nParameters\n----------\nwidth : float"
+    },
+    {
+      "name": "get_width",
+      "docstring": "Return the width (thickness) of the annulus ring."
+    },
+    {
+      "name": "set_angle",
+      "docstring": "Set the tilt angle of the annulus.\n\nParameters\n----------\nangle : float"
+    },
+    {
+      "name": "get_angle",
+      "docstring": "Return the angle of the annulus."
+    },
+    {
+      "name": "set_semimajor",
+      "docstring": "Set the semi-major axis *a* of the annulus.\n\nParameters\n----------\na : float"
+    },
+    {
+      "name": "set_semiminor",
+      "docstring": "Set the semi-minor axis *b* of the annulus.\n\nParameters\n----------\nb : float"
+    },
+    {
+      "name": "set_radii",
+      "docstring": "Set the semi-major (*a*) and semi-minor radii (*b*) of the annulus.\n\nParameters\n----------\nr : float or (float, float)\n    The radius, or semi-axes:\n\n    - If float: radius of the outer circle.\n    - If two floats: semi-major and -minor axes of outer ellipse."
+    },
+    {
+      "name": "get_radii",
+      "docstring": "Return the semi-major and semi-minor radii of the annulus."
+    },
+    {
+      "name": "get_path",
+      "docstring": null
+    },
+    {
+      "name": "set_radius",
+      "docstring": "Set the radius of the circle.\n\nParameters\n----------\nradius : float"
+    },
+    {
+      "name": "get_radius",
+      "docstring": "Return the radius of the circle."
+    },
+    {
+      "name": "draw",
+      "docstring": "Draw the arc to the given *renderer*.\n\nNotes\n-----\nEllipses are normally drawn using an approximation that uses\neight cubic Bezier splines.  The error of this approximation\nis 1.89818e-6, according to this unverified source:\n\n  Lancaster, Don.  *Approximating a Circle or an Ellipse Using\n  Four Bezier Cubic Splines.*\n\n  https://www.tinaja.com/glib/ellipse4.pdf\n\nThere is a use case where very large ellipses must be drawn\nwith very high accuracy, and it is too expensive to render the\nentire ellipse with enough segments (either splines or line\nsegments).  Therefore, in the case where either radius of the\nellipse is large enough that the error of the spline\napproximation will be visible (greater than one pixel offset\nfrom the ideal), a different technique is used.\n\nIn that case, only the visible parts of the ellipse are drawn,\nwith each visible arc using a fixed number of spline segments\n(8).  The algorithm proceeds as follows:\n\n1. The points where the ellipse intersects the axes (or figure)\n   bounding box are located.  (This is done by performing an inverse\n   transformation on the bbox such that it is relative to the unit\n   circle -- this makes the intersection calculation much easier than\n   doing rotated ellipse intersection directly.)\n\n   This uses the \"line intersecting a circle\" algorithm from:\n\n       Vince, John.  *Geometry for Computer Graphics: Formulae,\n       Examples & Proofs.*  London: Springer-Verlag, 2005.\n\n2. The angles of each of the intersection points are calculated.\n\n3. Proceeding counterclockwise starting in the positive\n   x-direction, each of the visible arc-segments between the\n   pairs of vertices are drawn using the Bezier arc\n   approximation technique implemented in `.Path.arc`."
+    },
+    {
+      "name": "get_styles",
+      "docstring": "Return a dictionary of available styles."
+    },
+    {
+      "name": "pprint_styles",
+      "docstring": "Return the available styles as pretty-printed string."
+    },
+    {
+      "name": "register",
+      "docstring": "Register a new style."
+    },
+    {
+      "name": "set_boxstyle",
+      "docstring": "Set the box style, possibly with further attributes.\n\nAttributes from the previous box style are not reused.\n\nWithout argument (or with ``boxstyle=None``), the available box styles\nare returned as a human-readable string.\n\nParameters\n----------\nboxstyle : str or `~matplotlib.patches.BoxStyle`\n    The style of the box: either a `.BoxStyle` instance, or a string,\n    which is the style name and optionally comma separated attributes\n    (e.g. \"Round,pad=0.2\"). Such a string is used to construct a\n    `.BoxStyle` object, as documented in that class.\n\n    The following box styles are available:\n\n    %(BoxStyle:table_and_accepts)s\n\n**kwargs\n    Additional attributes for the box style. See the table above for\n    supported parameters.\n\nExamples\n--------\n::\n\n    set_boxstyle(\"Round,pad=0.2\")\n    set_boxstyle(\"round\", pad=0.2)"
+    },
+    {
+      "name": "get_boxstyle",
+      "docstring": "Return the boxstyle object."
+    },
+    {
+      "name": "set_mutation_scale",
+      "docstring": "Set the mutation scale.\n\nParameters\n----------\nscale : float"
+    },
+    {
+      "name": "get_mutation_scale",
+      "docstring": "Return the mutation scale."
+    },
+    {
+      "name": "set_mutation_aspect",
+      "docstring": "Set the aspect ratio of the bbox mutation.\n\nParameters\n----------\naspect : float"
+    },
+    {
+      "name": "get_mutation_aspect",
+      "docstring": "Return the aspect ratio of the bbox mutation."
+    },
+    {
+      "name": "get_path",
+      "docstring": "Return the mutated path of the rectangle."
+    },
+    {
+      "name": "get_x",
+      "docstring": "Return the left coord of the rectangle."
+    },
+    {
+      "name": "get_y",
+      "docstring": "Return the bottom coord of the rectangle."
+    },
+    {
+      "name": "get_width",
+      "docstring": "Return the width of the rectangle."
+    },
+    {
+      "name": "get_height",
+      "docstring": "Return the height of the rectangle."
+    },
+    {
+      "name": "set_x",
+      "docstring": "Set the left coord of the rectangle.\n\nParameters\n----------\nx : float"
+    },
+    {
+      "name": "set_y",
+      "docstring": "Set the bottom coord of the rectangle.\n\nParameters\n----------\ny : float"
+    },
+    {
+      "name": "set_width",
+      "docstring": "Set the rectangle width.\n\nParameters\n----------\nw : float"
+    },
+    {
+      "name": "set_height",
+      "docstring": "Set the rectangle height.\n\nParameters\n----------\nh : float"
+    },
+    {
+      "name": "set_bounds",
+      "docstring": "Set the bounds of the rectangle.\n\nCall signatures::\n\n    set_bounds(left, bottom, width, height)\n    set_bounds((left, bottom, width, height))\n\nParameters\n----------\nleft, bottom : float\n    The coordinates of the bottom left corner of the rectangle.\nwidth, height : float\n    The width/height of the rectangle."
+    },
+    {
+      "name": "get_bbox",
+      "docstring": "Return the `.Bbox`."
+    },
+    {
+      "name": "set_positions",
+      "docstring": "Set the start and end positions of the connecting path.\n\nParameters\n----------\nposA, posB : None, tuple\n    (x, y) coordinates of arrow tail and arrow head respectively. If\n    `None` use current value."
+    },
+    {
+      "name": "set_patchA",
+      "docstring": "Set the tail patch.\n\nParameters\n----------\npatchA : `.patches.Patch`"
+    },
+    {
+      "name": "set_patchB",
+      "docstring": "Set the head patch.\n\nParameters\n----------\npatchB : `.patches.Patch`"
+    },
+    {
+      "name": "set_connectionstyle",
+      "docstring": "Set the connection style, possibly with further attributes.\n\nAttributes from the previous connection style are not reused.\n\nWithout argument (or with ``connectionstyle=None``), the available box\nstyles are returned as a human-readable string.\n\nParameters\n----------\nconnectionstyle : str or `~matplotlib.patches.ConnectionStyle`\n    The style of the connection: either a `.ConnectionStyle` instance,\n    or a string, which is the style name and optionally comma separated\n    attributes (e.g. \"Arc,armA=30,rad=10\"). Such a string is used to\n    construct a `.ConnectionStyle` object, as documented in that class.\n\n    The following connection styles are available:\n\n    %(ConnectionStyle:table_and_accepts)s\n\n**kwargs\n    Additional attributes for the connection style. See the table above\n    for supported parameters.\n\nExamples\n--------\n::\n\n    set_connectionstyle(\"Arc,armA=30,rad=10\")\n    set_connectionstyle(\"arc\", armA=30, rad=10)"
+    },
+    {
+      "name": "get_connectionstyle",
+      "docstring": "Return the `ConnectionStyle` used."
+    },
+    {
+      "name": "set_arrowstyle",
+      "docstring": "Set the arrow style, possibly with further attributes.\n\nAttributes from the previous arrow style are not reused.\n\nWithout argument (or with ``arrowstyle=None``), the available box\nstyles are returned as a human-readable string.\n\nParameters\n----------\narrowstyle : str or `~matplotlib.patches.ArrowStyle`\n    The style of the arrow: either a `.ArrowStyle` instance, or a\n    string, which is the style name and optionally comma separated\n    attributes (e.g. \"Fancy,head_length=0.2\"). Such a string is used to\n    construct a `.ArrowStyle` object, as documented in that class.\n\n    The following arrow styles are available:\n\n    %(ArrowStyle:table_and_accepts)s\n\n**kwargs\n    Additional attributes for the arrow style. See the table above for\n    supported parameters.\n\nExamples\n--------\n::\n\n    set_arrowstyle(\"Fancy,head_length=0.2\")\n    set_arrowstyle(\"fancy\", head_length=0.2)"
+    },
+    {
+      "name": "get_arrowstyle",
+      "docstring": "Return the arrowstyle object."
+    },
+    {
+      "name": "set_mutation_scale",
+      "docstring": "Set the mutation scale.\n\nParameters\n----------\nscale : float"
+    },
+    {
+      "name": "get_mutation_scale",
+      "docstring": "Return the mutation scale.\n\nReturns\n-------\nscalar"
+    },
+    {
+      "name": "set_mutation_aspect",
+      "docstring": "Set the aspect ratio of the bbox mutation.\n\nParameters\n----------\naspect : float"
+    },
+    {
+      "name": "get_mutation_aspect",
+      "docstring": "Return the aspect ratio of the bbox mutation."
+    },
+    {
+      "name": "get_path",
+      "docstring": "Return the path of the arrow in the data coordinates."
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "set_annotation_clip",
+      "docstring": "Set the annotation's clipping behavior.\n\nParameters\n----------\nb : bool or None\n    - True: The annotation will be clipped when ``self.xy`` is\n      outside the Axes.\n    - False: The annotation will always be drawn.\n    - None: The annotation will be clipped when ``self.xy`` is\n      outside the Axes and ``self.xycoords == \"data\"``."
+    },
+    {
+      "name": "get_annotation_clip",
+      "docstring": "Return the clipping behavior.\n\nSee `.set_annotation_clip` for the meaning of the return value."
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "line_circle_intersect",
+      "docstring": null
+    },
+    {
+      "name": "segment_circle_intersect",
+      "docstring": null
+    },
+    {
+      "name": "theta_stretch",
+      "docstring": null
+    },
+    {
+      "name": "connect",
+      "docstring": null
+    },
+    {
+      "name": "connect",
+      "docstring": null
+    },
+    {
+      "name": "connect",
+      "docstring": null
+    },
+    {
+      "name": "connect",
+      "docstring": null
+    },
+    {
+      "name": "connect",
+      "docstring": null
+    },
+    {
+      "name": "ensure_quadratic_bezier",
+      "docstring": "Some ArrowStyle classes only works with a simple quadratic\nB\u00e9zier curve (created with `.ConnectionStyle.Arc3` or\n`.ConnectionStyle.Angle3`). This static method checks if the\nprovided path is a simple quadratic B\u00e9zier curve and returns its\ncontrol points if true."
+    },
+    {
+      "name": "transmute",
+      "docstring": "The transmute method is the very core of the ArrowStyle class and\nmust be overridden in the subclasses. It receives the *path*\nobject along which the arrow will be drawn, and the\n*mutation_size*, with which the arrow head etc. will be scaled.\nThe *linewidth* may be used to adjust the path so that it does not\npass beyond the given points. It returns a tuple of a `.Path`\ninstance and a boolean. The boolean value indicate whether the\npath can be filled or not. The return value can also be a list of\npaths and list of booleans of the same length."
+    },
+    {
+      "name": "transmute",
+      "docstring": null
+    },
+    {
+      "name": "transmute",
+      "docstring": null
+    },
+    {
+      "name": "transmute",
+      "docstring": null
+    },
+    {
+      "name": "transmute",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    \"\"\"\n    An elliptical arc, i.e. a segment of an ellipse.\n\n    Due to internal optimizations, the arc cannot be filled.\n    \"\"\"\n\n    def __str__(self):"
+    }
+  ]
+}

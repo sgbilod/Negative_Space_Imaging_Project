@@ -1,0 +1,47 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\utils\\unpacking.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "current_umask",
+      "docstring": "Get the current umask which involves having to set it temporarily."
+    },
+    {
+      "name": "split_leading_dir",
+      "docstring": null
+    },
+    {
+      "name": "has_leading_dir",
+      "docstring": "Returns true if all the paths have the same leading path name\n(i.e., everything is in one subdirectory in an archive)"
+    },
+    {
+      "name": "is_within_directory",
+      "docstring": "Return true if the absolute path of target is within the directory"
+    },
+    {
+      "name": "set_extracted_file_to_default_mode_plus_executable",
+      "docstring": "Make file present at path have execute for user/group/world\n(chmod +x) is no-op on windows per python docs"
+    },
+    {
+      "name": "zip_item_is_executable",
+      "docstring": null
+    },
+    {
+      "name": "unzip_file",
+      "docstring": "Unzip the file (with path `filename`) to the destination `location`.  All\nfiles are written based on system defaults and umask (i.e. permissions are\nnot preserved), except that regular file members with any execute\npermissions (user, group, or world) have \"chmod +x\" applied after being\nwritten. Note that for windows, any execute changes using os.chmod are\nno-ops per the python docs."
+    },
+    {
+      "name": "untar_file",
+      "docstring": "Untar the file (with path `filename`) to the destination `location`.\nAll files are written based on system defaults and umask (i.e. permissions\nare not preserved), except that regular file members with any execute\npermissions (user, group, or world) have \"chmod +x\" applied on top of the\ndefault.  Note that for windows, any execute changes using os.chmod are\nno-ops per the python docs."
+    },
+    {
+      "name": "unpack_file",
+      "docstring": null
+    },
+    {
+      "name": "pip_filter",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

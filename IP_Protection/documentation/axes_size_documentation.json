@@ -1,0 +1,198 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\mpl_toolkits\\axes_grid1\\axes_size.py",
+  "classes": [
+    {
+      "name": "_Base",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "get_size",
+          "docstring": "Return two-float tuple with relative and absolute sizes."
+        }
+      ]
+    },
+    {
+      "name": "Add",
+      "docstring": "Sum of two sizes.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_size",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Fixed",
+      "docstring": "Simple fixed size with absolute part = *fixed_size* and relative part = 0.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_size",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Scaled",
+      "docstring": "Simple scaled(?) size with absolute part = 0 and\nrelative part = *scalable_size*.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_size",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AxesX",
+      "docstring": "Scaled size whose relative part corresponds to the data width\nof the *axes* multiplied by the *aspect*.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_size",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AxesY",
+      "docstring": "Scaled size whose relative part corresponds to the data height\nof the *axes* multiplied by the *aspect*.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_size",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MaxExtent",
+      "docstring": "Size whose absolute part is either the largest width or the largest height\nof the given *artist_list*.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "add_artist",
+          "docstring": null
+        },
+        {
+          "name": "get_size",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MaxWidth",
+      "docstring": "Size whose absolute part is the largest width of the given *artist_list*.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MaxHeight",
+      "docstring": "Size whose absolute part is the largest height of the given *artist_list*.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Fraction",
+      "docstring": "An instance whose size is a *fraction* of the *ref_size*.\n\n>>> s = Fraction(0.3, AxesX(ax))",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_size",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_AxesDecorationsSize",
+      "docstring": "Fixed size, corresponding to the size of decorations on a given Axes side.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_size",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "from_any",
+      "docstring": "Create a Fixed unit when the first argument is a float, or a\nFraction unit if that is a string that ends with %. The second\nargument is only meaningful when Fraction unit is created.\n\n>>> from mpl_toolkits.axes_grid1.axes_size import from_any\n>>> a = from_any(1.2) # => Fixed(1.2)\n>>> from_any(\"50%\", a) # => Fraction(0.5, a)"
+    },
+    {
+      "name": "get_size",
+      "docstring": "Return two-float tuple with relative and absolute sizes."
+    },
+    {
+      "name": "get_size",
+      "docstring": null
+    },
+    {
+      "name": "get_size",
+      "docstring": null
+    },
+    {
+      "name": "get_size",
+      "docstring": null
+    },
+    {
+      "name": "get_size",
+      "docstring": null
+    },
+    {
+      "name": "get_size",
+      "docstring": null
+    },
+    {
+      "name": "add_artist",
+      "docstring": null
+    },
+    {
+      "name": "get_size",
+      "docstring": null
+    },
+    {
+      "name": "get_size",
+      "docstring": null
+    },
+    {
+      "name": "get_size",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

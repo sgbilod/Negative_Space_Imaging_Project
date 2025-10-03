@@ -1,0 +1,118 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\blockchain\\blockchain_integration.py",
+  "classes": [
+    {
+      "name": "NegativeSpaceHasher",
+      "docstring": "Creates unique cryptographic hashes from negative space signatures",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the hasher\n\nArgs:\n    hash_algorithm: The hashing algorithm to use"
+        },
+        {
+          "name": "hash_signature",
+          "docstring": "Create a hash from a spatial signature\n\nArgs:\n    signature: The spatial signature to hash\n    \nReturns:\n    str: The hexadecimal hash string"
+        },
+        {
+          "name": "hash_point_cloud",
+          "docstring": "Create a hash from a point cloud\n\nArgs:\n    point_cloud: The point cloud to hash\n    \nReturns:\n    str: The hexadecimal hash string"
+        },
+        {
+          "name": "create_merkle_tree",
+          "docstring": "Create a Merkle tree from multiple signatures\n\nArgs:\n    signatures: List of signatures to include in the tree\n    \nReturns:\n    Dict: Merkle tree structure"
+        }
+      ]
+    },
+    {
+      "name": "BlockchainConnector",
+      "docstring": "Connects to blockchain networks for storing and retrieving negative space hashes",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the blockchain connector\n\nArgs:\n    blockchain_type: Type of blockchain to connect to\n                    ('simulated', 'ethereum', 'hyperledger', etc.)"
+        },
+        {
+          "name": "store_hash",
+          "docstring": "Store a hash on the blockchain\n\nArgs:\n    hash_value: The hash to store\n    metadata: Additional metadata to store with the hash\n    \nReturns:\n    str: Transaction ID or reference"
+        },
+        {
+          "name": "verify_hash",
+          "docstring": "Verify if a hash exists on the blockchain\n\nArgs:\n    hash_value: The hash to verify\n    \nReturns:\n    Dict: Verification result with metadata"
+        },
+        {
+          "name": "get_transaction_history",
+          "docstring": "Get the transaction history\n\nReturns:\n    List[Dict]: List of transactions"
+        }
+      ]
+    },
+    {
+      "name": "SignatureVerifier",
+      "docstring": "Verifies the authenticity of negative space signatures",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the verifier\n\nArgs:\n    hasher: The hasher to use for signature hashing\n    blockchain: The blockchain connector to use for verification"
+        },
+        {
+          "name": "register_signature",
+          "docstring": "Register a signature on the blockchain\n\nArgs:\n    signature: The spatial signature to register\n    metadata: Additional metadata to store\n    \nReturns:\n    str: Transaction ID or reference"
+        },
+        {
+          "name": "verify_signature",
+          "docstring": "Verify if a signature has been registered\n\nArgs:\n    signature: The spatial signature to verify\n    threshold: Similarity threshold for fuzzy matching\n    \nReturns:\n    Dict: Verification result with metadata"
+        },
+        {
+          "name": "create_authentication_token",
+          "docstring": "Create an authentication token based on a negative space signature\n\nArgs:\n    signature: The spatial signature to use\n    expiration_seconds: Token validity period in seconds\n    \nReturns:\n    Dict: Authentication token"
+        },
+        {
+          "name": "verify_authentication_token",
+          "docstring": "Verify an authentication token against a signature\n\nArgs:\n    token: The authentication token\n    signature: The spatial signature to verify\n    \nReturns:\n    bool: True if token is valid and matches the signature"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "hash_signature",
+      "docstring": "Create a hash from a spatial signature\n\nArgs:\n    signature: The spatial signature to hash\n    \nReturns:\n    str: The hexadecimal hash string"
+    },
+    {
+      "name": "hash_point_cloud",
+      "docstring": "Create a hash from a point cloud\n\nArgs:\n    point_cloud: The point cloud to hash\n    \nReturns:\n    str: The hexadecimal hash string"
+    },
+    {
+      "name": "create_merkle_tree",
+      "docstring": "Create a Merkle tree from multiple signatures\n\nArgs:\n    signatures: List of signatures to include in the tree\n    \nReturns:\n    Dict: Merkle tree structure"
+    },
+    {
+      "name": "store_hash",
+      "docstring": "Store a hash on the blockchain\n\nArgs:\n    hash_value: The hash to store\n    metadata: Additional metadata to store with the hash\n    \nReturns:\n    str: Transaction ID or reference"
+    },
+    {
+      "name": "verify_hash",
+      "docstring": "Verify if a hash exists on the blockchain\n\nArgs:\n    hash_value: The hash to verify\n    \nReturns:\n    Dict: Verification result with metadata"
+    },
+    {
+      "name": "get_transaction_history",
+      "docstring": "Get the transaction history\n\nReturns:\n    List[Dict]: List of transactions"
+    },
+    {
+      "name": "register_signature",
+      "docstring": "Register a signature on the blockchain\n\nArgs:\n    signature: The spatial signature to register\n    metadata: Additional metadata to store\n    \nReturns:\n    str: Transaction ID or reference"
+    },
+    {
+      "name": "verify_signature",
+      "docstring": "Verify if a signature has been registered\n\nArgs:\n    signature: The spatial signature to verify\n    threshold: Similarity threshold for fuzzy matching\n    \nReturns:\n    Dict: Verification result with metadata"
+    },
+    {
+      "name": "create_authentication_token",
+      "docstring": "Create an authentication token based on a negative space signature\n\nArgs:\n    signature: The spatial signature to use\n    expiration_seconds: Token validity period in seconds\n    \nReturns:\n    Dict: Authentication token"
+    },
+    {
+      "name": "verify_authentication_token",
+      "docstring": "Verify an authentication token against a signature\n\nArgs:\n    token: The authentication token\n    signature: The spatial signature to verify\n    \nReturns:\n    bool: True if token is valid and matches the signature"
+    }
+  ],
+  "innovations": []
+}

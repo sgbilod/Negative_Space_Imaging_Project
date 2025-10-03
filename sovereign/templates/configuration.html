@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>System Configuration - Sovereign Control System</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}" />
+  </head>
+  <body class="quantum-dark">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 sidebar">
+          <div class="sidebar-header">
+            <h3>Sovereign Control</h3>
+          </div>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/directives">Directives</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/optimization">Optimization</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/configuration">Configuration</a>
+            </li>
+          </ul>
+        </div>
+
+        <main role="main" class="col-md-10 ml-sm-auto px-4">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+          >
+            <h1 class="h2">System Configuration</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <button
+                type="button"
+                class="btn btn-sm btn-outline-secondary"
+                onclick="window.location.href='/'"
+              >
+                Return to Dashboard
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card quantum-card">
+                <div class="card-header">
+                  <h5>System Configuration</h5>
+                </div>
+                <div class="card-body">
+                  <form id="systemConfigForm" action="/configure/system" method="post">
+                    <div class="form-group">
+                      <label for="systemName">System Name:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="systemName"
+                        name="system_name"
+                        value="{{ config.system.name if config else 'Sovereign Control System' }}"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="systemMode">System Mode:</label>
+                      <select class="form-control" id="systemMode" name="system_mode">
+                        <option
+                          value="standard"
+                          {%
+                          if
+                          not
+                          config
+                          or
+                          config.system.mode=""
+                          ="standard"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Standard
+                        </option>
+                        <option
+                          value="high_performance"
+                          {%
+                          if
+                          config
+                          and
+                          config.system.mode=""
+                          ="high_performance"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          High Performance
+                        </option>
+                        <option
+                          value="secure"
+                          {%
+                          if
+                          config
+                          and
+                          config.system.mode=""
+                          ="secure"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Secure
+                        </option>
+                        <option
+                          value="development"
+                          {%
+                          if
+                          config
+                          and
+                          config.system.mode=""
+                          ="development"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Development
+                        </option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="logLevel">Log Level:</label>
+                      <select class="form-control" id="logLevel" name="log_level">
+                        <option
+                          value="debug"
+                          {%
+                          if
+                          config
+                          and
+                          config.system.log_level=""
+                          ="debug"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Debug
+                        </option>
+                        <option
+                          value="info"
+                          {%
+                          if
+                          not
+                          config
+                          or
+                          config.system.log_level=""
+                          ="info"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Info
+                        </option>
+                        <option
+                          value="warning"
+                          {%
+                          if
+                          config
+                          and
+                          config.system.log_level=""
+                          ="warning"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Warning
+                        </option>
+                        <option
+                          value="error"
+                          {%
+                          if
+                          config
+                          and
+                          config.system.log_level=""
+                          ="error"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Error
+                        </option>
+                      </select>
+                    </div>
+
+                    <div class="form-group form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="telemetryEnabled"
+                        name="telemetry_enabled"
+                        {%
+                        if
+                        not
+                        config
+                        or
+                        config.system.telemetry_enabled
+                        %}checked{%
+                        endif
+                        %}
+                      />
+                      <label class="form-check-label" for="telemetryEnabled"
+                        >Enable Telemetry</label
+                      >
+                    </div>
+
+                    <div class="form-group form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="autoUpdateEnabled"
+                        name="auto_update_enabled"
+                        {%
+                        if
+                        not
+                        config
+                        or
+                        config.system.auto_update_enabled
+                        %}checked{%
+                        endif
+                        %}
+                      />
+                      <label class="form-check-label" for="autoUpdateEnabled"
+                        >Enable Auto Updates</label
+                      >
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save System Configuration</button>
+                  </form>
+                </div>
+              </div>
+
+              <div class="card quantum-card mt-4">
+                <div class="card-header">
+                  <h5>Data Management</h5>
+                </div>
+                <div class="card-body">
+                  <form id="dataConfigForm" action="/configure/data" method="post">
+                    <div class="form-group">
+                      <label for="dataStoragePath">Data Storage Path:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="dataStoragePath"
+                        name="data_storage_path"
+                        value="{{ config.data.storage_path if config else './data' }}"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="dataRetentionDays">Data Retention (days):</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="dataRetentionDays"
+                        name="data_retention_days"
+                        min="1"
+                        max="365"
+                        value="{{ config.data.retention_days if config else 30 }}"
+                      />
+                    </div>
+
+                    <div class="form-group form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="compressionEnabled"
+                        name="compression_enabled"
+                        {%
+                        if
+                        not
+                        config
+                        or
+                        config.data.compression_enabled
+                        %}checked{%
+                        endif
+                        %}
+                      />
+                      <label class="form-check-label" for="compressionEnabled"
+                        >Enable Data Compression</label
+                      >
+                    </div>
+
+                    <div class="form-group form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="encryptionEnabled"
+                        name="encryption_enabled"
+                        {%
+                        if
+                        not
+                        config
+                        or
+                        config.data.encryption_enabled
+                        %}checked{%
+                        endif
+                        %}
+                      />
+                      <label class="form-check-label" for="encryptionEnabled"
+                        >Enable Data Encryption</label
+                      >
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save Data Configuration</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card quantum-card">
+                <div class="card-header">
+                  <h5>Network Configuration</h5>
+                </div>
+                <div class="card-body">
+                  <form id="networkConfigForm" action="/configure/network" method="post">
+                    <div class="form-group">
+                      <label for="apiEndpoint">API Endpoint:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="apiEndpoint"
+                        name="api_endpoint"
+                        value="{{ config.network.api_endpoint if config else 'http://localhost:5000/api' }}"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="apiPort">API Port:</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="apiPort"
+                        name="api_port"
+                        min="1"
+                        max="65535"
+                        value="{{ config.network.api_port if config else 5000 }}"
+                      />
+                    </div>
+
+                    <div class="form-group form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="sslEnabled"
+                        name="ssl_enabled"
+                        {%
+                        if
+                        config
+                        and
+                        config.network.ssl_enabled
+                        %}checked{%
+                        endif
+                        %}
+                      />
+                      <label class="form-check-label" for="sslEnabled">Enable SSL</label>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="maxConnections">Max Connections:</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="maxConnections"
+                        name="max_connections"
+                        min="1"
+                        max="1000"
+                        value="{{ config.network.max_connections if config else 100 }}"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="requestTimeout">Request Timeout (seconds):</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="requestTimeout"
+                        name="request_timeout"
+                        min="1"
+                        max="300"
+                        value="{{ config.network.request_timeout if config else 30 }}"
+                      />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                      Save Network Configuration
+                    </button>
+                  </form>
+                </div>
+              </div>
+
+              <div class="card quantum-card mt-4">
+                <div class="card-header">
+                  <h5>Quantum Framework Configuration</h5>
+                </div>
+                <div class="card-body">
+                  <form id="quantumConfigForm" action="/configure/quantum" method="post">
+                    <div class="form-group">
+                      <label for="dimensionCount">Dimension Count:</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="dimensionCount"
+                        name="dimension_count"
+                        min="3"
+                        max="11"
+                        value="{{ config.quantum.dimension_count if config else 5 }}"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="quantumMode">Quantum Mode:</label>
+                      <select class="form-control" id="quantumMode" name="quantum_mode">
+                        <option
+                          value="standard"
+                          {%
+                          if
+                          not
+                          config
+                          or
+                          config.quantum.mode=""
+                          ="standard"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Standard
+                        </option>
+                        <option
+                          value="enhanced"
+                          {%
+                          if
+                          config
+                          and
+                          config.quantum.mode=""
+                          ="enhanced"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Enhanced
+                        </option>
+                        <option
+                          value="experimental"
+                          {%
+                          if
+                          config
+                          and
+                          config.quantum.mode=""
+                          ="experimental"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Experimental
+                        </option>
+                      </select>
+                    </div>
+
+                    <div class="form-group form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="sovereignControlEnabled"
+                        name="sovereign_control_enabled"
+                        {%
+                        if
+                        not
+                        config
+                        or
+                        config.quantum.sovereign_control_enabled
+                        %}checked{%
+                        endif
+                        %}
+                      />
+                      <label class="form-check-label" for="sovereignControlEnabled"
+                        >Enable Sovereign Control</label
+                      >
+                    </div>
+
+                    <div class="form-group">
+                      <label for="authorityLevel">Authority Level:</label>
+                      <select class="form-control" id="authorityLevel" name="authority_level">
+                        <option
+                          value="low"
+                          {%
+                          if
+                          config
+                          and
+                          config.quantum.authority_level=""
+                          ="low"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Low
+                        </option>
+                        <option
+                          value="medium"
+                          {%
+                          if
+                          not
+                          config
+                          or
+                          config.quantum.authority_level=""
+                          ="medium"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Medium
+                        </option>
+                        <option
+                          value="high"
+                          {%
+                          if
+                          config
+                          and
+                          config.quantum.authority_level=""
+                          ="high"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          High
+                        </option>
+                        <option
+                          value="absolute"
+                          {%
+                          if
+                          config
+                          and
+                          config.quantum.authority_level=""
+                          ="absolute"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Absolute
+                        </option>
+                      </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                      Save Quantum Configuration
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-md-12">
+              <div class="card quantum-card">
+                <div class="card-header">
+                  <h5>System Backup and Restore</h5>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <form id="backupForm" action="/backup" method="post">
+                        <div class="form-group">
+                          <label for="backupName">Backup Name:</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="backupName"
+                            name="backup_name"
+                            value="system_backup_{{ current_date if current_date else 'now' }}"
+                          />
+                        </div>
+
+                        <div class="form-group form-check">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="includeData"
+                            name="include_data"
+                            checked
+                          />
+                          <label class="form-check-label" for="includeData">Include Data</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Create Backup</button>
+                      </form>
+                    </div>
+
+                    <div class="col-md-6">
+                      <form id="restoreForm" action="/restore" method="post">
+                        <div class="form-group">
+                          <label for="backupSelect">Select Backup:</label>
+                          <select class="form-control" id="backupSelect" name="backup_file">
+                            {% if backups %} {% for backup in backups %}
+                            <option value="{{ backup.filename }}">
+                              {{ backup.name }} ({{ backup.date }})
+                            </option>
+                            {% endfor %} {% else %}
+                            <option value="">No backups available</option>
+                            {% endif %}
+                          </select>
+                        </div>
+
+                        <div class="form-group form-check">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="restoreData"
+                            name="restore_data"
+                            checked
+                          />
+                          <label class="form-check-label" for="restoreData">Restore Data</label>
+                        </div>
+
+                        <button
+                          type="submit"
+                          class="btn btn-warning"
+                          {%
+                          if
+                          not
+                          backups
+                          %}disabled{%
+                          endif
+                          %}
+                        >
+                          Restore System
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+  </body>
+</html>

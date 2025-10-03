@@ -1,0 +1,23 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\contourpy\\dechunk.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "dechunk_filled",
+      "docstring": "Return the specified filled contours with chunked data moved into the first chunk.\n\nFilled contours that are not chunked (``FillType.OuterCode`` and ``FillType.OuterOffset``) and\nthose that are but only contain a single chunk are returned unmodified. Individual polygons are\nunchanged, they are not geometrically combined.\n\nArgs:\n    filled (sequence of arrays): Filled contour data, such as returned by\n        :meth:`.ContourGenerator.filled`.\n    fill_type (FillType or str): Type of :meth:`~.ContourGenerator.filled` as enum or string\n        equivalent.\n\nReturn:\n    Filled contours in a single chunk.\n\n.. versionadded:: 1.2.0"
+    },
+    {
+      "name": "dechunk_lines",
+      "docstring": "Return the specified contour lines with chunked data moved into the first chunk.\n\nContour lines that are not chunked (``LineType.Separate`` and ``LineType.SeparateCode``) and\nthose that are but only contain a single chunk are returned unmodified. Individual lines are\nunchanged, they are not geometrically combined.\n\nArgs:\n    lines (sequence of arrays): Contour line data, such as returned by\n        :meth:`.ContourGenerator.lines`.\n    line_type (LineType or str): Type of :meth:`~.ContourGenerator.lines` as enum or string\n        equivalent.\n\nReturn:\n    Contour lines in a single chunk.\n\n.. versionadded:: 1.2.0"
+    },
+    {
+      "name": "dechunk_multi_filled",
+      "docstring": "Return multiple sets of filled contours with chunked data moved into the first chunks.\n\nFilled contours that are not chunked (``FillType.OuterCode`` and ``FillType.OuterOffset``) and\nthose that are but only contain a single chunk are returned unmodified. Individual polygons are\nunchanged, they are not geometrically combined.\n\nArgs:\n    multi_filled (nested sequence of arrays): Filled contour data, such as returned by\n        :meth:`.ContourGenerator.multi_filled`.\n    fill_type (FillType or str): Type of :meth:`~.ContourGenerator.filled` as enum or string\n        equivalent.\n\nReturn:\n    Multiple sets of filled contours in a single chunk.\n\n.. versionadded:: 1.3.0"
+    },
+    {
+      "name": "dechunk_multi_lines",
+      "docstring": "Return multiple sets of contour lines with all chunked data moved into the first chunks.\n\nContour lines that are not chunked (``LineType.Separate`` and ``LineType.SeparateCode``) and\nthose that are but only contain a single chunk are returned unmodified. Individual lines are\nunchanged, they are not geometrically combined.\n\nArgs:\n    multi_lines (nested sequence of arrays): Contour line data, such as returned by\n        :meth:`.ContourGenerator.multi_lines`.\n    line_type (LineType or str): Type of :meth:`~.ContourGenerator.lines` as enum or string\n        equivalent.\n\nReturn:\n    Multiple sets of contour lines in a single chunk.\n\n.. versionadded:: 1.3.0"
+    }
+  ],
+  "innovations": []
+}

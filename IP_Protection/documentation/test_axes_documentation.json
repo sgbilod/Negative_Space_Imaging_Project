@@ -1,0 +1,2632 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_axes.py",
+  "classes": [
+    {
+      "name": "TestScatter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_scatter_plot",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_marker",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_2D",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_decimal",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_color",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_color_warning",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_unfilled",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_unfillable",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_size_arg_size",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_edgecolor_RGB",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_invalid_color",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_no_invalid_color",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_norm_vminvmax",
+          "docstring": "Parameters vmin, vmax should error if norm is given."
+        },
+        {
+          "name": "test_scatter_single_point",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_different_shapes",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_c",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_single_color_c",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_linewidths",
+          "docstring": null
+        },
+        {
+          "name": "test_scatter_singular_plural_arguments",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_Translation",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "transform",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SubClaAxes",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ClearAxes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "clear",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ClearSuperAxes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "clear",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SubClearAxes",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Polar",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ClaAxes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "cla",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ClaSuperAxes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "cla",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_invisible_axes",
+      "docstring": null
+    },
+    {
+      "name": "test_get_labels",
+      "docstring": null
+    },
+    {
+      "name": "test_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_label_loc_vertical",
+      "docstring": null
+    },
+    {
+      "name": "test_label_loc_horizontal",
+      "docstring": null
+    },
+    {
+      "name": "test_label_loc_rc",
+      "docstring": null
+    },
+    {
+      "name": "test_label_shift",
+      "docstring": null
+    },
+    {
+      "name": "test_acorr",
+      "docstring": null
+    },
+    {
+      "name": "test_acorr_integers",
+      "docstring": null
+    },
+    {
+      "name": "test_spy",
+      "docstring": null
+    },
+    {
+      "name": "test_spy_invalid_kwargs",
+      "docstring": null
+    },
+    {
+      "name": "test_matshow",
+      "docstring": null
+    },
+    {
+      "name": "test_formatter_ticker",
+      "docstring": null
+    },
+    {
+      "name": "test_funcformatter_auto_formatter",
+      "docstring": null
+    },
+    {
+      "name": "test_strmethodformatter_auto_formatter",
+      "docstring": null
+    },
+    {
+      "name": "test_twin_axis_locators_formatters",
+      "docstring": null
+    },
+    {
+      "name": "test_twinx_cla",
+      "docstring": null
+    },
+    {
+      "name": "test_twin_units",
+      "docstring": null
+    },
+    {
+      "name": "test_twin_logscale",
+      "docstring": null
+    },
+    {
+      "name": "test_twinx_axis_scales",
+      "docstring": null
+    },
+    {
+      "name": "test_twin_inherit_autoscale_setting",
+      "docstring": null
+    },
+    {
+      "name": "test_inverted_cla",
+      "docstring": null
+    },
+    {
+      "name": "test_subclass_clear_cla",
+      "docstring": null
+    },
+    {
+      "name": "test_cla_not_redefined_internally",
+      "docstring": null
+    },
+    {
+      "name": "test_minorticks_on_rcParams_both",
+      "docstring": null
+    },
+    {
+      "name": "test_autoscale_tiny_range",
+      "docstring": null
+    },
+    {
+      "name": "test_autoscale_tight",
+      "docstring": null
+    },
+    {
+      "name": "test_autoscale_log_shared",
+      "docstring": null
+    },
+    {
+      "name": "test_use_sticky_edges",
+      "docstring": null
+    },
+    {
+      "name": "test_sticky_shared_axes",
+      "docstring": null
+    },
+    {
+      "name": "test_sticky_tolerance",
+      "docstring": null
+    },
+    {
+      "name": "test_sticky_tolerance_contourf",
+      "docstring": null
+    },
+    {
+      "name": "test_nargs_stem",
+      "docstring": null
+    },
+    {
+      "name": "test_nargs_legend",
+      "docstring": null
+    },
+    {
+      "name": "test_nargs_pcolorfast",
+      "docstring": null
+    },
+    {
+      "name": "test_basic_annotate",
+      "docstring": null
+    },
+    {
+      "name": "test_arrow_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_arrow_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_arrow_in_view",
+      "docstring": null
+    },
+    {
+      "name": "test_annotate_default_arrow",
+      "docstring": null
+    },
+    {
+      "name": "test_annotate_signature",
+      "docstring": "Check that the signature of Axes.annotate() matches Annotation."
+    },
+    {
+      "name": "test_fill_units",
+      "docstring": null
+    },
+    {
+      "name": "test_plot_format_kwarg_redundant",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar_dashes",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar_mapview_kwarg",
+      "docstring": null
+    },
+    {
+      "name": "test_single_point",
+      "docstring": null
+    },
+    {
+      "name": "test_single_date",
+      "docstring": null
+    },
+    {
+      "name": "test_shaped_data",
+      "docstring": null
+    },
+    {
+      "name": "test_structured_data",
+      "docstring": null
+    },
+    {
+      "name": "test_aitoff_proj",
+      "docstring": "Test aitoff projection ref.:\nhttps://github.com/matplotlib/matplotlib/pull/14451"
+    },
+    {
+      "name": "test_axvspan_epoch",
+      "docstring": null
+    },
+    {
+      "name": "test_axhspan_epoch",
+      "docstring": null
+    },
+    {
+      "name": "test_hexbin_extent",
+      "docstring": null
+    },
+    {
+      "name": "test_hexbin_bad_extents",
+      "docstring": null
+    },
+    {
+      "name": "test_hexbin_string_norm",
+      "docstring": null
+    },
+    {
+      "name": "test_hexbin_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_hexbin_pickable",
+      "docstring": null
+    },
+    {
+      "name": "test_hexbin_log",
+      "docstring": null
+    },
+    {
+      "name": "test_hexbin_log_offsets",
+      "docstring": null
+    },
+    {
+      "name": "test_hexbin_linear",
+      "docstring": null
+    },
+    {
+      "name": "test_hexbin_log_clim",
+      "docstring": null
+    },
+    {
+      "name": "test_hexbin_mincnt_behavior_upon_C_parameter",
+      "docstring": null
+    },
+    {
+      "name": "test_inverted_limits",
+      "docstring": null
+    },
+    {
+      "name": "test_nonfinite_limits",
+      "docstring": null
+    },
+    {
+      "name": "test_limits_empty_data",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_clip",
+      "docstring": null
+    },
+    {
+      "name": "test_imshow_norm_vminvmax",
+      "docstring": "Parameters vmin, vmax should error if norm is given."
+    },
+    {
+      "name": "test_polycollection_joinstyle",
+      "docstring": null
+    },
+    {
+      "name": "test_fill_between_input",
+      "docstring": null
+    },
+    {
+      "name": "test_fill_betweenx_input",
+      "docstring": null
+    },
+    {
+      "name": "test_fill_between_interpolate",
+      "docstring": null
+    },
+    {
+      "name": "test_fill_between_interpolate_decreasing",
+      "docstring": null
+    },
+    {
+      "name": "test_fill_between_interpolate_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_symlog",
+      "docstring": null
+    },
+    {
+      "name": "test_symlog2",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolorargs_5205",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolormesh",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolormesh_small",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolormesh_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolormesh_rgba",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolormesh_nearest_noargs",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolormesh_datetime_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolor_datetime_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolorargs",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolormesh_underflow_error",
+      "docstring": "Test that underflow errors don't crop up in pcolormesh.  Probably\na numpy bug (https://github.com/numpy/numpy/issues/25810)."
+    },
+    {
+      "name": "test_pcolorargs_with_read_only",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolornearest",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolornearestunits",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolorflaterror",
+      "docstring": null
+    },
+    {
+      "name": "test_samesizepcolorflaterror",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolorauto",
+      "docstring": null
+    },
+    {
+      "name": "test_canonical",
+      "docstring": null
+    },
+    {
+      "name": "test_arc_angles",
+      "docstring": null
+    },
+    {
+      "name": "test_arc_ellipse",
+      "docstring": null
+    },
+    {
+      "name": "test_marker_as_markerstyle",
+      "docstring": null
+    },
+    {
+      "name": "test_markevery",
+      "docstring": null
+    },
+    {
+      "name": "test_markevery_line",
+      "docstring": null
+    },
+    {
+      "name": "test_markevery_linear_scales",
+      "docstring": null
+    },
+    {
+      "name": "test_markevery_linear_scales_zoomed",
+      "docstring": null
+    },
+    {
+      "name": "test_markevery_log_scales",
+      "docstring": null
+    },
+    {
+      "name": "test_markevery_polar",
+      "docstring": null
+    },
+    {
+      "name": "test_markevery_linear_scales_nans",
+      "docstring": null
+    },
+    {
+      "name": "test_marker_edges",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_tick_label_single",
+      "docstring": null
+    },
+    {
+      "name": "test_nan_bar_values",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_ticklabel_fail",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_tick_label_multiple",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_tick_label_multiple_old_alignment",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_decimal_center",
+      "docstring": null
+    },
+    {
+      "name": "test_barh_decimal_center",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_decimal_width",
+      "docstring": null
+    },
+    {
+      "name": "test_barh_decimal_height",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_color_none_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_edgecolor_none_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_barh_tick_label",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_timedelta",
+      "docstring": "Smoketest that bar can handle width and height in delta units."
+    },
+    {
+      "name": "test_bar_datetime_start",
+      "docstring": "test that tickers are correct for datetimes"
+    },
+    {
+      "name": "test_boxplot_dates_pandas",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_capwidths",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolor_regression",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_pandas",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_pandas_indexed",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_hatches",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_labels",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_labels_length",
+      "docstring": null
+    },
+    {
+      "name": "test_pandas_minimal_plot",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_log",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_log_2",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_log_barstacked",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_bar_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_float16",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_step_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_step_filled",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_density",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_unequal_bins_density",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_datetime_datasets",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_datetime_datasets_bins",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_with_empty_input",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_zorder",
+      "docstring": null
+    },
+    {
+      "name": "test_stairs_no_baseline_fill_warns",
+      "docstring": null
+    },
+    {
+      "name": "test_stairs",
+      "docstring": null
+    },
+    {
+      "name": "test_stairs_fill",
+      "docstring": null
+    },
+    {
+      "name": "test_stairs_update",
+      "docstring": null
+    },
+    {
+      "name": "test_stairs_baseline_None",
+      "docstring": null
+    },
+    {
+      "name": "test_stairs_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_stairs_invalid_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_stairs_invalid_mismatch",
+      "docstring": null
+    },
+    {
+      "name": "test_stairs_invalid_update",
+      "docstring": null
+    },
+    {
+      "name": "test_stairs_invalid_update2",
+      "docstring": null
+    },
+    {
+      "name": "test_stairs_options",
+      "docstring": null
+    },
+    {
+      "name": "test_stairs_datetime",
+      "docstring": null
+    },
+    {
+      "name": "test_stairs_edge_handling",
+      "docstring": null
+    },
+    {
+      "name": "contour_dat",
+      "docstring": null
+    },
+    {
+      "name": "test_contour_hatching",
+      "docstring": null
+    },
+    {
+      "name": "test_contour_colorbar",
+      "docstring": null
+    },
+    {
+      "name": "test_hist2d",
+      "docstring": null
+    },
+    {
+      "name": "test_hist2d_transpose",
+      "docstring": null
+    },
+    {
+      "name": "test_hist2d_density",
+      "docstring": null
+    },
+    {
+      "name": "test_parse_scatter_color_args",
+      "docstring": null
+    },
+    {
+      "name": "test_parse_scatter_color_args_edgecolors",
+      "docstring": null
+    },
+    {
+      "name": "test_parse_scatter_color_args_error",
+      "docstring": null
+    },
+    {
+      "name": "test_parse_c_facecolor_warning_direct",
+      "docstring": "Test the internal _parse_scatter_color_args method directly."
+    },
+    {
+      "name": "test_scatter_c_facecolor_warning_integration",
+      "docstring": "Test the warning through the actual scatter plot creation."
+    },
+    {
+      "name": "test_as_mpl_axes_api",
+      "docstring": null
+    },
+    {
+      "name": "test_pyplot_axes",
+      "docstring": null
+    },
+    {
+      "name": "test_log_scales",
+      "docstring": null
+    },
+    {
+      "name": "test_log_scales_no_data",
+      "docstring": null
+    },
+    {
+      "name": "test_log_scales_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_stackplot",
+      "docstring": null
+    },
+    {
+      "name": "test_stackplot_baseline",
+      "docstring": null
+    },
+    {
+      "name": "test_stackplot_hatching",
+      "docstring": null
+    },
+    {
+      "name": "test_stackplot_subfig_legend",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_baseline",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_rangewhis",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_percentilewhis",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_with_xlabels",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_horizontal",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_with_ylabels",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_patchartist",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_custompatchartist",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_customoutlier",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_showcustommean",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_custombox",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_custommedian",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_customcap",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_customwhisker",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_median_bound_by_box",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_shownotches",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_nocaps",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_nobox",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_no_flier_stats",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_showmean",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_showmeanasline",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_scalarwidth",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_customwidths",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_custompositions",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_bad_widths",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_bad_positions",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_custom_capwidths",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_custom_capwidth",
+      "docstring": null
+    },
+    {
+      "name": "test_bxp_bad_capwidths",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_masked",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_custom_capwidths",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_sym2",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_sym",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_autorange_whiskers",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_rc_parameters",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_with_CIarray",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_no_weird_whisker",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_bad_medians",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_bad_ci",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_zorder",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_marker_behavior",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_mod_artist_after_plotting",
+      "docstring": null
+    },
+    {
+      "name": "test_vert_violinplot_baseline",
+      "docstring": null
+    },
+    {
+      "name": "test_vert_violinplot_showmeans",
+      "docstring": null
+    },
+    {
+      "name": "test_vert_violinplot_showextrema",
+      "docstring": null
+    },
+    {
+      "name": "test_vert_violinplot_showmedians",
+      "docstring": null
+    },
+    {
+      "name": "test_vert_violinplot_showall",
+      "docstring": null
+    },
+    {
+      "name": "test_vert_violinplot_custompoints_10",
+      "docstring": null
+    },
+    {
+      "name": "test_vert_violinplot_custompoints_200",
+      "docstring": null
+    },
+    {
+      "name": "test_horiz_violinplot_baseline",
+      "docstring": null
+    },
+    {
+      "name": "test_horiz_violinplot_showmedians",
+      "docstring": null
+    },
+    {
+      "name": "test_horiz_violinplot_showmeans",
+      "docstring": null
+    },
+    {
+      "name": "test_horiz_violinplot_showextrema",
+      "docstring": null
+    },
+    {
+      "name": "test_horiz_violinplot_showall",
+      "docstring": null
+    },
+    {
+      "name": "test_horiz_violinplot_custompoints_10",
+      "docstring": null
+    },
+    {
+      "name": "test_horiz_violinplot_custompoints_200",
+      "docstring": null
+    },
+    {
+      "name": "test_violinplot_sides",
+      "docstring": null
+    },
+    {
+      "name": "test_violinplot_bad_positions",
+      "docstring": null
+    },
+    {
+      "name": "test_violinplot_bad_widths",
+      "docstring": null
+    },
+    {
+      "name": "test_violinplot_bad_quantiles",
+      "docstring": null
+    },
+    {
+      "name": "test_violinplot_outofrange_quantiles",
+      "docstring": null
+    },
+    {
+      "name": "test_violinplot_single_list_quantiles",
+      "docstring": null
+    },
+    {
+      "name": "test_violinplot_pandas_series",
+      "docstring": null
+    },
+    {
+      "name": "test_manage_xticks",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_not_single",
+      "docstring": null
+    },
+    {
+      "name": "test_tick_space_size_0",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar",
+      "docstring": null
+    },
+    {
+      "name": "test_mixed_errorbar_polar_caps",
+      "docstring": "Mix several polar errorbar use cases in a single test figure.\n\nIt is advisable to position individual points off the grid. If there are\nproblems with reproducibility of this test, consider removing grid."
+    },
+    {
+      "name": "test_errorbar_colorcycle",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar_cycle_ecolor",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar_shape",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar_limits",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar_nonefmt",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar_remove",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar_line_specific_kwargs",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar_with_prop_cycle",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar_every_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_xerr_yerr_not_negative",
+      "docstring": null
+    },
+    {
+      "name": "test_xerr_yerr_not_none",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar_every",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar_linewidth_type",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar_masked_negative",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_stacked_stepfilled",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_offset",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_step",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_step_horiz",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_stacked_weighted",
+      "docstring": null
+    },
+    {
+      "name": "test_stem",
+      "docstring": null
+    },
+    {
+      "name": "test_stem_args",
+      "docstring": "Test that stem() correctly identifies x and y values."
+    },
+    {
+      "name": "test_stem_markerfmt",
+      "docstring": "Test that stem(..., markerfmt=...) produces the intended markers."
+    },
+    {
+      "name": "test_stem_dates",
+      "docstring": null
+    },
+    {
+      "name": "test_stem_orientation",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_stacked_stepfilled_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_stacked_step",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_stacked_density",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_step_bottom",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_step_geometry",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_step_bottom_geometry",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_stacked_step_geometry",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_stacked_step_bottom_geometry",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_stacked_bar",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_vectorized_params",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_sequence_type_styles",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_color_none",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_color_semantics",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_barstacked_bottom_unchanged",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_emptydata",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_unused_labels",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_labels",
+      "docstring": null
+    },
+    {
+      "name": "test_transparent_markers",
+      "docstring": null
+    },
+    {
+      "name": "test_rgba_markers",
+      "docstring": null
+    },
+    {
+      "name": "test_mollweide_grid",
+      "docstring": null
+    },
+    {
+      "name": "test_mollweide_forward_inverse_closure",
+      "docstring": null
+    },
+    {
+      "name": "test_mollweide_inverse_forward_closure",
+      "docstring": null
+    },
+    {
+      "name": "test_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_eventplot",
+      "docstring": null
+    },
+    {
+      "name": "test_eventplot_defaults",
+      "docstring": "test that eventplot produces the correct output given the default params\n(see bug #3728)"
+    },
+    {
+      "name": "test_eventplot_colors",
+      "docstring": "Test the *colors* parameter of eventplot. Inspired by issue #8193."
+    },
+    {
+      "name": "test_eventplot_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_eventplot_problem_kwargs",
+      "docstring": "test that 'singular' versions of LineCollection props raise an\nMatplotlibDeprecationWarning rather than overriding the 'plural' versions\n(e.g., to prevent 'color' from overriding 'colors', see issue #4297)"
+    },
+    {
+      "name": "test_empty_eventplot",
+      "docstring": null
+    },
+    {
+      "name": "test_eventplot_orientation",
+      "docstring": "Introduced when fixing issue #6412."
+    },
+    {
+      "name": "test_eventplot_units_list",
+      "docstring": null
+    },
+    {
+      "name": "test_marker_styles",
+      "docstring": null
+    },
+    {
+      "name": "test_markers_fillstyle_rcparams",
+      "docstring": null
+    },
+    {
+      "name": "test_vertex_markers",
+      "docstring": null
+    },
+    {
+      "name": "test_eb_line_zorder",
+      "docstring": null
+    },
+    {
+      "name": "test_axline_loglog",
+      "docstring": null
+    },
+    {
+      "name": "test_axline",
+      "docstring": null
+    },
+    {
+      "name": "test_axline_transaxes",
+      "docstring": null
+    },
+    {
+      "name": "test_axline_transaxes_panzoom",
+      "docstring": null
+    },
+    {
+      "name": "test_axline_args",
+      "docstring": "Exactly one of *xy2* and *slope* must be specified."
+    },
+    {
+      "name": "test_vlines",
+      "docstring": null
+    },
+    {
+      "name": "test_vlines_default",
+      "docstring": null
+    },
+    {
+      "name": "test_hlines",
+      "docstring": null
+    },
+    {
+      "name": "test_hlines_default",
+      "docstring": null
+    },
+    {
+      "name": "test_lines_with_colors",
+      "docstring": null
+    },
+    {
+      "name": "test_vlines_hlines_blended_transform",
+      "docstring": null
+    },
+    {
+      "name": "test_step_linestyle",
+      "docstring": null
+    },
+    {
+      "name": "test_mixed_collection",
+      "docstring": null
+    },
+    {
+      "name": "test_subplot_key_hash",
+      "docstring": null
+    },
+    {
+      "name": "test_specgram",
+      "docstring": "Test axes.specgram in default (psd) mode."
+    },
+    {
+      "name": "test_specgram_magnitude",
+      "docstring": "Test axes.specgram in magnitude mode."
+    },
+    {
+      "name": "test_specgram_angle",
+      "docstring": "Test axes.specgram in angle and phase modes."
+    },
+    {
+      "name": "test_specgram_fs_none",
+      "docstring": "Test axes.specgram when Fs is None, should not throw error."
+    },
+    {
+      "name": "test_specgram_origin_rcparam",
+      "docstring": "Test specgram ignores image.origin rcParam and uses origin 'upper'."
+    },
+    {
+      "name": "test_specgram_origin_kwarg",
+      "docstring": "Ensure passing origin as a kwarg raises a TypeError."
+    },
+    {
+      "name": "test_psd_csd",
+      "docstring": null
+    },
+    {
+      "name": "test_spectrum",
+      "docstring": null
+    },
+    {
+      "name": "test_psd_csd_edge_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_twin_remove",
+      "docstring": null
+    },
+    {
+      "name": "test_twin_spines",
+      "docstring": null
+    },
+    {
+      "name": "test_twin_spines_on_top",
+      "docstring": null
+    },
+    {
+      "name": "test_rcparam_grid_minor",
+      "docstring": null
+    },
+    {
+      "name": "test_grid",
+      "docstring": null
+    },
+    {
+      "name": "test_reset_grid",
+      "docstring": null
+    },
+    {
+      "name": "test_reset_ticks",
+      "docstring": null
+    },
+    {
+      "name": "test_context_ticks",
+      "docstring": null
+    },
+    {
+      "name": "test_vline_limit",
+      "docstring": null
+    },
+    {
+      "name": "test_axline_minmax",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_shared_subplots",
+      "docstring": null
+    },
+    {
+      "name": "test_shared_with_aspect_1",
+      "docstring": null
+    },
+    {
+      "name": "test_shared_with_aspect_2",
+      "docstring": null
+    },
+    {
+      "name": "test_shared_with_aspect_3",
+      "docstring": null
+    },
+    {
+      "name": "test_shared_aspect_error",
+      "docstring": null
+    },
+    {
+      "name": "test_axis_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_axis_method_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_twin_with_aspect",
+      "docstring": null
+    },
+    {
+      "name": "test_relim_visible_only",
+      "docstring": null
+    },
+    {
+      "name": "test_text_labelsize",
+      "docstring": "tests for issue #1172"
+    },
+    {
+      "name": "test_pie_default",
+      "docstring": null
+    },
+    {
+      "name": "test_pie_linewidth_0",
+      "docstring": null
+    },
+    {
+      "name": "test_pie_center_radius",
+      "docstring": null
+    },
+    {
+      "name": "test_pie_linewidth_2",
+      "docstring": null
+    },
+    {
+      "name": "test_pie_ccw_true",
+      "docstring": null
+    },
+    {
+      "name": "test_pie_frame_grid",
+      "docstring": null
+    },
+    {
+      "name": "test_pie_rotatelabels_true",
+      "docstring": null
+    },
+    {
+      "name": "test_pie_nolabel_but_legend",
+      "docstring": null
+    },
+    {
+      "name": "test_pie_shadow",
+      "docstring": null
+    },
+    {
+      "name": "test_pie_textprops",
+      "docstring": null
+    },
+    {
+      "name": "test_pie_get_negative_values",
+      "docstring": null
+    },
+    {
+      "name": "test_pie_invalid_explode",
+      "docstring": null
+    },
+    {
+      "name": "test_pie_invalid_labels",
+      "docstring": null
+    },
+    {
+      "name": "test_pie_invalid_radius",
+      "docstring": null
+    },
+    {
+      "name": "test_normalize_kwarg_pie",
+      "docstring": null
+    },
+    {
+      "name": "test_pie_hatch_single",
+      "docstring": null
+    },
+    {
+      "name": "test_pie_hatch_multi",
+      "docstring": null
+    },
+    {
+      "name": "test_set_get_ticklabels",
+      "docstring": null
+    },
+    {
+      "name": "test_set_ticks_kwargs_raise_error_without_labels",
+      "docstring": "When labels=None and any kwarg is passed, axis.set_ticks() raises a\nValueError."
+    },
+    {
+      "name": "test_set_ticks_with_labels",
+      "docstring": "Test that these two are identical::\n\n    set_xticks(ticks); set_xticklabels(labels, **kwargs)\n    set_xticks(ticks, labels, **kwargs)"
+    },
+    {
+      "name": "test_xticks_bad_args",
+      "docstring": null
+    },
+    {
+      "name": "test_subsampled_ticklabels",
+      "docstring": null
+    },
+    {
+      "name": "test_mismatched_ticklabels",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_ticks_fixed_loc",
+      "docstring": null
+    },
+    {
+      "name": "test_retain_tick_visibility",
+      "docstring": null
+    },
+    {
+      "name": "test_warn_too_few_labels",
+      "docstring": null
+    },
+    {
+      "name": "test_tick_label_update",
+      "docstring": null
+    },
+    {
+      "name": "test_o_marker_path_snap",
+      "docstring": null
+    },
+    {
+      "name": "test_margins",
+      "docstring": null
+    },
+    {
+      "name": "test_margin_getters",
+      "docstring": null
+    },
+    {
+      "name": "test_set_margin_updates_limits",
+      "docstring": null
+    },
+    {
+      "name": "test_margins_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_length_one_hist",
+      "docstring": null
+    },
+    {
+      "name": "test_set_xy_bound",
+      "docstring": null
+    },
+    {
+      "name": "test_pathological_hexbin",
+      "docstring": null
+    },
+    {
+      "name": "test_color_None",
+      "docstring": null
+    },
+    {
+      "name": "test_color_alias",
+      "docstring": null
+    },
+    {
+      "name": "test_numerical_hist_label",
+      "docstring": null
+    },
+    {
+      "name": "test_unicode_hist_label",
+      "docstring": null
+    },
+    {
+      "name": "test_move_offsetlabel",
+      "docstring": null
+    },
+    {
+      "name": "test_rc_spines",
+      "docstring": null
+    },
+    {
+      "name": "test_rc_grid",
+      "docstring": null
+    },
+    {
+      "name": "test_rc_tick",
+      "docstring": null
+    },
+    {
+      "name": "test_rc_major_minor_tick",
+      "docstring": null
+    },
+    {
+      "name": "test_square_plot",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_plot_args",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolorfast",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolorfast_bad_dims",
+      "docstring": null
+    },
+    {
+      "name": "test_pcolorfast_regular_xy_incompatible_size",
+      "docstring": "Test that the sizes of X, Y, C are compatible for regularly spaced X, Y.\n\nNote that after the regualar-spacing check, pcolorfast may go into the\nfast \"image\" mode, where the individual X, Y positions are not used anymore.\nTherefore, the algorithm had worked with any regularly number of regularly\nspaced values, but discarded their values."
+    },
+    {
+      "name": "test_shared_scale",
+      "docstring": null
+    },
+    {
+      "name": "test_shared_bool",
+      "docstring": null
+    },
+    {
+      "name": "test_violin_point_mass",
+      "docstring": "Violin plot should handle point mass pdf gracefully."
+    },
+    {
+      "name": "generate_errorbar_inputs",
+      "docstring": null
+    },
+    {
+      "name": "test_errorbar_inputs_shotgun",
+      "docstring": null
+    },
+    {
+      "name": "test_dash_offset",
+      "docstring": null
+    },
+    {
+      "name": "test_title_pad",
+      "docstring": null
+    },
+    {
+      "name": "test_title_location_roundtrip",
+      "docstring": null
+    },
+    {
+      "name": "test_title_location_shared",
+      "docstring": null
+    },
+    {
+      "name": "test_loglog",
+      "docstring": null
+    },
+    {
+      "name": "test_loglog_nonpos",
+      "docstring": null
+    },
+    {
+      "name": "test_axes_margins",
+      "docstring": null
+    },
+    {
+      "name": "shared_axis_remover",
+      "docstring": null
+    },
+    {
+      "name": "shared_axes_generator",
+      "docstring": null
+    },
+    {
+      "name": "test_remove_shared_axes",
+      "docstring": null
+    },
+    {
+      "name": "test_remove_shared_axes_relim",
+      "docstring": null
+    },
+    {
+      "name": "test_shared_axes_autoscale",
+      "docstring": null
+    },
+    {
+      "name": "test_adjust_numtick_aspect",
+      "docstring": null
+    },
+    {
+      "name": "test_auto_numticks",
+      "docstring": null
+    },
+    {
+      "name": "test_auto_numticks_log",
+      "docstring": null
+    },
+    {
+      "name": "test_broken_barh_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_broken_barh_timedelta",
+      "docstring": "Check that timedelta works as x, dx pair for this method."
+    },
+    {
+      "name": "test_pandas_pcolormesh",
+      "docstring": null
+    },
+    {
+      "name": "test_pandas_indexing_dates",
+      "docstring": null
+    },
+    {
+      "name": "test_pandas_errorbar_indexing",
+      "docstring": null
+    },
+    {
+      "name": "test_pandas_index_shape",
+      "docstring": null
+    },
+    {
+      "name": "test_pandas_indexing_hist",
+      "docstring": null
+    },
+    {
+      "name": "test_pandas_bar_align_center",
+      "docstring": null
+    },
+    {
+      "name": "test_axis_get_tick_params",
+      "docstring": null
+    },
+    {
+      "name": "test_axis_set_tick_params_labelsize_labelcolor",
+      "docstring": null
+    },
+    {
+      "name": "test_axes_tick_params_gridlines",
+      "docstring": null
+    },
+    {
+      "name": "test_axes_tick_params_ylabelside",
+      "docstring": null
+    },
+    {
+      "name": "test_axes_tick_params_xlabelside",
+      "docstring": null
+    },
+    {
+      "name": "test_none_kwargs",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_uint8",
+      "docstring": null
+    },
+    {
+      "name": "test_date_timezone_x",
+      "docstring": null
+    },
+    {
+      "name": "test_date_timezone_y",
+      "docstring": null
+    },
+    {
+      "name": "test_date_timezone_x_and_y",
+      "docstring": null
+    },
+    {
+      "name": "test_axisbelow",
+      "docstring": null
+    },
+    {
+      "name": "test_titletwiny",
+      "docstring": null
+    },
+    {
+      "name": "test_titlesetpos",
+      "docstring": null
+    },
+    {
+      "name": "test_title_xticks_top",
+      "docstring": null
+    },
+    {
+      "name": "test_title_xticks_top_both",
+      "docstring": null
+    },
+    {
+      "name": "test_title_above_offset",
+      "docstring": null
+    },
+    {
+      "name": "test_title_no_move_off_page",
+      "docstring": null
+    },
+    {
+      "name": "test_title_inset_ax",
+      "docstring": null
+    },
+    {
+      "name": "test_offset_label_color",
+      "docstring": null
+    },
+    {
+      "name": "test_offset_text_visible",
+      "docstring": null
+    },
+    {
+      "name": "test_large_offset",
+      "docstring": null
+    },
+    {
+      "name": "test_barb_units",
+      "docstring": null
+    },
+    {
+      "name": "test_quiver_units",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_color_cycle",
+      "docstring": null
+    },
+    {
+      "name": "test_tick_param_label_rotation",
+      "docstring": null
+    },
+    {
+      "name": "test_fillbetween_cycle",
+      "docstring": null
+    },
+    {
+      "name": "test_log_margins",
+      "docstring": null
+    },
+    {
+      "name": "test_color_length_mismatch",
+      "docstring": null
+    },
+    {
+      "name": "test_eventplot_legend",
+      "docstring": null
+    },
+    {
+      "name": "test_eventplot_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_broadcast_args",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_axis_limits",
+      "docstring": null
+    },
+    {
+      "name": "test_minorticks_on",
+      "docstring": null
+    },
+    {
+      "name": "test_twinx_knows_limits",
+      "docstring": null
+    },
+    {
+      "name": "test_zero_linewidth",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_errorbar_legend",
+      "docstring": null
+    },
+    {
+      "name": "test_plot_decimal",
+      "docstring": null
+    },
+    {
+      "name": "test_markerfacecolor_none_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_tick_padding_tightbbox",
+      "docstring": "Test that tick padding gets turned off if axis is off"
+    },
+    {
+      "name": "test_inset",
+      "docstring": "Ensure that inset_ax argument is indeed optional"
+    },
+    {
+      "name": "test_zoom_inset",
+      "docstring": null
+    },
+    {
+      "name": "test_inset_polar",
+      "docstring": null
+    },
+    {
+      "name": "test_inset_projection",
+      "docstring": null
+    },
+    {
+      "name": "test_inset_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_indicate_inset_inverted",
+      "docstring": "Test that the inset lines are correctly located with inverted data axes."
+    },
+    {
+      "name": "test_set_position",
+      "docstring": null
+    },
+    {
+      "name": "test_spines_properbbox_after_zoom",
+      "docstring": null
+    },
+    {
+      "name": "test_limits_after_scroll_zoom",
+      "docstring": null
+    },
+    {
+      "name": "test_gettightbbox_ignore_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_series_non_zero_index",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_empty_data",
+      "docstring": null
+    },
+    {
+      "name": "test_annotate_across_transforms",
+      "docstring": null
+    },
+    {
+      "name": "test_secondary_xy",
+      "docstring": null
+    },
+    {
+      "name": "test_secondary_fail",
+      "docstring": null
+    },
+    {
+      "name": "test_secondary_resize",
+      "docstring": null
+    },
+    {
+      "name": "test_secondary_minorloc",
+      "docstring": null
+    },
+    {
+      "name": "test_secondary_formatter",
+      "docstring": null
+    },
+    {
+      "name": "test_secondary_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_axis_options",
+      "docstring": null
+    },
+    {
+      "name": "color_boxes",
+      "docstring": "Helper for the tests below that test the extents of various Axes elements"
+    },
+    {
+      "name": "test_normal_axes",
+      "docstring": null
+    },
+    {
+      "name": "test_nodecorator",
+      "docstring": null
+    },
+    {
+      "name": "test_displaced_spine",
+      "docstring": null
+    },
+    {
+      "name": "test_tickdirs",
+      "docstring": "Switch the tickdirs and make sure the bboxes switch with them"
+    },
+    {
+      "name": "test_minor_accountedfor",
+      "docstring": null
+    },
+    {
+      "name": "test_axis_bool_arguments",
+      "docstring": null
+    },
+    {
+      "name": "test_axis_extent_arg",
+      "docstring": null
+    },
+    {
+      "name": "test_axis_extent_arg2",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_auto_bins",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_nan_data",
+      "docstring": null
+    },
+    {
+      "name": "test_hist_range_and_density",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_errbar_zorder",
+      "docstring": null
+    },
+    {
+      "name": "test_set_ticks_inverted",
+      "docstring": null
+    },
+    {
+      "name": "test_aspect_nonlinear_adjustable_box",
+      "docstring": null
+    },
+    {
+      "name": "test_aspect_nonlinear_adjustable_datalim",
+      "docstring": null
+    },
+    {
+      "name": "test_box_aspect",
+      "docstring": null
+    },
+    {
+      "name": "test_box_aspect_custom_position",
+      "docstring": null
+    },
+    {
+      "name": "test_bbox_aspect_axes_init",
+      "docstring": null
+    },
+    {
+      "name": "test_set_aspect_negative",
+      "docstring": null
+    },
+    {
+      "name": "test_redraw_in_frame",
+      "docstring": null
+    },
+    {
+      "name": "test_invisible_axes_events",
+      "docstring": null
+    },
+    {
+      "name": "test_xtickcolor_is_not_markercolor",
+      "docstring": null
+    },
+    {
+      "name": "test_ytickcolor_is_not_markercolor",
+      "docstring": null
+    },
+    {
+      "name": "test_unautoscale",
+      "docstring": null
+    },
+    {
+      "name": "test_polar_interpolation_steps_variable_r",
+      "docstring": null
+    },
+    {
+      "name": "test_autoscale_tiny_sticky",
+      "docstring": null
+    },
+    {
+      "name": "test_xtickcolor_is_not_xticklabelcolor",
+      "docstring": null
+    },
+    {
+      "name": "test_ytickcolor_is_not_yticklabelcolor",
+      "docstring": null
+    },
+    {
+      "name": "test_xaxis_offsetText_color",
+      "docstring": null
+    },
+    {
+      "name": "test_yaxis_offsetText_color",
+      "docstring": null
+    },
+    {
+      "name": "test_relative_ticklabel_sizes",
+      "docstring": null
+    },
+    {
+      "name": "test_multiplot_autoscale",
+      "docstring": null
+    },
+    {
+      "name": "test_sharing_does_not_link_positions",
+      "docstring": null
+    },
+    {
+      "name": "test_2dcolor_plot",
+      "docstring": null
+    },
+    {
+      "name": "test_shared_axes_clear",
+      "docstring": null
+    },
+    {
+      "name": "test_shared_axes_retick",
+      "docstring": null
+    },
+    {
+      "name": "test_ylabel_ha_with_position",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_label_location_vertical",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_label_location_vertical_yinverted",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_label_location_horizontal",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_label_location_horizontal_yinverted",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_label_location_horizontal_xinverted",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_label_location_horizontal_xyinverted",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_label_location_center",
+      "docstring": null
+    },
+    {
+      "name": "test_centered_bar_label_nonlinear",
+      "docstring": null
+    },
+    {
+      "name": "test_centered_bar_label_label_beyond_limits",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_label_location_errorbars",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_label_fmt",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_label_fmt_error",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_label_labels",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_label_nan_ydata",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_label_nan_ydata_inverted",
+      "docstring": null
+    },
+    {
+      "name": "test_nan_barlabels",
+      "docstring": null
+    },
+    {
+      "name": "test_patch_bounds",
+      "docstring": null
+    },
+    {
+      "name": "test_warn_ignored_scatter_kwargs",
+      "docstring": null
+    },
+    {
+      "name": "test_artist_sublists",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_line_plots",
+      "docstring": null
+    },
+    {
+      "name": "test_plot_format_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_plot_format",
+      "docstring": null
+    },
+    {
+      "name": "test_automatic_legend",
+      "docstring": null
+    },
+    {
+      "name": "test_plot_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_clim",
+      "docstring": null
+    },
+    {
+      "name": "test_bezier_autoscale",
+      "docstring": null
+    },
+    {
+      "name": "test_small_autoscale",
+      "docstring": null
+    },
+    {
+      "name": "test_get_xticklabel",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_leading_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_all_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_extent_units",
+      "docstring": null
+    },
+    {
+      "name": "test_cla_clears_children_axes_and_fig",
+      "docstring": null
+    },
+    {
+      "name": "test_child_axes_removal",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_color_repr_error",
+      "docstring": null
+    },
+    {
+      "name": "test_zorder_and_explicit_rasterization",
+      "docstring": null
+    },
+    {
+      "name": "test_preset_clip_paths",
+      "docstring": null
+    },
+    {
+      "name": "test_rc_axes_label_formatting",
+      "docstring": null
+    },
+    {
+      "name": "test_ecdf",
+      "docstring": null
+    },
+    {
+      "name": "test_ecdf_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_fill_between_axes_limits",
+      "docstring": null
+    },
+    {
+      "name": "test_tick_param_labelfont",
+      "docstring": null
+    },
+    {
+      "name": "test_set_secondary_axis_color",
+      "docstring": null
+    },
+    {
+      "name": "test_xylim_changed_shared",
+      "docstring": null
+    },
+    {
+      "name": "test_axhvlinespan_interpolation",
+      "docstring": null
+    },
+    {
+      "name": "test_axes_clear_behavior",
+      "docstring": "Test that the given tick params are not reset by ax.clear()."
+    },
+    {
+      "name": "test_axes_clear_reference_cycle",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_tick_labels",
+      "docstring": null
+    },
+    {
+      "name": "test_latex_pie_percent",
+      "docstring": null
+    },
+    {
+      "name": "test_violinplot_orientation",
+      "docstring": null
+    },
+    {
+      "name": "test_boxplot_orientation",
+      "docstring": null
+    },
+    {
+      "name": "test_use_colorizer_keyword",
+      "docstring": null
+    },
+    {
+      "name": "test_wrong_use_colorizer",
+      "docstring": null
+    },
+    {
+      "name": "test_bar_color_precedence",
+      "docstring": null
+    },
+    {
+      "name": "test_axes_set_position_external_bbox_unchanged",
+      "docstring": null
+    },
+    {
+      "name": "test_caps_color",
+      "docstring": null
+    },
+    {
+      "name": "test_caps_no_ecolor",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_plot",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_marker",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_2D",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_decimal",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_color",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_color_warning",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_unfilled",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_unfillable",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_size_arg_size",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_edgecolor_RGB",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_invalid_color",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_no_invalid_color",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_norm_vminvmax",
+      "docstring": "Parameters vmin, vmax should error if norm is given."
+    },
+    {
+      "name": "test_scatter_single_point",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_different_shapes",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_c",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_single_color_c",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_linewidths",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_singular_plural_arguments",
+      "docstring": null
+    },
+    {
+      "name": "get_next_color",
+      "docstring": null
+    },
+    {
+      "name": "get_next_color",
+      "docstring": null
+    },
+    {
+      "name": "get_next_color",
+      "docstring": null
+    },
+    {
+      "name": "get_next_color",
+      "docstring": null
+    },
+    {
+      "name": "layers",
+      "docstring": null
+    },
+    {
+      "name": "transform",
+      "docstring": null
+    },
+    {
+      "name": "transform",
+      "docstring": null
+    },
+    {
+      "name": "transform",
+      "docstring": null
+    },
+    {
+      "name": "make_patch_spines_invisible",
+      "docstring": null
+    },
+    {
+      "name": "formatter_func",
+      "docstring": null
+    },
+    {
+      "name": "transform",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "invert",
+      "docstring": null
+    },
+    {
+      "name": "invert",
+      "docstring": null
+    },
+    {
+      "name": "invert",
+      "docstring": null
+    },
+    {
+      "name": "get_next_color",
+      "docstring": null
+    },
+    {
+      "name": "assert_not_in_reference_cycle",
+      "docstring": null
+    },
+    {
+      "name": "clear",
+      "docstring": null
+    },
+    {
+      "name": "clear",
+      "docstring": null
+    },
+    {
+      "name": "get_next_color",
+      "docstring": null
+    },
+    {
+      "name": "cla",
+      "docstring": null
+    },
+    {
+      "name": "cla",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,82 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\mlab.py",
+  "classes": [
+    {
+      "name": "GaussianKDE",
+      "docstring": "Representation of a kernel-density estimate using Gaussian kernels.\n\nParameters\n----------\ndataset : array-like\n    Datapoints to estimate from. In case of univariate data this is a 1-D\n    array, otherwise a 2D array with shape (# of dims, # of data).\nbw_method : {'scott', 'silverman'} or float or callable, optional\n    The method used to calculate the estimator bandwidth.  If a\n    float, this will be used directly as `kde.factor`.  If a\n    callable, it should take a `GaussianKDE` instance as only\n    parameter and return a float. If None (default), 'scott' is used.\n\nAttributes\n----------\ndataset : ndarray\n    The dataset passed to the constructor.\ndim : int\n    Number of dimensions.\nnum_dp : int\n    Number of datapoints.\nfactor : float\n    The bandwidth factor, obtained from `kde.covariance_factor`, with which\n    the covariance matrix is multiplied.\ncovariance : ndarray\n    The covariance matrix of *dataset*, scaled by the calculated bandwidth\n    (`kde.factor`).\ninv_cov : ndarray\n    The inverse of *covariance*.\n\nMethods\n-------\nkde.evaluate(points) : ndarray\n    Evaluate the estimated pdf on a provided set of points.\nkde(points) : ndarray\n    Same as kde.evaluate(points)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "scotts_factor",
+          "docstring": null
+        },
+        {
+          "name": "silverman_factor",
+          "docstring": null
+        },
+        {
+          "name": "evaluate",
+          "docstring": "Evaluate the estimated pdf on a set of points.\n\nParameters\n----------\npoints : (# of dimensions, # of points)-array\n    Alternatively, a (# of dimensions,) vector can be passed in and\n    treated as a single point.\n\nReturns\n-------\n(# of points,)-array\n    The values at each point.\n\nRaises\n------\nValueError : if the dimensionality of the input points is different\n             than the dimensionality of the KDE."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "window_hanning",
+      "docstring": "Return *x* times the Hanning (or Hann) window of len(*x*).\n\nSee Also\n--------\nwindow_none : Another window algorithm."
+    },
+    {
+      "name": "window_none",
+      "docstring": "No window function; simply return *x*.\n\nSee Also\n--------\nwindow_hanning : Another window algorithm."
+    },
+    {
+      "name": "detrend",
+      "docstring": "Return *x* with its trend removed.\n\nParameters\n----------\nx : array or sequence\n    Array or sequence containing the data.\n\nkey : {'default', 'constant', 'mean', 'linear', 'none'} or function\n    The detrending algorithm to use. 'default', 'mean', and 'constant' are\n    the same as `detrend_mean`. 'linear' is the same as `detrend_linear`.\n    'none' is the same as `detrend_none`. The default is 'mean'. See the\n    corresponding functions for more details regarding the algorithms. Can\n    also be a function that carries out the detrend operation.\n\naxis : int\n    The axis along which to do the detrending.\n\nSee Also\n--------\ndetrend_mean : Implementation of the 'mean' algorithm.\ndetrend_linear : Implementation of the 'linear' algorithm.\ndetrend_none : Implementation of the 'none' algorithm."
+    },
+    {
+      "name": "detrend_mean",
+      "docstring": "Return *x* minus the mean(*x*).\n\nParameters\n----------\nx : array or sequence\n    Array or sequence containing the data\n    Can have any dimensionality\n\naxis : int\n    The axis along which to take the mean.  See `numpy.mean` for a\n    description of this argument.\n\nSee Also\n--------\ndetrend_linear : Another detrend algorithm.\ndetrend_none : Another detrend algorithm.\ndetrend : A wrapper around all the detrend algorithms."
+    },
+    {
+      "name": "detrend_none",
+      "docstring": "Return *x*: no detrending.\n\nParameters\n----------\nx : any object\n    An object containing the data\n\naxis : int\n    This parameter is ignored.\n    It is included for compatibility with detrend_mean\n\nSee Also\n--------\ndetrend_mean : Another detrend algorithm.\ndetrend_linear : Another detrend algorithm.\ndetrend : A wrapper around all the detrend algorithms."
+    },
+    {
+      "name": "detrend_linear",
+      "docstring": "Return *x* minus best fit line; 'linear' detrending.\n\nParameters\n----------\ny : 0-D or 1-D array or sequence\n    Array or sequence containing the data\n\nSee Also\n--------\ndetrend_mean : Another detrend algorithm.\ndetrend_none : Another detrend algorithm.\ndetrend : A wrapper around all the detrend algorithms."
+    },
+    {
+      "name": "psd",
+      "docstring": "Compute the power spectral density.\n\nThe power spectral density :math:`P_{xx}` by Welch's average\nperiodogram method.  The vector *x* is divided into *NFFT* length\nsegments.  Each segment is detrended by function *detrend* and\nwindowed by function *window*.  *noverlap* gives the length of\nthe overlap between segments.  The :math:`|\\mathrm{fft}(i)|^2`\nof each segment :math:`i` are averaged to compute :math:`P_{xx}`.\n\nIf len(*x*) < *NFFT*, it will be zero padded to *NFFT*.\n\nParameters\n----------\nx : 1-D array or sequence\n    Array or sequence containing the data\n\n%(Spectral)s\n\n%(PSD)s\n\nnoverlap : int, default: 0 (no overlap)\n    The number of points of overlap between segments.\n\nReturns\n-------\nPxx : 1-D array\n    The values for the power spectrum :math:`P_{xx}` (real valued)\n\nfreqs : 1-D array\n    The frequencies corresponding to the elements in *Pxx*\n\nReferences\n----------\nBendat & Piersol -- Random Data: Analysis and Measurement Procedures, John\nWiley & Sons (1986)\n\nSee Also\n--------\nspecgram\n    `specgram` differs in the default overlap; in not returning the mean of\n    the segment periodograms; and in returning the times of the segments.\n\nmagnitude_spectrum : returns the magnitude spectrum.\n\ncsd : returns the spectral density between two signals."
+    },
+    {
+      "name": "csd",
+      "docstring": "Compute the cross-spectral density.\n\nThe cross spectral density :math:`P_{xy}` by Welch's average\nperiodogram method.  The vectors *x* and *y* are divided into\n*NFFT* length segments.  Each segment is detrended by function\n*detrend* and windowed by function *window*.  *noverlap* gives\nthe length of the overlap between segments.  The product of\nthe direct FFTs of *x* and *y* are averaged over each segment\nto compute :math:`P_{xy}`, with a scaling to correct for power\nloss due to windowing.\n\nIf len(*x*) < *NFFT* or len(*y*) < *NFFT*, they will be zero\npadded to *NFFT*.\n\nParameters\n----------\nx, y : 1-D arrays or sequences\n    Arrays or sequences containing the data\n\n%(Spectral)s\n\n%(PSD)s\n\nnoverlap : int, default: 0 (no overlap)\n    The number of points of overlap between segments.\n\nReturns\n-------\nPxy : 1-D array\n    The values for the cross spectrum :math:`P_{xy}` before scaling (real\n    valued)\n\nfreqs : 1-D array\n    The frequencies corresponding to the elements in *Pxy*\n\nReferences\n----------\nBendat & Piersol -- Random Data: Analysis and Measurement Procedures, John\nWiley & Sons (1986)\n\nSee Also\n--------\npsd : equivalent to setting ``y = x``."
+    },
+    {
+      "name": "specgram",
+      "docstring": "Compute a spectrogram.\n\nCompute and plot a spectrogram of data in *x*.  Data are split into\n*NFFT* length segments and the spectrum of each section is\ncomputed.  The windowing function *window* is applied to each\nsegment, and the amount of overlap of each segment is\nspecified with *noverlap*.\n\nParameters\n----------\nx : array-like\n    1-D array or sequence.\n\n%(Spectral)s\n\n%(PSD)s\n\nnoverlap : int, default: 128\n    The number of points of overlap between blocks.\nmode : str, default: 'psd'\n    What sort of spectrum to use:\n        'psd'\n            Returns the power spectral density.\n        'complex'\n            Returns the complex-valued frequency spectrum.\n        'magnitude'\n            Returns the magnitude spectrum.\n        'angle'\n            Returns the phase spectrum without unwrapping.\n        'phase'\n            Returns the phase spectrum with unwrapping.\n\nReturns\n-------\nspectrum : array-like\n    2D array, columns are the periodograms of successive segments.\n\nfreqs : array-like\n    1-D array, frequencies corresponding to the rows in *spectrum*.\n\nt : array-like\n    1-D array, the times corresponding to midpoints of segments\n    (i.e the columns in *spectrum*).\n\nSee Also\n--------\npsd : differs in the overlap and in the return values.\ncomplex_spectrum : similar, but with complex valued frequencies.\nmagnitude_spectrum : similar single segment when *mode* is 'magnitude'.\nangle_spectrum : similar to single segment when *mode* is 'angle'.\nphase_spectrum : similar to single segment when *mode* is 'phase'.\n\nNotes\n-----\n*detrend* and *scale_by_freq* only apply when *mode* is set to 'psd'."
+    },
+    {
+      "name": "cohere",
+      "docstring": "The coherence between *x* and *y*.  Coherence is the normalized\ncross spectral density:\n\n.. math::\n\n    C_{xy} = \\frac{|P_{xy}|^2}{P_{xx}P_{yy}}\n\nParameters\n----------\nx, y\n    Array or sequence containing the data\n\n%(Spectral)s\n\n%(PSD)s\n\nnoverlap : int, default: 0 (no overlap)\n    The number of points of overlap between segments.\n\nReturns\n-------\nCxy : 1-D array\n    The coherence vector.\nfreqs : 1-D array\n        The frequencies for the elements in *Cxy*.\n\nSee Also\n--------\n:func:`psd`, :func:`csd` :\n    For information about the methods used to compute :math:`P_{xy}`,\n    :math:`P_{xx}` and :math:`P_{yy}`."
+    },
+    {
+      "name": "scotts_factor",
+      "docstring": null
+    },
+    {
+      "name": "silverman_factor",
+      "docstring": null
+    },
+    {
+      "name": "evaluate",
+      "docstring": "Evaluate the estimated pdf on a set of points.\n\nParameters\n----------\npoints : (# of dimensions, # of points)-array\n    Alternatively, a (# of dimensions,) vector can be passed in and\n    treated as a single point.\n\nReturns\n-------\n(# of points,)-array\n    The values at each point.\n\nRaises\n------\nValueError : if the dimensionality of the input points is different\n             than the dimensionality of the KDE."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,396 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\tests\\test_index_tricks.py",
+  "classes": [
+    {
+      "name": "TestRavelUnravelIndex",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_indices",
+          "docstring": null
+        },
+        {
+          "name": "test_big_indices",
+          "docstring": null
+        },
+        {
+          "name": "test_dtypes",
+          "docstring": null
+        },
+        {
+          "name": "test_clipmodes",
+          "docstring": null
+        },
+        {
+          "name": "test_writeability",
+          "docstring": null
+        },
+        {
+          "name": "test_0d",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_array_ravel",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_array_unravel",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestGrid",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_linspace_equivalence",
+          "docstring": null
+        },
+        {
+          "name": "test_nd",
+          "docstring": null
+        },
+        {
+          "name": "test_sparse",
+          "docstring": null
+        },
+        {
+          "name": "test_mgrid_size_none_handling",
+          "docstring": null
+        },
+        {
+          "name": "test_accepts_npfloating",
+          "docstring": null
+        },
+        {
+          "name": "test_accepts_longdouble",
+          "docstring": null
+        },
+        {
+          "name": "test_accepts_npcomplexfloating",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestConcatenator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_1d",
+          "docstring": null
+        },
+        {
+          "name": "test_mixed_type",
+          "docstring": null
+        },
+        {
+          "name": "test_more_mixed_type",
+          "docstring": null
+        },
+        {
+          "name": "test_complex_step",
+          "docstring": null
+        },
+        {
+          "name": "test_2d",
+          "docstring": null
+        },
+        {
+          "name": "test_0d",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNdenumerate",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIndexExpression",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_regression_1",
+          "docstring": null
+        },
+        {
+          "name": "test_simple_1",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIx_",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_regression_1",
+          "docstring": null
+        },
+        {
+          "name": "test_shape_and_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_bool",
+          "docstring": null
+        },
+        {
+          "name": "test_1d_only",
+          "docstring": null
+        },
+        {
+          "name": "test_repeated_input",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFillDiagonal",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_tall_matrix",
+          "docstring": null
+        },
+        {
+          "name": "test_tall_matrix_wrap",
+          "docstring": null
+        },
+        {
+          "name": "test_wide_matrix",
+          "docstring": null
+        },
+        {
+          "name": "test_operate_4d_array",
+          "docstring": null
+        },
+        {
+          "name": "test_low_dim_handling",
+          "docstring": null
+        },
+        {
+          "name": "test_hetero_shape_handling",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDiagIndicesFrom",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_diag_indices_from",
+          "docstring": null
+        },
+        {
+          "name": "test_error_small_input",
+          "docstring": null
+        },
+        {
+          "name": "test_error_shape_mismatch",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_c_",
+      "docstring": null
+    },
+    {
+      "name": "test_diag_indices",
+      "docstring": null
+    },
+    {
+      "name": "test_ndindex",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_indices",
+      "docstring": null
+    },
+    {
+      "name": "test_big_indices",
+      "docstring": null
+    },
+    {
+      "name": "test_dtypes",
+      "docstring": null
+    },
+    {
+      "name": "test_clipmodes",
+      "docstring": null
+    },
+    {
+      "name": "test_writeability",
+      "docstring": null
+    },
+    {
+      "name": "test_0d",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_array_ravel",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_array_unravel",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_linspace_equivalence",
+      "docstring": null
+    },
+    {
+      "name": "test_nd",
+      "docstring": null
+    },
+    {
+      "name": "test_sparse",
+      "docstring": null
+    },
+    {
+      "name": "test_mgrid_size_none_handling",
+      "docstring": null
+    },
+    {
+      "name": "test_accepts_npfloating",
+      "docstring": null
+    },
+    {
+      "name": "test_accepts_longdouble",
+      "docstring": null
+    },
+    {
+      "name": "test_accepts_npcomplexfloating",
+      "docstring": null
+    },
+    {
+      "name": "test_1d",
+      "docstring": null
+    },
+    {
+      "name": "test_mixed_type",
+      "docstring": null
+    },
+    {
+      "name": "test_more_mixed_type",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_step",
+      "docstring": null
+    },
+    {
+      "name": "test_2d",
+      "docstring": null
+    },
+    {
+      "name": "test_0d",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_regression_1",
+      "docstring": null
+    },
+    {
+      "name": "test_simple_1",
+      "docstring": null
+    },
+    {
+      "name": "test_regression_1",
+      "docstring": null
+    },
+    {
+      "name": "test_shape_and_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_bool",
+      "docstring": null
+    },
+    {
+      "name": "test_1d_only",
+      "docstring": null
+    },
+    {
+      "name": "test_repeated_input",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_tall_matrix",
+      "docstring": null
+    },
+    {
+      "name": "test_tall_matrix_wrap",
+      "docstring": null
+    },
+    {
+      "name": "test_wide_matrix",
+      "docstring": null
+    },
+    {
+      "name": "test_operate_4d_array",
+      "docstring": null
+    },
+    {
+      "name": "test_low_dim_handling",
+      "docstring": null
+    },
+    {
+      "name": "test_hetero_shape_handling",
+      "docstring": null
+    },
+    {
+      "name": "test_diag_indices_from",
+      "docstring": null
+    },
+    {
+      "name": "test_error_small_input",
+      "docstring": null
+    },
+    {
+      "name": "test_error_shape_mismatch",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

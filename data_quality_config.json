@@ -1,0 +1,50 @@
+{
+  "validation": {
+    "enabled": true,
+    "strict_mode": false,
+    "auto_fix_issues": true
+  },
+  "outlier_detection": {
+    "enabled": true,
+    "method": "astronomical",
+    "zscore_threshold": 3.0,
+    "iqr_factor": 1.5,
+    "isolation_forest_contamination": 0.1,
+    "hot_pixel_threshold_percentile": 99.9,
+    "dead_pixel_threshold_percentile": 0.1,
+    "cosmic_threshold_sigma": 5.0,
+    "saturation_threshold": 60000
+  },
+  "imputation": {
+    "enabled": true,
+    "method": "astronomical",
+    "knn_neighbors": 5,
+    "iterative_max_iter": 10,
+    "interpolation_method": "linear"
+  },
+  "normalization": {
+    "enabled": true,
+    "method": "astronomical",
+    "feature_range": [
+      0,
+      1
+    ],
+    "per_image": true
+  },
+  "format_standardization": {
+    "enabled": true,
+    "target_dtype": "float32",
+    "target_shape": null,
+    "ensure_square": false
+  },
+  "catalog_enrichment": {
+    "enabled": true,
+    "catalogs": [
+      "gaia",
+      "2mass",
+      "sdss"
+    ],
+    "search_radius_arcsec": 5.0,
+    "max_sources_per_field": 100
+  }
+}

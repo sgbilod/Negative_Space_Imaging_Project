@@ -1,0 +1,207 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\sfnt.py",
+  "classes": [
+    {
+      "name": "SFNTReader",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "has_key",
+          "docstring": null
+        },
+        {
+          "name": "keys",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SFNTWriter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "setEntry",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": "All tables must have been written to disk. Now write the\ndirectory."
+        },
+        {
+          "name": "writeMasterChecksum",
+          "docstring": null
+        },
+        {
+          "name": "reordersTables",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DirectoryEntry",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "fromFile",
+          "docstring": null
+        },
+        {
+          "name": "fromString",
+          "docstring": null
+        },
+        {
+          "name": "toString",
+          "docstring": null
+        },
+        {
+          "name": "loadData",
+          "docstring": null
+        },
+        {
+          "name": "saveData",
+          "docstring": null
+        },
+        {
+          "name": "decodeData",
+          "docstring": null
+        },
+        {
+          "name": "encodeData",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SFNTDirectoryEntry",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "WOFFDirectoryEntry",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "decodeData",
+          "docstring": null
+        },
+        {
+          "name": "encodeData",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "WOFFFlavorData",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "compress",
+      "docstring": "Compress 'data' to Zlib format. If 'USE_ZOPFLI' variable is True,\nzopfli is used instead of the zlib module.\nThe compression 'level' must be between 0 and 9. 1 gives best speed,\n9 gives best compression (0 gives no compression at all).\nThe default value is a compromise between speed and compression (6)."
+    },
+    {
+      "name": "calcChecksum",
+      "docstring": "Calculate the checksum for an arbitrary block of data.\n\nIf the data length is not a multiple of four, it assumes\nit is to be padded with null byte.\n\n        >>> print(calcChecksum(b\"abcd\"))\n        1633837924\n        >>> print(calcChecksum(b\"abcdxyz\"))\n        3655064932"
+    },
+    {
+      "name": "readTTCHeader",
+      "docstring": null
+    },
+    {
+      "name": "writeTTCHeader",
+      "docstring": null
+    },
+    {
+      "name": "has_key",
+      "docstring": null
+    },
+    {
+      "name": "keys",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "setEntry",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": "All tables must have been written to disk. Now write the\ndirectory."
+    },
+    {
+      "name": "writeMasterChecksum",
+      "docstring": null
+    },
+    {
+      "name": "reordersTables",
+      "docstring": null
+    },
+    {
+      "name": "fromFile",
+      "docstring": null
+    },
+    {
+      "name": "fromString",
+      "docstring": null
+    },
+    {
+      "name": "toString",
+      "docstring": null
+    },
+    {
+      "name": "loadData",
+      "docstring": null
+    },
+    {
+      "name": "saveData",
+      "docstring": null
+    },
+    {
+      "name": "decodeData",
+      "docstring": null
+    },
+    {
+      "name": "encodeData",
+      "docstring": null
+    },
+    {
+      "name": "decodeData",
+      "docstring": null
+    },
+    {
+      "name": "encodeData",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

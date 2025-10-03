@@ -1,0 +1,176 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\operations\\install\\wheel.py",
+  "classes": [
+    {
+      "name": "File",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "save",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ZipBackedFile",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "save",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ScriptFile",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "save",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MissingCallableSuffix",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PipScriptMaker",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "make",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "rehash",
+      "docstring": "Return (encoded_digest, length) for path using hashlib.sha256()"
+    },
+    {
+      "name": "csv_io_kwargs",
+      "docstring": "Return keyword arguments to properly open a CSV file\nin the given mode."
+    },
+    {
+      "name": "fix_script",
+      "docstring": "Replace #!python with #!/path/to/python\nReturn True if file was changed."
+    },
+    {
+      "name": "wheel_root_is_purelib",
+      "docstring": null
+    },
+    {
+      "name": "get_entrypoints",
+      "docstring": null
+    },
+    {
+      "name": "message_about_scripts_not_on_PATH",
+      "docstring": "Determine if any scripts are not on PATH and format a warning.\nReturns a warning message if one or more scripts are not on PATH,\notherwise None."
+    },
+    {
+      "name": "get_csv_rows_for_installed",
+      "docstring": ":param installed: A map from archive RECORD path to installation RECORD\n    path."
+    },
+    {
+      "name": "get_console_script_specs",
+      "docstring": "Given the mapping from entrypoint name to callable, return the relevant\nconsole script specs."
+    },
+    {
+      "name": "req_error_context",
+      "docstring": null
+    },
+    {
+      "name": "install_wheel",
+      "docstring": null
+    },
+    {
+      "name": "save",
+      "docstring": null
+    },
+    {
+      "name": "save",
+      "docstring": null
+    },
+    {
+      "name": "save",
+      "docstring": null
+    },
+    {
+      "name": "make",
+      "docstring": null
+    },
+    {
+      "name": "record_installed",
+      "docstring": "Map archive RECORD paths to installation RECORD paths."
+    },
+    {
+      "name": "is_dir_path",
+      "docstring": null
+    },
+    {
+      "name": "assert_no_path_traversal",
+      "docstring": null
+    },
+    {
+      "name": "root_scheme_file_maker",
+      "docstring": null
+    },
+    {
+      "name": "data_scheme_file_maker",
+      "docstring": null
+    },
+    {
+      "name": "is_data_scheme_path",
+      "docstring": null
+    },
+    {
+      "name": "is_script_scheme_path",
+      "docstring": null
+    },
+    {
+      "name": "is_entrypoint_wrapper",
+      "docstring": null
+    },
+    {
+      "name": "pyc_source_file_paths",
+      "docstring": null
+    },
+    {
+      "name": "pyc_output_path",
+      "docstring": "Return the path the pyc file would have been written to."
+    },
+    {
+      "name": "make_root_scheme_file",
+      "docstring": null
+    },
+    {
+      "name": "make_data_scheme_file",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "\n        zipinfo = self._getinfo()\n\n        # optimization: the file is created by open(),\n        # skip the decompression when there is 0 bytes to decompress.\n        with open(self.dest_path, \"wb\") as dest:\n            if zipinfo.file_size > 0:"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\pyproject.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "make_pyproject_path",
+      "docstring": null
+    },
+    {
+      "name": "load_pyproject_toml",
+      "docstring": "Load the pyproject.toml file.\n\nParameters:\n    use_pep517 - Has the user requested PEP 517 processing? None\n                 means the user hasn't explicitly specified.\n    pyproject_toml - Location of the project's pyproject.toml file\n    setup_py - Location of the project's setup.py file\n    req_name - The name of the requirement we're processing (for\n               error reporting)\n\nReturns:\n    None if we should use the legacy code path, otherwise a tuple\n    (\n        requirements from pyproject.toml,\n        name of PEP 517 backend,\n        requirements we should check are installed after setting\n            up the build environment\n        directory paths to import the backend from (backend-path),\n            relative to the project root.\n    )"
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,74 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\tifffile_v3.py",
+  "classes": [
+    {
+      "name": "TifffilePlugin",
+      "docstring": "Support for tifffile as backend.\n\nParameters\n----------\nrequest : iio.Request\n    A request object that represents the users intent. It provides a\n    standard interface for a plugin to access the various ImageResources.\n    Check the docs for details.\nkwargs : Any\n    Additional kwargs are forwarded to tifffile's constructor, i.e.\n    to ``TiffFile`` for reading or ``TiffWriter`` for writing.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": "Read a ndimage or page.\n\nThe ndimage returned depends on the value of both ``index`` and\n``page``. ``index`` selects the series to read and ``page`` allows\nselecting a single page from the selected series. If ``index=None``,\n``page`` is understood as a flat index, i.e., the selection ignores\nindividual series inside the file. If both ``index`` and ``page`` are\n``None``, then all the series are read and returned as a batch.\n\nParameters\n----------\nindex : int\n    If ``int``, select the ndimage (series) located at that index inside\n    the file and return ``page`` from it. If ``None`` and ``page`` is\n    ``int`` read the page located at that (flat) index inside the file.\n    If ``None`` and ``page=None``, read all ndimages from the file and\n    return them as a batch.\npage : int\n    If ``None`` return the full selected ndimage. If ``int``, read the\n    page at the selected index and return it.\nkwargs : Any\n    Additional kwargs are forwarded to TiffFile's ``as_array`` method.\n\nReturns\n-------\nndarray : np.ndarray\n    The decoded ndimage or page."
+        },
+        {
+          "name": "iter",
+          "docstring": "Yield ndimages from the TIFF.\n\nParameters\n----------\nkwargs : Any\n    Additional kwargs are forwarded to the TiffPageSeries' ``as_array``\n    method.\n\nYields\n------\nndimage : np.ndarray\n    A decoded ndimage."
+        },
+        {
+          "name": "write",
+          "docstring": "Save a ndimage as TIFF.\n\nParameters\n----------\nndimage : ArrayLike\n    The ndimage to encode and write to the ImageResource.\nis_batch : bool\n    If True, the first dimension of the given ndimage is treated as a\n    batch dimension and each element will create a new series.\nkwargs : Any\n    Additional kwargs are forwarded to TiffWriter's ``write`` method.\n\nReturns\n-------\nencoded_image : bytes\n    If the ImageResource is ``\"<bytes>\"``, return the encoded bytes.\n    Otherwise write returns None.\n\nNotes\n-----\nIncremental writing is supported. Subsequent calls to ``write`` will\ncreate new series unless ``contiguous=True`` is used, in which case the\ncall to write will append to the current series."
+        },
+        {
+          "name": "metadata",
+          "docstring": "Format-Specific TIFF metadata.\n\nThe metadata returned depends on the value of both ``index`` and\n``page``. ``index`` selects a series and ``page`` allows selecting a\nsingle page from the selected series. If ``index=Ellipsis``, ``page`` is\nunderstood as a flat index, i.e., the selection ignores individual\nseries inside the file. If ``index=Ellipsis`` and ``page=None`` then\nglobal (file-level) metadata is returned.\n\nParameters\n----------\nindex : int\n    Select the series of which to extract metadata from. If Ellipsis, treat\n    page as a flat index into the file's pages.\npage : int\n    If not None, select the page of which to extract metadata from. If\n    None, read series-level metadata or, if ``index=...`` global,\n    file-level metadata.\nexclude_applied : bool\n    For API compatibility. Currently ignored.\n\nReturns\n-------\nmetadata : dict\n    A dictionary with information regarding the tiff flavor (file-level)\n    or tiff tags (page-level)."
+        },
+        {
+          "name": "properties",
+          "docstring": "Standardized metadata.\n\nThe properties returned depend on the value of both ``index`` and\n``page``. ``index`` selects a series and ``page`` allows selecting a\nsingle page from the selected series. If ``index=Ellipsis``, ``page`` is\nunderstood as a flat index, i.e., the selection ignores individual\nseries inside the file. If ``index=Ellipsis`` and ``page=None`` then\nglobal (file-level) properties are returned. If ``index=Ellipsis``\nand ``page=...``, file-level properties for the flattened index are\nreturned.\n\nParameters\n----------\nindex : int\n    If ``int``, select the ndimage (series) located at that index inside\n    the file. If ``Ellipsis`` and ``page`` is ``int`` extract the\n    properties of the page located at that (flat) index inside the file.\n    If ``Ellipsis`` and ``page=None``, return the properties for the\n    batch of all ndimages in the file.\npage : int\n    If ``None`` return the properties of the full ndimage. If ``...``\n    return the properties of the flattened index. If ``int``,\n    return the properties of the page at the selected index only.\n\nReturns\n-------\nimage_properties : ImageProperties\n    The standardized metadata (properties) of the selected ndimage or series."
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "iter_pages",
+          "docstring": "Yield pages from a TIFF file.\n\nThis generator walks over the flat index of the pages inside an\nImageResource and yields them in order.\n\nParameters\n----------\nindex : int\n    The index of the series to yield pages from. If Ellipsis, walk over\n    the file's flat index (and ignore individual series).\nkwargs : Any\n    Additional kwargs are passed to TiffPage's ``as_array`` method.\n\nYields\n------\npage : np.ndarray\n    A page stored inside the TIFF file."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "read",
+      "docstring": "Read a ndimage or page.\n\nThe ndimage returned depends on the value of both ``index`` and\n``page``. ``index`` selects the series to read and ``page`` allows\nselecting a single page from the selected series. If ``index=None``,\n``page`` is understood as a flat index, i.e., the selection ignores\nindividual series inside the file. If both ``index`` and ``page`` are\n``None``, then all the series are read and returned as a batch.\n\nParameters\n----------\nindex : int\n    If ``int``, select the ndimage (series) located at that index inside\n    the file and return ``page`` from it. If ``None`` and ``page`` is\n    ``int`` read the page located at that (flat) index inside the file.\n    If ``None`` and ``page=None``, read all ndimages from the file and\n    return them as a batch.\npage : int\n    If ``None`` return the full selected ndimage. If ``int``, read the\n    page at the selected index and return it.\nkwargs : Any\n    Additional kwargs are forwarded to TiffFile's ``as_array`` method.\n\nReturns\n-------\nndarray : np.ndarray\n    The decoded ndimage or page."
+    },
+    {
+      "name": "iter",
+      "docstring": "Yield ndimages from the TIFF.\n\nParameters\n----------\nkwargs : Any\n    Additional kwargs are forwarded to the TiffPageSeries' ``as_array``\n    method.\n\nYields\n------\nndimage : np.ndarray\n    A decoded ndimage."
+    },
+    {
+      "name": "write",
+      "docstring": "Save a ndimage as TIFF.\n\nParameters\n----------\nndimage : ArrayLike\n    The ndimage to encode and write to the ImageResource.\nis_batch : bool\n    If True, the first dimension of the given ndimage is treated as a\n    batch dimension and each element will create a new series.\nkwargs : Any\n    Additional kwargs are forwarded to TiffWriter's ``write`` method.\n\nReturns\n-------\nencoded_image : bytes\n    If the ImageResource is ``\"<bytes>\"``, return the encoded bytes.\n    Otherwise write returns None.\n\nNotes\n-----\nIncremental writing is supported. Subsequent calls to ``write`` will\ncreate new series unless ``contiguous=True`` is used, in which case the\ncall to write will append to the current series."
+    },
+    {
+      "name": "metadata",
+      "docstring": "Format-Specific TIFF metadata.\n\nThe metadata returned depends on the value of both ``index`` and\n``page``. ``index`` selects a series and ``page`` allows selecting a\nsingle page from the selected series. If ``index=Ellipsis``, ``page`` is\nunderstood as a flat index, i.e., the selection ignores individual\nseries inside the file. If ``index=Ellipsis`` and ``page=None`` then\nglobal (file-level) metadata is returned.\n\nParameters\n----------\nindex : int\n    Select the series of which to extract metadata from. If Ellipsis, treat\n    page as a flat index into the file's pages.\npage : int\n    If not None, select the page of which to extract metadata from. If\n    None, read series-level metadata or, if ``index=...`` global,\n    file-level metadata.\nexclude_applied : bool\n    For API compatibility. Currently ignored.\n\nReturns\n-------\nmetadata : dict\n    A dictionary with information regarding the tiff flavor (file-level)\n    or tiff tags (page-level)."
+    },
+    {
+      "name": "properties",
+      "docstring": "Standardized metadata.\n\nThe properties returned depend on the value of both ``index`` and\n``page``. ``index`` selects a series and ``page`` allows selecting a\nsingle page from the selected series. If ``index=Ellipsis``, ``page`` is\nunderstood as a flat index, i.e., the selection ignores individual\nseries inside the file. If ``index=Ellipsis`` and ``page=None`` then\nglobal (file-level) properties are returned. If ``index=Ellipsis``\nand ``page=...``, file-level properties for the flattened index are\nreturned.\n\nParameters\n----------\nindex : int\n    If ``int``, select the ndimage (series) located at that index inside\n    the file. If ``Ellipsis`` and ``page`` is ``int`` extract the\n    properties of the page located at that (flat) index inside the file.\n    If ``Ellipsis`` and ``page=None``, return the properties for the\n    batch of all ndimages in the file.\npage : int\n    If ``None`` return the properties of the full ndimage. If ``...``\n    return the properties of the flattened index. If ``int``,\n    return the properties of the page at the selected index only.\n\nReturns\n-------\nimage_properties : ImageProperties\n    The standardized metadata (properties) of the selected ndimage or series."
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "iter_pages",
+      "docstring": "Yield pages from a TIFF file.\n\nThis generator walks over the flat index of the pages inside an\nImageResource and yields them in order.\n\nParameters\n----------\nindex : int\n    The index of the series to yield pages from. If Ellipsis, walk over\n    the file's flat index (and ignore individual series).\nkwargs : Any\n    Additional kwargs are passed to TiffPage's ``as_array`` method.\n\nYields\n------\npage : np.ndarray\n    A page stored inside the TIFF file."
+    }
+  ],
+  "innovations": []
+}

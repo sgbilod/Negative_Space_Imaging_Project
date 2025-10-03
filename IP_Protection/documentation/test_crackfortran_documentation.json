@@ -1,0 +1,366 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\f2py\\tests\\test_crackfortran.py",
+  "classes": [
+    {
+      "name": "TestNoSpace",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_module",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPublicPrivate",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_defaultPrivate",
+          "docstring": null
+        },
+        {
+          "name": "test_defaultPublic",
+          "docstring": null
+        },
+        {
+          "name": "test_access_type",
+          "docstring": null
+        },
+        {
+          "name": "test_nowrap_private_proceedures",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestModuleProcedure",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_moduleOperators",
+          "docstring": null
+        },
+        {
+          "name": "test_notPublicPrivate",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestExternal",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_external_as_statement",
+          "docstring": null
+        },
+        {
+          "name": "test_external_as_attribute",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCrackFortran",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_gh2848",
+          "docstring": null
+        },
+        {
+          "name": "test_common_with_division",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMarkinnerspaces",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_do_not_touch_normal_spaces",
+          "docstring": null
+        },
+        {
+          "name": "test_one_relevant_space",
+          "docstring": null
+        },
+        {
+          "name": "test_ignore_inner_quotes",
+          "docstring": null
+        },
+        {
+          "name": "test_multiple_relevant_spaces",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDimSpec",
+      "docstring": "This test suite tests various expressions that are used as dimension\nspecifications.\n\nThere exists two usage cases where analyzing dimensions\nspecifications are important.\n\nIn the first case, the size of output arrays must be defined based\non the inputs to a Fortran function. Because Fortran supports\narbitrary bases for indexing, for instance, `arr(lower:upper)`,\nf2py has to evaluate an expression `upper - lower + 1` where\n`lower` and `upper` are arbitrary expressions of input parameters.\nThe evaluation is performed in C, so f2py has to translate Fortran\nexpressions to valid C expressions (an alternative approach is\nthat a developer specifies the corresponding C expressions in a\n.pyf file).\n\nIn the second case, when user provides an input array with a given\nsize but some hidden parameters used in dimensions specifications\nneed to be determined based on the input array size. This is a\nharder problem because f2py has to solve the inverse problem: find\na parameter `p` such that `upper(p) - lower(p) + 1` equals to the\nsize of input array. In the case when this equation cannot be\nsolved (e.g. because the input array size is wrong), raise an\nerror before calling the Fortran function (that otherwise would\nlikely crash Python process when the size of input arrays is\nwrong). f2py currently supports this case only when the equation\nis linear with respect to unknown parameter.",
+      "methods": [
+        {
+          "name": "test_array_size",
+          "docstring": null
+        },
+        {
+          "name": "test_inv_array_size",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestModuleDeclaration",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_dependencies",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEval",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_eval_scalar",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFortranReader",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_input_encoding",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestUnicodeComment",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_encoding_comment",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNameArgsPatternBacktracking",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_nameargspattern_backtracking",
+          "docstring": "address ReDOS vulnerability:\nhttps://github.com/numpy/numpy/issues/23338"
+        }
+      ]
+    },
+    {
+      "name": "TestFunctionReturn",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_function_rettype",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFortranGroupCounters",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_end_if_comment",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestF77CommonBlockReader",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_gh22648",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestParamEval",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_param_eval_nested",
+          "docstring": null
+        },
+        {
+          "name": "test_param_eval_nonstandard_range",
+          "docstring": null
+        },
+        {
+          "name": "test_param_eval_empty_range",
+          "docstring": null
+        },
+        {
+          "name": "test_param_eval_non_array_param",
+          "docstring": null
+        },
+        {
+          "name": "test_param_eval_too_many_dims",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLowerF2PYDirective",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_no_lower_fail",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_module",
+      "docstring": null
+    },
+    {
+      "name": "test_defaultPrivate",
+      "docstring": null
+    },
+    {
+      "name": "test_defaultPublic",
+      "docstring": null
+    },
+    {
+      "name": "test_access_type",
+      "docstring": null
+    },
+    {
+      "name": "test_nowrap_private_proceedures",
+      "docstring": null
+    },
+    {
+      "name": "test_moduleOperators",
+      "docstring": null
+    },
+    {
+      "name": "test_notPublicPrivate",
+      "docstring": null
+    },
+    {
+      "name": "test_external_as_statement",
+      "docstring": null
+    },
+    {
+      "name": "test_external_as_attribute",
+      "docstring": null
+    },
+    {
+      "name": "test_gh2848",
+      "docstring": null
+    },
+    {
+      "name": "test_common_with_division",
+      "docstring": null
+    },
+    {
+      "name": "test_do_not_touch_normal_spaces",
+      "docstring": null
+    },
+    {
+      "name": "test_one_relevant_space",
+      "docstring": null
+    },
+    {
+      "name": "test_ignore_inner_quotes",
+      "docstring": null
+    },
+    {
+      "name": "test_multiple_relevant_spaces",
+      "docstring": null
+    },
+    {
+      "name": "test_array_size",
+      "docstring": null
+    },
+    {
+      "name": "test_inv_array_size",
+      "docstring": null
+    },
+    {
+      "name": "test_dependencies",
+      "docstring": null
+    },
+    {
+      "name": "test_eval_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_input_encoding",
+      "docstring": null
+    },
+    {
+      "name": "test_encoding_comment",
+      "docstring": null
+    },
+    {
+      "name": "test_nameargspattern_backtracking",
+      "docstring": "address ReDOS vulnerability:\nhttps://github.com/numpy/numpy/issues/23338"
+    },
+    {
+      "name": "test_function_rettype",
+      "docstring": null
+    },
+    {
+      "name": "test_end_if_comment",
+      "docstring": null
+    },
+    {
+      "name": "test_gh22648",
+      "docstring": null
+    },
+    {
+      "name": "test_param_eval_nested",
+      "docstring": null
+    },
+    {
+      "name": "test_param_eval_nonstandard_range",
+      "docstring": null
+    },
+    {
+      "name": "test_param_eval_empty_range",
+      "docstring": null
+    },
+    {
+      "name": "test_param_eval_non_array_param",
+      "docstring": null
+    },
+    {
+      "name": "test_param_eval_too_many_dims",
+      "docstring": null
+    },
+    {
+      "name": "test_no_lower_fail",
+      "docstring": null
+    },
+    {
+      "name": "incr",
+      "docstring": null
+    },
+    {
+      "name": "incr",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

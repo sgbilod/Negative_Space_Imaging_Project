@@ -1,0 +1,42 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\pens\\pointInsidePen.py",
+  "classes": [
+    {
+      "name": "PointInsidePen",
+      "docstring": "This pen implements \"point inside\" testing: to test whether\na given point lies inside the shape (black) or outside (white).\nInstances of this class can be recycled, as long as the\nsetTestPoint() method is used to set the new point to test.\n\n:Example:\n    .. code-block::\n\n        pen = PointInsidePen(glyphSet, (100, 200))\n        outline.draw(pen)\n        isInside = pen.getResult()\n\nBoth the even-odd algorithm and the non-zero-winding-rule\nalgorithm are implemented. The latter is the default, specify\nTrue for the evenOdd argument of __init__ or setTestPoint\nto use the even-odd algorithm.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "setTestPoint",
+          "docstring": "Set the point to test. Call this _before_ the outline gets drawn."
+        },
+        {
+          "name": "getWinding",
+          "docstring": null
+        },
+        {
+          "name": "getResult",
+          "docstring": "After the shape has been drawn, getResult() returns True if the test\npoint lies within the (black) shape, and False if it doesn't."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "setTestPoint",
+      "docstring": "Set the point to test. Call this _before_ the outline gets drawn."
+    },
+    {
+      "name": "getWinding",
+      "docstring": null
+    },
+    {
+      "name": "getResult",
+      "docstring": "After the shape has been drawn, getResult() returns True if the test\npoint lies within the (black) shape, and False if it doesn't."
+    }
+  ],
+  "innovations": []
+}

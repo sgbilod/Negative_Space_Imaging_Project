@@ -1,0 +1,47 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\commands\\show.py",
+  "classes": [
+    {
+      "name": "ShowCommand",
+      "docstring": "Show information about one or more installed packages.\n\nThe output is in RFC-compliant mail header format.",
+      "methods": [
+        {
+          "name": "add_options",
+          "docstring": null
+        },
+        {
+          "name": "run",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_PackageInfo",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "normalize_project_url_label",
+      "docstring": null
+    },
+    {
+      "name": "search_packages_info",
+      "docstring": "Gather details from installed distributions. Print distribution name,\nversion, location, and installed files. Installed files requires a\npip generated 'installed-files.txt' in the distributions '.egg-info'\ndirectory."
+    },
+    {
+      "name": "print_results",
+      "docstring": "Print the information from installed distributions found."
+    },
+    {
+      "name": "add_options",
+      "docstring": null
+    },
+    {
+      "name": "run",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

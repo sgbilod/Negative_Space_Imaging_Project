@@ -1,0 +1,153 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\mpl_toolkits\\mplot3d\\axis3d.py",
+  "classes": [
+    {
+      "name": "Axis",
+      "docstring": "An Axis class for the 3D plots.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "init3d",
+          "docstring": null
+        },
+        {
+          "name": "get_major_ticks",
+          "docstring": null
+        },
+        {
+          "name": "get_minor_ticks",
+          "docstring": null
+        },
+        {
+          "name": "set_ticks_position",
+          "docstring": "Set the ticks position.\n\nParameters\n----------\nposition : {'lower', 'upper', 'both', 'default', 'none'}\n    The position of the bolded axis lines, ticks, and tick labels."
+        },
+        {
+          "name": "get_ticks_position",
+          "docstring": "Get the ticks position.\n\nReturns\n-------\nstr : {'lower', 'upper', 'both', 'default', 'none'}\n    The position of the bolded axis lines, ticks, and tick labels."
+        },
+        {
+          "name": "set_label_position",
+          "docstring": "Set the label position.\n\nParameters\n----------\nposition : {'lower', 'upper', 'both', 'default', 'none'}\n    The position of the axis label."
+        },
+        {
+          "name": "get_label_position",
+          "docstring": "Get the label position.\n\nReturns\n-------\nstr : {'lower', 'upper', 'both', 'default', 'none'}\n    The position of the axis label."
+        },
+        {
+          "name": "set_pane_color",
+          "docstring": "Set pane color.\n\nParameters\n----------\ncolor : :mpltype:`color`\n    Color for axis pane.\nalpha : float, optional\n    Alpha value for axis pane. If None, base it on *color*."
+        },
+        {
+          "name": "set_rotate_label",
+          "docstring": "Whether to rotate the axis label: True, False or None.\nIf set to None the label will be rotated if longer than 4 chars."
+        },
+        {
+          "name": "get_rotate_label",
+          "docstring": null
+        },
+        {
+          "name": "active_pane",
+          "docstring": null
+        },
+        {
+          "name": "draw_pane",
+          "docstring": "Draw pane.\n\nParameters\n----------\nrenderer : `~matplotlib.backend_bases.RendererBase` subclass"
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        },
+        {
+          "name": "draw_grid",
+          "docstring": null
+        },
+        {
+          "name": "get_tightbbox",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "XAxis",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "YAxis",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ZAxis",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "init3d",
+      "docstring": null
+    },
+    {
+      "name": "get_major_ticks",
+      "docstring": null
+    },
+    {
+      "name": "get_minor_ticks",
+      "docstring": null
+    },
+    {
+      "name": "set_ticks_position",
+      "docstring": "Set the ticks position.\n\nParameters\n----------\nposition : {'lower', 'upper', 'both', 'default', 'none'}\n    The position of the bolded axis lines, ticks, and tick labels."
+    },
+    {
+      "name": "get_ticks_position",
+      "docstring": "Get the ticks position.\n\nReturns\n-------\nstr : {'lower', 'upper', 'both', 'default', 'none'}\n    The position of the bolded axis lines, ticks, and tick labels."
+    },
+    {
+      "name": "set_label_position",
+      "docstring": "Set the label position.\n\nParameters\n----------\nposition : {'lower', 'upper', 'both', 'default', 'none'}\n    The position of the axis label."
+    },
+    {
+      "name": "get_label_position",
+      "docstring": "Get the label position.\n\nReturns\n-------\nstr : {'lower', 'upper', 'both', 'default', 'none'}\n    The position of the axis label."
+    },
+    {
+      "name": "set_pane_color",
+      "docstring": "Set pane color.\n\nParameters\n----------\ncolor : :mpltype:`color`\n    Color for axis pane.\nalpha : float, optional\n    Alpha value for axis pane. If None, base it on *color*."
+    },
+    {
+      "name": "set_rotate_label",
+      "docstring": "Whether to rotate the axis label: True, False or None.\nIf set to None the label will be rotated if longer than 4 chars."
+    },
+    {
+      "name": "get_rotate_label",
+      "docstring": null
+    },
+    {
+      "name": "active_pane",
+      "docstring": null
+    },
+    {
+      "name": "draw_pane",
+      "docstring": "Draw pane.\n\nParameters\n----------\nrenderer : `~matplotlib.backend_bases.RendererBase` subclass"
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "draw_grid",
+      "docstring": null
+    },
+    {
+      "name": "get_tightbbox",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

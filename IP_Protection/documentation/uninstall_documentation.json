@@ -1,0 +1,30 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\commands\\uninstall.py",
+  "classes": [
+    {
+      "name": "UninstallCommand",
+      "docstring": "Uninstall packages.\n\npip is able to uninstall most installed packages. Known exceptions are:\n\n- Pure distutils packages installed with ``python setup.py install``, which\n  leave behind no metadata to determine what files were installed.\n- Script wrappers installed by ``python setup.py develop``.",
+      "methods": [
+        {
+          "name": "add_options",
+          "docstring": null
+        },
+        {
+          "name": "run",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "add_options",
+      "docstring": null
+    },
+    {
+      "name": "run",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

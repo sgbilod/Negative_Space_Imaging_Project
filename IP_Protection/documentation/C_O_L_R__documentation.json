@@ -1,0 +1,72 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\C_O_L_R_.py",
+  "classes": [
+    {
+      "name": "table_C_O_L_R_",
+      "docstring": "Color table\n\nThe ``COLR`` table defines color presentation of outline glyphs. It must\nbe used in concert with the ``CPAL`` table, which contains the color\ndescriptors used.\n\nThis table is structured so that you can treat it like a dictionary keyed by glyph name.\n\n``ttFont['COLR'][<glyphName>]`` will return the color layers for any glyph.\n\n``ttFont['COLR'][<glyphName>] = <value>`` will set the color layers for any glyph.\n\nSee also https://learn.microsoft.com/en-us/typography/opentype/spec/colr",
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LayerRecord",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

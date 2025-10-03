@@ -1,0 +1,365 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ufoLib\\glifLib.py",
+  "classes": [
+    {
+      "name": "GLIFFormatVersion",
+      "docstring": "Class representing the versions of the .glif format supported by the UFO version in use.\n\nFor a given :mod:`fontTools.ufoLib.UFOFormatVersion`, the :func:`supported_versions` method will\nreturn the supported versions of the GLIF file format. If the UFO version is unspecified, the\n:func:`supported_versions` method will return all available GLIF format versions.",
+      "methods": [
+        {
+          "name": "default",
+          "docstring": null
+        },
+        {
+          "name": "supported_versions",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Glyph",
+      "docstring": "Minimal glyph object. It has no glyph attributes until either\nthe draw() or the drawPoints() method has been called.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": "Draw this glyph onto a *FontTools* Pen."
+        },
+        {
+          "name": "drawPoints",
+          "docstring": "Draw this glyph onto a PointPen."
+        }
+      ]
+    },
+    {
+      "name": "GlyphSet",
+      "docstring": "GlyphSet manages a set of .glif files inside one directory.\n\nGlyphSet's constructor takes a path to an existing directory as it's\nfirst argument. Reading glyph data can either be done through the\nreadGlyph() method, or by using GlyphSet's dictionary interface, where\nthe keys are glyph names and the values are (very) simple glyph objects.\n\nTo write a glyph to the glyph set, you use the writeGlyph() method.\nThe simple glyph objects returned through the dict interface do not\nsupport writing, they are just a convenient way to get at the glyph data.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "'path' should be a path (string) to an existing local directory, or\nan instance of fs.base.FS class.\n\nThe optional 'glyphNameToFileNameFunc' argument must be a callback\nfunction that takes two arguments: a glyph name and a list of all\nexisting filenames (if any exist). It should return a file name\n(including the .glif extension). The glyphNameToFileName function\nis called whenever a file name is created for a given glyph name.\n\n``validateRead`` will validate read operations. Its default is ``True``.\n``validateWrite`` will validate write operations. Its default is ``True``.\n``expectContentsFile`` will raise a GlifLibError if a contents.plist file is\nnot found on the glyph set file system. This should be set to ``True`` if you\nare reading an existing UFO and ``False`` if you create a fresh glyph set."
+        },
+        {
+          "name": "rebuildContents",
+          "docstring": "Rebuild the contents dict by loading contents.plist.\n\n``validateRead`` will validate the data, by default it is set to the\nclass's ``validateRead`` value, can be overridden."
+        },
+        {
+          "name": "getReverseContents",
+          "docstring": "Return a reversed dict of self.contents, mapping file names to\nglyph names. This is primarily an aid for custom glyph name to file\nname schemes that want to make sure they don't generate duplicate\nfile names. The file names are converted to lowercase so we can\nreliably check for duplicates that only differ in case, which is\nimportant for case-insensitive file systems."
+        },
+        {
+          "name": "writeContents",
+          "docstring": "Write the contents.plist file out to disk. Call this method when\nyou're done writing glyphs."
+        },
+        {
+          "name": "readLayerInfo",
+          "docstring": "``validateRead`` will validate the data, by default it is set to the\nclass's ``validateRead`` value, can be overridden."
+        },
+        {
+          "name": "writeLayerInfo",
+          "docstring": "``validateWrite`` will validate the data, by default it is set to the\nclass's ``validateWrite`` value, can be overridden."
+        },
+        {
+          "name": "getGLIF",
+          "docstring": "Get the raw GLIF text for a given glyph name. This only works\nfor GLIF files that are already on disk.\n\nThis method is useful in situations when the raw XML needs to be\nread from a glyph set for a particular glyph before fully parsing\nit into an object structure via the readGlyph method.\n\nRaises KeyError if 'glyphName' is not in contents.plist, or\nGlifLibError if the file associated with can't be found."
+        },
+        {
+          "name": "getGLIFModificationTime",
+          "docstring": "Returns the modification time for the GLIF file with 'glyphName', as\na floating point number giving the number of seconds since the epoch.\nReturn None if the associated file does not exist or the underlying\nfilesystem does not support getting modified times.\nRaises KeyError if the glyphName is not in contents.plist."
+        },
+        {
+          "name": "readGlyph",
+          "docstring": "Read a .glif file for 'glyphName' from the glyph set. The\n'glyphObject' argument can be any kind of object (even None);\nthe readGlyph() method will attempt to set the following\nattributes on it:\n\nwidth\n        the advance width of the glyph\nheight\n        the advance height of the glyph\nunicodes\n        a list of unicode values for this glyph\nnote\n        a string\nlib\n        a dictionary containing custom data\nimage\n        a dictionary containing image data\nguidelines\n        a list of guideline data dictionaries\nanchors\n        a list of anchor data dictionaries\n\nAll attributes are optional, in two ways:\n\n1) An attribute *won't* be set if the .glif file doesn't\n   contain data for it. 'glyphObject' will have to deal\n   with default values itself.\n2) If setting the attribute fails with an AttributeError\n   (for example if the 'glyphObject' attribute is read-\n   only), readGlyph() will not propagate that exception,\n   but ignore that attribute.\n\nTo retrieve outline information, you need to pass an object\nconforming to the PointPen protocol as the 'pointPen' argument.\nThis argument may be None if you don't need the outline data.\n\nreadGlyph() will raise KeyError if the glyph is not present in\nthe glyph set.\n\n``validate`` will validate the data, by default it is set to the\nclass's ``validateRead`` value, can be overridden."
+        },
+        {
+          "name": "writeGlyph",
+          "docstring": "Write a .glif file for 'glyphName' to the glyph set. The\n'glyphObject' argument can be any kind of object (even None);\nthe writeGlyph() method will attempt to get the following\nattributes from it:\n\nwidth\n        the advance width of the glyph\nheight\n        the advance height of the glyph\nunicodes\n        a list of unicode values for this glyph\nnote\n        a string\nlib\n        a dictionary containing custom data\nimage\n        a dictionary containing image data\nguidelines\n        a list of guideline data dictionaries\nanchors\n        a list of anchor data dictionaries\n\nAll attributes are optional: if 'glyphObject' doesn't\nhave the attribute, it will simply be skipped.\n\nTo write outline data to the .glif file, writeGlyph() needs\na function (any callable object actually) that will take one\nargument: an object that conforms to the PointPen protocol.\nThe function will be called by writeGlyph(); it has to call the\nproper PointPen methods to transfer the outline to the .glif file.\n\nThe GLIF format version will be chosen based on the ufoFormatVersion\npassed during the creation of this object. If a particular format\nversion is desired, it can be passed with the formatVersion argument.\nThe formatVersion argument accepts either a tuple of integers for\n(major, minor), or a single integer for the major digit only (with\nminor digit implied as 0).\n\nAn UnsupportedGLIFFormat exception is raised if the requested GLIF\nformatVersion is not supported.\n\n``validate`` will validate the data, by default it is set to the\nclass's ``validateWrite`` value, can be overridden."
+        },
+        {
+          "name": "deleteGlyph",
+          "docstring": "Permanently delete the glyph from the glyph set on disk. Will\nraise KeyError if the glyph is not present in the glyph set."
+        },
+        {
+          "name": "keys",
+          "docstring": null
+        },
+        {
+          "name": "has_key",
+          "docstring": null
+        },
+        {
+          "name": "getUnicodes",
+          "docstring": "Return a dictionary that maps glyph names to lists containing\nthe unicode value[s] for that glyph, if any. This parses the .glif\nfiles partially, so it is a lot faster than parsing all files completely.\nBy default this checks all glyphs, but a subset can be passed with glyphNames."
+        },
+        {
+          "name": "getComponentReferences",
+          "docstring": "Return a dictionary that maps glyph names to lists containing the\nbase glyph name of components in the glyph. This parses the .glif\nfiles partially, so it is a lot faster than parsing all files completely.\nBy default this checks all glyphs, but a subset can be passed with glyphNames."
+        },
+        {
+          "name": "getImageReferences",
+          "docstring": "Return a dictionary that maps glyph names to the file name of the image\nreferenced by the glyph. This parses the .glif files partially, so it is a\nlot faster than parsing all files completely.\nBy default this checks all glyphs, but a subset can be passed with glyphNames."
+        },
+        {
+          "name": "close",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_DoneParsing",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_BaseParser",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "parse",
+          "docstring": null
+        },
+        {
+          "name": "startElementHandler",
+          "docstring": null
+        },
+        {
+          "name": "endElementHandler",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_FetchUnicodesParser",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "startElementHandler",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_FetchImageFileNameParser",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "startElementHandler",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_FetchComponentBasesParser",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "startElementHandler",
+          "docstring": null
+        },
+        {
+          "name": "endElementHandler",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GLIFPointPen",
+      "docstring": "Helper class using the PointPen protocol to write the <outline>\npart of .glif files.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "beginPath",
+          "docstring": null
+        },
+        {
+          "name": "endPath",
+          "docstring": null
+        },
+        {
+          "name": "addPoint",
+          "docstring": null
+        },
+        {
+          "name": "addComponent",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "glyphNameToFileName",
+      "docstring": "Wrapper around the userNameToFileName function in filenames.py\n\nNote that existingFileNames should be a set for large glyphsets\nor performance will suffer."
+    },
+    {
+      "name": "readGlyphFromString",
+      "docstring": "Read .glif data from a string into a glyph object.\n\nThe 'glyphObject' argument can be any kind of object (even None);\nthe readGlyphFromString() method will attempt to set the following\nattributes on it:\n\nwidth\n        the advance width of the glyph\nheight\n        the advance height of the glyph\nunicodes\n        a list of unicode values for this glyph\nnote\n        a string\nlib\n        a dictionary containing custom data\nimage\n        a dictionary containing image data\nguidelines\n        a list of guideline data dictionaries\nanchors\n        a list of anchor data dictionaries\n\nAll attributes are optional, in two ways:\n\n1) An attribute *won't* be set if the .glif file doesn't\n   contain data for it. 'glyphObject' will have to deal\n   with default values itself.\n2) If setting the attribute fails with an AttributeError\n   (for example if the 'glyphObject' attribute is read-\n   only), readGlyphFromString() will not propagate that\n   exception, but ignore that attribute.\n\nTo retrieve outline information, you need to pass an object\nconforming to the PointPen protocol as the 'pointPen' argument.\nThis argument may be None if you don't need the outline data.\n\nThe formatVersions optional argument define the GLIF format versions\nthat are allowed to be read.\nThe type is Optional[Iterable[Tuple[int, int], int]]. It can contain\neither integers (for the major versions to be allowed, with minor\ndigits defaulting to 0), or tuples of integers to specify both\n(major, minor) versions.\nBy default when formatVersions is None all the GLIF format versions\ncurrently defined are allowed to be read.\n\n``validate`` will validate the read data. It is set to ``True`` by default."
+    },
+    {
+      "name": "writeGlyphToString",
+      "docstring": "Return .glif data for a glyph as a string. The XML declaration's\nencoding is always set to \"UTF-8\".\nThe 'glyphObject' argument can be any kind of object (even None);\nthe writeGlyphToString() method will attempt to get the following\nattributes from it:\n\nwidth\n        the advance width of the glyph\nheight\n        the advance height of the glyph\nunicodes\n        a list of unicode values for this glyph\nnote\n        a string\nlib\n        a dictionary containing custom data\nimage\n        a dictionary containing image data\nguidelines\n        a list of guideline data dictionaries\nanchors\n        a list of anchor data dictionaries\n\nAll attributes are optional: if 'glyphObject' doesn't\nhave the attribute, it will simply be skipped.\n\nTo write outline data to the .glif file, writeGlyphToString() needs\na function (any callable object actually) that will take one\nargument: an object that conforms to the PointPen protocol.\nThe function will be called by writeGlyphToString(); it has to call the\nproper PointPen methods to transfer the outline to the .glif file.\n\nThe GLIF format version can be specified with the formatVersion argument.\nThis accepts either a tuple of integers for (major, minor), or a single\ninteger for the major digit only (with minor digit implied as 0).\nBy default when formatVesion is None the latest GLIF format version will\nbe used; currently it's 2.0, which is equivalent to formatVersion=(2, 0).\n\nAn UnsupportedGLIFFormat exception is raised if the requested UFO\nformatVersion is not supported.\n\n``validate`` will validate the written data. It is set to ``True`` by default."
+    },
+    {
+      "name": "validateLayerInfoVersion3ValueForAttribute",
+      "docstring": "This performs very basic validation of the value for attribute\nfollowing the UFO 3 fontinfo.plist specification. The results\nof this should not be interpretted as *correct* for the font\nthat they are part of. This merely indicates that the value\nis of the proper type and, where the specification defines\na set range of possible values for an attribute, that the\nvalue is in the accepted range."
+    },
+    {
+      "name": "validateLayerInfoVersion3Data",
+      "docstring": "This performs very basic validation of the value for infoData\nfollowing the UFO 3 layerinfo.plist specification. The results\nof this should not be interpretted as *correct* for the font\nthat they are part of. This merely indicates that the values\nare of the proper type and, where the specification defines\na set range of possible values for an attribute, that the\nvalue is in the accepted range."
+    },
+    {
+      "name": "buildOutlineFormat1",
+      "docstring": null
+    },
+    {
+      "name": "buildOutlineFormat2",
+      "docstring": null
+    },
+    {
+      "name": "default",
+      "docstring": null
+    },
+    {
+      "name": "supported_versions",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": "Draw this glyph onto a *FontTools* Pen."
+    },
+    {
+      "name": "drawPoints",
+      "docstring": "Draw this glyph onto a PointPen."
+    },
+    {
+      "name": "rebuildContents",
+      "docstring": "Rebuild the contents dict by loading contents.plist.\n\n``validateRead`` will validate the data, by default it is set to the\nclass's ``validateRead`` value, can be overridden."
+    },
+    {
+      "name": "getReverseContents",
+      "docstring": "Return a reversed dict of self.contents, mapping file names to\nglyph names. This is primarily an aid for custom glyph name to file\nname schemes that want to make sure they don't generate duplicate\nfile names. The file names are converted to lowercase so we can\nreliably check for duplicates that only differ in case, which is\nimportant for case-insensitive file systems."
+    },
+    {
+      "name": "writeContents",
+      "docstring": "Write the contents.plist file out to disk. Call this method when\nyou're done writing glyphs."
+    },
+    {
+      "name": "readLayerInfo",
+      "docstring": "``validateRead`` will validate the data, by default it is set to the\nclass's ``validateRead`` value, can be overridden."
+    },
+    {
+      "name": "writeLayerInfo",
+      "docstring": "``validateWrite`` will validate the data, by default it is set to the\nclass's ``validateWrite`` value, can be overridden."
+    },
+    {
+      "name": "getGLIF",
+      "docstring": "Get the raw GLIF text for a given glyph name. This only works\nfor GLIF files that are already on disk.\n\nThis method is useful in situations when the raw XML needs to be\nread from a glyph set for a particular glyph before fully parsing\nit into an object structure via the readGlyph method.\n\nRaises KeyError if 'glyphName' is not in contents.plist, or\nGlifLibError if the file associated with can't be found."
+    },
+    {
+      "name": "getGLIFModificationTime",
+      "docstring": "Returns the modification time for the GLIF file with 'glyphName', as\na floating point number giving the number of seconds since the epoch.\nReturn None if the associated file does not exist or the underlying\nfilesystem does not support getting modified times.\nRaises KeyError if the glyphName is not in contents.plist."
+    },
+    {
+      "name": "readGlyph",
+      "docstring": "Read a .glif file for 'glyphName' from the glyph set. The\n'glyphObject' argument can be any kind of object (even None);\nthe readGlyph() method will attempt to set the following\nattributes on it:\n\nwidth\n        the advance width of the glyph\nheight\n        the advance height of the glyph\nunicodes\n        a list of unicode values for this glyph\nnote\n        a string\nlib\n        a dictionary containing custom data\nimage\n        a dictionary containing image data\nguidelines\n        a list of guideline data dictionaries\nanchors\n        a list of anchor data dictionaries\n\nAll attributes are optional, in two ways:\n\n1) An attribute *won't* be set if the .glif file doesn't\n   contain data for it. 'glyphObject' will have to deal\n   with default values itself.\n2) If setting the attribute fails with an AttributeError\n   (for example if the 'glyphObject' attribute is read-\n   only), readGlyph() will not propagate that exception,\n   but ignore that attribute.\n\nTo retrieve outline information, you need to pass an object\nconforming to the PointPen protocol as the 'pointPen' argument.\nThis argument may be None if you don't need the outline data.\n\nreadGlyph() will raise KeyError if the glyph is not present in\nthe glyph set.\n\n``validate`` will validate the data, by default it is set to the\nclass's ``validateRead`` value, can be overridden."
+    },
+    {
+      "name": "writeGlyph",
+      "docstring": "Write a .glif file for 'glyphName' to the glyph set. The\n'glyphObject' argument can be any kind of object (even None);\nthe writeGlyph() method will attempt to get the following\nattributes from it:\n\nwidth\n        the advance width of the glyph\nheight\n        the advance height of the glyph\nunicodes\n        a list of unicode values for this glyph\nnote\n        a string\nlib\n        a dictionary containing custom data\nimage\n        a dictionary containing image data\nguidelines\n        a list of guideline data dictionaries\nanchors\n        a list of anchor data dictionaries\n\nAll attributes are optional: if 'glyphObject' doesn't\nhave the attribute, it will simply be skipped.\n\nTo write outline data to the .glif file, writeGlyph() needs\na function (any callable object actually) that will take one\nargument: an object that conforms to the PointPen protocol.\nThe function will be called by writeGlyph(); it has to call the\nproper PointPen methods to transfer the outline to the .glif file.\n\nThe GLIF format version will be chosen based on the ufoFormatVersion\npassed during the creation of this object. If a particular format\nversion is desired, it can be passed with the formatVersion argument.\nThe formatVersion argument accepts either a tuple of integers for\n(major, minor), or a single integer for the major digit only (with\nminor digit implied as 0).\n\nAn UnsupportedGLIFFormat exception is raised if the requested GLIF\nformatVersion is not supported.\n\n``validate`` will validate the data, by default it is set to the\nclass's ``validateWrite`` value, can be overridden."
+    },
+    {
+      "name": "deleteGlyph",
+      "docstring": "Permanently delete the glyph from the glyph set on disk. Will\nraise KeyError if the glyph is not present in the glyph set."
+    },
+    {
+      "name": "keys",
+      "docstring": null
+    },
+    {
+      "name": "has_key",
+      "docstring": null
+    },
+    {
+      "name": "getUnicodes",
+      "docstring": "Return a dictionary that maps glyph names to lists containing\nthe unicode value[s] for that glyph, if any. This parses the .glif\nfiles partially, so it is a lot faster than parsing all files completely.\nBy default this checks all glyphs, but a subset can be passed with glyphNames."
+    },
+    {
+      "name": "getComponentReferences",
+      "docstring": "Return a dictionary that maps glyph names to lists containing the\nbase glyph name of components in the glyph. This parses the .glif\nfiles partially, so it is a lot faster than parsing all files completely.\nBy default this checks all glyphs, but a subset can be passed with glyphNames."
+    },
+    {
+      "name": "getImageReferences",
+      "docstring": "Return a dictionary that maps glyph names to the file name of the image\nreferenced by the glyph. This parses the .glif files partially, so it is a\nlot faster than parsing all files completely.\nBy default this checks all glyphs, but a subset can be passed with glyphNames."
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "parse",
+      "docstring": null
+    },
+    {
+      "name": "startElementHandler",
+      "docstring": null
+    },
+    {
+      "name": "endElementHandler",
+      "docstring": null
+    },
+    {
+      "name": "startElementHandler",
+      "docstring": null
+    },
+    {
+      "name": "startElementHandler",
+      "docstring": null
+    },
+    {
+      "name": "startElementHandler",
+      "docstring": null
+    },
+    {
+      "name": "endElementHandler",
+      "docstring": null
+    },
+    {
+      "name": "beginPath",
+      "docstring": null
+    },
+    {
+      "name": "endPath",
+      "docstring": null
+    },
+    {
+      "name": "addPoint",
+      "docstring": null
+    },
+    {
+      "name": "addComponent",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

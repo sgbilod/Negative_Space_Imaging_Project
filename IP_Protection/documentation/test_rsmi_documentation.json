@@ -1,0 +1,150 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\negative-space-project\\tests\\unit_tests\\test_rsmi.py",
+  "classes": [
+    {
+      "name": "TestPerformanceMetrics",
+      "docstring": "Test the PerformanceMetrics class.",
+      "methods": [
+        {
+          "name": "setUp",
+          "docstring": "Set up test cases."
+        },
+        {
+          "name": "test_operation_timing",
+          "docstring": "Test operation timing functionality."
+        },
+        {
+          "name": "test_accuracy_recording",
+          "docstring": "Test accuracy recording functionality."
+        },
+        {
+          "name": "test_resource_usage_recording",
+          "docstring": "Test resource usage recording functionality."
+        },
+        {
+          "name": "test_performance_summary",
+          "docstring": "Test performance summary generation."
+        }
+      ]
+    },
+    {
+      "name": "TestAdaptiveParameters",
+      "docstring": "Test the AdaptiveParameters class.",
+      "methods": [
+        {
+          "name": "setUp",
+          "docstring": "Set up test cases."
+        },
+        {
+          "name": "test_parameter_update",
+          "docstring": "Test parameter update functionality."
+        },
+        {
+          "name": "test_optimal_parameters",
+          "docstring": "Test optimal parameter selection."
+        }
+      ]
+    },
+    {
+      "name": "TestSelfOptimizationEngine",
+      "docstring": "Test the SelfOptimizationEngine class.",
+      "methods": [
+        {
+          "name": "setUp",
+          "docstring": "Set up test cases."
+        },
+        {
+          "name": "test_performance_trend_analysis",
+          "docstring": "Test performance trend analysis."
+        },
+        {
+          "name": "test_optimization_suggestions",
+          "docstring": "Test optimization suggestions generation."
+        }
+      ]
+    },
+    {
+      "name": "TestRSMI",
+      "docstring": "Test the main RSMI class.",
+      "methods": [
+        {
+          "name": "setUp",
+          "docstring": "Set up test cases."
+        },
+        {
+          "name": "test_complete_analysis_cycle",
+          "docstring": "Test a complete analysis and optimization cycle."
+        },
+        {
+          "name": "test_optimal_configuration",
+          "docstring": "Test optimal configuration retrieval."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "setUp",
+      "docstring": "Set up test cases."
+    },
+    {
+      "name": "test_operation_timing",
+      "docstring": "Test operation timing functionality."
+    },
+    {
+      "name": "test_accuracy_recording",
+      "docstring": "Test accuracy recording functionality."
+    },
+    {
+      "name": "test_resource_usage_recording",
+      "docstring": "Test resource usage recording functionality."
+    },
+    {
+      "name": "test_performance_summary",
+      "docstring": "Test performance summary generation."
+    },
+    {
+      "name": "setUp",
+      "docstring": "Set up test cases."
+    },
+    {
+      "name": "test_parameter_update",
+      "docstring": "Test parameter update functionality."
+    },
+    {
+      "name": "test_optimal_parameters",
+      "docstring": "Test optimal parameter selection."
+    },
+    {
+      "name": "setUp",
+      "docstring": "Set up test cases."
+    },
+    {
+      "name": "test_performance_trend_analysis",
+      "docstring": "Test performance trend analysis."
+    },
+    {
+      "name": "test_optimization_suggestions",
+      "docstring": "Test optimization suggestions generation."
+    },
+    {
+      "name": "setUp",
+      "docstring": "Set up test cases."
+    },
+    {
+      "name": "test_complete_analysis_cycle",
+      "docstring": "Test a complete analysis and optimization cycle."
+    },
+    {
+      "name": "test_optimal_configuration",
+      "docstring": "Test optimal configuration retrieval."
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "from src.intelligence.rsmi import (\n    PerformanceMetrics,\n    AdaptiveParameters,\n    SelfOptimizationEngine,\n    RSMI\n)\n"
+    }
+  ]
+}

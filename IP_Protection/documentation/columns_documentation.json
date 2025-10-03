@@ -1,0 +1,30 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\columns.py",
+  "classes": [
+    {
+      "name": "Columns",
+      "docstring": "Display renderables in neat columns.\n\nArgs:\n    renderables (Iterable[RenderableType]): Any number of Rich renderables (including str).\n    width (int, optional): The desired width of the columns, or None to auto detect. Defaults to None.\n    padding (PaddingDimensions, optional): Optional padding around cells. Defaults to (0, 1).\n    expand (bool, optional): Expand columns to full width. Defaults to False.\n    equal (bool, optional): Arrange in to equal sized columns. Defaults to False.\n    column_first (bool, optional): Align items from top to bottom (rather than left to right). Defaults to False.\n    right_to_left (bool, optional): Start column from right hand side. Defaults to False.\n    align (str, optional): Align value (\"left\", \"right\", or \"center\") or None for default. Defaults to None.\n    title (TextType, optional): Optional title for Columns.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "add_renderable",
+          "docstring": "Add a renderable to the columns.\n\nArgs:\n    renderable (RenderableType): Any renderable object."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "add_renderable",
+      "docstring": "Add a renderable to the columns.\n\nArgs:\n    renderable (RenderableType): Any renderable object."
+    },
+    {
+      "name": "iter_renderables",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

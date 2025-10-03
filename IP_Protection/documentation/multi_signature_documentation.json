@@ -1,0 +1,110 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\authentication\\multi_signature.py",
+  "classes": [
+    {
+      "name": "SignatureCombiner",
+      "docstring": "Utility for combining different negative space signature types",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a signature combiner\n\nArgs:\n    combination_mode: Mode for combining signatures\n        - 'weighted': Combine with weighted importance\n        - 'concatenate': Simple concatenation\n        - 'interleave': Interleave signature elements\n        - 'hash': Hash-based combination"
+        },
+        {
+          "name": "combine",
+          "docstring": "Combine multiple signatures into a single composite signature\n\nArgs:\n    signatures: List of signatures to combine\n    weights: Optional weights for each signature (for weighted mode)\n    \nReturns:\n    List[float]: Combined signature"
+        }
+      ]
+    },
+    {
+      "name": "ThresholdVerifier",
+      "docstring": "Implements threshold-based verification (M-of-N signatures)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a threshold verifier\n\nArgs:\n    threshold: Minimum number of valid signatures required (M in M-of-N)\n    verification_service: Optional verification service for blockchain verification"
+        },
+        {
+          "name": "verify",
+          "docstring": "Verify using the threshold model (M-of-N signatures must be valid)\n\nArgs:\n    signature_ids: List of signature IDs to verify against\n    signature_data: List of signature data to verify\n    \nReturns:\n    Dict[str, Any]: Verification result"
+        }
+      ]
+    },
+    {
+      "name": "HierarchicalVerifier",
+      "docstring": "Implements hierarchical verification with priority levels",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a hierarchical verifier\n\nArgs:\n    level_thresholds: Dictionary mapping priority levels to thresholds\n        e.g., {'high': 1, 'medium': 2, 'low': 3}\n    verification_service: Optional verification service for blockchain verification"
+        },
+        {
+          "name": "verify",
+          "docstring": "Verify using the hierarchical model\n\nArgs:\n    signature_map: Dictionary mapping signature IDs to:\n        {\n            'level': Priority level (e.g., 'high', 'medium', 'low'),\n            'data': Signature data\n        }\n    \nReturns:\n    Dict[str, Any]: Verification result"
+        }
+      ]
+    },
+    {
+      "name": "MultiSignatureManager",
+      "docstring": "Core class for managing multi-signature authentication",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a multi-signature manager\n\nArgs:\n    verification_service: Optional verification service for blockchain verification\n    combination_mode: Mode for combining signatures\n    verification_mode: Verification mode ('threshold' or 'hierarchical')\n    threshold: Threshold for threshold verification mode\n    level_thresholds: Level thresholds for hierarchical verification mode"
+        },
+        {
+          "name": "register_multi_signature",
+          "docstring": "Register a combined multi-signature\n\nArgs:\n    signatures: List of signatures to combine\n    metadata: Optional metadata for the combined signature\n    weights: Optional weights for signature combination\n    \nReturns:\n    str: ID of the registered multi-signature"
+        },
+        {
+          "name": "verify_multi_signature",
+          "docstring": "Verify a multi-signature\n\nArgs:\n    signature_ids: List of signature IDs to verify\n    signature_data: List of signature data to verify\n    \nReturns:\n    Dict[str, Any]: Verification result"
+        },
+        {
+          "name": "create_authentication_token",
+          "docstring": "Create an authentication token from multiple signatures\n\nArgs:\n    signatures: List of signatures to combine\n    metadata: Optional metadata for the token\n    expiration: Token expiration time in seconds\n    \nReturns:\n    Dict[str, Any]: Authentication token"
+        },
+        {
+          "name": "verify_authentication_token",
+          "docstring": "Verify an authentication token\n\nArgs:\n    token: Authentication token to verify\n    signatures: List of signatures to verify against\n    \nReturns:\n    bool: True if token is valid"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "combine",
+      "docstring": "Combine multiple signatures into a single composite signature\n\nArgs:\n    signatures: List of signatures to combine\n    weights: Optional weights for each signature (for weighted mode)\n    \nReturns:\n    List[float]: Combined signature"
+    },
+    {
+      "name": "verify",
+      "docstring": "Verify using the threshold model (M-of-N signatures must be valid)\n\nArgs:\n    signature_ids: List of signature IDs to verify against\n    signature_data: List of signature data to verify\n    \nReturns:\n    Dict[str, Any]: Verification result"
+    },
+    {
+      "name": "verify",
+      "docstring": "Verify using the hierarchical model\n\nArgs:\n    signature_map: Dictionary mapping signature IDs to:\n        {\n            'level': Priority level (e.g., 'high', 'medium', 'low'),\n            'data': Signature data\n        }\n    \nReturns:\n    Dict[str, Any]: Verification result"
+    },
+    {
+      "name": "register_multi_signature",
+      "docstring": "Register a combined multi-signature\n\nArgs:\n    signatures: List of signatures to combine\n    metadata: Optional metadata for the combined signature\n    weights: Optional weights for signature combination\n    \nReturns:\n    str: ID of the registered multi-signature"
+    },
+    {
+      "name": "verify_multi_signature",
+      "docstring": "Verify a multi-signature\n\nArgs:\n    signature_ids: List of signature IDs to verify\n    signature_data: List of signature data to verify\n    \nReturns:\n    Dict[str, Any]: Verification result"
+    },
+    {
+      "name": "create_authentication_token",
+      "docstring": "Create an authentication token from multiple signatures\n\nArgs:\n    signatures: List of signatures to combine\n    metadata: Optional metadata for the token\n    expiration: Token expiration time in seconds\n    \nReturns:\n    Dict[str, Any]: Authentication token"
+    },
+    {
+      "name": "verify_authentication_token",
+      "docstring": "Verify an authentication token\n\nArgs:\n    token: Authentication token to verify\n    signatures: List of signatures to verify against\n    \nReturns:\n    bool: True if token is valid"
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "Multi-Signature Authentication Module for Negative Space Signatures\n\nThis module provides mechanisms to combine multiple negative space signatures\ninto a unified authentication token with enhanced security properties.\n\nClasses:\n    MultiSignatureManager: Core class for managing multi-signature authentication"
+    }
+  ]
+}

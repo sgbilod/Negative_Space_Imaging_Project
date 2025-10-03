@@ -1,0 +1,15 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\contourpy\\util\\data.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "simple",
+      "docstring": "Return simple test data consisting of the sum of two gaussians.\n\nArgs:\n    shape (tuple(int, int)): 2D shape of data to return.\n    want_mask (bool, optional): Whether test data should be masked or not, default ``False``.\n\nReturn:\n    Tuple of 3 arrays: ``x``, ``y``, ``z`` test data, ``z`` will be masked if\n    ``want_mask=True``."
+    },
+    {
+      "name": "random",
+      "docstring": "Return random test data in the range 0 to 1.\n\nArgs:\n    shape (tuple(int, int)): 2D shape of data to return.\n    seed (int, optional): Seed for random number generator, default 2187.\n    mask_fraction (float, optional): Fraction of elements to mask, default 0.\n\nReturn:\n    Tuple of 3 arrays: ``x``, ``y``, ``z`` test data, ``z`` will be masked if\n    ``mask_fraction`` is greater than zero."
+    }
+  ],
+  "innovations": []
+}

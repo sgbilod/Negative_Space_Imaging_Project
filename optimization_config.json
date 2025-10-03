@@ -1,0 +1,99 @@
+{
+  "memory": {
+    "enabled": true,
+    "max_cache_size": 1073741824,
+    "garbage_collection_threshold": 0.8,
+    "memory_profile": true
+  },
+  "cpu": {
+    "enabled": true,
+    "max_threads": 16,
+    "process_priority": "normal",
+    "vectorize_operations": true
+  },
+  "io": {
+    "enabled": true,
+    "buffer_size": 8192,
+    "async_operations": true,
+    "batch_size": 1000
+  },
+  "network": {
+    "enabled": true,
+    "compression": true,
+    "batch_requests": true,
+    "connection_pooling": true
+  },
+  "database": {
+    "enabled": true,
+    "connection_pooling": true,
+    "query_optimization": true,
+    "prepared_statements": true,
+    "max_connections": 50,
+    "query_timeout_seconds": 30
+  },
+  "distributed": {
+    "enabled": true,
+    "load_balancing": true,
+    "data_locality": true,
+    "work_stealing": true,
+    "max_nodes": 64,
+    "heartbeat_interval_seconds": 5
+  },
+  "optimization_profiles": {
+    "default": {
+      "description": "Balanced performance optimization",
+      "memory_aggressiveness": 0.5,
+      "cpu_aggressiveness": 0.5,
+      "io_aggressiveness": 0.5,
+      "network_aggressiveness": 0.5,
+      "database_aggressiveness": 0.5
+    },
+    "memory_conservative": {
+      "description": "Minimal memory usage optimization",
+      "memory_aggressiveness": 0.8,
+      "cpu_aggressiveness": 0.3,
+      "io_aggressiveness": 0.3,
+      "network_aggressiveness": 0.3,
+      "database_aggressiveness": 0.3
+    },
+    "high_performance": {
+      "description": "Maximum performance optimization",
+      "memory_aggressiveness": 0.3,
+      "cpu_aggressiveness": 0.8,
+      "io_aggressiveness": 0.8,
+      "network_aggressiveness": 0.8,
+      "database_aggressiveness": 0.8
+    },
+    "distributed": {
+      "description": "Optimized for distributed computing",
+      "memory_aggressiveness": 0.5,
+      "cpu_aggressiveness": 0.5,
+      "io_aggressiveness": 0.5,
+      "network_aggressiveness": 0.8,
+      "database_aggressiveness": 0.6,
+      "distributed_aggressiveness": 0.9
+    },
+    "cloud": {
+      "description": "Optimized for cloud deployments",
+      "memory_aggressiveness": 0.6,
+      "cpu_aggressiveness": 0.6,
+      "io_aggressiveness": 0.7,
+      "network_aggressiveness": 0.8,
+      "database_aggressiveness": 0.7,
+      "distributed_aggressiveness": 0.8
+    }
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "optimization.log",
+    "console": true,
+    "format": "%(asctime)s [%(levelname)s] [%(name)s] %(message)s"
+  },
+  "monitoring": {
+    "enabled": true,
+    "metrics_interval_seconds": 5,
+    "persist_metrics": true,
+    "metrics_history_size": 1000,
+    "alert_on_performance_regression": true
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\_blocking_input.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "blocking_input_loop",
+      "docstring": "Run *figure*'s event loop while listening to interactive events.\n\nThe events listed in *event_names* are passed to *handler*.\n\nThis function is used to implement `.Figure.waitforbuttonpress`,\n`.Figure.ginput`, and `.Axes.clabel`.\n\nParameters\n----------\nfigure : `~matplotlib.figure.Figure`\nevent_names : list of str\n    The names of the events passed to *handler*.\ntimeout : float\n    If positive, the event loop is stopped after *timeout* seconds.\nhandler : Callable[[Event], Any]\n    Function called for each event; it can force an early exit of the event\n    loop by calling ``canvas.stop_event_loop()``."
+    }
+  ],
+  "innovations": []
+}

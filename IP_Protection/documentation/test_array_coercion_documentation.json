@@ -1,0 +1,475 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_array_coercion.py",
+  "classes": [
+    {
+      "name": "TestStringDiscovery",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic_stringlength",
+          "docstring": null
+        },
+        {
+          "name": "test_nested_arrays_stringlength",
+          "docstring": null
+        },
+        {
+          "name": "test_unpack_first_level",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestScalarDiscovery",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_void_special_case",
+          "docstring": null
+        },
+        {
+          "name": "test_char_special_case",
+          "docstring": null
+        },
+        {
+          "name": "test_char_special_case_deep",
+          "docstring": null
+        },
+        {
+          "name": "test_unknown_object",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar_promotion",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar_coercion",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar_coercion_same_as_cast_and_assignment",
+          "docstring": "Test that in most cases:\n   * `np.array(scalar, dtype=dtype)`\n   * `np.empty((), dtype=dtype)[()] = scalar`\n   * `np.array(scalar).astype(dtype)`\nshould behave the same.  The only exceptions are parametric dtypes\n(mainly datetime/timedelta without unit) and void without fields."
+        },
+        {
+          "name": "test_pyscalar_subclasses",
+          "docstring": "NumPy arrays are read/write which means that anything but invariant\nbehaviour is on thin ice.  However, we currently are happy to discover\nsubclasses of Python float, int, complex the same as the base classes.\nThis should potentially be deprecated."
+        },
+        {
+          "name": "test_default_dtype_instance",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar_to_int_coerce_does_not_cast",
+          "docstring": "Signed integers are currently different in that they do not cast other\nNumPy scalar, but instead use scalar.__int__(). The hardcoded\nexception to this rule is `np.array(scalar, dtype=integer)`."
+        }
+      ]
+    },
+    {
+      "name": "TestTimeScalars",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_coercion_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_coercion_timedelta_convert_to_number",
+          "docstring": null
+        },
+        {
+          "name": "test_coercion_assignment_datetime",
+          "docstring": null
+        },
+        {
+          "name": "test_coercion_assignment_timedelta",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNested",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_nested_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_pathological_self_containing",
+          "docstring": null
+        },
+        {
+          "name": "test_nested_arraylikes",
+          "docstring": null
+        },
+        {
+          "name": "test_uneven_depth_ragged",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_sequence",
+          "docstring": null
+        },
+        {
+          "name": "test_array_of_different_depths",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestBadSequences",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_growing_list",
+          "docstring": null
+        },
+        {
+          "name": "test_mutated_list",
+          "docstring": null
+        },
+        {
+          "name": "test_replace_0d_array",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestArrayLikes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_0d_object_special_case",
+          "docstring": null
+        },
+        {
+          "name": "test_object_assignment_special_case",
+          "docstring": null
+        },
+        {
+          "name": "test_0d_generic_special_case",
+          "docstring": null
+        },
+        {
+          "name": "test_arraylike_classes",
+          "docstring": null
+        },
+        {
+          "name": "test_too_large_array_error_paths",
+          "docstring": "Test the error paths, including for memory leaks"
+        },
+        {
+          "name": "test_bad_array_like_attributes",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_array_like_bad_length",
+          "docstring": null
+        },
+        {
+          "name": "test_array_interface_descr_optional",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAsArray",
+      "docstring": "Test expected behaviors of ``asarray``.",
+      "methods": [
+        {
+          "name": "test_dtype_identity",
+          "docstring": "Confirm the intended behavior for *dtype* kwarg.\n\nThe result of ``asarray()`` should have the dtype provided through the\nkeyword argument, when used. This forces unique array handles to be\nproduced for unique np.dtype objects, but (for equivalent dtypes), the\nunderlying data (the base object) is shared with the original array\nobject.\n\nRef https://github.com/numpy/numpy/issues/1468"
+        }
+      ]
+    },
+    {
+      "name": "TestSpecialAttributeLookupFailure",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_deprecated",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyArr",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_SequenceLike",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArrayDunder",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ArrayInterface",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ArrayStruct",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "WeirdArrayLike",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "WeirdArrayInterface",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MyScalar",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "mylist",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "mylist",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "baditem",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArraySubclass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArrayLike",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "BadInterface",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "BadSequence",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MyClass",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "arraylikes",
+      "docstring": "Generator for functions converting an array into various array-likes.\nIf full is True (default) it includes array-likes not capable of handling\nall dtypes."
+    },
+    {
+      "name": "scalar_instances",
+      "docstring": null
+    },
+    {
+      "name": "is_parametric_dtype",
+      "docstring": "Returns True if the dtype is a parametric legacy dtype (itemsize\nis 0, or a datetime without units)"
+    },
+    {
+      "name": "test_subarray_from_array_construction",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_string",
+      "docstring": null
+    },
+    {
+      "name": "ndarray",
+      "docstring": null
+    },
+    {
+      "name": "subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_basic_stringlength",
+      "docstring": null
+    },
+    {
+      "name": "test_nested_arrays_stringlength",
+      "docstring": null
+    },
+    {
+      "name": "test_unpack_first_level",
+      "docstring": null
+    },
+    {
+      "name": "test_void_special_case",
+      "docstring": null
+    },
+    {
+      "name": "test_char_special_case",
+      "docstring": null
+    },
+    {
+      "name": "test_char_special_case_deep",
+      "docstring": null
+    },
+    {
+      "name": "test_unknown_object",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_promotion",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_coercion",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_coercion_same_as_cast_and_assignment",
+      "docstring": "Test that in most cases:\n   * `np.array(scalar, dtype=dtype)`\n   * `np.empty((), dtype=dtype)[()] = scalar`\n   * `np.array(scalar).astype(dtype)`\nshould behave the same.  The only exceptions are parametric dtypes\n(mainly datetime/timedelta without unit) and void without fields."
+    },
+    {
+      "name": "test_pyscalar_subclasses",
+      "docstring": "NumPy arrays are read/write which means that anything but invariant\nbehaviour is on thin ice.  However, we currently are happy to discover\nsubclasses of Python float, int, complex the same as the base classes.\nThis should potentially be deprecated."
+    },
+    {
+      "name": "test_default_dtype_instance",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_to_int_coerce_does_not_cast",
+      "docstring": "Signed integers are currently different in that they do not cast other\nNumPy scalar, but instead use scalar.__int__(). The hardcoded\nexception to this rule is `np.array(scalar, dtype=integer)`."
+    },
+    {
+      "name": "test_coercion_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_coercion_timedelta_convert_to_number",
+      "docstring": null
+    },
+    {
+      "name": "test_coercion_assignment_datetime",
+      "docstring": null
+    },
+    {
+      "name": "test_coercion_assignment_timedelta",
+      "docstring": null
+    },
+    {
+      "name": "test_nested_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_pathological_self_containing",
+      "docstring": null
+    },
+    {
+      "name": "test_nested_arraylikes",
+      "docstring": null
+    },
+    {
+      "name": "test_uneven_depth_ragged",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_sequence",
+      "docstring": null
+    },
+    {
+      "name": "test_array_of_different_depths",
+      "docstring": null
+    },
+    {
+      "name": "test_growing_list",
+      "docstring": null
+    },
+    {
+      "name": "test_mutated_list",
+      "docstring": null
+    },
+    {
+      "name": "test_replace_0d_array",
+      "docstring": null
+    },
+    {
+      "name": "test_0d_object_special_case",
+      "docstring": null
+    },
+    {
+      "name": "test_object_assignment_special_case",
+      "docstring": null
+    },
+    {
+      "name": "test_0d_generic_special_case",
+      "docstring": null
+    },
+    {
+      "name": "test_arraylike_classes",
+      "docstring": null
+    },
+    {
+      "name": "test_too_large_array_error_paths",
+      "docstring": "Test the error paths, including for memory leaks"
+    },
+    {
+      "name": "test_bad_array_like_attributes",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_array_like_bad_length",
+      "docstring": null
+    },
+    {
+      "name": "test_array_interface_descr_optional",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_identity",
+      "docstring": "Confirm the intended behavior for *dtype* kwarg.\n\nThe result of ``asarray()`` should have the dtype provided through the\nkeyword argument, when used. This forces unique array handles to be\nproduced for unique np.dtype objects, but (for equivalent dtypes), the\nunderlying data (the base object) is shared with the original array\nobject.\n\nRef https://github.com/numpy/numpy/issues/1468"
+    },
+    {
+      "name": "test_deprecated",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,34 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\padding.py",
+  "classes": [
+    {
+      "name": "Padding",
+      "docstring": "Draw space around content.\n\nExample:\n    >>> print(Padding(\"Hello\", (2, 4), style=\"on blue\"))\n\nArgs:\n    renderable (RenderableType): String or other renderable.\n    pad (Union[int, Tuple[int]]): Padding for top, right, bottom, and left borders.\n        May be specified with 1, 2, or 4 integers (CSS style).\n    style (Union[str, Style], optional): Style for padding characters. Defaults to \"none\".\n    expand (bool, optional): Expand padding to fit available width. Defaults to True.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "indent",
+          "docstring": "Make padding instance to render an indent.\n\nArgs:\n    renderable (RenderableType): String or other renderable.\n    level (int): Number of characters to indent.\n\nReturns:\n    Padding: A Padding instance."
+        },
+        {
+          "name": "unpack",
+          "docstring": "Unpack padding specified in CSS style."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "indent",
+      "docstring": "Make padding instance to render an indent.\n\nArgs:\n    renderable (RenderableType): String or other renderable.\n    level (int): Number of characters to indent.\n\nReturns:\n    Padding: A Padding instance."
+    },
+    {
+      "name": "unpack",
+      "docstring": "Unpack padding specified in CSS style."
+    }
+  ],
+  "innovations": []
+}

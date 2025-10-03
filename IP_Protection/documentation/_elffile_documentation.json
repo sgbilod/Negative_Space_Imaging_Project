@@ -1,0 +1,46 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\_elffile.py",
+  "classes": [
+    {
+      "name": "ELFInvalid",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "EIClass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "EIData",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "EMachine",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ELFFile",
+      "docstring": "Representation of an ELF executable.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "interpreter",
+          "docstring": "The path recorded in the ``PT_INTERP`` section header."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "interpreter",
+      "docstring": "The path recorded in the ``PT_INTERP`` section header."
+    }
+  ],
+  "innovations": []
+}

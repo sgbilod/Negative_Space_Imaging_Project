@@ -1,0 +1,370 @@
+{
+  "timestamp": "2025-08-07T14:47:41.989869",
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "            # Use mock if real implementation not available\n            self.feature_detector = FeatureDetector(feature_type=\"void_edge\")\n        \n        # Initialize point cloud generator with negative space optimization\n        self.point_cloud_generator = PointCloudGenerator(\n            cloud_type=PointCloudType.NEGATIVE_SPACE_OPTIMIZED,\n            params=PointCloudParams("
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        xs, ys, zs = self._offsets3d\n\n        # Sort the points based on z coordinates\n        # Performance optimization: Create a sorted index array and reorder\n        # points and point properties according to the index array\n        self._z_markers_idx = slice(-1)\n        self._vzs = None"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    * `draw_gouraud_triangles`\n\n    The following methods *should* be implemented in the backend for\n    optimization reasons:\n\n    * `draw_text`\n    * `draw_markers`"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        # We can only reuse the objects if the presence of fill and\n        # stroke (and the amount of alpha for each) is the same for\n        # all of them\n        can_do_optimization = True\n        facecolors = np.asarray(facecolors)\n        edgecolors = np.asarray(edgecolors)\n"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "                             offsets, offset_trans, facecolors, edgecolors,\n                             linewidths, linestyles, antialiaseds, urls,\n                             offset_position):\n        # Is the optimization worth it? Rough calculation:\n        # cost of emitting a path in-line is\n        #     (len_path + 2) * uses_per_path\n        # cost of definition+use is"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "                             offsets, offset_trans, facecolors, edgecolors,\n                             linewidths, linestyles, antialiaseds, urls,\n                             offset_position):\n        # Is the optimization worth it? Rough calculation:\n        # cost of emitting a path in-line is\n        #    (len_path + 5) * uses_per_path\n        # cost of definition+use is"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "new method",
+      "context": "\n\ndef add_method(*clazzes, **kwargs):\n    \"\"\"Returns a decorator function that adds a new method to one or\n    more classes.\"\"\"\n    allowDefault = kwargs.get(\"allowDefaultTable\", False)\n"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        trans = self.get_transforms()\n        facecolors = self.get_facecolor()\n        edgecolors = self.get_edgecolor()\n        do_single_path_optimization = False\n        if (len(paths) == 1 and len(trans) <= 1 and\n                len(facecolors) == 1 and len(edgecolors) == 1 and\n                len(self._linewidths) == 1 and"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "novel",
+      "context": "            'author': 'Negative Space Imaging Project Team',\n            'version': '1.0',\n            'registration_date': datetime.now().isoformat(),\n            'description': 'A novel system for analyzing and utilizing negative space in 3D reconstructions, including quantum ledger and blockchain integration.',\n            'bundles': {\n                'source_code': self._get_bundle_info('source_code_bundle.zip'),\n                'documentation': self._get_bundle_info('documentation_bundle.zip')"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "new method",
+      "context": "            if y > 1600:\n                e = e + y//100 - 16 - (y//100 - 16)//4\n    else:\n        # New method\n        c = y//100\n        h = (c - c//4 - (8*c + 13)//25 + 19*g + 15) % 30\n        i = h - (h//28)*(1 - (h//28)*(29//(h + 1))*((21 - g)//11))"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "\"\"\"\nEnhanced Negative Space Imaging Integration Demo\n\nThis module demonstrates the integration of all enhanced revenue streams from the Negative Space\nImaging Project, including both the original 5 proposals and the 5 new additional proposals."
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "\"\"\"\nEnhanced Real-Time Negative Space Analysis Demo\n\nThis script demonstrates the advanced visualization capabilities of the\nreal-time negative space analysis system, including AR overlays,"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "\"\"\"\nEnhanced Streaming Verification Protocol\n\nThis module implements a continuous authentication protocol for live streams, broadcasts,\nand data feeds. It enables real-time verification of the temporal and spatial authenticity"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "        now = time.time()\n        \n        # Use the actual current configuration and mix in any predictions\n        # for enhanced security\n        \n        # Generate base entropy from the signature generator\n        coordinates = self._get_current_spatial_coordinates()"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "        priority=[\"RAW-FI\"],\n    ),\n    FileExtension(\n        name=\"Enhanced Compression Wavelet\",\n        extension=\".ecw\",\n        priority=[\"GDAL\"],\n    ),"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "  --f90exec=           Specify the path to F90 compiler [NO_MESON]\n  --f77flags=          Specify F77 compiler flags\n  --f90flags=          Specify F90 compiler flags\n  --opt=               Specify optimization flags [NO_MESON]\n  --arch=              Specify architecture specific optimization flags [NO_MESON]\n  --noopt              Compile without optimization [NO_MESON]\n  --noarch             Compile without arch-dependent optimization [NO_MESON]"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "            # To be written efficiently, ie. without creating an immutable\n            # buffer, by calling im.tobytes() the array must be contiguous.\n            if not im.flags.c_contiguous:\n                # checkign the flag is a micro optimization.\n                # the image will be a numpy subclass. See discussion\n                # https://github.com/numpy/numpy/issues/11804\n                im = np.ascontiguousarray(im)"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "# 1998-07-09 fl   Handle all modes when saving (0.5)\n# 1998-07-15 fl   Renamed offset attribute to avoid name clash\n# 2001-04-16 fl   Added rewind support (seek to frame 0) (0.6)\n# 2001-04-17 fl   Added palette optimization (0.7)\n# 2002-06-06 fl   Added transparency support for save (0.8)\n# 2004-02-24 fl   Disable interlacing for small images\n#"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    - ``strs`` - a string of space-delimited literals, or a collection of\n      string literals\n    - ``caseless`` - treat all literals as caseless - (default= ``False``)\n    - ``use_regex`` - as an optimization, will\n      generate a :class:`Regex` object; otherwise, will generate\n      a :class:`MatchFirst` object (if ``caseless=True`` or ``as_keyword=True``, or if\n      creating a :class:`Regex` raises an exception) - (default= ``True``)"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    NOCACHE = 0x0040\n    \"\"\"Inhibit 1-pixel cache\"\"\"\n    NOOPTIMIZE = 0x0100\n    \"\"\"Inhibit optimizations\"\"\"\n    NULLTRANSFORM = 0x0200\n    \"\"\"Don't transform anyway\"\"\"\n    GAMUTCHECK = 0x1000"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "\n    def enhance(self, factor: float) -> Image.Image:\n        \"\"\"\n        Returns an enhanced image.\n\n        :param factor: A floating point value controlling the enhancement.\n                       Factor 1.0 always returns a copy of the original image,"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        # assigning the optimized RGB palette.\n\n        # perf reference, 9500x4000 gif, w/~135 colors\n        # 14 sec prepatch, 1 sec postpatch with optimization forced.\n\n        mapping_palette = bytearray(new_positions)\n"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "        \n        # Merge channels back\n        lab = cv2.merge((l, a, b))\n        enhanced = cv2.cvtColor(lab, cv2.COLOR_LAB2BGR)\n        \n        # Apply bilateral filter for noise reduction while preserving edges\n        denoised = cv2.bilateralFilter("
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "\n    Using the kwarg ``format_hint`` does not enforce the given format. It merely\n    provides a `hint` to the selection process and plugin. The selection\n    processes uses this hint for optimization; however, a plugin's decision how\n    to read a ImageResource will - typically - still be based on the content of\n    the resource.\n"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "                # Interpolate\n                #\n                # NOTE: we assign an explicit intermediate variable here in\n                # order to disable a fused mul-add optimization. See:\n                #\n                # - https://godbolt.org/z/YsP4T3TqK,\n                # - https://github.com/fonttools/fonttools/issues/3703"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        Returns:\n            Optimized positions\n        \"\"\"\n        # Number of iterations for position optimization\n        n_iterations = 100\n        n_items = len(positions)\n        "
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "Multi-Signature Authentication Module for Negative Space Signatures\n\nThis module provides mechanisms to combine multiple negative space signatures\ninto a unified authentication token with enhanced security properties.\n\nClasses:\n    MultiSignatureManager: Core class for managing multi-signature authentication"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "innovative",
+      "context": "\"\"\"\nNegative Space Analyzer Demo\n\nThis advanced demo showcases the innovative negative space analysis capabilities\nof the project, including:\n1. Point cloud generation with focus on negative space\n2. Interstitial space analysis between objects"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    \"\"\"Run the basic negative space demo\"\"\"\n    print(\"\\n=== Running Basic Negative Space Demo ===\")\n    \n    # Create a point cloud generator with negative space optimization\n    generator = PointCloudGenerator(\n        cloud_type=PointCloudType.NEGATIVE_SPACE_OPTIMIZED,\n        params=PointCloudParams("
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    # First 4 bytes are a version number in ASCII, with version specific\n    # info to follow.  It's hard to treat it as a string due to embedded nulls.\n    0x00A8: (\"FlashInfo\", None),\n    0x00A9: (\"ImageOptimization\", None),\n    0x00AA: (\"Saturation\", None),\n    0x00AB: (\"DigitalVariProgram\", None),\n    0x00AC: (\"ImageStabilization\", None),"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    \"\"\"\n    An elliptical arc, i.e. a segment of an ellipse.\n\n    Due to internal optimizations, the arc cannot be filled.\n    \"\"\"\n\n    def __str__(self):"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    A line-based PathEffect which draws a path with a ticked style.\n\n    This line style is frequently used to represent constraints in\n    optimization.  The ticks may be used to indicate that one side\n    of the line is invalid or to represent a closed boundary of a\n    domain (i.e. a wall or the edge of a pipe).\n"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    .. note::\n\n        The vertices and codes arrays should be treated as\n        immutable -- there are a number of optimizations and assumptions\n        made up front in the constructor that will not change when the\n        data changes.\n    \"\"\""
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    Specialized point cloud generator with focus on negative space.\n    \n    This class implements various methods for generating point clouds,\n    with specific optimizations for capturing and characterizing the\n    negative space between objects.\n    \"\"\"\n    "
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "    STANDARD = \"standard\"  # Standard structure from motion\n    NEGATIVE_SPACE_OPTIMIZED = \"negative_space_optimized\"  # Optimized for negative space\n    VOID_FOCUSED = \"void_focused\"  # Focus specifically on void regions\n    BOUNDARY_ENHANCED = \"boundary_enhanced\"  # Enhanced sampling at object boundaries\n    INTERSTITIAL = \"interstitial\"  # Focus on space between multiple objects\n    VOLUMETRIC = \"volumetric\"  # Create volumetric representation of negative space\n"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "                    req.needs_more_preparation = True\n                    return metadata_dist\n\n            # None of the optimizations worked, fully prepare the requirement\n            return self._prepare_linked_requirement(req, parallel_builds)\n\n    def prepare_linked_requirements_more("
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "\"\"\"\nQuantum Entangled Ledger - Enhanced Implementation\n\nThis module extends the Decentralized Notary Network with quantum entanglement features,\nallowing document hashes to be embedded within spatial signatures for inseparable"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "novel",
+      "context": "\nThis module implements a quantum-inspired entanglement model for correlating\nnegative spaces across different datasets, enhancing security and enabling\nnovel applications.\n\"\"\"\n\nimport numpy as np"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "\"\"\"\nQuantum Ledger Audit - Enhanced Audit Trail Implementation\n\nThis module extends the Quantum Entangled Ledger with advanced audit trail capabilities,\nproviding enhanced security, transparency, and tamper detection for quantum entanglement"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "new method",
+      "context": "There are two ways, Matplotlib docstrings can end up in downstream documentation.\nYou have to subclass a Matplotlib class and either use the ``:inherited-members:``\noption in your autodoc configuration, or you have to override a method without\nspecifying a new docstring; the new method will inherit the original docstring and\nstill render in your autodoc. If the docstring contains one of the custom sphinx\nroles, you'll see one of the following error messages:\n"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "\nThis module implements the RSMI algorithmic enhancement for the Negative Space Imaging Project.\nIt enables the system to analyze and model its own behavior and performance, allowing for\nself-optimization and adaptive improvement of negative space analysis.\n\"\"\"\n\nimport numpy as np"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "      - `str` -> `str`\n      - `bytes` -> decoded to `str`\n    \"\"\"\n    # Optimization: Fast return for the common case.\n    if type(s) is str:\n        return s\n    if PY2 and isinstance(s, text_type):"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "            # the 'maxstack' chosen by the client, as the default\n            # maxstack may have been used unintentionally. For all\n            # the other operators, this just produces a little less\n            # optimization, but here it puts a hard (and low) limit\n            # on the number of source fonts that can be used.\n            #\n            # Make sure the stack depth does not exceed (maxstack - 1), so"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        greens = [f.subs(subs) for f in greens]  # Convert to p to x/y\n        defs, exprs = sp.cse(\n            greens,\n            optimizations=\"basic\",\n            symbols=(sp.Symbol(\"r%d\" % i) for i in count()),\n        )\n"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    buff = io.BytesIO()\n\n    # Generates a too-large single path in a path collection that\n    # would cause a segfault if the draw_markers optimization is\n    # applied.\n    f, ax = plt.subplots()\n    collection = collections.PathCollection("
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    ax_test = fig_test.add_axes([0, 0, 1, 1])\n    l, = ax_test.plot([-3, 3], [-3, 3])\n    # Explicit Path instead of a Rectangle uses clip path processing, instead\n    # of a clip box optimization.\n    p = mpath.Path([[0, 0], [1, 0], [1, 1], [0, 1], [0, 0]])\n    p = mpatches.PathPatch(p, transform=ax_test.transData)\n    l.set_clip_path(p)"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        subset = np.ma.masked_array(z, subset, dtype=float)\n\n        # When depth shading is disabled, the colors are passed through as\n        # single-item lists; this triggers single path optimization. The\n        # following reshaping is a hack to disable that, since the optimization\n        # would not occur for the full scatter which has multiple colors.\n        fc = np.repeat(fc, sum(~subset.mask))"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        self.env['NPY_DISABLE_CPU_FEATURES'] = bad_feature\n        msg = (\n            f\"You cannot disable CPU feature '{bad_feature}', since it is \"\n            \"part of the baseline optimizations\"\n        )\n        err_type = \"RuntimeError\"\n        self._expect_error(msg, err_type)"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        assert res is a\n\n    def optimize_compare(self, subscripts, operands=None):\n        # Tests all paths of the optimization function against\n        # conventional einsum\n        if operands is None:\n            args = [subscripts]"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        assert_almost_equal(multi_dot([A, B]), A.dot(B))\n        assert_almost_equal(multi_dot([A, B]), np.dot(A, B))\n\n    def test_basic_function_with_dynamic_programming_optimization(self):\n        # multi_dot with four or more arguments uses the dynamic programming\n        # optimization and therefore deserve a separate\n        A = np.random.random((6, 2))"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    fig, axs = plt.subplots(6)\n    dss = [\"default\", \"steps-mid\", \"steps-pre\", \"steps-post\", \"steps\", None]\n    # We want to check that drawstyles are properly handled even for very long\n    # lines (for which the subslice optimization is on); however, we need\n    # to zoom in so that the difference between the drawstyles is actually\n    # visible.\n    for ax, ds in zip(axs.flat, dss):"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "from src.intelligence.rsmi import (\n    PerformanceMetrics,\n    AdaptiveParameters,\n    SelfOptimizationEngine,\n    RSMI\n)\n"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        self.point_cloud = NegativeSpacePointCloud()\n        self.model_assembler = ModelAssembler()\n        \n    def test_preprocessing_optimization(self):\n        \"\"\"Test RSMI optimization of preprocessing parameters.\"\"\"\n        # Create test image\n        test_image = np.random.rand(100, 100, 3).astype(np.float32)"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "\n    def test_affine_simplification(self):\n        # tests that a transform stack only calls as much is absolutely\n        # necessary \"non-affine\" allowing the best possible optimization with\n        # complex transformation stacks.\n        points = np.array([[0, 0], [10, 20], [np.nan, 1], [-1, 0]],\n                          dtype=np.float64)"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "class TestAdd:\n    def test_reduce_alignment(self):\n        # gh-9876\n        # make sure arrays with weird strides work with the optimizations in\n        # pairwise_sum_@TYPE@. On x86, the 'b' field will count as aligned at a\n        # 4 byte offset, even though its itemsize is 8.\n        a = np.zeros(2, dtype=[('a', np.int32), ('b', np.float64)])"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "             Use Zopfli instead of Zlib to compress WOFF. The Python\n             extension is available at https://pypi.python.org/pypi/zopfli\n--optimize-font-speed\n             Enable optimizations that prioritize speed over file size.\n             This mainly affects how glyf t able and gvar / VARC tables are\n             compiled. The produced fonts will be larger, but rendering\n             performance will be improved with HarfBuzz and other text"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        # If the set consists of all points in the glyph, it gets encoded with\n        # a special encoding: a single zero byte.\n        #\n        # To use this optimization, points passed in must be empty set.\n        # The following two lines are not strictly necessary as the main code\n        # below would emit the same. But this is most common and faster.\n        if not points:"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    By default, cu2qu stores the curve type in the fonts' lib, under a private\n    key \"com.github.googlei18n.cu2qu.curve_type\", and will not try to convert\n    them again if the curve type is already set to \"quadratic\".\n    Setting 'remember_curve_type' to False disables this optimization.\n\n    Raises IncompatibleFontsError if same-named glyphs from different fonts\n    have non-interpolatable outlines."
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "new method",
+      "context": "\n\ndef _add_method(*clazzes):\n    \"\"\"Returns a decorator function that adds a new method to one or\n    more classes.\"\"\"\n\n    def wrapper(method):"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "\n\n#\n# Optimizations\n#\n# retainFirstMap - If true, major 0 mappings are retained. Deltas for unused indices are zeroed\n# advIdxes - Set of major 0 indices for advance deltas to be listed first. Other major 0 indices follow."
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "\"\"\"\nAdvanced Visualization Module for Real-time Negative Space Analysis\n\nThis module provides enhanced visualization capabilities for real-time negative space\nanalysis, including 3D rendering, interactive displays, and augmented reality overlays.\n\nClasses:"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "\n        zipinfo = self._getinfo()\n\n        # optimization: the file is created by open(),\n        # skip the decompression when there is 0 bytes to decompress.\n        with open(self.dest_path, \"wb\") as dest:\n            if zipinfo.file_size > 0:"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "                raise SyntaxError(msg)\n\n        elif s.startswith(b\"\\x01\\x00\\x00\\x00\") and s[40:44] == b\" EMF\":\n            # enhanced metafile\n\n            # get bounding box\n            x0 = _long(s, 8)"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "\n        Default is 'safe'.\n    optimize : {False, True, 'greedy', 'optimal'}, optional\n        Controls if intermediate optimization should occur. No optimization\n        will occur if False and True will default to the 'greedy' algorithm.\n        Also accepts an explicit contraction list from the ``np.einsum_path``\n        function. See ``np.einsum_path`` for more details. Defaults to False."
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        x = np.round(x).astype(np.intp, copy=False)\n\n    if x.ndim < 3:\n        # Optimization: Possibly use faster paths for cases where `x` has\n        # only 1 or 2 elements. `np.broadcast_to` could handle these as well\n        # but is currently slower\n"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        buildtype=\"release\",\n        cpp_std=\"c++17\",\n        debug=\"False\",\n        optimization=\"3\",\n        vsenv=\"True\",\n        b_ndebug=\"if-release\",\n        b_vscrt=\"mt\","
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "                self.build_dir,\n                \"--build-platlib\",\n                \".\",\n                \"--disable-optimization\",\n            ]\n        )\n"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "            single_value = True\n\n    if single_value:\n        # optimization for a single value\n        if (obj < -N or obj >= N):\n            raise IndexError(\n                \"index %i is out of bounds for axis %i with \""
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "                - numberOfContours: -1 for composite glyphs.\n                - endPts: list of indices of end points for each contour in simple\n                glyphs, or component indices in composite glyphs (used for IUP\n                optimization).\n                - flags: array of contour point flags for simple glyphs (None for\n                composite glyphs).\n                - components: list of base glyph names (str) for each component in"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "\n    \"\"\"\n    n = len(arrays)\n    # optimization only makes sense for len(arrays) > 2\n    if n < 2:\n        raise ValueError(\"Expecting at least two arrays.\")\n    elif n == 2:"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    \"\"\"\n    Most of the information in this object is stored in the underlying\n    ``_GlueSpec`` class, which is shared between multiple glue objects.\n    (This is a memory optimization which probably doesn't matter anymore, but\n    it's easier to stick to what TeX does.)\n    \"\"\"\n"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "    References\n    ----------\n    .. [1] M. Sullivan and M. Sullivan, III, \"Algebra and Trigonometry,\n       Enhanced With Graphing Utilities,\" Prentice-Hall, pg. 318, 1996.\n\n    .. [2] G. Strang, \"Linear Algebra and Its Applications, 2nd Edition,\"\n       Academic Press, pg. 182, 1980."
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "          to minimize a bending energy.\n        - if 'geom': The derivatives at each node is computed as a\n          weighted average of relevant triangle normals. To be used for\n          speed optimization (large grids).\n        - if 'user': The user provides the argument *dz*, no computation\n          is hence needed.\n"
+    }
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\fft\\tests\\test_pocketfft.py",
+  "classes": [
+    {
+      "name": "TestFFTShift",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_fft_n",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFFT1D",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_identity",
+          "docstring": null
+        },
+        {
+          "name": "test_identity_long_short",
+          "docstring": null
+        },
+        {
+          "name": "test_identity_long_short_reversed",
+          "docstring": null
+        },
+        {
+          "name": "test_fft",
+          "docstring": null
+        },
+        {
+          "name": "test_fft_out_argument",
+          "docstring": null
+        },
+        {
+          "name": "test_fft_inplace_out",
+          "docstring": null
+        },
+        {
+          "name": "test_fft_bad_out",
+          "docstring": null
+        },
+        {
+          "name": "test_ifft",
+          "docstring": null
+        },
+        {
+          "name": "test_fft2",
+          "docstring": null
+        },
+        {
+          "name": "test_ifft2",
+          "docstring": null
+        },
+        {
+          "name": "test_fftn",
+          "docstring": null
+        },
+        {
+          "name": "test_ifftn",
+          "docstring": null
+        },
+        {
+          "name": "test_rfft",
+          "docstring": null
+        },
+        {
+          "name": "test_rfft_even",
+          "docstring": null
+        },
+        {
+          "name": "test_rfft_odd",
+          "docstring": null
+        },
+        {
+          "name": "test_irfft",
+          "docstring": null
+        },
+        {
+          "name": "test_rfft2",
+          "docstring": null
+        },
+        {
+          "name": "test_irfft2",
+          "docstring": null
+        },
+        {
+          "name": "test_rfftn",
+          "docstring": null
+        },
+        {
+          "name": "test_irfftn",
+          "docstring": null
+        },
+        {
+          "name": "test_hfft",
+          "docstring": null
+        },
+        {
+          "name": "test_ihfft",
+          "docstring": null
+        },
+        {
+          "name": "test_axes",
+          "docstring": null
+        },
+        {
+          "name": "test_s_negative_1",
+          "docstring": null
+        },
+        {
+          "name": "test_s_axes_none",
+          "docstring": null
+        },
+        {
+          "name": "test_s_axes_none_2D",
+          "docstring": null
+        },
+        {
+          "name": "test_s_contains_none",
+          "docstring": null
+        },
+        {
+          "name": "test_all_1d_norm_preserving",
+          "docstring": null
+        },
+        {
+          "name": "test_fftn_out_argument",
+          "docstring": null
+        },
+        {
+          "name": "test_fftn_out_and_s_interaction",
+          "docstring": null
+        },
+        {
+          "name": "test_irfftn_out_and_s_interaction",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFFTThreadSafe",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_fft",
+          "docstring": null
+        },
+        {
+          "name": "test_ifft",
+          "docstring": null
+        },
+        {
+          "name": "test_rfft",
+          "docstring": null
+        },
+        {
+          "name": "test_irfft",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "fft1",
+      "docstring": null
+    },
+    {
+      "name": "test_fft_with_order",
+      "docstring": null
+    },
+    {
+      "name": "test_fft_output_order",
+      "docstring": null
+    },
+    {
+      "name": "test_irfft_with_n_1_regression",
+      "docstring": null
+    },
+    {
+      "name": "test_irfft_with_n_large_regression",
+      "docstring": null
+    },
+    {
+      "name": "test_fft_with_integer_or_bool_input",
+      "docstring": null
+    },
+    {
+      "name": "test_fft_n",
+      "docstring": null
+    },
+    {
+      "name": "test_identity",
+      "docstring": null
+    },
+    {
+      "name": "test_identity_long_short",
+      "docstring": null
+    },
+    {
+      "name": "test_identity_long_short_reversed",
+      "docstring": null
+    },
+    {
+      "name": "test_fft",
+      "docstring": null
+    },
+    {
+      "name": "test_fft_out_argument",
+      "docstring": null
+    },
+    {
+      "name": "test_fft_inplace_out",
+      "docstring": null
+    },
+    {
+      "name": "test_fft_bad_out",
+      "docstring": null
+    },
+    {
+      "name": "test_ifft",
+      "docstring": null
+    },
+    {
+      "name": "test_fft2",
+      "docstring": null
+    },
+    {
+      "name": "test_ifft2",
+      "docstring": null
+    },
+    {
+      "name": "test_fftn",
+      "docstring": null
+    },
+    {
+      "name": "test_ifftn",
+      "docstring": null
+    },
+    {
+      "name": "test_rfft",
+      "docstring": null
+    },
+    {
+      "name": "test_rfft_even",
+      "docstring": null
+    },
+    {
+      "name": "test_rfft_odd",
+      "docstring": null
+    },
+    {
+      "name": "test_irfft",
+      "docstring": null
+    },
+    {
+      "name": "test_rfft2",
+      "docstring": null
+    },
+    {
+      "name": "test_irfft2",
+      "docstring": null
+    },
+    {
+      "name": "test_rfftn",
+      "docstring": null
+    },
+    {
+      "name": "test_irfftn",
+      "docstring": null
+    },
+    {
+      "name": "test_hfft",
+      "docstring": null
+    },
+    {
+      "name": "test_ihfft",
+      "docstring": null
+    },
+    {
+      "name": "test_axes",
+      "docstring": null
+    },
+    {
+      "name": "test_s_negative_1",
+      "docstring": null
+    },
+    {
+      "name": "test_s_axes_none",
+      "docstring": null
+    },
+    {
+      "name": "test_s_axes_none_2D",
+      "docstring": null
+    },
+    {
+      "name": "test_s_contains_none",
+      "docstring": null
+    },
+    {
+      "name": "test_all_1d_norm_preserving",
+      "docstring": null
+    },
+    {
+      "name": "test_fftn_out_argument",
+      "docstring": null
+    },
+    {
+      "name": "test_fftn_out_and_s_interaction",
+      "docstring": null
+    },
+    {
+      "name": "test_irfftn_out_and_s_interaction",
+      "docstring": null
+    },
+    {
+      "name": "test_fft",
+      "docstring": null
+    },
+    {
+      "name": "test_ifft",
+      "docstring": null
+    },
+    {
+      "name": "test_rfft",
+      "docstring": null
+    },
+    {
+      "name": "test_irfft",
+      "docstring": null
+    },
+    {
+      "name": "zeros_like",
+      "docstring": null
+    },
+    {
+      "name": "zeros_like",
+      "docstring": null
+    },
+    {
+      "name": "worker",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

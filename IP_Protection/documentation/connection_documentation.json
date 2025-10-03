@@ -1,0 +1,19 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\connection.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "is_connection_dropped",
+      "docstring": "Returns True if the connection is dropped and should be closed.\n\n:param conn:\n    :class:`http.client.HTTPConnection` object.\n\nNote: For platforms like AppEngine, this will always return ``False`` to\nlet the platform handle connection recycling transparently for us."
+    },
+    {
+      "name": "create_connection",
+      "docstring": "Connect to *address* and return the socket object.\n\nConvenience function.  Connect to *address* (a 2-tuple ``(host,\nport)``) and return the socket object.  Passing the optional\n*timeout* parameter will set the timeout on the socket instance\nbefore attempting to connect.  If no *timeout* is supplied, the\nglobal default timeout setting returned by :func:`socket.getdefaulttimeout`\nis used.  If *source_address* is set it must be a tuple of (host, port)\nfor the socket to bind as a source address before making the connection.\nAn host of '' or port 0 tells the OS to use the default."
+    },
+    {
+      "name": "allowed_gai_family",
+      "docstring": "This function is designed to work in the context of\ngetaddrinfo, where family=socket.AF_UNSPEC is the default and\nwill perform a DNS search for both IPv6 and IPv4 records."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,100 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\pens\\transformPen.py",
+  "classes": [
+    {
+      "name": "TransformPen",
+      "docstring": "Pen that transforms all coordinates using a Affine transformation,\nand passes them to another pen.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "The 'outPen' argument is another pen object. It will receive the\ntransformed coordinates. The 'transformation' argument can either\nbe a six-tuple, or a fontTools.misc.transform.Transform object."
+        },
+        {
+          "name": "moveTo",
+          "docstring": null
+        },
+        {
+          "name": "lineTo",
+          "docstring": null
+        },
+        {
+          "name": "curveTo",
+          "docstring": null
+        },
+        {
+          "name": "qCurveTo",
+          "docstring": null
+        },
+        {
+          "name": "closePath",
+          "docstring": null
+        },
+        {
+          "name": "endPath",
+          "docstring": null
+        },
+        {
+          "name": "addComponent",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TransformPointPen",
+      "docstring": "PointPen that transforms all coordinates using a Affine transformation,\nand passes them to another PointPen.\n\nFor example::\n\n    >>> from fontTools.pens.recordingPen import RecordingPointPen\n    >>> rec = RecordingPointPen()\n    >>> pen = TransformPointPen(rec, (2, 0, 0, 2, -10, 5))\n    >>> v = iter(rec.value)\n    >>> pen.beginPath(identifier=\"contour-0\")\n    >>> next(v)\n    ('beginPath', (), {'identifier': 'contour-0'})\n\n    >>> pen.addPoint((100, 100), \"line\")\n    >>> next(v)\n    ('addPoint', ((190, 205), 'line', False, None), {})\n\n    >>> pen.endPath()\n    >>> next(v)\n    ('endPath', (), {})\n\n    >>> pen.addComponent(\"a\", (1, 0, 0, 1, -10, 5), identifier=\"component-0\")\n    >>> next(v)\n    ('addComponent', ('a', <Transform [2 0 0 2 -30 15]>), {'identifier': 'component-0'})",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "The 'outPointPen' argument is another point pen object.\nIt will receive the transformed coordinates.\nThe 'transformation' argument can either be a six-tuple, or a\nfontTools.misc.transform.Transform object."
+        },
+        {
+          "name": "addPoint",
+          "docstring": null
+        },
+        {
+          "name": "addComponent",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "moveTo",
+      "docstring": null
+    },
+    {
+      "name": "lineTo",
+      "docstring": null
+    },
+    {
+      "name": "curveTo",
+      "docstring": null
+    },
+    {
+      "name": "qCurveTo",
+      "docstring": null
+    },
+    {
+      "name": "closePath",
+      "docstring": null
+    },
+    {
+      "name": "endPath",
+      "docstring": null
+    },
+    {
+      "name": "addComponent",
+      "docstring": null
+    },
+    {
+      "name": "addPoint",
+      "docstring": null
+    },
+    {
+      "name": "addComponent",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

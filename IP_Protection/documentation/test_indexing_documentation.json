@@ -1,0 +1,742 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_indexing.py",
+  "classes": [
+    {
+      "name": "TestIndexing",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_index_no_floats",
+          "docstring": null
+        },
+        {
+          "name": "test_slicing_no_floats",
+          "docstring": null
+        },
+        {
+          "name": "test_index_no_array_to_index",
+          "docstring": null
+        },
+        {
+          "name": "test_none_index",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_tuple_index",
+          "docstring": null
+        },
+        {
+          "name": "test_void_scalar_empty_tuple",
+          "docstring": null
+        },
+        {
+          "name": "test_same_kind_index_casting",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_fancy_index",
+          "docstring": null
+        },
+        {
+          "name": "test_gh_26542",
+          "docstring": null
+        },
+        {
+          "name": "test_gh_26542_2d",
+          "docstring": null
+        },
+        {
+          "name": "test_gh_26542_index_overlap",
+          "docstring": null
+        },
+        {
+          "name": "test_ellipsis_index",
+          "docstring": null
+        },
+        {
+          "name": "test_single_int_index",
+          "docstring": null
+        },
+        {
+          "name": "test_single_bool_index",
+          "docstring": null
+        },
+        {
+          "name": "test_boolean_shape_mismatch",
+          "docstring": null
+        },
+        {
+          "name": "test_boolean_indexing_onedim",
+          "docstring": null
+        },
+        {
+          "name": "test_boolean_assignment_value_mismatch",
+          "docstring": null
+        },
+        {
+          "name": "test_boolean_assignment_needs_api",
+          "docstring": null
+        },
+        {
+          "name": "test_boolean_indexing_twodim",
+          "docstring": null
+        },
+        {
+          "name": "test_boolean_indexing_list",
+          "docstring": null
+        },
+        {
+          "name": "test_reverse_strides_and_subspace_bufferinit",
+          "docstring": null
+        },
+        {
+          "name": "test_reversed_strides_result_allocation",
+          "docstring": null
+        },
+        {
+          "name": "test_uncontiguous_subspace_assignment",
+          "docstring": null
+        },
+        {
+          "name": "test_too_many_fancy_indices_special_case",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar_array_bool",
+          "docstring": null
+        },
+        {
+          "name": "test_everything_returns_views",
+          "docstring": null
+        },
+        {
+          "name": "test_broaderrors_indexing",
+          "docstring": null
+        },
+        {
+          "name": "test_trivial_fancy_out_of_bounds",
+          "docstring": null
+        },
+        {
+          "name": "test_trivial_fancy_not_possible",
+          "docstring": null
+        },
+        {
+          "name": "test_nonbaseclass_values",
+          "docstring": null
+        },
+        {
+          "name": "test_array_like_values",
+          "docstring": null
+        },
+        {
+          "name": "test_subclass_writeable",
+          "docstring": null
+        },
+        {
+          "name": "test_memory_order",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar_return_type",
+          "docstring": null
+        },
+        {
+          "name": "test_small_regressions",
+          "docstring": null
+        },
+        {
+          "name": "test_unaligned",
+          "docstring": null
+        },
+        {
+          "name": "test_tuple_subclass",
+          "docstring": null
+        },
+        {
+          "name": "test_broken_sequence_not_nd_index",
+          "docstring": null
+        },
+        {
+          "name": "test_indexing_array_weird_strides",
+          "docstring": null
+        },
+        {
+          "name": "test_indexing_array_negative_strides",
+          "docstring": null
+        },
+        {
+          "name": "test_character_assignment",
+          "docstring": null
+        },
+        {
+          "name": "test_too_many_advanced_indices",
+          "docstring": null
+        },
+        {
+          "name": "test_structured_advanced_indexing",
+          "docstring": null
+        },
+        {
+          "name": "test_nontuple_ndindex",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFieldIndexing",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_scalar_return_type",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestBroadcastedAssignments",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "assign",
+          "docstring": null
+        },
+        {
+          "name": "test_prepending_ones",
+          "docstring": null
+        },
+        {
+          "name": "test_prepend_not_one",
+          "docstring": null
+        },
+        {
+          "name": "test_simple_broadcasting_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_broadcast_error_reports_correct_shape",
+          "docstring": null
+        },
+        {
+          "name": "test_index_is_larger",
+          "docstring": null
+        },
+        {
+          "name": "test_broadcast_subspace",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSubclasses",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_fancy_on_read_only",
+          "docstring": null
+        },
+        {
+          "name": "test_finalize_gets_full_info",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFancyIndexingCast",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_boolean_index_cast_assign",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFancyIndexingEquivalence",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_object_assign",
+          "docstring": null
+        },
+        {
+          "name": "test_cast_equivalence",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMultiIndexingAutomated",
+      "docstring": "These tests use code to mimic the C-Code indexing for selection.\n\nNOTE:\n\n    * This still lacks tests for complex item setting.\n    * If you change behavior of indexing, you might want to modify\n      these tests to try more combinations.\n    * Behavior was written to match numpy version 1.8. (though a\n      first version matched 1.7.)\n    * Only tuple indices are supported by the mimicking code.\n      (and tested as of writing this)\n    * Error types should match most of the time as long as there\n      is only one error. For multiple errors, what gets raised\n      will usually not be the same one. They are *not* tested.\n\nUpdate 2016-11-30: It is probably not worth maintaining this test\nindefinitely and it can be dropped if maintenance becomes a burden.",
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_boolean",
+          "docstring": null
+        },
+        {
+          "name": "test_multidim",
+          "docstring": null
+        },
+        {
+          "name": "test_1d",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFloatNonIntegerArgument",
+      "docstring": "These test that ``TypeError`` is raised when you try to use\nnon-integers as arguments to for indexing and slicing e.g. ``a[0.0:5]``\nand ``a[0.5]``, or other functions like ``array.reshape(1., -1)``.",
+      "methods": [
+        {
+          "name": "test_valid_indexing",
+          "docstring": null
+        },
+        {
+          "name": "test_valid_slicing",
+          "docstring": null
+        },
+        {
+          "name": "test_non_integer_argument_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_non_integer_sequence_multiplication",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce_axis_float_index",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestBooleanIndexing",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_bool_as_int_argument_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_boolean_indexing_weirdness",
+          "docstring": null
+        },
+        {
+          "name": "test_boolean_indexing_fast_path",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestArrayToIndexDeprecation",
+      "docstring": "Creating an index from array not 0-D is an error.\n\n    ",
+      "methods": [
+        {
+          "name": "test_array_to_index_error",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNonIntegerArrayLike",
+      "docstring": "Tests that array_likes only valid if can safely cast to integer.\n\nFor instance, lists give IndexError when they cannot be safely cast to\nan integer.",
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMultipleEllipsisError",
+      "docstring": "An index can only have a single ellipsis.\n\n    ",
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCApiAccess",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_getitem",
+          "docstring": null
+        },
+        {
+          "name": "test_setitem",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SubClass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Zero",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArrayLike",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "TupleSubclass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "SequenceLike",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "SubClass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "SubClass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "SubClass",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_index_no_floats",
+      "docstring": null
+    },
+    {
+      "name": "test_slicing_no_floats",
+      "docstring": null
+    },
+    {
+      "name": "test_index_no_array_to_index",
+      "docstring": null
+    },
+    {
+      "name": "test_none_index",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_tuple_index",
+      "docstring": null
+    },
+    {
+      "name": "test_void_scalar_empty_tuple",
+      "docstring": null
+    },
+    {
+      "name": "test_same_kind_index_casting",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_fancy_index",
+      "docstring": null
+    },
+    {
+      "name": "test_gh_26542",
+      "docstring": null
+    },
+    {
+      "name": "test_gh_26542_2d",
+      "docstring": null
+    },
+    {
+      "name": "test_gh_26542_index_overlap",
+      "docstring": null
+    },
+    {
+      "name": "test_ellipsis_index",
+      "docstring": null
+    },
+    {
+      "name": "test_single_int_index",
+      "docstring": null
+    },
+    {
+      "name": "test_single_bool_index",
+      "docstring": null
+    },
+    {
+      "name": "test_boolean_shape_mismatch",
+      "docstring": null
+    },
+    {
+      "name": "test_boolean_indexing_onedim",
+      "docstring": null
+    },
+    {
+      "name": "test_boolean_assignment_value_mismatch",
+      "docstring": null
+    },
+    {
+      "name": "test_boolean_assignment_needs_api",
+      "docstring": null
+    },
+    {
+      "name": "test_boolean_indexing_twodim",
+      "docstring": null
+    },
+    {
+      "name": "test_boolean_indexing_list",
+      "docstring": null
+    },
+    {
+      "name": "test_reverse_strides_and_subspace_bufferinit",
+      "docstring": null
+    },
+    {
+      "name": "test_reversed_strides_result_allocation",
+      "docstring": null
+    },
+    {
+      "name": "test_uncontiguous_subspace_assignment",
+      "docstring": null
+    },
+    {
+      "name": "test_too_many_fancy_indices_special_case",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_array_bool",
+      "docstring": null
+    },
+    {
+      "name": "test_everything_returns_views",
+      "docstring": null
+    },
+    {
+      "name": "test_broaderrors_indexing",
+      "docstring": null
+    },
+    {
+      "name": "test_trivial_fancy_out_of_bounds",
+      "docstring": null
+    },
+    {
+      "name": "test_trivial_fancy_not_possible",
+      "docstring": null
+    },
+    {
+      "name": "test_nonbaseclass_values",
+      "docstring": null
+    },
+    {
+      "name": "test_array_like_values",
+      "docstring": null
+    },
+    {
+      "name": "test_subclass_writeable",
+      "docstring": null
+    },
+    {
+      "name": "test_memory_order",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_return_type",
+      "docstring": null
+    },
+    {
+      "name": "test_small_regressions",
+      "docstring": null
+    },
+    {
+      "name": "test_unaligned",
+      "docstring": null
+    },
+    {
+      "name": "test_tuple_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_broken_sequence_not_nd_index",
+      "docstring": null
+    },
+    {
+      "name": "test_indexing_array_weird_strides",
+      "docstring": null
+    },
+    {
+      "name": "test_indexing_array_negative_strides",
+      "docstring": null
+    },
+    {
+      "name": "test_character_assignment",
+      "docstring": null
+    },
+    {
+      "name": "test_too_many_advanced_indices",
+      "docstring": null
+    },
+    {
+      "name": "test_structured_advanced_indexing",
+      "docstring": null
+    },
+    {
+      "name": "test_nontuple_ndindex",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_return_type",
+      "docstring": null
+    },
+    {
+      "name": "assign",
+      "docstring": null
+    },
+    {
+      "name": "test_prepending_ones",
+      "docstring": null
+    },
+    {
+      "name": "test_prepend_not_one",
+      "docstring": null
+    },
+    {
+      "name": "test_simple_broadcasting_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_broadcast_error_reports_correct_shape",
+      "docstring": null
+    },
+    {
+      "name": "test_index_is_larger",
+      "docstring": null
+    },
+    {
+      "name": "test_broadcast_subspace",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_fancy_on_read_only",
+      "docstring": null
+    },
+    {
+      "name": "test_finalize_gets_full_info",
+      "docstring": null
+    },
+    {
+      "name": "test_boolean_index_cast_assign",
+      "docstring": null
+    },
+    {
+      "name": "test_object_assign",
+      "docstring": null
+    },
+    {
+      "name": "test_cast_equivalence",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_boolean",
+      "docstring": null
+    },
+    {
+      "name": "test_multidim",
+      "docstring": null
+    },
+    {
+      "name": "test_1d",
+      "docstring": null
+    },
+    {
+      "name": "test_valid_indexing",
+      "docstring": null
+    },
+    {
+      "name": "test_valid_slicing",
+      "docstring": null
+    },
+    {
+      "name": "test_non_integer_argument_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_non_integer_sequence_multiplication",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce_axis_float_index",
+      "docstring": null
+    },
+    {
+      "name": "test_bool_as_int_argument_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_boolean_indexing_weirdness",
+      "docstring": null
+    },
+    {
+      "name": "test_boolean_indexing_fast_path",
+      "docstring": null
+    },
+    {
+      "name": "test_array_to_index_error",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_getitem",
+      "docstring": null
+    },
+    {
+      "name": "test_setitem",
+      "docstring": null
+    },
+    {
+      "name": "f",
+      "docstring": null
+    },
+    {
+      "name": "func",
+      "docstring": null
+    },
+    {
+      "name": "mult",
+      "docstring": null
+    },
+    {
+      "name": "isskip",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

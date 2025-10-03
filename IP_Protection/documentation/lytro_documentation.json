@@ -1,0 +1,76 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\lytro.py",
+  "classes": [
+    {
+      "name": "LytroFormat",
+      "docstring": "Base class for Lytro format.\nThe subclasses LytroLfrFormat, LytroLfpFormat, LytroIllumRawFormat and\nLytroF01RawFormat implement the Lytro-LFR, Lytro-LFP and Lytro-RAW format\nfor the Illum and original F01 camera respectively.\nWriting is not supported.",
+      "methods": []
+    },
+    {
+      "name": "LytroIllumRawFormat",
+      "docstring": "This is the Lytro Illum RAW format.\nThe raw format is a 10bit image format as used by the Lytro Illum\nlight field camera. The format will read the specified raw file and will\ntry to load a .txt or .json file with the associated meta data.\nThis format does not support writing.\n\n\nParameters for reading\n----------------------\nmeta_only : bool\n    Whether to only read the metadata.",
+      "methods": [
+        {
+          "name": "rearrange_bits",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LytroLfrFormat",
+      "docstring": "This is the Lytro Illum LFR format.\nThe lfr is a image and meta data container format as used by the\nLytro Illum light field camera.\nThe format will read the specified lfr file.\nThis format does not support writing.\n\nParameters for reading\n----------------------\nmeta_only : bool\n    Whether to only read the metadata.\ninclude_thumbnail : bool\n    Whether to include an image thumbnail in the metadata.",
+      "methods": []
+    },
+    {
+      "name": "LytroF01RawFormat",
+      "docstring": "This is the Lytro RAW format for the original F01 Lytro camera.\nThe raw format is a 12bit image format as used by the Lytro F01\nlight field camera. The format will read the specified raw file and will\ntry to load a .txt or .json file with the associated meta data.\nThis format does not support writing.\n\n\nParameters for reading\n----------------------\nmeta_only : bool\n    Whether to only read the metadata.",
+      "methods": [
+        {
+          "name": "rearrange_bits",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LytroLfpFormat",
+      "docstring": "This is the Lytro Illum LFP format.\nThe lfp is a image and meta data container format as used by the\nLytro F01 light field camera.\nThe format will read the specified lfp file.\nThis format does not support writing.\n\nParameters for reading\n----------------------\nmeta_only : bool\n    Whether to only read the metadata.\ninclude_thumbnail : bool\n    Whether to include an image thumbnail in the metadata.",
+      "methods": []
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "rearrange_bits",
+      "docstring": null
+    },
+    {
+      "name": "rearrange_bits",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

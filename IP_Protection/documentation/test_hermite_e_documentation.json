@@ -1,0 +1,352 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\polynomial\\tests\\test_hermite_e.py",
+  "classes": [
+    {
+      "name": "TestConstants",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_hermedomain",
+          "docstring": null
+        },
+        {
+          "name": "test_hermezero",
+          "docstring": null
+        },
+        {
+          "name": "test_hermeone",
+          "docstring": null
+        },
+        {
+          "name": "test_hermex",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestArithmetic",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_hermeadd",
+          "docstring": null
+        },
+        {
+          "name": "test_hermesub",
+          "docstring": null
+        },
+        {
+          "name": "test_hermemulx",
+          "docstring": null
+        },
+        {
+          "name": "test_hermemul",
+          "docstring": null
+        },
+        {
+          "name": "test_hermediv",
+          "docstring": null
+        },
+        {
+          "name": "test_hermepow",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEvaluation",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_hermeval",
+          "docstring": null
+        },
+        {
+          "name": "test_hermeval2d",
+          "docstring": null
+        },
+        {
+          "name": "test_hermeval3d",
+          "docstring": null
+        },
+        {
+          "name": "test_hermegrid2d",
+          "docstring": null
+        },
+        {
+          "name": "test_hermegrid3d",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIntegral",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_hermeint",
+          "docstring": null
+        },
+        {
+          "name": "test_hermeint_axis",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDerivative",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_hermeder",
+          "docstring": null
+        },
+        {
+          "name": "test_hermeder_axis",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestVander",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_hermevander",
+          "docstring": null
+        },
+        {
+          "name": "test_hermevander2d",
+          "docstring": null
+        },
+        {
+          "name": "test_hermevander3d",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFitting",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_hermefit",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCompanion",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_raises",
+          "docstring": null
+        },
+        {
+          "name": "test_dimensions",
+          "docstring": null
+        },
+        {
+          "name": "test_linear_root",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestGauss",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_100",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMisc",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_hermefromroots",
+          "docstring": null
+        },
+        {
+          "name": "test_hermeroots",
+          "docstring": null
+        },
+        {
+          "name": "test_hermetrim",
+          "docstring": null
+        },
+        {
+          "name": "test_hermeline",
+          "docstring": null
+        },
+        {
+          "name": "test_herme2poly",
+          "docstring": null
+        },
+        {
+          "name": "test_poly2herme",
+          "docstring": null
+        },
+        {
+          "name": "test_weight",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "trim",
+      "docstring": null
+    },
+    {
+      "name": "test_hermedomain",
+      "docstring": null
+    },
+    {
+      "name": "test_hermezero",
+      "docstring": null
+    },
+    {
+      "name": "test_hermeone",
+      "docstring": null
+    },
+    {
+      "name": "test_hermex",
+      "docstring": null
+    },
+    {
+      "name": "test_hermeadd",
+      "docstring": null
+    },
+    {
+      "name": "test_hermesub",
+      "docstring": null
+    },
+    {
+      "name": "test_hermemulx",
+      "docstring": null
+    },
+    {
+      "name": "test_hermemul",
+      "docstring": null
+    },
+    {
+      "name": "test_hermediv",
+      "docstring": null
+    },
+    {
+      "name": "test_hermepow",
+      "docstring": null
+    },
+    {
+      "name": "test_hermeval",
+      "docstring": null
+    },
+    {
+      "name": "test_hermeval2d",
+      "docstring": null
+    },
+    {
+      "name": "test_hermeval3d",
+      "docstring": null
+    },
+    {
+      "name": "test_hermegrid2d",
+      "docstring": null
+    },
+    {
+      "name": "test_hermegrid3d",
+      "docstring": null
+    },
+    {
+      "name": "test_hermeint",
+      "docstring": null
+    },
+    {
+      "name": "test_hermeint_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_hermeder",
+      "docstring": null
+    },
+    {
+      "name": "test_hermeder_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_hermevander",
+      "docstring": null
+    },
+    {
+      "name": "test_hermevander2d",
+      "docstring": null
+    },
+    {
+      "name": "test_hermevander3d",
+      "docstring": null
+    },
+    {
+      "name": "test_hermefit",
+      "docstring": null
+    },
+    {
+      "name": "test_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_dimensions",
+      "docstring": null
+    },
+    {
+      "name": "test_linear_root",
+      "docstring": null
+    },
+    {
+      "name": "test_100",
+      "docstring": null
+    },
+    {
+      "name": "test_hermefromroots",
+      "docstring": null
+    },
+    {
+      "name": "test_hermeroots",
+      "docstring": null
+    },
+    {
+      "name": "test_hermetrim",
+      "docstring": null
+    },
+    {
+      "name": "test_hermeline",
+      "docstring": null
+    },
+    {
+      "name": "test_herme2poly",
+      "docstring": null
+    },
+    {
+      "name": "test_poly2herme",
+      "docstring": null
+    },
+    {
+      "name": "test_weight",
+      "docstring": null
+    },
+    {
+      "name": "f",
+      "docstring": null
+    },
+    {
+      "name": "f2",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

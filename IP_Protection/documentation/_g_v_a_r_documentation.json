@@ -1,0 +1,106 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\_g_v_a_r.py",
+  "classes": [
+    {
+      "name": "table__g_v_a_r",
+      "docstring": "Glyph Variations table\n\nThe ``gvar`` table provides the per-glyph variation data that\ndescribe how glyph outlines in the ``glyf`` table change across\nthe variation space that is defined for the font in the ``fvar``\ntable.\n\nSee also https://learn.microsoft.com/en-us/typography/opentype/spec/gvar",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "compileGlyphs_",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "ensureDecompiled",
+          "docstring": null
+        },
+        {
+          "name": "decompileOffsets_",
+          "docstring": null
+        },
+        {
+          "name": "compileOffsets_",
+          "docstring": "Packs a list of offsets into a 'gvar' offset table.\n\nReturns a pair (bytestring, tableFormat). Bytestring is the\npacked offset table. Format indicates whether the table\nuses short (tableFormat=0) or long (tableFormat=1) integers.\nThe returned tableFormat should get packed into the flags field\nof the 'gvar' header."
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "getNumPoints_",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "compileGlyph_",
+      "docstring": null
+    },
+    {
+      "name": "decompileGlyph_",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "compileGlyphs_",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "ensureDecompiled",
+      "docstring": null
+    },
+    {
+      "name": "decompileOffsets_",
+      "docstring": null
+    },
+    {
+      "name": "compileOffsets_",
+      "docstring": "Packs a list of offsets into a 'gvar' offset table.\n\nReturns a pair (bytestring, tableFormat). Bytestring is the\npacked offset table. Format indicates whether the table\nuses short (tableFormat=0) or long (tableFormat=1) integers.\nThe returned tableFormat should get packed into the flags field\nof the 'gvar' header."
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "getNumPoints_",
+      "docstring": null
+    },
+    {
+      "name": "get_read_item",
+      "docstring": null
+    },
+    {
+      "name": "read_item",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

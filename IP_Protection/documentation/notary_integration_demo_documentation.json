@@ -1,0 +1,43 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\notary_integration_demo.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "demo_landmark_registration",
+      "docstring": "Demonstrate landmark registration.\n\nArgs:\n    notary_api: NotaryAPI instance\n    signature_generator: SpatialSignatureGenerator instance\n    \nReturns:\n    Registered landmark data"
+    },
+    {
+      "name": "demo_node_registration",
+      "docstring": "Demonstrate node registration.\n\nArgs:\n    notary_api: NotaryAPI instance\n    \nReturns:\n    Registered node data"
+    },
+    {
+      "name": "demo_proof_of_view",
+      "docstring": "Demonstrate Proof-of-View submission.\n\nArgs:\n    notary_api: NotaryAPI instance\n    node: Node data\n    landmark: Landmark data\n    signature_generator: SpatialSignatureGenerator instance\n    \nReturns:\n    Proof submission result"
+    },
+    {
+      "name": "demo_document_notarization",
+      "docstring": "Demonstrate document notarization.\n\nArgs:\n    notary_api: NotaryAPI instance\n    blockchain_connector: BlockchainConnector instance\n    node: Node data\n    \nReturns:\n    Notarization result"
+    },
+    {
+      "name": "demo_integration_with_temporal_auth",
+      "docstring": "Demonstrate integration with the Temporal Authentication Service.\n\nArgs:\n    temporal_auth: TemporalAuthService instance\n    signature_generator: SpatialSignatureGenerator instance"
+    },
+    {
+      "name": "demo_integration_with_spatial_keys",
+      "docstring": "Demonstrate integration with the Spatial Key Generator.\n\nArgs:\n    spatial_key_generator: SpatialKeyGenerator instance\n    signature_generator: SpatialSignatureGenerator instance"
+    },
+    {
+      "name": "demo_integration_with_cosmic_rng",
+      "docstring": "Demonstrate integration with the Cosmic Randomness Extractor.\n\nArgs:\n    cosmic_rng: CosmicRandomnessExtractor instance\n    signature_generator: SpatialSignatureGenerator instance"
+    },
+    {
+      "name": "demo_integration_with_digital_twin",
+      "docstring": "Demonstrate integration with the Digital Twin Manager.\n\nArgs:\n    digital_twin_manager: DigitalTwinManager instance\n    signature_generator: SpatialSignatureGenerator instance"
+    },
+    {
+      "name": "run_integration_demo",
+      "docstring": "Run the full integration demo."
+    }
+  ],
+  "innovations": []
+}

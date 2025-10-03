@@ -1,0 +1,150 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\prompt.py",
+  "classes": [
+    {
+      "name": "PromptError",
+      "docstring": "Exception base class for prompt related errors.",
+      "methods": []
+    },
+    {
+      "name": "InvalidResponse",
+      "docstring": "Exception to indicate a response was invalid. Raise this within process_response() to indicate an error\nand provide an error message.\n\nArgs:\n    message (Union[str, Text]): Error message.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PromptBase",
+      "docstring": "Ask the user for input until a valid response is received. This is the base class, see one of\nthe concrete classes for examples.\n\nArgs:\n    prompt (TextType, optional): Prompt text. Defaults to \"\".\n    console (Console, optional): A Console instance or None to use global console. Defaults to None.\n    password (bool, optional): Enable password input. Defaults to False.\n    choices (List[str], optional): A list of valid choices. Defaults to None.\n    case_sensitive (bool, optional): Matching of choices should be case-sensitive. Defaults to True.\n    show_default (bool, optional): Show default in prompt. Defaults to True.\n    show_choices (bool, optional): Show choices in prompt. Defaults to True.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "ask",
+          "docstring": null
+        },
+        {
+          "name": "ask",
+          "docstring": null
+        },
+        {
+          "name": "ask",
+          "docstring": "Shortcut to construct and run a prompt loop and return the result.\n\nExample:\n    >>> filename = Prompt.ask(\"Enter a filename\")\n\nArgs:\n    prompt (TextType, optional): Prompt text. Defaults to \"\".\n    console (Console, optional): A Console instance or None to use global console. Defaults to None.\n    password (bool, optional): Enable password input. Defaults to False.\n    choices (List[str], optional): A list of valid choices. Defaults to None.\n    case_sensitive (bool, optional): Matching of choices should be case-sensitive. Defaults to True.\n    show_default (bool, optional): Show default in prompt. Defaults to True.\n    show_choices (bool, optional): Show choices in prompt. Defaults to True.\n    stream (TextIO, optional): Optional text file open for reading to get input. Defaults to None."
+        },
+        {
+          "name": "render_default",
+          "docstring": "Turn the supplied default in to a Text instance.\n\nArgs:\n    default (DefaultType): Default value.\n\nReturns:\n    Text: Text containing rendering of default value."
+        },
+        {
+          "name": "make_prompt",
+          "docstring": "Make prompt text.\n\nArgs:\n    default (DefaultType): Default value.\n\nReturns:\n    Text: Text to display in prompt."
+        },
+        {
+          "name": "get_input",
+          "docstring": "Get input from user.\n\nArgs:\n    console (Console): Console instance.\n    prompt (TextType): Prompt text.\n    password (bool): Enable password entry.\n\nReturns:\n    str: String from user."
+        },
+        {
+          "name": "check_choice",
+          "docstring": "Check value is in the list of valid choices.\n\nArgs:\n    value (str): Value entered by user.\n\nReturns:\n    bool: True if choice was valid, otherwise False."
+        },
+        {
+          "name": "process_response",
+          "docstring": "Process response from user, convert to prompt type.\n\nArgs:\n    value (str): String typed by user.\n\nRaises:\n    InvalidResponse: If ``value`` is invalid.\n\nReturns:\n    PromptType: The value to be returned from ask method."
+        },
+        {
+          "name": "on_validate_error",
+          "docstring": "Called to handle validation error.\n\nArgs:\n    value (str): String entered by user.\n    error (InvalidResponse): Exception instance the initiated the error."
+        },
+        {
+          "name": "pre_prompt",
+          "docstring": "Hook to display something before the prompt."
+        }
+      ]
+    },
+    {
+      "name": "Prompt",
+      "docstring": "A prompt that returns a str.\n\nExample:\n    >>> name = Prompt.ask(\"Enter your name\")",
+      "methods": []
+    },
+    {
+      "name": "IntPrompt",
+      "docstring": "A prompt that returns an integer.\n\nExample:\n    >>> burrito_count = IntPrompt.ask(\"How many burritos do you want to order\")",
+      "methods": []
+    },
+    {
+      "name": "FloatPrompt",
+      "docstring": "A prompt that returns a float.\n\nExample:\n    >>> temperature = FloatPrompt.ask(\"Enter desired temperature\")",
+      "methods": []
+    },
+    {
+      "name": "Confirm",
+      "docstring": "A yes / no confirmation prompt.\n\nExample:\n    >>> if Confirm.ask(\"Continue\"):\n            run_job()",
+      "methods": [
+        {
+          "name": "render_default",
+          "docstring": "Render the default as (y) or (n) rather than True/False."
+        },
+        {
+          "name": "process_response",
+          "docstring": "Convert choices to a bool."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "ask",
+      "docstring": null
+    },
+    {
+      "name": "ask",
+      "docstring": null
+    },
+    {
+      "name": "ask",
+      "docstring": "Shortcut to construct and run a prompt loop and return the result.\n\nExample:\n    >>> filename = Prompt.ask(\"Enter a filename\")\n\nArgs:\n    prompt (TextType, optional): Prompt text. Defaults to \"\".\n    console (Console, optional): A Console instance or None to use global console. Defaults to None.\n    password (bool, optional): Enable password input. Defaults to False.\n    choices (List[str], optional): A list of valid choices. Defaults to None.\n    case_sensitive (bool, optional): Matching of choices should be case-sensitive. Defaults to True.\n    show_default (bool, optional): Show default in prompt. Defaults to True.\n    show_choices (bool, optional): Show choices in prompt. Defaults to True.\n    stream (TextIO, optional): Optional text file open for reading to get input. Defaults to None."
+    },
+    {
+      "name": "render_default",
+      "docstring": "Turn the supplied default in to a Text instance.\n\nArgs:\n    default (DefaultType): Default value.\n\nReturns:\n    Text: Text containing rendering of default value."
+    },
+    {
+      "name": "make_prompt",
+      "docstring": "Make prompt text.\n\nArgs:\n    default (DefaultType): Default value.\n\nReturns:\n    Text: Text to display in prompt."
+    },
+    {
+      "name": "get_input",
+      "docstring": "Get input from user.\n\nArgs:\n    console (Console): Console instance.\n    prompt (TextType): Prompt text.\n    password (bool): Enable password entry.\n\nReturns:\n    str: String from user."
+    },
+    {
+      "name": "check_choice",
+      "docstring": "Check value is in the list of valid choices.\n\nArgs:\n    value (str): Value entered by user.\n\nReturns:\n    bool: True if choice was valid, otherwise False."
+    },
+    {
+      "name": "process_response",
+      "docstring": "Process response from user, convert to prompt type.\n\nArgs:\n    value (str): String typed by user.\n\nRaises:\n    InvalidResponse: If ``value`` is invalid.\n\nReturns:\n    PromptType: The value to be returned from ask method."
+    },
+    {
+      "name": "on_validate_error",
+      "docstring": "Called to handle validation error.\n\nArgs:\n    value (str): String entered by user.\n    error (InvalidResponse): Exception instance the initiated the error."
+    },
+    {
+      "name": "pre_prompt",
+      "docstring": "Hook to display something before the prompt."
+    },
+    {
+      "name": "render_default",
+      "docstring": "Render the default as (y) or (n) rather than True/False."
+    },
+    {
+      "name": "process_response",
+      "docstring": "Convert choices to a bool."
+    }
+  ],
+  "innovations": []
+}

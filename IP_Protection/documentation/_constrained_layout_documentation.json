@@ -1,0 +1,67 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\_constrained_layout.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "do_constrained_layout",
+      "docstring": "Do the constrained_layout.  Called at draw time in\n ``figure.constrained_layout()``\n\nParameters\n----------\nfig : `~matplotlib.figure.Figure`\n    `.Figure` instance to do the layout in.\n\nh_pad, w_pad : float\n  Padding around the Axes elements in figure-normalized units.\n\nhspace, wspace : float\n   Fraction of the figure to dedicate to space between the\n   Axes.  These are evenly spread between the gaps between the Axes.\n   A value of 0.2 for a three-column layout would have a space\n   of 0.1 of the figure width between each column.\n   If h/wspace < h/w_pad, then the pads are used instead.\n\nrect : tuple of 4 floats\n    Rectangle in figure coordinates to perform constrained layout in\n    [left, bottom, width, height], each from 0-1.\n\ncompress : bool\n    Whether to shift Axes so that white space in between them is\n    removed. This is useful for simple grids of fixed-aspect Axes (e.g.\n    a grid of images).\n\nReturns\n-------\nlayoutgrid : private debugging structure"
+    },
+    {
+      "name": "make_layoutgrids",
+      "docstring": "Make the layoutgrid tree.\n\n(Sub)Figures get a layoutgrid so we can have figure margins.\n\nGridspecs that are attached to Axes get a layoutgrid so Axes\ncan have margins."
+    },
+    {
+      "name": "make_layoutgrids_gs",
+      "docstring": "Make the layoutgrid for a gridspec (and anything nested in the gridspec)"
+    },
+    {
+      "name": "check_no_collapsed_axes",
+      "docstring": "Check that no Axes have collapsed to zero size."
+    },
+    {
+      "name": "compress_fixed_aspect",
+      "docstring": null
+    },
+    {
+      "name": "get_margin_from_padding",
+      "docstring": null
+    },
+    {
+      "name": "make_layout_margins",
+      "docstring": "For each Axes, make a margin between the *pos* layoutbox and the\n*axes* layoutbox be a minimum size that can accommodate the\ndecorations on the axis.\n\nThen make room for colorbars.\n\nParameters\n----------\nlayoutgrids : dict\nfig : `~matplotlib.figure.Figure`\n    `.Figure` instance to do the layout in.\nrenderer : `~matplotlib.backend_bases.RendererBase` subclass.\n    The renderer to use.\nw_pad, h_pad : float, default: 0\n    Width and height padding (in fraction of figure).\nhspace, wspace : float, default: 0\n    Width and height padding as fraction of figure size divided by\n    number of columns or rows."
+    },
+    {
+      "name": "make_margin_suptitles",
+      "docstring": null
+    },
+    {
+      "name": "match_submerged_margins",
+      "docstring": "    Make the margins that are submerged inside an Axes the same size.\n\n    This allows Axes that span two columns (or rows) that are offset\n    from one another to have the same size.\n\n    This gives the proper layout for something like::\n        fig = plt.figure(constrained_layout=True)\n        axs = fig.subplot_mosaic(\"AAAB\nCCDD\")\n\n    Without this routine, the Axes D will be wider than C, because the\n    margin width between the two columns in C has no width by default,\n    whereas the margins between the two columns of D are set by the\n    width of the margin between A and B. However, obviously the user would\n    like C and D to be the same size, so we need to add constraints to these\n    \"submerged\" margins.\n\n    This routine makes all the interior margins the same, and the spacing\n    between the three columns in A and the two column in C are all set to the\n    margins between the two columns of D.\n\n    See test_constrained_layout::test_constrained_layout12 for an example.\n    "
+    },
+    {
+      "name": "get_cb_parent_spans",
+      "docstring": "Figure out which subplotspecs this colorbar belongs to.\n\nParameters\n----------\ncbax : `~matplotlib.axes.Axes`\n    Axes for the colorbar."
+    },
+    {
+      "name": "get_pos_and_bbox",
+      "docstring": "Get the position and the bbox for the Axes.\n\nParameters\n----------\nax : `~matplotlib.axes.Axes`\nrenderer : `~matplotlib.backend_bases.RendererBase` subclass.\n\nReturns\n-------\npos : `~matplotlib.transforms.Bbox`\n    Position in figure coordinates.\nbbox : `~matplotlib.transforms.Bbox`\n    Tight bounding box in figure coordinates."
+    },
+    {
+      "name": "reposition_axes",
+      "docstring": "Reposition all the Axes based on the new inner bounding box."
+    },
+    {
+      "name": "reposition_colorbar",
+      "docstring": "Place the colorbar in its new place.\n\nParameters\n----------\nlayoutgrids : dict\ncbax : `~matplotlib.axes.Axes`\n    Axes for the colorbar.\nrenderer : `~matplotlib.backend_bases.RendererBase` subclass.\n    The renderer to use.\noffset : array-like\n    Offset the colorbar needs to be pushed to in order to\n    account for multiple colorbars."
+    },
+    {
+      "name": "reset_margins",
+      "docstring": "Reset the margins in the layoutboxes of *fig*.\n\nMargins are usually set as a minimum, so if the figure gets smaller\nthe minimum needs to be zero in order for it to grow again."
+    },
+    {
+      "name": "colorbar_get_pad",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

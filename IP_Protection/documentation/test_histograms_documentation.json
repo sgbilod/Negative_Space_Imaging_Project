@@ -1,0 +1,526 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\tests\\test_histograms.py",
+  "classes": [
+    {
+      "name": "TestHistogram",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "teardown_method",
+          "docstring": null
+        },
+        {
+          "name": "test_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_one_bin",
+          "docstring": null
+        },
+        {
+          "name": "test_density",
+          "docstring": null
+        },
+        {
+          "name": "test_outliers",
+          "docstring": null
+        },
+        {
+          "name": "test_arr_weights_mismatch",
+          "docstring": null
+        },
+        {
+          "name": "test_type",
+          "docstring": null
+        },
+        {
+          "name": "test_f32_rounding",
+          "docstring": null
+        },
+        {
+          "name": "test_bool_conversion",
+          "docstring": null
+        },
+        {
+          "name": "test_weights",
+          "docstring": null
+        },
+        {
+          "name": "test_exotic_weights",
+          "docstring": null
+        },
+        {
+          "name": "test_no_side_effects",
+          "docstring": null
+        },
+        {
+          "name": "test_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_error_binnum_type",
+          "docstring": null
+        },
+        {
+          "name": "test_finite_range",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_range",
+          "docstring": null
+        },
+        {
+          "name": "test_bin_edge_cases",
+          "docstring": null
+        },
+        {
+          "name": "test_last_bin_inclusive_range",
+          "docstring": null
+        },
+        {
+          "name": "test_bin_array_dims",
+          "docstring": null
+        },
+        {
+          "name": "test_unsigned_monotonicity_check",
+          "docstring": null
+        },
+        {
+          "name": "test_object_array_of_0d",
+          "docstring": null
+        },
+        {
+          "name": "test_some_nan_values",
+          "docstring": null
+        },
+        {
+          "name": "test_datetime",
+          "docstring": null
+        },
+        {
+          "name": "do_signed_overflow_bounds",
+          "docstring": null
+        },
+        {
+          "name": "test_signed_overflow_bounds",
+          "docstring": null
+        },
+        {
+          "name": "do_precision_lower_bound",
+          "docstring": null
+        },
+        {
+          "name": "do_precision_upper_bound",
+          "docstring": null
+        },
+        {
+          "name": "do_precision",
+          "docstring": null
+        },
+        {
+          "name": "test_precision",
+          "docstring": null
+        },
+        {
+          "name": "test_histogram_bin_edges",
+          "docstring": null
+        },
+        {
+          "name": "test_small_value_range",
+          "docstring": null
+        },
+        {
+          "name": "test_big_arrays",
+          "docstring": null
+        },
+        {
+          "name": "test_gh_23110",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestHistogramOptimBinNums",
+      "docstring": "Provide test coverage when using provided estimators for optimal number of\nbins",
+      "methods": [
+        {
+          "name": "test_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_simple",
+          "docstring": "Straightforward testing with a mixture of linspace data (for\nconsistency). All test values have been precomputed and the values\nshouldn't change"
+        },
+        {
+          "name": "test_small",
+          "docstring": "Smaller datasets have the potential to cause issues with the data\nadaptive methods, especially the FD method. All bin numbers have been\nprecalculated."
+        },
+        {
+          "name": "test_incorrect_methods",
+          "docstring": "Check a Value Error is thrown when an unknown string is passed in"
+        },
+        {
+          "name": "test_novariance",
+          "docstring": "Check that methods handle no variance in data\nPrimarily for Scott and FD as the SD and IQR are both 0 in this case"
+        },
+        {
+          "name": "test_limited_variance",
+          "docstring": "Check when IQR is 0, but variance exists, we return the sturges value\nand not the fd value."
+        },
+        {
+          "name": "test_outlier",
+          "docstring": "Check the FD, Scott and Doane with outliers.\n\nThe FD estimates a smaller binwidth since it's less affected by\noutliers. Since the range is so (artificially) large, this means more\nbins, most of which will be empty, but the data of interest usually is\nunaffected. The Scott estimator is more affected and returns fewer bins,\ndespite most of the variance being in one area of the data. The Doane\nestimator lies somewhere between the other two."
+        },
+        {
+          "name": "test_scott_vs_stone",
+          "docstring": "Verify that Scott's rule and Stone's rule converges for normally distributed data"
+        },
+        {
+          "name": "test_simple_range",
+          "docstring": "Straightforward testing with a mixture of linspace data (for\nconsistency). Adding in a 3rd mixture that will then be\ncompletely ignored. All test values have been precomputed and\nthe shouldn't change."
+        },
+        {
+          "name": "test_signed_integer_data",
+          "docstring": null
+        },
+        {
+          "name": "test_integer",
+          "docstring": "Test that bin width for integer data is at least 1."
+        },
+        {
+          "name": "test_integer_non_auto",
+          "docstring": "Test that the bin-width>=1 requirement *only* applies to auto binning."
+        },
+        {
+          "name": "test_simple_weighted",
+          "docstring": "Check that weighted data raises a TypeError"
+        }
+      ]
+    },
+    {
+      "name": "TestHistogramdd",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_shape_3d",
+          "docstring": null
+        },
+        {
+          "name": "test_shape_4d",
+          "docstring": null
+        },
+        {
+          "name": "test_weights",
+          "docstring": null
+        },
+        {
+          "name": "test_identical_samples",
+          "docstring": null
+        },
+        {
+          "name": "test_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_bins_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_inf_edges",
+          "docstring": null
+        },
+        {
+          "name": "test_rightmost_binedge",
+          "docstring": null
+        },
+        {
+          "name": "test_finite_range",
+          "docstring": null
+        },
+        {
+          "name": "test_equal_edges",
+          "docstring": "Test that adjacent entries in an edge array can be equal "
+        },
+        {
+          "name": "test_edge_dtype",
+          "docstring": "Test that if an edge array is input, its type is preserved "
+        },
+        {
+          "name": "test_large_integers",
+          "docstring": null
+        },
+        {
+          "name": "test_density_non_uniform_2d",
+          "docstring": null
+        },
+        {
+          "name": "test_density_non_uniform_1d",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "teardown_method",
+      "docstring": null
+    },
+    {
+      "name": "test_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_one_bin",
+      "docstring": null
+    },
+    {
+      "name": "test_density",
+      "docstring": null
+    },
+    {
+      "name": "test_outliers",
+      "docstring": null
+    },
+    {
+      "name": "test_arr_weights_mismatch",
+      "docstring": null
+    },
+    {
+      "name": "test_type",
+      "docstring": null
+    },
+    {
+      "name": "test_f32_rounding",
+      "docstring": null
+    },
+    {
+      "name": "test_bool_conversion",
+      "docstring": null
+    },
+    {
+      "name": "test_weights",
+      "docstring": null
+    },
+    {
+      "name": "test_exotic_weights",
+      "docstring": null
+    },
+    {
+      "name": "test_no_side_effects",
+      "docstring": null
+    },
+    {
+      "name": "test_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_error_binnum_type",
+      "docstring": null
+    },
+    {
+      "name": "test_finite_range",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_range",
+      "docstring": null
+    },
+    {
+      "name": "test_bin_edge_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_last_bin_inclusive_range",
+      "docstring": null
+    },
+    {
+      "name": "test_bin_array_dims",
+      "docstring": null
+    },
+    {
+      "name": "test_unsigned_monotonicity_check",
+      "docstring": null
+    },
+    {
+      "name": "test_object_array_of_0d",
+      "docstring": null
+    },
+    {
+      "name": "test_some_nan_values",
+      "docstring": null
+    },
+    {
+      "name": "test_datetime",
+      "docstring": null
+    },
+    {
+      "name": "do_signed_overflow_bounds",
+      "docstring": null
+    },
+    {
+      "name": "test_signed_overflow_bounds",
+      "docstring": null
+    },
+    {
+      "name": "do_precision_lower_bound",
+      "docstring": null
+    },
+    {
+      "name": "do_precision_upper_bound",
+      "docstring": null
+    },
+    {
+      "name": "do_precision",
+      "docstring": null
+    },
+    {
+      "name": "test_precision",
+      "docstring": null
+    },
+    {
+      "name": "test_histogram_bin_edges",
+      "docstring": null
+    },
+    {
+      "name": "test_small_value_range",
+      "docstring": null
+    },
+    {
+      "name": "test_big_arrays",
+      "docstring": null
+    },
+    {
+      "name": "test_gh_23110",
+      "docstring": null
+    },
+    {
+      "name": "test_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_simple",
+      "docstring": "Straightforward testing with a mixture of linspace data (for\nconsistency). All test values have been precomputed and the values\nshouldn't change"
+    },
+    {
+      "name": "test_small",
+      "docstring": "Smaller datasets have the potential to cause issues with the data\nadaptive methods, especially the FD method. All bin numbers have been\nprecalculated."
+    },
+    {
+      "name": "test_incorrect_methods",
+      "docstring": "Check a Value Error is thrown when an unknown string is passed in"
+    },
+    {
+      "name": "test_novariance",
+      "docstring": "Check that methods handle no variance in data\nPrimarily for Scott and FD as the SD and IQR are both 0 in this case"
+    },
+    {
+      "name": "test_limited_variance",
+      "docstring": "Check when IQR is 0, but variance exists, we return the sturges value\nand not the fd value."
+    },
+    {
+      "name": "test_outlier",
+      "docstring": "Check the FD, Scott and Doane with outliers.\n\nThe FD estimates a smaller binwidth since it's less affected by\noutliers. Since the range is so (artificially) large, this means more\nbins, most of which will be empty, but the data of interest usually is\nunaffected. The Scott estimator is more affected and returns fewer bins,\ndespite most of the variance being in one area of the data. The Doane\nestimator lies somewhere between the other two."
+    },
+    {
+      "name": "test_scott_vs_stone",
+      "docstring": "Verify that Scott's rule and Stone's rule converges for normally distributed data"
+    },
+    {
+      "name": "test_simple_range",
+      "docstring": "Straightforward testing with a mixture of linspace data (for\nconsistency). Adding in a 3rd mixture that will then be\ncompletely ignored. All test values have been precomputed and\nthe shouldn't change."
+    },
+    {
+      "name": "test_signed_integer_data",
+      "docstring": null
+    },
+    {
+      "name": "test_integer",
+      "docstring": "Test that bin width for integer data is at least 1."
+    },
+    {
+      "name": "test_integer_non_auto",
+      "docstring": "Test that the bin-width>=1 requirement *only* applies to auto binning."
+    },
+    {
+      "name": "test_simple_weighted",
+      "docstring": "Check that weighted data raises a TypeError"
+    },
+    {
+      "name": "test_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_shape_3d",
+      "docstring": null
+    },
+    {
+      "name": "test_shape_4d",
+      "docstring": null
+    },
+    {
+      "name": "test_weights",
+      "docstring": null
+    },
+    {
+      "name": "test_identical_samples",
+      "docstring": null
+    },
+    {
+      "name": "test_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_bins_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_inf_edges",
+      "docstring": null
+    },
+    {
+      "name": "test_rightmost_binedge",
+      "docstring": null
+    },
+    {
+      "name": "test_finite_range",
+      "docstring": null
+    },
+    {
+      "name": "test_equal_edges",
+      "docstring": "Test that adjacent entries in an edge array can be equal "
+    },
+    {
+      "name": "test_edge_dtype",
+      "docstring": "Test that if an edge array is input, its type is preserved "
+    },
+    {
+      "name": "test_large_integers",
+      "docstring": null
+    },
+    {
+      "name": "test_density_non_uniform_2d",
+      "docstring": null
+    },
+    {
+      "name": "test_density_non_uniform_1d",
+      "docstring": null
+    },
+    {
+      "name": "nbins_ratio",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

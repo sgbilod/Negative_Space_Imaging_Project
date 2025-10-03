@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: NetworkPolicy
+metadata:
+  name: {{ cluster_name }}-network
+  labels:
+    cluster: {{ cluster_name }}
+spec:
+  # Network configuration
+  networkPolicies:
+    # Internal network for communication between services
+    - name: {{ cluster_name }}-internal
+      podSelector:
+        matchLabels:
+          cluster: {{ cluster_name }}
+      ingress:
+        - from:
+            - podSelector:
+                matchLabels:
+                  cluster: {{ cluster_name }}
+
+    # API network for external API access
+    - name: {{ cluster_name }}-api
+      podSelector:
+        matchLabels:
+          role: api
+      ingress:
+        - from:
+            - ipBlock:
+                cidr: {{ networking.api_access_cidr }}
+          ports:
+            - protocol: TCP
+              port: 443
+
+    # Data transfer network for high-bandwidth internal transfers
+    - name: {{ cluster_name }}-data-transfer
+      podSelector:
+        matchLabels:
+          role: data-processor
+      ingress:
+        - from:
+            - podSelector:
+                matchLabels:
+                  role: data-storage
+          ports:
+            - protocol: TCP
+              port: 8000
+
+  # Service mesh configuration
+  serviceMesh:
+    enabled: {{ networking.service_mesh.enabled }}
+    implementation: {{ networking.service_mesh.implementation }}
+    autoInject: {{ networking.service_mesh.auto_inject }}
+    mtls:
+      enabled: {{ networking.service_mesh.mtls.enabled }}
+      mode: {{ networking.service_mesh.mtls.mode }}
+
+  # Load balancer configuration
+  loadBalancer:
+    enabled: {{ networking.load_balancer.enabled }}
+    type: {{ networking.load_balancer.type }}
+    implementation: {{ networking.load_balancer.implementation }}
+    config:
+      healthCheckPath: /health
+      healthCheckPort: 8080
+      healthCheckInterval: 30s
+      sessionAffinity: {{ networking.load_balancer.session_affinity }}

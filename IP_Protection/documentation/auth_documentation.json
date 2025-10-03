@@ -1,0 +1,175 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\network\\auth.py",
+  "classes": [
+    {
+      "name": "Credentials",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "KeyRingBaseProvider",
+      "docstring": "Keyring base provider interface",
+      "methods": [
+        {
+          "name": "get_auth_info",
+          "docstring": null
+        },
+        {
+          "name": "save_auth_info",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "KeyRingNullProvider",
+      "docstring": "Keyring null provider",
+      "methods": [
+        {
+          "name": "get_auth_info",
+          "docstring": null
+        },
+        {
+          "name": "save_auth_info",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "KeyRingPythonProvider",
+      "docstring": "Keyring interface which uses locally imported `keyring`",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_auth_info",
+          "docstring": null
+        },
+        {
+          "name": "save_auth_info",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "KeyRingCliProvider",
+      "docstring": "Provider which uses `keyring` cli\n\nInstead of calling the keyring package installed alongside pip\nwe call keyring on the command line which will enable pip to\nuse which ever installation of keyring is available first in\nPATH.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_auth_info",
+          "docstring": null
+        },
+        {
+          "name": "save_auth_info",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MultiDomainBasicAuth",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "keyring_provider",
+          "docstring": null
+        },
+        {
+          "name": "keyring_provider",
+          "docstring": null
+        },
+        {
+          "name": "use_keyring",
+          "docstring": null
+        },
+        {
+          "name": "handle_401",
+          "docstring": null
+        },
+        {
+          "name": "warn_on_401",
+          "docstring": "Response callback to warn about incorrect credentials."
+        },
+        {
+          "name": "save_credentials",
+          "docstring": "Response callback to save credentials on success."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_keyring_provider",
+      "docstring": null
+    },
+    {
+      "name": "get_auth_info",
+      "docstring": null
+    },
+    {
+      "name": "save_auth_info",
+      "docstring": null
+    },
+    {
+      "name": "get_auth_info",
+      "docstring": null
+    },
+    {
+      "name": "save_auth_info",
+      "docstring": null
+    },
+    {
+      "name": "get_auth_info",
+      "docstring": null
+    },
+    {
+      "name": "save_auth_info",
+      "docstring": null
+    },
+    {
+      "name": "get_auth_info",
+      "docstring": null
+    },
+    {
+      "name": "save_auth_info",
+      "docstring": null
+    },
+    {
+      "name": "keyring_provider",
+      "docstring": null
+    },
+    {
+      "name": "keyring_provider",
+      "docstring": null
+    },
+    {
+      "name": "use_keyring",
+      "docstring": null
+    },
+    {
+      "name": "handle_401",
+      "docstring": null
+    },
+    {
+      "name": "warn_on_401",
+      "docstring": "Response callback to warn about incorrect credentials."
+    },
+    {
+      "name": "save_credentials",
+      "docstring": "Response callback to save credentials on success."
+    },
+    {
+      "name": "PATH_as_shutil_which_determines_it",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

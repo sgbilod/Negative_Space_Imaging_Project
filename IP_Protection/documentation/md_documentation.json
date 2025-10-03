@@ -1,0 +1,432 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\charset_normalizer\\md.py",
+  "classes": [
+    {
+      "name": "MessDetectorPlugin",
+      "docstring": "Base abstract class used for mess detection plugins.\nAll detectors MUST extend and implement given methods.",
+      "methods": [
+        {
+          "name": "eligible",
+          "docstring": "Determine if given character should be fed in."
+        },
+        {
+          "name": "feed",
+          "docstring": "The main routine to be executed upon character.\nInsert the logic in witch the text would be considered chaotic."
+        },
+        {
+          "name": "reset",
+          "docstring": "Permit to reset the plugin to the initial state."
+        },
+        {
+          "name": "ratio",
+          "docstring": "Compute the chaos ratio based on what your feed() has seen.\nMust NOT be lower than 0.; No restriction gt 0."
+        }
+      ]
+    },
+    {
+      "name": "TooManySymbolOrPunctuationPlugin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "eligible",
+          "docstring": null
+        },
+        {
+          "name": "feed",
+          "docstring": null
+        },
+        {
+          "name": "reset",
+          "docstring": null
+        },
+        {
+          "name": "ratio",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TooManyAccentuatedPlugin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "eligible",
+          "docstring": null
+        },
+        {
+          "name": "feed",
+          "docstring": null
+        },
+        {
+          "name": "reset",
+          "docstring": null
+        },
+        {
+          "name": "ratio",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "UnprintablePlugin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "eligible",
+          "docstring": null
+        },
+        {
+          "name": "feed",
+          "docstring": null
+        },
+        {
+          "name": "reset",
+          "docstring": null
+        },
+        {
+          "name": "ratio",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SuspiciousDuplicateAccentPlugin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "eligible",
+          "docstring": null
+        },
+        {
+          "name": "feed",
+          "docstring": null
+        },
+        {
+          "name": "reset",
+          "docstring": null
+        },
+        {
+          "name": "ratio",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SuspiciousRange",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "eligible",
+          "docstring": null
+        },
+        {
+          "name": "feed",
+          "docstring": null
+        },
+        {
+          "name": "reset",
+          "docstring": null
+        },
+        {
+          "name": "ratio",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SuperWeirdWordPlugin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "eligible",
+          "docstring": null
+        },
+        {
+          "name": "feed",
+          "docstring": null
+        },
+        {
+          "name": "reset",
+          "docstring": null
+        },
+        {
+          "name": "ratio",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CjkUncommonPlugin",
+      "docstring": "Detect messy CJK text that probably means nothing.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "eligible",
+          "docstring": null
+        },
+        {
+          "name": "feed",
+          "docstring": null
+        },
+        {
+          "name": "reset",
+          "docstring": null
+        },
+        {
+          "name": "ratio",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ArchaicUpperLowerPlugin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "eligible",
+          "docstring": null
+        },
+        {
+          "name": "feed",
+          "docstring": null
+        },
+        {
+          "name": "reset",
+          "docstring": null
+        },
+        {
+          "name": "ratio",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ArabicIsolatedFormPlugin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "reset",
+          "docstring": null
+        },
+        {
+          "name": "eligible",
+          "docstring": null
+        },
+        {
+          "name": "feed",
+          "docstring": null
+        },
+        {
+          "name": "ratio",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "is_suspiciously_successive_range",
+      "docstring": "Determine if two Unicode range seen next to each other can be considered as suspicious."
+    },
+    {
+      "name": "mess_ratio",
+      "docstring": "Compute a mess ratio given a decoded bytes sequence. The maximum threshold does stop the computation earlier."
+    },
+    {
+      "name": "eligible",
+      "docstring": "Determine if given character should be fed in."
+    },
+    {
+      "name": "feed",
+      "docstring": "The main routine to be executed upon character.\nInsert the logic in witch the text would be considered chaotic."
+    },
+    {
+      "name": "reset",
+      "docstring": "Permit to reset the plugin to the initial state."
+    },
+    {
+      "name": "ratio",
+      "docstring": "Compute the chaos ratio based on what your feed() has seen.\nMust NOT be lower than 0.; No restriction gt 0."
+    },
+    {
+      "name": "eligible",
+      "docstring": null
+    },
+    {
+      "name": "feed",
+      "docstring": null
+    },
+    {
+      "name": "reset",
+      "docstring": null
+    },
+    {
+      "name": "ratio",
+      "docstring": null
+    },
+    {
+      "name": "eligible",
+      "docstring": null
+    },
+    {
+      "name": "feed",
+      "docstring": null
+    },
+    {
+      "name": "reset",
+      "docstring": null
+    },
+    {
+      "name": "ratio",
+      "docstring": null
+    },
+    {
+      "name": "eligible",
+      "docstring": null
+    },
+    {
+      "name": "feed",
+      "docstring": null
+    },
+    {
+      "name": "reset",
+      "docstring": null
+    },
+    {
+      "name": "ratio",
+      "docstring": null
+    },
+    {
+      "name": "eligible",
+      "docstring": null
+    },
+    {
+      "name": "feed",
+      "docstring": null
+    },
+    {
+      "name": "reset",
+      "docstring": null
+    },
+    {
+      "name": "ratio",
+      "docstring": null
+    },
+    {
+      "name": "eligible",
+      "docstring": null
+    },
+    {
+      "name": "feed",
+      "docstring": null
+    },
+    {
+      "name": "reset",
+      "docstring": null
+    },
+    {
+      "name": "ratio",
+      "docstring": null
+    },
+    {
+      "name": "eligible",
+      "docstring": null
+    },
+    {
+      "name": "feed",
+      "docstring": null
+    },
+    {
+      "name": "reset",
+      "docstring": null
+    },
+    {
+      "name": "ratio",
+      "docstring": null
+    },
+    {
+      "name": "eligible",
+      "docstring": null
+    },
+    {
+      "name": "feed",
+      "docstring": null
+    },
+    {
+      "name": "reset",
+      "docstring": null
+    },
+    {
+      "name": "ratio",
+      "docstring": null
+    },
+    {
+      "name": "eligible",
+      "docstring": null
+    },
+    {
+      "name": "feed",
+      "docstring": null
+    },
+    {
+      "name": "reset",
+      "docstring": null
+    },
+    {
+      "name": "ratio",
+      "docstring": null
+    },
+    {
+      "name": "reset",
+      "docstring": null
+    },
+    {
+      "name": "eligible",
+      "docstring": null
+    },
+    {
+      "name": "feed",
+      "docstring": null
+    },
+    {
+      "name": "ratio",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

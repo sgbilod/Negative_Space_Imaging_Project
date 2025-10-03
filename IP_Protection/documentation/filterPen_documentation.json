@@ -1,0 +1,176 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\pens\\filterPen.py",
+  "classes": [
+    {
+      "name": "_PassThruComponentsMixin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "addComponent",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FilterPen",
+      "docstring": "Base class for pens that apply some transformation to the coordinates\nthey receive and pass them to another pen.\n\nYou can override any of its methods. The default implementation does\nnothing, but passes the commands unmodified to the other pen.\n\n>>> from fontTools.pens.recordingPen import RecordingPen\n>>> rec = RecordingPen()\n>>> pen = FilterPen(rec)\n>>> v = iter(rec.value)\n\n>>> pen.moveTo((0, 0))\n>>> next(v)\n('moveTo', ((0, 0),))\n\n>>> pen.lineTo((1, 1))\n>>> next(v)\n('lineTo', ((1, 1),))\n\n>>> pen.curveTo((2, 2), (3, 3), (4, 4))\n>>> next(v)\n('curveTo', ((2, 2), (3, 3), (4, 4)))\n\n>>> pen.qCurveTo((5, 5), (6, 6), (7, 7), (8, 8))\n>>> next(v)\n('qCurveTo', ((5, 5), (6, 6), (7, 7), (8, 8)))\n\n>>> pen.closePath()\n>>> next(v)\n('closePath', ())\n\n>>> pen.moveTo((9, 9))\n>>> next(v)\n('moveTo', ((9, 9),))\n\n>>> pen.endPath()\n>>> next(v)\n('endPath', ())\n\n>>> pen.addComponent('foo', (1, 0, 0, 1, 0, 0))\n>>> next(v)\n('addComponent', ('foo', (1, 0, 0, 1, 0, 0)))",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "moveTo",
+          "docstring": null
+        },
+        {
+          "name": "lineTo",
+          "docstring": null
+        },
+        {
+          "name": "curveTo",
+          "docstring": null
+        },
+        {
+          "name": "qCurveTo",
+          "docstring": null
+        },
+        {
+          "name": "closePath",
+          "docstring": null
+        },
+        {
+          "name": "endPath",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ContourFilterPen",
+      "docstring": "A \"buffered\" filter pen that accumulates contour data, passes\nit through a ``filterContour`` method when the contour is closed or ended,\nand finally draws the result with the output pen.\n\nComponents are passed through unchanged.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "closePath",
+          "docstring": null
+        },
+        {
+          "name": "endPath",
+          "docstring": null
+        },
+        {
+          "name": "filterContour",
+          "docstring": "Subclasses must override this to perform the filtering.\n\nThe contour is a list of pen (operator, operands) tuples.\nOperators are strings corresponding to the AbstractPen methods:\n\"moveTo\", \"lineTo\", \"curveTo\", \"qCurveTo\", \"closePath\" and\n\"endPath\". The operands are the positional arguments that are\npassed to each method.\n\nIf the method doesn't return a value (i.e. returns None), it's\nassumed that the argument was modified in-place.\nOtherwise, the return value is drawn with the output pen."
+        }
+      ]
+    },
+    {
+      "name": "FilterPointPen",
+      "docstring": "Baseclass for point pens that apply some transformation to the\ncoordinates they receive and pass them to another point pen.\n\nYou can override any of its methods. The default implementation does\nnothing, but passes the commands unmodified to the other pen.\n\n>>> from fontTools.pens.recordingPen import RecordingPointPen\n>>> rec = RecordingPointPen()\n>>> pen = FilterPointPen(rec)\n>>> v = iter(rec.value)\n>>> pen.beginPath(identifier=\"abc\")\n>>> next(v)\n('beginPath', (), {'identifier': 'abc'})\n>>> pen.addPoint((1, 2), \"line\", False)\n>>> next(v)\n('addPoint', ((1, 2), 'line', False, None), {})\n>>> pen.addComponent(\"a\", (2, 0, 0, 2, 10, -10), identifier=\"0001\")\n>>> next(v)\n('addComponent', ('a', (2, 0, 0, 2, 10, -10)), {'identifier': '0001'})\n>>> pen.endPath()\n>>> next(v)\n('endPath', (), {})",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "beginPath",
+          "docstring": null
+        },
+        {
+          "name": "endPath",
+          "docstring": null
+        },
+        {
+          "name": "addPoint",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_DecomposingFilterPenMixin",
+      "docstring": "Mixin class that decomposes components as regular contours.\n\nShared by both DecomposingFilterPen and DecomposingFilterPointPen.\n\nTakes two required parameters, another (segment or point) pen 'outPen' to draw\nwith, and a 'glyphSet' dict of drawable glyph objects to draw components from.\n\nThe 'skipMissingComponents' and 'reverseFlipped' optional arguments work the\nsame as in the DecomposingPen/DecomposingPointPen. Both are False by default.\n\nIn addition, the decomposing filter pens also take the following two options:\n\n'include' is an optional set of component base glyph names to consider for\ndecomposition; the default include=None means decompose all components no matter\nthe base glyph name).\n\n'decomposeNested' (bool) controls whether to recurse decomposition into nested\ncomponents of components (this only matters when 'include' was also provided);\nif False, only decompose top-level components included in the set, but not\nalso their children.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "addComponent",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DecomposingFilterPen",
+      "docstring": "Filter pen that draws components as regular contours.",
+      "methods": []
+    },
+    {
+      "name": "DecomposingFilterPointPen",
+      "docstring": "Filter point pen that draws components as regular contours.",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "addComponent",
+      "docstring": null
+    },
+    {
+      "name": "moveTo",
+      "docstring": null
+    },
+    {
+      "name": "lineTo",
+      "docstring": null
+    },
+    {
+      "name": "curveTo",
+      "docstring": null
+    },
+    {
+      "name": "qCurveTo",
+      "docstring": null
+    },
+    {
+      "name": "closePath",
+      "docstring": null
+    },
+    {
+      "name": "endPath",
+      "docstring": null
+    },
+    {
+      "name": "closePath",
+      "docstring": null
+    },
+    {
+      "name": "endPath",
+      "docstring": null
+    },
+    {
+      "name": "filterContour",
+      "docstring": "Subclasses must override this to perform the filtering.\n\nThe contour is a list of pen (operator, operands) tuples.\nOperators are strings corresponding to the AbstractPen methods:\n\"moveTo\", \"lineTo\", \"curveTo\", \"qCurveTo\", \"closePath\" and\n\"endPath\". The operands are the positional arguments that are\npassed to each method.\n\nIf the method doesn't return a value (i.e. returns None), it's\nassumed that the argument was modified in-place.\nOtherwise, the return value is drawn with the output pen."
+    },
+    {
+      "name": "beginPath",
+      "docstring": null
+    },
+    {
+      "name": "endPath",
+      "docstring": null
+    },
+    {
+      "name": "addPoint",
+      "docstring": null
+    },
+    {
+      "name": "addComponent",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

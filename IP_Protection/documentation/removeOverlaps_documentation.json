@@ -1,0 +1,41 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\removeOverlaps.py",
+  "classes": [
+    {
+      "name": "RemoveOverlapsError",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "skPathFromGlyph",
+      "docstring": null
+    },
+    {
+      "name": "skPathFromGlyphComponent",
+      "docstring": null
+    },
+    {
+      "name": "componentsOverlap",
+      "docstring": null
+    },
+    {
+      "name": "ttfGlyphFromSkPath",
+      "docstring": null
+    },
+    {
+      "name": "removeTTGlyphOverlaps",
+      "docstring": null
+    },
+    {
+      "name": "removeOverlaps",
+      "docstring": "Simplify glyphs in TTFont by merging overlapping contours.\n\nOverlapping components are first decomposed to simple contours, then merged.\n\nCurrently this only works for fonts with 'glyf' or 'CFF ' tables.\nRaises NotImplementedError if 'glyf' or 'CFF ' tables are absent.\n\nNote that removing overlaps invalidates the hinting. By default we drop hinting\nfrom all glyphs whether or not overlaps are removed from a given one, as it would\nlook weird if only some glyphs are left (un)hinted.\n\nArgs:\n    font: input TTFont object, modified in place.\n    glyphNames: optional iterable of glyph names (str) to remove overlaps from.\n        By default, all glyphs in the font are processed.\n    removeHinting (bool): set to False to keep hinting for unmodified glyphs.\n    ignoreErrors (bool): set to True to ignore errors while removing overlaps,\n        thus keeping the tricky glyphs unchanged (fonttools/fonttools#2363).\n    removeUnusedSubroutines (bool): set to False to keep unused subroutines\n        in CFF table after removing overlaps. Default is to remove them if\n        any glyphs are modified."
+    },
+    {
+      "name": "main",
+      "docstring": "Simplify glyphs in TTFont by merging overlapping contours."
+    }
+  ],
+  "innovations": []
+}

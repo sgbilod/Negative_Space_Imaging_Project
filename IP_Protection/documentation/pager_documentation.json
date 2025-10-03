@@ -1,0 +1,36 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\pager.py",
+  "classes": [
+    {
+      "name": "Pager",
+      "docstring": "Base class for a pager.",
+      "methods": [
+        {
+          "name": "show",
+          "docstring": "Show content in pager.\n\nArgs:\n    content (str): Content to be displayed."
+        }
+      ]
+    },
+    {
+      "name": "SystemPager",
+      "docstring": "Uses the pager installed on the system.",
+      "methods": [
+        {
+          "name": "show",
+          "docstring": "Use the same pager used by pydoc."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "show",
+      "docstring": "Show content in pager.\n\nArgs:\n    content (str): Content to be displayed."
+    },
+    {
+      "name": "show",
+      "docstring": "Use the same pager used by pydoc."
+    }
+  ],
+  "innovations": []
+}

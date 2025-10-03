@@ -1,0 +1,11 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tri\\_triplot.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "triplot",
+      "docstring": "Draw an unstructured triangular grid as lines and/or markers.\n\nCall signatures::\n\n  triplot(triangulation, ...)\n  triplot(x, y, [triangles], *, [mask=mask], ...)\n\nThe triangular grid can be specified either by passing a `.Triangulation`\nobject as the first parameter, or by passing the points *x*, *y* and\noptionally the *triangles* and a *mask*. If neither of *triangulation* or\n*triangles* are given, the triangulation is calculated on the fly.\n\nParameters\n----------\ntriangulation : `.Triangulation`\n    An already created triangular grid.\nx, y, triangles, mask\n    Parameters defining the triangular grid. See `.Triangulation`.\n    This is mutually exclusive with specifying *triangulation*.\nother_parameters\n    All other args and kwargs are forwarded to `~.Axes.plot`.\n\nReturns\n-------\nlines : `~matplotlib.lines.Line2D`\n    The drawn triangles edges.\nmarkers : `~matplotlib.lines.Line2D`\n    The drawn marker nodes."
+    }
+  ],
+  "innovations": []
+}

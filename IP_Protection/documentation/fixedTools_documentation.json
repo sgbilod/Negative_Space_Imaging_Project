@@ -1,0 +1,43 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\fixedTools.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "fixedToFloat",
+      "docstring": "Converts a fixed-point number to a float given the number of\nprecision bits.\n\nArgs:\n        value (int): Number in fixed-point format.\n        precisionBits (int): Number of precision bits.\n\nReturns:\n        Floating point value.\n\nExamples::\n\n        >>> import math\n        >>> f = fixedToFloat(-10139, precisionBits=14)\n        >>> math.isclose(f, -0.61883544921875)\n        True"
+    },
+    {
+      "name": "floatToFixed",
+      "docstring": "Converts a float to a fixed-point number given the number of\nprecision bits.\n\nArgs:\n        value (float): Floating point value.\n        precisionBits (int): Number of precision bits.\n\nReturns:\n        int: Fixed-point representation.\n\nExamples::\n\n        >>> floatToFixed(-0.61883544921875, precisionBits=14)\n        -10139\n        >>> floatToFixed(-0.61884, precisionBits=14)\n        -10139"
+    },
+    {
+      "name": "floatToFixedToFloat",
+      "docstring": "Converts a float to a fixed-point number and back again.\n\nBy converting the float to fixed, rounding it, and converting it back\nto float again, this returns a floating point values which is exactly\nrepresentable in fixed-point format.\n\nNote: this **is** equivalent to ``fixedToFloat(floatToFixed(value))``.\n\nArgs:\n        value (float): The input floating point value.\n        precisionBits (int): Number of precision bits.\n\nReturns:\n        float: The transformed and rounded value.\n\nExamples::\n        >>> import math\n        >>> f1 = -0.61884\n        >>> f2 = floatToFixedToFloat(-0.61884, precisionBits=14)\n        >>> f1 != f2\n        True\n        >>> math.isclose(f2, -0.61883544921875)\n        True"
+    },
+    {
+      "name": "fixedToStr",
+      "docstring": "Converts a fixed-point number to a string representing a decimal float.\n\nThis chooses the float that has the shortest decimal representation (the least\nnumber of fractional decimal digits).\n\nFor example, to convert a fixed-point number in a 2.14 format, use\n``precisionBits=14``::\n\n        >>> fixedToStr(-10139, precisionBits=14)\n        '-0.61884'\n\nThis is pretty slow compared to the simple division used in ``fixedToFloat``.\nUse sporadically when you need to serialize or print the fixed-point number in\na human-readable form.\nIt uses nearestMultipleShortestRepr under the hood.\n\nArgs:\n        value (int): The fixed-point value to convert.\n        precisionBits (int): Number of precision bits, *up to a maximum of 16*.\n\nReturns:\n        str: A string representation of the value."
+    },
+    {
+      "name": "strToFixed",
+      "docstring": "Converts a string representing a decimal float to a fixed-point number.\n\nArgs:\n        string (str): A string representing a decimal float.\n        precisionBits (int): Number of precision bits, *up to a maximum of 16*.\n\nReturns:\n        int: Fixed-point representation.\n\nExamples::\n\n        >>> ## to convert a float string to a 2.14 fixed-point number:\n        >>> strToFixed('-0.61884', precisionBits=14)\n        -10139"
+    },
+    {
+      "name": "strToFixedToFloat",
+      "docstring": "Convert a string to a decimal float with fixed-point rounding.\n\nThis first converts string to a float, then turns it into a fixed-point\nnumber with ``precisionBits`` fractional binary digits, then back to a\nfloat again.\n\nThis is simply a shorthand for fixedToFloat(floatToFixed(float(s))).\n\nArgs:\n        string (str): A string representing a decimal float.\n        precisionBits (int): Number of precision bits.\n\nReturns:\n        float: The transformed and rounded value.\n\nExamples::\n\n        >>> import math\n        >>> s = '-0.61884'\n        >>> bits = 14\n        >>> f = strToFixedToFloat(s, precisionBits=bits)\n        >>> math.isclose(f, -0.61883544921875)\n        True\n        >>> f == fixedToFloat(floatToFixed(float(s), precisionBits=bits), precisionBits=bits)\n        True"
+    },
+    {
+      "name": "floatToFixedToStr",
+      "docstring": "Convert float to string with fixed-point rounding.\n\nThis uses the shortest decimal representation (ie. the least\nnumber of fractional decimal digits) to represent the equivalent\nfixed-point number with ``precisionBits`` fractional binary digits.\nIt uses nearestMultipleShortestRepr under the hood.\n\n>>> floatToFixedToStr(-0.61883544921875, precisionBits=14)\n'-0.61884'\n\nArgs:\n        value (float): The float value to convert.\n        precisionBits (int): Number of precision bits, *up to a maximum of 16*.\n\nReturns:\n        str: A string representation of the value."
+    },
+    {
+      "name": "ensureVersionIsLong",
+      "docstring": "Ensure a table version is an unsigned long.\n\nOpenType table version numbers are expressed as a single unsigned long\ncomprising of an unsigned short major version and unsigned short minor\nversion. This function detects if the value to be used as a version number\nlooks too small (i.e. is less than ``0x10000``), and converts it to\nfixed-point using :func:`floatToFixed` if so.\n\nArgs:\n        value (Number): a candidate table version number.\n\nReturns:\n        int: A table version number, possibly corrected to fixed-point."
+    },
+    {
+      "name": "versionToFixed",
+      "docstring": "Ensure a table version number is fixed-point.\n\nArgs:\n        value (str): a candidate table version number.\n\nReturns:\n        int: A table version number, possibly corrected to fixed-point."
+    }
+  ],
+  "innovations": []
+}

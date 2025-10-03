@@ -1,0 +1,255 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\f2py\\tests\\test_f2py2e.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "compiler_check_f2pycli",
+      "docstring": null
+    },
+    {
+      "name": "get_io_paths",
+      "docstring": "Takes in a temporary file for testing and returns the expected output and input paths\n\nHere expected output is essentially one of any of the possible generated\nfiles.\n\n..note::\n\n     Since this does not actually run f2py, none of these are guaranteed to\n     exist, and module names are typically incorrect\n\nParameters\n----------\nfname_inp : str\n            The input filename\nmname : str, optional\n            The name of the module, untitled by default\n\nReturns\n-------\ngenp : NamedTuple PPaths\n        The possible paths which are generated, not all of which exist"
+    },
+    {
+      "name": "hello_world_f90",
+      "docstring": "Generates a single f90 file for testing"
+    },
+    {
+      "name": "gh23598_warn",
+      "docstring": "F90 file for testing warnings in gh23598"
+    },
+    {
+      "name": "gh22819_cli",
+      "docstring": "F90 file for testing disallowed CLI arguments in ghff819"
+    },
+    {
+      "name": "hello_world_f77",
+      "docstring": "Generates a single f77 file for testing"
+    },
+    {
+      "name": "retreal_f77",
+      "docstring": "Generates a single f77 file for testing"
+    },
+    {
+      "name": "f2cmap_f90",
+      "docstring": "Generates a single f90 file for testing"
+    },
+    {
+      "name": "test_gh22819_cli",
+      "docstring": "Check that module names are handled correctly\ngh-22819\nEssentially, the -m name cannot be used to import the module, so the module\nnamed in the .pyf needs to be used instead\n\nCLI :: -m and a .pyf file"
+    },
+    {
+      "name": "test_gh22819_many_pyf",
+      "docstring": "Only one .pyf file allowed\ngh-22819\nCLI :: .pyf files"
+    },
+    {
+      "name": "test_gh23598_warn",
+      "docstring": null
+    },
+    {
+      "name": "test_gen_pyf",
+      "docstring": "Ensures that a signature file is generated via the CLI\nCLI :: -h"
+    },
+    {
+      "name": "test_gen_pyf_stdout",
+      "docstring": "Ensures that a signature file can be dumped to stdout\nCLI :: -h"
+    },
+    {
+      "name": "test_gen_pyf_no_overwrite",
+      "docstring": "Ensures that the CLI refuses to overwrite signature files\nCLI :: -h without --overwrite-signature"
+    },
+    {
+      "name": "test_untitled_cli",
+      "docstring": "Check that modules are named correctly\n\nCLI :: defaults"
+    },
+    {
+      "name": "test_no_py312_distutils_fcompiler",
+      "docstring": "Check that no distutils imports are performed on 3.12\nCLI :: --fcompiler --help-link --backend distutils"
+    },
+    {
+      "name": "test_f2py_skip",
+      "docstring": "Tests that functions can be skipped\nCLI :: skip:"
+    },
+    {
+      "name": "test_f2py_only",
+      "docstring": "Test that functions can be kept by only:\nCLI :: only:"
+    },
+    {
+      "name": "test_file_processing_switch",
+      "docstring": "Tests that it is possible to return to file processing mode\nCLI :: :\nBUG: numpy-gh #20520"
+    },
+    {
+      "name": "test_mod_gen_f77",
+      "docstring": "Checks the generation of files based on a module name\nCLI :: -m"
+    },
+    {
+      "name": "test_mod_gen_gh25263",
+      "docstring": "Check that pyf files are correctly generated with module structure\nCLI :: -m <name> -h pyf_file\nBUG: numpy-gh #20520"
+    },
+    {
+      "name": "test_lower_cmod",
+      "docstring": "Lowers cases by flag or when -h is present\n\nCLI :: --[no-]lower"
+    },
+    {
+      "name": "test_lower_sig",
+      "docstring": "Lowers cases in signature files by flag or when -h is present\n\nCLI :: --[no-]lower -h"
+    },
+    {
+      "name": "test_build_dir",
+      "docstring": "Ensures that the build directory can be specified\n\nCLI :: --build-dir"
+    },
+    {
+      "name": "test_overwrite",
+      "docstring": "Ensures that the build directory can be specified\n\nCLI :: --overwrite-signature"
+    },
+    {
+      "name": "test_latexdoc",
+      "docstring": "Ensures that TeX documentation is written out\n\nCLI :: --latex-doc"
+    },
+    {
+      "name": "test_nolatexdoc",
+      "docstring": "Ensures that TeX documentation is written out\n\nCLI :: --no-latex-doc"
+    },
+    {
+      "name": "test_shortlatex",
+      "docstring": "Ensures that truncated documentation is written out\n\nTODO: Test to ensure this has no effect without --latex-doc\nCLI :: --latex-doc --short-latex"
+    },
+    {
+      "name": "test_restdoc",
+      "docstring": "Ensures that RsT documentation is written out\n\nCLI :: --rest-doc"
+    },
+    {
+      "name": "test_norestexdoc",
+      "docstring": "Ensures that TeX documentation is written out\n\nCLI :: --no-rest-doc"
+    },
+    {
+      "name": "test_debugcapi",
+      "docstring": "Ensures that debugging wrappers are written\n\nCLI :: --debug-capi"
+    },
+    {
+      "name": "test_debugcapi_bld",
+      "docstring": "Ensures that debugging wrappers work\n\nCLI :: --debug-capi -c"
+    },
+    {
+      "name": "test_wrapfunc_def",
+      "docstring": "Ensures that fortran subroutine wrappers for F77 are included by default\n\nCLI :: --[no]-wrap-functions"
+    },
+    {
+      "name": "test_nowrapfunc",
+      "docstring": "Ensures that fortran subroutine wrappers for F77 can be disabled\n\nCLI :: --no-wrap-functions"
+    },
+    {
+      "name": "test_inclheader",
+      "docstring": "Add to the include directories\n\nCLI :: -include\nTODO: Document this in the help string"
+    },
+    {
+      "name": "test_inclpath",
+      "docstring": "Add to the include directories\n\nCLI :: --include-paths"
+    },
+    {
+      "name": "test_hlink",
+      "docstring": "Add to the include directories\n\nCLI :: --help-link"
+    },
+    {
+      "name": "test_f2cmap",
+      "docstring": "Check that Fortran-to-Python KIND specs can be passed\n\nCLI :: --f2cmap"
+    },
+    {
+      "name": "test_quiet",
+      "docstring": "Reduce verbosity\n\nCLI :: --quiet"
+    },
+    {
+      "name": "test_verbose",
+      "docstring": "Increase verbosity\n\nCLI :: --verbose"
+    },
+    {
+      "name": "test_version",
+      "docstring": "Ensure version\n\nCLI :: -v"
+    },
+    {
+      "name": "test_npdistop",
+      "docstring": "CLI :: -c"
+    },
+    {
+      "name": "test_no_freethreading_compatible",
+      "docstring": "CLI :: --no-freethreading-compatible"
+    },
+    {
+      "name": "test_freethreading_compatible",
+      "docstring": "CLI :: --freethreading_compatible"
+    },
+    {
+      "name": "test_npd_fcompiler",
+      "docstring": "CLI :: -c --fcompiler"
+    },
+    {
+      "name": "test_npd_compiler",
+      "docstring": "CLI :: -c --compiler"
+    },
+    {
+      "name": "test_npd_help_fcompiler",
+      "docstring": "CLI :: -c --help-fcompiler"
+    },
+    {
+      "name": "test_npd_f77exec",
+      "docstring": "CLI :: -c --f77exec"
+    },
+    {
+      "name": "test_npd_f90exec",
+      "docstring": "CLI :: -c --f90exec"
+    },
+    {
+      "name": "test_npd_f77flags",
+      "docstring": "CLI :: -c --f77flags"
+    },
+    {
+      "name": "test_npd_f90flags",
+      "docstring": "CLI :: -c --f90flags"
+    },
+    {
+      "name": "test_npd_opt",
+      "docstring": "CLI :: -c --opt"
+    },
+    {
+      "name": "test_npd_arch",
+      "docstring": "CLI :: -c --arch"
+    },
+    {
+      "name": "test_npd_noopt",
+      "docstring": "CLI :: -c --noopt"
+    },
+    {
+      "name": "test_npd_noarch",
+      "docstring": "CLI :: -c --noarch"
+    },
+    {
+      "name": "test_npd_debug",
+      "docstring": "CLI :: -c --debug"
+    },
+    {
+      "name": "test_npd_link_auto",
+      "docstring": "CLI :: -c --link-<resource>"
+    },
+    {
+      "name": "test_npd_lib",
+      "docstring": "CLI :: -c -L/path/to/lib/ -l<libname>"
+    },
+    {
+      "name": "test_npd_define",
+      "docstring": "CLI :: -D<define>"
+    },
+    {
+      "name": "test_npd_undefine",
+      "docstring": "CLI :: -U<name>"
+    },
+    {
+      "name": "test_npd_incl",
+      "docstring": "CLI :: -I/path/to/include/"
+    },
+    {
+      "name": "test_npd_linker",
+      "docstring": "CLI :: <filename>.o <filename>.so <filename>.a"
+    }
+  ],
+  "innovations": []
+}

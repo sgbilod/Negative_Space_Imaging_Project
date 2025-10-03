@@ -1,0 +1,22 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\ImageSequence.py",
+  "classes": [
+    {
+      "name": "Iterator",
+      "docstring": "This class implements an iterator object that can be used to loop\nover an image sequence.\n\nYou can use the ``[]`` operator to access elements by index. This operator\nwill raise an :py:exc:`IndexError` if you try to access a nonexistent\nframe.\n\n:param im: An image object.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "all_frames",
+      "docstring": "Applies a given function to all frames in an image or a list of images.\nThe frames are returned as a list of separate images.\n\n:param im: An image, or a list of images.\n:param func: The function to apply to all of the image frames.\n:returns: A list of images."
+    }
+  ],
+  "innovations": []
+}

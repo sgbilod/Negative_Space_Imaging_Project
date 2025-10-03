@@ -1,0 +1,15 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\utils\\packaging.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "check_requires_python",
+      "docstring": "Check if the given Python version matches a \"Requires-Python\" specifier.\n\n:param version_info: A 3-tuple of ints representing a Python\n    major-minor-micro version to check (e.g. `sys.version_info[:3]`).\n\n:return: `True` if the given Python version satisfies the requirement.\n    Otherwise, return `False`.\n\n:raises InvalidSpecifier: If `requires_python` has an invalid format."
+    },
+    {
+      "name": "get_requirement",
+      "docstring": "Construct a packaging.Requirement object with caching"
+    }
+  ],
+  "innovations": []
+}

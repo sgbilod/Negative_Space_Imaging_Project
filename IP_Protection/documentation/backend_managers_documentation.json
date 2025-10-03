@@ -1,0 +1,168 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backend_managers.py",
+  "classes": [
+    {
+      "name": "ToolEvent",
+      "docstring": "Event for tool manipulation (add/remove).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolTriggerEvent",
+      "docstring": "Event to inform that a tool has been triggered.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolManagerMessageEvent",
+      "docstring": "Event carrying messages from toolmanager.\n\nMessages usually get displayed to the user by the toolbar.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolManager",
+      "docstring": "Manager for actions triggered by user interactions (key press, toolbar\nclicks, ...) on a Figure.\n\nAttributes\n----------\nfigure : `.Figure`\nkeypresslock : `~matplotlib.widgets.LockDraw`\n    `.LockDraw` object to know if the `canvas` key_press_event is locked.\nmessagelock : `~matplotlib.widgets.LockDraw`\n    `.LockDraw` object to know if the message is available to write.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "canvas",
+          "docstring": "Canvas managed by FigureManager."
+        },
+        {
+          "name": "figure",
+          "docstring": "Figure that holds the canvas."
+        },
+        {
+          "name": "figure",
+          "docstring": null
+        },
+        {
+          "name": "set_figure",
+          "docstring": "Bind the given figure to the tools.\n\nParameters\n----------\nfigure : `.Figure`\nupdate_tools : bool, default: True\n    Force tools to update figure."
+        },
+        {
+          "name": "toolmanager_connect",
+          "docstring": "Connect event with string *s* to *func*.\n\nParameters\n----------\ns : str\n    The name of the event. The following events are recognized:\n\n    - 'tool_message_event'\n    - 'tool_removed_event'\n    - 'tool_added_event'\n\n    For every tool added a new event is created\n\n    - 'tool_trigger_TOOLNAME', where TOOLNAME is the id of the tool.\n\nfunc : callable\n    Callback function for the toolmanager event with signature::\n\n        def func(event: ToolEvent) -> Any\n\nReturns\n-------\ncid\n    The callback id for the connection. This can be used in\n    `.toolmanager_disconnect`."
+        },
+        {
+          "name": "toolmanager_disconnect",
+          "docstring": "Disconnect callback id *cid*.\n\nExample usage::\n\n    cid = toolmanager.toolmanager_connect('tool_trigger_zoom', onpress)\n    #...later\n    toolmanager.toolmanager_disconnect(cid)"
+        },
+        {
+          "name": "message_event",
+          "docstring": "Emit a `ToolManagerMessageEvent`."
+        },
+        {
+          "name": "active_toggle",
+          "docstring": "Currently toggled tools."
+        },
+        {
+          "name": "get_tool_keymap",
+          "docstring": "Return the keymap associated with the specified tool.\n\nParameters\n----------\nname : str\n    Name of the Tool.\n\nReturns\n-------\nlist of str\n    List of keys associated with the tool."
+        },
+        {
+          "name": "update_keymap",
+          "docstring": "Set the keymap to associate with the specified tool.\n\nParameters\n----------\nname : str\n    Name of the Tool.\nkey : str or list of str\n    Keys to associate with the tool."
+        },
+        {
+          "name": "remove_tool",
+          "docstring": "Remove tool named *name*.\n\nParameters\n----------\nname : str\n    Name of the tool."
+        },
+        {
+          "name": "add_tool",
+          "docstring": "Add *tool* to `ToolManager`.\n\nIf successful, adds a new event ``tool_trigger_{name}`` where\n``{name}`` is the *name* of the tool; the event is fired every time the\ntool is triggered.\n\nParameters\n----------\nname : str\n    Name of the tool, treated as the ID, has to be unique.\ntool : type\n    Class of the tool to be added.  A subclass will be used\n    instead if one was registered for the current canvas class.\n*args, **kwargs\n    Passed to the *tool*'s constructor.\n\nSee Also\n--------\nmatplotlib.backend_tools.ToolBase : The base class for tools."
+        },
+        {
+          "name": "trigger_tool",
+          "docstring": "Trigger a tool and emit the ``tool_trigger_{name}`` event.\n\nParameters\n----------\nname : str\n    Name of the tool.\nsender : object\n    Object that wishes to trigger the tool.\ncanvasevent : Event\n    Original Canvas event or None.\ndata : object\n    Extra data to pass to the tool when triggering."
+        },
+        {
+          "name": "tools",
+          "docstring": "A dict mapping tool name -> controlled tool."
+        },
+        {
+          "name": "get_tool",
+          "docstring": "Return the tool object with the given name.\n\nFor convenience, this passes tool objects through.\n\nParameters\n----------\nname : str or `.ToolBase`\n    Name of the tool, or the tool itself.\nwarn : bool, default: True\n    Whether a warning should be emitted it no tool with the given name\n    exists.\n\nReturns\n-------\n`.ToolBase` or None\n    The tool or None if no tool with the given name exists."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "canvas",
+      "docstring": "Canvas managed by FigureManager."
+    },
+    {
+      "name": "figure",
+      "docstring": "Figure that holds the canvas."
+    },
+    {
+      "name": "figure",
+      "docstring": null
+    },
+    {
+      "name": "set_figure",
+      "docstring": "Bind the given figure to the tools.\n\nParameters\n----------\nfigure : `.Figure`\nupdate_tools : bool, default: True\n    Force tools to update figure."
+    },
+    {
+      "name": "toolmanager_connect",
+      "docstring": "Connect event with string *s* to *func*.\n\nParameters\n----------\ns : str\n    The name of the event. The following events are recognized:\n\n    - 'tool_message_event'\n    - 'tool_removed_event'\n    - 'tool_added_event'\n\n    For every tool added a new event is created\n\n    - 'tool_trigger_TOOLNAME', where TOOLNAME is the id of the tool.\n\nfunc : callable\n    Callback function for the toolmanager event with signature::\n\n        def func(event: ToolEvent) -> Any\n\nReturns\n-------\ncid\n    The callback id for the connection. This can be used in\n    `.toolmanager_disconnect`."
+    },
+    {
+      "name": "toolmanager_disconnect",
+      "docstring": "Disconnect callback id *cid*.\n\nExample usage::\n\n    cid = toolmanager.toolmanager_connect('tool_trigger_zoom', onpress)\n    #...later\n    toolmanager.toolmanager_disconnect(cid)"
+    },
+    {
+      "name": "message_event",
+      "docstring": "Emit a `ToolManagerMessageEvent`."
+    },
+    {
+      "name": "active_toggle",
+      "docstring": "Currently toggled tools."
+    },
+    {
+      "name": "get_tool_keymap",
+      "docstring": "Return the keymap associated with the specified tool.\n\nParameters\n----------\nname : str\n    Name of the Tool.\n\nReturns\n-------\nlist of str\n    List of keys associated with the tool."
+    },
+    {
+      "name": "update_keymap",
+      "docstring": "Set the keymap to associate with the specified tool.\n\nParameters\n----------\nname : str\n    Name of the Tool.\nkey : str or list of str\n    Keys to associate with the tool."
+    },
+    {
+      "name": "remove_tool",
+      "docstring": "Remove tool named *name*.\n\nParameters\n----------\nname : str\n    Name of the tool."
+    },
+    {
+      "name": "add_tool",
+      "docstring": "Add *tool* to `ToolManager`.\n\nIf successful, adds a new event ``tool_trigger_{name}`` where\n``{name}`` is the *name* of the tool; the event is fired every time the\ntool is triggered.\n\nParameters\n----------\nname : str\n    Name of the tool, treated as the ID, has to be unique.\ntool : type\n    Class of the tool to be added.  A subclass will be used\n    instead if one was registered for the current canvas class.\n*args, **kwargs\n    Passed to the *tool*'s constructor.\n\nSee Also\n--------\nmatplotlib.backend_tools.ToolBase : The base class for tools."
+    },
+    {
+      "name": "trigger_tool",
+      "docstring": "Trigger a tool and emit the ``tool_trigger_{name}`` event.\n\nParameters\n----------\nname : str\n    Name of the tool.\nsender : object\n    Object that wishes to trigger the tool.\ncanvasevent : Event\n    Original Canvas event or None.\ndata : object\n    Extra data to pass to the tool when triggering."
+    },
+    {
+      "name": "tools",
+      "docstring": "A dict mapping tool name -> controlled tool."
+    },
+    {
+      "name": "get_tool",
+      "docstring": "Return the tool object with the given name.\n\nFor convenience, this passes tool objects through.\n\nParameters\n----------\nname : str or `.ToolBase`\n    Name of the tool, or the tool itself.\nwarn : bool, default: True\n    Whether a warning should be emitted it no tool with the given name\n    exists.\n\nReturns\n-------\n`.ToolBase` or None\n    The tool or None if no tool with the given name exists."
+    }
+  ],
+  "innovations": []
+}

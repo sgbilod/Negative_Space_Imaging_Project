@@ -1,0 +1,62 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\classifyTools.py",
+  "classes": [
+    {
+      "name": "Classifier",
+      "docstring": "Main Classifier object, used to classify things into similar sets.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "add",
+          "docstring": "Add a set to the classifier.  Any iterable is accepted."
+        },
+        {
+          "name": "update",
+          "docstring": "Add a a list of sets to the classifier.  Any iterable of iterables is accepted."
+        },
+        {
+          "name": "getThings",
+          "docstring": "Returns the set of all things known so far.\n\nThe return value belongs to the Classifier object and should NOT\nbe modified while the classifier is still in use."
+        },
+        {
+          "name": "getMapping",
+          "docstring": "Returns the mapping from things to their class set.\n\nThe return value belongs to the Classifier object and should NOT\nbe modified while the classifier is still in use."
+        },
+        {
+          "name": "getClasses",
+          "docstring": "Returns the list of class sets.\n\nThe return value belongs to the Classifier object and should NOT\nbe modified while the classifier is still in use."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "classify",
+      "docstring": "Takes a iterable of iterables (list of sets from here on; but any\niterable works.), and returns the smallest list of sets such that\neach set, is either a subset, or is disjoint from, each of the input\nsets.\n\nIn other words, this function classifies all the things present in\nany of the input sets, into similar classes, based on which sets\nthings are a member of.\n\nIf sort=True, return class sets are sorted by decreasing size and\ntheir natural sort order within each class size.  Otherwise, class\nsets are returned in the order that they were identified, which is\ngenerally not significant.\n\n>>> classify([]) == ([], {})\nTrue\n>>> classify([[]]) == ([], {})\nTrue\n>>> classify([[], []]) == ([], {})\nTrue\n>>> classify([[1]]) == ([{1}], {1: {1}})\nTrue\n>>> classify([[1,2]]) == ([{1, 2}], {1: {1, 2}, 2: {1, 2}})\nTrue\n>>> classify([[1],[2]]) == ([{1}, {2}], {1: {1}, 2: {2}})\nTrue\n>>> classify([[1,2],[2]]) == ([{1}, {2}], {1: {1}, 2: {2}})\nTrue\n>>> classify([[1,2],[2,4]]) == ([{1}, {2}, {4}], {1: {1}, 2: {2}, 4: {4}})\nTrue\n>>> classify([[1,2],[2,4,5]]) == (\n...     [{4, 5}, {1}, {2}], {1: {1}, 2: {2}, 4: {4, 5}, 5: {4, 5}})\nTrue\n>>> classify([[1,2],[2,4,5]], sort=False) == (\n...     [{1}, {4, 5}, {2}], {1: {1}, 2: {2}, 4: {4, 5}, 5: {4, 5}})\nTrue\n>>> classify([[1,2,9],[2,4,5]], sort=False) == (\n...     [{1, 9}, {4, 5}, {2}], {1: {1, 9}, 2: {2}, 4: {4, 5}, 5: {4, 5},\n...     9: {1, 9}})\nTrue\n>>> classify([[1,2,9,15],[2,4,5]], sort=False) == (\n...     [{1, 9, 15}, {4, 5}, {2}], {1: {1, 9, 15}, 2: {2}, 4: {4, 5},\n...     5: {4, 5}, 9: {1, 9, 15}, 15: {1, 9, 15}})\nTrue\n>>> classes, mapping = classify([[1,2,9,15],[2,4,5],[15,5]], sort=False)\n>>> set([frozenset(c) for c in classes]) == set(\n...     [frozenset(s) for s in ({1, 9}, {4}, {2}, {5}, {15})])\nTrue\n>>> mapping == {1: {1, 9}, 2: {2}, 4: {4}, 5: {5}, 9: {1, 9}, 15: {15}}\nTrue"
+    },
+    {
+      "name": "add",
+      "docstring": "Add a set to the classifier.  Any iterable is accepted."
+    },
+    {
+      "name": "update",
+      "docstring": "Add a a list of sets to the classifier.  Any iterable of iterables is accepted."
+    },
+    {
+      "name": "getThings",
+      "docstring": "Returns the set of all things known so far.\n\nThe return value belongs to the Classifier object and should NOT\nbe modified while the classifier is still in use."
+    },
+    {
+      "name": "getMapping",
+      "docstring": "Returns the mapping from things to their class set.\n\nThe return value belongs to the Classifier object and should NOT\nbe modified while the classifier is still in use."
+    },
+    {
+      "name": "getClasses",
+      "docstring": "Returns the list of class sets.\n\nThe return value belongs to the Classifier object and should NOT\nbe modified while the classifier is still in use."
+    }
+  ],
+  "innovations": []
+}

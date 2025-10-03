@@ -1,0 +1,19 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\rawpy\\enhance.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "find_bad_pixels",
+      "docstring": "Find and return coordinates of hot/dead pixels in the given RAW images.\n\nThe probability that a detected bad pixel is really a bad pixel gets\nhigher the more input images are given. The images should be taken around\nthe same time, that is, each image must contain the same bad pixels.\nAlso, there should be movement between the images to avoid the false detection\nof bad pixels in non-moving high-contrast areas.\n\n:param paths: paths to RAW images shot with the same camera\n:type paths: iterable of str\n:param bool find_hot: whether to find hot pixels\n:param bool find_dead: whether to find dead pixels\n:param float confirm_ratio: ratio of how many out of all given images\n                      must contain a bad pixel to confirm it as such\n:return: coordinates of confirmed bad pixels\n:rtype: ndarray of shape (n,2) with y,x coordinates relative to visible RAW size"
+    },
+    {
+      "name": "repair_bad_pixels",
+      "docstring": "Repair bad pixels in the given RAW image.\n\nNote that the function works in-place on the RAW image data.\nIt has to be called before postprocessing the image.\n\n:param rawpy.RawPy raw: the RAW image to repair\n:param array-like coords: coordinates of bad pixels to repair, \n                       array of shape (n,2) with y,x coordinates relative to visible RAW size\n:param str method: currently only 'median' is supported"
+    },
+    {
+      "name": "save_dcraw_bad_pixels",
+      "docstring": "Save the given bad pixel coordinates in \n`dcraw file format <http://www.cybercom.net/~dcoffin/dcraw/.badpixels>`_.\n\nNote that timestamps cannot be set and will be written as zero.\n\n:param str path: path of the badpixels file that will be written\n:param array-like bad_pixels: array of shape (n,2) with y,x coordinates\n                              relative to visible image area"
+    }
+  ],
+  "innovations": []
+}

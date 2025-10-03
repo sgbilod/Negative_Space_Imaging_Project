@@ -1,0 +1,176 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\revenue\\decentralized_notary\\blockchain_connector.py",
+  "classes": [
+    {
+      "name": "BlockchainTransaction",
+      "docstring": "Represents a transaction to be added to the blockchain.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a blockchain transaction.\n\nArgs:\n    transaction_type: Type of transaction (notarization, proof, etc.)\n    data: Transaction data"
+        },
+        {
+          "name": "to_dict",
+          "docstring": "Convert the transaction to a dictionary."
+        }
+      ]
+    },
+    {
+      "name": "Block",
+      "docstring": "Represents a block in the blockchain.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a block.\n\nArgs:\n    previous_hash: Hash of the previous block"
+        },
+        {
+          "name": "add_transaction",
+          "docstring": "Add a transaction to the block.\n\nArgs:\n    transaction: Transaction to add"
+        },
+        {
+          "name": "calculate_hash",
+          "docstring": "Calculate the hash of the block.\n\nReturns:\n    Block hash"
+        },
+        {
+          "name": "mine_block",
+          "docstring": "Mine the block (find a hash with the required difficulty).\n\nArgs:\n    difficulty: Mining difficulty (number of leading zeros)\n    \nReturns:\n    Block hash"
+        },
+        {
+          "name": "to_dict",
+          "docstring": "Convert the block to a dictionary."
+        }
+      ]
+    },
+    {
+      "name": "Blockchain",
+      "docstring": "A simple blockchain implementation.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the blockchain.\n\nArgs:\n    difficulty: Mining difficulty (number of leading zeros)"
+        },
+        {
+          "name": "get_latest_block",
+          "docstring": "Get the latest block in the chain.\n\nReturns:\n    Latest block"
+        },
+        {
+          "name": "add_transaction",
+          "docstring": "Add a transaction to the pending transactions.\n\nArgs:\n    transaction: Transaction to add\n    \nReturns:\n    Transaction ID"
+        },
+        {
+          "name": "mine_pending_transactions",
+          "docstring": "Mine pending transactions and add a new block to the chain.\n\nArgs:\n    miner_address: Address to send the mining reward to\n    \nReturns:\n    The newly mined block, or None if there are no pending transactions"
+        },
+        {
+          "name": "is_chain_valid",
+          "docstring": "Validate the blockchain.\n\nReturns:\n    True if the chain is valid, False otherwise"
+        },
+        {
+          "name": "get_transaction",
+          "docstring": "Get a transaction by ID.\n\nArgs:\n    transaction_id: Transaction ID\n    \nReturns:\n    Transaction or None if not found"
+        },
+        {
+          "name": "get_transaction_history",
+          "docstring": "Get transaction history for an address.\n\nArgs:\n    address: Address to get history for\n    \nReturns:\n    List of transactions"
+        },
+        {
+          "name": "to_dict",
+          "docstring": "Convert the blockchain to a dictionary."
+        }
+      ]
+    },
+    {
+      "name": "BlockchainConnector",
+      "docstring": "Connector for interacting with the blockchain.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the blockchain connector.\n\nArgs:\n    blockchain: Existing blockchain instance or None to create a new one"
+        },
+        {
+          "name": "record_notarization",
+          "docstring": "Record a document notarization on the blockchain.\n\nArgs:\n    notarization_data: Notarization data\n    \nReturns:\n    Transaction details"
+        },
+        {
+          "name": "record_proof_of_view",
+          "docstring": "Record a Proof-of-View submission on the blockchain.\n\nArgs:\n    proof_data: Proof-of-View data\n    \nReturns:\n    Transaction details"
+        },
+        {
+          "name": "verify_notarization",
+          "docstring": "Verify a document notarization on the blockchain.\n\nArgs:\n    transaction_id: Transaction ID\n    \nReturns:\n    Verification result"
+        },
+        {
+          "name": "get_blockchain_status",
+          "docstring": "Get the current status of the blockchain.\n\nReturns:\n    Blockchain status"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "to_dict",
+      "docstring": "Convert the transaction to a dictionary."
+    },
+    {
+      "name": "add_transaction",
+      "docstring": "Add a transaction to the block.\n\nArgs:\n    transaction: Transaction to add"
+    },
+    {
+      "name": "calculate_hash",
+      "docstring": "Calculate the hash of the block.\n\nReturns:\n    Block hash"
+    },
+    {
+      "name": "mine_block",
+      "docstring": "Mine the block (find a hash with the required difficulty).\n\nArgs:\n    difficulty: Mining difficulty (number of leading zeros)\n    \nReturns:\n    Block hash"
+    },
+    {
+      "name": "to_dict",
+      "docstring": "Convert the block to a dictionary."
+    },
+    {
+      "name": "get_latest_block",
+      "docstring": "Get the latest block in the chain.\n\nReturns:\n    Latest block"
+    },
+    {
+      "name": "add_transaction",
+      "docstring": "Add a transaction to the pending transactions.\n\nArgs:\n    transaction: Transaction to add\n    \nReturns:\n    Transaction ID"
+    },
+    {
+      "name": "mine_pending_transactions",
+      "docstring": "Mine pending transactions and add a new block to the chain.\n\nArgs:\n    miner_address: Address to send the mining reward to\n    \nReturns:\n    The newly mined block, or None if there are no pending transactions"
+    },
+    {
+      "name": "is_chain_valid",
+      "docstring": "Validate the blockchain.\n\nReturns:\n    True if the chain is valid, False otherwise"
+    },
+    {
+      "name": "get_transaction",
+      "docstring": "Get a transaction by ID.\n\nArgs:\n    transaction_id: Transaction ID\n    \nReturns:\n    Transaction or None if not found"
+    },
+    {
+      "name": "get_transaction_history",
+      "docstring": "Get transaction history for an address.\n\nArgs:\n    address: Address to get history for\n    \nReturns:\n    List of transactions"
+    },
+    {
+      "name": "to_dict",
+      "docstring": "Convert the blockchain to a dictionary."
+    },
+    {
+      "name": "record_notarization",
+      "docstring": "Record a document notarization on the blockchain.\n\nArgs:\n    notarization_data: Notarization data\n    \nReturns:\n    Transaction details"
+    },
+    {
+      "name": "record_proof_of_view",
+      "docstring": "Record a Proof-of-View submission on the blockchain.\n\nArgs:\n    proof_data: Proof-of-View data\n    \nReturns:\n    Transaction details"
+    },
+    {
+      "name": "verify_notarization",
+      "docstring": "Verify a document notarization on the blockchain.\n\nArgs:\n    transaction_id: Transaction ID\n    \nReturns:\n    Verification result"
+    },
+    {
+      "name": "get_blockchain_status",
+      "docstring": "Get the current status of the blockchain.\n\nReturns:\n    Blockchain status"
+    }
+  ],
+  "innovations": []
+}

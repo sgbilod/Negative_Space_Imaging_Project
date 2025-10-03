@@ -1,0 +1,162 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\ssltransport.py",
+  "classes": [
+    {
+      "name": "SSLTransport",
+      "docstring": "The SSLTransport wraps an existing socket and establishes an SSL connection.\n\nContrary to Python's implementation of SSLSocket, it allows you to chain\nmultiple TLS connections together. It's particularly useful if you need to\nimplement TLS within TLS.\n\nThe class supports most of the socket API operations.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create an SSLTransport around socket using the provided ssl_context."
+        },
+        {
+          "name": "fileno",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "recv",
+          "docstring": null
+        },
+        {
+          "name": "recv_into",
+          "docstring": null
+        },
+        {
+          "name": "sendall",
+          "docstring": null
+        },
+        {
+          "name": "send",
+          "docstring": null
+        },
+        {
+          "name": "makefile",
+          "docstring": "Python's httpclient uses makefile and buffered io when reading HTTP\nmessages and we need to support it.\n\nThis is unfortunately a copy and paste of socket.py makefile with small\nchanges to point to the socket directly."
+        },
+        {
+          "name": "unwrap",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "getpeercert",
+          "docstring": null
+        },
+        {
+          "name": "version",
+          "docstring": null
+        },
+        {
+          "name": "cipher",
+          "docstring": null
+        },
+        {
+          "name": "selected_alpn_protocol",
+          "docstring": null
+        },
+        {
+          "name": "selected_npn_protocol",
+          "docstring": null
+        },
+        {
+          "name": "shared_ciphers",
+          "docstring": null
+        },
+        {
+          "name": "compression",
+          "docstring": null
+        },
+        {
+          "name": "settimeout",
+          "docstring": null
+        },
+        {
+          "name": "gettimeout",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "fileno",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "recv",
+      "docstring": null
+    },
+    {
+      "name": "recv_into",
+      "docstring": null
+    },
+    {
+      "name": "sendall",
+      "docstring": null
+    },
+    {
+      "name": "send",
+      "docstring": null
+    },
+    {
+      "name": "makefile",
+      "docstring": "Python's httpclient uses makefile and buffered io when reading HTTP\nmessages and we need to support it.\n\nThis is unfortunately a copy and paste of socket.py makefile with small\nchanges to point to the socket directly."
+    },
+    {
+      "name": "unwrap",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "getpeercert",
+      "docstring": null
+    },
+    {
+      "name": "version",
+      "docstring": null
+    },
+    {
+      "name": "cipher",
+      "docstring": null
+    },
+    {
+      "name": "selected_alpn_protocol",
+      "docstring": null
+    },
+    {
+      "name": "selected_npn_protocol",
+      "docstring": null
+    },
+    {
+      "name": "shared_ciphers",
+      "docstring": null
+    },
+    {
+      "name": "compression",
+      "docstring": null
+    },
+    {
+      "name": "settimeout",
+      "docstring": null
+    },
+    {
+      "name": "gettimeout",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

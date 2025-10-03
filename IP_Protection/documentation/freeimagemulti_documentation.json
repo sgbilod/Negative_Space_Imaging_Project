@@ -1,0 +1,52 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\freeimagemulti.py",
+  "classes": [
+    {
+      "name": "FreeimageMulti",
+      "docstring": "Base class for freeimage formats that support multiple images.",
+      "methods": []
+    },
+    {
+      "name": "MngFormat",
+      "docstring": "An Mng format based on the Freeimage library.\n\nRead only. Seems broken.",
+      "methods": []
+    },
+    {
+      "name": "IcoFormat",
+      "docstring": "An ICO format based on the Freeimage library.\n\nThis format supports grayscale, RGB and RGBA images.\n\nThe freeimage plugin requires a `freeimage` binary. If this binary\nis not available on the system, it can be downloaded by either\n\n- the command line script ``imageio_download_bin freeimage``\n- the Python method ``imageio.plugins.freeimage.download()``\n\nParameters for reading\n----------------------\nmakealpha : bool\n    Convert to 32-bit and create an alpha channel from the AND-\n    mask when loading. Default False. Note that this returns wrong\n    results if the image was already RGBA.",
+      "methods": []
+    },
+    {
+      "name": "GifFormat",
+      "docstring": "A format for reading and writing static and animated GIF, based\non the Freeimage library.\n\nImages read with this format are always RGBA. Currently,\nthe alpha channel is ignored when saving RGB images with this\nformat.\n\nThe freeimage plugin requires a `freeimage` binary. If this binary\nis not available on the system, it can be downloaded by either\n\n- the command line script ``imageio_download_bin freeimage``\n- the Python method ``imageio.plugins.freeimage.download()``\n\nParameters for reading\n----------------------\nplayback : bool\n    'Play' the GIF to generate each frame (as 32bpp) instead of\n    returning raw frame data when loading. Default True.\n\nParameters for saving\n---------------------\nloop : int\n    The number of iterations. Default 0 (meaning loop indefinitely)\nduration : {float, list}\n    The duration (in seconds) of each frame. Either specify one value\n    that is used for all frames, or one value for each frame.\n    Note that in the GIF format the duration/delay is expressed in\n    hundredths of a second, which limits the precision of the duration.\nfps : float\n    The number of frames per second. If duration is not given, the\n    duration for each frame is set to 1/fps. Default 10.\npalettesize : int\n    The number of colors to quantize the image to. Is rounded to\n    the nearest power of two. Default 256.\nquantizer : {'wu', 'nq'}\n    The quantization algorithm:\n        * wu - Wu, Xiaolin, Efficient Statistical Computations for\n          Optimal Color Quantization\n        * nq (neuqant) - Dekker A. H., Kohonen neural networks for\n          optimal color quantization\nsubrectangles : bool\n    If True, will try and optimize the GIF by storing only the\n    rectangular parts of each frame that change with respect to the\n    previous. Unfortunately, this option seems currently broken\n    because FreeImage does not handle DisposalMethod correctly.\n    Default False.",
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [],
+  "innovations": []
+}

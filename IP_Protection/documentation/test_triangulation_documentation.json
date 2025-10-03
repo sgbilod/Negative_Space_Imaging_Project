@@ -1,0 +1,218 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_triangulation.py",
+  "classes": [
+    {
+      "name": "TestTriangulationParams",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_extract_triangulation_params",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_extract_triangulation_positional_mask",
+      "docstring": null
+    },
+    {
+      "name": "test_triangulation_init",
+      "docstring": null
+    },
+    {
+      "name": "test_triangulation_set_mask",
+      "docstring": null
+    },
+    {
+      "name": "test_delaunay",
+      "docstring": null
+    },
+    {
+      "name": "test_delaunay_duplicate_points",
+      "docstring": null
+    },
+    {
+      "name": "test_delaunay_points_in_line",
+      "docstring": null
+    },
+    {
+      "name": "test_delaunay_insufficient_points",
+      "docstring": null
+    },
+    {
+      "name": "test_delaunay_robust",
+      "docstring": null
+    },
+    {
+      "name": "test_tripcolor",
+      "docstring": null
+    },
+    {
+      "name": "test_tripcolor_color",
+      "docstring": null
+    },
+    {
+      "name": "test_tripcolor_clim",
+      "docstring": null
+    },
+    {
+      "name": "test_tripcolor_warnings",
+      "docstring": null
+    },
+    {
+      "name": "test_no_modify",
+      "docstring": null
+    },
+    {
+      "name": "test_trifinder",
+      "docstring": null
+    },
+    {
+      "name": "test_triinterp",
+      "docstring": null
+    },
+    {
+      "name": "test_triinterpcubic_C1_continuity",
+      "docstring": null
+    },
+    {
+      "name": "test_triinterpcubic_cg_solver",
+      "docstring": null
+    },
+    {
+      "name": "test_triinterpcubic_geom_weights",
+      "docstring": null
+    },
+    {
+      "name": "test_triinterp_colinear",
+      "docstring": null
+    },
+    {
+      "name": "test_triinterp_transformations",
+      "docstring": null
+    },
+    {
+      "name": "test_tri_smooth_contouring",
+      "docstring": null
+    },
+    {
+      "name": "test_tri_smooth_gradient",
+      "docstring": null
+    },
+    {
+      "name": "test_tritools",
+      "docstring": null
+    },
+    {
+      "name": "test_trirefine",
+      "docstring": null
+    },
+    {
+      "name": "test_trirefine_masked",
+      "docstring": null
+    },
+    {
+      "name": "meshgrid_triangles",
+      "docstring": "Return (2*(N-1)**2, 3) array of triangles to mesh (N, N)-point np.meshgrid."
+    },
+    {
+      "name": "test_triplot_return",
+      "docstring": null
+    },
+    {
+      "name": "test_trirefiner_fortran_contiguous_triangles",
+      "docstring": null
+    },
+    {
+      "name": "test_qhull_triangle_orientation",
+      "docstring": null
+    },
+    {
+      "name": "test_trianalyzer_mismatched_indices",
+      "docstring": null
+    },
+    {
+      "name": "test_tricontourf_decreasing_levels",
+      "docstring": null
+    },
+    {
+      "name": "test_internal_cpp_api",
+      "docstring": null
+    },
+    {
+      "name": "test_qhull_large_offset",
+      "docstring": null
+    },
+    {
+      "name": "test_tricontour_non_finite_z",
+      "docstring": null
+    },
+    {
+      "name": "test_tricontourset_reuse",
+      "docstring": null
+    },
+    {
+      "name": "test_triplot_with_ls",
+      "docstring": null
+    },
+    {
+      "name": "test_triplot_label",
+      "docstring": null
+    },
+    {
+      "name": "test_tricontour_path",
+      "docstring": null
+    },
+    {
+      "name": "test_tricontourf_path",
+      "docstring": null
+    },
+    {
+      "name": "test_extract_triangulation_params",
+      "docstring": null
+    },
+    {
+      "name": "tri_contains_point",
+      "docstring": null
+    },
+    {
+      "name": "tris_contain_point",
+      "docstring": null
+    },
+    {
+      "name": "quad",
+      "docstring": null
+    },
+    {
+      "name": "gradient_quad",
+      "docstring": null
+    },
+    {
+      "name": "check_continuity",
+      "docstring": "Checks the continuity of interpolator (and its derivatives) near\nlocation loc. Can check the value at loc itself if *values* is\nprovided.\n\n*interpolator* TriInterpolator\n*loc* location to test (x0, y0)\n*values* (optional) array [z0, dzx0, dzy0] to check the value at *loc*"
+    },
+    {
+      "name": "poisson_sparse_matrix",
+      "docstring": "Return the sparse, (n*m, n*m) matrix in coo format resulting from the\ndiscretisation of the 2-dimensional Poisson equation according to a\nfinite difference numerical scheme on a uniform (n, m) grid."
+    },
+    {
+      "name": "z",
+      "docstring": null
+    },
+    {
+      "name": "z",
+      "docstring": null
+    },
+    {
+      "name": "dipole_potential",
+      "docstring": "An electric dipole potential V."
+    },
+    {
+      "name": "power",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

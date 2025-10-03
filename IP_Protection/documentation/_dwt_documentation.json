@@ -1,0 +1,43 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pywt\\_dwt.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "dwt_max_level",
+      "docstring": "dwt_max_level(data_len, filter_len)\n\nCompute the maximum useful level of decomposition.\n\nParameters\n----------\ndata_len : int\n    Input data length.\nfilter_len : int, str or Wavelet\n    The wavelet filter length.  Alternatively, the name of a discrete\n    wavelet or a Wavelet object can be specified.\n\nReturns\n-------\nmax_level : int\n    Maximum level.\n\nNotes\n-----\nThe rational for the choice of levels is the maximum level where at least\none coefficient in the output is uncorrupted by edge effects caused by\nsignal extension.  Put another way, decomposition stops when the signal\nbecomes shorter than the FIR filter length for a given wavelet.  This\ncorresponds to:\n\n.. max_level = floor(log2(data_len/(filter_len - 1)))\n\n.. math::\n    \\mathtt{max\\_level} = \\left\\lfloor\\log_2\\left(\\mathtt{\n        \\frac{data\\_len}{filter\\_len - 1}}\\right)\\right\\rfloor\n\nExamples\n--------\n>>> import pywt\n>>> w = pywt.Wavelet('sym5')\n>>> pywt.dwt_max_level(data_len=1000, filter_len=w.dec_len)\n6\n>>> pywt.dwt_max_level(1000, w)\n6\n>>> pywt.dwt_max_level(1000, 'sym5')\n6"
+    },
+    {
+      "name": "dwt_coeff_len",
+      "docstring": "dwt_coeff_len(data_len, filter_len, mode='symmetric')\n\nReturns length of dwt output for given data length, filter length and mode\n\nParameters\n----------\ndata_len : int\n    Data length.\nfilter_len : int\n    Filter length.\nmode : str, optional\n    Signal extension mode, see :ref:`Modes <ref-modes>`.\n\nReturns\n-------\nlen : int\n    Length of dwt output.\n\nNotes\n-----\nFor all modes except periodization::\n\n    len(cA) == len(cD) == floor((len(data) + wavelet.dec_len - 1) / 2)\n\nfor periodization mode (\"per\")::\n\n    len(cA) == len(cD) == ceil(len(data) / 2)"
+    },
+    {
+      "name": "dwt",
+      "docstring": "dwt(data, wavelet, mode='symmetric', axis=-1)\n\nSingle level Discrete Wavelet Transform.\n\nParameters\n----------\ndata : array_like\n    Input signal\nwavelet : Wavelet object or name\n    Wavelet to use\nmode : str, optional\n    Signal extension mode, see :ref:`Modes <ref-modes>`.\naxis: int, optional\n    Axis over which to compute the DWT. If not given, the\n    last axis is used.\n\nReturns\n-------\n(cA, cD) : tuple\n    Approximation and detail coefficients.\n\nNotes\n-----\nLength of coefficients arrays depends on the selected mode.\nFor all modes except periodization:\n\n    ``len(cA) == len(cD) == floor((len(data) + wavelet.dec_len - 1) / 2)``\n\nFor periodization mode (\"per\"):\n\n    ``len(cA) == len(cD) == ceil(len(data) / 2)``\n\nExamples\n--------\n>>> import pywt\n>>> (cA, cD) = pywt.dwt([1, 2, 3, 4, 5, 6], 'db1')\n>>> cA\narray([ 2.12132034,  4.94974747,  7.77817459])\n>>> cD\narray([-0.70710678, -0.70710678, -0.70710678])"
+    },
+    {
+      "name": "idwt",
+      "docstring": "idwt(cA, cD, wavelet, mode='symmetric', axis=-1)\n\nSingle level Inverse Discrete Wavelet Transform.\n\nParameters\n----------\ncA : array_like or None\n    Approximation coefficients.  If None, will be set to array of zeros\n    with same shape as ``cD``.\ncD : array_like or None\n    Detail coefficients.  If None, will be set to array of zeros\n    with same shape as ``cA``.\nwavelet : Wavelet object or name\n    Wavelet to use\nmode : str, optional (default: 'symmetric')\n    Signal extension mode, see :ref:`Modes <ref-modes>`.\naxis: int, optional\n    Axis over which to compute the inverse DWT. If not given, the\n    last axis is used.\n\nReturns\n-------\nrec: array_like\n    Single level reconstruction of signal from given coefficients.\n\nExamples\n--------\n>>> import pywt\n>>> (cA, cD) = pywt.dwt([1,2,3,4,5,6], 'db2', 'smooth')\n>>> pywt.idwt(cA, cD, 'db2', 'smooth')\narray([ 1.,  2.,  3.,  4.,  5.,  6.])\n\nOne of the neat features of ``idwt`` is that one of the ``cA`` and ``cD``\narguments can be set to None.  In that situation the reconstruction will be\nperformed using only the other one.  Mathematically speaking, this is\nequivalent to passing a zero-filled array as one of the arguments.\n\n>>> (cA, cD) = pywt.dwt([1,2,3,4,5,6], 'db2', 'smooth')\n>>> A = pywt.idwt(cA, None, 'db2', 'smooth')\n>>> D = pywt.idwt(None, cD, 'db2', 'smooth')\n>>> A + D\narray([ 1.,  2.,  3.,  4.,  5.,  6.])"
+    },
+    {
+      "name": "downcoef",
+      "docstring": "downcoef(part, data, wavelet, mode='symmetric', level=1)\n\nPartial Discrete Wavelet Transform data decomposition.\n\nSimilar to ``pywt.dwt``, but computes only one set of coefficients.\nUseful when you need only approximation or only details at the given level.\n\nParameters\n----------\npart : str\n    Coefficients type:\n\n    * 'a' - approximations reconstruction is performed\n    * 'd' - details reconstruction is performed\n\ndata : array_like\n    Input signal.\nwavelet : Wavelet object or name\n    Wavelet to use\nmode : str, optional\n    Signal extension mode, see :ref:`Modes <ref-modes>`.\nlevel : int, optional\n    Decomposition level.  Default is 1.\n\nReturns\n-------\ncoeffs : ndarray\n    1-D array of coefficients.\n\nSee Also\n--------\nupcoef"
+    },
+    {
+      "name": "upcoef",
+      "docstring": "upcoef(part, coeffs, wavelet, level=1, take=0)\n\nDirect reconstruction from coefficients.\n\nParameters\n----------\npart : str\n    Coefficients type:\n    * 'a' - approximations reconstruction is performed\n    * 'd' - details reconstruction is performed\ncoeffs : array_like\n    Coefficients array to reconstruct\nwavelet : Wavelet object or name\n    Wavelet to use\nlevel : int, optional\n    Multilevel reconstruction level.  Default is 1.\ntake : int, optional\n    Take central part of length equal to 'take' from the result.\n    Default is 0.\n\nReturns\n-------\nrec : ndarray\n    1-D array with reconstructed data from coefficients.\n\nSee Also\n--------\ndowncoef\n\nExamples\n--------\n>>> import pywt\n>>> data = [1,2,3,4,5,6]\n>>> (cA, cD) = pywt.dwt(data, 'db2', 'smooth')\n>>> pywt.upcoef('a', cA, 'db2') + pywt.upcoef('d', cD, 'db2')\narray([-0.25      , -0.4330127 ,  1.        ,  2.        ,  3.        ,\n        4.        ,  5.        ,  6.        ,  1.78589838, -1.03108891])\n>>> n = len(data)\n>>> pywt.upcoef('a', cA, 'db2', take=n) + pywt.upcoef('d', cD, 'db2', take=n)\narray([ 1.,  2.,  3.,  4.,  5.,  6.])"
+    },
+    {
+      "name": "pad",
+      "docstring": "Extend a 1D signal using a given boundary mode.\n\nThis function operates like :func:`numpy.pad` but supports all signal\nextension modes that can be used by PyWavelets discrete wavelet transforms.\n\nParameters\n----------\nx : ndarray\n    The array to pad\npad_widths : {sequence, array_like, int}\n    Number of values padded to the edges of each axis.\n    ``((before_1, after_1), \u2026 (before_N, after_N))`` unique pad widths for\n    each axis. ``((before, after),)`` yields same before and after pad for\n    each axis. ``(pad,)`` or int is a shortcut for\n    ``before = after = pad width`` for all axes.\nmode : str, optional\n    Signal extension mode, see :ref:`Modes <ref-modes>`.\n\nReturns\n-------\npad : ndarray\n    Padded array of rank equal to array with shape increased according to\n    ``pad_widths``.\n\nNotes\n-----\nThe performance of padding in dimensions > 1 may be substantially slower\nfor modes ``'smooth'`` and ``'antisymmetric'`` as these modes are not\nsupported efficiently by the underlying :func:`numpy.pad` function.\n\nNote that the behavior of the ``'constant'`` mode here follows the\nPyWavelets convention which is different from NumPy (it is equivalent to\n``mode='edge'`` in :func:`numpy.pad`)."
+    },
+    {
+      "name": "pad_smooth",
+      "docstring": null
+    },
+    {
+      "name": "pad_antisymmetric",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

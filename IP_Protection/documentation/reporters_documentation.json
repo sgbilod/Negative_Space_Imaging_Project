@@ -1,0 +1,78 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\resolvelib\\reporters.py",
+  "classes": [
+    {
+      "name": "BaseReporter",
+      "docstring": "Delegate class to provider progress reporting for the resolver.",
+      "methods": [
+        {
+          "name": "starting",
+          "docstring": "Called before the resolution actually starts."
+        },
+        {
+          "name": "starting_round",
+          "docstring": "Called before each round of resolution starts.\n\nThe index is zero-based."
+        },
+        {
+          "name": "ending_round",
+          "docstring": "Called before each round of resolution ends.\n\nThis is NOT called if the resolution ends at this round. Use `ending`\nif you want to report finalization. The index is zero-based."
+        },
+        {
+          "name": "ending",
+          "docstring": "Called before the resolution ends successfully."
+        },
+        {
+          "name": "adding_requirement",
+          "docstring": "Called when adding a new requirement into the resolve criteria.\n\n:param requirement: The additional requirement to be applied to filter\n    the available candidaites.\n:param parent: The candidate that requires ``requirement`` as a\n    dependency, or None if ``requirement`` is one of the root\n    requirements passed in from ``Resolver.resolve()``."
+        },
+        {
+          "name": "resolving_conflicts",
+          "docstring": "Called when starting to attempt requirement conflict resolution.\n\n:param causes: The information on the collision that caused the backtracking."
+        },
+        {
+          "name": "rejecting_candidate",
+          "docstring": "Called when rejecting a candidate during backtracking."
+        },
+        {
+          "name": "pinning",
+          "docstring": "Called when adding a candidate to the potential solution."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "starting",
+      "docstring": "Called before the resolution actually starts."
+    },
+    {
+      "name": "starting_round",
+      "docstring": "Called before each round of resolution starts.\n\nThe index is zero-based."
+    },
+    {
+      "name": "ending_round",
+      "docstring": "Called before each round of resolution ends.\n\nThis is NOT called if the resolution ends at this round. Use `ending`\nif you want to report finalization. The index is zero-based."
+    },
+    {
+      "name": "ending",
+      "docstring": "Called before the resolution ends successfully."
+    },
+    {
+      "name": "adding_requirement",
+      "docstring": "Called when adding a new requirement into the resolve criteria.\n\n:param requirement: The additional requirement to be applied to filter\n    the available candidaites.\n:param parent: The candidate that requires ``requirement`` as a\n    dependency, or None if ``requirement`` is one of the root\n    requirements passed in from ``Resolver.resolve()``."
+    },
+    {
+      "name": "resolving_conflicts",
+      "docstring": "Called when starting to attempt requirement conflict resolution.\n\n:param causes: The information on the collision that caused the backtracking."
+    },
+    {
+      "name": "rejecting_candidate",
+      "docstring": "Called when rejecting a candidate during backtracking."
+    },
+    {
+      "name": "pinning",
+      "docstring": "Called when adding a candidate to the potential solution."
+    }
+  ],
+  "innovations": []
+}

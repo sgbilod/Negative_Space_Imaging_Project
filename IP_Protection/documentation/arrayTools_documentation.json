@@ -1,0 +1,90 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\arrayTools.py",
+  "classes": [
+    {
+      "name": "Vector",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "calcBounds",
+      "docstring": "Calculate the bounding rectangle of a 2D points array.\n\nArgs:\n    array: A sequence of 2D tuples.\n\nReturns:\n    A four-item tuple representing the bounding rectangle ``(xMin, yMin, xMax, yMax)``."
+    },
+    {
+      "name": "calcIntBounds",
+      "docstring": "Calculate the integer bounding rectangle of a 2D points array.\n\nValues are rounded to closest integer towards ``+Infinity`` using the\n:func:`fontTools.misc.fixedTools.otRound` function by default, unless\nan optional ``round`` function is passed.\n\nArgs:\n    array: A sequence of 2D tuples.\n    round: A rounding function of type ``f(x: float) -> int``.\n\nReturns:\n    A four-item tuple of integers representing the bounding rectangle:\n    ``(xMin, yMin, xMax, yMax)``."
+    },
+    {
+      "name": "updateBounds",
+      "docstring": "Add a point to a bounding rectangle.\n\nArgs:\n    bounds: A bounding rectangle expressed as a tuple\n        ``(xMin, yMin, xMax, yMax), or None``.\n    p: A 2D tuple representing a point.\n    min,max: functions to compute the minimum and maximum.\n\nReturns:\n    The updated bounding rectangle ``(xMin, yMin, xMax, yMax)``."
+    },
+    {
+      "name": "pointInRect",
+      "docstring": "Test if a point is inside a bounding rectangle.\n\nArgs:\n    p: A 2D tuple representing a point.\n    rect: A bounding rectangle expressed as a tuple\n        ``(xMin, yMin, xMax, yMax)``.\n\nReturns:\n    ``True`` if the point is inside the rectangle, ``False`` otherwise."
+    },
+    {
+      "name": "pointsInRect",
+      "docstring": "Determine which points are inside a bounding rectangle.\n\nArgs:\n    array: A sequence of 2D tuples.\n    rect: A bounding rectangle expressed as a tuple\n        ``(xMin, yMin, xMax, yMax)``.\n\nReturns:\n    A list containing the points inside the rectangle."
+    },
+    {
+      "name": "vectorLength",
+      "docstring": "Calculate the length of the given vector.\n\nArgs:\n    vector: A 2D tuple.\n\nReturns:\n    The Euclidean length of the vector."
+    },
+    {
+      "name": "asInt16",
+      "docstring": "Round a list of floats to 16-bit signed integers.\n\nArgs:\n    array: List of float values.\n\nReturns:\n    A list of rounded integers."
+    },
+    {
+      "name": "normRect",
+      "docstring": "Normalize a bounding box rectangle.\n\nThis function \"turns the rectangle the right way up\", so that the following\nholds::\n\n    xMin <= xMax and yMin <= yMax\n\nArgs:\n    rect: A bounding rectangle expressed as a tuple\n        ``(xMin, yMin, xMax, yMax)``.\n\nReturns:\n    A normalized bounding rectangle."
+    },
+    {
+      "name": "scaleRect",
+      "docstring": "Scale a bounding box rectangle.\n\nArgs:\n    rect: A bounding rectangle expressed as a tuple\n        ``(xMin, yMin, xMax, yMax)``.\n    x: Factor to scale the rectangle along the X axis.\n    Y: Factor to scale the rectangle along the Y axis.\n\nReturns:\n    A scaled bounding rectangle."
+    },
+    {
+      "name": "offsetRect",
+      "docstring": "Offset a bounding box rectangle.\n\nArgs:\n    rect: A bounding rectangle expressed as a tuple\n        ``(xMin, yMin, xMax, yMax)``.\n    dx: Amount to offset the rectangle along the X axis.\n    dY: Amount to offset the rectangle along the Y axis.\n\nReturns:\n    An offset bounding rectangle."
+    },
+    {
+      "name": "insetRect",
+      "docstring": "Inset a bounding box rectangle on all sides.\n\nArgs:\n    rect: A bounding rectangle expressed as a tuple\n        ``(xMin, yMin, xMax, yMax)``.\n    dx: Amount to inset the rectangle along the X axis.\n    dY: Amount to inset the rectangle along the Y axis.\n\nReturns:\n    An inset bounding rectangle."
+    },
+    {
+      "name": "sectRect",
+      "docstring": "Test for rectangle-rectangle intersection.\n\nArgs:\n    rect1: First bounding rectangle, expressed as tuples\n        ``(xMin, yMin, xMax, yMax)``.\n    rect2: Second bounding rectangle.\n\nReturns:\n    A boolean and a rectangle.\n    If the input rectangles intersect, returns ``True`` and the intersecting\n    rectangle. Returns ``False`` and ``(0, 0, 0, 0)`` if the input\n    rectangles don't intersect."
+    },
+    {
+      "name": "unionRect",
+      "docstring": "Determine union of bounding rectangles.\n\nArgs:\n    rect1: First bounding rectangle, expressed as tuples\n        ``(xMin, yMin, xMax, yMax)``.\n    rect2: Second bounding rectangle.\n\nReturns:\n    The smallest rectangle in which both input rectangles are fully\n    enclosed."
+    },
+    {
+      "name": "rectCenter",
+      "docstring": "Determine rectangle center.\n\nArgs:\n    rect: Bounding rectangle, expressed as tuples\n        ``(xMin, yMin, xMax, yMax)``.\n\nReturns:\n    A 2D tuple representing the point at the center of the rectangle."
+    },
+    {
+      "name": "rectArea",
+      "docstring": "Determine rectangle area.\n\nArgs:\n    rect: Bounding rectangle, expressed as tuples\n        ``(xMin, yMin, xMax, yMax)``.\n\nReturns:\n    The area of the rectangle."
+    },
+    {
+      "name": "intRect",
+      "docstring": "Round a rectangle to integer values.\n\nGuarantees that the resulting rectangle is NOT smaller than the original.\n\nArgs:\n    rect: Bounding rectangle, expressed as tuples\n        ``(xMin, yMin, xMax, yMax)``.\n\nReturns:\n    A rounded bounding rectangle."
+    },
+    {
+      "name": "quantizeRect",
+      "docstring": ">>> bounds = (72.3, -218.4, 1201.3, 919.1)\n>>> quantizeRect(bounds)\n(72, -219, 1202, 920)\n>>> quantizeRect(bounds, factor=10)\n(70, -220, 1210, 920)\n>>> quantizeRect(bounds, factor=100)\n(0, -300, 1300, 1000)"
+    },
+    {
+      "name": "pairwise",
+      "docstring": "Iterate over current and next items in iterable.\n\nArgs:\n    iterable: An iterable\n    reverse: If true, iterate in reverse order.\n\nReturns:\n    A iterable yielding two elements per iteration.\n\nExample:\n\n    >>> tuple(pairwise([]))\n    ()\n    >>> tuple(pairwise([], reverse=True))\n    ()\n    >>> tuple(pairwise([0]))\n    ((0, 0),)\n    >>> tuple(pairwise([0], reverse=True))\n    ((0, 0),)\n    >>> tuple(pairwise([0, 1]))\n    ((0, 1), (1, 0))\n    >>> tuple(pairwise([0, 1], reverse=True))\n    ((1, 0), (0, 1))\n    >>> tuple(pairwise([0, 1, 2]))\n    ((0, 1), (1, 2), (2, 0))\n    >>> tuple(pairwise([0, 1, 2], reverse=True))\n    ((2, 1), (1, 0), (0, 2))\n    >>> tuple(pairwise(['a', 'b', 'c', 'd']))\n    (('a', 'b'), ('b', 'c'), ('c', 'd'), ('d', 'a'))\n    >>> tuple(pairwise(['a', 'b', 'c', 'd'], reverse=True))\n    (('d', 'c'), ('c', 'b'), ('b', 'a'), ('a', 'd'))"
+    }
+  ],
+  "innovations": []
+}

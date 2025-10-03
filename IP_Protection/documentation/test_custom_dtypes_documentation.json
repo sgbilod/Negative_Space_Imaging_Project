@@ -1,0 +1,214 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_custom_dtypes.py",
+  "classes": [
+    {
+      "name": "TestSFloat",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_sfloat_rescaled",
+          "docstring": null
+        },
+        {
+          "name": "test_class_discovery",
+          "docstring": null
+        },
+        {
+          "name": "test_scaled_float_from_floats",
+          "docstring": null
+        },
+        {
+          "name": "test_repr",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_name",
+          "docstring": null
+        },
+        {
+          "name": "test_sfloat_structured_dtype_printing",
+          "docstring": null
+        },
+        {
+          "name": "test_sfloat_from_float",
+          "docstring": null
+        },
+        {
+          "name": "test_sfloat_getitem",
+          "docstring": null
+        },
+        {
+          "name": "test_sfloat_casts",
+          "docstring": null
+        },
+        {
+          "name": "test_sfloat_cast_internal_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_sfloat_promotion",
+          "docstring": null
+        },
+        {
+          "name": "test_basic_multiply",
+          "docstring": null
+        },
+        {
+          "name": "test_possible_and_impossible_reduce",
+          "docstring": null
+        },
+        {
+          "name": "test_basic_ufunc_at",
+          "docstring": null
+        },
+        {
+          "name": "test_basic_multiply_promotion",
+          "docstring": null
+        },
+        {
+          "name": "test_basic_addition",
+          "docstring": null
+        },
+        {
+          "name": "test_addition_cast_safety",
+          "docstring": "The addition method is special for the scaled float, because it\nincludes the \"cast\" between different factors, thus cast-safety\nis influenced by the implementation."
+        },
+        {
+          "name": "test_logical_ufuncs_casts_to_bool",
+          "docstring": null
+        },
+        {
+          "name": "test_wrapped_and_wrapped_reductions",
+          "docstring": null
+        },
+        {
+          "name": "test_astype_class",
+          "docstring": null
+        },
+        {
+          "name": "test_creation_class",
+          "docstring": null
+        },
+        {
+          "name": "test_np_save_load",
+          "docstring": null
+        },
+        {
+          "name": "test_flatiter",
+          "docstring": null
+        },
+        {
+          "name": "test_flatiter_index",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_type_pickle",
+      "docstring": null
+    },
+    {
+      "name": "test_is_numeric",
+      "docstring": null
+    },
+    {
+      "name": "test_sfloat_rescaled",
+      "docstring": null
+    },
+    {
+      "name": "test_class_discovery",
+      "docstring": null
+    },
+    {
+      "name": "test_scaled_float_from_floats",
+      "docstring": null
+    },
+    {
+      "name": "test_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_name",
+      "docstring": null
+    },
+    {
+      "name": "test_sfloat_structured_dtype_printing",
+      "docstring": null
+    },
+    {
+      "name": "test_sfloat_from_float",
+      "docstring": null
+    },
+    {
+      "name": "test_sfloat_getitem",
+      "docstring": null
+    },
+    {
+      "name": "test_sfloat_casts",
+      "docstring": null
+    },
+    {
+      "name": "test_sfloat_cast_internal_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_sfloat_promotion",
+      "docstring": null
+    },
+    {
+      "name": "test_basic_multiply",
+      "docstring": null
+    },
+    {
+      "name": "test_possible_and_impossible_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_basic_ufunc_at",
+      "docstring": null
+    },
+    {
+      "name": "test_basic_multiply_promotion",
+      "docstring": null
+    },
+    {
+      "name": "test_basic_addition",
+      "docstring": null
+    },
+    {
+      "name": "test_addition_cast_safety",
+      "docstring": "The addition method is special for the scaled float, because it\nincludes the \"cast\" between different factors, thus cast-safety\nis influenced by the implementation."
+    },
+    {
+      "name": "test_logical_ufuncs_casts_to_bool",
+      "docstring": null
+    },
+    {
+      "name": "test_wrapped_and_wrapped_reductions",
+      "docstring": null
+    },
+    {
+      "name": "test_astype_class",
+      "docstring": null
+    },
+    {
+      "name": "test_creation_class",
+      "docstring": null
+    },
+    {
+      "name": "test_np_save_load",
+      "docstring": null
+    },
+    {
+      "name": "test_flatiter",
+      "docstring": null
+    },
+    {
+      "name": "test_flatiter_index",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

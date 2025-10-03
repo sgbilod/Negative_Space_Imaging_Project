@@ -1,0 +1,231 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\ma\\tests\\test_subclassing.py",
+  "classes": [
+    {
+      "name": "SubArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "SubMaskedArray",
+      "docstring": "Pure subclass of MaskedArray, keeping some info on subclass.",
+      "methods": []
+    },
+    {
+      "name": "MSubArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "CSAIterator",
+      "docstring": "Flat iterator object that uses its own setter/getter\n(works around ndarray.flat not propagating subclass setters/getters\nsee https://github.com/numpy/numpy/issues/4564)\nroughly following MaskedIterator",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ComplicatedSubArray",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "flat",
+          "docstring": null
+        },
+        {
+          "name": "flat",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "WrappedArray",
+      "docstring": "Wrapping a MaskedArray rather than subclassing to test that\nufunc deferrals are commutative.\nSee: https://github.com/numpy/numpy/issues/15200)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSubclassing",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_data_subclassing",
+          "docstring": null
+        },
+        {
+          "name": "test_maskedarray_subclassing",
+          "docstring": null
+        },
+        {
+          "name": "test_masked_unary_operations",
+          "docstring": null
+        },
+        {
+          "name": "test_masked_binary_operations",
+          "docstring": null
+        },
+        {
+          "name": "test_masked_binary_operations2",
+          "docstring": null
+        },
+        {
+          "name": "test_attributepropagation",
+          "docstring": null
+        },
+        {
+          "name": "test_subclasspreservation",
+          "docstring": null
+        },
+        {
+          "name": "test_subclass_items",
+          "docstring": "test that getter and setter go via baseclass"
+        },
+        {
+          "name": "test_subclass_nomask_items",
+          "docstring": null
+        },
+        {
+          "name": "test_subclass_repr",
+          "docstring": "test that repr uses the name of the subclass\nand 'array' for np.ndarray"
+        },
+        {
+          "name": "test_subclass_str",
+          "docstring": "test str with subclass that has overridden str, setitem"
+        },
+        {
+          "name": "test_pure_subclass_info_preservation",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ArrayNoInheritance",
+      "docstring": "Quantity-like class that does not inherit from ndarray",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestClassWrapping",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_masked_unary_operations",
+          "docstring": null
+        },
+        {
+          "name": "test_masked_binary_operations",
+          "docstring": null
+        },
+        {
+          "name": "test_mixins_have_slots",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "assert_startswith",
+      "docstring": null
+    },
+    {
+      "name": "test_array_no_inheritance",
+      "docstring": null
+    },
+    {
+      "name": "flat",
+      "docstring": null
+    },
+    {
+      "name": "flat",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_data_subclassing",
+      "docstring": null
+    },
+    {
+      "name": "test_maskedarray_subclassing",
+      "docstring": null
+    },
+    {
+      "name": "test_masked_unary_operations",
+      "docstring": null
+    },
+    {
+      "name": "test_masked_binary_operations",
+      "docstring": null
+    },
+    {
+      "name": "test_masked_binary_operations2",
+      "docstring": null
+    },
+    {
+      "name": "test_attributepropagation",
+      "docstring": null
+    },
+    {
+      "name": "test_subclasspreservation",
+      "docstring": null
+    },
+    {
+      "name": "test_subclass_items",
+      "docstring": "test that getter and setter go via baseclass"
+    },
+    {
+      "name": "test_subclass_nomask_items",
+      "docstring": null
+    },
+    {
+      "name": "test_subclass_repr",
+      "docstring": "test that repr uses the name of the subclass\nand 'array' for np.ndarray"
+    },
+    {
+      "name": "test_subclass_str",
+      "docstring": "test str with subclass that has overridden str, setitem"
+    },
+    {
+      "name": "test_pure_subclass_info_preservation",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_masked_unary_operations",
+      "docstring": null
+    },
+    {
+      "name": "test_masked_binary_operations",
+      "docstring": null
+    },
+    {
+      "name": "test_mixins_have_slots",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

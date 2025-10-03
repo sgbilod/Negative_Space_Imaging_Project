@@ -1,0 +1,64 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\align.py",
+  "classes": [
+    {
+      "name": "Align",
+      "docstring": "Align a renderable by adding spaces if necessary.\n\nArgs:\n    renderable (RenderableType): A console renderable.\n    align (AlignMethod): One of \"left\", \"center\", or \"right\"\"\n    style (StyleType, optional): An optional style to apply to the background.\n    vertical (Optional[VerticalAlignMethod], optional): Optional vertical align, one of \"top\", \"middle\", or \"bottom\". Defaults to None.\n    pad (bool, optional): Pad the right with spaces. Defaults to True.\n    width (int, optional): Restrict contents to given width, or None to use default width. Defaults to None.\n    height (int, optional): Set height of align renderable, or None to fit to contents. Defaults to None.\n\nRaises:\n    ValueError: if ``align`` is not one of the expected values.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "left",
+          "docstring": "Align a renderable to the left."
+        },
+        {
+          "name": "center",
+          "docstring": "Align a renderable to the center."
+        },
+        {
+          "name": "right",
+          "docstring": "Align a renderable to the right."
+        }
+      ]
+    },
+    {
+      "name": "VerticalCenter",
+      "docstring": "Vertically aligns a renderable.\n\nWarn:\n    This class is deprecated and may be removed in a future version. Use Align class with\n    `vertical=\"middle\"`.\n\nArgs:\n    renderable (RenderableType): A renderable object.\n    style (StyleType, optional): An optional style to apply to the background. Defaults to None.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "left",
+      "docstring": "Align a renderable to the left."
+    },
+    {
+      "name": "center",
+      "docstring": "Align a renderable to the center."
+    },
+    {
+      "name": "right",
+      "docstring": "Align a renderable to the right."
+    },
+    {
+      "name": "generate_segments",
+      "docstring": null
+    },
+    {
+      "name": "blank_lines",
+      "docstring": null
+    },
+    {
+      "name": "blank_lines",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,82 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\simplified_demo.py",
+  "classes": [
+    {
+      "name": "SimplePointCloud",
+      "docstring": "A simplified point cloud class that doesn't rely on Open3D",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize an empty point cloud"
+        },
+        {
+          "name": "add_points",
+          "docstring": "Add points to the point cloud"
+        },
+        {
+          "name": "classify_points",
+          "docstring": "Classify points as objects, boundaries, or voids.\nIn this simplified version, we just simulate the classification."
+        },
+        {
+          "name": "generate_void_points",
+          "docstring": "Generate void points in the spaces between objects"
+        },
+        {
+          "name": "compute_spatial_signature",
+          "docstring": "Compute a spatial signature based on the distribution of points.\nThis is a simplified version that doesn't rely on 3D geometry."
+        },
+        {
+          "name": "visualize",
+          "docstring": "Create a 2D visualization of the point cloud.\nThis is a simplified version that doesn't rely on 3D visualization."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "parse_arguments",
+      "docstring": "Parse command line arguments"
+    },
+    {
+      "name": "ensure_directory",
+      "docstring": "Ensure a directory exists"
+    },
+    {
+      "name": "generate_test_scene",
+      "docstring": "Generate a test scene with multiple objects and interesting negative space.\n\nReturns:\n    SimplePointCloud object"
+    },
+    {
+      "name": "run_basic_demo",
+      "docstring": "Run the basic demo"
+    },
+    {
+      "name": "run_signature_demo",
+      "docstring": "Run the signature demo"
+    },
+    {
+      "name": "main",
+      "docstring": "Main function"
+    },
+    {
+      "name": "add_points",
+      "docstring": "Add points to the point cloud"
+    },
+    {
+      "name": "classify_points",
+      "docstring": "Classify points as objects, boundaries, or voids.\nIn this simplified version, we just simulate the classification."
+    },
+    {
+      "name": "generate_void_points",
+      "docstring": "Generate void points in the spaces between objects"
+    },
+    {
+      "name": "compute_spatial_signature",
+      "docstring": "Compute a spatial signature based on the distribution of points.\nThis is a simplified version that doesn't rely on 3D geometry."
+    },
+    {
+      "name": "visualize",
+      "docstring": "Create a 2D visualization of the point cloud.\nThis is a simplified version that doesn't rely on 3D visualization."
+    }
+  ],
+  "innovations": []
+}

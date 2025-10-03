@@ -1,0 +1,87 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\contourpy\\array.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "codes_from_offsets",
+      "docstring": "Determine codes from offsets, assuming they all correspond to closed polygons.\n    "
+    },
+    {
+      "name": "codes_from_offsets_and_points",
+      "docstring": "Determine codes from offsets and points, using the equality of the start and end points of\neach line to determine if lines are closed or not."
+    },
+    {
+      "name": "codes_from_points",
+      "docstring": "Determine codes for a single line, using the equality of the start and end points to\ndetermine if the line is closed or not."
+    },
+    {
+      "name": "concat_codes",
+      "docstring": "Concatenate a list of codes arrays into a single code array.\n    "
+    },
+    {
+      "name": "concat_codes_or_none",
+      "docstring": "Concatenate a list of codes arrays or None into a single code array or None.\n    "
+    },
+    {
+      "name": "concat_offsets",
+      "docstring": "Concatenate a list of offsets arrays into a single offset array.\n    "
+    },
+    {
+      "name": "concat_offsets_or_none",
+      "docstring": "Concatenate a list of offsets arrays or None into a single offset array or None.\n    "
+    },
+    {
+      "name": "concat_points",
+      "docstring": "Concatenate a list of point arrays into a single point array.\n    "
+    },
+    {
+      "name": "concat_points_or_none",
+      "docstring": "Concatenate a list of point arrays or None into a single point array or None.\n    "
+    },
+    {
+      "name": "concat_points_or_none_with_nan",
+      "docstring": "Concatenate a list of points or None into a single point array or None, with NaNs used to\nseparate each line."
+    },
+    {
+      "name": "concat_points_with_nan",
+      "docstring": "Concatenate a list of points into a single point array with NaNs used to separate each line.\n    "
+    },
+    {
+      "name": "insert_nan_at_offsets",
+      "docstring": "Insert NaNs into a point array at locations specified by an offset array.\n    "
+    },
+    {
+      "name": "offsets_from_codes",
+      "docstring": "Determine offsets from codes using locations of MOVETO codes.\n    "
+    },
+    {
+      "name": "offsets_from_lengths",
+      "docstring": "Determine offsets from lengths of point arrays.\n    "
+    },
+    {
+      "name": "outer_offsets_from_list_of_codes",
+      "docstring": "Determine outer offsets from codes using locations of MOVETO codes.\n    "
+    },
+    {
+      "name": "outer_offsets_from_list_of_offsets",
+      "docstring": "Determine outer offsets from a list of offsets.\n    "
+    },
+    {
+      "name": "remove_nan",
+      "docstring": "Remove NaN from a points array, also return the offsets corresponding to the NaN removed.\n    "
+    },
+    {
+      "name": "split_codes_by_offsets",
+      "docstring": "Split a code array at locations specified by an offset array into a list of code arrays.\n    "
+    },
+    {
+      "name": "split_points_by_offsets",
+      "docstring": "Split a point array at locations specified by an offset array into a list of point arrays.\n    "
+    },
+    {
+      "name": "split_points_at_nan",
+      "docstring": "Split a points array at NaNs into a list of point arrays.\n    "
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,52 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\filter.py",
+  "classes": [
+    {
+      "name": "Filter",
+      "docstring": "Default filter. Subclass this class or use the `simplefilter`\ndecorator to create own filters.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "filter",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FunctionFilter",
+      "docstring": "Abstract class used by `simplefilter` to create simple\nfunction filters on the fly. The `simplefilter` decorator\nautomatically creates subclasses of this class for\nfunctions passed to it.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "filter",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "apply_filters",
+      "docstring": "Use this method to apply an iterable of filters to\na stream. If lexer is given it's forwarded to the\nfilter, otherwise the filter receives `None`."
+    },
+    {
+      "name": "simplefilter",
+      "docstring": "Decorator that converts a function into a filter::\n\n    @simplefilter\n    def lowercase(self, lexer, stream, options):\n        for ttype, value in stream:\n            yield ttype, value.lower()"
+    },
+    {
+      "name": "filter",
+      "docstring": null
+    },
+    {
+      "name": "filter",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

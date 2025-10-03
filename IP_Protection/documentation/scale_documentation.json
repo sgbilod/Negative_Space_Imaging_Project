@@ -1,0 +1,486 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\scale.py",
+  "classes": [
+    {
+      "name": "ScaleBase",
+      "docstring": "The base class for all scales.\n\nScales are separable transformations, working on a single dimension.\n\nSubclasses should override\n\n:attr:`name`\n    The scale's name.\n:meth:`get_transform`\n    A method returning a `.Transform`, which converts data coordinates to\n    scaled coordinates.  This transform should be invertible, so that e.g.\n    mouse positions can be converted back to data coordinates.\n:meth:`set_default_locators_and_formatters`\n    A method that sets default locators and formatters for an `~.axis.Axis`\n    that uses this scale.\n:meth:`limit_range_for_scale`\n    An optional method that \"fixes\" the axis range to acceptable values,\n    e.g. restricting log-scaled axes to positive values.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Construct a new scale.\n\nNotes\n-----\nThe following note is for scale implementers.\n\nFor back-compatibility reasons, scales take an `~matplotlib.axis.Axis`\nobject as first argument.  However, this argument should not\nbe used: a single scale object should be usable by multiple\n`~matplotlib.axis.Axis`\\es at the same time."
+        },
+        {
+          "name": "get_transform",
+          "docstring": "Return the `.Transform` object associated with this scale."
+        },
+        {
+          "name": "set_default_locators_and_formatters",
+          "docstring": "Set the locators and formatters of *axis* to instances suitable for\nthis scale."
+        },
+        {
+          "name": "limit_range_for_scale",
+          "docstring": "Return the range *vmin*, *vmax*, restricted to the\ndomain supported by this scale (if any).\n\n*minpos* should be the minimum positive value in the data.\nThis is used by log scales to determine a minimum value."
+        }
+      ]
+    },
+    {
+      "name": "LinearScale",
+      "docstring": "The default linear scale.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "        "
+        },
+        {
+          "name": "set_default_locators_and_formatters",
+          "docstring": null
+        },
+        {
+          "name": "get_transform",
+          "docstring": "Return the transform for linear scaling, which is just the\n`~matplotlib.transforms.IdentityTransform`."
+        }
+      ]
+    },
+    {
+      "name": "FuncTransform",
+      "docstring": "A simple transform that takes and arbitrary function for the\nforward and inverse transform.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nforward : callable\n    The forward function for the transform.  This function must have\n    an inverse and, for best behavior, be monotonic.\n    It must have the signature::\n\n       def forward(values: array-like) -> array-like\n\ninverse : callable\n    The inverse of the forward function.  Signature as ``forward``."
+        },
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FuncScale",
+      "docstring": "Provide an arbitrary scale with user-supplied function for the axis.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\naxis : `~matplotlib.axis.Axis`\n    The axis for the scale.\nfunctions : (callable, callable)\n    two-tuple of the forward and inverse functions for the scale.\n    The forward function must be monotonic.\n\n    Both functions must have the signature::\n\n       def forward(values: array-like) -> array-like"
+        },
+        {
+          "name": "get_transform",
+          "docstring": "Return the `.FuncTransform` associated with this scale."
+        },
+        {
+          "name": "set_default_locators_and_formatters",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LogTransform",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "InvertedLogTransform",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LogScale",
+      "docstring": "A standard logarithmic scale.  Care is taken to only plot positive values.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\naxis : `~matplotlib.axis.Axis`\n    The axis for the scale.\nbase : float, default: 10\n    The base of the logarithm.\nnonpositive : {'clip', 'mask'}, default: 'clip'\n    Determines the behavior for non-positive values. They can either\n    be masked as invalid, or clipped to a very small positive number.\nsubs : sequence of int, default: None\n    Where to place the subticks between each major tick.  For example,\n    in a log10 scale, ``[2, 3, 4, 5, 6, 7, 8, 9]`` will place 8\n    logarithmically spaced minor ticks between each major tick."
+        },
+        {
+          "name": "set_default_locators_and_formatters",
+          "docstring": null
+        },
+        {
+          "name": "get_transform",
+          "docstring": "Return the `.LogTransform` associated with this scale."
+        },
+        {
+          "name": "limit_range_for_scale",
+          "docstring": "Limit the domain to positive values."
+        }
+      ]
+    },
+    {
+      "name": "FuncScaleLog",
+      "docstring": "Provide an arbitrary scale with user-supplied function for the axis and\nthen put on a logarithmic axes.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\naxis : `~matplotlib.axis.Axis`\n    The axis for the scale.\nfunctions : (callable, callable)\n    two-tuple of the forward and inverse functions for the scale.\n    The forward function must be monotonic.\n\n    Both functions must have the signature::\n\n        def forward(values: array-like) -> array-like\n\nbase : float, default: 10\n    Logarithmic base of the scale."
+        },
+        {
+          "name": "base",
+          "docstring": null
+        },
+        {
+          "name": "get_transform",
+          "docstring": "Return the `.Transform` associated with this scale."
+        }
+      ]
+    },
+    {
+      "name": "SymmetricalLogTransform",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "InvertedSymmetricalLogTransform",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SymmetricalLogScale",
+      "docstring": "The symmetrical logarithmic scale is logarithmic in both the\npositive and negative directions from the origin.\n\nSince the values close to zero tend toward infinity, there is a\nneed to have a range around zero that is linear.  The parameter\n*linthresh* allows the user to specify the size of this range\n(-*linthresh*, *linthresh*).\n\nSee :doc:`/gallery/scales/symlog_demo` for a detailed description.\n\nParameters\n----------\nbase : float, default: 10\n    The base of the logarithm.\n\nlinthresh : float, default: 2\n    Defines the range ``(-x, x)``, within which the plot is linear.\n    This avoids having the plot go to infinity around zero.\n\nsubs : sequence of int\n    Where to place the subticks between each major tick.\n    For example, in a log10 scale: ``[2, 3, 4, 5, 6, 7, 8, 9]`` will place\n    8 logarithmically spaced minor ticks between each major tick.\n\nlinscale : float, optional\n    This allows the linear range ``(-linthresh, linthresh)`` to be\n    stretched relative to the logarithmic range. Its value is the number of\n    decades to use for each half of the linear range. For example, when\n    *linscale* == 1.0 (the default), the space used for the positive and\n    negative halves of the linear range will be equal to one decade in\n    the logarithmic range.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_default_locators_and_formatters",
+          "docstring": null
+        },
+        {
+          "name": "get_transform",
+          "docstring": "Return the `.SymmetricalLogTransform` associated with this scale."
+        }
+      ]
+    },
+    {
+      "name": "AsinhTransform",
+      "docstring": "Inverse hyperbolic-sine transformation used by `.AsinhScale`",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "InvertedAsinhTransform",
+      "docstring": "Hyperbolic sine transformation used by `.AsinhScale`",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AsinhScale",
+      "docstring": "A quasi-logarithmic scale based on the inverse hyperbolic sine (asinh)\n\nFor values close to zero, this is essentially a linear scale,\nbut for large magnitude values (either positive or negative)\nit is asymptotically logarithmic. The transition between these\nlinear and logarithmic regimes is smooth, and has no discontinuities\nin the function gradient in contrast to\nthe `.SymmetricalLogScale` (\"symlog\") scale.\n\nSpecifically, the transformation of an axis coordinate :math:`a` is\n:math:`a \\rightarrow a_0 \\sinh^{-1} (a / a_0)` where :math:`a_0`\nis the effective width of the linear region of the transformation.\nIn that region, the transformation is\n:math:`a \\rightarrow a + \\mathcal{O}(a^3)`.\nFor large values of :math:`a` the transformation behaves as\n:math:`a \\rightarrow a_0 \\, \\mathrm{sgn}(a) \\ln |a| + \\mathcal{O}(1)`.\n\n.. note::\n\n   This API is provisional and may be revised in the future\n   based on early user feedback.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nlinear_width : float, default: 1\n    The scale parameter (elsewhere referred to as :math:`a_0`)\n    defining the extent of the quasi-linear region,\n    and the coordinate values beyond which the transformation\n    becomes asymptotically logarithmic.\nbase : int, default: 10\n    The number base used for rounding tick locations\n    on a logarithmic scale. If this is less than one,\n    then rounding is to the nearest integer multiple\n    of powers of ten.\nsubs : sequence of int\n    Multiples of the number base used for minor ticks.\n    If set to 'auto', this will use built-in defaults,\n    e.g. (2, 5) for base=10."
+        },
+        {
+          "name": "get_transform",
+          "docstring": null
+        },
+        {
+          "name": "set_default_locators_and_formatters",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LogitTransform",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "transform_non_affine",
+          "docstring": "logit transform (base 10), masked or clipped"
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LogisticTransform",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "transform_non_affine",
+          "docstring": "logistic transform (base 10)"
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LogitScale",
+      "docstring": "Logit scale for data between zero and one, both excluded.\n\nThis scale is similar to a log scale close to zero and to one, and almost\nlinear around 0.5. It maps the interval ]0, 1[ onto ]-infty, +infty[.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\naxis : `~matplotlib.axis.Axis`\n    Currently unused.\nnonpositive : {'mask', 'clip'}\n    Determines the behavior for values beyond the open interval ]0, 1[.\n    They can either be masked as invalid, or clipped to a number very\n    close to 0 or 1.\nuse_overline : bool, default: False\n    Indicate the usage of survival notation (\\overline{x}) in place of\n    standard notation (1-x) for probability close to one.\none_half : str, default: r\"\\frac{1}{2}\"\n    The string used for ticks formatter to represent 1/2."
+        },
+        {
+          "name": "get_transform",
+          "docstring": "Return the `.LogitTransform` associated with this scale."
+        },
+        {
+          "name": "set_default_locators_and_formatters",
+          "docstring": null
+        },
+        {
+          "name": "limit_range_for_scale",
+          "docstring": "Limit the domain to values between 0 and 1 (excluded)."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_scale_names",
+      "docstring": "Return the names of the available scales."
+    },
+    {
+      "name": "scale_factory",
+      "docstring": "Return a scale class by name.\n\nParameters\n----------\nscale : {%(names)s}\naxis : `~matplotlib.axis.Axis`"
+    },
+    {
+      "name": "register_scale",
+      "docstring": "Register a new kind of scale.\n\nParameters\n----------\nscale_class : subclass of `ScaleBase`\n    The scale to register."
+    },
+    {
+      "name": "get_transform",
+      "docstring": "Return the `.Transform` object associated with this scale."
+    },
+    {
+      "name": "set_default_locators_and_formatters",
+      "docstring": "Set the locators and formatters of *axis* to instances suitable for\nthis scale."
+    },
+    {
+      "name": "limit_range_for_scale",
+      "docstring": "Return the range *vmin*, *vmax*, restricted to the\ndomain supported by this scale (if any).\n\n*minpos* should be the minimum positive value in the data.\nThis is used by log scales to determine a minimum value."
+    },
+    {
+      "name": "set_default_locators_and_formatters",
+      "docstring": null
+    },
+    {
+      "name": "get_transform",
+      "docstring": "Return the transform for linear scaling, which is just the\n`~matplotlib.transforms.IdentityTransform`."
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "get_transform",
+      "docstring": "Return the `.FuncTransform` associated with this scale."
+    },
+    {
+      "name": "set_default_locators_and_formatters",
+      "docstring": null
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "set_default_locators_and_formatters",
+      "docstring": null
+    },
+    {
+      "name": "get_transform",
+      "docstring": "Return the `.LogTransform` associated with this scale."
+    },
+    {
+      "name": "limit_range_for_scale",
+      "docstring": "Limit the domain to positive values."
+    },
+    {
+      "name": "base",
+      "docstring": null
+    },
+    {
+      "name": "get_transform",
+      "docstring": "Return the `.Transform` associated with this scale."
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "set_default_locators_and_formatters",
+      "docstring": null
+    },
+    {
+      "name": "get_transform",
+      "docstring": "Return the `.SymmetricalLogTransform` associated with this scale."
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "get_transform",
+      "docstring": null
+    },
+    {
+      "name": "set_default_locators_and_formatters",
+      "docstring": null
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": "logit transform (base 10), masked or clipped"
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": "logistic transform (base 10)"
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "get_transform",
+      "docstring": "Return the `.LogitTransform` associated with this scale."
+    },
+    {
+      "name": "set_default_locators_and_formatters",
+      "docstring": null
+    },
+    {
+      "name": "limit_range_for_scale",
+      "docstring": "Limit the domain to values between 0 and 1 (excluded)."
+    }
+  ],
+  "innovations": []
+}

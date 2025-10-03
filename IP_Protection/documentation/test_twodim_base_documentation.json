@@ -1,0 +1,341 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\tests\\test_twodim_base.py",
+  "classes": [
+    {
+      "name": "TestEye",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_uint64",
+          "docstring": null
+        },
+        {
+          "name": "test_diag",
+          "docstring": null
+        },
+        {
+          "name": "test_2d",
+          "docstring": null
+        },
+        {
+          "name": "test_diag2d",
+          "docstring": null
+        },
+        {
+          "name": "test_eye_bounds",
+          "docstring": null
+        },
+        {
+          "name": "test_strings",
+          "docstring": null
+        },
+        {
+          "name": "test_bool",
+          "docstring": null
+        },
+        {
+          "name": "test_order",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDiag",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_vector",
+          "docstring": null
+        },
+        {
+          "name": "test_matrix",
+          "docstring": null
+        },
+        {
+          "name": "test_fortran_order",
+          "docstring": null
+        },
+        {
+          "name": "test_diag_bounds",
+          "docstring": null
+        },
+        {
+          "name": "test_failure",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFliplr",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFlipud",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestHistogram2d",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_asym",
+          "docstring": null
+        },
+        {
+          "name": "test_density",
+          "docstring": null
+        },
+        {
+          "name": "test_all_outliers",
+          "docstring": null
+        },
+        {
+          "name": "test_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_binparameter_combination",
+          "docstring": null
+        },
+        {
+          "name": "test_dispatch",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_length",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestTri",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_dtype",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestTriuIndices",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_triu_indices",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestTrilIndicesFrom",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_exceptions",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestTriuIndicesFrom",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_exceptions",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestVander",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_dtypes",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ShouldDispatch",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_mat",
+      "docstring": null
+    },
+    {
+      "name": "test_tril_triu_ndim2",
+      "docstring": null
+    },
+    {
+      "name": "test_tril_triu_ndim3",
+      "docstring": null
+    },
+    {
+      "name": "test_tril_triu_with_inf",
+      "docstring": null
+    },
+    {
+      "name": "test_tril_triu_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_mask_indices",
+      "docstring": null
+    },
+    {
+      "name": "test_tril_indices",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_uint64",
+      "docstring": null
+    },
+    {
+      "name": "test_diag",
+      "docstring": null
+    },
+    {
+      "name": "test_2d",
+      "docstring": null
+    },
+    {
+      "name": "test_diag2d",
+      "docstring": null
+    },
+    {
+      "name": "test_eye_bounds",
+      "docstring": null
+    },
+    {
+      "name": "test_strings",
+      "docstring": null
+    },
+    {
+      "name": "test_bool",
+      "docstring": null
+    },
+    {
+      "name": "test_order",
+      "docstring": null
+    },
+    {
+      "name": "test_vector",
+      "docstring": null
+    },
+    {
+      "name": "test_matrix",
+      "docstring": null
+    },
+    {
+      "name": "test_fortran_order",
+      "docstring": null
+    },
+    {
+      "name": "test_diag_bounds",
+      "docstring": null
+    },
+    {
+      "name": "test_failure",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_asym",
+      "docstring": null
+    },
+    {
+      "name": "test_density",
+      "docstring": null
+    },
+    {
+      "name": "test_all_outliers",
+      "docstring": null
+    },
+    {
+      "name": "test_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_binparameter_combination",
+      "docstring": null
+    },
+    {
+      "name": "test_dispatch",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_length",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_triu_indices",
+      "docstring": null
+    },
+    {
+      "name": "test_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_dtypes",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

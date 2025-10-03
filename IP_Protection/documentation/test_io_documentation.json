@@ -1,0 +1,1715 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\tests\\test_io.py",
+  "classes": [
+    {
+      "name": "TextIO",
+      "docstring": "Helper IO class.\n\nWrites encode strings to bytes if needed, reads return bytes.\nThis makes it easier to emulate files opened in binary mode\nwithout needing to explicitly convert strings to bytes in\nsetting up the test data.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "writelines",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RoundtripTest",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "roundtrip",
+          "docstring": "save_func : callable\n    Function used to save arrays to file.\nfile_on_disk : bool\n    If true, store the file on disk, instead of in a\n    string buffer.\nsave_kwds : dict\n    Parameters passed to `save_func`.\nload_kwds : dict\n    Parameters passed to `numpy.load`.\nargs : tuple of arrays\n    Arrays stored to file."
+        },
+        {
+          "name": "check_roundtrips",
+          "docstring": null
+        },
+        {
+          "name": "test_array",
+          "docstring": null
+        },
+        {
+          "name": "test_array_object",
+          "docstring": null
+        },
+        {
+          "name": "test_1D",
+          "docstring": null
+        },
+        {
+          "name": "test_mmap",
+          "docstring": null
+        },
+        {
+          "name": "test_record",
+          "docstring": null
+        },
+        {
+          "name": "test_format_2_0",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSaveLoad",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "roundtrip",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSavezLoad",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "roundtrip",
+          "docstring": null
+        },
+        {
+          "name": "test_big_arrays",
+          "docstring": null
+        },
+        {
+          "name": "test_multiple_arrays",
+          "docstring": null
+        },
+        {
+          "name": "test_named_arrays",
+          "docstring": null
+        },
+        {
+          "name": "test_tuple_getitem_raises",
+          "docstring": null
+        },
+        {
+          "name": "test_BagObj",
+          "docstring": null
+        },
+        {
+          "name": "test_savez_filename_clashes",
+          "docstring": null
+        },
+        {
+          "name": "test_not_closing_opened_fid",
+          "docstring": null
+        },
+        {
+          "name": "test_closing_fid",
+          "docstring": null
+        },
+        {
+          "name": "test_closing_zipfile_after_load",
+          "docstring": null
+        },
+        {
+          "name": "test_repr_lists_keys",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSaveTxt",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_array",
+          "docstring": null
+        },
+        {
+          "name": "test_1D",
+          "docstring": null
+        },
+        {
+          "name": "test_0D_3D",
+          "docstring": null
+        },
+        {
+          "name": "test_structured",
+          "docstring": null
+        },
+        {
+          "name": "test_structured_padded",
+          "docstring": null
+        },
+        {
+          "name": "test_multifield_view",
+          "docstring": null
+        },
+        {
+          "name": "test_delimiter",
+          "docstring": null
+        },
+        {
+          "name": "test_format",
+          "docstring": null
+        },
+        {
+          "name": "test_header_footer",
+          "docstring": null
+        },
+        {
+          "name": "test_file_roundtrip",
+          "docstring": null
+        },
+        {
+          "name": "test_complex_arrays",
+          "docstring": null
+        },
+        {
+          "name": "test_complex_negative_exponent",
+          "docstring": null
+        },
+        {
+          "name": "test_custom_writer",
+          "docstring": null
+        },
+        {
+          "name": "test_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_unicode_roundtrip",
+          "docstring": null
+        },
+        {
+          "name": "test_unicode_bytestream",
+          "docstring": null
+        },
+        {
+          "name": "test_unicode_stringstream",
+          "docstring": null
+        },
+        {
+          "name": "test_unicode_and_bytes_fmt",
+          "docstring": null
+        },
+        {
+          "name": "test_large_zip",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LoadTxtBase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "check_compressed",
+          "docstring": null
+        },
+        {
+          "name": "test_compressed_gzip",
+          "docstring": null
+        },
+        {
+          "name": "test_compressed_bz2",
+          "docstring": null
+        },
+        {
+          "name": "test_compressed_lzma",
+          "docstring": null
+        },
+        {
+          "name": "test_encoding",
+          "docstring": null
+        },
+        {
+          "name": "test_stringload",
+          "docstring": null
+        },
+        {
+          "name": "test_binary_decode",
+          "docstring": null
+        },
+        {
+          "name": "test_converters_decode",
+          "docstring": null
+        },
+        {
+          "name": "test_converters_nodecode",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLoadTxt",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "teardown_method",
+          "docstring": null
+        },
+        {
+          "name": "test_record",
+          "docstring": null
+        },
+        {
+          "name": "test_array",
+          "docstring": null
+        },
+        {
+          "name": "test_1D",
+          "docstring": null
+        },
+        {
+          "name": "test_missing",
+          "docstring": null
+        },
+        {
+          "name": "test_converters_with_usecols",
+          "docstring": null
+        },
+        {
+          "name": "test_comments_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_comments_byte",
+          "docstring": null
+        },
+        {
+          "name": "test_comments_multiple",
+          "docstring": null
+        },
+        {
+          "name": "test_comments_multi_chars",
+          "docstring": null
+        },
+        {
+          "name": "test_skiprows",
+          "docstring": null
+        },
+        {
+          "name": "test_usecols",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_usecols",
+          "docstring": null
+        },
+        {
+          "name": "test_fancy_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_shaped_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_3d_shaped_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_str_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_file",
+          "docstring": null
+        },
+        {
+          "name": "test_unused_converter",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_with_object",
+          "docstring": null
+        },
+        {
+          "name": "test_uint64_type",
+          "docstring": null
+        },
+        {
+          "name": "test_int64_type",
+          "docstring": null
+        },
+        {
+          "name": "test_from_float_hex",
+          "docstring": null
+        },
+        {
+          "name": "test_default_float_converter_no_default_hex_conversion",
+          "docstring": "Ensure that fromhex is only used for values with the correct prefix and\nis not called by default. Regression test related to gh-19598."
+        },
+        {
+          "name": "test_default_float_converter_exception",
+          "docstring": "Ensure that the exception message raised during failed floating point\nconversion is correct. Regression test related to gh-19598."
+        },
+        {
+          "name": "test_from_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_complex_misformatted",
+          "docstring": null
+        },
+        {
+          "name": "test_universal_newline",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_field_after_tab",
+          "docstring": null
+        },
+        {
+          "name": "test_unpack_structured",
+          "docstring": null
+        },
+        {
+          "name": "test_ndmin_keyword",
+          "docstring": null
+        },
+        {
+          "name": "test_generator_source",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_line",
+          "docstring": null
+        },
+        {
+          "name": "test_none_as_string",
+          "docstring": null
+        },
+        {
+          "name": "test_binary_load",
+          "docstring": null
+        },
+        {
+          "name": "test_max_rows",
+          "docstring": null
+        },
+        {
+          "name": "test_max_rows_with_skiprows",
+          "docstring": null
+        },
+        {
+          "name": "test_max_rows_with_read_continuation",
+          "docstring": null
+        },
+        {
+          "name": "test_max_rows_larger",
+          "docstring": null
+        },
+        {
+          "name": "test_max_rows_empty_lines",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Testfromregex",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_record",
+          "docstring": null
+        },
+        {
+          "name": "test_record_2",
+          "docstring": null
+        },
+        {
+          "name": "test_record_3",
+          "docstring": null
+        },
+        {
+          "name": "test_record_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_compiled_bytes",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_dtype_not_structured",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFromTxt",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_record",
+          "docstring": null
+        },
+        {
+          "name": "test_array",
+          "docstring": null
+        },
+        {
+          "name": "test_1D",
+          "docstring": null
+        },
+        {
+          "name": "test_comments",
+          "docstring": null
+        },
+        {
+          "name": "test_skiprows",
+          "docstring": null
+        },
+        {
+          "name": "test_skip_footer",
+          "docstring": null
+        },
+        {
+          "name": "test_skip_footer_with_invalid",
+          "docstring": null
+        },
+        {
+          "name": "test_header",
+          "docstring": null
+        },
+        {
+          "name": "test_auto_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_auto_dtype_uniform",
+          "docstring": null
+        },
+        {
+          "name": "test_fancy_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_names_overwrite",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_fname",
+          "docstring": null
+        },
+        {
+          "name": "test_commented_header",
+          "docstring": null
+        },
+        {
+          "name": "test_names_and_comments_none",
+          "docstring": null
+        },
+        {
+          "name": "test_file_is_closed_on_error",
+          "docstring": null
+        },
+        {
+          "name": "test_autonames_and_usecols",
+          "docstring": null
+        },
+        {
+          "name": "test_converters_with_usecols",
+          "docstring": null
+        },
+        {
+          "name": "test_converters_with_usecols_and_names",
+          "docstring": null
+        },
+        {
+          "name": "test_converters_cornercases",
+          "docstring": null
+        },
+        {
+          "name": "test_converters_cornercases2",
+          "docstring": null
+        },
+        {
+          "name": "test_unused_converter",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_converter",
+          "docstring": null
+        },
+        {
+          "name": "test_tricky_converter_bug1666",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_with_converters",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_with_converters_and_usecols",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_with_object",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_with_object_no_converter",
+          "docstring": null
+        },
+        {
+          "name": "test_userconverters_with_explicit_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_utf8_userconverters_with_explicit_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_spacedelimiter",
+          "docstring": null
+        },
+        {
+          "name": "test_integer_delimiter",
+          "docstring": null
+        },
+        {
+          "name": "test_missing",
+          "docstring": null
+        },
+        {
+          "name": "test_missing_with_tabs",
+          "docstring": null
+        },
+        {
+          "name": "test_usecols",
+          "docstring": null
+        },
+        {
+          "name": "test_usecols_as_css",
+          "docstring": null
+        },
+        {
+          "name": "test_usecols_with_structured_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_usecols_with_integer",
+          "docstring": null
+        },
+        {
+          "name": "test_usecols_with_named_columns",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_file",
+          "docstring": null
+        },
+        {
+          "name": "test_fancy_dtype_alt",
+          "docstring": null
+        },
+        {
+          "name": "test_shaped_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_withmissing",
+          "docstring": null
+        },
+        {
+          "name": "test_user_missing_values",
+          "docstring": null
+        },
+        {
+          "name": "test_user_filling_values",
+          "docstring": null
+        },
+        {
+          "name": "test_withmissing_float",
+          "docstring": null
+        },
+        {
+          "name": "test_with_masked_column_uniform",
+          "docstring": null
+        },
+        {
+          "name": "test_with_masked_column_various",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_raise",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_raise_with_usecols",
+          "docstring": null
+        },
+        {
+          "name": "test_inconsistent_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_default_field_format",
+          "docstring": null
+        },
+        {
+          "name": "test_single_dtype_wo_names",
+          "docstring": null
+        },
+        {
+          "name": "test_single_dtype_w_explicit_names",
+          "docstring": null
+        },
+        {
+          "name": "test_single_dtype_w_implicit_names",
+          "docstring": null
+        },
+        {
+          "name": "test_easy_structured_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_autostrip",
+          "docstring": null
+        },
+        {
+          "name": "test_replace_space",
+          "docstring": null
+        },
+        {
+          "name": "test_replace_space_known_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_incomplete_names",
+          "docstring": null
+        },
+        {
+          "name": "test_names_auto_completion",
+          "docstring": null
+        },
+        {
+          "name": "test_names_with_usecols_bug1636",
+          "docstring": null
+        },
+        {
+          "name": "test_fixed_width_names",
+          "docstring": null
+        },
+        {
+          "name": "test_filling_values",
+          "docstring": null
+        },
+        {
+          "name": "test_comments_is_none",
+          "docstring": null
+        },
+        {
+          "name": "test_latin1",
+          "docstring": null
+        },
+        {
+          "name": "test_binary_decode_autodtype",
+          "docstring": null
+        },
+        {
+          "name": "test_utf8_byte_encoding",
+          "docstring": null
+        },
+        {
+          "name": "test_utf8_file",
+          "docstring": null
+        },
+        {
+          "name": "test_utf8_file_nodtype_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_recfromtxt",
+          "docstring": null
+        },
+        {
+          "name": "test_recfromcsv",
+          "docstring": null
+        },
+        {
+          "name": "test_max_rows",
+          "docstring": null
+        },
+        {
+          "name": "test_gft_using_filename",
+          "docstring": null
+        },
+        {
+          "name": "test_gft_from_gzip",
+          "docstring": null
+        },
+        {
+          "name": "test_gft_using_generator",
+          "docstring": null
+        },
+        {
+          "name": "test_auto_dtype_largeint",
+          "docstring": null
+        },
+        {
+          "name": "test_unpack_float_data",
+          "docstring": null
+        },
+        {
+          "name": "test_unpack_structured",
+          "docstring": null
+        },
+        {
+          "name": "test_unpack_auto_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_unpack_single_name",
+          "docstring": null
+        },
+        {
+          "name": "test_squeeze_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_ndmin_keyword",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPathUsage",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_loadtxt",
+          "docstring": null
+        },
+        {
+          "name": "test_save_load",
+          "docstring": null
+        },
+        {
+          "name": "test_save_load_memmap",
+          "docstring": null
+        },
+        {
+          "name": "test_save_load_memmap_readwrite",
+          "docstring": null
+        },
+        {
+          "name": "test_savez_load",
+          "docstring": null
+        },
+        {
+          "name": "test_savez_compressed_load",
+          "docstring": null
+        },
+        {
+          "name": "test_genfromtxt",
+          "docstring": null
+        },
+        {
+          "name": "test_recfromtxt",
+          "docstring": null
+        },
+        {
+          "name": "test_recfromcsv",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "JustWriter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "flush",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "JustReader",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "seek",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CustomWriter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "write",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CrazyInt",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "strptime",
+      "docstring": "This function is available in the datetime module only from Python >=\n2.5."
+    },
+    {
+      "name": "test_gzip_load",
+      "docstring": null
+    },
+    {
+      "name": "test_ducktyping",
+      "docstring": null
+    },
+    {
+      "name": "test_gzip_loadtxt",
+      "docstring": null
+    },
+    {
+      "name": "test_gzip_loadtxt_from_string",
+      "docstring": null
+    },
+    {
+      "name": "test_npzfile_dict",
+      "docstring": null
+    },
+    {
+      "name": "test_load_refcount",
+      "docstring": null
+    },
+    {
+      "name": "test_load_multiple_arrays_until_eof",
+      "docstring": null
+    },
+    {
+      "name": "test_savez_nopickle",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "writelines",
+      "docstring": null
+    },
+    {
+      "name": "roundtrip",
+      "docstring": "save_func : callable\n    Function used to save arrays to file.\nfile_on_disk : bool\n    If true, store the file on disk, instead of in a\n    string buffer.\nsave_kwds : dict\n    Parameters passed to `save_func`.\nload_kwds : dict\n    Parameters passed to `numpy.load`.\nargs : tuple of arrays\n    Arrays stored to file."
+    },
+    {
+      "name": "check_roundtrips",
+      "docstring": null
+    },
+    {
+      "name": "test_array",
+      "docstring": null
+    },
+    {
+      "name": "test_array_object",
+      "docstring": null
+    },
+    {
+      "name": "test_1D",
+      "docstring": null
+    },
+    {
+      "name": "test_mmap",
+      "docstring": null
+    },
+    {
+      "name": "test_record",
+      "docstring": null
+    },
+    {
+      "name": "test_format_2_0",
+      "docstring": null
+    },
+    {
+      "name": "roundtrip",
+      "docstring": null
+    },
+    {
+      "name": "roundtrip",
+      "docstring": null
+    },
+    {
+      "name": "test_big_arrays",
+      "docstring": null
+    },
+    {
+      "name": "test_multiple_arrays",
+      "docstring": null
+    },
+    {
+      "name": "test_named_arrays",
+      "docstring": null
+    },
+    {
+      "name": "test_tuple_getitem_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_BagObj",
+      "docstring": null
+    },
+    {
+      "name": "test_savez_filename_clashes",
+      "docstring": null
+    },
+    {
+      "name": "test_not_closing_opened_fid",
+      "docstring": null
+    },
+    {
+      "name": "test_closing_fid",
+      "docstring": null
+    },
+    {
+      "name": "test_closing_zipfile_after_load",
+      "docstring": null
+    },
+    {
+      "name": "test_repr_lists_keys",
+      "docstring": null
+    },
+    {
+      "name": "test_array",
+      "docstring": null
+    },
+    {
+      "name": "test_1D",
+      "docstring": null
+    },
+    {
+      "name": "test_0D_3D",
+      "docstring": null
+    },
+    {
+      "name": "test_structured",
+      "docstring": null
+    },
+    {
+      "name": "test_structured_padded",
+      "docstring": null
+    },
+    {
+      "name": "test_multifield_view",
+      "docstring": null
+    },
+    {
+      "name": "test_delimiter",
+      "docstring": null
+    },
+    {
+      "name": "test_format",
+      "docstring": null
+    },
+    {
+      "name": "test_header_footer",
+      "docstring": null
+    },
+    {
+      "name": "test_file_roundtrip",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_arrays",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_negative_exponent",
+      "docstring": null
+    },
+    {
+      "name": "test_custom_writer",
+      "docstring": null
+    },
+    {
+      "name": "test_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_unicode_roundtrip",
+      "docstring": null
+    },
+    {
+      "name": "test_unicode_bytestream",
+      "docstring": null
+    },
+    {
+      "name": "test_unicode_stringstream",
+      "docstring": null
+    },
+    {
+      "name": "test_unicode_and_bytes_fmt",
+      "docstring": null
+    },
+    {
+      "name": "test_large_zip",
+      "docstring": null
+    },
+    {
+      "name": "check_compressed",
+      "docstring": null
+    },
+    {
+      "name": "test_compressed_gzip",
+      "docstring": null
+    },
+    {
+      "name": "test_compressed_bz2",
+      "docstring": null
+    },
+    {
+      "name": "test_compressed_lzma",
+      "docstring": null
+    },
+    {
+      "name": "test_encoding",
+      "docstring": null
+    },
+    {
+      "name": "test_stringload",
+      "docstring": null
+    },
+    {
+      "name": "test_binary_decode",
+      "docstring": null
+    },
+    {
+      "name": "test_converters_decode",
+      "docstring": null
+    },
+    {
+      "name": "test_converters_nodecode",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "teardown_method",
+      "docstring": null
+    },
+    {
+      "name": "test_record",
+      "docstring": null
+    },
+    {
+      "name": "test_array",
+      "docstring": null
+    },
+    {
+      "name": "test_1D",
+      "docstring": null
+    },
+    {
+      "name": "test_missing",
+      "docstring": null
+    },
+    {
+      "name": "test_converters_with_usecols",
+      "docstring": null
+    },
+    {
+      "name": "test_comments_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_comments_byte",
+      "docstring": null
+    },
+    {
+      "name": "test_comments_multiple",
+      "docstring": null
+    },
+    {
+      "name": "test_comments_multi_chars",
+      "docstring": null
+    },
+    {
+      "name": "test_skiprows",
+      "docstring": null
+    },
+    {
+      "name": "test_usecols",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_usecols",
+      "docstring": null
+    },
+    {
+      "name": "test_fancy_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_shaped_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_3d_shaped_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_str_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_file",
+      "docstring": null
+    },
+    {
+      "name": "test_unused_converter",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_with_object",
+      "docstring": null
+    },
+    {
+      "name": "test_uint64_type",
+      "docstring": null
+    },
+    {
+      "name": "test_int64_type",
+      "docstring": null
+    },
+    {
+      "name": "test_from_float_hex",
+      "docstring": null
+    },
+    {
+      "name": "test_default_float_converter_no_default_hex_conversion",
+      "docstring": "Ensure that fromhex is only used for values with the correct prefix and\nis not called by default. Regression test related to gh-19598."
+    },
+    {
+      "name": "test_default_float_converter_exception",
+      "docstring": "Ensure that the exception message raised during failed floating point\nconversion is correct. Regression test related to gh-19598."
+    },
+    {
+      "name": "test_from_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_misformatted",
+      "docstring": null
+    },
+    {
+      "name": "test_universal_newline",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_field_after_tab",
+      "docstring": null
+    },
+    {
+      "name": "test_unpack_structured",
+      "docstring": null
+    },
+    {
+      "name": "test_ndmin_keyword",
+      "docstring": null
+    },
+    {
+      "name": "test_generator_source",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_line",
+      "docstring": null
+    },
+    {
+      "name": "test_none_as_string",
+      "docstring": null
+    },
+    {
+      "name": "test_binary_load",
+      "docstring": null
+    },
+    {
+      "name": "test_max_rows",
+      "docstring": null
+    },
+    {
+      "name": "test_max_rows_with_skiprows",
+      "docstring": null
+    },
+    {
+      "name": "test_max_rows_with_read_continuation",
+      "docstring": null
+    },
+    {
+      "name": "test_max_rows_larger",
+      "docstring": null
+    },
+    {
+      "name": "test_max_rows_empty_lines",
+      "docstring": null
+    },
+    {
+      "name": "test_record",
+      "docstring": null
+    },
+    {
+      "name": "test_record_2",
+      "docstring": null
+    },
+    {
+      "name": "test_record_3",
+      "docstring": null
+    },
+    {
+      "name": "test_record_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_compiled_bytes",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_dtype_not_structured",
+      "docstring": null
+    },
+    {
+      "name": "test_record",
+      "docstring": null
+    },
+    {
+      "name": "test_array",
+      "docstring": null
+    },
+    {
+      "name": "test_1D",
+      "docstring": null
+    },
+    {
+      "name": "test_comments",
+      "docstring": null
+    },
+    {
+      "name": "test_skiprows",
+      "docstring": null
+    },
+    {
+      "name": "test_skip_footer",
+      "docstring": null
+    },
+    {
+      "name": "test_skip_footer_with_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_header",
+      "docstring": null
+    },
+    {
+      "name": "test_auto_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_auto_dtype_uniform",
+      "docstring": null
+    },
+    {
+      "name": "test_fancy_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_names_overwrite",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_fname",
+      "docstring": null
+    },
+    {
+      "name": "test_commented_header",
+      "docstring": null
+    },
+    {
+      "name": "test_names_and_comments_none",
+      "docstring": null
+    },
+    {
+      "name": "test_file_is_closed_on_error",
+      "docstring": null
+    },
+    {
+      "name": "test_autonames_and_usecols",
+      "docstring": null
+    },
+    {
+      "name": "test_converters_with_usecols",
+      "docstring": null
+    },
+    {
+      "name": "test_converters_with_usecols_and_names",
+      "docstring": null
+    },
+    {
+      "name": "test_converters_cornercases",
+      "docstring": null
+    },
+    {
+      "name": "test_converters_cornercases2",
+      "docstring": null
+    },
+    {
+      "name": "test_unused_converter",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_converter",
+      "docstring": null
+    },
+    {
+      "name": "test_tricky_converter_bug1666",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_with_converters",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_with_converters_and_usecols",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_with_object",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_with_object_no_converter",
+      "docstring": null
+    },
+    {
+      "name": "test_userconverters_with_explicit_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_utf8_userconverters_with_explicit_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_spacedelimiter",
+      "docstring": null
+    },
+    {
+      "name": "test_integer_delimiter",
+      "docstring": null
+    },
+    {
+      "name": "test_missing",
+      "docstring": null
+    },
+    {
+      "name": "test_missing_with_tabs",
+      "docstring": null
+    },
+    {
+      "name": "test_usecols",
+      "docstring": null
+    },
+    {
+      "name": "test_usecols_as_css",
+      "docstring": null
+    },
+    {
+      "name": "test_usecols_with_structured_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_usecols_with_integer",
+      "docstring": null
+    },
+    {
+      "name": "test_usecols_with_named_columns",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_file",
+      "docstring": null
+    },
+    {
+      "name": "test_fancy_dtype_alt",
+      "docstring": null
+    },
+    {
+      "name": "test_shaped_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_withmissing",
+      "docstring": null
+    },
+    {
+      "name": "test_user_missing_values",
+      "docstring": null
+    },
+    {
+      "name": "test_user_filling_values",
+      "docstring": null
+    },
+    {
+      "name": "test_withmissing_float",
+      "docstring": null
+    },
+    {
+      "name": "test_with_masked_column_uniform",
+      "docstring": null
+    },
+    {
+      "name": "test_with_masked_column_various",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_raise",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_raise_with_usecols",
+      "docstring": null
+    },
+    {
+      "name": "test_inconsistent_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_default_field_format",
+      "docstring": null
+    },
+    {
+      "name": "test_single_dtype_wo_names",
+      "docstring": null
+    },
+    {
+      "name": "test_single_dtype_w_explicit_names",
+      "docstring": null
+    },
+    {
+      "name": "test_single_dtype_w_implicit_names",
+      "docstring": null
+    },
+    {
+      "name": "test_easy_structured_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_autostrip",
+      "docstring": null
+    },
+    {
+      "name": "test_replace_space",
+      "docstring": null
+    },
+    {
+      "name": "test_replace_space_known_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_incomplete_names",
+      "docstring": null
+    },
+    {
+      "name": "test_names_auto_completion",
+      "docstring": null
+    },
+    {
+      "name": "test_names_with_usecols_bug1636",
+      "docstring": null
+    },
+    {
+      "name": "test_fixed_width_names",
+      "docstring": null
+    },
+    {
+      "name": "test_filling_values",
+      "docstring": null
+    },
+    {
+      "name": "test_comments_is_none",
+      "docstring": null
+    },
+    {
+      "name": "test_latin1",
+      "docstring": null
+    },
+    {
+      "name": "test_binary_decode_autodtype",
+      "docstring": null
+    },
+    {
+      "name": "test_utf8_byte_encoding",
+      "docstring": null
+    },
+    {
+      "name": "test_utf8_file",
+      "docstring": null
+    },
+    {
+      "name": "test_utf8_file_nodtype_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_recfromtxt",
+      "docstring": null
+    },
+    {
+      "name": "test_recfromcsv",
+      "docstring": null
+    },
+    {
+      "name": "test_max_rows",
+      "docstring": null
+    },
+    {
+      "name": "test_gft_using_filename",
+      "docstring": null
+    },
+    {
+      "name": "test_gft_from_gzip",
+      "docstring": null
+    },
+    {
+      "name": "test_gft_using_generator",
+      "docstring": null
+    },
+    {
+      "name": "test_auto_dtype_largeint",
+      "docstring": null
+    },
+    {
+      "name": "test_unpack_float_data",
+      "docstring": null
+    },
+    {
+      "name": "test_unpack_structured",
+      "docstring": null
+    },
+    {
+      "name": "test_unpack_auto_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_unpack_single_name",
+      "docstring": null
+    },
+    {
+      "name": "test_squeeze_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_ndmin_keyword",
+      "docstring": null
+    },
+    {
+      "name": "test_loadtxt",
+      "docstring": null
+    },
+    {
+      "name": "test_save_load",
+      "docstring": null
+    },
+    {
+      "name": "test_save_load_memmap",
+      "docstring": null
+    },
+    {
+      "name": "test_save_load_memmap_readwrite",
+      "docstring": null
+    },
+    {
+      "name": "test_savez_load",
+      "docstring": null
+    },
+    {
+      "name": "test_savez_compressed_load",
+      "docstring": null
+    },
+    {
+      "name": "test_genfromtxt",
+      "docstring": null
+    },
+    {
+      "name": "test_recfromtxt",
+      "docstring": null
+    },
+    {
+      "name": "test_recfromcsv",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "flush",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "seek",
+      "docstring": null
+    },
+    {
+      "name": "writer",
+      "docstring": null
+    },
+    {
+      "name": "check_large_zip",
+      "docstring": null
+    },
+    {
+      "name": "count",
+      "docstring": null
+    },
+    {
+      "name": "f",
+      "docstring": null
+    },
+    {
+      "name": "f",
+      "docstring": null
+    },
+    {
+      "name": "count",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

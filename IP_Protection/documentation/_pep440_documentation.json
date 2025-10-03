@@ -1,0 +1,132 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_utils\\_pep440.py",
+  "classes": [
+    {
+      "name": "Infinity",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "NegativeInfinity",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "InvalidVersion",
+      "docstring": "An invalid version was found, users should refer to PEP 440.",
+      "methods": []
+    },
+    {
+      "name": "_BaseVersion",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "LegacyVersion",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "public",
+          "docstring": null
+        },
+        {
+          "name": "base_version",
+          "docstring": null
+        },
+        {
+          "name": "local",
+          "docstring": null
+        },
+        {
+          "name": "is_prerelease",
+          "docstring": null
+        },
+        {
+          "name": "is_postrelease",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Version",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "public",
+          "docstring": null
+        },
+        {
+          "name": "base_version",
+          "docstring": null
+        },
+        {
+          "name": "local",
+          "docstring": null
+        },
+        {
+          "name": "is_prerelease",
+          "docstring": null
+        },
+        {
+          "name": "is_postrelease",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "parse",
+      "docstring": "Parse the given version string and return either a :class:`Version` object\nor a :class:`LegacyVersion` object depending on if the given version is\na valid PEP 440 version or a legacy version."
+    },
+    {
+      "name": "public",
+      "docstring": null
+    },
+    {
+      "name": "base_version",
+      "docstring": null
+    },
+    {
+      "name": "local",
+      "docstring": null
+    },
+    {
+      "name": "is_prerelease",
+      "docstring": null
+    },
+    {
+      "name": "is_postrelease",
+      "docstring": null
+    },
+    {
+      "name": "public",
+      "docstring": null
+    },
+    {
+      "name": "base_version",
+      "docstring": null
+    },
+    {
+      "name": "local",
+      "docstring": null
+    },
+    {
+      "name": "is_prerelease",
+      "docstring": null
+    },
+    {
+      "name": "is_postrelease",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

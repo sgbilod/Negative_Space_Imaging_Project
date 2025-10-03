@@ -1,0 +1,86 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\negative-space-project\\acquisition_mocks.py",
+  "classes": [
+    {
+      "name": "MockCameraInterface",
+      "docstring": "Mock implementation of the CameraInterface class.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a mock camera interface.\n\nArgs:\n    camera_type: Type of camera (\"webcam\", \"file\", \"stream\")\n    camera_id: ID or index of the camera"
+        },
+        {
+          "name": "connect",
+          "docstring": "Connect to the camera.\n\nReturns:\n    bool: True if connection successful"
+        },
+        {
+          "name": "disconnect",
+          "docstring": "Disconnect from the camera."
+        },
+        {
+          "name": "capture_frame",
+          "docstring": "Capture a frame from the camera.\n\nReturns:\n    numpy.ndarray: Captured frame or None if not connected"
+        },
+        {
+          "name": "get_camera_properties",
+          "docstring": "Get properties of the camera.\n\nReturns:\n    dict: Camera properties"
+        }
+      ]
+    },
+    {
+      "name": "MockMetadataExtractor",
+      "docstring": "Mock implementation of the MetadataExtractor class.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a mock metadata extractor."
+        },
+        {
+          "name": "extract",
+          "docstring": "Extract metadata from an image.\n\nArgs:\n    image: Image to extract metadata from\n    source_type: Type of source (\"camera\", \"file\", \"stream\")\n    include_spatial: Whether to include spatial metadata\n    \nReturns:\n    dict: Extracted metadata"
+        }
+      ]
+    },
+    {
+      "name": "MockFeatureDetector",
+      "docstring": "Mock implementation of the FeatureDetector class.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a mock feature detector.\n\nArgs:\n    feature_type: Type of features to detect\n    params: Parameters for feature detection"
+        },
+        {
+          "name": "detect",
+          "docstring": "Detect features in an image.\n\nArgs:\n    image: Image to detect features in\n    detect_voids: Whether to detect void regions\n    detect_boundaries: Whether to detect boundaries\n    \nReturns:\n    dict: Detected features"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "connect",
+      "docstring": "Connect to the camera.\n\nReturns:\n    bool: True if connection successful"
+    },
+    {
+      "name": "disconnect",
+      "docstring": "Disconnect from the camera."
+    },
+    {
+      "name": "capture_frame",
+      "docstring": "Capture a frame from the camera.\n\nReturns:\n    numpy.ndarray: Captured frame or None if not connected"
+    },
+    {
+      "name": "get_camera_properties",
+      "docstring": "Get properties of the camera.\n\nReturns:\n    dict: Camera properties"
+    },
+    {
+      "name": "extract",
+      "docstring": "Extract metadata from an image.\n\nArgs:\n    image: Image to extract metadata from\n    source_type: Type of source (\"camera\", \"file\", \"stream\")\n    include_spatial: Whether to include spatial metadata\n    \nReturns:\n    dict: Extracted metadata"
+    },
+    {
+      "name": "detect",
+      "docstring": "Detect features in an image.\n\nArgs:\n    image: Image to detect features in\n    detect_voids: Whether to detect void regions\n    detect_boundaries: Whether to detect boundaries\n    \nReturns:\n    dict: Detected features"
+    }
+  ],
+  "innovations": []
+}

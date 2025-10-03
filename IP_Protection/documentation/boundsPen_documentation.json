@@ -1,0 +1,31 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\pens\\boundsPen.py",
+  "classes": [
+    {
+      "name": "ControlBoundsPen",
+      "docstring": "Pen to calculate the \"control bounds\" of a shape. This is the\nbounding box of all control points, so may be larger than the\nactual bounding box if there are curves that don't have points\non their extremes.\n\nWhen the shape has been drawn, the bounds are available as the\n``bounds`` attribute of the pen object. It's a 4-tuple::\n\n        (xMin, yMin, xMax, yMax).\n\nIf ``ignoreSinglePoints`` is True, single points are ignored.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "init",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BoundsPen",
+      "docstring": "Pen to calculate the bounds of a shape. It calculates the\ncorrect bounds even when the shape contains curves that don't\nhave points on their extremes. This is somewhat slower to compute\nthan the \"control bounds\".\n\nWhen the shape has been drawn, the bounds are available as the\n``bounds`` attribute of the pen object. It's a 4-tuple::\n\n        (xMin, yMin, xMax, yMax)",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "init",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

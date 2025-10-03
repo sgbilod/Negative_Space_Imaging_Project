@@ -1,0 +1,123 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\temporal_variants\\negative_space_tracker.py",
+  "classes": [
+    {
+      "name": "ChangeType",
+      "docstring": "Types of changes that can occur in negative spaces",
+      "methods": []
+    },
+    {
+      "name": "ChangeMetrics",
+      "docstring": "Metrics for quantifying changes in negative spaces",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize change metrics"
+        },
+        {
+          "name": "to_array",
+          "docstring": "Convert metrics to a numpy array"
+        },
+        {
+          "name": "from_array",
+          "docstring": "Create ChangeMetrics from a numpy array"
+        }
+      ]
+    },
+    {
+      "name": "TemporalSignature",
+      "docstring": "Represents a signature that captures temporal patterns in negative space",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a temporal signature\n\nArgs:\n    window_size: Number of time steps to include in the signature"
+        },
+        {
+          "name": "add_metrics",
+          "docstring": "Add change metrics to the history\n\nArgs:\n    metrics: The change metrics to add"
+        },
+        {
+          "name": "visualize",
+          "docstring": "Visualize the temporal signature\n\nArgs:\n    output_path: Optional path to save the visualization. If None, the\n               visualization is displayed but not saved."
+        },
+        {
+          "name": "save",
+          "docstring": "Save the temporal signature to a file\n\nArgs:\n    filepath: Path to save the signature"
+        },
+        {
+          "name": "load",
+          "docstring": "Load a temporal signature from a file\n\nArgs:\n    filepath: Path to the saved signature\n    \nReturns:\n    TemporalSignature: The loaded signature"
+        }
+      ]
+    },
+    {
+      "name": "NegativeSpaceTracker",
+      "docstring": "Tracks changes in negative spaces over time",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a negative space tracker\n\nArgs:\n    memory_frames: Number of previous frames to store"
+        },
+        {
+          "name": "add_point_cloud",
+          "docstring": "Add a new point cloud to the tracker and compute changes\n\nArgs:\n    point_cloud: The point cloud to add (either Open3D or simplified)\n    \nReturns:\n    ChangeMetrics: Metrics describing the changes"
+        },
+        {
+          "name": "get_change_type",
+          "docstring": "Determine the type of change based on metrics\n\nArgs:\n    metrics: Change metrics to analyze\n    \nReturns:\n    ChangeType: The type of change that occurred"
+        },
+        {
+          "name": "visualize_changes",
+          "docstring": "Visualize the changes over time\n\nArgs:\n    output_path: Optional path to save the visualization. If None, the\n               visualization is displayed but not saved."
+        },
+        {
+          "name": "get_temporal_signature",
+          "docstring": "Get the current temporal signature\n\nReturns:\n    TemporalSignature: The current temporal signature"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "to_array",
+      "docstring": "Convert metrics to a numpy array"
+    },
+    {
+      "name": "from_array",
+      "docstring": "Create ChangeMetrics from a numpy array"
+    },
+    {
+      "name": "add_metrics",
+      "docstring": "Add change metrics to the history\n\nArgs:\n    metrics: The change metrics to add"
+    },
+    {
+      "name": "visualize",
+      "docstring": "Visualize the temporal signature\n\nArgs:\n    output_path: Optional path to save the visualization. If None, the\n               visualization is displayed but not saved."
+    },
+    {
+      "name": "save",
+      "docstring": "Save the temporal signature to a file\n\nArgs:\n    filepath: Path to save the signature"
+    },
+    {
+      "name": "load",
+      "docstring": "Load a temporal signature from a file\n\nArgs:\n    filepath: Path to the saved signature\n    \nReturns:\n    TemporalSignature: The loaded signature"
+    },
+    {
+      "name": "add_point_cloud",
+      "docstring": "Add a new point cloud to the tracker and compute changes\n\nArgs:\n    point_cloud: The point cloud to add (either Open3D or simplified)\n    \nReturns:\n    ChangeMetrics: Metrics describing the changes"
+    },
+    {
+      "name": "get_change_type",
+      "docstring": "Determine the type of change based on metrics\n\nArgs:\n    metrics: Change metrics to analyze\n    \nReturns:\n    ChangeType: The type of change that occurred"
+    },
+    {
+      "name": "visualize_changes",
+      "docstring": "Visualize the changes over time\n\nArgs:\n    output_path: Optional path to save the visualization. If None, the\n               visualization is displayed but not saved."
+    },
+    {
+      "name": "get_temporal_signature",
+      "docstring": "Get the current temporal signature\n\nReturns:\n    TemporalSignature: The current temporal signature"
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,118 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\_p_o_s_t.py",
+  "classes": [
+    {
+      "name": "table__p_o_s_t",
+      "docstring": "PostScript table\n\nThe ``post`` table contains information needed to use the font on\nPostScript printers, including the PostScript names of glyphs and\ndata that was stored in the ``FontInfo`` dictionary for Type 1 fonts.\n\nSee also https://learn.microsoft.com/en-us/typography/opentype/spec/post",
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "getGlyphOrder",
+          "docstring": "This function will get called by a ttLib.TTFont instance.\nDo not call this function yourself, use TTFont().getGlyphOrder()\nor its relatives instead!"
+        },
+        {
+          "name": "decode_format_1_0",
+          "docstring": null
+        },
+        {
+          "name": "decode_format_2_0",
+          "docstring": null
+        },
+        {
+          "name": "build_psNameMapping",
+          "docstring": null
+        },
+        {
+          "name": "decode_format_3_0",
+          "docstring": null
+        },
+        {
+          "name": "decode_format_4_0",
+          "docstring": null
+        },
+        {
+          "name": "encode_format_2_0",
+          "docstring": null
+        },
+        {
+          "name": "encode_format_4_0",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "unpackPStrings",
+      "docstring": null
+    },
+    {
+      "name": "packPStrings",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "getGlyphOrder",
+      "docstring": "This function will get called by a ttLib.TTFont instance.\nDo not call this function yourself, use TTFont().getGlyphOrder()\nor its relatives instead!"
+    },
+    {
+      "name": "decode_format_1_0",
+      "docstring": null
+    },
+    {
+      "name": "decode_format_2_0",
+      "docstring": null
+    },
+    {
+      "name": "build_psNameMapping",
+      "docstring": null
+    },
+    {
+      "name": "decode_format_3_0",
+      "docstring": null
+    },
+    {
+      "name": "decode_format_4_0",
+      "docstring": null
+    },
+    {
+      "name": "encode_format_2_0",
+      "docstring": null
+    },
+    {
+      "name": "encode_format_4_0",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

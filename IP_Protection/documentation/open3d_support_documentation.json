@@ -1,0 +1,94 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\utils\\open3d_support.py",
+  "classes": [
+    {
+      "name": "FallbackOpen3D",
+      "docstring": "Fallback implementation for Open3D when not available",
+      "methods": []
+    },
+    {
+      "name": "geometry",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "utility",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "visualization",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PointCloud",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TriangleMesh",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Vector3dVector",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Vector3iVector",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Visualizer",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "create_window",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "check_open3d_installation",
+      "docstring": "Check if Open3D is properly installed.\n\nReturns:\n    bool: True if Open3D is available, False otherwise"
+    },
+    {
+      "name": "get_open3d_version",
+      "docstring": "Get the version of Open3D.\n\nReturns:\n    str: Open3D version or \"Not available\""
+    },
+    {
+      "name": "create_coordinate_frame",
+      "docstring": "Create a coordinate frame for visualization.\n\nArgs:\n    size: Size of the coordinate frame\n    origin: Origin of the coordinate frame\n    \nReturns:\n    Open3D geometry object"
+    },
+    {
+      "name": "create_window",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

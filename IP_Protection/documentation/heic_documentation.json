@@ -1,0 +1,170 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\exifread\\core\\heic.py",
+  "classes": [
+    {
+      "name": "BoxVersion",
+      "docstring": "Wrong box version.",
+      "methods": []
+    },
+    {
+      "name": "BadSize",
+      "docstring": "Wrong box size.",
+      "methods": []
+    },
+    {
+      "name": "Box",
+      "docstring": "A HEIC Box.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_sizes",
+          "docstring": null
+        },
+        {
+          "name": "set_full",
+          "docstring": "ISO boxes come in 'old' and 'full' variants.\nThe 'full' variant contains version and flags information."
+        }
+      ]
+    },
+    {
+      "name": "HEICExifFinder",
+      "docstring": "Find HEIC EXIF tags.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get",
+          "docstring": null
+        },
+        {
+          "name": "get16",
+          "docstring": null
+        },
+        {
+          "name": "get32",
+          "docstring": null
+        },
+        {
+          "name": "get64",
+          "docstring": null
+        },
+        {
+          "name": "get_int4x2",
+          "docstring": null
+        },
+        {
+          "name": "get_int",
+          "docstring": "some fields have variant-sized data."
+        },
+        {
+          "name": "get_string",
+          "docstring": null
+        },
+        {
+          "name": "next_box",
+          "docstring": null
+        },
+        {
+          "name": "get_full",
+          "docstring": null
+        },
+        {
+          "name": "skip",
+          "docstring": null
+        },
+        {
+          "name": "expect_parse",
+          "docstring": null
+        },
+        {
+          "name": "get_parser",
+          "docstring": null
+        },
+        {
+          "name": "parse_box",
+          "docstring": null
+        },
+        {
+          "name": "find_exif",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "find_heic_tiff",
+      "docstring": "Look for TIFF header in HEIC files.\n\nIn some HEIC files, the Exif offset is 0,\nand yet there is a plain TIFF header near end of the file."
+    },
+    {
+      "name": "set_sizes",
+      "docstring": null
+    },
+    {
+      "name": "set_full",
+      "docstring": "ISO boxes come in 'old' and 'full' variants.\nThe 'full' variant contains version and flags information."
+    },
+    {
+      "name": "get",
+      "docstring": null
+    },
+    {
+      "name": "get16",
+      "docstring": null
+    },
+    {
+      "name": "get32",
+      "docstring": null
+    },
+    {
+      "name": "get64",
+      "docstring": null
+    },
+    {
+      "name": "get_int4x2",
+      "docstring": null
+    },
+    {
+      "name": "get_int",
+      "docstring": "some fields have variant-sized data."
+    },
+    {
+      "name": "get_string",
+      "docstring": null
+    },
+    {
+      "name": "next_box",
+      "docstring": null
+    },
+    {
+      "name": "get_full",
+      "docstring": null
+    },
+    {
+      "name": "skip",
+      "docstring": null
+    },
+    {
+      "name": "expect_parse",
+      "docstring": null
+    },
+    {
+      "name": "get_parser",
+      "docstring": null
+    },
+    {
+      "name": "parse_box",
+      "docstring": null
+    },
+    {
+      "name": "find_exif",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

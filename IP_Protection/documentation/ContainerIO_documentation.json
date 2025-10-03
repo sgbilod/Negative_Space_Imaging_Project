@@ -1,0 +1,138 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\ContainerIO.py",
+  "classes": [
+    {
+      "name": "ContainerIO",
+      "docstring": "A file object that provides read access to a part of an existing\nfile (for example a TAR file).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create file object.\n\n:param file: Existing file.\n:param offset: Start of region, in bytes.\n:param length: Size of region, in bytes."
+        },
+        {
+          "name": "isatty",
+          "docstring": null
+        },
+        {
+          "name": "seekable",
+          "docstring": null
+        },
+        {
+          "name": "seek",
+          "docstring": "Move file pointer.\n\n:param offset: Offset in bytes.\n:param mode: Starting position. Use 0 for beginning of region, 1\n   for current offset, and 2 for end of region.  You cannot move\n   the pointer outside the defined region.\n:returns: Offset from start of region, in bytes."
+        },
+        {
+          "name": "tell",
+          "docstring": "Get current file pointer.\n\n:returns: Offset from start of region, in bytes."
+        },
+        {
+          "name": "readable",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": "Read data.\n\n:param n: Number of bytes to read. If omitted, zero or negative,\n    read until end of region.\n:returns: An 8-bit string."
+        },
+        {
+          "name": "readline",
+          "docstring": "Read a line of text.\n\n:param n: Number of bytes to read. If omitted, zero or negative,\n    read until end of line.\n:returns: An 8-bit string."
+        },
+        {
+          "name": "readlines",
+          "docstring": "Read multiple lines of text.\n\n:param n: Number of lines to read. If omitted, zero, negative or None,\n    read until end of region.\n:returns: A list of 8-bit strings."
+        },
+        {
+          "name": "writable",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "writelines",
+          "docstring": null
+        },
+        {
+          "name": "truncate",
+          "docstring": null
+        },
+        {
+          "name": "fileno",
+          "docstring": null
+        },
+        {
+          "name": "flush",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "isatty",
+      "docstring": null
+    },
+    {
+      "name": "seekable",
+      "docstring": null
+    },
+    {
+      "name": "seek",
+      "docstring": "Move file pointer.\n\n:param offset: Offset in bytes.\n:param mode: Starting position. Use 0 for beginning of region, 1\n   for current offset, and 2 for end of region.  You cannot move\n   the pointer outside the defined region.\n:returns: Offset from start of region, in bytes."
+    },
+    {
+      "name": "tell",
+      "docstring": "Get current file pointer.\n\n:returns: Offset from start of region, in bytes."
+    },
+    {
+      "name": "readable",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": "Read data.\n\n:param n: Number of bytes to read. If omitted, zero or negative,\n    read until end of region.\n:returns: An 8-bit string."
+    },
+    {
+      "name": "readline",
+      "docstring": "Read a line of text.\n\n:param n: Number of bytes to read. If omitted, zero or negative,\n    read until end of line.\n:returns: An 8-bit string."
+    },
+    {
+      "name": "readlines",
+      "docstring": "Read multiple lines of text.\n\n:param n: Number of lines to read. If omitted, zero, negative or None,\n    read until end of region.\n:returns: A list of 8-bit strings."
+    },
+    {
+      "name": "writable",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "writelines",
+      "docstring": null
+    },
+    {
+      "name": "truncate",
+      "docstring": null
+    },
+    {
+      "name": "fileno",
+      "docstring": null
+    },
+    {
+      "name": "flush",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

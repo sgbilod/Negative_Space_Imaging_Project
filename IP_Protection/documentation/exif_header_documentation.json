@@ -1,0 +1,82 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\exifread\\core\\exif_header.py",
+  "classes": [
+    {
+      "name": "ExifHeader",
+      "docstring": "Handle an EXIF header.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "s2n",
+          "docstring": "Convert slice to integer, based on sign and endian flags.\n\nUsually this offset is assumed to be relative to the beginning of the\nstart of the EXIF information.\nFor some cameras that use relative tags, this offset may be relative\nto some other starting point."
+        },
+        {
+          "name": "n2b",
+          "docstring": "Convert offset to bytes."
+        },
+        {
+          "name": "list_ifd",
+          "docstring": "Return the list of IFDs in the header."
+        },
+        {
+          "name": "dump_ifd",
+          "docstring": "Return a list of entries in the given IFD."
+        },
+        {
+          "name": "extract_tiff_thumbnail",
+          "docstring": "Extract uncompressed TIFF thumbnail.\n\nTake advantage of the pre-existing layout in the thumbnail IFD as\nmuch as possible"
+        },
+        {
+          "name": "extract_jpeg_thumbnail",
+          "docstring": "Extract JPEG thumbnail.\n\n(Thankfully the JPEG data is stored as a unit.)"
+        },
+        {
+          "name": "decode_maker_note",
+          "docstring": "Decode all the camera-specific MakerNote formats\n\nNote is the data that comprises this MakerNote.\nThe MakerNote will likely have pointers in it that point to other\nparts of the file. We'll use self.offset as the starting point for\nmost of those pointers, since they are relative to the beginning\nof the file.\nIf the MakerNote is in a newer format, it may use relative addressing\nwithin the MakerNote. In that case we'll use relative addresses for\nthe pointers.\nAs an aside: it's not just to be annoying that the manufacturers use\nrelative offsets.  It's so that if the makernote has to be moved by the\npicture software all of the offsets don't have to be adjusted.  Overall,\nthis is probably the right strategy for makernotes, though the spec is\nambiguous.\nThe spec does not appear to imagine that makernotes would\nfollow EXIF format internally.  Once they did, it's ambiguous whether\nthe offsets should be from the header at the start of all the EXIF info,\nor from the header at the start of the makernote.\n\nTODO: look into splitting this up"
+        },
+        {
+          "name": "parse_xmp",
+          "docstring": "Adobe's Extensible Metadata Platform, just dump the pretty XML."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "s2n",
+      "docstring": "Convert slice to integer, based on sign and endian flags.\n\nUsually this offset is assumed to be relative to the beginning of the\nstart of the EXIF information.\nFor some cameras that use relative tags, this offset may be relative\nto some other starting point."
+    },
+    {
+      "name": "n2b",
+      "docstring": "Convert offset to bytes."
+    },
+    {
+      "name": "list_ifd",
+      "docstring": "Return the list of IFDs in the header."
+    },
+    {
+      "name": "dump_ifd",
+      "docstring": "Return a list of entries in the given IFD."
+    },
+    {
+      "name": "extract_tiff_thumbnail",
+      "docstring": "Extract uncompressed TIFF thumbnail.\n\nTake advantage of the pre-existing layout in the thumbnail IFD as\nmuch as possible"
+    },
+    {
+      "name": "extract_jpeg_thumbnail",
+      "docstring": "Extract JPEG thumbnail.\n\n(Thankfully the JPEG data is stored as a unit.)"
+    },
+    {
+      "name": "decode_maker_note",
+      "docstring": "Decode all the camera-specific MakerNote formats\n\nNote is the data that comprises this MakerNote.\nThe MakerNote will likely have pointers in it that point to other\nparts of the file. We'll use self.offset as the starting point for\nmost of those pointers, since they are relative to the beginning\nof the file.\nIf the MakerNote is in a newer format, it may use relative addressing\nwithin the MakerNote. In that case we'll use relative addresses for\nthe pointers.\nAs an aside: it's not just to be annoying that the manufacturers use\nrelative offsets.  It's so that if the makernote has to be moved by the\npicture software all of the offsets don't have to be adjusted.  Overall,\nthis is probably the right strategy for makernotes, though the spec is\nambiguous.\nThe spec does not appear to imagine that makernotes would\nfollow EXIF format internally.  Once they did, it's ambiguous whether\nthe offsets should be from the header at the start of all the EXIF info,\nor from the header at the start of the makernote.\n\nTODO: look into splitting this up"
+    },
+    {
+      "name": "parse_xmp",
+      "docstring": "Adobe's Extensible Metadata Platform, just dump the pretty XML."
+    }
+  ],
+  "innovations": []
+}

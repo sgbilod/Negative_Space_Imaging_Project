@@ -1,0 +1,102 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\control.py",
+  "classes": [
+    {
+      "name": "Control",
+      "docstring": "A renderable that inserts a control code (non printable but may move cursor).\n\nArgs:\n    *codes (str): Positional arguments are either a :class:`~rich.segment.ControlType` enum or a\n        tuple of ControlType and an integer parameter",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "bell",
+          "docstring": "Ring the 'bell'."
+        },
+        {
+          "name": "home",
+          "docstring": "Move cursor to 'home' position."
+        },
+        {
+          "name": "move",
+          "docstring": "Move cursor relative to current position.\n\nArgs:\n    x (int): X offset.\n    y (int): Y offset.\n\nReturns:\n    ~Control: Control object."
+        },
+        {
+          "name": "move_to_column",
+          "docstring": "Move to the given column, optionally add offset to row.\n\nReturns:\n    x (int): absolute x (column)\n    y (int): optional y offset (row)\n\nReturns:\n    ~Control: Control object."
+        },
+        {
+          "name": "move_to",
+          "docstring": "Move cursor to absolute position.\n\nArgs:\n    x (int): x offset (column)\n    y (int): y offset (row)\n\nReturns:\n    ~Control: Control object."
+        },
+        {
+          "name": "clear",
+          "docstring": "Clear the screen."
+        },
+        {
+          "name": "show_cursor",
+          "docstring": "Show or hide the cursor."
+        },
+        {
+          "name": "alt_screen",
+          "docstring": "Enable or disable alt screen."
+        },
+        {
+          "name": "title",
+          "docstring": "Set the terminal window title\n\nArgs:\n    title (str): The new terminal window title"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "strip_control_codes",
+      "docstring": "Remove control codes from text.\n\nArgs:\n    text (str): A string possibly contain control codes.\n\nReturns:\n    str: String with control codes removed."
+    },
+    {
+      "name": "escape_control_codes",
+      "docstring": "Replace control codes with their \"escaped\" equivalent in the given text.\n(e.g. \"\b\" becomes \"\\b\")\n\nArgs:\n    text (str): A string possibly containing control codes.\n\nReturns:\n    str: String with control codes replaced with their escaped version."
+    },
+    {
+      "name": "bell",
+      "docstring": "Ring the 'bell'."
+    },
+    {
+      "name": "home",
+      "docstring": "Move cursor to 'home' position."
+    },
+    {
+      "name": "move",
+      "docstring": "Move cursor relative to current position.\n\nArgs:\n    x (int): X offset.\n    y (int): Y offset.\n\nReturns:\n    ~Control: Control object."
+    },
+    {
+      "name": "move_to_column",
+      "docstring": "Move to the given column, optionally add offset to row.\n\nReturns:\n    x (int): absolute x (column)\n    y (int): optional y offset (row)\n\nReturns:\n    ~Control: Control object."
+    },
+    {
+      "name": "move_to",
+      "docstring": "Move cursor to absolute position.\n\nArgs:\n    x (int): x offset (column)\n    y (int): y offset (row)\n\nReturns:\n    ~Control: Control object."
+    },
+    {
+      "name": "clear",
+      "docstring": "Clear the screen."
+    },
+    {
+      "name": "show_cursor",
+      "docstring": "Show or hide the cursor."
+    },
+    {
+      "name": "alt_screen",
+      "docstring": "Enable or disable alt screen."
+    },
+    {
+      "name": "title",
+      "docstring": "Set the terminal window title\n\nArgs:\n    title (str): The new terminal window title"
+    },
+    {
+      "name": "get_codes",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

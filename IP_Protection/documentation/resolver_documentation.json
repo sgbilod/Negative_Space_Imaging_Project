@@ -1,0 +1,42 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib\\resolver.py",
+  "classes": [
+    {
+      "name": "Resolver",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "resolve",
+          "docstring": null
+        },
+        {
+          "name": "get_installation_order",
+          "docstring": "Get order for installation of requirements in RequirementSet.\n\nThe returned list contains a requirement before another that depends on\nit. This helps ensure that the environment is kept consistent as they\nget installed one-by-one.\n\nThe current implementation creates a topological ordering of the\ndependency graph, giving more weight to packages with less\nor no dependencies, while breaking any cycles in the graph at\narbitrary points. We make no guarantees about where the cycle\nwould be broken, other than it *would* be broken."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_topological_weights",
+      "docstring": "Assign weights to each node based on how \"deep\" they are.\n\nThis implementation may change at any point in the future without prior\nnotice.\n\nWe first simplify the dependency graph by pruning any leaves and giving them\nthe highest weight: a package without any dependencies should be installed\nfirst. This is done again and again in the same way, giving ever less weight\nto the newly found leaves. The loop stops when no leaves are left: all\nremaining packages have at least one dependency left in the graph.\n\nThen we continue with the remaining graph, by taking the length for the\nlongest path to any node from root, ignoring any paths that contain a single\nnode twice (i.e. cycles). This is done through a depth-first search through\nthe graph, while keeping track of the path to the node.\n\nCycles in the graph result would result in node being revisited while also\nbeing on its own path. In this case, take no action. This helps ensure we\ndon't get stuck in a cycle.\n\nWhen assigning weight, the longer path (i.e. larger length) is preferred.\n\nWe are only interested in the weights of packages that are in the\nrequirement_keys."
+    },
+    {
+      "name": "resolve",
+      "docstring": null
+    },
+    {
+      "name": "get_installation_order",
+      "docstring": "Get order for installation of requirements in RequirementSet.\n\nThe returned list contains a requirement before another that depends on\nit. This helps ensure that the environment is kept consistent as they\nget installed one-by-one.\n\nThe current implementation creates a topological ordering of the\ndependency graph, giving more weight to packages with less\nor no dependencies, while breaking any cycles in the graph at\narbitrary points. We make no guarantees about where the cycle\nwould be broken, other than it *would* be broken."
+    },
+    {
+      "name": "visit",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

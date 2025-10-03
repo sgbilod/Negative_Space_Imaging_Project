@@ -1,0 +1,236 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\TupleVariation.py",
+  "classes": [
+    {
+      "name": "TupleVariation",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "getUsedPoints",
+          "docstring": null
+        },
+        {
+          "name": "hasImpact",
+          "docstring": "Returns True if this TupleVariation has any visible impact.\n\nIf the result is False, the TupleVariation can be omitted from the font\nwithout making any visible difference."
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "compileCoord",
+          "docstring": null
+        },
+        {
+          "name": "compileIntermediateCoord",
+          "docstring": null
+        },
+        {
+          "name": "decompileCoord_",
+          "docstring": null
+        },
+        {
+          "name": "compilePoints",
+          "docstring": null
+        },
+        {
+          "name": "decompilePoints_",
+          "docstring": "(numPoints, data, offset, tableTag) --> ([point1, point2, ...], newOffset)"
+        },
+        {
+          "name": "compileDeltas",
+          "docstring": null
+        },
+        {
+          "name": "compileDeltaValues_",
+          "docstring": "[value1, value2, value3, ...] --> bytearray\n\nEmits a sequence of runs. Each run starts with a\nbyte-sized header whose 6 least significant bits\n(header & 0x3F) indicate how many values are encoded\nin this run. The stored length is the actual length\nminus one; run lengths are thus in the range [1..64].\nIf the header byte has its most significant bit (0x80)\nset, all values in this run are zero, and no data\nfollows. Otherwise, the header byte is followed by\n((header & 0x3F) + 1) signed values.  If (header &\n0x40) is clear, the delta values are stored as signed\nbytes; if (header & 0x40) is set, the delta values are\nsigned 16-bit integers."
+        },
+        {
+          "name": "encodeDeltaRunAsZeroes_",
+          "docstring": null
+        },
+        {
+          "name": "encodeDeltaRunAsBytes_",
+          "docstring": null
+        },
+        {
+          "name": "encodeDeltaRunAsWords_",
+          "docstring": null
+        },
+        {
+          "name": "encodeDeltaRunAsLongs_",
+          "docstring": null
+        },
+        {
+          "name": "decompileDeltas_",
+          "docstring": "(numDeltas, data, offset) --> ([delta, delta, ...], newOffset)"
+        },
+        {
+          "name": "getTupleSize_",
+          "docstring": null
+        },
+        {
+          "name": "getCoordWidth",
+          "docstring": "Return 2 if coordinates are (x, y) as in gvar, 1 if single values\nas in cvar, or 0 if empty."
+        },
+        {
+          "name": "scaleDeltas",
+          "docstring": null
+        },
+        {
+          "name": "roundDeltas",
+          "docstring": null
+        },
+        {
+          "name": "calcInferredDeltas",
+          "docstring": null
+        },
+        {
+          "name": "optimize",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "decompileSharedTuples",
+      "docstring": null
+    },
+    {
+      "name": "compileSharedTuples",
+      "docstring": null
+    },
+    {
+      "name": "compileTupleVariationStore",
+      "docstring": null
+    },
+    {
+      "name": "decompileTupleVariationStore",
+      "docstring": null
+    },
+    {
+      "name": "decompileTupleVariation_",
+      "docstring": null
+    },
+    {
+      "name": "inferRegion_",
+      "docstring": "Infer start and end for a (non-intermediate) region\n\nThis helper function computes the applicability region for\nvariation tuples whose INTERMEDIATE_REGION flag is not set in the\nTupleVariationHeader structure.  Variation tuples apply only to\ncertain regions of the variation space; outside that region, the\ntuple has no effect.  To make the binary encoding more compact,\nTupleVariationHeaders can omit the intermediateStartTuple and\nintermediateEndTuple fields."
+    },
+    {
+      "name": "getUsedPoints",
+      "docstring": null
+    },
+    {
+      "name": "hasImpact",
+      "docstring": "Returns True if this TupleVariation has any visible impact.\n\nIf the result is False, the TupleVariation can be omitted from the font\nwithout making any visible difference."
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "compileCoord",
+      "docstring": null
+    },
+    {
+      "name": "compileIntermediateCoord",
+      "docstring": null
+    },
+    {
+      "name": "decompileCoord_",
+      "docstring": null
+    },
+    {
+      "name": "compilePoints",
+      "docstring": null
+    },
+    {
+      "name": "decompilePoints_",
+      "docstring": "(numPoints, data, offset, tableTag) --> ([point1, point2, ...], newOffset)"
+    },
+    {
+      "name": "compileDeltas",
+      "docstring": null
+    },
+    {
+      "name": "compileDeltaValues_",
+      "docstring": "[value1, value2, value3, ...] --> bytearray\n\nEmits a sequence of runs. Each run starts with a\nbyte-sized header whose 6 least significant bits\n(header & 0x3F) indicate how many values are encoded\nin this run. The stored length is the actual length\nminus one; run lengths are thus in the range [1..64].\nIf the header byte has its most significant bit (0x80)\nset, all values in this run are zero, and no data\nfollows. Otherwise, the header byte is followed by\n((header & 0x3F) + 1) signed values.  If (header &\n0x40) is clear, the delta values are stored as signed\nbytes; if (header & 0x40) is set, the delta values are\nsigned 16-bit integers."
+    },
+    {
+      "name": "encodeDeltaRunAsZeroes_",
+      "docstring": null
+    },
+    {
+      "name": "encodeDeltaRunAsBytes_",
+      "docstring": null
+    },
+    {
+      "name": "encodeDeltaRunAsWords_",
+      "docstring": null
+    },
+    {
+      "name": "encodeDeltaRunAsLongs_",
+      "docstring": null
+    },
+    {
+      "name": "decompileDeltas_",
+      "docstring": "(numDeltas, data, offset) --> ([delta, delta, ...], newOffset)"
+    },
+    {
+      "name": "getTupleSize_",
+      "docstring": null
+    },
+    {
+      "name": "getCoordWidth",
+      "docstring": "Return 2 if coordinates are (x, y) as in gvar, 1 if single values\nas in cvar, or 0 if empty."
+    },
+    {
+      "name": "scaleDeltas",
+      "docstring": null
+    },
+    {
+      "name": "roundDeltas",
+      "docstring": null
+    },
+    {
+      "name": "calcInferredDeltas",
+      "docstring": null
+    },
+    {
+      "name": "optimize",
+      "docstring": null
+    },
+    {
+      "name": "key",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        # If the set consists of all points in the glyph, it gets encoded with\n        # a special encoding: a single zero byte.\n        #\n        # To use this optimization, points passed in must be empty set.\n        # The following two lines are not strictly necessary as the main code\n        # below would emit the same. But this is most common and faster.\n        if not points:"
+    }
+  ]
+}

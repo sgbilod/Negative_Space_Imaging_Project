@@ -1,0 +1,53 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\dependency_groups\\_implementation.py",
+  "classes": [
+    {
+      "name": "DependencyGroupInclude",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "CyclicDependencyError",
+      "docstring": "An error representing the detection of a cycle.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DependencyGroupResolver",
+      "docstring": "A resolver for Dependency Group data.\n\nThis class handles caching, name normalization, cycle detection, and other\nparsing requirements. There are only two public methods for exploring the data:\n``lookup()`` and ``resolve()``.\n\n:param dependency_groups: A mapping, as provided via pyproject\n    ``[dependency-groups]``.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "lookup",
+          "docstring": "Lookup a group name, returning the parsed dependency data for that group.\nThis will not resolve includes.\n\n:param group: the name of the group to lookup\n\n:raises ValueError: if the data does not appear to be valid dependency group\n    data\n:raises TypeError: if the data is not a string\n:raises LookupError: if group name is absent\n:raises packaging.requirements.InvalidRequirement: if a specifier is not valid"
+        },
+        {
+          "name": "resolve",
+          "docstring": "Resolve a dependency group to a list of requirements.\n\n:param group: the name of the group to resolve\n\n:raises TypeError: if the inputs appear to be the wrong types\n:raises ValueError: if the data does not appear to be valid dependency group\n    data\n:raises LookupError: if group name is absent\n:raises packaging.requirements.InvalidRequirement: if a specifier is not valid"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "resolve",
+      "docstring": "Resolve a dependency group to a tuple of requirements, as strings.\n\n:param dependency_groups: the parsed contents of the ``[dependency-groups]`` table\n    from ``pyproject.toml``\n:param groups: the name of the group(s) to resolve\n\n:raises TypeError: if the inputs appear to be the wrong types\n:raises ValueError: if the data does not appear to be valid dependency group data\n:raises LookupError: if group name is absent\n:raises packaging.requirements.InvalidRequirement: if a specifier is not valid"
+    },
+    {
+      "name": "lookup",
+      "docstring": "Lookup a group name, returning the parsed dependency data for that group.\nThis will not resolve includes.\n\n:param group: the name of the group to lookup\n\n:raises ValueError: if the data does not appear to be valid dependency group\n    data\n:raises TypeError: if the data is not a string\n:raises LookupError: if group name is absent\n:raises packaging.requirements.InvalidRequirement: if a specifier is not valid"
+    },
+    {
+      "name": "resolve",
+      "docstring": "Resolve a dependency group to a list of requirements.\n\n:param group: the name of the group to resolve\n\n:raises TypeError: if the inputs appear to be the wrong types\n:raises ValueError: if the data does not appear to be valid dependency group\n    data\n:raises LookupError: if group name is absent\n:raises packaging.requirements.InvalidRequirement: if a specifier is not valid"
+    }
+  ],
+  "innovations": []
+}

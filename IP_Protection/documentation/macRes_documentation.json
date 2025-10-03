@@ -1,0 +1,121 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\macRes.py",
+  "classes": [
+    {
+      "name": "ResourceError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ResourceReader",
+      "docstring": "Reader for Mac OS resource forks.\n\nParses a resource fork and returns resources according to their type.\nIf run on OS X, this will open the resource fork in the filesystem.\nOtherwise, it will open the file itself and attempt to read it as\nthough it were a resource fork.\n\nThe returned object can be indexed by type and iterated over,\nreturning in each case a list of py:class:`Resource` objects\nrepresenting all the resources of a certain type.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Open a file\n\nArgs:\n        fileOrPath: Either an object supporting a ``read`` method, an\n                ``os.PathLike`` object, or a string."
+        },
+        {
+          "name": "openResourceFork",
+          "docstring": null
+        },
+        {
+          "name": "openDataFork",
+          "docstring": null
+        },
+        {
+          "name": "keys",
+          "docstring": null
+        },
+        {
+          "name": "types",
+          "docstring": "A list of the types of resources in the resource fork."
+        },
+        {
+          "name": "countResources",
+          "docstring": "Return the number of resources of a given type."
+        },
+        {
+          "name": "getIndices",
+          "docstring": "Returns a list of indices of resources of a given type."
+        },
+        {
+          "name": "getNames",
+          "docstring": "Return list of names of all resources of a given type."
+        },
+        {
+          "name": "getIndResource",
+          "docstring": "Return resource of given type located at an index ranging from 1\nto the number of resources for that type, or None if not found."
+        },
+        {
+          "name": "getNamedResource",
+          "docstring": "Return the named resource of given type, else return None."
+        },
+        {
+          "name": "close",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Resource",
+      "docstring": "Represents a resource stored within a resource fork.\n\nAttributes:\n        type: resource type.\n        data: resource data.\n        id: ID.\n        name: resource name.\n        attr: attributes.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "openResourceFork",
+      "docstring": null
+    },
+    {
+      "name": "openDataFork",
+      "docstring": null
+    },
+    {
+      "name": "keys",
+      "docstring": null
+    },
+    {
+      "name": "types",
+      "docstring": "A list of the types of resources in the resource fork."
+    },
+    {
+      "name": "countResources",
+      "docstring": "Return the number of resources of a given type."
+    },
+    {
+      "name": "getIndices",
+      "docstring": "Returns a list of indices of resources of a given type."
+    },
+    {
+      "name": "getNames",
+      "docstring": "Return list of names of all resources of a given type."
+    },
+    {
+      "name": "getIndResource",
+      "docstring": "Return resource of given type located at an index ranging from 1\nto the number of resources for that type, or None if not found."
+    },
+    {
+      "name": "getNamedResource",
+      "docstring": "Return the named resource of given type, else return None."
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

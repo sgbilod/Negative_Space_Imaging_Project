@@ -1,0 +1,128 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\layout_engine.py",
+  "classes": [
+    {
+      "name": "LayoutEngine",
+      "docstring": "Base class for Matplotlib layout engines.\n\nA layout engine can be passed to a figure at instantiation or at any time\nwith `~.figure.Figure.set_layout_engine`.  Once attached to a figure, the\nlayout engine ``execute`` function is called at draw time by\n`~.figure.Figure.draw`, providing a special draw-time hook.\n\n.. note::\n\n   However, note that layout engines affect the creation of colorbars, so\n   `~.figure.Figure.set_layout_engine` should be called before any\n   colorbars are created.\n\nCurrently, there are two properties of `LayoutEngine` classes that are\nconsulted while manipulating the figure:\n\n- ``engine.colorbar_gridspec`` tells `.Figure.colorbar` whether to make the\n   axes using the gridspec method (see `.colorbar.make_axes_gridspec`) or\n   not (see `.colorbar.make_axes`);\n- ``engine.adjust_compatible`` stops `.Figure.subplots_adjust` from being\n    run if it is not compatible with the layout engine.\n\nTo implement a custom `LayoutEngine`:\n\n1. override ``_adjust_compatible`` and ``_colorbar_gridspec``\n2. override `LayoutEngine.set` to update *self._params*\n3. override `LayoutEngine.execute` with your implementation",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set",
+          "docstring": "Set the parameters for the layout engine."
+        },
+        {
+          "name": "colorbar_gridspec",
+          "docstring": "Return a boolean if the layout engine creates colorbars using a\ngridspec."
+        },
+        {
+          "name": "adjust_compatible",
+          "docstring": "Return a boolean if the layout engine is compatible with\n`~.Figure.subplots_adjust`."
+        },
+        {
+          "name": "get",
+          "docstring": "Return copy of the parameters for the layout engine."
+        },
+        {
+          "name": "execute",
+          "docstring": "Execute the layout on the figure given by *fig*."
+        }
+      ]
+    },
+    {
+      "name": "PlaceHolderLayoutEngine",
+      "docstring": "This layout engine does not adjust the figure layout at all.\n\nThe purpose of this `.LayoutEngine` is to act as a placeholder when the user removes\na layout engine to ensure an incompatible `.LayoutEngine` cannot be set later.\n\nParameters\n----------\nadjust_compatible, colorbar_gridspec : bool\n    Allow the PlaceHolderLayoutEngine to mirror the behavior of whatever\n    layout engine it is replacing.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "execute",
+          "docstring": "Do nothing."
+        }
+      ]
+    },
+    {
+      "name": "TightLayoutEngine",
+      "docstring": "Implements the ``tight_layout`` geometry management.  See\n:ref:`tight_layout_guide` for details.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize tight_layout engine.\n\nParameters\n----------\npad : float, default: 1.08\n    Padding between the figure edge and the edges of subplots, as a\n    fraction of the font size.\nh_pad, w_pad : float\n    Padding (height/width) between edges of adjacent subplots.\n    Defaults to *pad*.\nrect : tuple (left, bottom, right, top), default: (0, 0, 1, 1).\n    rectangle in normalized figure coordinates that the subplots\n    (including labels) will fit into."
+        },
+        {
+          "name": "execute",
+          "docstring": "Execute tight_layout.\n\nThis decides the subplot parameters given the padding that\nwill allow the Axes labels to not be covered by other labels\nand Axes.\n\nParameters\n----------\nfig : `.Figure` to perform layout on.\n\nSee Also\n--------\n.figure.Figure.tight_layout\n.pyplot.tight_layout"
+        },
+        {
+          "name": "set",
+          "docstring": "Set the pads for tight_layout.\n\nParameters\n----------\npad : float\n    Padding between the figure edge and the edges of subplots, as a\n    fraction of the font size.\nw_pad, h_pad : float\n    Padding (width/height) between edges of adjacent subplots.\n    Defaults to *pad*.\nrect : tuple (left, bottom, right, top)\n    rectangle in normalized figure coordinates that the subplots\n    (including labels) will fit into."
+        }
+      ]
+    },
+    {
+      "name": "ConstrainedLayoutEngine",
+      "docstring": "Implements the ``constrained_layout`` geometry management.  See\n:ref:`constrainedlayout_guide` for details.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize ``constrained_layout`` settings.\n\nParameters\n----------\nh_pad, w_pad : float\n    Padding around the Axes elements in inches.\n    Default to :rc:`figure.constrained_layout.h_pad` and\n    :rc:`figure.constrained_layout.w_pad`.\nhspace, wspace : float\n    Fraction of the figure to dedicate to space between the\n    axes.  These are evenly spread between the gaps between the Axes.\n    A value of 0.2 for a three-column layout would have a space\n    of 0.1 of the figure width between each column.\n    If h/wspace < h/w_pad, then the pads are used instead.\n    Default to :rc:`figure.constrained_layout.hspace` and\n    :rc:`figure.constrained_layout.wspace`.\nrect : tuple of 4 floats\n    Rectangle in figure coordinates to perform constrained layout in\n    (left, bottom, width, height), each from 0-1.\ncompress : bool\n    Whether to shift Axes so that white space in between them is\n    removed. This is useful for simple grids of fixed-aspect Axes (e.g.\n    a grid of images).  See :ref:`compressed_layout`."
+        },
+        {
+          "name": "execute",
+          "docstring": "Perform constrained_layout and move and resize Axes accordingly.\n\nParameters\n----------\nfig : `.Figure` to perform layout on."
+        },
+        {
+          "name": "set",
+          "docstring": "Set the pads for constrained_layout.\n\nParameters\n----------\nh_pad, w_pad : float\n    Padding around the Axes elements in inches.\n    Default to :rc:`figure.constrained_layout.h_pad` and\n    :rc:`figure.constrained_layout.w_pad`.\nhspace, wspace : float\n    Fraction of the figure to dedicate to space between the\n    axes.  These are evenly spread between the gaps between the Axes.\n    A value of 0.2 for a three-column layout would have a space\n    of 0.1 of the figure width between each column.\n    If h/wspace < h/w_pad, then the pads are used instead.\n    Default to :rc:`figure.constrained_layout.hspace` and\n    :rc:`figure.constrained_layout.wspace`.\nrect : tuple of 4 floats\n    Rectangle in figure coordinates to perform constrained layout in\n    (left, bottom, width, height), each from 0-1."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "set",
+      "docstring": "Set the parameters for the layout engine."
+    },
+    {
+      "name": "colorbar_gridspec",
+      "docstring": "Return a boolean if the layout engine creates colorbars using a\ngridspec."
+    },
+    {
+      "name": "adjust_compatible",
+      "docstring": "Return a boolean if the layout engine is compatible with\n`~.Figure.subplots_adjust`."
+    },
+    {
+      "name": "get",
+      "docstring": "Return copy of the parameters for the layout engine."
+    },
+    {
+      "name": "execute",
+      "docstring": "Execute the layout on the figure given by *fig*."
+    },
+    {
+      "name": "execute",
+      "docstring": "Do nothing."
+    },
+    {
+      "name": "execute",
+      "docstring": "Execute tight_layout.\n\nThis decides the subplot parameters given the padding that\nwill allow the Axes labels to not be covered by other labels\nand Axes.\n\nParameters\n----------\nfig : `.Figure` to perform layout on.\n\nSee Also\n--------\n.figure.Figure.tight_layout\n.pyplot.tight_layout"
+    },
+    {
+      "name": "set",
+      "docstring": "Set the pads for tight_layout.\n\nParameters\n----------\npad : float\n    Padding between the figure edge and the edges of subplots, as a\n    fraction of the font size.\nw_pad, h_pad : float\n    Padding (width/height) between edges of adjacent subplots.\n    Defaults to *pad*.\nrect : tuple (left, bottom, right, top)\n    rectangle in normalized figure coordinates that the subplots\n    (including labels) will fit into."
+    },
+    {
+      "name": "execute",
+      "docstring": "Perform constrained_layout and move and resize Axes accordingly.\n\nParameters\n----------\nfig : `.Figure` to perform layout on."
+    },
+    {
+      "name": "set",
+      "docstring": "Set the pads for constrained_layout.\n\nParameters\n----------\nh_pad, w_pad : float\n    Padding around the Axes elements in inches.\n    Default to :rc:`figure.constrained_layout.h_pad` and\n    :rc:`figure.constrained_layout.w_pad`.\nhspace, wspace : float\n    Fraction of the figure to dedicate to space between the\n    axes.  These are evenly spread between the gaps between the Axes.\n    A value of 0.2 for a three-column layout would have a space\n    of 0.1 of the figure width between each column.\n    If h/wspace < h/w_pad, then the pads are used instead.\n    Default to :rc:`figure.constrained_layout.hspace` and\n    :rc:`figure.constrained_layout.wspace`.\nrect : tuple of 4 floats\n    Rectangle in figure coordinates to perform constrained layout in\n    (left, bottom, width, height), each from 0-1."
+    }
+  ],
+  "innovations": []
+}

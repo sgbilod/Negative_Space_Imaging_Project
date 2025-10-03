@@ -1,0 +1,1018 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\ticker.py",
+  "classes": [
+    {
+      "name": "_DummyAxis",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_view_interval",
+          "docstring": null
+        },
+        {
+          "name": "set_view_interval",
+          "docstring": null
+        },
+        {
+          "name": "get_minpos",
+          "docstring": null
+        },
+        {
+          "name": "get_data_interval",
+          "docstring": null
+        },
+        {
+          "name": "set_data_interval",
+          "docstring": null
+        },
+        {
+          "name": "get_tick_space",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TickHelper",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "set_axis",
+          "docstring": null
+        },
+        {
+          "name": "create_dummy_axis",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Formatter",
+      "docstring": "Create a string based on a tick value and location.",
+      "methods": [
+        {
+          "name": "format_ticks",
+          "docstring": "Return the tick labels for all the ticks at once."
+        },
+        {
+          "name": "format_data",
+          "docstring": "Return the full string representation of the value with the\nposition unspecified."
+        },
+        {
+          "name": "format_data_short",
+          "docstring": "Return a short string version of the tick value.\n\nDefaults to the position-independent long value."
+        },
+        {
+          "name": "get_offset",
+          "docstring": null
+        },
+        {
+          "name": "set_locs",
+          "docstring": "Set the locations of the ticks.\n\nThis method is called before computing the tick labels because some\nformatters need to know all tick locations to do so."
+        },
+        {
+          "name": "fix_minus",
+          "docstring": "Some classes may want to replace a hyphen for minus with the proper\nUnicode symbol (U+2212) for typographical correctness.  This is a\nhelper method to perform such a replacement when it is enabled via\n:rc:`axes.unicode_minus`."
+        }
+      ]
+    },
+    {
+      "name": "NullFormatter",
+      "docstring": "Always return the empty string.",
+      "methods": []
+    },
+    {
+      "name": "FixedFormatter",
+      "docstring": "Return fixed strings for tick labels based only on position, not value.\n\n.. note::\n    `.FixedFormatter` should only be used together with `.FixedLocator`.\n    Otherwise, the labels may end up in unexpected positions.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Set the sequence *seq* of strings that will be used for labels."
+        },
+        {
+          "name": "get_offset",
+          "docstring": null
+        },
+        {
+          "name": "set_offset_string",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FuncFormatter",
+      "docstring": "Use a user-defined function for formatting.\n\nThe function should take in two inputs (a tick value ``x`` and a\nposition ``pos``), and return a string containing the corresponding\ntick label.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_offset",
+          "docstring": null
+        },
+        {
+          "name": "set_offset_string",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FormatStrFormatter",
+      "docstring": "Use an old-style ('%' operator) format string to format the tick.\n\nThe format string should have a single variable format (%) in it.\nIt will be applied to the value (not the position) of the tick.\n\nNegative numeric values (e.g., -1) will use a dash, not a Unicode minus;\nuse mathtext to get a Unicode minus by wrapping the format specifier with $\n(e.g. \"$%g$\").",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_UnicodeMinusFormat",
+      "docstring": "A specialized string formatter so that `.StrMethodFormatter` respects\n:rc:`axes.unicode_minus`.  This implementation relies on the fact that the\nformat string is only ever called with kwargs *x* and *pos*, so it blindly\nreplaces dashes by unicode minuses without further checking.",
+      "methods": [
+        {
+          "name": "format_field",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "StrMethodFormatter",
+      "docstring": "Use a new-style format string (as used by `str.format`) to format the tick.\n\nThe field used for the tick value must be labeled *x* and the field used\nfor the tick position must be labeled *pos*.\n\nThe formatter will respect :rc:`axes.unicode_minus` when formatting\nnegative numeric values.\n\nIt is typically unnecessary to explicitly construct `.StrMethodFormatter`\nobjects, as `~.Axis.set_major_formatter` directly accepts the format string\nitself.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ScalarFormatter",
+      "docstring": "Format tick values as a number.\n\nParameters\n----------\nuseOffset : bool or float, default: :rc:`axes.formatter.useoffset`\n    Whether to use offset notation. See `.set_useOffset`.\nuseMathText : bool, default: :rc:`axes.formatter.use_mathtext`\n    Whether to use fancy math formatting. See `.set_useMathText`.\nuseLocale : bool, default: :rc:`axes.formatter.use_locale`.\n    Whether to use locale settings for decimal sign and positive sign.\n    See `.set_useLocale`.\nusetex : bool, default: :rc:`text.usetex`\n    To enable/disable the use of TeX's math mode for rendering the\n    numbers in the formatter.\n\n    .. versionadded:: 3.10\n\nNotes\n-----\nIn addition to the parameters above, the formatting of scientific vs.\nfloating point representation can be configured via `.set_scientific`\nand `.set_powerlimits`).\n\n**Offset notation and scientific notation**\n\nOffset notation and scientific notation look quite similar at first sight.\nBoth split some information from the formatted tick values and display it\nat the end of the axis.\n\n- The scientific notation splits up the order of magnitude, i.e. a\n  multiplicative scaling factor, e.g. ``1e6``.\n\n- The offset notation separates an additive constant, e.g. ``+1e6``. The\n  offset notation label is always prefixed with a ``+`` or ``-`` sign\n  and is thus distinguishable from the order of magnitude label.\n\nThe following plot with x limits ``1_000_000`` to ``1_000_010`` illustrates\nthe different formatting. Note the labels at the right edge of the x axis.\n\n.. plot::\n\n    lim = (1_000_000, 1_000_010)\n\n    fig, (ax1, ax2, ax3) = plt.subplots(3, 1, gridspec_kw={'hspace': 2})\n    ax1.set(title='offset notation', xlim=lim)\n    ax2.set(title='scientific notation', xlim=lim)\n    ax2.xaxis.get_major_formatter().set_useOffset(False)\n    ax3.set(title='floating-point notation', xlim=lim)\n    ax3.xaxis.get_major_formatter().set_useOffset(False)\n    ax3.xaxis.get_major_formatter().set_scientific(False)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_usetex",
+          "docstring": "Return whether TeX's math mode is enabled for rendering."
+        },
+        {
+          "name": "set_usetex",
+          "docstring": "Set whether to use TeX's math mode for rendering numbers in the formatter."
+        },
+        {
+          "name": "get_useOffset",
+          "docstring": "Return whether automatic mode for offset notation is active.\n\nThis returns True if ``set_useOffset(True)``; it returns False if an\nexplicit offset was set, e.g. ``set_useOffset(1000)``.\n\nSee Also\n--------\nScalarFormatter.set_useOffset"
+        },
+        {
+          "name": "set_useOffset",
+          "docstring": "Set whether to use offset notation.\n\nWhen formatting a set numbers whose value is large compared to their\nrange, the formatter can separate an additive constant. This can\nshorten the formatted numbers so that they are less likely to overlap\nwhen drawn on an axis.\n\nParameters\n----------\nval : bool or float\n    - If False, do not use offset notation.\n    - If True (=automatic mode), use offset notation if it can make\n      the residual numbers significantly shorter. The exact behavior\n      is controlled by :rc:`axes.formatter.offset_threshold`.\n    - If a number, force an offset of the given value.\n\nExamples\n--------\nWith active offset notation, the values\n\n``100_000, 100_002, 100_004, 100_006, 100_008``\n\nwill be formatted as ``0, 2, 4, 6, 8`` plus an offset ``+1e5``, which\nis written to the edge of the axis."
+        },
+        {
+          "name": "get_useLocale",
+          "docstring": "Return whether locale settings are used for formatting.\n\nSee Also\n--------\nScalarFormatter.set_useLocale"
+        },
+        {
+          "name": "set_useLocale",
+          "docstring": "Set whether to use locale settings for decimal sign and positive sign.\n\nParameters\n----------\nval : bool or None\n    *None* resets to :rc:`axes.formatter.use_locale`."
+        },
+        {
+          "name": "get_useMathText",
+          "docstring": "Return whether to use fancy math formatting.\n\nSee Also\n--------\nScalarFormatter.set_useMathText"
+        },
+        {
+          "name": "set_useMathText",
+          "docstring": "Set whether to use fancy math formatting.\n\nIf active, scientific notation is formatted as :math:`1.2 \\times 10^3`.\n\nParameters\n----------\nval : bool or None\n    *None* resets to :rc:`axes.formatter.use_mathtext`."
+        },
+        {
+          "name": "set_scientific",
+          "docstring": "Turn scientific notation on or off.\n\nSee Also\n--------\nScalarFormatter.set_powerlimits"
+        },
+        {
+          "name": "set_powerlimits",
+          "docstring": "Set size thresholds for scientific notation.\n\nParameters\n----------\nlims : (int, int)\n    A tuple *(min_exp, max_exp)* containing the powers of 10 that\n    determine the switchover threshold. For a number representable as\n    :math:`a \\times 10^\\mathrm{exp}` with :math:`1 <= |a| < 10`,\n    scientific notation will be used if ``exp <= min_exp`` or\n    ``exp >= max_exp``.\n\n    The default limits are controlled by :rc:`axes.formatter.limits`.\n\n    In particular numbers with *exp* equal to the thresholds are\n    written in scientific notation.\n\n    Typically, *min_exp* will be negative and *max_exp* will be\n    positive.\n\n    For example, ``formatter.set_powerlimits((-3, 4))`` will provide\n    the following formatting:\n    :math:`1 \\times 10^{-3}, 9.9 \\times 10^{-3}, 0.01,`\n    :math:`9999, 1 \\times 10^4`.\n\nSee Also\n--------\nScalarFormatter.set_scientific"
+        },
+        {
+          "name": "format_data_short",
+          "docstring": null
+        },
+        {
+          "name": "format_data",
+          "docstring": null
+        },
+        {
+          "name": "get_offset",
+          "docstring": "Return scientific notation, plus offset."
+        },
+        {
+          "name": "set_locs",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LogFormatter",
+      "docstring": "Base class for formatting ticks on a log or symlog scale.\n\nIt may be instantiated directly, or subclassed.\n\nParameters\n----------\nbase : float, default: 10.\n    Base of the logarithm used in all calculations.\n\nlabelOnlyBase : bool, default: False\n    If True, label ticks only at integer powers of base.\n    This is normally True for major ticks and False for\n    minor ticks.\n\nminor_thresholds : (subset, all), default: (1, 0.4)\n    If labelOnlyBase is False, these two numbers control\n    the labeling of ticks that are not at integer powers of\n    base; normally these are the minor ticks. The controlling\n    parameter is the log of the axis data range.  In the typical\n    case where base is 10 it is the number of decades spanned\n    by the axis, so we can call it 'numdec'. If ``numdec <= all``,\n    all minor ticks will be labeled.  If ``all < numdec <= subset``,\n    then only a subset of minor ticks will be labeled, so as to\n    avoid crowding. If ``numdec > subset`` then no minor ticks will\n    be labeled.\n\nlinthresh : None or float, default: None\n    If a symmetric log scale is in use, its ``linthresh``\n    parameter must be supplied here.\n\nNotes\n-----\nThe `set_locs` method must be called to enable the subsetting\nlogic controlled by the ``minor_thresholds`` parameter.\n\nIn some cases such as the colorbar, there is no distinction between\nmajor and minor ticks; the tick locations might be set manually,\nor by a locator that puts ticks at integer powers of base and\nat intermediate locations.  For this situation, disable the\nminor_thresholds logic by using ``minor_thresholds=(np.inf, np.inf)``,\nso that all ticks will be labeled.\n\nTo disable labeling of minor ticks when 'labelOnlyBase' is False,\nuse ``minor_thresholds=(0, 0)``.  This is the default for the\n\"classic\" style.\n\nExamples\n--------\nTo label a subset of minor ticks when the view limits span up\nto 2 decades, and all of the ticks when zoomed in to 0.5 decades\nor less, use ``minor_thresholds=(2, 0.5)``.\n\nTo label all minor ticks when the view limits span up to 1.5\ndecades, use ``minor_thresholds=(1.5, 1.5)``.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_base",
+          "docstring": "Change the *base* for labeling.\n\n.. warning::\n   Should always match the base used for :class:`LogLocator`"
+        },
+        {
+          "name": "set_label_minor",
+          "docstring": "Switch minor tick labeling on or off.\n\nParameters\n----------\nlabelOnlyBase : bool\n    If True, label ticks only at integer powers of base."
+        },
+        {
+          "name": "set_locs",
+          "docstring": "Use axis view limits to control which ticks are labeled.\n\nThe *locs* parameter is ignored in the present algorithm."
+        },
+        {
+          "name": "format_data",
+          "docstring": null
+        },
+        {
+          "name": "format_data_short",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LogFormatterExponent",
+      "docstring": "Format values for log axis using ``exponent = log_base(value)``.",
+      "methods": []
+    },
+    {
+      "name": "LogFormatterMathtext",
+      "docstring": "Format values for log axis using ``exponent = log_base(value)``.",
+      "methods": []
+    },
+    {
+      "name": "LogFormatterSciNotation",
+      "docstring": "Format values following scientific notation in a logarithmic axis.",
+      "methods": []
+    },
+    {
+      "name": "LogitFormatter",
+      "docstring": "Probability formatter (using Math text).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nuse_overline : bool, default: False\n    If x > 1/2, with x = 1 - v, indicate if x should be displayed as\n    $\\overline{v}$. The default is to display $1 - v$.\n\none_half : str, default: r\"\\\\frac{1}{2}\"\n    The string used to represent 1/2.\n\nminor : bool, default: False\n    Indicate if the formatter is formatting minor ticks or not.\n    Basically minor ticks are not labelled, except when only few ticks\n    are provided, ticks with most space with neighbor ticks are\n    labelled. See other parameters to change the default behavior.\n\nminor_threshold : int, default: 25\n    Maximum number of locs for labelling some minor ticks. This\n    parameter have no effect if minor is False.\n\nminor_number : int, default: 6\n    Number of ticks which are labelled when the number of ticks is\n    below the threshold."
+        },
+        {
+          "name": "use_overline",
+          "docstring": "Switch display mode with overline for labelling p>1/2.\n\nParameters\n----------\nuse_overline : bool\n    If x > 1/2, with x = 1 - v, indicate if x should be displayed as\n    $\\overline{v}$. The default is to display $1 - v$."
+        },
+        {
+          "name": "set_one_half",
+          "docstring": "Set the way one half is displayed.\n\none_half : str\n    The string used to represent 1/2."
+        },
+        {
+          "name": "set_minor_threshold",
+          "docstring": "Set the threshold for labelling minors ticks.\n\nParameters\n----------\nminor_threshold : int\n    Maximum number of locations for labelling some minor ticks. This\n    parameter have no effect if minor is False."
+        },
+        {
+          "name": "set_minor_number",
+          "docstring": "Set the number of minor ticks to label when some minor ticks are\nlabelled.\n\nParameters\n----------\nminor_number : int\n    Number of ticks which are labelled when the number of ticks is\n    below the threshold."
+        },
+        {
+          "name": "set_locs",
+          "docstring": null
+        },
+        {
+          "name": "format_data_short",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "EngFormatter",
+      "docstring": "Format axis values using engineering prefixes to represent powers\nof 1000, plus a specified unit, e.g., 10 MHz instead of 1e7.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nunit : str, default: \"\"\n    Unit symbol to use, suitable for use with single-letter\n    representations of powers of 1000. For example, 'Hz' or 'm'.\n\nplaces : int, default: None\n    Precision with which to display the number, specified in\n    digits after the decimal point (there will be between one\n    and three digits before the decimal point). If it is None,\n    the formatting falls back to the floating point format '%g',\n    which displays up to 6 *significant* digits, i.e. the equivalent\n    value for *places* varies between 0 and 5 (inclusive).\n\nsep : str, default: \" \"\n    Separator used between the value and the prefix/unit. For\n    example, one get '3.14 mV' if ``sep`` is \" \" (default) and\n    '3.14mV' if ``sep`` is \"\". Besides the default behavior, some\n    other useful options may be:\n\n    * ``sep=\"\"`` to append directly the prefix/unit to the value;\n    * ``sep=\"\\N{THIN SPACE}\"`` (``U+2009``);\n    * ``sep=\"\\N{NARROW NO-BREAK SPACE}\"`` (``U+202F``);\n    * ``sep=\"\\N{NO-BREAK SPACE}\"`` (``U+00A0``).\n\nusetex : bool, default: :rc:`text.usetex`\n    To enable/disable the use of TeX's math mode for rendering the\n    numbers in the formatter.\n\nuseMathText : bool, default: :rc:`axes.formatter.use_mathtext`\n    To enable/disable the use mathtext for rendering the numbers in\n    the formatter.\nuseOffset : bool or float, default: False\n    Whether to use offset notation with :math:`10^{3*N}` based prefixes.\n    This features allows showing an offset with standard SI order of\n    magnitude prefix near the axis. Offset is computed similarly to\n    how `ScalarFormatter` computes it internally, but here you are\n    guaranteed to get an offset which will make the tick labels exceed\n    3 digits. See also `.set_useOffset`.\n\n    .. versionadded:: 3.10"
+        },
+        {
+          "name": "set_locs",
+          "docstring": null
+        },
+        {
+          "name": "get_offset",
+          "docstring": null
+        },
+        {
+          "name": "format_eng",
+          "docstring": "Alias to EngFormatter.format_data"
+        },
+        {
+          "name": "format_data",
+          "docstring": "Format a number in engineering notation, appending a letter\nrepresenting the power of 1000 of the original number.\nSome examples:\n\n>>> format_data(0)        # for self.places = 0\n'0'\n\n>>> format_data(1000000)  # for self.places = 1\n'1.0 M'\n\n>>> format_data(-1e-6)  # for self.places = 2\n'-1.00 \u00b5'"
+        }
+      ]
+    },
+    {
+      "name": "PercentFormatter",
+      "docstring": "Format numbers as a percentage.\n\nParameters\n----------\nxmax : float\n    Determines how the number is converted into a percentage.\n    *xmax* is the data value that corresponds to 100%.\n    Percentages are computed as ``x / xmax * 100``. So if the data is\n    already scaled to be percentages, *xmax* will be 100. Another common\n    situation is where *xmax* is 1.0.\n\ndecimals : None or int\n    The number of decimal places to place after the point.\n    If *None* (the default), the number will be computed automatically.\n\nsymbol : str or None\n    A string that will be appended to the label. It may be\n    *None* or empty to indicate that no symbol should be used. LaTeX\n    special characters are escaped in *symbol* whenever latex mode is\n    enabled, unless *is_latex* is *True*.\n\nis_latex : bool\n    If *False*, reserved LaTeX characters in *symbol* will be escaped.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "format_pct",
+          "docstring": "Format the number as a percentage number with the correct\nnumber of decimals and adds the percent symbol, if any.\n\nIf ``self.decimals`` is `None`, the number of digits after the\ndecimal point is set based on the *display_range* of the axis\nas follows:\n\n============= ======== =======================\ndisplay_range decimals sample\n============= ======== =======================\n>50           0        ``x = 34.5`` => 35%\n>5            1        ``x = 34.5`` => 34.5%\n>0.5          2        ``x = 34.5`` => 34.50%\n...           ...      ...\n============= ======== =======================\n\nThis method will not be very good for tiny axis ranges or\nextremely large ones. It assumes that the values on the chart\nare percentages displayed on a reasonable scale."
+        },
+        {
+          "name": "convert_to_pct",
+          "docstring": null
+        },
+        {
+          "name": "symbol",
+          "docstring": "The configured percent symbol as a string.\n\nIf LaTeX is enabled via :rc:`text.usetex`, the special characters\n``{'#', '$', '%', '&', '~', '_', '^', '\\', '{', '}'}`` are\nautomatically escaped in the string."
+        },
+        {
+          "name": "symbol",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Locator",
+      "docstring": "Determine tick locations.\n\nNote that the same locator should not be used across multiple\n`~matplotlib.axis.Axis` because the locator stores references to the Axis\ndata and view limits.",
+      "methods": [
+        {
+          "name": "tick_values",
+          "docstring": "Return the values of the located ticks given **vmin** and **vmax**.\n\n.. note::\n    To get tick locations with the vmin and vmax values defined\n    automatically for the associated ``axis`` simply call\n    the Locator instance::\n\n        >>> print(type(loc))\n        <type 'Locator'>\n        >>> print(loc())\n        [1, 2, 3, 4]"
+        },
+        {
+          "name": "set_params",
+          "docstring": "Do nothing, and raise a warning. Any locator class not supporting the\nset_params() function will call this."
+        },
+        {
+          "name": "raise_if_exceeds",
+          "docstring": "Log at WARNING level if *locs* is longer than `Locator.MAXTICKS`.\n\nThis is intended to be called immediately before returning *locs* from\n``__call__`` to inform users in case their Locator returns a huge\nnumber of ticks, causing Matplotlib to run out of memory.\n\nThe \"strange\" name of this method dates back to when it would raise an\nexception instead of emitting a log."
+        },
+        {
+          "name": "nonsingular",
+          "docstring": "Adjust a range as needed to avoid singularities.\n\nThis method gets called during autoscaling, with ``(v0, v1)`` set to\nthe data limits on the Axes if the Axes contains any data, or\n``(-inf, +inf)`` if not.\n\n- If ``v0 == v1`` (possibly up to some floating point slop), this\n  method returns an expanded interval around this value.\n- If ``(v0, v1) == (-inf, +inf)``, this method returns appropriate\n  default view limits.\n- Otherwise, ``(v0, v1)`` is returned without modification."
+        },
+        {
+          "name": "view_limits",
+          "docstring": "Select a scale for the range from vmin to vmax.\n\nSubclasses should override this method to change locator behaviour."
+        }
+      ]
+    },
+    {
+      "name": "IndexLocator",
+      "docstring": "Place ticks at every nth point plotted.\n\nIndexLocator assumes index plotting; i.e., that the ticks are placed at integer\nvalues in the range between 0 and len(data) inclusive.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Place ticks every *base* data point, starting at *offset*."
+        },
+        {
+          "name": "set_params",
+          "docstring": "Set parameters within this locator"
+        },
+        {
+          "name": "tick_values",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FixedLocator",
+      "docstring": "Place ticks at a set of fixed values.\n\nIf *nbins* is None ticks are placed at all values. Otherwise, the *locs* array of\npossible positions will be subsampled to keep the number of ticks\n:math:`\\leq nbins + 1`. The subsampling will be done to include the smallest\nabsolute value; for example, if zero is included in the array of possibilities, then\nit will be included in the chosen ticks.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_params",
+          "docstring": "Set parameters within this locator."
+        },
+        {
+          "name": "tick_values",
+          "docstring": "Return the locations of the ticks.\n\n.. note::\n\n    Because the values are fixed, vmin and vmax are not used in this\n    method."
+        }
+      ]
+    },
+    {
+      "name": "NullLocator",
+      "docstring": "No ticks",
+      "methods": [
+        {
+          "name": "tick_values",
+          "docstring": "Return the locations of the ticks.\n\n.. note::\n\n    Because the values are Null, vmin and vmax are not used in this\n    method."
+        }
+      ]
+    },
+    {
+      "name": "LinearLocator",
+      "docstring": "Place ticks at evenly spaced values.\n\nThe first time this function is called it will try to set the\nnumber of ticks to make a nice tick partitioning.  Thereafter, the\nnumber of ticks will be fixed so that interactive navigation will\nbe nice",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nnumticks : int or None, default None\n    Number of ticks. If None, *numticks* = 11.\npresets : dict or None, default: None\n    Dictionary mapping ``(vmin, vmax)`` to an array of locations.\n    Overrides *numticks* if there is an entry for the current\n    ``(vmin, vmax)``."
+        },
+        {
+          "name": "numticks",
+          "docstring": null
+        },
+        {
+          "name": "numticks",
+          "docstring": null
+        },
+        {
+          "name": "set_params",
+          "docstring": "Set parameters within this locator."
+        },
+        {
+          "name": "tick_values",
+          "docstring": null
+        },
+        {
+          "name": "view_limits",
+          "docstring": "Try to choose the view limits intelligently."
+        }
+      ]
+    },
+    {
+      "name": "MultipleLocator",
+      "docstring": "Place ticks at every integer multiple of a base plus an offset.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nbase : float > 0, default: 1.0\n    Interval between ticks.\noffset : float, default: 0.0\n    Value added to each multiple of *base*.\n\n    .. versionadded:: 3.8"
+        },
+        {
+          "name": "set_params",
+          "docstring": "Set parameters within this locator.\n\nParameters\n----------\nbase : float > 0, optional\n    Interval between ticks.\noffset : float, optional\n    Value added to each multiple of *base*.\n\n    .. versionadded:: 3.8"
+        },
+        {
+          "name": "tick_values",
+          "docstring": null
+        },
+        {
+          "name": "view_limits",
+          "docstring": "Set the view limits to the nearest tick values that contain the data."
+        }
+      ]
+    },
+    {
+      "name": "_Edge_integer",
+      "docstring": "Helper for `.MaxNLocator`, `.MultipleLocator`, etc.\n\nTake floating-point precision limitations into account when calculating\ntick locations as integer multiples of a step.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nstep : float > 0\n    Interval between ticks.\noffset : float\n    Offset subtracted from the data limits prior to calculating tick\n    locations."
+        },
+        {
+          "name": "closeto",
+          "docstring": null
+        },
+        {
+          "name": "le",
+          "docstring": "Return the largest n: n*step <= x."
+        },
+        {
+          "name": "ge",
+          "docstring": "Return the smallest n: n*step >= x."
+        }
+      ]
+    },
+    {
+      "name": "MaxNLocator",
+      "docstring": "Place evenly spaced ticks, with a cap on the total number of ticks.\n\nFinds nice tick locations with no more than :math:`nbins + 1` ticks being within the\nview limits. Locations beyond the limits are added to support autoscaling.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nnbins : int or 'auto', default: 10\n    Maximum number of intervals; one less than max number of\n    ticks.  If the string 'auto', the number of bins will be\n    automatically determined based on the length of the axis.\n\nsteps : array-like, optional\n    Sequence of acceptable tick multiples, starting with 1 and\n    ending with 10. For example, if ``steps=[1, 2, 4, 5, 10]``,\n    ``20, 40, 60`` or ``0.4, 0.6, 0.8`` would be possible\n    sets of ticks because they are multiples of 2.\n    ``30, 60, 90`` would not be generated because 3 does not\n    appear in this example list of steps.\n\ninteger : bool, default: False\n    If True, ticks will take only integer values, provided at least\n    *min_n_ticks* integers are found within the view limits.\n\nsymmetric : bool, default: False\n    If True, autoscaling will result in a range symmetric about zero.\n\nprune : {'lower', 'upper', 'both', None}, default: None\n    Remove the 'lower' tick, the 'upper' tick, or ticks on 'both' sides\n    *if they fall exactly on an axis' edge* (this typically occurs when\n    :rc:`axes.autolimit_mode` is 'round_numbers').  Removing such ticks\n    is mostly useful for stacked or ganged plots, where the upper tick\n    of an Axes overlaps with the lower tick of the axes above it.\n\nmin_n_ticks : int, default: 2\n    Relax *nbins* and *integer* constraints if necessary to obtain\n    this minimum number of ticks."
+        },
+        {
+          "name": "set_params",
+          "docstring": "Set parameters for this locator.\n\nParameters\n----------\nnbins : int or 'auto', optional\n    see `.MaxNLocator`\nsteps : array-like, optional\n    see `.MaxNLocator`\ninteger : bool, optional\n    see `.MaxNLocator`\nsymmetric : bool, optional\n    see `.MaxNLocator`\nprune : {'lower', 'upper', 'both', None}, optional\n    see `.MaxNLocator`\nmin_n_ticks : int, optional\n    see `.MaxNLocator`"
+        },
+        {
+          "name": "tick_values",
+          "docstring": null
+        },
+        {
+          "name": "view_limits",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LogLocator",
+      "docstring": "Place logarithmically spaced ticks.\n\nPlaces ticks at the values ``subs[j] * base**i``.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nbase : float, default: 10.0\n    The base of the log used, so major ticks are placed at ``base**n``, where\n    ``n`` is an integer.\nsubs : None or {'auto', 'all'} or sequence of float, default: (1.0,)\n    Gives the multiples of integer powers of the base at which to place ticks.\n    The default of ``(1.0, )`` places ticks only at integer powers of the base.\n    Permitted string values are ``'auto'`` and ``'all'``. Both of these use an\n    algorithm based on the axis view limits to determine whether and how to put\n    ticks between integer powers of the base:\n    - ``'auto'``: Ticks are placed only between integer powers.\n    - ``'all'``: Ticks are placed between *and* at integer powers.\n    - ``None``: Equivalent to ``'auto'``.\nnumticks : None or int, default: None\n    The maximum number of ticks to allow on a given axis. The default of\n    ``None`` will try to choose intelligently as long as this Locator has\n    already been assigned to an axis using `~.axis.Axis.get_tick_space`, but\n    otherwise falls back to 9."
+        },
+        {
+          "name": "set_params",
+          "docstring": "Set parameters within this locator."
+        },
+        {
+          "name": "tick_values",
+          "docstring": null
+        },
+        {
+          "name": "view_limits",
+          "docstring": "Try to choose the view limits intelligently."
+        },
+        {
+          "name": "nonsingular",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SymmetricalLogLocator",
+      "docstring": "Place ticks spaced linearly near zero and spaced logarithmically beyond a threshold.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\ntransform : `~.scale.SymmetricalLogTransform`, optional\n    If set, defines the *base* and *linthresh* of the symlog transform.\nbase, linthresh : float, optional\n    The *base* and *linthresh* of the symlog transform, as documented\n    for `.SymmetricalLogScale`.  These parameters are only used if\n    *transform* is not set.\nsubs : sequence of float, default: [1]\n    The multiples of integer powers of the base where ticks are placed,\n    i.e., ticks are placed at\n    ``[sub * base**i for i in ... for sub in subs]``.\n\nNotes\n-----\nEither *transform*, or both *base* and *linthresh*, must be given."
+        },
+        {
+          "name": "set_params",
+          "docstring": "Set parameters within this locator."
+        },
+        {
+          "name": "tick_values",
+          "docstring": null
+        },
+        {
+          "name": "view_limits",
+          "docstring": "Try to choose the view limits intelligently."
+        }
+      ]
+    },
+    {
+      "name": "AsinhLocator",
+      "docstring": "Place ticks spaced evenly on an inverse-sinh scale.\n\nGenerally used with the `~.scale.AsinhScale` class.\n\n.. note::\n\n   This API is provisional and may be revised in the future\n   based on early user feedback.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nlinear_width : float\n    The scale parameter defining the extent\n    of the quasi-linear region.\nnumticks : int, default: 11\n    The approximate number of major ticks that will fit\n    along the entire axis\nsymthresh : float, default: 0.2\n    The fractional threshold beneath which data which covers\n    a range that is approximately symmetric about zero\n    will have ticks that are exactly symmetric.\nbase : int, default: 10\n    The number base used for rounding tick locations\n    on a logarithmic scale. If this is less than one,\n    then rounding is to the nearest integer multiple\n    of powers of ten.\nsubs : tuple, default: None\n    Multiples of the number base, typically used\n    for the minor ticks, e.g. (2, 5) when base=10."
+        },
+        {
+          "name": "set_params",
+          "docstring": "Set parameters within this locator."
+        },
+        {
+          "name": "tick_values",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LogitLocator",
+      "docstring": "Place ticks spaced evenly on a logit scale.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nnbins : int or 'auto', optional\n    Number of ticks. Only used if minor is False.\nminor : bool, default: False\n    Indicate if this locator is for minor ticks or not."
+        },
+        {
+          "name": "set_params",
+          "docstring": "Set parameters within this locator."
+        },
+        {
+          "name": "minor",
+          "docstring": null
+        },
+        {
+          "name": "minor",
+          "docstring": null
+        },
+        {
+          "name": "tick_values",
+          "docstring": null
+        },
+        {
+          "name": "nonsingular",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AutoLocator",
+      "docstring": "Place evenly spaced ticks, with the step size and maximum number of ticks chosen\nautomatically.\n\nThis is a subclass of `~matplotlib.ticker.MaxNLocator`, with parameters\n*nbins = 'auto'* and *steps = [1, 2, 2.5, 5, 10]*.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "To know the values of the non-public parameters, please have a\nlook to the defaults of `~matplotlib.ticker.MaxNLocator`."
+        }
+      ]
+    },
+    {
+      "name": "AutoMinorLocator",
+      "docstring": "Place evenly spaced minor ticks, with the step size and maximum number of ticks\nchosen automatically.\n\nThe Axis must use a linear scale and have evenly spaced major ticks.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nn : int or 'auto', default: :rc:`xtick.minor.ndivs` or :rc:`ytick.minor.ndivs`\n    The number of subdivisions of the interval between major ticks;\n    e.g., n=2 will place a single minor tick midway between major ticks.\n\n    If *n* is 'auto', it will be set to 4 or 5: if the distance\n    between the major ticks equals 1, 2.5, 5 or 10 it can be perfectly\n    divided in 5 equidistant sub-intervals with a length multiple of\n    0.05; otherwise, it is divided in 4 sub-intervals."
+        },
+        {
+          "name": "tick_values",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "scale_range",
+      "docstring": null
+    },
+    {
+      "name": "get_view_interval",
+      "docstring": null
+    },
+    {
+      "name": "set_view_interval",
+      "docstring": null
+    },
+    {
+      "name": "get_minpos",
+      "docstring": null
+    },
+    {
+      "name": "get_data_interval",
+      "docstring": null
+    },
+    {
+      "name": "set_data_interval",
+      "docstring": null
+    },
+    {
+      "name": "get_tick_space",
+      "docstring": null
+    },
+    {
+      "name": "set_axis",
+      "docstring": null
+    },
+    {
+      "name": "create_dummy_axis",
+      "docstring": null
+    },
+    {
+      "name": "format_ticks",
+      "docstring": "Return the tick labels for all the ticks at once."
+    },
+    {
+      "name": "format_data",
+      "docstring": "Return the full string representation of the value with the\nposition unspecified."
+    },
+    {
+      "name": "format_data_short",
+      "docstring": "Return a short string version of the tick value.\n\nDefaults to the position-independent long value."
+    },
+    {
+      "name": "get_offset",
+      "docstring": null
+    },
+    {
+      "name": "set_locs",
+      "docstring": "Set the locations of the ticks.\n\nThis method is called before computing the tick labels because some\nformatters need to know all tick locations to do so."
+    },
+    {
+      "name": "fix_minus",
+      "docstring": "Some classes may want to replace a hyphen for minus with the proper\nUnicode symbol (U+2212) for typographical correctness.  This is a\nhelper method to perform such a replacement when it is enabled via\n:rc:`axes.unicode_minus`."
+    },
+    {
+      "name": "get_offset",
+      "docstring": null
+    },
+    {
+      "name": "set_offset_string",
+      "docstring": null
+    },
+    {
+      "name": "get_offset",
+      "docstring": null
+    },
+    {
+      "name": "set_offset_string",
+      "docstring": null
+    },
+    {
+      "name": "format_field",
+      "docstring": null
+    },
+    {
+      "name": "get_usetex",
+      "docstring": "Return whether TeX's math mode is enabled for rendering."
+    },
+    {
+      "name": "set_usetex",
+      "docstring": "Set whether to use TeX's math mode for rendering numbers in the formatter."
+    },
+    {
+      "name": "get_useOffset",
+      "docstring": "Return whether automatic mode for offset notation is active.\n\nThis returns True if ``set_useOffset(True)``; it returns False if an\nexplicit offset was set, e.g. ``set_useOffset(1000)``.\n\nSee Also\n--------\nScalarFormatter.set_useOffset"
+    },
+    {
+      "name": "set_useOffset",
+      "docstring": "Set whether to use offset notation.\n\nWhen formatting a set numbers whose value is large compared to their\nrange, the formatter can separate an additive constant. This can\nshorten the formatted numbers so that they are less likely to overlap\nwhen drawn on an axis.\n\nParameters\n----------\nval : bool or float\n    - If False, do not use offset notation.\n    - If True (=automatic mode), use offset notation if it can make\n      the residual numbers significantly shorter. The exact behavior\n      is controlled by :rc:`axes.formatter.offset_threshold`.\n    - If a number, force an offset of the given value.\n\nExamples\n--------\nWith active offset notation, the values\n\n``100_000, 100_002, 100_004, 100_006, 100_008``\n\nwill be formatted as ``0, 2, 4, 6, 8`` plus an offset ``+1e5``, which\nis written to the edge of the axis."
+    },
+    {
+      "name": "get_useLocale",
+      "docstring": "Return whether locale settings are used for formatting.\n\nSee Also\n--------\nScalarFormatter.set_useLocale"
+    },
+    {
+      "name": "set_useLocale",
+      "docstring": "Set whether to use locale settings for decimal sign and positive sign.\n\nParameters\n----------\nval : bool or None\n    *None* resets to :rc:`axes.formatter.use_locale`."
+    },
+    {
+      "name": "get_useMathText",
+      "docstring": "Return whether to use fancy math formatting.\n\nSee Also\n--------\nScalarFormatter.set_useMathText"
+    },
+    {
+      "name": "set_useMathText",
+      "docstring": "Set whether to use fancy math formatting.\n\nIf active, scientific notation is formatted as :math:`1.2 \\times 10^3`.\n\nParameters\n----------\nval : bool or None\n    *None* resets to :rc:`axes.formatter.use_mathtext`."
+    },
+    {
+      "name": "set_scientific",
+      "docstring": "Turn scientific notation on or off.\n\nSee Also\n--------\nScalarFormatter.set_powerlimits"
+    },
+    {
+      "name": "set_powerlimits",
+      "docstring": "Set size thresholds for scientific notation.\n\nParameters\n----------\nlims : (int, int)\n    A tuple *(min_exp, max_exp)* containing the powers of 10 that\n    determine the switchover threshold. For a number representable as\n    :math:`a \\times 10^\\mathrm{exp}` with :math:`1 <= |a| < 10`,\n    scientific notation will be used if ``exp <= min_exp`` or\n    ``exp >= max_exp``.\n\n    The default limits are controlled by :rc:`axes.formatter.limits`.\n\n    In particular numbers with *exp* equal to the thresholds are\n    written in scientific notation.\n\n    Typically, *min_exp* will be negative and *max_exp* will be\n    positive.\n\n    For example, ``formatter.set_powerlimits((-3, 4))`` will provide\n    the following formatting:\n    :math:`1 \\times 10^{-3}, 9.9 \\times 10^{-3}, 0.01,`\n    :math:`9999, 1 \\times 10^4`.\n\nSee Also\n--------\nScalarFormatter.set_scientific"
+    },
+    {
+      "name": "format_data_short",
+      "docstring": null
+    },
+    {
+      "name": "format_data",
+      "docstring": null
+    },
+    {
+      "name": "get_offset",
+      "docstring": "Return scientific notation, plus offset."
+    },
+    {
+      "name": "set_locs",
+      "docstring": null
+    },
+    {
+      "name": "set_base",
+      "docstring": "Change the *base* for labeling.\n\n.. warning::\n   Should always match the base used for :class:`LogLocator`"
+    },
+    {
+      "name": "set_label_minor",
+      "docstring": "Switch minor tick labeling on or off.\n\nParameters\n----------\nlabelOnlyBase : bool\n    If True, label ticks only at integer powers of base."
+    },
+    {
+      "name": "set_locs",
+      "docstring": "Use axis view limits to control which ticks are labeled.\n\nThe *locs* parameter is ignored in the present algorithm."
+    },
+    {
+      "name": "format_data",
+      "docstring": null
+    },
+    {
+      "name": "format_data_short",
+      "docstring": null
+    },
+    {
+      "name": "use_overline",
+      "docstring": "Switch display mode with overline for labelling p>1/2.\n\nParameters\n----------\nuse_overline : bool\n    If x > 1/2, with x = 1 - v, indicate if x should be displayed as\n    $\\overline{v}$. The default is to display $1 - v$."
+    },
+    {
+      "name": "set_one_half",
+      "docstring": "Set the way one half is displayed.\n\none_half : str\n    The string used to represent 1/2."
+    },
+    {
+      "name": "set_minor_threshold",
+      "docstring": "Set the threshold for labelling minors ticks.\n\nParameters\n----------\nminor_threshold : int\n    Maximum number of locations for labelling some minor ticks. This\n    parameter have no effect if minor is False."
+    },
+    {
+      "name": "set_minor_number",
+      "docstring": "Set the number of minor ticks to label when some minor ticks are\nlabelled.\n\nParameters\n----------\nminor_number : int\n    Number of ticks which are labelled when the number of ticks is\n    below the threshold."
+    },
+    {
+      "name": "set_locs",
+      "docstring": null
+    },
+    {
+      "name": "format_data_short",
+      "docstring": null
+    },
+    {
+      "name": "set_locs",
+      "docstring": null
+    },
+    {
+      "name": "get_offset",
+      "docstring": null
+    },
+    {
+      "name": "format_eng",
+      "docstring": "Alias to EngFormatter.format_data"
+    },
+    {
+      "name": "format_data",
+      "docstring": "Format a number in engineering notation, appending a letter\nrepresenting the power of 1000 of the original number.\nSome examples:\n\n>>> format_data(0)        # for self.places = 0\n'0'\n\n>>> format_data(1000000)  # for self.places = 1\n'1.0 M'\n\n>>> format_data(-1e-6)  # for self.places = 2\n'-1.00 \u00b5'"
+    },
+    {
+      "name": "format_pct",
+      "docstring": "Format the number as a percentage number with the correct\nnumber of decimals and adds the percent symbol, if any.\n\nIf ``self.decimals`` is `None`, the number of digits after the\ndecimal point is set based on the *display_range* of the axis\nas follows:\n\n============= ======== =======================\ndisplay_range decimals sample\n============= ======== =======================\n>50           0        ``x = 34.5`` => 35%\n>5            1        ``x = 34.5`` => 34.5%\n>0.5          2        ``x = 34.5`` => 34.50%\n...           ...      ...\n============= ======== =======================\n\nThis method will not be very good for tiny axis ranges or\nextremely large ones. It assumes that the values on the chart\nare percentages displayed on a reasonable scale."
+    },
+    {
+      "name": "convert_to_pct",
+      "docstring": null
+    },
+    {
+      "name": "symbol",
+      "docstring": "The configured percent symbol as a string.\n\nIf LaTeX is enabled via :rc:`text.usetex`, the special characters\n``{'#', '$', '%', '&', '~', '_', '^', '\\', '{', '}'}`` are\nautomatically escaped in the string."
+    },
+    {
+      "name": "symbol",
+      "docstring": null
+    },
+    {
+      "name": "tick_values",
+      "docstring": "Return the values of the located ticks given **vmin** and **vmax**.\n\n.. note::\n    To get tick locations with the vmin and vmax values defined\n    automatically for the associated ``axis`` simply call\n    the Locator instance::\n\n        >>> print(type(loc))\n        <type 'Locator'>\n        >>> print(loc())\n        [1, 2, 3, 4]"
+    },
+    {
+      "name": "set_params",
+      "docstring": "Do nothing, and raise a warning. Any locator class not supporting the\nset_params() function will call this."
+    },
+    {
+      "name": "raise_if_exceeds",
+      "docstring": "Log at WARNING level if *locs* is longer than `Locator.MAXTICKS`.\n\nThis is intended to be called immediately before returning *locs* from\n``__call__`` to inform users in case their Locator returns a huge\nnumber of ticks, causing Matplotlib to run out of memory.\n\nThe \"strange\" name of this method dates back to when it would raise an\nexception instead of emitting a log."
+    },
+    {
+      "name": "nonsingular",
+      "docstring": "Adjust a range as needed to avoid singularities.\n\nThis method gets called during autoscaling, with ``(v0, v1)`` set to\nthe data limits on the Axes if the Axes contains any data, or\n``(-inf, +inf)`` if not.\n\n- If ``v0 == v1`` (possibly up to some floating point slop), this\n  method returns an expanded interval around this value.\n- If ``(v0, v1) == (-inf, +inf)``, this method returns appropriate\n  default view limits.\n- Otherwise, ``(v0, v1)`` is returned without modification."
+    },
+    {
+      "name": "view_limits",
+      "docstring": "Select a scale for the range from vmin to vmax.\n\nSubclasses should override this method to change locator behaviour."
+    },
+    {
+      "name": "set_params",
+      "docstring": "Set parameters within this locator"
+    },
+    {
+      "name": "tick_values",
+      "docstring": null
+    },
+    {
+      "name": "set_params",
+      "docstring": "Set parameters within this locator."
+    },
+    {
+      "name": "tick_values",
+      "docstring": "Return the locations of the ticks.\n\n.. note::\n\n    Because the values are fixed, vmin and vmax are not used in this\n    method."
+    },
+    {
+      "name": "tick_values",
+      "docstring": "Return the locations of the ticks.\n\n.. note::\n\n    Because the values are Null, vmin and vmax are not used in this\n    method."
+    },
+    {
+      "name": "numticks",
+      "docstring": null
+    },
+    {
+      "name": "numticks",
+      "docstring": null
+    },
+    {
+      "name": "set_params",
+      "docstring": "Set parameters within this locator."
+    },
+    {
+      "name": "tick_values",
+      "docstring": null
+    },
+    {
+      "name": "view_limits",
+      "docstring": "Try to choose the view limits intelligently."
+    },
+    {
+      "name": "set_params",
+      "docstring": "Set parameters within this locator.\n\nParameters\n----------\nbase : float > 0, optional\n    Interval between ticks.\noffset : float, optional\n    Value added to each multiple of *base*.\n\n    .. versionadded:: 3.8"
+    },
+    {
+      "name": "tick_values",
+      "docstring": null
+    },
+    {
+      "name": "view_limits",
+      "docstring": "Set the view limits to the nearest tick values that contain the data."
+    },
+    {
+      "name": "closeto",
+      "docstring": null
+    },
+    {
+      "name": "le",
+      "docstring": "Return the largest n: n*step <= x."
+    },
+    {
+      "name": "ge",
+      "docstring": "Return the smallest n: n*step >= x."
+    },
+    {
+      "name": "set_params",
+      "docstring": "Set parameters for this locator.\n\nParameters\n----------\nnbins : int or 'auto', optional\n    see `.MaxNLocator`\nsteps : array-like, optional\n    see `.MaxNLocator`\ninteger : bool, optional\n    see `.MaxNLocator`\nsymmetric : bool, optional\n    see `.MaxNLocator`\nprune : {'lower', 'upper', 'both', None}, optional\n    see `.MaxNLocator`\nmin_n_ticks : int, optional\n    see `.MaxNLocator`"
+    },
+    {
+      "name": "tick_values",
+      "docstring": null
+    },
+    {
+      "name": "view_limits",
+      "docstring": null
+    },
+    {
+      "name": "set_params",
+      "docstring": "Set parameters within this locator."
+    },
+    {
+      "name": "tick_values",
+      "docstring": null
+    },
+    {
+      "name": "view_limits",
+      "docstring": "Try to choose the view limits intelligently."
+    },
+    {
+      "name": "nonsingular",
+      "docstring": null
+    },
+    {
+      "name": "set_params",
+      "docstring": "Set parameters within this locator."
+    },
+    {
+      "name": "tick_values",
+      "docstring": null
+    },
+    {
+      "name": "view_limits",
+      "docstring": "Try to choose the view limits intelligently."
+    },
+    {
+      "name": "set_params",
+      "docstring": "Set parameters within this locator."
+    },
+    {
+      "name": "tick_values",
+      "docstring": null
+    },
+    {
+      "name": "set_params",
+      "docstring": "Set parameters within this locator."
+    },
+    {
+      "name": "minor",
+      "docstring": null
+    },
+    {
+      "name": "minor",
+      "docstring": null
+    },
+    {
+      "name": "tick_values",
+      "docstring": null
+    },
+    {
+      "name": "nonsingular",
+      "docstring": null
+    },
+    {
+      "name": "tick_values",
+      "docstring": null
+    },
+    {
+      "name": "get_log_range",
+      "docstring": null
+    },
+    {
+      "name": "ideal_ticks",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}
