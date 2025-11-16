@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "data_path": "output\\e2e_demo_final\\analysis\\pixels.csv",
+    "analysis_date": "2025-11-15T19:34:23.835391",
+    "analysis_types": [
+      "statistical"
+    ]
+  },
+  "statistical": {
+    "summary": {
+      "intensity": {
+        "count": 32768.0,
+        "mean": 112.55838012695312,
+        "std": 63.96085145206697,
+        "min": 10.0,
+        "25%": 42.0,
+        "50%": 135.0,
+        "75%": 168.0,
+        "max": 199.0
+      }
+    },
+    "missing_values": {
+      "intensity": 0
+    },
+    "data_types": {
+      "intensity": "int64"
+    },
+    "skewness": {
+      "intensity": -0.3259027557757328
+    },
+    "kurtosis": {
+      "intensity": -1.523993274884782
+    },
+    "normality_tests": {
+      "intensity": {
+        "statistic": 0.8641309064576315,
+        "p_value": 5.5221642686638e-95,
+        "is_normal": 

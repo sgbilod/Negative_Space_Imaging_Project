@@ -18,6 +18,14 @@ jobs:
         with:
           submodules: "recursive"
 
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
@@ -41,6 +49,13 @@ jobs:
       - name: Run tests with coverage
         run: |
           pytest --cov=sovereign --cov=quantum --cov-report=xml
+      - name: Run smoke end-to-end demo tests (including secure verification)
+        run: |
+          set -e
+          pytest -m smoke -v
+          python end_to_end_demo.py --secure-verify --signatures 5 --threshold 3 --output-dir output/ci_secure_run
+          test -f output/ci_secure_run/summary.json || (echo "Missing summary.json" && exit 1)
+          python -c "import json; d=json.load(open('output/ci_secure_run/summary.json')); assert d.get('secure_verification_success') is True, 'Secure verification failed'; print('Secure verification confirmed in CI summary.json')"
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3

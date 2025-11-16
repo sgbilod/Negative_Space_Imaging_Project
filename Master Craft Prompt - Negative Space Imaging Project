@@ -1,0 +1,210 @@
+# MASTER CRAFT PROMPT – Negative Space Imaging Project
+
+You are GitHub Copilot operating inside VS Code on the repository `iamthegreatdestroyer/Negative_Space_Imaging_Project`.
+
+Your mission is to autonomously execute, as far as technically possible, the following multi‑stage Next Step Action Plan for the Negative Space Imaging Project, in this order of priorities:
+
+1. **Stage 1 – Research Prototype**
+   - Deliver a research prototype that runs end‑to‑end on sample data with a single command.
+2. **Stage 2 – Demonstrable Product**
+   - Deliver a demonstrable product with a UI, API, and simple installer / dockerized stack.
+3. **Stage 3 – Partner‑Ready Platform**
+   - Move toward a commercial/partner‑ready platform with clear security posture, monitoring, and partner‑facing docs.
+
+You MUST work in **modular Tracks**, which can be executed in parallel across sessions:
+
+- Track A – Research Prototype E2E Pipeline (highest priority now)
+- Track B – API & Frontend Product Demo
+- Track C – Docker & Deployment Hardening
+- Track D – Testing & QA Consolidation
+- Track E – Security & IP Baseline
+- Track F – Documentation & Navigation
+- Track G – Partner / Business Materials
+
+In each session, I will tell you which Track(s) to focus on, starting with **Track A**.
+
+---
+
+## Global Constraints & Behaviors
+
+1. **Repository Context**
+   - Always assume you are working in `iamthegreatdestroyer/Negative_Space_Imaging_Project`.
+   - Before modifying or creating files, inspect existing content and structure so changes integrate cleanly.
+
+2. **File Editing Rules**
+   - When proposing code or documentation changes, show full files or clearly labeled snippets.
+   - Respect existing architecture and naming where possible.
+   - Add clear comments / docstrings where behavior or intent might be non‑obvious.
+
+3. **Incremental, Safe Changes**
+   - Prefer small, testable steps over large, speculative rewrites.
+   - Maintain backward compatibility where realistic (e.g., don’t break existing scripts without a clear benefit and documentation).
+
+4. **Testing & Verification**
+   - After code changes, always describe how to run the relevant tests (e.g., `pytest`, `npm test`, end‑to‑end script, or `docker-compose`).
+   - When you add or change behavior, add or adjust tests whenever feasible.
+
+5. **Documentation**
+   - Keep `README.md` and `MASTER_INDEX.md` as primary navigation points.
+   - When you add user‑visible features or commands, **update the relevant docs** in the same session.
+
+6. **Autonomy**
+   - Act as a senior engineer with autonomy: propose concrete changes, create or refactor files, and update docs as if you are preparing the project for real users and partners.
+   - When something is ambiguous, propose a sensible default and clearly label it in comments or docs.
+
+---
+
+## TRACK A – Research Prototype E2E Pipeline (PRIMARY FOCUS)
+
+**Goal:** A single, reliable command runs the full research pipeline on sample data on a single machine.
+
+### A1. Canonical End‑to‑End Script (`end_to_end_demo.py`)
+
+1. Locate and inspect:
+   - `end_to_end_demo.py`
+   - `pipeline_demo.py`
+   - `project_config.yaml`
+   - Key modules involved in the pipeline, such as (but not limited to):
+     - `image_acquisition.py`
+     - `integrated_acquisition_system.py`
+     - `negative_space_analysis/` (e.g. reconstructor or pipeline modules)
+     - `processing/`, `core/`
+     - `data_analysis_system.py`
+     - Any visualization/summary helpers if appropriate
+
+2. Choose **one canonical script**, preferably `end_to_end_demo.py`, as the official research demo entrypoint.
+
+3. Implement or refine `end_to_end_demo.py` so that:
+   - It accepts:
+     - `--config` (default: `project_config.yaml`)
+     - `--output-dir` (default: `output/e2e_demo_run`)
+     - `--verbose` for detailed logging
+   - It performs the following sequence:
+     1. Load configuration from `project_config.yaml` (or provided path).
+     2. Initialize logging and ensure the output directory exists.
+     3. Acquisition step:
+        - Use the project’s existing acquisition logic (e.g., `IntegratedAcquisitionSystem` or helper functions like `acquire_sample_image`).
+        - Save raw data to an appropriate subdirectory (e.g., `output/e2e_demo_run/raw/`).
+     4. Reconstruction / processing step:
+        - Use the existing negative‑space reconstruction / processing component (e.g. `NegativeSpaceReconstructor` or equivalent).
+        - Save reconstructed data to `output/e2e_demo_run/reconstruction/`.
+     5. Analysis step:
+        - Use the analysis subsystem (e.g. `DataAnalysisSystem`) to compute metrics/statistics.
+        - Save metrics to `output/e2e_demo_run/metrics/metrics.json`.
+     6. Summary:
+        - Produce a `summary.json` with paths to key artifacts and timestamps.
+   - It handles errors gracefully:
+     - Uses structured logging.
+     - Returns a non‑zero exit code on failure.
+     - Prints a concise error message to stderr.
+
+4. Ensure the script can be run with:
+
+   ```bash
+   pip install -r requirements.txt
+   python end_to_end_demo.py --config project_config.yaml --output-dir output/e2e_demo_run
+   ```
+
+5. When implementing, adapt to the **actual function and class names** in this repo. Do not assume names; inspect the files and wire the script to the real APIs.
+
+### A2. Documentation for Research Demo (`README.md` and Related Docs)
+
+1. Update `README.md` to include a section titled **“End‑to‑End Research Demo”** that:
+
+   - Briefly explains the purpose of the research demo (acquisition → reconstruction → analysis → outputs).
+   - Specifies prerequisites:
+     - Python version.
+     - `pip install -r requirements.txt`.
+   - Shows the canonical command:
+
+     ```bash
+     python end_to_end_demo.py --config project_config.yaml --output-dir output/e2e_demo_run
+     ```
+
+   - Lists expected outputs:
+     - `e2e_demo.log`
+     - Raw image file(s)
+     - Reconstructed image file(s)
+     - `metrics/metrics.json`
+     - `summary.json`
+
+   - Provides a short troubleshooting section (e.g., import errors, configuration problems).
+
+2. Ensure this section links to deeper technical docs:
+
+   - `SYSTEM_ARCHITECTURE.md`
+   - `SYSTEM_ARCHITECTURE_DETAILED.md`
+   - `README_IMAGE_ACQUISITION.md`
+   - `TESTING_FRAMEWORK.md`
+
+3. If needed, briefly mention in `TESTING_FRAMEWORK.md` how the research demo relates to the test suite (e.g., which tests validate the main pipeline).
+
+---
+
+## TRACK D – Testing & QA (SUPPORTING TRACK FOR A)
+
+Even while focusing on Track A, you should opportunistically improve tests:
+
+1. Identify core tests that validate the research pipeline, such as:
+
+   - `test_pipeline.py`
+   - `test_negative_space_reconstructor.py`
+   - `test_image_acquisition.py`
+   - `test_data_quality.py`
+   - Any relevant tests in `tests/` that cover the same functionality as the end‑to‑end demo.
+
+2. Ensure they can be run via:
+
+   ```bash
+   pytest
+   ```
+
+3. Adjust or add tests to align with the canonical behavior of `end_to_end_demo.py` and its underlying components.
+
+4. Update `TESTING_FRAMEWORK.md` to:
+
+   - Clearly identify the “Core Research Tests”.
+   - Give an example command to run them.
+
+---
+
+## TRACK B, C, E, F, G – Deferred but Planned
+
+Do NOT start on these unless explicitly instructed in this chat session, but keep them in mind for future work:
+
+- **Track B – API & Frontend Product Demo**
+  - Define v1 API surface (upload image, run pipeline, get results).
+  - Align Express routes and React UI for a simple browser demo.
+- **Track C – Docker & Deployment Hardening**
+  - Choose a canonical `docker-compose` file.
+  - Make `docker-compose up` bring up API + frontend for demo.
+- **Track E – Security & IP Baseline**
+  - Clarify implemented vs roadmap security.
+  - Align `SECURITY.md`, security configs, and `test_security.py`.
+- **Track F – Documentation & Navigation**
+  - Use `README.md` + `MASTER_INDEX.md` as primary navigation.
+- **Track G – Partner / Business Materials**
+  - Create a succinct `PARTNER_OVERVIEW.md` tied to technical reality.
+
+---
+
+## HOW TO ACT IN THIS SESSION
+
+For **this session**, start with:
+
+1. **Track A / Step A1:**
+   - Inspect the existing `end_to_end_demo.py`, `pipeline_demo.py`, and relevant modules.
+   - Propose concrete code changes or a replacement `end_to_end_demo.py` that implements the described behavior.
+   - Ensure imports, function calls, and paths match the *actual* code in the repository.
+
+2. **Track A / Step A2:**
+   - Once the script behavior is clear and coherent, update `README.md` to include the “End‑to‑End Research Demo” section.
+
+At each step:
+
+- Show me the proposed file content (or diff) and explain:
+  - What you changed.
+  - How to run it.
+  - How it moves us closer to the Stage 1 goal.
+
+Then wait for my confirmation or feedback before proceeding to subsequent tracks or larger refactors.

@@ -24,6 +24,22 @@ from scipy import stats
 from sklearn import cluster, decomposition, ensemble, manifold, metrics
 import seaborn as sns
 
+class NumpyEncoder(json.JSONEncoder):
+    """Custom JSON encoder that handles numpy types."""
+    def default(self, obj):
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        elif isinstance(obj, np.integer):
+            return int(obj)
+        elif isinstance(obj, np.floating):
+            return float(obj)
+        elif isinstance(obj, np.bool_):
+            return bool(obj)
+        elif isinstance(obj, np.complexfloating):
+            return complex(obj)
+        return super().default(obj)
+
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -834,6 +850,9 @@ class DataAnalysisSystem:
         Args:
             data: Input data
             results: Analysis results
+                # Convert numpy types to native Python types for JSON serialization
+                results = self._convert_numpy_types(results)
+
             output_prefix: Prefix for output files
         """
         # Convert to DataFrame if numpy array
@@ -1035,6 +1054,8 @@ class DataAnalysisSystem:
 
     def _export_results(self, results: Dict[str, Any], output_prefix: str) -> None:
         """Export analysis results to files.
+            # Convert numpy types to native Python types for JSON serialization
+            results = self._convert_numpy_types(results)
 
         Args:
             results: Analysis results
@@ -1048,7 +1069,7 @@ class DataAnalysisSystem:
         # Export as JSON (always)
         json_path = os.path.join(self.results_dir, f"{output_prefix}_{timestamp}.json")
         with open(json_path, 'w') as f:
-            json.dump(results, f, indent=2)
+            json.dump(results, f, indent=2, cls=NumpyEncoder)
 
         # Export as CSV if requested
         if 'csv' in export_formats:
@@ -1068,6 +1089,40 @@ class DataAnalysisSystem:
                     logger.warning(f"Could not export {analysis_type} results to CSV: {e}")
 
         logger.info(f"Results exported to {self.results_dir}")
+
+    def _convert_numpy_types(self, obj: Any) -> Any:
+        """Recursively convert numpy types to native Python types.
+
+        Args:
+            obj: Object to convert (can be dict, list, numpy type, etc.)
+
+        Returns:
+            Object with numpy types converted to Python types
+        """
+        if isinstance(obj, dict):
+            return {key: self._convert_numpy_types(value) for key, value in obj.items()}
+        elif isinstance(obj, (list, tuple)):
+            return [self._convert_numpy_types(item) for item in obj]
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        elif isinstance(obj, (np.integer, np.int_)):
+            return int(obj)
+        elif isinstance(obj, (np.floating, np.float_)):
+            return float(obj)
+        elif isinstance(obj, (np.bool_, bool)):
+            return bool(obj)
+        elif isinstance(obj, (np.complexfloating, complex)):
+            return complex(obj)
+        elif isinstance(obj, bytes):
+            return obj.decode('utf-8', errors='ignore')
+        elif obj is None or isinstance(obj, (str, int, float)):
+            return obj
+        else:
+            # Try to convert to string as last resort
+            try:
+                return str(obj)
+            except Exception:
+                return None
 
     def _results_to_dataframe(self,
                              results: Dict[str, Any],

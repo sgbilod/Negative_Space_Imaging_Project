@@ -261,3 +261,66 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 ## Support
 
 For support, please open an issue or contact our support team at support@negativespacesystems.com.
+
+## End-to-End Research Demo (Track A)
+
+This canonical research prototype runs the complete imaging pipeline in one command: acquisition → processing → reconstruction → analysis → metrics → (optional) secure verification. It is the authoritative entrypoint for Stage 1.
+
+### Python Prerequisites
+
+Python 3.10+ (recommend virtual environment) then:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run Command
+
+```bash
+python end_to_end_demo.py --config project_config.yaml --output-dir output/e2e_demo_run
+```
+
+Optional secure verification:
+
+```bash
+python end_to_end_demo.py --secure-verify --signatures 5 --threshold 3 --verbose
+```
+
+### Output Layout
+
+```text
+output/e2e_demo_run/
+  raw/                # raw_image.raw, raw_metadata.json
+  processed/          # processed_image.png
+  reconstruction/     # reconstruction_result.json
+  analysis/           # pixels.csv + analysis artifacts
+  metrics/            # metrics.json
+  logs/               # e2e_demo.log
+  summary.json        # manifest of key artifacts
+```
+
+### Key Artifacts
+
+- processed_image.png – normalized PNG derived from simulated raw bytes
+- reconstruction_result.json – heuristic negative space metrics
+- metrics.json – consolidated reconstruction + analysis summary
+- summary.json – manifest including verification status (if run)
+- e2e_demo.log – detailed run log
+
+### Troubleshooting
+
+| Issue | Cause | Fix |
+|-------|-------|-----|
+| ModuleNotFoundError: PIL | Pillow not installed | `pip install pillow` |
+| No configuration loaded | Missing `project_config.yaml` | Provide config or ignore (defaults used) |
+| Secure verification fails | Threshold or signature mismatch | Re-run with `--verbose`, inspect log output |
+| Empty metrics fields | Limited analysis mode | Extend analysis types in future iteration |
+
+### Related Docs
+
+- [System Architecture](./SYSTEM_ARCHITECTURE.md)
+- [Detailed Architecture](./SYSTEM_ARCHITECTURE_DETAILED.md)
+- [Image Acquisition Guide](./README_IMAGE_ACQUISITION.md)
+- [Testing Framework](./TESTING_FRAMEWORK.md)
+
+Core tests aligning with this flow will be referenced in `TESTING_FRAMEWORK.md` under "Core Research Tests" (to be expanded).

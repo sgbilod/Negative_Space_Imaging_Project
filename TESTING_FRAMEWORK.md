@@ -18,7 +18,8 @@ tests/
 ├── test_negative_space_analyzer.py      # Unit tests (500+ lines, 35+ tests)
 ├── test_data_validation.py              # Data validation tests (600+ lines, 40+ tests)
 ├── test_analyzer_integration.py         # Integration tests (450+ lines, 25+ tests)
-└── test_analyzer_performance.py         # Performance tests (400+ lines, 30+ tests)
+├── test_analyzer_performance.py         # Performance tests (400+ lines, 30+ tests)
+test_end_to_end_demo.py                  # Core research demo smoke test (artifacts & metrics)
 ```
 
 ### File Statistics
@@ -30,7 +31,8 @@ tests/
 | test_data_validation.py         | 600+       | 40       | 95%             |
 | test_analyzer_integration.py    | 450+       | 25       | 90%             |
 | test_analyzer_performance.py    | 400+       | 30       | 85%             |
-| **TOTAL**                       | **2,550+** | **130+** | **85%+**        |
+| test_end_to_end_demo.py         | <200       | 1        | Smoke           |
+| **TOTAL**                       | **2,700+** | **131+** | **85%+**        |
 
 ---
 
@@ -280,6 +282,43 @@ tests/
 
 ---
 
+### 5. **Smoke Test (Canonical E2E Research Demo)** (`test_end_to_end_demo.py`)
+
+Purpose: Validates the canonical end-to-end research pipeline (`end_to_end_demo.py`) ensuring artifact creation, reconstruction metrics integrity, secure verification robustness across variants, and adherence to a performance budget.
+
+Artifacts Asserted:
+
+- Directories: `raw`, `processed`, `reconstruction`, `analysis`, `metrics`, `logs`
+- Files: `raw_image.raw`, `processed_image.png`, `reconstruction_result.json`, `pixels.csv`, `metrics.json`, `summary.json`, log file in `logs/`
+
+Metric Assertions:
+
+- `metrics.json` contains: `mean_intensity`, `negative_space_ratio`, `negative_space_regions`, `width`, `height`
+- All numeric, non-negative; ratio in [0,1]
+
+Performance Constraint:
+
+- Total runtime < 20 seconds (`MAX_SECONDS = 20` constant) to detect regressions early
+
+Secure Verification Variants:
+
+- Parameterized signature/threshold pairs: `(5,3)`, `(4,2)`, `(6,4)` must each yield success flag True
+- Ensures stability of threshold-based multi-signature verification under modest variation
+
+Invocation Examples:
+
+```bash
+pytest test_end_to_end_demo.py -v      # Full smoke test
+pytest -m smoke -v                     # Marker-based invocation
+```
+
+Rationale:
+
+- Fast deterministic health check of entire research workflow
+- Guards against performance drift and secure verification instability
+- Provides foundation for future qualitative negative space validation extensions
+
+
 ## 🛠️ Available Fixtures
 
 ### Image Fixtures
@@ -386,6 +425,7 @@ def temp_db_path() -> str
 
 ```bash
 pytest tests/ -v
+pytest test_end_to_end_demo.py -v  # Core research pipeline smoke test
 ```
 
 ### Run Specific Test Categories
@@ -402,6 +442,10 @@ pytest tests/test_analyzer_integration.py -v
 
 # Performance tests
 pytest tests/test_analyzer_performance.py -v
+
+# Core research demo pipeline smoke tests (includes secure verification)
+pytest test_end_to_end_demo.py -v
+pytest -m smoke -v  # Marker-based invocation
 ```
 
 ### Run Tests by Marker
@@ -424,6 +468,9 @@ pytest -m database -v
 
 # Run concurrent tests
 pytest -m concurrent -v
+
+# Run smoke (canonical e2e demo) tests
+pytest -m smoke -v
 ```
 
 ### Generate Coverage Report
@@ -462,7 +509,8 @@ pytest tests/test_analyzer_performance.py -m performance -v
 | Data Validation | 40      | 95%      | ✅     |
 | Integration     | 25      | 90%      | ✅     |
 | Performance     | 30      | 85%      | ✅     |
-| **TOTAL**       | **130** | **85%+** | ✅     |
+| Smoke (E2E Demo)| 1       | -        | ✅     |
+| **TOTAL**       | **131** | **85%+** | ✅     |
 
 ### By Function
 

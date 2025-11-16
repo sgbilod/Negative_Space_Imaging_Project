@@ -1,0 +1,41 @@
+{
+  "raw_image": "output\\e2e_success_final\\raw\\raw_image.raw",
+  "processed_image": "output\\e2e_success_final\\processed\\processed_image.png",
+  "reconstruction_artifact": "output\\e2e_success_final\\reconstruction\\reconstruction_result.json",
+  "reconstruction_metrics": {
+    "image_path": "output\\e2e_success_final\\processed\\processed_image.png",
+    "feature_count": 0,
+    "mean_intensity": 109.70817565917969,
+    "negative_space_ratio": 0.3960304260253906,
+    "negative_space_regions": 1,
+    "width": 512,
+    "height": 512,
+    "total_regions": 1,
+    "mean_region_area": 103817.0,
+    "median_region_area": 103817.0,
+    "region_area_std": 0.0,
+    "largest_region_area": 103817.0,
+    "smallest_region_area": 103817.0,
+    "mean_convexity": 0.9709783015338571,
+    "mean_circularity": 0.7335354445866498,
+    "mean_eccentricity": 0.7108869465432366,
+    "spatial_entropy": -0.0,
+    "spatial_clustering_coefficient": 0.0,
+    "processing_time_ms": 179.8231601715088,
+    "segmentation_strategy": "AdaptiveThreshold(otsu)",
+    "morphology_operations": [
+      [
+        "open",
+        3
+      ],
+      [
+        "close",
+        5
+      ]
+    ]
+  },
+  "analysis_results_file_prefix": "output\\e2e_success_final\\analysis",
+  "metrics_file": "output\\e2e_success_final\\metrics\\metrics.json",
+  "secure_verification_success": "None",
+  "config_used": "project_config.yaml"
+}

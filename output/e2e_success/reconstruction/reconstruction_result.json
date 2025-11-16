@@ -1,0 +1,103 @@
+{
+  "image_path": "output\\e2e_success\\processed\\processed_image.png",
+  "segmentation_strategy": "AdaptiveThreshold(otsu)",
+  "morphology_operations": [
+    [
+      "open",
+      3
+    ],
+    [
+      "close",
+      5
+    ]
+  ],
+  "regions": [
+    {
+      "region_id": 1,
+      "area": 54654.0,
+      "perimeter": 957.8031739553294,
+      "centroid": [
+        323.25963332967393,
+        286.61510593918103
+      ],
+      "bounding_box": [
+        162,
+        171,
+        472,
+        409
+      ],
+      "convexity": 0.9714366968237322,
+      "circularity": 0.7486507650752874,
+      "eccentricity": 0.7003080830368248,
+      "aspect_ratio": 1.3025210084033614,
+      "solidity": 0.9714366968237322
+    }
+  ],
+  "aggregate_metrics": {
+    "total_regions": 1,
+    "negative_space_ratio": 0.20848846435546875,
+    "mean_region_area": 54654.0,
+    "median_region_area": 54654.0,
+    "region_area_std": 0.0,
+    "largest_region_area": 54654.0,
+    "smallest_region_area": 54654.0,
+    "mean_convexity": 0.9714366968237322,
+    "mean_circularity": 0.7486507650752874,
+    "mean_eccentricity": 0.7003080830368248,
+    "spatial_distribution": {
+      "density_map": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "spatial_entropy": -0.0,
+      "clustering_coefficient": 0.0
+    }
+  },
+  "artifacts": {
+    "mask_raw": "output\\e2e_success\\reconstruction\\mask_raw.png",
+    "mask_morphed": "output\\e2e_success\\reconstruction\\mask_morphed.png",
+    "labeled_regions": "output\\e2e_success\\reconstruction\\labeled_regions.png"
+  },
+  "provenance": {
+    "reconstruction_id": "recon-20251116003452-9525862c",
+    "timestamp": "2025-11-16T00:34:52.195248Z",
+    "segmentation_strategy": "AdaptiveThreshold(otsu)",
+    "morphology_operations": [
+      [
+        "open",
+        3
+      ],
+      [
+        "close",
+        5
+      ]
+    ],
+    "processing_time_ms": 147.71628379821777,
+    "image_dimensions": [
+      512,
+      512
+    ]
+  }
+}

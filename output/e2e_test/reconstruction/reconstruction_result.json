@@ -1,0 +1,103 @@
+{
+  "image_path": "output\\e2e_test\\processed\\processed_image.png",
+  "segmentation_strategy": "AdaptiveThreshold(otsu)",
+  "morphology_operations": [
+    [
+      "open",
+      3
+    ],
+    [
+      "close",
+      5
+    ]
+  ],
+  "regions": [
+    {
+      "region_id": 1,
+      "area": 99630.0,
+      "perimeter": 1269.8691911333117,
+      "centroid": [
+        218.1693465823547,
+        365.0212486198936
+      ],
+      "bounding_box": [
+        9,
+        213,
+        420,
+        512
+      ],
+      "convexity": 0.9825831393743343,
+      "circularity": 0.7763937326255843,
+      "eccentricity": 0.695751392903574,
+      "aspect_ratio": 1.374581939799331,
+      "solidity": 0.9825831393743343
+    }
+  ],
+  "aggregate_metrics": {
+    "total_regions": 1,
+    "negative_space_ratio": 0.38005828857421875,
+    "mean_region_area": 99630.0,
+    "median_region_area": 99630.0,
+    "region_area_std": 0.0,
+    "largest_region_area": 99630.0,
+    "smallest_region_area": 99630.0,
+    "mean_convexity": 0.9825831393743343,
+    "mean_circularity": 0.7763937326255843,
+    "mean_eccentricity": 0.695751392903574,
+    "spatial_distribution": {
+      "density_map": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "spatial_entropy": -0.0,
+      "clustering_coefficient": 0.0
+    }
+  },
+  "artifacts": {
+    "mask_raw": "output\\e2e_test\\reconstruction\\mask_raw.png",
+    "mask_morphed": "output\\e2e_test\\reconstruction\\mask_morphed.png",
+    "labeled_regions": "output\\e2e_test\\reconstruction\\labeled_regions.png"
+  },
+  "provenance": {
+    "reconstruction_id": "recon-20251116003738-28402263",
+    "timestamp": "2025-11-16T00:37:38.951108Z",
+    "segmentation_strategy": "AdaptiveThreshold(otsu)",
+    "morphology_operations": [
+      [
+        "open",
+        3
+      ],
+      [
+        "close",
+        5
+      ]
+    ],
+    "processing_time_ms": 184.97776985168457,
+    "image_dimensions": [
+      512,
+      512
+    ]
+  }
+}
