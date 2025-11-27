@@ -1,0 +1,28 @@
+# Requirements for DeepAgent Supervisor & Memory System
+# Negative Space Imaging Project - Agent Layer Dependencies
+#
+# Install with: pip install -r requirements-agents.txt
+#
+# Copyright (c) 2025 Stephen Bilodeau. All Rights Reserved.
+
+# Core numerical computing for spatial signatures and LSH
+numpy>=1.24.0
+
+# Async rate limiting for API calls and resource management
+asyncio-throttle>=1.0.2
+
+# Async SQLite for non-blocking database operations
+aiosqlite>=0.19.0
+
+# Standard library dependencies (included for documentation):
+# - asyncio (built-in): Async task orchestration
+# - sqlite3 (built-in): Persistent memory storage
+# - dataclasses (built-in): Structured data types
+# - enum (built-in): State and type enumerations
+# - typing (built-in): Type annotations
+# - logging (built-in): Debug and info logging
+# - uuid (built-in): Unique identifier generation
+# - math (built-in): Decay function calculations
+# - json (built-in): Data serialization
+# - hashlib (built-in): Signature hashing
+# - pathlib (built-in): Path operations
