@@ -1,0 +1,205 @@
+# =============================================================================
+# Negative Space Imaging Project - Prometheus Edge Configuration
+# Scrape configurations for edge deployment monitoring
+# =============================================================================
+#
+# This configuration file defines Prometheus scrape targets for:
+# - NSI Imaging Processor (main application)
+# - NSI Verification Service
+# - Redis cache metrics
+# - Node exporter (system metrics)
+# - Prometheus self-monitoring
+#
+# Usage: Mount to /etc/prometheus/prometheus.yml in Prometheus container
+#
+# Copyright (c) 2025 Stephen Bilodeau. All Rights Reserved.
+# =============================================================================
+
+# Global configuration
+global:
+  # Scrape interval - optimized for edge resources
+  scrape_interval: 30s
+  scrape_timeout: 10s
+
+  # Evaluation interval for alerting rules
+  evaluation_interval: 30s
+
+  # External labels for remote storage/federation
+  external_labels:
+    cluster: nsi-edge
+    environment: edge
+    node: "${NSI_NODE_ID:-edge-node-001}"
+
+# Alertmanager configuration (optional - for alerting)
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets:
+#           - alertmanager:9093
+
+# Rule files for alerting (optional)
+# rule_files:
+#   - /etc/prometheus/rules/*.yml
+
+# -----------------------------------------------------------------------------
+# Scrape Configurations
+# -----------------------------------------------------------------------------
+scrape_configs:
+  # ---------------------------------------------------------------------------
+  # Prometheus Self-Monitoring
+  # ---------------------------------------------------------------------------
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+    metrics_path: /metrics
+    scrape_interval: 30s
+    scrape_timeout: 10s
+
+    # Relabel to add common labels
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'prometheus-edge'
+
+  # ---------------------------------------------------------------------------
+  # NSI Imaging Processor (Main Application)
+  # ---------------------------------------------------------------------------
+  - job_name: 'nsi-processor'
+    static_configs:
+      - targets: ['nsi-imaging-processor:9100']
+        labels:
+          service: 'imaging-processor'
+          component: 'core'
+
+    metrics_path: /metrics
+    scrape_interval: 15s
+    scrape_timeout: 10s
+
+    # Metric relabeling
+    metric_relabel_configs:
+      # Drop high-cardinality metrics if needed
+      - source_labels: [__name__]
+        regex: 'nsi_edge_request_.*'
+        action: keep
+
+      # Add edge-specific prefix
+      - source_labels: [__name__]
+        regex: '(.*)'
+        target_label: __name__
+        replacement: 'edge_${1}'
+
+  # ---------------------------------------------------------------------------
+  # NSI Verification Service
+  # ---------------------------------------------------------------------------
+  - job_name: 'nsi-verification'
+    static_configs:
+      - targets: ['nsi-verification:9100']
+        labels:
+          service: 'verification-service'
+          component: 'validation'
+
+    metrics_path: /metrics
+    scrape_interval: 30s
+    scrape_timeout: 10s
+
+  # ---------------------------------------------------------------------------
+  # Redis Cache Metrics
+  # ---------------------------------------------------------------------------
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['cache:6379']
+        labels:
+          service: 'redis-cache'
+          component: 'storage'
+
+    # Redis doesn't expose Prometheus metrics natively
+    # This uses redis_exporter if available
+    metrics_path: /metrics
+    scrape_interval: 30s
+    scrape_timeout: 10s
+
+    # Skip if redis_exporter not configured
+    honor_labels: true
+
+  # ---------------------------------------------------------------------------
+  # Node Exporter (System Metrics)
+  # ---------------------------------------------------------------------------
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+        labels:
+          service: 'node-exporter'
+          component: 'system'
+
+    metrics_path: /metrics
+    scrape_interval: 30s
+    scrape_timeout: 10s
+
+    # Relabel to clean up instance names
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: '(.+):.*'
+        replacement: '${1}'
+
+  # ---------------------------------------------------------------------------
+  # Docker Container Metrics (via cAdvisor if available)
+  # ---------------------------------------------------------------------------
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['cadvisor:8080']
+        labels:
+          service: 'cadvisor'
+          component: 'containers'
+
+    metrics_path: /metrics
+    scrape_interval: 30s
+    scrape_timeout: 10s
+
+    # Metric relabeling to reduce cardinality
+    metric_relabel_configs:
+      # Keep only essential container metrics
+      - source_labels: [__name__]
+        regex: 'container_(cpu|memory|network|fs)_.*'
+        action: keep
+
+      # Drop per-CPU metrics (high cardinality)
+      - source_labels: [__name__]
+        regex: 'container_cpu_usage_seconds_total'
+        action: drop
+
+      # Keep aggregated CPU usage
+      - source_labels: [__name__]
+        regex: 'container_cpu_usage_seconds_total'
+        source_labels: [cpu]
+        regex: 'total'
+        action: keep
+
+# -----------------------------------------------------------------------------
+# Remote Write Configuration (Optional)
+# -----------------------------------------------------------------------------
+# Uncomment to enable remote write to central Prometheus/Thanos
+# remote_write:
+#   - url: "https://central-prometheus.example.com/api/v1/write"
+#     bearer_token_file: /etc/prometheus/bearer_token
+#     write_relabel_configs:
+#       - source_labels: [__name__]
+#         regex: 'nsi_.*|node_.*|container_.*'
+#         action: keep
+#     queue_config:
+#       max_samples_per_send: 1000
+#       batch_send_deadline: 30s
+#       min_backoff: 1s
+#       max_backoff: 5s
+
+# -----------------------------------------------------------------------------
+# Storage Configuration
+# -----------------------------------------------------------------------------
+# Note: These settings are applied via command line flags in docker-compose
+# Included here for reference:
+#
+# --storage.tsdb.path=/prometheus
+# --storage.tsdb.retention.time=7d
+# --storage.tsdb.retention.size=5GB
+# --storage.tsdb.wal-compression
+# --web.enable-lifecycle

@@ -1,0 +1,364 @@
+# =============================================================================
+# Negative Space Imaging Project - Edge Configuration
+# Complete configuration for Raspberry Pi 4/5 edge deployment
+# =============================================================================
+#
+# This configuration file controls all aspects of edge node operation:
+# - System settings and resource management
+# - Processing pipeline configuration
+# - Data sovereignty and security settings
+# - Agent coordination parameters
+# - Monitoring and alerting thresholds
+#
+# Copyright (c) 2025 Stephen Bilodeau. All Rights Reserved.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# System Configuration
+# -----------------------------------------------------------------------------
+system:
+  # Node identification
+  node_id: "${NSI_NODE_ID:-edge-node-001}"
+  cluster_id: "${NSI_CLUSTER_ID:-nsi-edge-cluster}"
+  region: "${NSI_REGION:-local}"
+
+  # Mode settings
+  mode: edge
+  environment: production
+  debug: false
+
+  # Logging configuration
+  logging:
+    level: INFO
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    handlers:
+      - type: console
+        level: INFO
+      - type: file
+        level: DEBUG
+        path: /app/logs/nsi-edge.log
+        max_bytes: 10485760 # 10MB
+        backup_count: 5
+
+  # Startup behavior
+  startup:
+    timeout_seconds: 120
+    health_check_interval: 30
+    graceful_shutdown_timeout: 30
+
+# -----------------------------------------------------------------------------
+# Resource Configuration (Optimized for Raspberry Pi)
+# -----------------------------------------------------------------------------
+resources:
+  # Memory management
+  memory:
+    max_percent: 70
+    warning_threshold: 60
+    critical_threshold: 80
+    gc_threshold_mb: 256
+
+  # CPU management
+  cpu:
+    max_threads: 3 # Leave 1 core for system
+    worker_threads: 2
+    affinity_enabled: true
+    throttle_temp_celsius: 70
+
+  # Storage management
+  storage:
+    data_dir: /data
+    cache_dir: /data/cache
+    temp_dir: /data/temp
+    max_cache_size_gb: 8
+    min_free_space_gb: 2
+    cleanup_interval_hours: 6
+
+  # GPU/Hardware acceleration (if available)
+  acceleration:
+    enable_gpu: false # RPi has limited GPU compute
+    enable_neon: true # ARM NEON SIMD
+    enable_numpy_threads: 2
+
+# -----------------------------------------------------------------------------
+# Processing Pipeline Configuration
+# -----------------------------------------------------------------------------
+processing:
+  # Image processing settings
+  imaging:
+    max_resolution: [2048, 2048]
+    supported_formats:
+      - DICOM
+      - FITS
+      - PNG
+      - TIFF
+      - JPEG
+    default_bit_depth: 16
+    compression: lz4
+
+  # Negative space imaging specific
+  negative_space:
+    algorithm: adaptive
+    sensitivity: 0.85
+    noise_reduction: true
+    edge_detection_method: canny
+    reconstruction_iterations: 50
+    quality_threshold: 0.95
+
+  # Batch processing
+  batch:
+    enabled: true
+    max_batch_size: 10
+    queue_size: 50
+    timeout_seconds: 300
+    retry_attempts: 3
+    retry_delay_seconds: 5
+
+  # Pipeline stages
+  stages:
+    preprocessing:
+      enabled: true
+      normalize: true
+      denoise: true
+      enhance_contrast: false
+    analysis:
+      enabled: true
+      detect_anomalies: true
+      extract_features: true
+    postprocessing:
+      enabled: true
+      apply_filters: true
+      generate_report: true
+
+# -----------------------------------------------------------------------------
+# Data Sovereignty Configuration
+# -----------------------------------------------------------------------------
+data:
+  # Sovereignty settings
+  sovereignty:
+    enabled: true
+    jurisdiction: "${NSI_JURISDICTION:-LOCAL}"
+    compliance_mode: "${NSI_COMPLIANCE:-strict}"
+
+  # Local storage only (no cloud sync)
+  storage:
+    mode: local_only
+    encryption_at_rest: true
+    encryption_algorithm: AES-256-GCM
+
+  # Data retention
+  retention:
+    raw_data_days: 30
+    processed_data_days: 90
+    cache_hours: 24
+    memory_state_hours: 168 # 7 days
+
+  # Data classification
+  classification:
+    enabled: true
+    default_level: confidential
+    levels:
+      - public
+      - internal
+      - confidential
+      - restricted
+
+  # Input/Output paths
+  paths:
+    input: /data/input
+    output: /data/output
+    verification: /data/verification
+    archive: /data/archive
+
+# -----------------------------------------------------------------------------
+# Security Configuration
+# -----------------------------------------------------------------------------
+security:
+  # TLS/SSL settings
+  tls:
+    enabled: "${NSI_TLS_ENABLED:-true}"
+    cert_path: /app/config/certs/server.crt
+    key_path: /app/config/certs/server.key
+    ca_path: /app/config/certs/ca.crt
+    verify_client: false
+    min_version: TLS1_2
+
+  # Authentication
+  auth:
+    enabled: true
+    method: token
+    token_expiry_hours: 24
+    refresh_enabled: true
+
+  # Network security
+  network:
+    allowed_hosts:
+      - "127.0.0.1"
+      - "172.28.0.0/16"
+      - "${NSI_ALLOWED_HOSTS:-}"
+    rate_limiting:
+      enabled: true
+      requests_per_minute: 100
+      burst: 20
+
+  # Audit logging
+  audit:
+    enabled: true
+    log_path: /app/logs/audit.log
+    include_request_body: false
+    max_body_log_size: 1024
+
+# -----------------------------------------------------------------------------
+# Monitoring Configuration
+# -----------------------------------------------------------------------------
+monitoring:
+  # Metrics export
+  metrics:
+    enabled: true
+    port: 9100
+    path: /metrics
+    prefix: nsi_edge
+
+  # Healthcheck endpoints
+  health:
+    enabled: true
+    path: /health
+    include_details: true
+
+  # Alerting thresholds
+  alerts:
+    memory_percent: 80
+    cpu_percent: 90
+    disk_percent: 85
+    processing_queue_size: 40
+    error_rate_percent: 5
+
+  # Prometheus pushgateway (optional)
+  pushgateway:
+    enabled: false
+    url: ""
+    push_interval_seconds: 60
+
+# -----------------------------------------------------------------------------
+# Agent System Configuration
+# -----------------------------------------------------------------------------
+agents:
+  # Supervisor settings
+  supervisor:
+    enabled: true
+    max_concurrent_tasks: 3
+    task_timeout_seconds: 300
+    health_check_interval: 30
+
+  # Memory system
+  memory:
+    enabled: true
+    persistence_dir: /data/memory
+    max_memories: 10000
+    decay_rate: 0.995
+    consolidation_interval_seconds: 3600
+    importance_threshold: 0.3
+
+  # Worker pool
+  workers:
+    min_workers: 1
+    max_workers: 3
+    worker_timeout_seconds: 60
+    scale_up_threshold: 0.8
+    scale_down_threshold: 0.2
+
+  # Tool registry
+  tools:
+    enabled: true
+    allowed_tools:
+      - image_processor
+      - verification_tool
+      - data_analyzer
+      - cache_manager
+    blocked_tools: []
+
+# -----------------------------------------------------------------------------
+# Integration Configuration
+# -----------------------------------------------------------------------------
+integrations:
+  # Redis cache connection
+  redis:
+    host: cache
+    port: 6379
+    db: 0
+    password: "${NSI_REDIS_PASSWORD:-}"
+    max_connections: 10
+    socket_timeout: 5
+
+  # WireGuard tunnel (optional)
+  wireguard:
+    enabled: "${NSI_WIREGUARD_ENABLED:-false}"
+    interface: wg0
+    listen_port: 51820
+
+  # Upstream API (optional)
+  upstream:
+    enabled: false
+    url: ""
+    sync_interval_seconds: 300
+    offline_mode: true
+
+# -----------------------------------------------------------------------------
+# Performance Tuning
+# -----------------------------------------------------------------------------
+performance:
+  # Request handling
+  http:
+    keep_alive: true
+    keep_alive_timeout: 65
+    max_connections: 50
+    request_timeout: 30
+
+  # Caching
+  cache:
+    result_cache_enabled: true
+    result_cache_ttl_seconds: 3600
+    query_cache_enabled: true
+    query_cache_size: 1000
+
+  # Threading
+  threading:
+    io_threads: 2
+    compute_threads: 2
+    use_uvloop: true
+
+  # Memory optimization
+  memory_optimization:
+    lazy_loading: true
+    stream_large_files: true
+    stream_threshold_mb: 50
+    numpy_memory_efficient: true
+
+# -----------------------------------------------------------------------------
+# Edge-Specific Features
+# -----------------------------------------------------------------------------
+edge:
+  # Offline operation
+  offline:
+    enabled: true
+    queue_local_operations: true
+    max_offline_queue_size: 1000
+    sync_on_reconnect: true
+
+  # Power management
+  power:
+    low_power_mode: false
+    idle_timeout_minutes: 30
+    wake_on_request: true
+
+  # Hardware monitoring
+  hardware:
+    monitor_temperature: true
+    monitor_voltage: true
+    throttle_on_overheat: true
+    max_temperature_celsius: 80
+
+  # Local processing priority
+  priority:
+    local_requests: high
+    batch_processing: normal
+    maintenance: low

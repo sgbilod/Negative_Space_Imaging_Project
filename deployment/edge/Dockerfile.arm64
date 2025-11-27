@@ -1,0 +1,174 @@
+# =============================================================================
+# Negative Space Imaging Project - ARM64 Dockerfile for Raspberry Pi Edge
+# Multi-stage build optimized for Raspberry Pi 4/5 (ARM64)
+# =============================================================================
+#
+# This Dockerfile creates a production-ready container for edge deployment:
+# - Stage 1: Builder with full compilation tools
+# - Stage 2: Minimal runtime with security hardening
+#
+# Build:
+#   docker build -t nsi-edge:latest -f Dockerfile.arm64 ../..
+#
+# Build with buildx for ARM64:
+#   docker buildx build --platform linux/arm64 -t nsi-edge:latest -f Dockerfile.arm64 ../..
+#
+# Copyright (c) 2025 Stephen Bilodeau. All Rights Reserved.
+# =============================================================================
+
+# =============================================================================
+# Stage 1: Builder
+# =============================================================================
+FROM arm64v8/python:3.11-slim-bookworm AS builder
+
+# Build arguments
+ARG DEBIAN_FRONTEND=noninteractive
+ARG PIP_NO_CACHE_DIR=1
+ARG PIP_DISABLE_PIP_VERSION_CHECK=1
+
+# Labels
+LABEL maintainer="Stephen Bilodeau"
+LABEL description="NSI Edge Builder Stage"
+LABEL stage="builder"
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    # Build essentials
+    build-essential \
+    cmake \
+    git \
+    pkg-config \
+    # Linear algebra libraries
+    libopenblas-dev \
+    liblapack-dev \
+    # Image processing libraries
+    libjpeg-dev \
+    libpng-dev \
+    libtiff-dev \
+    libwebp-dev \
+    # HDF5 for scientific data
+    libhdf5-dev \
+    # Additional dependencies
+    libffi-dev \
+    libssl-dev \
+    zlib1g-dev \
+    # Curl for healthchecks
+    curl \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Create and activate virtual environment
+ENV VIRTUAL_ENV=/opt/venv
+RUN python -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+# Upgrade pip and install build tools
+RUN pip install --upgrade pip setuptools wheel
+
+# Set working directory
+WORKDIR /build
+
+# Copy requirements files
+COPY requirements.txt requirements-edge.txt requirements-agents.txt ./
+
+# Install Python dependencies
+# Install in order: base -> edge -> agents
+RUN pip install --no-cache-dir -r requirements.txt || true && \
+    pip install --no-cache-dir -r requirements-edge.txt && \
+    pip install --no-cache-dir -r requirements-agents.txt
+
+# Verify critical packages
+RUN python -c "import numpy; import scipy; print(f'NumPy: {numpy.__version__}, SciPy: {scipy.__version__}')"
+
+# =============================================================================
+# Stage 2: Runtime
+# =============================================================================
+FROM arm64v8/python:3.11-slim-bookworm AS runtime
+
+# Build arguments
+ARG DEBIAN_FRONTEND=noninteractive
+ARG SERVICE_MODE=processor
+
+# Labels
+LABEL maintainer="Stephen Bilodeau"
+LABEL description="Negative Space Imaging - Edge Runtime"
+LABEL version="1.0.0"
+LABEL stage="runtime"
+LABEL architecture="arm64"
+
+# Create non-root user for security
+RUN groupadd -r -g 1000 nsigroup && \
+    useradd -r -u 1000 -g nsigroup -d /app -s /sbin/nologin nsiuser
+
+# Install runtime dependencies only (no -dev packages)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    # Linear algebra runtime
+    libopenblas0 \
+    liblapack3 \
+    # Image processing runtime
+    libjpeg62-turbo \
+    libpng16-16 \
+    libtiff6 \
+    libwebp7 \
+    # HDF5 runtime
+    libhdf5-103-1 \
+    # SSL/crypto runtime
+    libssl3 \
+    # Compression
+    zlib1g \
+    # Healthcheck utility
+    curl \
+    # Process management
+    tini \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Set working directory
+WORKDIR /app
+
+# Copy virtual environment from builder
+COPY --from=builder /opt/venv /opt/venv
+ENV VIRTUAL_ENV=/opt/venv
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+# Copy application source code
+COPY --chown=nsiuser:nsigroup src/ /app/src/
+COPY --chown=nsiuser:nsigroup config/ /app/config/
+COPY --chown=nsiuser:nsigroup scripts/ /app/scripts/
+
+# Create data directories with proper permissions
+RUN mkdir -p /data/input /data/output /data/cache /data/memory /data/verification && \
+    chown -R nsiuser:nsigroup /data && \
+    chmod -R 755 /data
+
+# Create log directory
+RUN mkdir -p /app/logs && \
+    chown -R nsiuser:nsigroup /app/logs
+
+# Environment variables
+ENV PYTHONPATH=/app/src \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONHASHSEED=random \
+    # Application settings
+    NSI_DATA_DIR=/data \
+    NSI_EDGE_MODE=true \
+    NSI_LOG_DIR=/app/logs \
+    # Service mode
+    SERVICE_MODE=${SERVICE_MODE}
+
+# Healthcheck
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:8080/health || exit 1
+
+# Switch to non-root user
+USER nsiuser
+
+# Expose ports
+EXPOSE 8080 8443 9100
+
+# Use tini as init system for proper signal handling
+ENTRYPOINT ["/usr/bin/tini", "--"]
+
+# Default command - can be overridden
+CMD ["python", "-m", "src.main", "--mode", "edge", "--port", "8080"]

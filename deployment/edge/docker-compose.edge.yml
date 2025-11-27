@@ -1,0 +1,385 @@
+# =============================================================================
+# Negative Space Imaging Project - Edge Deployment Docker Compose
+# Target: Raspberry Pi 4/5 (ARM64) with Data Sovereignty
+# =============================================================================
+#
+# This configuration deploys a complete edge imaging pipeline with:
+# - Imaging processor with strict data sovereignty
+# - Verification service for proof validation
+# - Redis cache layer with memory limits
+# - Prometheus metrics with 7-day retention
+# - WireGuard tunnel for secure remote access
+#
+# Usage:
+#   docker-compose -f docker-compose.edge.yml up -d
+#   docker-compose -f docker-compose.edge.yml logs -f
+#
+# Copyright (c) 2025 Stephen Bilodeau. All Rights Reserved.
+# =============================================================================
+
+version: "3.8"
+
+services:
+  # ===========================================================================
+  # Core Imaging Processor
+  # ===========================================================================
+  imaging-processor:
+    build:
+      context: ../..
+      dockerfile: deployment/edge/Dockerfile.arm64
+      platforms:
+        - linux/arm64
+    container_name: nsi-processor
+    hostname: nsi-processor
+    restart: unless-stopped
+
+    environment:
+      # Core configuration
+      - NSI_MODE=edge
+      - NSI_MEMORY_LIMIT=2G
+      - NSI_WORKERS=4
+      - NSI_CONFIG_PATH=/app/config/edge-config.yml
+
+      # Data sovereignty settings
+      - DATA_SOVEREIGNTY_MODE=strict
+      - DISABLE_CLOUD_SYNC=true
+      - LOCAL_PROCESSING_ONLY=true
+
+      # Cache configuration
+      - REDIS_URL=redis://cache-layer:6379/0
+      - CACHE_ENABLED=true
+
+      # Security
+      - TLS_ENABLED=true
+      - TLS_CERT_PATH=/certs/server.crt
+      - TLS_KEY_PATH=/certs/server.key
+
+      # Logging
+      - LOG_LEVEL=INFO
+      - LOG_FORMAT=json
+
+    volumes:
+      # Data volumes
+      - imaging-data:/data
+      - verification-cache:/data/verification
+
+      # Configuration
+      - ./config/edge-config.yml:/app/config/edge-config.yml:ro
+
+      # Certificates
+      - /opt/nsi/certs:/certs:ro
+
+      # Device access for sensors
+      - /dev:/dev
+
+      # Shared memory for inter-process communication
+      - type: tmpfs
+        target: /dev/shm
+        tmpfs:
+          size: 268435456 # 256MB
+
+    ports:
+      - "8080:8080" # HTTP API
+      - "8443:8443" # HTTPS API
+      - "9100:9100" # Metrics endpoint
+
+    deploy:
+      resources:
+        limits:
+          memory: 3G
+        reservations:
+          memory: 2G
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+    networks:
+      - nsi-edge-network
+
+    depends_on:
+      cache-layer:
+        condition: service_healthy
+
+  # ===========================================================================
+  # Verification Service
+  # ===========================================================================
+  verification-service:
+    build:
+      context: ../..
+      dockerfile: deployment/edge/Dockerfile.arm64
+      platforms:
+        - linux/arm64
+      args:
+        - SERVICE_MODE=verification
+    container_name: nsi-verification
+    hostname: nsi-verification
+    restart: unless-stopped
+
+    command: ["python", "-m", "src.verification.service", "--port", "8081"]
+
+    environment:
+      - NSI_MODE=verification
+      - NSI_MEMORY_LIMIT=1G
+      - VERIFICATION_CACHE_DIR=/data/verification
+      - REDIS_URL=redis://cache-layer:6379/1
+      - LOG_LEVEL=INFO
+      - LOG_FORMAT=json
+
+    volumes:
+      - verification-cache:/data/verification
+      - ./config/edge-config.yml:/app/config/edge-config.yml:ro
+
+    ports:
+      - "8081:8081"
+      - "9101:9100" # Metrics endpoint
+
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 512M
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+    networks:
+      - nsi-edge-network
+
+    depends_on:
+      imaging-processor:
+        condition: service_healthy
+      cache-layer:
+        condition: service_healthy
+
+  # ===========================================================================
+  # Redis Cache Layer
+  # ===========================================================================
+  cache-layer:
+    image: arm64v8/redis:7-alpine
+    container_name: nsi-cache
+    hostname: nsi-cache
+    restart: unless-stopped
+
+    command: >
+      redis-server
+      --maxmemory 256mb
+      --maxmemory-policy allkeys-lru
+      --appendonly yes
+      --appendfsync everysec
+      --tcp-keepalive 60
+      --timeout 0
+      --tcp-backlog 511
+      --loglevel notice
+
+    volumes:
+      - redis-data:/data
+
+    ports:
+      - "6379:6379"
+
+    deploy:
+      resources:
+        limits:
+          memory: 320M
+        reservations:
+          memory: 128M
+
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+    networks:
+      - nsi-edge-network
+
+  # ===========================================================================
+  # Prometheus Metrics
+  # ===========================================================================
+  metrics:
+    image: prom/prometheus:latest
+    container_name: nsi-metrics
+    hostname: nsi-metrics
+    restart: unless-stopped
+
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--storage.tsdb.retention.time=7d"
+      - "--storage.tsdb.retention.size=1GB"
+      - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+      - "--web.console.templates=/usr/share/prometheus/consoles"
+      - "--web.enable-lifecycle"
+      - "--web.enable-admin-api"
+
+    volumes:
+      - ./config/prometheus-edge.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+
+    ports:
+      - "9090:9090"
+
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 128M
+
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:9090/-/healthy"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+    networks:
+      - nsi-edge-network
+
+    depends_on:
+      - imaging-processor
+
+  # ===========================================================================
+  # WireGuard VPN Tunnel
+  # ===========================================================================
+  wireguard-tunnel:
+    image: lscr.io/linuxserver/wireguard:arm64v8-latest
+    container_name: nsi-wireguard
+    hostname: nsi-wireguard
+    restart: unless-stopped
+
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - SERVERURL=auto
+      - SERVERPORT=51820
+      - PEERS=homelab,mobile,laptop
+      - PEERDNS=auto
+      - INTERNAL_SUBNET=10.13.13.0
+      - ALLOWEDIPS=0.0.0.0/0
+      - PERSISTENTKEEPALIVE_PEERS=all
+      - LOG_CONFS=true
+
+    volumes:
+      - wireguard-config:/config
+      - /lib/modules:/lib/modules:ro
+
+    ports:
+      - "51820:51820/udp"
+
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+      - net.ipv4.ip_forward=1
+      - net.ipv6.conf.all.disable_ipv6=1
+
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 64M
+
+    healthcheck:
+      test: ["CMD", "wg", "show"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+    networks:
+      - nsi-edge-network
+
+  # ===========================================================================
+  # Node Exporter (System Metrics)
+  # ===========================================================================
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: nsi-node-exporter
+    hostname: nsi-node-exporter
+    restart: unless-stopped
+
+    command:
+      - "--path.procfs=/host/proc"
+      - "--path.sysfs=/host/sys"
+      - "--path.rootfs=/rootfs"
+      - "--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)"
+
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+
+    ports:
+      - "9110:9100"
+
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 32M
+
+    networks:
+      - nsi-edge-network
+
+# =============================================================================
+# Networks
+# =============================================================================
+networks:
+  nsi-edge-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16
+          gateway: 172.28.0.1
+    driver_opts:
+      com.docker.network.bridge.name: nsi-edge-br0
+      com.docker.network.bridge.enable_icc: "true"
+      com.docker.network.bridge.enable_ip_masquerade: "true"
+
+# =============================================================================
+# Volumes
+# =============================================================================
+volumes:
+  imaging-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/nsi/data
+
+  verification-cache:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/nsi/data/verification
+
+  redis-data:
+    driver: local
+
+  prometheus-data:
+    driver: local
+
+  wireguard-config:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/nsi/wireguard
