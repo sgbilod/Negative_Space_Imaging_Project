@@ -44,7 +44,7 @@ logger = logging.getLogger(__name__)
 
 class LoginRequest(BaseModel):
     """Request model for user login."""
-    
+
     username: str = Field(
         ...,
         min_length=1,
@@ -61,7 +61,7 @@ class LoginRequest(BaseModel):
         max_length=255,
         description="Optional device identifier for multi-device support"
     )
-    
+
     class Config:
         json_schema_extra = {
             "example": {
@@ -74,13 +74,13 @@ class LoginRequest(BaseModel):
 
 class TokenResponse(BaseModel):
     """Response model for token issuance."""
-    
+
     access_token: str = Field(..., description="JWT access token")
     refresh_token: str = Field(..., description="JWT refresh token")
     token_type: str = Field(default="Bearer", description="Token type")
     expires_in: int = Field(..., description="Access token TTL in seconds")
     refresh_expires_in: int = Field(..., description="Refresh token TTL in seconds")
-    
+
     class Config:
         json_schema_extra = {
             "example": {
@@ -95,13 +95,13 @@ class TokenResponse(BaseModel):
 
 class RefreshRequest(BaseModel):
     """Request model for token refresh."""
-    
+
     refresh_token: str = Field(
         ...,
         min_length=1,
         description="Refresh token from previous authentication"
     )
-    
+
     class Config:
         json_schema_extra = {
             "example": {
@@ -112,7 +112,7 @@ class RefreshRequest(BaseModel):
 
 class RevokeRequest(BaseModel):
     """Request model for token revocation."""
-    
+
     token: Optional[str] = Field(
         None,
         description="Token to revoke (defaults to current access token)"
@@ -121,7 +121,7 @@ class RevokeRequest(BaseModel):
         default=False,
         description="Revoke all tokens for the current session"
     )
-    
+
     class Config:
         json_schema_extra = {
             "example": {
@@ -133,7 +133,7 @@ class RevokeRequest(BaseModel):
 
 class UserInfo(BaseModel):
     """Response model for user information."""
-    
+
     user_id: str = Field(..., description="User identifier (subject)")
     roles: List[str] = Field(default_factory=list, description="User roles")
     permissions: List[str] = Field(default_factory=list, description="User permissions")
@@ -141,7 +141,7 @@ class UserInfo(BaseModel):
     session_id: Optional[str] = Field(None, description="Current session ID")
     token_issued_at: datetime = Field(..., description="Token issue timestamp")
     token_expires_at: datetime = Field(..., description="Token expiration timestamp")
-    
+
     class Config:
         json_schema_extra = {
             "example": {
@@ -158,7 +158,7 @@ class UserInfo(BaseModel):
 
 class JWKSResponse(BaseModel):
     """Response model for JWKS endpoint."""
-    
+
     keys: List[Dict[str, Any]] = Field(
         ...,
         description="Array of JSON Web Keys"
@@ -167,10 +167,10 @@ class JWKSResponse(BaseModel):
 
 class ErrorResponse(BaseModel):
     """Standard error response model."""
-    
+
     detail: str = Field(..., description="Error message")
     code: str = Field(..., description="Error code")
-    
+
     class Config:
         json_schema_extra = {
             "example": {
@@ -194,14 +194,14 @@ async def default_credential_validator(
 ) -> Optional[Dict[str, Any]]:
     """
     Default credential validator - REPLACE IN PRODUCTION.
-    
+
     This is a placeholder that should be replaced with actual
     credential validation logic (database lookup, LDAP, etc.).
-    
+
     Args:
         username: Username or email
         password: Password to verify
-        
+
     Returns:
         User data dict if valid, None if invalid
     """
@@ -210,12 +210,12 @@ async def default_credential_validator(
     # 1. Look up user in database
     # 2. Verify password hash (using bcrypt, argon2, etc.)
     # 3. Return user data including roles and permissions
-    
+
     logger.warning(
         "Using default credential validator - "
         "replace with production implementation"
     )
-    
+
     # Demo users for testing
     demo_users = {
         "admin@nsip.local": {
@@ -242,16 +242,16 @@ async def default_credential_validator(
             "permissions": ["read:images", "read:reports"],
         },
     }
-    
+
     user = demo_users.get(username)
     if not user:
         return None
-    
+
     # Verify password (in production, use proper password hashing)
     password_hash = hashlib.sha256(password.encode()).hexdigest()
     if password_hash != user["password_hash"]:
         return None
-    
+
     return {
         "user_id": user["user_id"],
         "roles": user["roles"],
@@ -271,30 +271,30 @@ def create_auth_router(
 ) -> APIRouter:
     """
     Create a FastAPI router with authentication endpoints.
-    
+
     Args:
         auth_manager: JWT authentication manager instance
         credential_validator: Optional custom credential validator
         prefix: URL prefix for all routes (default: /auth)
         tags: OpenAPI tags for the routes
-        
+
     Returns:
         Configured APIRouter
-        
+
     Example:
         auth_manager = create_auth_manager()
         router = create_auth_router(auth_manager)
         app.include_router(router)
     """
     router = APIRouter(prefix=prefix, tags=tags or ["Authentication"])
-    
+
     # Use provided validator or default
     validator = credential_validator or default_credential_validator
-    
+
     # -------------------------------------------------------------------------
     # Login Endpoint
     # -------------------------------------------------------------------------
-    
+
     @router.post(
         "/login",
         response_model=TokenResponse,
@@ -311,18 +311,18 @@ def create_auth_router(
     ) -> TokenResponse:
         """
         Authenticate user with credentials.
-        
+
         Issues a JWT access token and refresh token upon successful
         authentication. The access token has a short lifetime (15 min)
         while the refresh token lasts longer (7 days).
         """
         # Get client identifier for rate limiting
         client_id = request.client.host if request.client else "unknown"
-        
+
         try:
             # Validate credentials
             user_data = await validator(body.username, body.password)
-            
+
             if not user_data:
                 logger.warning(
                     f"Failed login attempt for {body.username} from {client_id}"
@@ -332,7 +332,7 @@ def create_auth_router(
                     detail="Invalid credentials",
                     headers={"WWW-Authenticate": "Bearer"},
                 )
-            
+
             # Authenticate and issue tokens
             token_pair = await auth_manager.authenticate(
                 user_id=user_data["user_id"],
@@ -340,12 +340,12 @@ def create_auth_router(
                 permissions=user_data.get("permissions", []),
                 device_id=body.device_id,
             )
-            
+
             logger.info(
                 f"Successful login for user {user_data['user_id']} "
                 f"from {client_id}"
             )
-            
+
             return TokenResponse(
                 access_token=token_pair.access_token,
                 refresh_token=token_pair.refresh_token,
@@ -359,7 +359,7 @@ def create_auth_router(
                     .total_seconds()
                 ),
             )
-            
+
         except RateLimitExceededError as e:
             raise HTTPException(
                 status_code=status.HTTP_429_TOO_MANY_REQUESTS,
@@ -372,11 +372,11 @@ def create_auth_router(
                 detail=e.message,
                 headers={"WWW-Authenticate": "Bearer"},
             )
-    
+
     # -------------------------------------------------------------------------
     # Refresh Endpoint
     # -------------------------------------------------------------------------
-    
+
     @router.post(
         "/refresh",
         response_model=TokenResponse,
@@ -392,13 +392,13 @@ def create_auth_router(
     ) -> TokenResponse:
         """
         Refresh tokens using a valid refresh token.
-        
+
         Implements token rotation - the old refresh token is invalidated
         and a new pair is issued. This helps detect and prevent token theft.
         """
         try:
             token_pair = await auth_manager.refresh_tokens(body.refresh_token)
-            
+
             return TokenResponse(
                 access_token=token_pair.access_token,
                 refresh_token=token_pair.refresh_token,
@@ -412,7 +412,7 @@ def create_auth_router(
                     .total_seconds()
                 ),
             )
-            
+
         except TokenExpiredError:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
@@ -437,11 +437,11 @@ def create_auth_router(
                 detail=e.message,
                 headers={"Retry-After": str(e.retry_after)},
             )
-    
+
     # -------------------------------------------------------------------------
     # Logout Endpoint
     # -------------------------------------------------------------------------
-    
+
     @router.post(
         "/logout",
         status_code=status.HTTP_204_NO_CONTENT,
@@ -457,45 +457,45 @@ def create_auth_router(
     ) -> None:
         """
         Logout and revoke tokens.
-        
+
         Revokes the current access token. If revoke_all is True,
         revokes all tokens for the current session.
         """
         # Get current token from request
         auth_header = request.headers.get("Authorization", "")
         current_token = None
-        
+
         if auth_header.startswith("Bearer "):
             current_token = auth_header[7:]
-        
+
         if not current_token:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="No token provided",
                 headers={"WWW-Authenticate": "Bearer"},
             )
-        
+
         try:
             # Determine which token to revoke
             token_to_revoke = current_token
             if body and body.token:
                 token_to_revoke = body.token
-            
+
             await auth_manager.revoke_token(token_to_revoke)
-            
+
             logger.info("Token revoked successfully")
-            
+
         except AuthError as e:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail=e.message,
                 headers={"WWW-Authenticate": "Bearer"},
             )
-    
+
     # -------------------------------------------------------------------------
     # Current User Endpoint
     # -------------------------------------------------------------------------
-    
+
     @router.get(
         "/me",
         response_model=UserInfo,
@@ -510,7 +510,7 @@ def create_auth_router(
     ) -> UserInfo:
         """
         Get current authenticated user information.
-        
+
         Returns the user's ID, roles, permissions, and token metadata.
         """
         return UserInfo(
@@ -522,11 +522,11 @@ def create_auth_router(
             token_issued_at=claims.iat,
             token_expires_at=claims.exp,
         )
-    
+
     # -------------------------------------------------------------------------
     # JWKS Endpoint
     # -------------------------------------------------------------------------
-    
+
     @router.get(
         "/.well-known/jwks.json",
         response_model=JWKSResponse,
@@ -536,29 +536,29 @@ def create_auth_router(
     async def get_jwks() -> JWKSResponse:
         """
         Get the JSON Web Key Set (JWKS).
-        
+
         Returns the public key in JWK format for token verification
         by external services and clients.
         """
         import base64
         from cryptography.hazmat.primitives import serialization
-        
+
         # Get the public key
         public_key = auth_manager._public_key
-        
+
         # Get key numbers for JWK
         public_numbers = public_key.public_numbers()
-        
+
         # Convert to bytes (big-endian, unsigned)
         def int_to_base64url(n: int, length: int) -> str:
             """Convert integer to base64url-encoded string."""
             data = n.to_bytes(length, byteorder='big')
             return base64.urlsafe_b64encode(data).rstrip(b'=').decode('ascii')
-        
+
         # RSA key parameters
         e = int_to_base64url(public_numbers.e, 3)  # Exponent (usually 65537)
         n = int_to_base64url(public_numbers.n, 256)  # Modulus (2048-bit key)
-        
+
         # Create JWK
         jwk = {
             "kty": "RSA",
@@ -568,13 +568,13 @@ def create_auth_router(
             "n": n,
             "e": e,
         }
-        
+
         return JWKSResponse(keys=[jwk])
-    
+
     # -------------------------------------------------------------------------
     # Token Introspection Endpoint (Optional)
     # -------------------------------------------------------------------------
-    
+
     @router.post(
         "/introspect",
         responses={
@@ -589,19 +589,19 @@ def create_auth_router(
     ) -> Dict[str, Any]:
         """
         Introspect a token (admin only).
-        
+
         Returns token validity and claims information.
         Useful for debugging and token inspection.
         """
         auth_header = request.headers.get("Authorization", "")
         token = None
-        
+
         if auth_header.startswith("Bearer "):
             token = auth_header[7:]
-        
+
         if not token:
             return {"active": False}
-        
+
         try:
             claims = await auth_manager.verify_access_token(token)
             return {
@@ -618,7 +618,7 @@ def create_auth_router(
             }
         except (TokenExpiredError, TokenRevokedError, TokenInvalidError):
             return {"active": False}
-    
+
     return router
 
 
@@ -633,19 +633,19 @@ def setup_auth_routes(
 ) -> APIRouter:
     """
     Set up authentication routes on a FastAPI application.
-    
+
     Args:
         app: FastAPI application instance
         auth_manager: JWT authentication manager
         credential_validator: Optional custom credential validator
-        
+
     Returns:
         The configured router
-        
+
     Example:
         from fastapi import FastAPI
         from src.auth import create_auth_manager, setup_auth_routes
-        
+
         app = FastAPI()
         auth_manager = create_auth_manager()
         setup_auth_routes(app, auth_manager)

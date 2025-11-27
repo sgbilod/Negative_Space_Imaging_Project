@@ -12,57 +12,57 @@
 # System Configuration
 # -----------------------------------------------------------------------------
 system:
-  mode: dev                          # Deployment mode: dev, edge, cloud
-  node_name: "nsi-dev-001"           # Unique node identifier
-  api_version: "1.0.0"               # API version
-  data_sovereignty: relaxed          # Data handling: strict, relaxed
-  cloud_sync: enabled                # Cloud synchronization: enabled, disabled
+  mode: dev # Deployment mode: dev, edge, cloud
+  node_name: "nsi-dev-001" # Unique node identifier
+  api_version: "1.0.0" # API version
+  data_sovereignty: relaxed # Data handling: strict, relaxed
+  cloud_sync: enabled # Cloud synchronization: enabled, disabled
 
 # -----------------------------------------------------------------------------
 # Resource Limits
 # -----------------------------------------------------------------------------
 resources:
-  max_memory_gb: 8                   # Maximum memory allocation
-  max_workers: 8                     # Maximum worker threads
-  gpu_enabled: true                  # Enable GPU acceleration
-  gpu_memory_fraction: 0.8           # Fraction of GPU memory to use
+  max_memory_gb: 8 # Maximum memory allocation
+  max_workers: 8 # Maximum worker threads
+  gpu_enabled: true # Enable GPU acceleration
+  gpu_memory_fraction: 0.8 # Fraction of GPU memory to use
 
 # -----------------------------------------------------------------------------
 # Processing Configuration
 # -----------------------------------------------------------------------------
 processing:
-  batch_size: 16                     # Default batch size
-  max_concurrent_jobs: 4             # Maximum concurrent pipeline jobs
-  timeout_seconds: 600               # Job timeout in seconds
-  retry_attempts: 3                  # Retry attempts on failure
-  retry_delay_seconds: 5             # Delay between retries
+  batch_size: 16 # Default batch size
+  max_concurrent_jobs: 4 # Maximum concurrent pipeline jobs
+  timeout_seconds: 600 # Job timeout in seconds
+  retry_attempts: 3 # Retry attempts on failure
+  retry_delay_seconds: 5 # Delay between retries
 
 # -----------------------------------------------------------------------------
 # Data Directories
 # -----------------------------------------------------------------------------
 data:
-  input_dir: ./data/input            # Input data directory
-  output_dir: ./data/output          # Output data directory
-  cache_dir: ./data/cache            # Cache directory
-  memory_dir: ./data/memory          # Memory system storage
-  temp_dir: ./data/temp              # Temporary files
+  input_dir: ./data/input # Input data directory
+  output_dir: ./data/output # Output data directory
+  cache_dir: ./data/cache # Cache directory
+  memory_dir: ./data/memory # Memory system storage
+  temp_dir: ./data/temp # Temporary files
 
 # -----------------------------------------------------------------------------
 # Security Configuration
 # -----------------------------------------------------------------------------
 security:
   # Key storage
-  keys_dir: ./keys                   # Directory for cryptographic keys
-  
+  keys_dir: ./keys # Directory for cryptographic keys
+
   # Authentication settings
   authentication:
-    type: jwt                        # Authentication type
-    issuer: "nsi-auth"               # Token issuer
-    audience: "nsi-api"              # Token audience
-    token_lifetime_minutes: 15       # Access token lifetime
-    refresh_token_lifetime_days: 7   # Refresh token lifetime
-    rate_limit_per_minute: 60        # Rate limit for auth endpoints
-  
+    type: jwt # Authentication type
+    issuer: "nsi-auth" # Token issuer
+    audience: "nsi-api" # Token audience
+    token_lifetime_minutes: 15 # Access token lifetime
+    refresh_token_lifetime_days: 7 # Refresh token lifetime
+    rate_limit_per_minute: 60 # Rate limit for auth endpoints
+
   # CORS settings
   cors:
     origins:
@@ -85,19 +85,19 @@ security:
 # -----------------------------------------------------------------------------
 monitoring:
   metrics:
-    enabled: true                    # Enable Prometheus metrics
-    port: 9100                       # Metrics endpoint port
-    path: /metrics                   # Metrics path
-  
+    enabled: true # Enable Prometheus metrics
+    port: 9100 # Metrics endpoint port
+    path: /metrics # Metrics path
+
   logging:
-    level: INFO                      # Log level: DEBUG, INFO, WARNING, ERROR
-    format: text                     # Log format: text, json
-    include_timestamps: true         # Include timestamps
-    include_caller: false            # Include caller information
-  
+    level: INFO # Log level: DEBUG, INFO, WARNING, ERROR
+    format: text # Log format: text, json
+    include_timestamps: true # Include timestamps
+    include_caller: false # Include caller information
+
   tracing:
-    enabled: false                   # Enable distributed tracing
-    exporter: jaeger                 # Tracing exporter
+    enabled: false # Enable distributed tracing
+    exporter: jaeger # Tracing exporter
     endpoint: "http://localhost:14268/api/traces"
 
 # -----------------------------------------------------------------------------
@@ -105,11 +105,11 @@ monitoring:
 # -----------------------------------------------------------------------------
 agents:
   supervisor:
-    enabled: true                    # Enable supervisor
-    max_concurrent_tasks: 8          # Max concurrent tasks
-    task_timeout_seconds: 300        # Individual task timeout
-    health_check_interval: 30        # Health check interval (seconds)
-  
+    enabled: true # Enable supervisor
+    max_concurrent_tasks: 8 # Max concurrent tasks
+    task_timeout_seconds: 300 # Individual task timeout
+    health_check_interval: 30 # Health check interval (seconds)
+
   acquisition:
     enabled: true
     formats:
@@ -119,7 +119,7 @@ agents:
       - PNG
       - TIFF
     max_file_size_mb: 500
-  
+
   reconstruction:
     enabled: true
     algorithms:
@@ -128,7 +128,7 @@ agents:
       - deep_learning
     default_algorithm: filtered_back_projection
     max_iterations: 1000
-  
+
   analysis:
     enabled: true
     types:
@@ -143,22 +143,22 @@ agents:
 # -----------------------------------------------------------------------------
 memory:
   enabled: true
-  decay_enabled: true                # Enable relevance decay
-  decay_interval_hours: 24           # Decay check interval
-  min_relevance_threshold: 0.1       # Minimum relevance to keep
-  max_entries: 100000                # Maximum entries in memory
-  
+  decay_enabled: true # Enable relevance decay
+  decay_interval_hours: 24 # Decay check interval
+  min_relevance_threshold: 0.1 # Minimum relevance to keep
+  max_entries: 100000 # Maximum entries in memory
+
   # LSH (Locality-Sensitive Hashing) settings
   lsh:
-    num_tables: 10                   # Number of hash tables
-    hash_size: 8                     # Hash size
-    num_projections: 128             # Number of projections
-  
+    num_tables: 10 # Number of hash tables
+    hash_size: 8 # Hash size
+    num_projections: 128 # Number of projections
+
   # Spatial signature cache
   cache:
     enabled: true
-    max_size: 10000                  # Maximum cache entries
-    ttl_seconds: 3600                # Cache TTL
+    max_size: 10000 # Maximum cache entries
+    ttl_seconds: 3600 # Cache TTL
 
 # -----------------------------------------------------------------------------
 # Pipeline Configuration
@@ -172,15 +172,15 @@ pipelines:
       - analysis
       - postprocessing
     parallel_stages: false
-  
+
   acquisition_only:
     stages:
       - acquisition
-  
+
   reconstruction_only:
     stages:
       - reconstruction
-  
+
   analysis_only:
     stages:
       - analysis
@@ -189,8 +189,8 @@ pipelines:
 # Feature Flags
 # -----------------------------------------------------------------------------
 features:
-  experimental_algorithms: false     # Enable experimental algorithms
-  gpu_acceleration: true             # Enable GPU acceleration
-  distributed_processing: false      # Enable distributed processing
-  auto_scaling: false                # Enable auto-scaling
-  webhook_callbacks: true            # Enable webhook notifications
+  experimental_algorithms: false # Enable experimental algorithms
+  gpu_acceleration: true # Enable GPU acceleration
+  distributed_processing: false # Enable distributed processing
+  auto_scaling: false # Enable auto-scaling
+  webhook_callbacks: true # Enable webhook notifications

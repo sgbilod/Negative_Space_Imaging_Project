@@ -118,7 +118,7 @@ class PipelineRequest(BaseModel):
         default=None,
         description="Additional metadata to attach to the job"
     )
-    
+
     class Config:
         json_schema_extra = {
             "example": {
@@ -184,31 +184,31 @@ class MemoryStatsResponse(BaseModel):
 
 class JobStore:
     """In-memory job store. Replace with Redis in production."""
-    
+
     def __init__(self):
         self._jobs: Dict[str, Dict[str, Any]] = {}
         self._lock = asyncio.Lock()
-    
+
     async def create(self, job_id: str, job_data: Dict[str, Any]) -> None:
         async with self._lock:
             self._jobs[job_id] = job_data
-    
+
     async def get(self, job_id: str) -> Optional[Dict[str, Any]]:
         async with self._lock:
             return self._jobs.get(job_id)
-    
+
     async def update(self, job_id: str, updates: Dict[str, Any]) -> None:
         async with self._lock:
             if job_id in self._jobs:
                 self._jobs[job_id].update(updates)
-    
+
     async def delete(self, job_id: str) -> bool:
         async with self._lock:
             if job_id in self._jobs:
                 del self._jobs[job_id]
                 return True
             return False
-    
+
     async def list_all(self) -> List[Dict[str, Any]]:
         async with self._lock:
             return [
@@ -228,25 +228,25 @@ job_store = JobStore()
 async def execute_pipeline(job_id: str, request: PipelineRequest) -> None:
     """
     Execute an imaging pipeline in the background.
-    
+
     Args:
         job_id: Unique job identifier
         request: Pipeline configuration
     """
     try:
         from src.main import app_state
-        
+
         await job_store.update(job_id, {
             "status": JobStatus.RUNNING.value,
             "started_at": datetime.now(timezone.utc).isoformat(),
         })
-        
+
         if not app_state.supervisor:
             raise RuntimeError("Agent supervisor not initialized")
-        
+
         # Import task types
         from src.agents import AgentTask, TaskPriority
-        
+
         # Map priority
         priority_map = {
             Priority.CRITICAL: TaskPriority.CRITICAL,
@@ -254,7 +254,7 @@ async def execute_pipeline(job_id: str, request: PipelineRequest) -> None:
             Priority.STANDARD: TaskPriority.STANDARD,
             Priority.BACKGROUND: TaskPriority.BACKGROUND,
         }
-        
+
         # Create agent task
         task = AgentTask(
             task_id=job_id,
@@ -267,10 +267,10 @@ async def execute_pipeline(job_id: str, request: PipelineRequest) -> None:
             },
             priority=priority_map.get(request.priority, TaskPriority.STANDARD),
         )
-        
+
         # Execute pipeline
         results = await app_state.supervisor.orchestrate_pipeline(task)
-        
+
         # Format results
         formatted_results = {}
         for task_id, result in results.items():
@@ -279,27 +279,27 @@ async def execute_pipeline(job_id: str, request: PipelineRequest) -> None:
                 "output": result.output,
                 "execution_time_ms": getattr(result, 'execution_time_ms', None),
             }
-        
+
         await job_store.update(job_id, {
             "status": JobStatus.COMPLETED.value,
             "progress": 100.0,
             "completed_at": datetime.now(timezone.utc).isoformat(),
             "results": formatted_results,
         })
-        
+
         logger.info(f"Pipeline {job_id} completed successfully")
-        
+
         # Call webhook if configured
         if request.callback_url:
             await notify_callback(request.callback_url, job_id, "completed", formatted_results)
-        
+
     except asyncio.CancelledError:
         await job_store.update(job_id, {
             "status": JobStatus.CANCELLED.value,
             "completed_at": datetime.now(timezone.utc).isoformat(),
         })
         logger.info(f"Pipeline {job_id} was cancelled")
-        
+
     except Exception as e:
         error_msg = str(e)
         await job_store.update(job_id, {
@@ -308,7 +308,7 @@ async def execute_pipeline(job_id: str, request: PipelineRequest) -> None:
             "errors": [error_msg],
         })
         logger.error(f"Pipeline {job_id} failed: {e}")
-        
+
         if request.callback_url:
             await notify_callback(request.callback_url, job_id, "failed", {"error": error_msg})
 
@@ -317,7 +317,7 @@ async def notify_callback(url: str, job_id: str, status: str, data: Dict[str, An
     """Send webhook notification."""
     try:
         import httpx
-        
+
         async with httpx.AsyncClient() as client:
             await client.post(
                 url,
@@ -351,12 +351,12 @@ async def submit_pipeline(
 ) -> PipelineResponse:
     """
     Submit an imaging pipeline job.
-    
+
     The job will be queued and executed asynchronously.
     Use the returned job_id to check status and retrieve results.
     """
     job_id = str(uuid.uuid4())
-    
+
     # Create job record
     job_data = {
         "status": JobStatus.QUEUED.value,
@@ -366,14 +366,14 @@ async def submit_pipeline(
         "results": None,
         "errors": [],
     }
-    
+
     await job_store.create(job_id, job_data)
-    
+
     # Queue background execution
     background_tasks.add_task(execute_pipeline, job_id, request)
-    
+
     logger.info(f"Pipeline job {job_id} submitted with type {request.pipeline_type.value}")
-    
+
     return PipelineResponse(
         job_id=job_id,
         status="queued",
@@ -391,13 +391,13 @@ async def submit_pipeline(
 async def get_pipeline_status(job_id: str) -> JobStatusResponse:
     """Get the status of a pipeline job."""
     job = await job_store.get(job_id)
-    
+
     if not job:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"Job {job_id} not found"
         )
-    
+
     return JobStatusResponse(
         job_id=job_id,
         status=job["status"],
@@ -420,27 +420,27 @@ async def get_pipeline_status(job_id: str) -> JobStatusResponse:
 async def cancel_pipeline(job_id: str) -> Dict[str, str]:
     """Cancel a pipeline job."""
     job = await job_store.get(job_id)
-    
+
     if not job:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"Job {job_id} not found"
         )
-    
+
     current_status = job["status"]
     if current_status in [JobStatus.COMPLETED.value, JobStatus.FAILED.value, JobStatus.CANCELLED.value]:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail=f"Cannot cancel job in {current_status} state"
         )
-    
+
     await job_store.update(job_id, {
         "status": JobStatus.CANCELLED.value,
         "completed_at": datetime.now(timezone.utc).isoformat(),
     })
-    
+
     logger.info(f"Pipeline job {job_id} cancelled")
-    
+
     return {"job_id": job_id, "status": "cancelled"}
 
 
@@ -455,10 +455,10 @@ async def list_pipelines(
 ) -> Dict[str, Any]:
     """List all pipeline jobs."""
     jobs = await job_store.list_all()
-    
+
     if status_filter:
         jobs = [j for j in jobs if j.get("status") == status_filter]
-    
+
     return {
         "jobs": jobs[:limit],
         "total": len(jobs),
@@ -475,13 +475,13 @@ async def list_agents() -> AgentListResponse:
     """List all available imaging agents."""
     try:
         from src.main import app_state
-        
+
         if not app_state.supervisor:
             raise HTTPException(
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
                 detail="Agent supervisor not initialized"
             )
-        
+
         agents = []
         for agent_id, agent in app_state.supervisor.agents.items():
             agent_info = AgentInfo(
@@ -492,9 +492,9 @@ async def list_agents() -> AgentListResponse:
                 tasks_completed=getattr(agent, 'tasks_completed', 0),
             )
             agents.append(agent_info)
-        
+
         return AgentListResponse(agents=agents, total=len(agents))
-        
+
     except ImportError:
         return AgentListResponse(agents=[], total=0)
 
@@ -509,20 +509,20 @@ async def get_agent(agent_id: str) -> AgentInfo:
     """Get details of a specific agent."""
     try:
         from src.main import app_state
-        
+
         if not app_state.supervisor:
             raise HTTPException(
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
                 detail="Agent supervisor not initialized"
             )
-        
+
         agent = app_state.supervisor.agents.get(agent_id)
         if not agent:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail=f"Agent {agent_id} not found"
             )
-        
+
         return AgentInfo(
             agent_id=agent_id,
             capabilities=getattr(agent, 'capabilities', []),
@@ -530,7 +530,7 @@ async def get_agent(agent_id: str) -> AgentInfo:
             performance_ms=getattr(agent, 'get_average_performance', lambda: None)(),
             tasks_completed=getattr(agent, 'tasks_completed', 0),
         )
-        
+
     except ImportError:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
@@ -548,15 +548,15 @@ async def get_memory_stats() -> MemoryStatsResponse:
     """Get memory system statistics."""
     try:
         from src.main import app_state
-        
+
         if not app_state.memory_manager:
             raise HTTPException(
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
                 detail="Memory manager not initialized"
             )
-        
+
         stats = app_state.memory_manager.get_statistics()
-        
+
         return MemoryStatsResponse(
             total_entries=stats.get("total_entries", 0),
             entries_by_type=stats.get("entries_by_type", {}),
@@ -565,7 +565,7 @@ async def get_memory_stats() -> MemoryStatsResponse:
             storage_path=stats.get("storage_path", ""),
             cache_hit_rate=stats.get("cache_hit_rate"),
         )
-        
+
     except ImportError:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
@@ -586,19 +586,19 @@ async def search_memory(
     """Search memory using vector similarity."""
     try:
         from src.main import app_state
-        
+
         if not app_state.memory_manager:
             raise HTTPException(
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
                 detail="Memory manager not initialized"
             )
-        
+
         results = await app_state.memory_manager.search_similar(
             query_vector=query_vector,
             memory_type=memory_type,
             limit=limit,
         )
-        
+
         return {
             "results": [
                 {
@@ -611,7 +611,7 @@ async def search_memory(
             ],
             "total": len(results),
         }
-        
+
     except ImportError:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,

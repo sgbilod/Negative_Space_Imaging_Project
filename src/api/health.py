@@ -79,19 +79,19 @@ async def check_memory_manager() -> ComponentStatus:
     """Check memory manager health."""
     try:
         from src.main import app_state
-        
+
         if not app_state.memory_manager:
             return ComponentStatus(
                 name="memory_manager",
                 status="down",
                 details={"reason": "Not initialized"}
             )
-        
+
         start = time.time()
         # Quick health check - get stats
         stats = app_state.memory_manager.get_statistics()
         latency = (time.time() - start) * 1000
-        
+
         return ComponentStatus(
             name="memory_manager",
             status="up",
@@ -114,26 +114,26 @@ async def check_supervisor() -> ComponentStatus:
     """Check agent supervisor health."""
     try:
         from src.main import app_state
-        
+
         if not app_state.supervisor:
             return ComponentStatus(
                 name="agent_supervisor",
                 status="down",
                 details={"reason": "Not initialized"}
             )
-        
+
         start = time.time()
         agent_count = len(app_state.supervisor.agents)
         latency = (time.time() - start) * 1000
-        
+
         # Check agent states
         healthy_agents = sum(
             1 for a in app_state.supervisor.agents.values()
             if hasattr(a, 'state') and a.state.name in ['IDLE', 'PROCESSING']
         )
-        
+
         status = "up" if healthy_agents == agent_count else "degraded"
-        
+
         return ComponentStatus(
             name="agent_supervisor",
             status=status,
@@ -156,14 +156,14 @@ async def check_auth_manager() -> ComponentStatus:
     """Check authentication manager health."""
     try:
         from src.main import app_state
-        
+
         if not app_state.auth_manager:
             return ComponentStatus(
                 name="auth_manager",
                 status="down",
                 details={"reason": "Not initialized"}
             )
-        
+
         start = time.time()
         # Quick verification - check if keys are loaded
         has_keys = (
@@ -171,7 +171,7 @@ async def check_auth_manager() -> ComponentStatus:
             app_state.auth_manager._private_key is not None
         )
         latency = (time.time() - start) * 1000
-        
+
         return ComponentStatus(
             name="auth_manager",
             status="up" if has_keys else "degraded",
@@ -202,7 +202,7 @@ async def check_auth_manager() -> ComponentStatus:
 async def health_check() -> HealthResponse:
     """
     Comprehensive health check endpoint.
-    
+
     Returns status of all system components including:
     - Memory Manager
     - Agent Supervisor
@@ -216,7 +216,7 @@ async def health_check() -> HealthResponse:
         check_auth_manager(),
         return_exceptions=True
     )
-    
+
     # Handle any exceptions
     component_list = []
     for c in components:
@@ -228,7 +228,7 @@ async def health_check() -> HealthResponse:
             ))
         else:
             component_list.append(c)
-    
+
     # Determine overall status
     statuses = [c.status for c in component_list]
     if all(s == "up" for s in statuses):
@@ -237,14 +237,14 @@ async def health_check() -> HealthResponse:
         overall_status = "unhealthy"
     else:
         overall_status = "degraded"
-    
+
     # Get version
     try:
         from src import __version__
         version = __version__
     except ImportError:
         version = "1.0.0"
-    
+
     return HealthResponse(
         status=overall_status,
         timestamp=datetime.now(timezone.utc).isoformat(),
@@ -282,18 +282,18 @@ async def healthz():
 async def readiness_check() -> ReadinessResponse:
     """
     Readiness probe for Kubernetes.
-    
+
     Returns ready=true when:
     - At least one critical component is initialized
     - Server is accepting connections
     """
     try:
         from src.main import app_state
-        
+
         # Check if at least supervisor or memory manager is ready
         supervisor_ready = app_state.supervisor is not None
         memory_ready = app_state.memory_manager is not None
-        
+
         if supervisor_ready or memory_ready:
             return ReadinessResponse(ready=True)
         else:
@@ -317,7 +317,7 @@ async def readiness_check() -> ReadinessResponse:
 async def liveness_check() -> LivenessResponse:
     """
     Liveness probe for Kubernetes.
-    
+
     Always returns alive=true if the process is running.
     """
     return LivenessResponse(
@@ -334,39 +334,39 @@ async def liveness_check() -> LivenessResponse:
 async def metrics(response: Response):
     """
     Prometheus metrics endpoint.
-    
+
     Returns metrics in Prometheus text format.
     """
     try:
         from src.main import app_state
-        
+
         lines = []
-        
+
         # Uptime metric
         uptime = time.time() - _startup_time
         lines.append(f"# HELP nsi_uptime_seconds Server uptime in seconds")
         lines.append(f"# TYPE nsi_uptime_seconds gauge")
         lines.append(f"nsi_uptime_seconds {uptime:.2f}")
-        
+
         # Component status metrics
         lines.append(f"# HELP nsi_component_status Component status (1=up, 0=down)")
         lines.append(f"# TYPE nsi_component_status gauge")
-        
+
         supervisor_status = 1 if app_state.supervisor else 0
         memory_status = 1 if app_state.memory_manager else 0
         auth_status = 1 if app_state.auth_manager else 0
-        
+
         lines.append(f'nsi_component_status{{component="supervisor"}} {supervisor_status}')
         lines.append(f'nsi_component_status{{component="memory_manager"}} {memory_status}')
         lines.append(f'nsi_component_status{{component="auth_manager"}} {auth_status}')
-        
+
         # Agent metrics
         if app_state.supervisor:
             agent_count = len(app_state.supervisor.agents)
             lines.append(f"# HELP nsi_agents_total Total number of agents")
             lines.append(f"# TYPE nsi_agents_total gauge")
             lines.append(f"nsi_agents_total {agent_count}")
-        
+
         # Memory metrics
         if app_state.memory_manager:
             try:
@@ -377,10 +377,10 @@ async def metrics(response: Response):
                 lines.append(f"nsi_memory_entries_total {entry_count}")
             except Exception:
                 pass
-        
+
         response.headers["Content-Type"] = "text/plain; charset=utf-8"
         return "\n".join(lines) + "\n"
-        
+
     except Exception as e:
         logger.error(f"Metrics generation failed: {e}")
         response.status_code = 500
