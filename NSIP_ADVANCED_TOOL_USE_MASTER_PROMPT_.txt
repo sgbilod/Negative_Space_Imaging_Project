@@ -1,0 +1,1880 @@
+# 🎯 NSIP Advanced Tool Use Implementation
+## Autonomous Execution Prompt for GitHub Copilot
+
+> **Mission**: Implement Anthropic's three Advanced Tool Use features across the Negative Space Imaging Project (NSIP), transforming it into an AI-native platform with intelligent tool orchestration.
+
+---
+
+## 📋 EXECUTIVE SUMMARY
+
+You are implementing a complete tool infrastructure with three cutting-edge capabilities:
+
+| Feature | File | Purpose |
+|---------|------|---------|
+| **Tool Search Tool** | `tool_search.py` | On-demand discovery, 85% token reduction |
+| **Programmatic Tool Calling** | `ptc_executor.py` | Code-based orchestration, 37% context reduction |
+| **Tool Use Examples** | Embedded in all tools | 72% → 90% parameter accuracy |
+
+**Constraints**:
+- Python 3.10+ with full type hints
+- All async operations use `asyncio`
+- Zero external dependencies beyond stdlib
+- Complete docstrings with Google-style formatting
+- 100% of code must be production-ready
+
+---
+
+## 🏗️ PHASE 1: Directory Structure & Base Infrastructure
+
+### Step 1. 1: Create Directory Structure
+
+Create the following directory tree under project root:
+
+```
+src/tools/
+├── __init__.py
+├── registry/
+│   ├── __init__.py
+│   ├── tool_registry. py
+│   ├── tool_search.py
+│   └── tool_categories.py
+├── definitions/
+│   ├── __init__. py
+│   ├── base_tool.py
+│   ├── imaging_tools.py
+│   ├── database_tools.py
+│   ├── security_tools.py
+│   ├── export_tools.py
+│   ├── ml_tools.py
+│   ├── specialized_tools.py
+│   └── admin_tools.py
+├── execution/
+│   ├── __init__. py
+│   ├── ptc_executor.py
+│   ├── code_sandbox.py
+│   └── result_processor.py
+├── examples/
+│   ├── __init__. py
+│   └── example_library.py
+├── config/
+│   ├── __init__. py
+│   └── tool_config. py
+└── tests/
+    ├── __init__.py
+    ├── test_tool_search.py
+    ├── test_ptc_executor.py
+    ├── test_tool_examples.py
+    └── test_integration.py
+```
+
+### Step 1. 2: Implement `src/tools/definitions/base_tool. py`
+
+```python
+"""
+Base Tool Definition with Advanced Tool Use Features. 
+
+Implements:
+- Tool Search Tool metadata and search indexing
+- Programmatic Tool Calling via allowed_callers and output schemas
+- Tool Use Examples for parameter accuracy improvement
+
+Reference: https://www.anthropic.com/engineering/advanced-tool-use
+"""
+
+from abc import ABC, abstractmethod
+from dataclasses import dataclass, field
+from enum import Enum, auto
+from typing import Any, Dict, List, Optional
+from datetime import datetime
+import json
+
+
+class ToolCategory(Enum):
+    """Tool categorization for search optimization."""
+    IMAGING_CORE = auto()
+    IMAGING_ADVANCED = auto()
+    DATABASE = auto()
+    SECURITY = auto()
+    EXPORT = auto()
+    ML_INFERENCE = auto()
+    SPECIALIZED_MEDICAL = auto()
+    SPECIALIZED_ASTRO = auto()
+    HPC = auto()
+    ADMIN = auto()
+    UTILITY = auto()
+
+
+class LoadingStrategy(Enum):
+    """Tool loading strategy for context optimization."""
+    ALWAYS_LOADED = "always"
+    DEFERRED = "deferred"
+    LAZY = "lazy"
+
+
+class CallerType(Enum):
+    """Permitted invocation methods."""
+    DIRECT = "direct"
+    CODE_EXECUTION = "code_execution_20250825"
+    BOTH = "both"
+
+
+@dataclass(frozen=True)
+class ToolExample:
+    """
+    Concrete example of tool invocation. 
+    
+    Improves parameter accuracy from 72% to 90% by providing
+    the model with explicit input/output patterns.
+    """
+    description: str
+    input_params: Dict[str, Any]
+    expected_output_shape: Optional[Dict[str, Any]] = None
+    notes: Optional[str] = None
+
+    def to_dict(self) -> Dict[str, Any]:
+        """Serialize to dictionary for API transmission."""
+        return {
+            "description": self.description,
+            "input": self.input_params,
+            "expected_output": self.expected_output_shape,
+            "notes": self. notes
+        }
+
+
+@dataclass
+class ToolMetadata:
+    """Complete tool metadata for registration and discovery."""
+    name: str
+    description: str
+    category: ToolCategory
+    loading_strategy: LoadingStrategy
+    allowed_callers: List[CallerType]
+    version: str = "1.0. 0"
+    deprecated: bool = False
+    deprecation_message: Optional[str] = None
+    tags: List[str] = field(default_factory=list)
+    search_keywords: List[str] = field(default_factory=list)
+    search_boost: float = 1.0
+    estimated_duration_ms: Optional[int] = None
+    idempotent: bool = True
+    supports_batch: bool = False
+    max_batch_size: Optional[int] = None
+
+
+@dataclass
+class InputSchema:
+    """JSON Schema definition for tool inputs."""
+    properties: Dict[str, Dict[str, Any]]
+    required: List[str] = field(default_factory=list)
+    additional_properties: bool = False
+
+    def to_json_schema(self) -> Dict[str, Any]:
+        """Convert to JSON Schema format."""
+        return {
+            "type": "object",
+            "properties": self.properties,
+            "required": self. required,
+            "additionalProperties": self.additional_properties
+        }
+
+
+@dataclass
+class OutputSchema:
+    """
+    Schema for tool outputs - critical for PTC. 
+    
+    Claude uses this to generate correct parsing code
+    in the sandbox environment.
+    """
+    description: str
+    properties: Dict[str, Dict[str, Any]]
+
+    def to_documentation(self) -> str:
+        """Generate human-readable output documentation."""
+        lines = [f"Returns: {self.description}", ""]
+        for name, spec in self.properties. items():
+            type_str = spec.get("type", "any")
+            desc = spec.get("description", "")
+            lines.append(f"  - {name} ({type_str}): {desc}")
+        return "\n". join(lines)
+
+
+class BaseTool(ABC):
+    """
+    Abstract base class for all NSIP tools. 
+    
+    Implements all three Advanced Tool Use features:
+    1. Tool Search Tool - via metadata and search keywords
+    2.  Programmatic Tool Calling - via allowed_callers and output schema
+    3. Tool Use Examples - via examples property
+    
+    Subclasses must implement:
+    - metadata: Tool registration information
+    - input_schema: Parameter definitions
+    - output_schema: Return value definitions
+    - examples: Concrete usage examples
+    - execute: Async execution logic
+    """
+
+    def __init__(self) -> None:
+        self._registered_at: Optional[datetime] = None
+        self._invocation_count: int = 0
+        self._last_invoked: Optional[datetime] = None
+
+    @property
+    @abstractmethod
+    def metadata(self) -> ToolMetadata:
+        """Tool metadata for registration and search."""
+        ... 
+
+    @property
+    @abstractmethod
+    def input_schema(self) -> InputSchema:
+        """Input parameter schema."""
+        ...
+
+    @property
+    @abstractmethod
+    def output_schema(self) -> OutputSchema:
+        """Output schema for PTC code generation."""
+        ... 
+
+    @property
+    @abstractmethod
+    def examples(self) -> List[ToolExample]:
+        """
+        Concrete usage examples.
+        
+        Must include:
+        - Minimal invocation (required params only)
+        - Typical invocation (common use case)
+        - Full invocation (all parameters)
+        """
+        ...
+
+    @abstractmethod
+    async def execute(self, **kwargs: Any) -> Dict[str, Any]:
+        """Execute the tool with given parameters."""
+        ...
+
+    async def validate_input(self, **kwargs: Any) -> bool:
+        """Validate input against schema."""
+        for field_name in self.input_schema.required:
+            if field_name not in kwargs:
+                raise ValueError(f"Missing required field: {field_name}")
+        return True
+
+    def to_api_definition(self) -> Dict[str, Any]:
+        """
+        Generate API-compatible tool definition.
+        
+        Includes all Advanced Tool Use features:
+        - defer_loading for Tool Search Tool
+        - allowed_callers for PTC
+        - input_examples for accuracy
+        """
+        description = self.metadata. description
+        if self.output_schema:
+            description += f"\n\n{self.output_schema.to_documentation()}"
+        if self.metadata.search_keywords:
+            description += f"\n\nKeywords: {', '. join(self.metadata.search_keywords)}"
+
+        return {
+            "name": self. metadata.name,
+            "description": description,
+            "input_schema": self. input_schema.to_json_schema(),
+            "defer_loading": self. metadata.loading_strategy != LoadingStrategy. ALWAYS_LOADED,
+            "allowed_callers": [
+                c.value for c in self.metadata.allowed_callers 
+                if c != CallerType. DIRECT
+            ],
+            "input_examples": [ex.input_params for ex in self.examples]
+        }
+
+    def get_search_index_entry(self) -> Dict[str, Any]:
+        """Generate entry for tool search index."""
+        return {
+            "name": self.metadata.name,
+            "description": self.metadata.description,
+            "category": self.metadata. category.name,
+            "keywords": self.metadata.search_keywords,
+            "tags": self.metadata. tags,
+            "boost": self.metadata. search_boost
+        }
+
+    def __repr__(self) -> str:
+        return f"<Tool: {self.metadata. name} ({self.metadata. category.name})>"
+```
+
+### Step 1.3: Implement `src/tools/registry/tool_registry.py`
+
+```python
+"""
+Central Tool Registry with Advanced Tool Use Features. 
+
+Manages:
+- Tool registration and discovery
+- Deferred loading for context optimization
+- Search indexing for Tool Search Tool
+- Caller validation for PTC
+"""
+
+from typing import Dict, List, Optional, Type, Set
+from dataclasses import dataclass, field
+import logging
+import re
+
+from .. definitions. base_tool import (
+    BaseTool,
+    ToolCategory,
+    LoadingStrategy,
+    CallerType
+)
+
+
+logger = logging.getLogger(__name__)
+
+
+@dataclass
+class RegistryStats:
+    """Statistics about registered tools."""
+    total_tools: int = 0
+    always_loaded: int = 0
+    deferred: int = 0
+    ptc_enabled: int = 0
+    by_category: Dict[str, int] = field(default_factory=dict)
+    estimated_always_loaded_tokens: int = 0
+
+
+class ToolRegistry:
+    """
+    Central registry for all NSIP tools. 
+    
+    Implements Tool Search Tool pattern:
+    - Core tools always loaded (~3K tokens)
+    - Specialized tools deferred (~50K+ tokens saved)
+    - Dynamic discovery via search
+    """
+
+    _instance: Optional['ToolRegistry'] = None
+
+    def __new__(cls) -> 'ToolRegistry':
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+            cls._instance._initialized = False
+        return cls._instance
+
+    def __init__(self) -> None:
+        if self._initialized:
+            return
+
+        self._tools: Dict[str, BaseTool] = {}
+        self._deferred_tools: Dict[str, Type[BaseTool]] = {}
+        self._search_index: List[Dict] = []
+        self._category_index: Dict[ToolCategory, Set[str]] = {
+            cat: set() for cat in ToolCategory
+        }
+        self._ptc_enabled: Set[str] = set()
+        self._initialized = True
+        logger.info("ToolRegistry initialized")
+
+    def register(self, tool_class: Type[BaseTool]) -> None:
+        """
+        Register a tool with the registry.
+        
+        Handles loading strategy:
+        - ALWAYS_LOADED: Instantiate immediately
+        - DEFERRED/LAZY: Store class for lazy instantiation
+        """
+        temp_instance = tool_class()
+        metadata = temp_instance. metadata
+
+        if metadata.loading_strategy == LoadingStrategy. ALWAYS_LOADED:
+            self._tools[metadata. name] = temp_instance
+            logger.info(f"Registered (always loaded): {metadata. name}")
+        else:
+            self._deferred_tools[metadata.name] = tool_class
+            logger.info(f"Registered (deferred): {metadata.name}")
+
+        self._category_index[metadata.category].add(metadata.name)
+        self._search_index.append(temp_instance.get_search_index_entry())
+
+        if CallerType.CODE_EXECUTION in metadata.allowed_callers or \
+           CallerType.BOTH in metadata.allowed_callers:
+            self._ptc_enabled. add(metadata.name)
+
+    def get_tool(self, name: str) -> Optional[BaseTool]:
+        """Get a tool by name, instantiating if deferred."""
+        if name in self._tools:
+            return self._tools[name]
+
+        if name in self._deferred_tools:
+            tool_class = self._deferred_tools[name]
+            instance = tool_class()
+            self._tools[name] = instance
+            logger.info(f"Lazily instantiated: {name}")
+            return instance
+
+        return None
+
+    def search(
+        self,
+        query: str,
+        category: Optional[ToolCategory] = None,
+        limit: int = 10
+    ) -> List[Dict]:
+        """
+        Search for tools matching query.
+        
+        Core of Tool Search Tool functionality using
+        regex matching on name, description, and keywords. 
+        """
+        results = []
+        query_lower = query. lower()
+        query_pattern = re.compile(re.escape(query_lower), re. IGNORECASE)
+
+        for entry in self._search_index:
+            if category and entry["category"] != category. name:
+                continue
+
+            score = 0. 0
+            boost = entry. get("boost", 1.0)
+
+            if query_lower in entry["name"].lower():
+                score += 10.0 * boost
+
+            if query_pattern.search(entry["description"]):
+                score += 5. 0 * boost
+
+            for keyword in entry. get("keywords", []):
+                if query_lower in keyword.lower():
+                    score += 3.0 * boost
+
+            for tag in entry.get("tags", []):
+                if query_lower in tag.lower():
+                    score += 2.0 * boost
+
+            if score > 0:
+                results. append({**entry, "score": score})
+
+        results.sort(key=lambda x: x["score"], reverse=True)
+        return results[:limit]
+
+    def get_always_loaded_definitions(self) -> List[Dict]:
+        """Get API definitions for always-loaded tools."""
+        return [
+            tool.to_api_definition()
+            for tool in self._tools.values()
+            if tool.metadata. loading_strategy == LoadingStrategy.ALWAYS_LOADED
+        ]
+
+    def get_tool_definition(self, name: str) -> Optional[Dict]:
+        """Get API definition for a specific tool."""
+        tool = self.get_tool(name)
+        return tool.to_api_definition() if tool else None
+
+    def get_ptc_enabled_tools(self) -> List[str]:
+        """Get list of tools that support Programmatic Tool Calling."""
+        return list(self._ptc_enabled)
+
+    def get_stats(self) -> RegistryStats:
+        """Get registry statistics."""
+        stats = RegistryStats(
+            total_tools=len(self._search_index),
+            always_loaded=len([
+                t for t in self._tools.values()
+                if t.metadata.loading_strategy == LoadingStrategy. ALWAYS_LOADED
+            ]),
+            deferred=len(self._deferred_tools),
+            ptc_enabled=len(self._ptc_enabled)
+        )
+
+        for entry in self._search_index:
+            cat = entry["category"]
+            stats.by_category[cat] = stats.by_category.get(cat, 0) + 1
+
+        stats.estimated_always_loaded_tokens = stats.always_loaded * 500
+        return stats
+
+    def validate_ptc_caller(self, tool_name: str, caller: str) -> bool:
+        """Validate that a caller can invoke tool via PTC."""
+        tool = self.get_tool(tool_name)
+        if not tool:
+            return False
+
+        allowed = tool.metadata.allowed_callers
+        if CallerType. BOTH in allowed:
+            return True
+
+        try:
+            caller_type = CallerType(caller)
+            return caller_type in allowed
+        except ValueError:
+            return False
+
+
+# Global registry singleton
+registry = ToolRegistry()
+
+
+def register_tool(tool_class: Type[BaseTool]) -> Type[BaseTool]:
+    """Decorator for automatic tool registration."""
+    registry.register(tool_class)
+    return tool_class
+```
+
+---
+
+## 🏗️ PHASE 2: Tool Search Tool Implementation
+
+### Step 2.1: Implement `src/tools/registry/tool_search. py`
+
+```python
+"""
+Tool Search Tool Implementation. 
+
+Enables dynamic tool discovery without loading all definitions upfront.
+Reduces context usage from ~55K tokens to ~3K tokens. 
+
+Reference: Anthropic Advanced Tool Use - Tool Search Tool
+"""
+
+from typing import Dict, List, Optional, Any
+from dataclasses import dataclass
+from enum import Enum
+import re
+import math
+from collections import Counter
+
+from .tool_registry import registry, ToolRegistry
+from ..definitions.base_tool import ToolCategory
+
+
+class SearchStrategy(Enum):
+    """Search algorithm selection."""
+    REGEX = "regex"
+    BM25 = "bm25"
+    HYBRID = "hybrid"
+
+
+@dataclass
+class SearchResult:
+    """Individual search result."""
+    tool_name: str
+    description: str
+    category: str
+    score: float
+    matched_terms: List[str]
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "name": self.tool_name,
+            "description": self.description,
+            "category": self.category,
+            "relevance_score": round(self.score, 3),
+            "matched_terms": self. matched_terms
+        }
+
+
+@dataclass
+class SearchResponse:
+    """Complete search response."""
+    query: str
+    strategy: str
+    total_results: int
+    results: List[SearchResult]
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "query": self.query,
+            "strategy": self. strategy,
+            "total_results": self.total_results,
+            "tools": [r.to_dict() for r in self. results]
+        }
+
+
+class BM25Scorer:
+    """
+    BM25 ranking algorithm for tool search.
+    
+    Better for natural language queries than simple regex.
+    Uses Okapi BM25 with configurable k1 and b parameters.
+    """
+
+    def __init__(self, k1: float = 1. 5, b: float = 0.75) -> None:
+        self.k1 = k1
+        self.b = b
+        self.documents: List[Dict] = []
+        self. doc_lengths: List[int] = []
+        self.avg_doc_length: float = 0. 0
+        self. doc_freqs: Counter = Counter()
+        self.idf: Dict[str, float] = {}
+        self._built = False
+
+    def build_index(self, documents: List[Dict]) -> None:
+        """Build BM25 index from tool documents."""
+        self. documents = documents
+        self.doc_lengths = []
+        self. doc_freqs = Counter()
+
+        for doc in documents:
+            text = self._get_searchable_text(doc)
+            tokens = self._tokenize(text)
+            self.doc_lengths.append(len(tokens))
+
+            for token in set(tokens):
+                self.doc_freqs[token] += 1
+
+        if self.doc_lengths:
+            self. avg_doc_length = sum(self. doc_lengths) / len(self. doc_lengths)
+
+        n_docs = len(documents)
+        for term, df in self.doc_freqs.items():
+            self.idf[term] = math.log((n_docs - df + 0.5) / (df + 0.5) + 1)
+
+        self._built = True
+
+    def search(self, query: str, limit: int = 10) -> List[tuple]:
+        """Search using BM25 scoring."""
+        if not self._built:
+            raise RuntimeError("Index not built. Call build_index() first.")
+
+        query_tokens = self._tokenize(query)
+        scores = []
+
+        for idx, doc in enumerate(self.documents):
+            text = self._get_searchable_text(doc)
+            doc_tokens = self._tokenize(text)
+            doc_length = self.doc_lengths[idx]
+
+            score = 0.0
+            matched_terms = []
+
+            for term in query_tokens:
+                if term not in self.idf:
+                    continue
+
+                tf = doc_tokens.count(term)
+                if tf == 0:
+                    continue
+
+                matched_terms.append(term)
+                idf = self.idf[term]
+                numerator = tf * (self.k1 + 1)
+                denominator = tf + self.k1 * (
+                    1 - self.b + self.b * doc_length / self. avg_doc_length
+                )
+                score += idf * (numerator / denominator)
+
+            score *= doc. get("boost", 1.0)
+
+            if score > 0:
+                scores.append((idx, score, matched_terms))
+
+        scores.sort(key=lambda x: x[1], reverse=True)
+        return scores[:limit]
+
+    def _get_searchable_text(self, doc: Dict) -> str:
+        """Extract searchable text from document."""
+        parts = [
+            doc.get("name", ""),
+            doc.get("description", ""),
+            " ".join(doc. get("keywords", [])),
+            " ". join(doc.get("tags", []))
+        ]
+        return " ".join(parts)
+
+    def _tokenize(self, text: str) -> List[str]:
+        """Simple whitespace and punctuation tokenization."""
+        return re.findall(r'\b\w+\b', text.lower())
+
+
+class ToolSearchTool:
+    """
+    Tool Search Tool - enables dynamic tool discovery. 
+    
+    API Definition:
+    {
+        "type": "tool_search_tool_regex_20251119",
+        "name": "tool_search"
+    }
+    """
+
+    def __init__(
+        self,
+        tool_registry: ToolRegistry,
+        strategy: SearchStrategy = SearchStrategy.HYBRID
+    ) -> None:
+        self.registry = tool_registry
+        self.strategy = strategy
+        self. bm25 = BM25Scorer()
+        self._index_built = False
+
+    def build_index(self) -> None:
+        """Build search index from registry."""
+        documents = list(self.registry._search_index)
+        self.bm25.build_index(documents)
+        self._index_built = True
+
+    async def search(
+        self,
+        query: str,
+        category: Optional[str] = None,
+        limit: int = 5
+    ) -> SearchResponse:
+        """
+        Search for tools matching the query.
+        
+        Args:
+            query: Natural language search query
+            category: Optional category filter
+            limit: Maximum results to return
+            
+        Returns:
+            SearchResponse with matching tools
+        """
+        if not self._index_built:
+            self.build_index()
+
+        if self.strategy == SearchStrategy.REGEX:
+            results = self._regex_search(query, category, limit)
+        elif self.strategy == SearchStrategy.BM25:
+            results = self._bm25_search(query, category, limit)
+        else:
+            regex_results = self._regex_search(query, category, limit * 2)
+            bm25_results = self._bm25_search(query, category, limit * 2)
+
+            seen: set = set()
+            combined = []
+            for r in regex_results + bm25_results:
+                if r. tool_name not in seen:
+                    seen.add(r.tool_name)
+                    combined. append(r)
+
+            combined.sort(key=lambda x: x. score, reverse=True)
+            results = combined[:limit]
+
+        return SearchResponse(
+            query=query,
+            strategy=self.strategy. value,
+            total_results=len(results),
+            results=results
+        )
+
+    def _regex_search(
+        self,
+        query: str,
+        category: Optional[str],
+        limit: int
+    ) -> List[SearchResult]:
+        """Simple regex-based search."""
+        cat_enum = ToolCategory[category] if category else None
+        raw_results = self. registry.search(query, category=cat_enum, limit=limit)
+
+        return [
+            SearchResult(
+                tool_name=r["name"],
+                description=r["description"][:200],
+                category=r["category"],
+                score=r["score"],
+                matched_terms=[]
+            )
+            for r in raw_results
+        ]
+
+    def _bm25_search(
+        self,
+        query: str,
+        category: Optional[str],
+        limit: int
+    ) -> List[SearchResult]:
+        """BM25-based search."""
+        raw_results = self. bm25.search(query, limit=limit * 2)
+        results = []
+
+        for idx, score, matched in raw_results:
+            doc = self.registry._search_index[idx]
+            if category and doc["category"] != category:
+                continue
+
+            results.append(SearchResult(
+                tool_name=doc["name"],
+                description=doc["description"][:200],
+                category=doc["category"],
+                score=score,
+                matched_terms=matched
+            ))
+
+        return results[:limit]
+
+    def get_tool_definition(self) -> Dict[str, Any]:
+        """Get the API definition for Tool Search Tool itself."""
+        return {
+            "type": "tool_search_tool_regex_20251119",
+            "name": "tool_search",
+            "description": """Search for available tools by capability or name. 
+
+Use this to discover tools for:
+- Image analysis and negative space detection
+- Database operations (CRUD, queries)
+- Security (authentication, encryption, audit)
+- Export (reports, format conversion)
+- ML inference (model predictions)
+- Specialized formats (DICOM, FITS)
+- Administrative functions
+
+Returns matching tools with descriptions and categories. 
+After finding relevant tools, they will be loaded into context.""",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Natural language search query"
+                    },
+                    "category": {
+                        "type": "string",
+                        "enum": [c.name for c in ToolCategory],
+                        "description": "Optional category filter"
+                    },
+                    "limit": {
+                        "type": "integer",
+                        "default": 5,
+                        "minimum": 1,
+                        "maximum": 20,
+                        "description": "Maximum number of results"
+                    }
+                },
+                "required": ["query"]
+            }
+        }
+```
+
+---
+
+## 🏗️ PHASE 3: Programmatic Tool Calling Executor
+
+### Step 3.1: Implement `src/tools/execution/ptc_executor.py`
+
+```python
+"""
+Programmatic Tool Calling (PTC) Executor.
+
+Enables Claude to orchestrate tools via code instead of individual API calls. 
+Reduces context pollution by 37% and enables parallel execution. 
+
+Reference: Anthropic Advanced Tool Use - Programmatic Tool Calling
+"""
+
+from typing import Any, Callable, Dict, List, Optional
+from dataclasses import dataclass
+from enum import Enum
+import asyncio
+import json
+import traceback
+from datetime import datetime
+import logging
+import ast
+from io import StringIO
+from contextlib import redirect_stdout, redirect_stderr
+
+from .. registry.tool_registry import registry
+
+
+logger = logging.getLogger(__name__)
+
+
+class ExecutionStatus(Enum):
+    """Status of PTC execution."""
+    PENDING = "pending"
+    RUNNING = "running"
+    COMPLETED = "completed"
+    FAILED = "failed"
+    TIMEOUT = "timeout"
+
+
+@dataclass
+class PTCExecutionResult:
+    """Result of PTC execution."""
+    status: ExecutionStatus
+    stdout: str
+    stderr: str
+    final_result: Any
+    tool_calls_made: int
+    execution_time_ms: int
+    context_tokens_saved: int
+
+
+class PTCCodeValidator:
+    """
+    Validates PTC code before execution.
+    
+    Ensures:
+    - No dangerous operations
+    - Only allowed imports
+    - Safe execution patterns
+    """
+
+    ALLOWED_IMPORTS = frozenset({
+        'json', 'math', 'datetime', 'collections',
+        'itertools', 'functools', 'typing', 're',
+        'asyncio', 'statistics'
+    })
+
+    FORBIDDEN_PATTERNS = (
+        'import os', 'import sys', 'import subprocess',
+        '__import__', 'eval(', 'exec(', 'open(',
+        'compile(', 'globals(', 'locals(', 'getattr(',
+        'setattr(', 'delattr(', '__builtins__'
+    )
+
+    def validate(self, code: str) -> tuple[bool, Optional[str]]:
+        """
+        Validate code for safe execution. 
+        
+        Returns:
+            (is_valid, error_message)
+        """
+        for pattern in self. FORBIDDEN_PATTERNS:
+            if pattern in code:
+                return False, f"Forbidden pattern detected: {pattern}"
+
+        try:
+            tree = ast.parse(code)
+        except SyntaxError as e:
+            return False, f"Syntax error: {e}"
+
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Import):
+                for alias in node.names:
+                    module = alias.name. split('.')[0]
+                    if module not in self.ALLOWED_IMPORTS:
+                        return False, f"Import not allowed: {alias.name}"
+            elif isinstance(node, ast.ImportFrom):
+                if node. module:
+                    module = node.module. split('.')[0]
+                    if module not in self. ALLOWED_IMPORTS:
+                        return False, f"Import not allowed: {node.module}"
+
+        return True, None
+
+
+class PTCExecutor:
+    """
+    Executes Claude's orchestration code in a sandboxed environment. 
+    
+    Key features:
+    - Tool calls don't enter Claude's context
+    - Parallel execution via asyncio
+    - Only final output returned to model
+    """
+
+    def __init__(self, timeout_seconds: int = 60) -> None:
+        self.timeout = timeout_seconds
+        self.validator = PTCCodeValidator()
+        self._request_counter = 0
+
+    async def execute(
+        self,
+        code: str,
+        tool_results: Optional[Dict[str, Any]] = None
+    ) -> PTCExecutionResult:
+        """
+        Execute PTC code. 
+        
+        Args:
+            code: Python code to execute
+            tool_results: Results from previous tool requests
+            
+        Returns:
+            PTCExecutionResult with final output
+        """
+        start_time = datetime. now()
+
+        is_valid, error = self.validator.validate(code)
+        if not is_valid:
+            return PTCExecutionResult(
+                status=ExecutionStatus. FAILED,
+                stdout="",
+                stderr=f"Validation failed: {error}",
+                final_result=None,
+                tool_calls_made=0,
+                execution_time_ms=0,
+                context_tokens_saved=0
+            )
+
+        stdout_capture = StringIO()
+        stderr_capture = StringIO()
+        tool_calls: List[Dict] = []
+
+        async def make_tool_call(tool_name: str, **kwargs: Any) -> Any:
+            """Wrapper for tool calls from PTC code."""
+            self._request_counter += 1
+
+            if not registry.validate_ptc_caller(tool_name, "code_execution_20250825"):
+                raise ValueError(f"Tool {tool_name} does not support PTC")
+
+            tool = registry.get_tool(tool_name)
+            if not tool:
+                raise ValueError(f"Tool not found: {tool_name}")
+
+            result = await tool.execute(**kwargs)
+
+            tool_calls.append({
+                "tool": tool_name,
+                "params_size": len(json.dumps(kwargs)),
+                "result_size": len(json.dumps(result))
+            })
+
+            return result
+
+        namespace = self._build_namespace(make_tool_call)
+
+        try:
+            async def run_code() -> Any:
+                with redirect_stdout(stdout_capture), redirect_stderr(stderr_capture):
+                    if 'await' in code:
+                        wrapped = self._wrap_async(code)
+                        exec(compile(wrapped, '<ptc>', 'exec'), namespace)
+                        return await namespace. get('__ptc_main__', lambda: None)()
+                    else:
+                        exec(compile(code, '<ptc>', 'exec'), namespace)
+                        return namespace.get('result')
+
+            final_result = await asyncio.wait_for(
+                run_code(),
+                timeout=self.timeout
+            )
+            status = ExecutionStatus. COMPLETED
+
+        except asyncio.TimeoutError:
+            status = ExecutionStatus.TIMEOUT
+            final_result = None
+            stderr_capture.write("Execution timeout exceeded")
+        except Exception as e:
+            status = ExecutionStatus.FAILED
+            final_result = None
+            stderr_capture. write(f"Execution error: {e}\n{traceback. format_exc()}")
+
+        execution_time = int((datetime.now() - start_time). total_seconds() * 1000)
+        total_result_bytes = sum(tc["result_size"] for tc in tool_calls)
+        tokens_saved = total_result_bytes // 4
+
+        return PTCExecutionResult(
+            status=status,
+            stdout=stdout_capture.getvalue(),
+            stderr=stderr_capture.getvalue(),
+            final_result=final_result or stdout_capture.getvalue(),
+            tool_calls_made=len(tool_calls),
+            execution_time_ms=execution_time,
+            context_tokens_saved=tokens_saved
+        )
+
+    def _build_namespace(self, make_call: Callable) -> Dict[str, Any]:
+        """Build execution namespace with safe builtins and tool functions."""
+        import math
+        import datetime as dt
+        import collections
+        import statistics
+
+        namespace = {
+            'asyncio': asyncio,
+            'json': json,
+            'math': math,
+            'datetime': dt,
+            'collections': collections,
+            'statistics': statistics,
+            'print': print,
+            'len': len,
+            'range': range,
+            'enumerate': enumerate,
+            'zip': zip,
+            'map': map,
+            'filter': filter,
+            'sum': sum,
+            'min': min,
+            'max': max,
+            'sorted': sorted,
+            'list': list,
+            'dict': dict,
+            'set': set,
+            'tuple': tuple,
+            'str': str,
+            'int': int,
+            'float': float,
+            'bool': bool,
+            'True': True,
+            'False': False,
+            'None': None,
+        }
+
+        for tool_name in registry.get_ptc_enabled_tools():
+            func_name = tool_name.replace(".", "_"). replace("-", "_")
+
+            def make_func(name: str) -> Callable:
+                async def tool_func(**kwargs: Any) -> Any:
+                    return await make_call(name, **kwargs)
+                return tool_func
+
+            namespace[func_name] = make_func(tool_name)
+
+        return namespace
+
+    def _wrap_async(self, code: str) -> str:
+        """Wrap code in async function."""
+        indented = "\n".join("    " + line for line in code.split("\n"))
+        return f"async def __ptc_main__():\n{indented}"
+
+    def get_tool_definition(self) -> Dict[str, Any]:
+        """Get the API definition for Code Execution tool."""
+        return {
+            "type": "code_execution_20250825",
+            "name": "code_execution",
+            "description": """Execute Python code to orchestrate multiple tool calls. 
+
+Use this for:
+- Batch processing (loop through items, call tools in parallel)
+- Data aggregation (sum, filter, transform tool results)
+- Complex workflows (conditional logic, error handling)
+- Reducing context usage (intermediate results stay in sandbox)
+
+Available in sandbox:
+- asyncio, json, math, datetime, collections, statistics
+- All PTC-enabled tools as async functions
+
+Tool results are processed in the sandbox - only your final
+print() output or return value enters the model context.""",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Python code to execute"
+                    }
+                },
+                "required": ["code"]
+            }
+        }
+```
+
+---
+
+## 🏗️ PHASE 4: Imaging Tools with Complete Examples
+
+### Step 4.1: Implement `src/tools/definitions/imaging_tools.py`
+
+```python
+"""
+Core Imaging Tools with Advanced Tool Use Features.
+
+Implements all three features:
+- Tool Search Tool: Proper metadata and keywords
+- PTC: Output schemas and allowed_callers
+- Tool Use Examples: Concrete invocation examples
+"""
+
+from typing import Any, Dict, List
+from datetime import datetime
+
+from .base_tool import (
+    BaseTool,
+    ToolMetadata,
+    ToolCategory,
+    LoadingStrategy,
+    CallerType,
+    InputSchema,
+    OutputSchema,
+    ToolExample
+)
+from .. registry.tool_registry import register_tool
+
+
+@register_tool
+class AnalyzeNegativeSpaceTool(BaseTool):
+    """Primary negative space analysis tool."""
+
+    @property
+    def metadata(self) -> ToolMetadata:
+        return ToolMetadata(
+            name="analyze_negative_space",
+            description="""Analyze an image to detect and quantify negative space regions. 
+
+Performs multi-scale analysis to identify areas of visual absence or
+background that create compositional balance.  Supports basic edge detection,
+advanced pattern recognition, and ML-enhanced deep analysis modes.""",
+            category=ToolCategory. IMAGING_CORE,
+            loading_strategy=LoadingStrategy.ALWAYS_LOADED,
+            allowed_callers=[CallerType.BOTH],
+            version="2.0.0",
+            tags=["imaging", "analysis", "negative-space", "composition"],
+            search_keywords=[
+                "negative space", "image analysis", "composition",
+                "visual balance", "background detection"
+            ],
+            search_boost=2.0,
+            estimated_duration_ms=500,
+            idempotent=True,
+            supports_batch=True,
+            max_batch_size=50
+        )
+
+    @property
+    def input_schema(self) -> InputSchema:
+        return InputSchema(
+            properties={
+                "image_id": {
+                    "type": "string",
+                    "description": "UUID of the uploaded image",
+                    "pattern": "^img_[a-zA-Z0-9]{8,}$"
+                },
+                "mode": {
+                    "type": "string",
+                    "enum": ["basic", "advanced", "ml_enhanced"],
+                    "default": "basic",
+                    "description": "Analysis depth"
+                },
+                "threshold": {
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1. 0,
+                    "default": 0.5,
+                    "description": "Detection sensitivity"
+                },
+                "include_visualization": {
+                    "type": "boolean",
+                    "default": False,
+                    "description": "Generate annotated output image"
+                },
+                "roi": {
+                    "type": "object",
+                    "description": "Optional region of interest",
+                    "properties": {
+                        "x": {"type": "integer", "minimum": 0},
+                        "y": {"type": "integer", "minimum": 0},
+                        "width": {"type": "integer", "minimum": 1},
+                        "height": {"type": "integer", "minimum": 1}
+                    }
+                }
+            },
+            required=["image_id"]
+        )
+
+    @property
+    def output_schema(self) -> OutputSchema:
+        return OutputSchema(
+            description="Analysis results with detected regions and metrics",
+            properties={
+                "success": {"type": "boolean", "description": "Analysis completed"},
+                "image_id": {"type": "string", "description": "ID of analyzed image"},
+                "ratio": {"type": "number", "description": "Negative space ratio (0. 0-1.0)"},
+                "confidence": {"type": "number", "description": "Confidence score"},
+                "regions": {"type": "array", "description": "Detected regions"},
+                "anomaly_score": {"type": "number", "description": "Anomaly score"},
+                "time_ms": {"type": "integer", "description": "Processing time"},
+                "visualization_url": {"type": "string", "description": "Annotated image URL"}
+            }
+        )
+
+    @property
+    def examples(self) -> List[ToolExample]:
+        return [
+            ToolExample(
+                description="Basic analysis with defaults",
+                input_params={"image_id": "img_abc12345"},
+                expected_output_shape={"success": True, "ratio": 0.34, "confidence": 0.92},
+                notes="Fastest mode for quick checks"
+            ),
+            ToolExample(
+                description="Advanced analysis with custom threshold",
+                input_params={
+                    "image_id": "img_def67890",
+                    "mode": "advanced",
+                    "threshold": 0.3
+                },
+                expected_output_shape={
+                    "success": True,
+                    "ratio": 0.45,
+                    "regions": [{"id": "r1", "area_percent": 0.23}]
+                },
+                notes="Good balance of speed and accuracy"
+            ),
+            ToolExample(
+                description="ML-enhanced with visualization",
+                input_params={
+                    "image_id": "img_ghi11111",
+                    "mode": "ml_enhanced",
+                    "threshold": 0.7,
+                    "include_visualization": True,
+                    "roi": {"x": 100, "y": 100, "width": 500, "height": 400}
+                },
+                expected_output_shape={
+                    "success": True,
+                    "ratio": 0.28,
+                    "confidence": 0. 98,
+                    "visualization_url": "https://..."
+                },
+                notes="Most accurate for detailed analysis"
+            )
+        ]
+
+    async def execute(self, **kwargs: Any) -> Dict[str, Any]:
+        """Execute negative space analysis."""
+        await self.validate_input(**kwargs)
+
+        image_id = kwargs["image_id"]
+        mode = kwargs. get("mode", "basic")
+        include_viz = kwargs.get("include_visualization", False)
+
+        start_time = datetime. now()
+
+        # Placeholder implementation
+        result = {
+            "success": True,
+            "image_id": image_id,
+            "ratio": 0. 34,
+            "confidence": 0.92,
+            "regions": [],
+            "anomaly_score": 0.12,
+            "time_ms": int((datetime.now() - start_time). total_seconds() * 1000)
+        }
+
+        if include_viz:
+            result["visualization_url"] = f"https://nsip.example.com/viz/{image_id}"
+
+        return result
+
+
+@register_tool
+class BatchAnalyzeTool(BaseTool):
+    """Batch processing for multiple images."""
+
+    @property
+    def metadata(self) -> ToolMetadata:
+        return ToolMetadata(
+            name="batch_analyze",
+            description="Process multiple images in a single request with parallel execution.",
+            category=ToolCategory.IMAGING_CORE,
+            loading_strategy=LoadingStrategy. ALWAYS_LOADED,
+            allowed_callers=[CallerType.BOTH],
+            version="1.0.0",
+            tags=["batch", "parallel", "imaging"],
+            search_keywords=["batch", "multiple images", "parallel processing"],
+            search_boost=1.5,
+            supports_batch=True,
+            max_batch_size=100
+        )
+
+    @property
+    def input_schema(self) -> InputSchema:
+        return InputSchema(
+            properties={
+                "image_ids": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "List of image IDs to process",
+                    "minItems": 1,
+                    "maxItems": 100
+                },
+                "mode": {
+                    "type": "string",
+                    "enum": ["basic", "advanced", "ml_enhanced"],
+                    "default": "basic"
+                },
+                "parallel": {
+                    "type": "boolean",
+                    "default": True,
+                    "description": "Enable parallel processing"
+                }
+            },
+            required=["image_ids"]
+        )
+
+    @property
+    def output_schema(self) -> OutputSchema:
+        return OutputSchema(
+            description="Batch processing results",
+            properties={
+                "success": {"type": "boolean"},
+                "total": {"type": "integer"},
+                "completed": {"type": "integer"},
+                "failed": {"type": "integer"},
+                "results": {"type": "array"},
+                "summary": {"type": "object"}
+            }
+        )
+
+    @property
+    def examples(self) -> List[ToolExample]:
+        return [
+            ToolExample(
+                description="Process batch of images",
+                input_params={
+                    "image_ids": ["img_001", "img_002", "img_003"],
+                    "mode": "basic",
+                    "parallel": True
+                },
+                expected_output_shape={
+                    "success": True,
+                    "total": 3,
+                    "completed": 3,
+                    "failed": 0
+                }
+            )
+        ]
+
+    async def execute(self, **kwargs: Any) -> Dict[str, Any]:
+        await self.validate_input(**kwargs)
+        image_ids = kwargs["image_ids"]
+
+        return {
+            "success": True,
+            "total": len(image_ids),
+            "completed": len(image_ids),
+            "failed": 0,
+            "results": [{"image_id": img, "ratio": 0.35} for img in image_ids],
+            "summary": {"avg_ratio": 0.35}
+        }
+```
+
+---
+
+## 🏗️ PHASE 5: Configuration and Package Initialization
+
+### Step 5.1: Implement `src/tools/config/tool_config.py`
+
+```python
+"""
+Tool Configuration Management.
+
+Manages feature flags and configuration for Advanced Tool Use features.
+"""
+
+from typing import Dict, List
+from dataclasses import dataclass, field
+from enum import Enum
+import os
+
+
+class Environment(Enum):
+    DEVELOPMENT = "development"
+    STAGING = "staging"
+    PRODUCTION = "production"
+
+
+@dataclass
+class ToolSearchConfig:
+    enabled: bool = True
+    default_strategy: str = "hybrid"
+    max_results: int = 10
+    min_score_threshold: float = 0.1
+    always_loaded_token_budget: int = 5000
+
+
+@dataclass
+class PTCConfig:
+    enabled: bool = True
+    timeout_seconds: int = 60
+    max_parallel_calls: int = 50
+    max_tool_calls_per_execution: int = 100
+
+
+@dataclass
+class ToolExamplesConfig:
+    enabled: bool = True
+    max_examples_per_tool: int = 5
+    include_expected_output: bool = True
+
+
+@dataclass
+class AdvancedToolUseConfig:
+    environment: Environment = Environment. DEVELOPMENT
+    tool_search: ToolSearchConfig = field(default_factory=ToolSearchConfig)
+    ptc: PTCConfig = field(default_factory=PTCConfig)
+    examples: ToolExamplesConfig = field(default_factory=ToolExamplesConfig)
+    beta_header: str = "advanced-tool-use-2025-11-20"
+    supported_models: List[str] = field(default_factory=lambda: [
+        "claude-sonnet-4-5-20250929",
+        "claude-opus-4-5-20251101"
+    ])
+
+    @classmethod
+    def from_environment(cls) -> 'AdvancedToolUseConfig':
+        env_str = os.getenv("NSIP_ENVIRONMENT", "development")
+        config = cls(environment=Environment(env_str))
+
+        if os.getenv("NSIP_TOOL_SEARCH_ENABLED"):
+            config.tool_search.enabled = os.getenv("NSIP_TOOL_SEARCH_ENABLED") == "true"
+        if os.getenv("NSIP_PTC_ENABLED"):
+            config.ptc.enabled = os.getenv("NSIP_PTC_ENABLED") == "true"
+        if os. getenv("NSIP_PTC_TIMEOUT"):
+            config.ptc.timeout_seconds = int(os. getenv("NSIP_PTC_TIMEOUT"))
+
+        return config
+
+    def to_api_headers(self) -> Dict[str, str]:
+        return {"anthropic-beta": self.beta_header}
+
+
+config = AdvancedToolUseConfig. from_environment()
+```
+
+### Step 5.2: Implement `src/tools/__init__.py`
+
+```python
+"""
+NSIP Advanced Tool Use Infrastructure.
+
+Implements Anthropic's Advanced Tool Use features:
+- Tool Search Tool: Dynamic tool discovery
+- Programmatic Tool Calling: Code-based orchestration
+- Tool Use Examples: Parameter accuracy improvement
+
+Reference: https://www.anthropic.com/engineering/advanced-tool-use
+"""
+
+from .registry.tool_registry import registry, register_tool
+from .registry.tool_search import ToolSearchTool, SearchStrategy
+from .execution.ptc_executor import PTCExecutor, PTCExecutionResult, ExecutionStatus
+from . config.tool_config import config, AdvancedToolUseConfig
+
+from .definitions.base_tool import (
+    BaseTool,
+    ToolMetadata,
+    ToolCategory,
+    LoadingStrategy,
+    CallerType,
+    InputSchema,
+    OutputSchema,
+    ToolExample
+)
+
+# Import tool definitions to trigger registration
+from .definitions import imaging_tools  # noqa: F401
+
+__version__ = "1. 0.0"
+
+__all__ = [
+    # Registry
+    "registry",
+    "register_tool",
+    # Search
+    "ToolSearchTool",
+    "SearchStrategy",
+    # Execution
+    "PTCExecutor",
+    "PTCExecutionResult",
+    "ExecutionStatus",
+    # Config
+    "config",
+    "AdvancedToolUseConfig",
+    # Base classes
+    "BaseTool",
+    "ToolMetadata",
+    "ToolCategory",
+    "LoadingStrategy",
+    "CallerType",
+    "InputSchema",
+    "OutputSchema",
+    "ToolExample",
+]
+
+
+def get_api_configuration() -> dict:
+    """Get complete API configuration for Advanced Tool Use."""
+    search_tool = ToolSearchTool(registry)
+    ptc_executor = PTCExecutor()
+
+    tools = []
+    if config.tool_search.enabled:
+        tools.append(search_tool. get_tool_definition())
+    if config. ptc.enabled:
+        tools.append(ptc_executor.get_tool_definition())
+    tools.extend(registry.get_always_loaded_definitions())
+
+    return {
+        "beta": config.beta_header,
+        "model": config.supported_models[0],
+        "tools": tools,
+        "headers": config.to_api_headers()
+    }
+```
+
+---
+
+## 🏗️ PHASE 6: Subpackage Init Files
+
+### Step 6.1: Create all `__init__.py` files
+
+**`src/tools/registry/__init__.py`:**
+```python
+"""Tool registry and search components."""
+from .tool_registry import registry, register_tool, ToolRegistry, RegistryStats
+from .tool_search import ToolSearchTool, SearchStrategy, SearchResult, SearchResponse
+
+__all__ = [
+    "registry", "register_tool", "ToolRegistry", "RegistryStats",
+    "ToolSearchTool", "SearchStrategy", "SearchResult", "SearchResponse"
+]
+```
+
+**`src/tools/definitions/__init__.py`:**
+```python
+"""Tool definitions package."""
+from .base_tool import (
+    BaseTool, ToolMetadata, ToolCategory, LoadingStrategy,
+    CallerType, InputSchema, OutputSchema, ToolExample
+)
+
+__all__ = [
+    "BaseTool", "ToolMetadata", "ToolCategory", "LoadingStrategy",
+    "CallerType", "InputSchema", "OutputSchema", "ToolExample"
+]
+```
+
+**`src/tools/execution/__init__.py`:**
+```python
+"""Tool execution components."""
+from .ptc_executor import PTCExecutor, PTCExecutionResult, ExecutionStatus
+
+__all__ = ["PTCExecutor", "PTCExecutionResult", "ExecutionStatus"]
+```
+
+**`src/tools/config/__init__. py`:**
+```python
+"""Configuration management."""
+from .tool_config import config, AdvancedToolUseConfig, Environment
+
+__all__ = ["config", "AdvancedToolUseConfig", "Environment"]
+```
+
+**`src/tools/examples/__init__.py`:**
+```python
+"""Tool examples library."""
+```
+
+**`src/tools/tests/__init__.py`:**
+```python
+"""Test suite for Advanced Tool Use infrastructure."""
+```
+
+---
+
+## 🏗️ PHASE 7: Test Suite
+
+### Step 7.1: Implement `src/tools/tests/test_tool_search.py`
+
+```python
+"""Tests for Tool Search Tool functionality."""
+
+import pytest
+from .. registry.tool_registry import registry, ToolRegistry
+from ..registry. tool_search import ToolSearchTool, SearchStrategy, BM25Scorer
+from ..definitions. base_tool import ToolCategory
+
+
+class TestBM25Scorer:
+    """Tests for BM25 scoring algorithm."""
+
+    def test_build_index(self):
+        scorer = BM25Scorer()
+        docs = [
+            {"name": "test_tool", "description": "A test tool", "keywords": [], "tags": []},
+            {"name": "image_analyzer", "description": "Analyzes images", "keywords": ["image"], "tags": []}
+        ]
+        scorer.build_index(docs)
+        assert scorer._built is True
+        assert len(scorer. documents) == 2
+
+    def test_search_returns_results(self):
+        scorer = BM25Scorer()
+        docs = [
+            {"name": "image_tool", "description": "Process images", "keywords": ["image"], "tags": [], "boost": 1.0},
+            {"name": "text_tool", "description": "Process text", "keywords": ["text"], "tags": [], "boost": 1.0}
+        ]
+        scorer.build_index(docs)
+        results = scorer.search("image")
+        assert len(results) > 0
+        assert results[0][0] == 0  # First document matches
+
+
+class TestToolSearchTool:
+    """Tests for ToolSearchTool."""
+
+    @pytest.fixture
+    def search_tool(self):
+        return ToolSearchTool(registry, SearchStrategy.HYBRID)
+
+    @pytest.mark.asyncio
+    async def test_search_returns_response(self, search_tool):
+        response = await search_tool.search("analyze")
+        assert response. query == "analyze"
+        assert response.strategy == "hybrid"
+        assert isinstance(response.results, list)
+
+    def test_get_tool_definition(self, search_tool):
+        definition = search_tool. get_tool_definition()
+        assert definition["name"] == "tool_search"
+        assert "input_schema" in definition
+        assert definition["input_schema"]["required"] == ["query"]
+```
+
+### Step 7.2: Implement `src/tools/tests/test_ptc_executor.py`
+
+```python
+"""Tests for Programmatic Tool Calling executor."""
+
+import pytest
+from .. execution.ptc_executor import PTCExecutor, PTCCodeValidator, ExecutionStatus
+
+
+class TestPTCCodeValidator:
+    """Tests for code validation."""
+
+    def test_valid_code_passes(self):
+        validator = PTCCodeValidator()
+        code = "x = 1 + 2\nprint(x)"
+        is_valid, error = validator.validate(code)
+        assert is_valid is True
+        assert error is None
+
+    def test_forbidden_import_fails(self):
+        validator = PTCCodeValidator()
+        code = "import os\nos.system('ls')"
+        is_valid, error = validator.validate(code)
+        assert is_valid is False
+        assert "not allowed" in error
+
+    def test_eval_forbidden(self):
+        validator = PTCCodeValidator()
+        code = "eval('1+1')"
+        is_valid, error = validator.validate(code)
+        assert is_valid is False
+        assert "Forbidden" in error
+
+    def test_allowed_imports_pass(self):
+        validator = PTCCodeValidator()
+        code = "import json\nimport math\nx = json.dumps({'a': 1})"
+        is_valid, error = validator.validate(code)
+        assert is_valid is True
+
+
+class TestPTCExecutor:
+    """Tests for PTC executor."""
+
+    @pytest.fixture
+    def executor(self):
+        return PTCExecutor(timeout_seconds=10)
+
+    @pytest.mark.asyncio
+    async def test_simple_code_execution(self, executor):
+        code = "result = 2 + 2\nprint(result)"
+        result = await executor.execute(code)
+        assert result. status == ExecutionStatus. COMPLETED
+        assert "4" in result.stdout
+
+    @pytest. mark.asyncio
+    async def test_invalid_code_fails(self, executor):
+        code = "import os"
+        result = await executor.execute(code)
+        assert result.status == ExecutionStatus.FAILED
+        assert "not allowed" in result.stderr
+
+    def test_get_tool_definition(self, executor):
+        definition = executor. get_tool_definition()
+        assert definition["name"] == "code_execution"
+        assert definition["type"] == "code_execution_20250825"
+```
+
+### Step 7.3: Implement `src/tools/tests/test_integration.py`
+
+```python
+"""Integration tests for Advanced Tool Use infrastructure."""
+
+import pytest
+from ..  import (
+    registry, ToolSearchTool, PTCExecutor,
+    config, get_api_configuration
+)
+from ..definitions.base_tool import ToolCategory, LoadingStrategy
+
+
+class TestRegistryIntegration:
+    """Integration tests for tool registry."""
+
+    def test_tools_registered(self):
+        stats = registry.get_stats()
+        assert stats.total_tools > 0
+
+    def test_always_loaded_tools_exist(self):
+        definitions = registry.get_always_loaded_definitions()
+        assert len(definitions) > 0
+
+    def test_ptc_enabled_tools_exist(self):
+        ptc_tools = registry.get_ptc_enabled_tools()
+        assert len(ptc_tools) > 0
+
+
+class TestAPIConfiguration:
+    """Tests for API configuration generation."""
+
+    def test_get_api_configuration(self):
+        api_config = get_api_configuration()
+        assert "beta" in api_config
+        assert "model" in api_config
+        assert "tools" in api_config
+        assert len(api_config["tools"]) > 0
+
+    def test_config_includes_search_tool(self):
+        api_config = get_api_configuration()
+        tool_names = [t["name"] for t in api_config["tools"]]
+        assert "tool_search" in tool_names
+
+    def test_config_includes_code_execution(self):
+        api_config = get_api_configuration()
+        tool_names = [t["name"] for t in api_config["tools"]]
+        assert "code_execution" in tool_names
+```
+
+---
+
+## ✅ EXECUTION VERIFICATION CHECKLIST
+
+After completing all phases, verify:
+
+```python
+# Run in Python to verify implementation
+from src.tools import registry, get_api_configuration
+
+# Check registry stats
+stats = registry. get_stats()
+print(f"Total tools: {stats.total_tools}")
+print(f"Always loaded: {stats.always_loaded}")
+print(f"PTC enabled: {stats.ptc_enabled}")
+
+# Check API configuration
+config = get_api_configuration()
+print(f"Tools in config: {len(config['tools'])}")
+print(f"Beta header: {config['beta']}")
+
+# Verify all three features are present
+tool_types = [t. get("type", t.get("name")) for t in config["tools"]]
+assert "tool_search" in str(tool_types), "Tool Search Tool missing"
+assert "code_execution" in str(tool_types), "PTC missing"
+```
+
+---
+
+## 🚀 FINAL INSTRUCTIONS
+
+1. **Execute sequentially**: Complete each phase before moving to the next
+2. **Create all files**: Every file listed must be created with complete code
+3. **No placeholders**: All code must be functional and production-ready
+4.  **Run tests**: After Phase 7, run `pytest src/tools/tests/ -v`
+5. **Commit convention**: Use conventional commits (feat:, fix:, docs:, test:)
+
+**Success Criteria**:
+- ✅ All files created in correct locations
+- ✅ Zero syntax errors
+- ✅ All tests pass
+- ✅ `get_api_configuration()` returns valid config
+- ✅ Registry contains registered tools
