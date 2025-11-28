@@ -214,11 +214,14 @@ class JobScheduler:
     def _submit_lsf(self, script_path: str) -> Optional[str]:
         """Submit job to LSF."""
         try:
+            # Read script content and pipe to bsub
+            with open(script_path, "r") as f:
+                script_content = f.read()
             result = subprocess.run(
-                ["bsub", "<", script_path],
+                ["bsub"],
+                input=script_content,
                 capture_output=True,
                 text=True,
-                shell=True,
                 timeout=60,
             )
             if result.returncode == 0:

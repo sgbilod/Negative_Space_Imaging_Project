@@ -370,7 +370,10 @@ class HPCConfig:
             logger.info("Detected LSF scheduler")
             return HPCBackend.LSF
 
-        logger.info("No HPC scheduler detected, using local mode")
+        logger.warning(
+            "No HPC scheduler detected, using local mode. "
+            "Set HPC_BACKEND environment variable to override."
+        )
         return HPCBackend.LOCAL
 
     def validate(self) -> bool:

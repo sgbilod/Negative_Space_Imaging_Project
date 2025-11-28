@@ -514,9 +514,9 @@ class MultiNodeDeployer:
             writer.close()
             await writer.wait_closed()
             return True
-        except Exception:
-            # For demo purposes, simulate connectivity
-            return True
+        except Exception as e:
+            logger.warning(f"Node {hostname} connectivity check failed: {e}")
+            return False
 
     def select_node(
         self,
