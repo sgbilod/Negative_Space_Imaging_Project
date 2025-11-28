@@ -268,11 +268,25 @@ POST   /api/batch-process
 
 ## Related Documentation
 
-- [README.md](./README.md) - Project overview
-- [GETTING_STARTED.md](./GETTING_STARTED.md) - Setup guide
-- [REQUIREMENTS.md](./REQUIREMENTS.md) - Dependencies
-- [README_IMAGE_ACQUISITION.md](./README_IMAGE_ACQUISITION.md) - Image acquisition pipeline
-- [DOCKER_DEPLOYMENT_GUIDE.md](./DOCKER_DEPLOYMENT_GUIDE.md) - Container deployment
+### Architecture Documents
+
+| Document | Description |
+|----------|-------------|
+| [SYSTEM_ARCHITECTURE.md](./SYSTEM_ARCHITECTURE.md) | Detailed system architecture with layer diagrams |
+| [SYSTEM_ARCHITECTURE_DETAILED.md](./SYSTEM_ARCHITECTURE_DETAILED.md) | In-depth technical architecture details |
+| [PHASE_5_ARCHITECTURE_DIAGRAMS.md](./PHASE_5_ARCHITECTURE_DIAGRAMS.md) | Visual architecture diagrams |
+| [EXPRESS_SERVER_ARCHITECTURE.md](./EXPRESS_SERVER_ARCHITECTURE.md) | Express.js backend architecture |
+
+### Other Related Documents
+
+| Document | Description |
+|----------|-------------|
+| [README.md](./README.md) | Project overview |
+| [GETTING_STARTED.md](./GETTING_STARTED.md) | Setup guide |
+| [REQUIREMENTS.md](./REQUIREMENTS.md) | Dependencies |
+| [README_IMAGE_ACQUISITION.md](./README_IMAGE_ACQUISITION.md) | Image acquisition pipeline |
+| [DOCKER_DEPLOYMENT_GUIDE.md](./DOCKER_DEPLOYMENT_GUIDE.md) | Container deployment |
+| [API_REFERENCE.md](./API_REFERENCE.md) | API documentation |
 
 ---
 
