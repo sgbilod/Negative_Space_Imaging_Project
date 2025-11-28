@@ -265,32 +265,73 @@ docker-compose down
 
 ## 📚 Documentation
 
-### Core Documentation
+> **📖 Complete Documentation Index:** [COMPLETE_DOCUMENTATION_INDEX.md](./COMPLETE_DOCUMENTATION_INDEX.md)
+>
+> **📋 Executive Summary:** [GRAND_EXECUTIVE_SUMMARY.md](./GRAND_EXECUTIVE_SUMMARY.md)
+>
+> **🗂️ Project Phases Summary:** [PROJECT_PHASES_SUMMARY.md](./PROJECT_PHASES_SUMMARY.md)
+
+### Getting Started
 
 | Document | Description |
 |----------|-------------|
 | [GETTING_STARTED.md](./GETTING_STARTED.md) | Step-by-step setup guide |
 | [REQUIREMENTS.md](./REQUIREMENTS.md) | All dependencies and versions |
-| [ARCHITECTURE.md](./ARCHITECTURE.md) | System architecture |
+| [ONBOARDING.md](./ONBOARDING.md) | New contributor onboarding |
+
+### Architecture & Design
+
+| Document | Description |
+|----------|-------------|
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | High-level system architecture |
+| [SYSTEM_ARCHITECTURE.md](./SYSTEM_ARCHITECTURE.md) | Detailed system architecture |
+| [PHASE_5_ARCHITECTURE_DIAGRAMS.md](./PHASE_5_ARCHITECTURE_DIAGRAMS.md) | Architecture diagrams |
+
+### API Reference
+
+| Document | Description |
+|----------|-------------|
+| [API_REFERENCE.md](./API_REFERENCE.md) | Complete REST API documentation |
+| [API_QUICKSTART.md](./API_QUICKSTART.md) | API quick start guide |
 | [README_IMAGE_ACQUISITION.md](./README_IMAGE_ACQUISITION.md) | Image acquisition pipeline |
-| [API_REFERENCE.md](./API_REFERENCE.md) | API documentation |
-| [SECURITY.md](./SECURITY.md) | Security policies |
 
-### Development Documentation
+### Security
 
 | Document | Description |
 |----------|-------------|
-| [DEVELOPMENT_SETUP.md](./DEVELOPMENT_SETUP.md) | Developer environment setup |
-| [CONTRIBUTING.md](./CONTRIBUTING.md) | Contribution guidelines |
+| [SECURITY.md](./SECURITY.md) | Security policies and practices |
+| [IP_PROTECTION.md](./IP_PROTECTION.md) | Intellectual property protection |
+
+### Deployment
+
+| Document | Description |
+|----------|-------------|
+| [DOCKER_DEPLOYMENT_GUIDE.md](./DOCKER_DEPLOYMENT_GUIDE.md) | Docker deployment guide |
+| [DOCKER_QUICK_START.md](./DOCKER_QUICK_START.md) | Docker quick start |
+| [DEPLOYMENT.md](./DEPLOYMENT.md) | General deployment guide |
+
+### Testing
+
+| Document | Description |
+|----------|-------------|
 | [TESTING_FRAMEWORK.md](./TESTING_FRAMEWORK.md) | Testing procedures |
+| [PHASE_8_E2E_TESTING_GUIDE.md](./PHASE_8_E2E_TESTING_GUIDE.md) | End-to-end testing |
 
-### Deployment Documentation
+### Contributing
 
 | Document | Description |
 |----------|-------------|
-| [DOCKER_DEPLOYMENT_GUIDE.md](./DOCKER_DEPLOYMENT_GUIDE.md) | Docker deployment |
-| [PHASE_9_QUICK_START.md](./PHASE_9_QUICK_START.md) | Quick start guide |
-| [PHASE_9_INFRASTRUCTURE_SUMMARY.md](./PHASE_9_INFRASTRUCTURE_SUMMARY.md) | Infrastructure overview |
+| [CONTRIBUTING.md](./CONTRIBUTING.md) | Contribution guidelines |
+| [DEVELOPMENT_SETUP.md](./DEVELOPMENT_SETUP.md) | Developer environment setup |
+
+### Special Modules
+
+| Module | Documentation |
+|--------|---------------|
+| **Security** | [SECURITY.md](./SECURITY.md), [security/](./security/) |
+| **HPC** | [HPC_README.md](./HPC_README.md), [hpc_integration/](./hpc_integration/) |
+| **AI/ML** | [neural/](./neural/), [ml_pipeline/](./ml_pipeline/) |
+| **Quantum** | [quantum/](./quantum/) |
 
 ---
 
