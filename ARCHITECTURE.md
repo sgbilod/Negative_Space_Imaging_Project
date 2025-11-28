@@ -1,8 +1,28 @@
 # System Architecture
 
+**Copyright © 2025 Stephen Bilodeau. All rights reserved.**
+
+## Table of Contents
+
+- [Overview](#overview)
+- [High-Level Architecture](#high-level-architecture)
+- [Components](#components)
+- [Data Flow](#data-flow)
+- [Security](#security)
+- [Deployment](#deployment)
+- [Scalability](#scalability)
+- [Monitoring](#monitoring)
+- [Development Principles](#development-principles)
+
+---
+
 ## Overview
 
 The Negative Space Imaging Project is a full-stack enterprise application designed for analyzing negative space in images using advanced AI/ML techniques.
+
+---
+
+## High-Level Architecture
 
 ### Architecture Diagram
 
@@ -245,6 +265,14 @@ POST   /api/batch-process
 6. **Security:** Security by default
 7. **Performance:** Optimize where it matters
 8. **Observability:** Logging and monitoring built-in
+
+## Related Documentation
+
+- [README.md](./README.md) - Project overview
+- [GETTING_STARTED.md](./GETTING_STARTED.md) - Setup guide
+- [REQUIREMENTS.md](./REQUIREMENTS.md) - Dependencies
+- [README_IMAGE_ACQUISITION.md](./README_IMAGE_ACQUISITION.md) - Image acquisition pipeline
+- [DOCKER_DEPLOYMENT_GUIDE.md](./DOCKER_DEPLOYMENT_GUIDE.md) - Container deployment
 
 ---
 
