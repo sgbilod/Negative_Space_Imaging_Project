@@ -259,13 +259,18 @@ export interface PaginatedResponse<T> extends ApiResponse<T[]> {
 // ============================================================================
 
 /**
+ * Available analysis algorithms
+ */
+export type AnalysisAlgorithm = 'standard' | 'advanced' | 'quantum';
+
+/**
  * Application-wide configuration settings
  */
 export interface AppConfig {
   apiBaseUrl: string;
   maxFileSize: number;
   allowedFileTypes: ImageFormat[];
-  defaultAlgorithm: string;
+  defaultAlgorithm: AnalysisAlgorithm;
   enableGpu: boolean;
 }
 
@@ -273,7 +278,7 @@ export interface AppConfig {
  * Configuration options for image analysis
  */
 export interface AnalysisConfig {
-  algorithm: 'standard' | 'advanced' | 'quantum';
+  algorithm: AnalysisAlgorithm;
   threshold: number;
   minRegionSize: number;
   detectContours: boolean;
