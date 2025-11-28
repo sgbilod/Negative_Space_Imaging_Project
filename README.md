@@ -14,7 +14,7 @@
 
 **Copyright © 2025 Stephen Bilodeau. All Rights Reserved.**
 
-[📚 Documentation](#-documentation) | [🚀 Quick Start](#-quick-start) | [🔬 Features](#-key-features) | [🏗️ Architecture](#-architecture) | [🤝 Contributing](#-contributing)
+[📚 Docs](#-documentation) | [🚀 Quick Start](#-quick-start) | [🔬 Features](#-key-features) | [🏗️ Architecture](#-architecture) | [🤝 Contributing](#-contributing)
 
 ---
 

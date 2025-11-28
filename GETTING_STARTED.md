@@ -568,7 +568,8 @@ FRONTEND_PORT=3001
 npm cache clean --force
 
 # Delete node_modules and reinstall
-rm -rf node_modules package-lock.json
+rm -rf node_modules package-lock.json  # Linux/macOS
+# Windows: rmdir /s /q node_modules & del package-lock.json
 npm install
 
 # Use legacy peer deps if needed

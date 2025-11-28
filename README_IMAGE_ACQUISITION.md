@@ -21,7 +21,7 @@ This document provides comprehensive documentation for the image acquisition sys
 
 ## Overview
 
-The Image Acquisition Pipeline is a core component of the Negative Space Imaging System that handles the secure capture, validation, and ingestion of images from multiple sources. The system is designed to support both medical imaging (HIPAA-compliant) and astronomical data acquisition workflows.
+The Image Acquisition Pipeline is a core component of the Negative Space Imaging System. It handles the secure capture, validation, and ingestion of images from multiple sources. The system is designed to support both medical imaging (HIPAA-compliant) and astronomical data acquisition workflows.
 
 ### Key Capabilities
 
