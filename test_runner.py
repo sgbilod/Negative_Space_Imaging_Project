@@ -101,7 +101,11 @@ class TestRunner:
         if paths:
             cmd.extend(paths)
         else:
+            # Include both tests directory and root test files
             cmd.append(str(self.tests_dir))
+            for test_file in self.project_root.glob("test_*.py"):
+                if test_file.stat().st_size > 0 and test_file.name != "test_runner.py":
+                    cmd.append(str(test_file))
 
         # Verbose output
         if verbose:
@@ -121,7 +125,7 @@ class TestRunner:
             cmd.extend([
                 "--cov=sovereign",
                 "--cov=quantum",
-                "--cov=gpu",
+                "--cov=negative_space_analysis",
                 "--cov-report=term-missing"
             ])
             if html_report:

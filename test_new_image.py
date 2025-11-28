@@ -57,9 +57,13 @@ def sample_float_image():
 
 @pytest.fixture
 def temp_image_file(sample_rgb_image):
-    """Create a temporary image file for testing."""
-    with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as f:
-        # Write image data as bytes
+    """Create a temporary raw image file for testing.
+    
+    Note: This creates a raw binary file, not a valid PNG.
+    It's for testing raw data handling, not image format handling.
+    """
+    with tempfile.NamedTemporaryFile(suffix='.raw', delete=False) as f:
+        # Write raw image data as bytes
         f.write(sample_rgb_image.tobytes())
         temp_path = f.name
     yield temp_path
@@ -342,8 +346,8 @@ class TestImageIntegrity:
         """Test detection of image modification."""
         original_hash = hashlib.sha256(sample_rgb_image.tobytes()).hexdigest()
         modified = sample_rgb_image.copy()
-        # Modify a pixel (using XOR to guarantee a change)
-        modified[0, 0, 0] = modified[0, 0, 0] ^ 0x01
+        # Modify a pixel using bitwise NOT to guarantee a change
+        modified[0, 0, 0] = ~modified[0, 0, 0]
         modified_hash = hashlib.sha256(modified.tobytes()).hexdigest()
         assert original_hash != modified_hash
 
