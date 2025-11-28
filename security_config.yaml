@@ -1,0 +1,508 @@
+# ============================================================================
+# Security Configuration for Negative Space Imaging Project
+# Copyright (c) 2025 Stephen Bilodeau. All rights reserved.
+# ============================================================================
+# This file defines security policies, CORS configuration, rate limiting,
+# authentication requirements, encryption settings, and audit logging.
+# ============================================================================
+
+# Application metadata
+metadata:
+  version: "1.0.0"
+  last_updated: "2025-11-28"
+  maintainer: "security@negative-space-imaging.com"
+
+# ============================================================================
+# CORS (Cross-Origin Resource Sharing) Configuration
+# ============================================================================
+cors:
+  # Allowed origins - NEVER use wildcard (*) in production
+  allowed_origins:
+    production:
+      - "https://negative-space-imaging.com"
+      - "https://api.negative-space-imaging.com"
+      - "https://app.negative-space-imaging.com"
+    development:
+      - "http://localhost:3000"
+      - "http://localhost:3001"
+      - "http://localhost:5173"
+    test:
+      - "http://localhost:3000"
+      - "http://127.0.0.1:3000"
+  
+  # Allowed HTTP methods
+  allowed_methods:
+    - "GET"
+    - "POST"
+    - "PUT"
+    - "DELETE"
+    - "PATCH"
+    - "OPTIONS"
+  
+  # Allowed request headers
+  allowed_headers:
+    - "Content-Type"
+    - "Authorization"
+    - "X-Requested-With"
+    - "X-Signature"
+    - "X-Timestamp"
+    - "X-Request-ID"
+    - "X-CSRF-Token"
+  
+  # Headers exposed to the client
+  exposed_headers:
+    - "Content-Range"
+    - "X-Content-Range"
+    - "X-Request-ID"
+    - "X-RateLimit-Limit"
+    - "X-RateLimit-Remaining"
+  
+  # Allow credentials (cookies, authorization headers)
+  allow_credentials: true
+  
+  # Preflight cache duration (24 hours)
+  max_age: 86400
+  
+  # Enable preflight for all routes
+  preflight_continue: false
+  
+  # Options success status (204 for IE11 compatibility)
+  options_success_status: 204
+
+# ============================================================================
+# Rate Limiting Configuration
+# ============================================================================
+rate_limiting:
+  # Global rate limiting
+  global:
+    enabled: true
+    window_ms: 900000  # 15 minutes
+    max_requests: 100
+    message: "Too many requests from this IP, please try again later"
+    standardHeaders: true
+    legacyHeaders: false
+  
+  # Auth endpoint rate limiting (stricter)
+  auth:
+    enabled: true
+    window_ms: 300000  # 5 minutes
+    max_requests: 10
+    message: "Too many authentication attempts, please try again later"
+  
+  # API endpoint rate limiting
+  api:
+    enabled: true
+    window_ms: 60000  # 1 minute
+    max_requests: 60
+    message: "API rate limit exceeded"
+  
+  # Upload endpoint rate limiting
+  upload:
+    enabled: true
+    window_ms: 3600000  # 1 hour
+    max_requests: 20
+    message: "Upload rate limit exceeded"
+  
+  # Skip rate limiting for specific IPs (e.g., health checks)
+  skip_ips:
+    - "127.0.0.1"
+    - "::1"
+  
+  # Whitelist admin users from rate limiting
+  skip_admin: false
+
+# ============================================================================
+# Authentication Configuration
+# ============================================================================
+authentication:
+  # JWT Configuration
+  jwt:
+    algorithm: "HS256"
+    access_token_expiry: "1h"
+    refresh_token_expiry: "7d"
+    issuer: "negative-space-imaging"
+    audience: "nsi-api"
+    # JWT secret must be set via JWT_SECRET environment variable
+    require_secret_env: true
+  
+  # Password Policy
+  password_policy:
+    min_length: 12
+    max_length: 128
+    require_uppercase: true
+    require_lowercase: true
+    require_numbers: true
+    require_special_chars: true
+    special_chars: "!@#$%^&*()_+-=[]{}|;:',.<>?"
+    history_limit: 5  # Remember last 5 passwords
+    max_age_days: 90
+    min_age_days: 1
+  
+  # Account Security
+  account_security:
+    max_failed_attempts: 5
+    lockout_duration_minutes: 30
+    require_email_verification: true
+    require_2fa_for_admin: true
+    session_timeout_minutes: 60
+    concurrent_sessions_limit: 3
+  
+  # Biometric Authentication
+  biometric:
+    enabled: true
+    fallback_to_password: true
+    verification_threshold: 0.95
+  
+  # Two-Factor Authentication
+  two_factor:
+    enabled: true
+    issuer: "Negative Space Imaging"
+    window: 1  # Allow 1 step before/after current
+    backup_codes_count: 10
+
+# ============================================================================
+# Authorization (RBAC) Configuration
+# ============================================================================
+authorization:
+  # Role definitions
+  roles:
+    admin:
+      description: "Full system access"
+      permissions:
+        - "read:all"
+        - "write:all"
+        - "delete:all"
+        - "admin:all"
+    
+    analyst:
+      description: "Image analysis and reporting"
+      permissions:
+        - "read:images"
+        - "write:images"
+        - "read:analysis"
+        - "write:analysis"
+        - "read:reports"
+        - "write:reports"
+    
+    user:
+      description: "Basic user access"
+      permissions:
+        - "read:own"
+        - "write:own"
+        - "read:public"
+    
+    viewer:
+      description: "Read-only access"
+      permissions:
+        - "read:own"
+        - "read:public"
+  
+  # Default role for new users
+  default_role: "user"
+  
+  # Admin bootstrap (first user gets admin)
+  bootstrap_first_admin: true
+
+# ============================================================================
+# Encryption Configuration
+# ============================================================================
+encryption:
+  # Symmetric encryption
+  symmetric:
+    algorithm: "AES-256-GCM"
+    key_length: 32  # 256 bits
+    iv_length: 12   # 96 bits for GCM
+    tag_length: 16  # 128 bits auth tag
+  
+  # Asymmetric encryption (for key exchange)
+  asymmetric:
+    algorithm: "ECDH"
+    curve: "secp521r1"  # NIST P-521
+  
+  # Quantum-resistant configuration
+  quantum_resistant:
+    enabled: true
+    primary_algorithm: "ChaCha20-Poly1305"
+    key_derivation: "HKDF-SHA512"
+    salt_size: 16
+    nonce_size: 12
+    key_rotation_interval_hours: 24
+  
+  # Data at rest encryption
+  data_at_rest:
+    enabled: true
+    algorithm: "AES-256-CBC"
+    key_storage: "environment"  # environment, vault, hsm
+  
+  # Data in transit encryption
+  data_in_transit:
+    require_tls: true
+    min_tls_version: "1.2"
+    preferred_tls_version: "1.3"
+    hsts_enabled: true
+    hsts_max_age: 31536000  # 1 year
+    hsts_include_subdomains: true
+    hsts_preload: true
+
+# ============================================================================
+# Audit Logging Configuration
+# ============================================================================
+audit_logging:
+  # General settings
+  enabled: true
+  log_level: "info"
+  
+  # Events to log
+  events:
+    authentication:
+      - "login_success"
+      - "login_failure"
+      - "logout"
+      - "password_change"
+      - "password_reset"
+      - "2fa_enabled"
+      - "2fa_disabled"
+      - "session_timeout"
+    
+    authorization:
+      - "access_granted"
+      - "access_denied"
+      - "role_changed"
+      - "permission_changed"
+    
+    data_access:
+      - "create"
+      - "read"
+      - "update"
+      - "delete"
+      - "export"
+      - "import"
+    
+    security:
+      - "rate_limit_exceeded"
+      - "invalid_token"
+      - "suspicious_activity"
+      - "ip_blocked"
+      - "brute_force_detected"
+    
+    system:
+      - "config_change"
+      - "service_start"
+      - "service_stop"
+      - "error"
+      - "warning"
+  
+  # Log format
+  format:
+    timestamp: true
+    request_id: true
+    user_id: true
+    ip_address: true
+    user_agent: true
+    method: true
+    path: true
+    status_code: true
+    response_time: true
+  
+  # Sensitive fields to mask
+  sensitive_fields:
+    - "password"
+    - "token"
+    - "secret"
+    - "api_key"
+    - "credit_card"
+    - "ssn"
+    - "medical_record"
+  
+  # Log retention
+  retention:
+    days: 90
+    archive_enabled: true
+    archive_location: "s3://audit-logs"
+  
+  # Real-time monitoring
+  monitoring:
+    enabled: true
+    alert_thresholds:
+      failed_logins_per_minute: 10
+      api_errors_per_minute: 50
+      suspicious_requests_per_hour: 100
+
+# ============================================================================
+# Security Headers Configuration
+# ============================================================================
+security_headers:
+  # Content Security Policy
+  content_security_policy:
+    default_src: ["'self'"]
+    script_src: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"]
+    style_src: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"]
+    img_src: ["'self'", "data:", "blob:"]
+    font_src: ["'self'", "https://fonts.gstatic.com", "data:"]
+    connect_src: ["'self'", "https://api.negative-space-imaging.com"]
+    frame_src: ["'none'"]
+    object_src: ["'none'"]
+    media_src: ["'self'"]
+    worker_src: ["'self'", "blob:"]
+    frame_ancestors: ["'none'"]
+    form_action: ["'self'"]
+    base_uri: ["'self'"]
+    upgrade_insecure_requests: true
+  
+  # Other security headers
+  x_content_type_options: "nosniff"
+  x_frame_options: "DENY"
+  x_xss_protection: "1; mode=block"
+  referrer_policy: "strict-origin-when-cross-origin"
+  permissions_policy:
+    camera: []
+    microphone: []
+    geolocation: []
+    payment: []
+
+# ============================================================================
+# Input Validation Configuration
+# ============================================================================
+input_validation:
+  # Enable XSS prevention
+  xss_prevention: true
+  
+  # Enable SQL injection prevention
+  sql_injection_prevention: true
+  
+  # Enable path traversal prevention
+  path_traversal_prevention: true
+  
+  # Enable HTTP parameter pollution prevention
+  hpp_prevention: true
+  
+  # File upload validation
+  file_upload:
+    max_size_mb: 50
+    allowed_types:
+      - "image/jpeg"
+      - "image/png"
+      - "image/tiff"
+      - "image/webp"
+      - "application/dicom"
+    scan_for_malware: true
+  
+  # Request size limits
+  request_limits:
+    json_body_limit: "1mb"
+    url_encoded_limit: "1mb"
+    text_limit: "1mb"
+
+# ============================================================================
+# Session Configuration
+# ============================================================================
+session:
+  name: "nsi.sid"
+  secure: true  # Only send over HTTPS
+  http_only: true  # Prevent JavaScript access
+  same_site: "strict"
+  max_age_ms: 3600000  # 1 hour
+  rolling: true  # Extend on activity
+  
+  # Session store
+  store:
+    type: "redis"  # memory, redis, database
+    prefix: "session:"
+    ttl: 3600
+
+# ============================================================================
+# CSRF Protection Configuration
+# ============================================================================
+csrf:
+  enabled: true
+  cookie_name: "_csrf"
+  header_name: "X-CSRF-Token"
+  form_field_name: "_csrf"
+  cookie_options:
+    http_only: true
+    same_site: "strict"
+    secure: true
+
+# ============================================================================
+# HIPAA Compliance Configuration
+# ============================================================================
+hipaa_compliance:
+  enabled: true
+  
+  # Access controls
+  access_controls:
+    unique_user_identification: true
+    emergency_access_procedure: true
+    automatic_logoff: true
+    encryption_decryption: true
+  
+  # Audit controls
+  audit_controls:
+    hardware_software_mechanisms: true
+    audit_log_retention_years: 6
+  
+  # Integrity controls
+  integrity_controls:
+    authentication_mechanisms: true
+    data_integrity_verification: true
+  
+  # Transmission security
+  transmission_security:
+    encryption_required: true
+    integrity_controls: true
+  
+  # Data retention
+  data_retention:
+    minimum_retention_years: 6
+    destruction_policy: "secure_wipe"
+
+# ============================================================================
+# Vulnerability Scanning Configuration
+# ============================================================================
+vulnerability_scanning:
+  # Dependency scanning
+  dependency_scan:
+    enabled: true
+    schedule: "daily"
+    fail_on_high_severity: true
+    ignore_dev_dependencies: false
+  
+  # Code scanning
+  code_scan:
+    enabled: true
+    schedule: "on_commit"
+    scanners:
+      - "codeql"
+      - "semgrep"
+  
+  # Container scanning
+  container_scan:
+    enabled: true
+    schedule: "on_build"
+
+# ============================================================================
+# Incident Response Configuration
+# ============================================================================
+incident_response:
+  # Alert channels
+  alert_channels:
+    - type: "email"
+      recipients: ["security@negative-space-imaging.com"]
+      severity: ["critical", "high"]
+    - type: "slack"
+      webhook_env: "SLACK_SECURITY_WEBHOOK"
+      severity: ["critical", "high", "medium"]
+  
+  # Automatic responses
+  auto_responses:
+    brute_force:
+      threshold: 5
+      action: "block_ip"
+      duration_minutes: 30
+    suspicious_activity:
+      threshold: 10
+      action: "alert"
+    rate_limit_abuse:
+      threshold: 100
+      action: "block_ip"
+      duration_minutes: 60
