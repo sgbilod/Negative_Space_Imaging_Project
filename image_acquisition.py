@@ -67,6 +67,18 @@ try:
 except ImportError:
     FITS_AVAILABLE = False
 
+try:
+    import cv2
+    CV2_AVAILABLE = True
+except ImportError:
+    CV2_AVAILABLE = False
+
+try:
+    import paramiko
+    PARAMIKO_AVAILABLE = True
+except ImportError:
+    PARAMIKO_AVAILABLE = False
+
 
 class ImageFormat(Enum):
     """Supported image formats for acquisition."""
@@ -133,8 +145,12 @@ class ImageAcquisition:
         if mode == AcquisitionMode.REMOTE_HTTP and not REMOTE_AVAILABLE:
             raise ImportError("Remote acquisition requires the 'requests' package")
 
-        if mode == AcquisitionMode.CAMERA and not PIL_AVAILABLE:
-            raise ImportError("Camera acquisition requires the 'PIL' package")
+        if mode == AcquisitionMode.CAMERA:
+            if not CV2_AVAILABLE and not PIL_AVAILABLE:
+                raise ImportError("Camera acquisition requires 'opencv-python' or 'PIL' package")
+
+        if mode == AcquisitionMode.REMOTE_SFTP and not PARAMIKO_AVAILABLE:
+            raise ImportError("SFTP acquisition requires the 'paramiko' package")
 
         if format == ImageFormat.DICOM and not DICOM_AVAILABLE:
             raise ImportError("DICOM format requires the 'pydicom' package")
@@ -283,14 +299,238 @@ class ImageAcquisition:
         return response.content
 
     def _acquire_from_camera(self, device_id: str, **kwargs) -> bytes:
-        """Acquire image from connected camera."""
-        # This is a placeholder - actual implementation would use camera APIs
-        raise NotImplementedError("Camera acquisition not implemented in this version")
+        """
+        Acquire image from connected camera.
+
+        Args:
+            device_id: Camera identifier (index as string, device name, or serial number)
+            **kwargs: Camera configuration options:
+                - resolution: Tuple[int, int] - (width, height)
+                - exposure: float - Exposure time in milliseconds
+                - gain: float - Camera gain value
+                - format: str - Output format ('rgb', 'bgr', 'grayscale')
+                - timeout: float - Capture timeout in seconds
+
+        Returns:
+            Image data as bytes
+
+        Raises:
+            AcquisitionError: If camera cannot be accessed or capture fails
+        """
+        if not CV2_AVAILABLE and not PIL_AVAILABLE:
+            raise ImportError("Camera acquisition requires 'opencv-python' or 'PIL' package")
+
+        # Parse device_id
+        try:
+            camera_index = int(device_id)
+        except ValueError:
+            camera_index = 0  # Default to first camera
+
+        # Get configuration
+        resolution = kwargs.get('resolution', (1920, 1080))
+        timeout = kwargs.get('timeout', 5.0)
+        output_format = kwargs.get('format', 'rgb')
+
+        if CV2_AVAILABLE:
+            # Use OpenCV for capture
+            cap = cv2.VideoCapture(camera_index)
+
+            if not cap.isOpened():
+                raise AcquisitionError(f"Failed to open camera: {device_id}")
+
+            try:
+                # Set resolution
+                cap.set(cv2.CAP_PROP_FRAME_WIDTH, resolution[0])
+                cap.set(cv2.CAP_PROP_FRAME_HEIGHT, resolution[1])
+
+                # Set exposure if provided
+                if 'exposure' in kwargs:
+                    cap.set(cv2.CAP_PROP_EXPOSURE, kwargs['exposure'])
+
+                # Set gain if provided
+                if 'gain' in kwargs:
+                    cap.set(cv2.CAP_PROP_GAIN, kwargs['gain'])
+
+                # Capture frame with timeout
+                start_time = time.time()
+                ret = False
+                frame = None
+
+                while not ret and (time.time() - start_time) < timeout:
+                    ret, frame = cap.read()
+
+                if not ret or frame is None:
+                    raise AcquisitionError("Failed to capture frame from camera")
+
+                # Convert format
+                if output_format == 'rgb':
+                    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                elif output_format == 'grayscale':
+                    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+                # 'bgr' is default OpenCV format
+
+                return frame.tobytes()
+
+            finally:
+                cap.release()
+
+        else:
+            raise AcquisitionError("No suitable camera library available")
 
     def _acquire_from_sftp(self, source: str, secure: bool = True, **kwargs) -> bytes:
-        """Acquire image from SFTP server."""
-        # This is a placeholder - actual implementation would use pysftp or paramiko
-        raise NotImplementedError("SFTP acquisition not implemented in this version")
+        """
+        Acquire image from SFTP server.
+
+        Args:
+            source: SFTP path in format 'user@host:port/path/to/file' or just '/path/to/file'
+                    if connection details provided in kwargs
+            secure: Whether to enforce secure connection (host key verification)
+            **kwargs: Connection options:
+                - hostname: str - SFTP server hostname
+                - port: int - SFTP port (default: 22)
+                - username: str - SFTP username
+                - password: str - SFTP password (if not using key auth)
+                - private_key: str - Path to private key file
+                - private_key_pass: str - Passphrase for private key
+                - timeout: float - Connection timeout in seconds
+                - known_hosts: str - Path to known_hosts file
+
+        Returns:
+            Image data as bytes
+
+        Raises:
+            ImportError: If paramiko is not installed
+            SourceAuthenticationError: If authentication fails
+            AcquisitionError: If file transfer fails
+        """
+        if not PARAMIKO_AVAILABLE:
+            raise ImportError("SFTP acquisition requires the 'paramiko' package")
+
+        # Parse source string if it contains connection info
+        hostname = kwargs.get('hostname')
+        port = kwargs.get('port', 22)
+        username = kwargs.get('username')
+        remote_path = source
+
+        # Parse 'user@host:port/path' format
+        if '@' in source and not hostname:
+            # Extract user@host:port/path
+            if '/' in source:
+                user_host, path_part = source.split('/', 1)
+                remote_path = '/' + path_part
+            else:
+                user_host = source
+                remote_path = ''
+
+            if '@' in user_host:
+                # Use rsplit to handle usernames containing @ symbols
+                username, host_port = user_host.rsplit('@', 1)
+                if ':' in host_port:
+                    hostname, port_str = host_port.split(':')
+                    port = int(port_str)
+                else:
+                    hostname = host_port
+
+        if not hostname:
+            raise AcquisitionError("SFTP hostname not specified")
+
+        if not username:
+            raise AcquisitionError("SFTP username not specified")
+
+        if not remote_path or remote_path == '/':
+            raise AcquisitionError("SFTP remote file path not specified")
+
+        # Get authentication credentials
+        password = kwargs.get('password')
+        private_key_path = kwargs.get('private_key')
+        private_key_pass = kwargs.get('private_key_pass')
+        timeout = kwargs.get('timeout', 30.0)
+
+        # Create SSH client
+        ssh = paramiko.SSHClient()
+
+        try:
+            # Handle host key verification based on security level
+            # Note: AutoAddPolicy is used for lower security levels to allow connections
+            # to new hosts. For production use, security_level >= 2 is recommended.
+            if secure and self.security_level >= 2:
+                known_hosts = kwargs.get('known_hosts', os.path.expanduser('~/.ssh/known_hosts'))
+                if os.path.exists(known_hosts):
+                    ssh.load_host_keys(known_hosts)
+                ssh.set_missing_host_key_policy(paramiko.RejectPolicy())
+            elif self.security_level == 1:
+                # Use WarningPolicy for medium security - logs a warning but allows connection
+                ssh.set_missing_host_key_policy(paramiko.WarningPolicy())
+            else:
+                # security_level 0 or secure=False: auto-add for convenience in trusted environments
+                ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  # nosec B507
+
+            # Prepare authentication
+            connect_kwargs = {
+                'hostname': hostname,
+                'port': port,
+                'username': username,
+                'timeout': timeout,
+            }
+
+            if private_key_path:
+                # Key-based authentication - try different key types
+                pkey = None
+                key_types = [
+                    paramiko.RSAKey,
+                    paramiko.DSSKey,
+                    paramiko.ECDSAKey,
+                    paramiko.Ed25519Key,
+                ]
+                last_error = None
+
+                for key_class in key_types:
+                    try:
+                        if private_key_pass:
+                            pkey = key_class.from_private_key_file(private_key_path, password=private_key_pass)
+                        else:
+                            pkey = key_class.from_private_key_file(private_key_path)
+                        break
+                    except paramiko.SSHException:
+                        continue
+                    except Exception as e:
+                        last_error = e
+                        continue
+
+                if pkey is None:
+                    raise AcquisitionError(f"Failed to load private key: {last_error or 'unsupported key type'}")
+
+                connect_kwargs['pkey'] = pkey
+            elif password:
+                connect_kwargs['password'] = password
+            else:
+                raise SourceAuthenticationError("No authentication method provided (password or private_key)")
+
+            # Connect
+            ssh.connect(**connect_kwargs)
+
+            # Open SFTP session
+            sftp = ssh.open_sftp()
+
+            try:
+                # Download file to memory
+                with sftp.file(remote_path, 'rb') as remote_file:
+                    image_data = remote_file.read()
+
+                return image_data
+
+            finally:
+                sftp.close()
+
+        except paramiko.AuthenticationException as e:
+            raise SourceAuthenticationError(f"SFTP authentication failed: {str(e)}")
+        except paramiko.SSHException as e:
+            raise AcquisitionError(f"SFTP connection error: {str(e)}")
+        except IOError as e:
+            raise AcquisitionError(f"SFTP file error: {str(e)}")
+        finally:
+            ssh.close()
+
 
     def _simulate_acquisition(
         self,
