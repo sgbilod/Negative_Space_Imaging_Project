@@ -369,10 +369,6 @@ class ImageAcquisition:
                     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
                 # 'bgr' is default OpenCV format
 
-                # Store dimensions for metadata
-                kwargs['width'] = frame.shape[1]
-                kwargs['height'] = frame.shape[0]
-
                 return frame.tobytes()
 
             finally:
@@ -419,11 +415,16 @@ class ImageAcquisition:
         # Parse 'user@host:port/path' format
         if '@' in source and not hostname:
             # Extract user@host:port/path
-            user_host, remote_path = source.split('/', 1) if '/' in source else (source, '')
-            remote_path = '/' + remote_path
+            if '/' in source:
+                user_host, path_part = source.split('/', 1)
+                remote_path = '/' + path_part
+            else:
+                user_host = source
+                remote_path = ''
 
             if '@' in user_host:
-                username, host_port = user_host.split('@')
+                # Use rsplit to handle usernames containing @ symbols
+                username, host_port = user_host.rsplit('@', 1)
                 if ':' in host_port:
                     hostname, port_str = host_port.split(':')
                     port = int(port_str)
@@ -435,6 +436,9 @@ class ImageAcquisition:
 
         if not username:
             raise AcquisitionError("SFTP username not specified")
+
+        if not remote_path or remote_path == '/':
+            raise AcquisitionError("SFTP remote file path not specified")
 
         # Get authentication credentials
         password = kwargs.get('password')
@@ -464,11 +468,32 @@ class ImageAcquisition:
             }
 
             if private_key_path:
-                # Key-based authentication
-                if private_key_pass:
-                    pkey = paramiko.RSAKey.from_private_key_file(private_key_path, password=private_key_pass)
-                else:
-                    pkey = paramiko.RSAKey.from_private_key_file(private_key_path)
+                # Key-based authentication - try different key types
+                pkey = None
+                key_types = [
+                    paramiko.RSAKey,
+                    paramiko.DSSKey,
+                    paramiko.ECDSAKey,
+                    paramiko.Ed25519Key,
+                ]
+                last_error = None
+
+                for key_class in key_types:
+                    try:
+                        if private_key_pass:
+                            pkey = key_class.from_private_key_file(private_key_path, password=private_key_pass)
+                        else:
+                            pkey = key_class.from_private_key_file(private_key_path)
+                        break
+                    except paramiko.SSHException:
+                        continue
+                    except Exception as e:
+                        last_error = e
+                        continue
+
+                if pkey is None:
+                    raise AcquisitionError(f"Failed to load private key: {last_error or 'unsupported key type'}")
+
                 connect_kwargs['pkey'] = pkey
             elif password:
                 connect_kwargs['password'] = password

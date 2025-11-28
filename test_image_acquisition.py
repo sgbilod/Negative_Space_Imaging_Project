@@ -245,6 +245,43 @@ class TestSFTPAcquisition:
         with pytest.raises(AcquisitionError, match="username not specified"):
             acq._acquire_from_sftp("/images/test.png", hostname="example.com", password="pass")
 
+    def test_sftp_missing_remote_path_error(self):
+        """Test error when remote file path is not specified."""
+        acq = ImageAcquisition(mode=AcquisitionMode.REMOTE_SFTP)
+
+        with pytest.raises(AcquisitionError, match="remote file path not specified"):
+            acq._acquire_from_sftp("user@example.com", password="pass")
+
+    def test_sftp_username_with_at_symbol(self):
+        """Test parsing source string with @ in username."""
+        acq = ImageAcquisition(mode=AcquisitionMode.REMOTE_SFTP, security_level=0)
+
+        with patch('image_acquisition.paramiko') as mock_paramiko:
+            mock_ssh = MagicMock()
+            mock_sftp = MagicMock()
+            mock_file = MagicMock()
+            mock_file.__enter__ = Mock(return_value=mock_file)
+            mock_file.__exit__ = Mock(return_value=False)
+            mock_file.read.return_value = b'test_image_data'
+
+            mock_sftp.file.return_value = mock_file
+            mock_ssh.open_sftp.return_value = mock_sftp
+            mock_paramiko.SSHClient.return_value = mock_ssh
+            mock_paramiko.AutoAddPolicy.return_value = MagicMock()
+
+            result = acq._acquire_from_sftp(
+                "user@domain.com@example.com:2222/images/test.png",
+                secure=False,
+                password="testpass"
+            )
+
+            # Verify connection params - username should be "user@domain.com"
+            mock_ssh.connect.assert_called_once()
+            call_kwargs = mock_ssh.connect.call_args[1]
+            assert call_kwargs['hostname'] == 'example.com'
+            assert call_kwargs['port'] == 2222
+            assert call_kwargs['username'] == 'user@domain.com'
+
     def test_sftp_missing_auth_error(self):
         """Test error when no authentication method is provided."""
         acq = ImageAcquisition(mode=AcquisitionMode.REMOTE_SFTP, security_level=0)
