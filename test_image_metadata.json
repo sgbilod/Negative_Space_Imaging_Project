@@ -1,13 +1,16 @@
 {
-  "timestamp": 1754694548.2051392,
-  "image_id": "64737f1cae93b262",
-  "width": 512,
-  "height": 512,
+  "acquisition_id": "19ac9b3ec551d6332",
+  "timestamp": "2025-11-28T09:03:23.228231",
+  "source": "simulated_image",
+  "mode": "SIMULATION",
   "format": "RAW",
-  "bit_depth": 8,
-  "acquisition_params": {
-    "exposure": 100,
-    "gain": 1.0,
-    "binning": 1
-  }
+  "size_bytes": 65536,
+  "elapsed_time_seconds": 0.006289005279541016,
+  "sha256_hash": "5af7884411f7b4eff63898e78703c4e9e417bfa4511492db718791eec6f8a5a8",
+  "width": 256,
+  "height": 256,
+  "bit_depth": "unknown",
+  "simulated": true,
+  "pattern": "negative_space",
+  "negative_space_regions": 3
 }
