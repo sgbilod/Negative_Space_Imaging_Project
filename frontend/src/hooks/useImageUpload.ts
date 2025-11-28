@@ -48,6 +48,14 @@ export const useImageUpload = () => {
       const response = await new Promise<Response>((resolve, reject) => {
         const xhr = new XMLHttpRequest();
 
+        const abortHandler = (): void => {
+          xhr.abort();
+        };
+
+        const cleanup = (): void => {
+          abortControllerRef.current?.signal.removeEventListener('abort', abortHandler);
+        };
+
         xhr.upload.addEventListener('progress', (event: ProgressEvent) => {
           if (event.lengthComputable) {
             const progressData: UploadProgress = {
@@ -60,6 +68,7 @@ export const useImageUpload = () => {
         });
 
         xhr.addEventListener('load', () => {
+          cleanup();
           if (xhr.status >= 200 && xhr.status < 300) {
             resolve(
               new Response(xhr.responseText, {
@@ -73,10 +82,12 @@ export const useImageUpload = () => {
         });
 
         xhr.addEventListener('error', () => {
+          cleanup();
           reject(new Error('Network error during upload'));
         });
 
         xhr.addEventListener('abort', () => {
+          cleanup();
           reject(new Error('Upload cancelled'));
         });
 
@@ -86,13 +97,10 @@ export const useImageUpload = () => {
           xhr.setRequestHeader('Authorization', `Bearer ${accessToken}`);
         }
 
-        xhr.send(formData);
-
         // Handle abort
-        const abortHandler = (): void => {
-          xhr.abort();
-        };
         abortControllerRef.current?.signal.addEventListener('abort', abortHandler);
+
+        xhr.send(formData);
       });
 
       const data = (await response.json()) as UploadResponse;

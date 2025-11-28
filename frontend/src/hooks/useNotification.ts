@@ -43,7 +43,7 @@ export const useNotification = () => {
 
   const notify = useCallback(
     (message: string, type: NotificationType = 'info', duration = 5000): string => {
-      const id = `notification-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+      const id = `notification-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
 
       const notification: Notification = {
         id,
@@ -88,7 +88,7 @@ export const useNotification = () => {
     dismiss,
     dismissAll,
     getNotifications,
-    notifications: notifications,
+    notifications,
     success: (message: string, duration?: number): string => notify(message, 'success', duration),
     error: (message: string, duration?: number): string => notify(message, 'error', duration ?? 8000),
     warning: (message: string, duration?: number): string => notify(message, 'warning', duration),
