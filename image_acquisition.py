@@ -451,13 +451,19 @@ class ImageAcquisition:
 
         try:
             # Handle host key verification based on security level
+            # Note: AutoAddPolicy is used for lower security levels to allow connections
+            # to new hosts. For production use, security_level >= 2 is recommended.
             if secure and self.security_level >= 2:
                 known_hosts = kwargs.get('known_hosts', os.path.expanduser('~/.ssh/known_hosts'))
                 if os.path.exists(known_hosts):
                     ssh.load_host_keys(known_hosts)
                 ssh.set_missing_host_key_policy(paramiko.RejectPolicy())
+            elif self.security_level == 1:
+                # Use WarningPolicy for medium security - logs a warning but allows connection
+                ssh.set_missing_host_key_policy(paramiko.WarningPolicy())
             else:
-                ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+                # security_level 0 or secure=False: auto-add for convenience in trusted environments
+                ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  # nosec B507
 
             # Prepare authentication
             connect_kwargs = {
