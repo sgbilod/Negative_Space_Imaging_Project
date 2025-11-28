@@ -661,7 +661,9 @@ class TaskExecutor:
         Returns:
             Resource entry updates
         """
-        storage_path = config.get('path', tempfile.gettempdir())
+        # Use a more specific subdirectory for storage to avoid mixing with other temp files
+        default_storage_path = os.path.join(tempfile.gettempdir(), 'task_executor_storage')
+        storage_path = config.get('path', default_storage_path)
         capacity = config.get('capacity', float('inf'))
         storage_type = config.get('storage_type', 'local')
         

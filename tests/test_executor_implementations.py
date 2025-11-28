@@ -12,15 +12,16 @@ import os
 import threading
 from datetime import datetime, timedelta
 from typing import Dict, Any
+from pathlib import Path
 
-import sys
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-
+# Import using importlib to avoid package initialization issues
 import importlib.util
-spec = importlib.util.spec_from_file_location(
-    'executor',
-    os.path.join(os.path.dirname(__file__), '..', 'sovereign', 'executor.py')
-)
+
+# Locate the executor module relative to this test file
+_test_dir = Path(__file__).parent
+_executor_path = _test_dir.parent / 'sovereign' / 'executor.py'
+
+spec = importlib.util.spec_from_file_location('executor', str(_executor_path))
 executor_module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(executor_module)
 TaskExecutor = executor_module.TaskExecutor
