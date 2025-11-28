@@ -333,8 +333,12 @@ audit_logging:
 # ============================================================================
 security_headers:
   # Content Security Policy
+  # NOTE: 'unsafe-inline' is used for script-src and style-src due to legacy
+  # application requirements. For stricter security, consider migrating to
+  # nonces or hashes. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
   content_security_policy:
     default_src: ["'self'"]
+    # TODO: Replace 'unsafe-inline' with nonces in production for better XSS protection
     script_src: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"]
     style_src: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"]
     img_src: ["'self'", "data:", "blob:"]

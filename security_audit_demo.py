@@ -317,7 +317,6 @@ class SecurityAuditor:
         weak_crypto_found = False
         
         # Weak cryptography patterns - focused on security-critical contexts
-        # Note: random() is common in scientific computing and not always a security issue
         weak_patterns = [
             (r'\bMD5\b(?!.*#\s*nosec)', "MD5 Hash", "Use SHA-256 or stronger"),
             (r'\bSHA1\b|\bSHA-1\b', "SHA-1 Hash", "Use SHA-256 or stronger"),
@@ -340,7 +339,10 @@ class SecurityAuditor:
                         line_num = content[:match.start()].count('\n') + 1
                         # Skip if it's in a comment or test context
                         line = content.split('\n')[line_num - 1]
-                        if '#' in line[:line.find(match.group())] or '//' in line[:line.find(match.group())]:
+                        match_text = match.group()
+                        match_pos = line.find(match_text)
+                        # Only check for comment prefix if match was found in line
+                        if match_pos >= 0 and ('#' in line[:match_pos] or '//' in line[:match_pos]):
                             continue
                         self._add_finding(SecurityFinding(
                             id=self._generate_finding_id(),
@@ -721,7 +723,9 @@ class SecurityAuditor:
                 continue
             try:
                 content = file_path.read_text(errors='ignore')
-                if "rbac" in content.lower() or "role" in content.lower() and "permission" in content.lower():
+                content_lower = content.lower()
+                # Check for RBAC or role-based permission patterns
+                if "rbac" in content_lower or ("role" in content_lower and "permission" in content_lower):
                     rbac_found = True
                     break
             except Exception:
@@ -851,6 +855,11 @@ def main():
         action="store_true",
         help="Enable verbose output"
     )
+    parser.add_argument(
+        "--no-fail",
+        action="store_true",
+        help="Do not exit with error code on findings"
+    )
     
     args = parser.parse_args()
     
@@ -867,8 +876,8 @@ def main():
             json.dump(report.to_dict(), f, indent=2)
         print(f"\nJSON report saved to: {args.output}")
     
-    # Exit with error code if critical or high findings
-    if report.summary['critical'] > 0 or report.summary['high'] > 0:
+    # Exit with error code if critical or high findings (unless --no-fail is set)
+    if not args.no_fail and (report.summary['critical'] > 0 or report.summary['high'] > 0):
         sys.exit(1)
     sys.exit(0)
 
