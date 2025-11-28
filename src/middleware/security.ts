@@ -166,11 +166,11 @@ export class EncryptionService {
   constructor() {
     this.algorithm = 'aes-256-cbc';
     this.secretKey = Buffer.from(
-      process.env.ENCRYPTION_KEY || securityConfig.encryption.defaultKey,
+      securityConfig.encryption.getKey(),
       'hex'
     );
     this.iv = Buffer.from(
-      process.env.ENCRYPTION_IV || securityConfig.encryption.defaultIv,
+      securityConfig.encryption.getIv(),
       'hex'
     );
   }

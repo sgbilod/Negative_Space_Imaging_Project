@@ -29,10 +29,22 @@ export const config = {
 
   // Security configuration
   security: {
-    jwtSecret: process.env.JWT_SECRET || 'super-secret-key-that-should-be-changed-in-production',
+    jwtSecret: (() => {
+      const secret = process.env.JWT_SECRET;
+      if (!secret) {
+        throw new Error('JWT_SECRET environment variable must be set');
+      }
+      return secret;
+    })(),
     jwtExpiresIn: process.env.JWT_EXPIRES_IN || '1d',
     bcryptSaltRounds: parseInt(process.env.BCRYPT_SALT_ROUNDS || '12', 10),
-    cookieSecret: process.env.COOKIE_SECRET || 'cookie-secret-key',
+    cookieSecret: (() => {
+      const secret = process.env.COOKIE_SECRET;
+      if (!secret && process.env.NODE_ENV === 'production') {
+        throw new Error('COOKIE_SECRET environment variable must be set in production');
+      }
+      return secret || 'dev-cookie-secret-not-for-production';
+    })(),
     csrfEnabled: process.env.CSRF_ENABLED !== 'false',
   },
 
