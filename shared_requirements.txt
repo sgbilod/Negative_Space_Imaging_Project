@@ -1,0 +1,48 @@
+# ============================================================================
+# Shared Requirements
+# Negative Space Imaging Project
+# Copyright (c) 2025 Stephen Bilodeau. All rights reserved.
+# ============================================================================
+# Core dependencies shared across all modules
+# ============================================================================
+
+# Core Scientific Computing
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Image Processing
+pillow>=10.0.0
+scikit-image>=0.21.0
+
+# Data Handling
+pandas>=2.0.0
+h5py>=3.9.0
+pyarrow>=12.0.0
+
+# Configuration
+pyyaml>=6.0.0
+python-dotenv>=1.0.0
+
+# Networking & Async
+aiohttp>=3.8.0
+httpx>=0.24.0
+
+# Logging & Monitoring
+structlog>=23.1.0
+prometheus-client>=0.17.0
+
+# Utilities
+tqdm>=4.65.0
+click>=8.1.0
+rich>=13.4.0
+
+# Security
+cryptography>=41.0.0
+pyjwt>=2.8.0
+
+# Serialization
+msgpack>=1.0.0
+orjson>=3.9.0
+
+# Type Hints
+typing-extensions>=4.7.0

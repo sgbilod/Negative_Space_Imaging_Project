@@ -1,0 +1,259 @@
+# ============================================================================
+# Multi-Node Cluster Configuration
+# Negative Space Imaging Project
+# Copyright (c) 2025 Stephen Bilodeau. All rights reserved.
+# ============================================================================
+# Configuration for multi-node HPC cluster deployment
+# ============================================================================
+
+cluster:
+  name: "nsi-multi-node-cluster"
+  version: "1.0.0"
+  environment: "${CLUSTER_ENV:-production}"
+
+# Master node specification
+master:
+  hostname: "${MASTER_HOSTNAME:-nsi-master}"
+  ip_address: "${MASTER_IP:-10.0.0.1}"
+  
+  hardware:
+    cpus: 64
+    memory_gb: 256
+    storage_gb: 2000
+    
+  roles:
+    - scheduler
+    - controller
+    - monitoring
+    
+  services:
+    scheduler:
+      type: "slurm"
+      port: 6817
+    api:
+      port: 8080
+      tls_enabled: true
+    monitoring:
+      prometheus_port: 9090
+      grafana_port: 3000
+
+# Worker node specifications
+workers:
+  # CPU-optimized worker pool
+  cpu_workers:
+    count: 8
+    hostname_prefix: "nsi-cpu"
+    
+    hardware:
+      cpus: 64
+      memory_gb: 256
+      storage_gb: 1000
+      
+    resources:
+      max_jobs: 32
+      memory_per_job_gb: 8
+      
+  # GPU-optimized worker pool  
+  gpu_workers:
+    count: 4
+    hostname_prefix: "nsi-gpu"
+    
+    hardware:
+      cpus: 32
+      memory_gb: 512
+      storage_gb: 2000
+      gpus:
+        type: "nvidia-a100"
+        count: 4
+        memory_gb: 80
+        
+    resources:
+      max_jobs: 16
+      memory_per_job_gb: 32
+      gpus_per_job: 1
+      
+  # High-memory worker pool
+  himem_workers:
+    count: 2
+    hostname_prefix: "nsi-himem"
+    
+    hardware:
+      cpus: 128
+      memory_gb: 1024
+      storage_gb: 4000
+      
+    resources:
+      max_jobs: 8
+      memory_per_job_gb: 128
+
+# Network topology
+network:
+  # Management network
+  management:
+    subnet: "10.0.0.0/24"
+    gateway: "10.0.0.254"
+    vlan_id: 100
+    
+  # Compute fabric (high-speed)
+  compute:
+    type: "infiniband"
+    subnet: "10.1.0.0/24"
+    speed_gbps: 200
+    mtu: 65520
+    
+  # Storage network
+  storage:
+    subnet: "10.2.0.0/24"
+    speed_gbps: 100
+    mtu: 9000
+    
+  # External access
+  external:
+    subnet: "192.168.1.0/24"
+    gateway: "192.168.1.1"
+    firewall_enabled: true
+
+# Load balancing settings
+load_balancing:
+  enabled: true
+  algorithm: "least_loaded"  # round_robin, least_loaded, weighted
+  
+  health_checks:
+    interval_seconds: 30
+    timeout_seconds: 10
+    unhealthy_threshold: 3
+    healthy_threshold: 2
+    
+  affinity:
+    enabled: true
+    type: "node"  # node, gpu, memory
+    
+  weights:
+    cpu_workers: 1.0
+    gpu_workers: 2.0
+    himem_workers: 1.5
+
+# Shared storage configuration
+storage:
+  # Parallel file system
+  shared:
+    type: "lustre"
+    mount_point: "/shared"
+    servers:
+      - "nsi-mds01"
+      - "nsi-mds02"
+    capacity_tb: 500
+    stripe_size: "1M"
+    stripe_count: 4
+    
+  # Scratch storage (per-node)
+  scratch:
+    type: "nvme"
+    mount_point: "/scratch"
+    size_gb: 1000
+    raid: "raid0"
+    
+  # Home directories
+  home:
+    type: "nfs"
+    server: "nsi-nfs"
+    mount_point: "/home"
+    quota_gb: 100
+
+# Job scheduling configuration
+scheduling:
+  fair_share:
+    enabled: true
+    decay_half_life_days: 14
+    
+  partitions:
+    - name: "standard"
+      nodes: "nsi-cpu[01-08]"
+      default: true
+      max_time: "24:00:00"
+      
+    - name: "gpu"
+      nodes: "nsi-gpu[01-04]"
+      features: ["gpu"]
+      max_time: "48:00:00"
+      gres: "gpu:4"
+      
+    - name: "himem"
+      nodes: "nsi-himem[01-02]"
+      features: ["highmem"]
+      max_time: "72:00:00"
+      
+  limits:
+    max_jobs_per_user: 100
+    max_running_per_user: 50
+    max_cpus_per_user: 256
+    max_gpus_per_user: 8
+
+# High availability configuration
+high_availability:
+  enabled: true
+  
+  # Failover for master
+  master_failover:
+    backup_master: "nsi-master-backup"
+    heartbeat_interval_seconds: 5
+    failover_timeout_seconds: 30
+    
+  # Service redundancy
+  services:
+    scheduler:
+      replicas: 2
+      active_passive: true
+    database:
+      replicas: 3
+      replication: "synchronous"
+
+# Security configuration
+security:
+  authentication:
+    type: "ldap"
+    server: "${LDAP_SERVER:-ldap.example.com}"
+    base_dn: "dc=example,dc=com"
+    tls_required: true
+    
+  authorization:
+    rbac_enabled: true
+    default_role: "user"
+    
+  encryption:
+    in_transit:
+      enabled: true
+      protocol: "TLS1.3"
+    at_rest:
+      enabled: true
+      algorithm: "AES-256-GCM"
+      
+  audit:
+    enabled: true
+    log_path: "/var/log/nsi/audit"
+    retention_days: 90
+
+# Monitoring and alerting
+monitoring:
+  metrics:
+    collection_interval_seconds: 15
+    retention_days: 30
+    
+  alerts:
+    - name: "node_down"
+      condition: "node_status == 'down'"
+      severity: "critical"
+      
+    - name: "high_load"
+      condition: "node_load > 0.95"
+      severity: "warning"
+      
+    - name: "low_disk"
+      condition: "disk_free_percent < 10"
+      severity: "critical"
+      
+  notification_channels:
+    - type: "email"
+      recipients: ["admin@example.com"]
+    - type: "slack"
+      webhook: "${SLACK_WEBHOOK}"
