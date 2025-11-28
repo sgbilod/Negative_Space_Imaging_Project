@@ -165,20 +165,30 @@ const securityConfig: SecurityConfig = {
     // Generate with: openssl rand -hex 32
     getKey: (): string => {
       const key = process.env.ENCRYPTION_KEY;
-      if (!key && process.env.NODE_ENV === 'production') {
-        throw new Error('ENCRYPTION_KEY environment variable must be set in production');
+      if (!key) {
+        if (process.env.NODE_ENV === 'production') {
+          throw new Error('ENCRYPTION_KEY environment variable must be set in production');
+        }
+        // Development-only fallback - logged as warning
+        console.warn('WARNING: Using development fallback encryption key. Set ENCRYPTION_KEY for production.');
+        return 'dev-only-key-do-not-use-in-production-5d9a3f4c8b7e6d2a1c';
       }
-      return key || '5d9a3f4c8b7e6d2a1c8b7e6d2a1c8b7e6d2a1c8b7e6d2a1c8b7e6d2a1c8b7e';
+      return key;
     },
     
     // Initialization vector must be provided via ENCRYPTION_IV environment variable
     // Generate with: openssl rand -hex 8
     getIv: (): string => {
       const iv = process.env.ENCRYPTION_IV;
-      if (!iv && process.env.NODE_ENV === 'production') {
-        throw new Error('ENCRYPTION_IV environment variable must be set in production');
+      if (!iv) {
+        if (process.env.NODE_ENV === 'production') {
+          throw new Error('ENCRYPTION_IV environment variable must be set in production');
+        }
+        // Development-only fallback - logged as warning
+        console.warn('WARNING: Using development fallback encryption IV. Set ENCRYPTION_IV for production.');
+        return 'devonly1234567890';
       }
-      return iv || '9f8e7d6c5b4a3f2e';
+      return iv;
     },
   },
 
