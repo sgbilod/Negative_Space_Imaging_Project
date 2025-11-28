@@ -158,25 +158,44 @@ const securityConfig: SecurityConfig = {
 
   /**
    * Encryption settings
-   * Note: These default values should be overridden by environment variables in production
+   * CRITICAL: These values MUST be set via environment variables in production
    */
   encryption: {
-    // Default key used only if environment variable is not set
-    // In production, always set ENCRYPTION_KEY environment variable
-    defaultKey: '5d9a3f4c8b7e6d2a1c8b7e6d2a1c8b7e6d2a1c8b7e6d2a1c8b7e6d2a1c8b7e',
+    // Encryption key must be provided via ENCRYPTION_KEY environment variable
+    // Generate with: openssl rand -hex 32
+    getKey: (): string => {
+      const key = process.env.ENCRYPTION_KEY;
+      if (!key && process.env.NODE_ENV === 'production') {
+        throw new Error('ENCRYPTION_KEY environment variable must be set in production');
+      }
+      return key || '5d9a3f4c8b7e6d2a1c8b7e6d2a1c8b7e6d2a1c8b7e6d2a1c8b7e6d2a1c8b7e';
+    },
     
-    // Default initialization vector used only if environment variable is not set
-    // In production, always set ENCRYPTION_IV environment variable
-    defaultIv: '9f8e7d6c5b4a3f2e',
+    // Initialization vector must be provided via ENCRYPTION_IV environment variable
+    // Generate with: openssl rand -hex 8
+    getIv: (): string => {
+      const iv = process.env.ENCRYPTION_IV;
+      if (!iv && process.env.NODE_ENV === 'production') {
+        throw new Error('ENCRYPTION_IV environment variable must be set in production');
+      }
+      return iv || '9f8e7d6c5b4a3f2e';
+    },
   },
 
   /**
    * JWT (JSON Web Token) settings
+   * CRITICAL: JWT_SECRET MUST be set via environment variable
    */
   jwt: {
-    // Default secret used only if environment variable is not set
-    // In production, always set JWT_SECRET environment variable
-    defaultSecret: 'bec5a1f8d3e79c2b6a4f8d3e79c2b6a4f8d3e79c2b6a4f8d3e79c2b6a4f8d3e',
+    // JWT secret must be provided via JWT_SECRET environment variable
+    // Generate with: openssl rand -hex 32
+    getSecret: (): string => {
+      const secret = process.env.JWT_SECRET;
+      if (!secret) {
+        throw new Error('JWT_SECRET environment variable must be set');
+      }
+      return secret;
+    },
     
     // Token expiration times
     expiresIn: {

@@ -115,17 +115,19 @@ export interface ReferrerPolicyConfig {
 
 /**
  * Encryption configuration
+ * Uses getter functions to ensure environment variables are properly validated
  */
 export interface EncryptionConfig {
-  defaultKey: string;
-  defaultIv: string;
+  getKey: () => string;
+  getIv: () => string;
 }
 
 /**
  * JWT configuration
+ * Uses getter function to ensure JWT_SECRET is properly validated
  */
 export interface JWTConfig {
-  defaultSecret: string;
+  getSecret: () => string;
   expiresIn: {
     access: string;
     refresh: string;

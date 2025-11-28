@@ -105,7 +105,13 @@ export function buildConfig(): AppConfig {
     },
 
     jwt: {
-      secret: process.env.JWT_SECRET || 'your-secret-key-change-in-production',
+      secret: (() => {
+        const secret = process.env.JWT_SECRET;
+        if (!secret) {
+          throw new Error('JWT_SECRET environment variable must be set');
+        }
+        return secret;
+      })(),
       expiresIn: process.env.JWT_EXPIRES_IN || '24h',
       algorithm: 'HS256',
     },
