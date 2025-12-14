@@ -1,0 +1,386 @@
+/* Negative Space Imaging Viewer - Main Styles */
+
+:root {
+  --primary-color: #00ff88;
+  --secondary-color: #0066cc;
+  --background-color: #1a1a1a;
+  --surface-color: #2a2a2a;
+  --text-color: #ffffff;
+  --text-secondary: #cccccc;
+  --error-color: #ff4444;
+  --success-color: #44ff44;
+  --warning-color: #ffaa44;
+  --border-color: #444444;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.app-header {
+  background-color: var(--surface-color);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+
+.app-header h1 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.status-indicators {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.status-indicators span {
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.api-status.connected {
+  background-color: var(--success-color);
+  color: #000;
+}
+
+.api-status.disconnected {
+  background-color: var(--error-color);
+  color: #fff;
+}
+
+.processing-status.active {
+  background-color: var(--warning-color);
+  color: #000;
+}
+
+.processing-status.idle {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+/* Main Content Layout */
+.app-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.control-panel {
+  width: 350px;
+  background-color: var(--surface-color);
+  border-right: 1px solid var(--border-color);
+  padding: 1.5rem;
+  overflow-y: auto;
+  box-shadow: var(--shadow);
+}
+
+.control-section {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.control-section:last-child {
+  border-bottom: none;
+}
+
+.control-section h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.control-section h4 {
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.control-section input[type="file"] {
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-color);
+}
+
+.control-section button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.control-section button:hover:not(:disabled) {
+  background-color: #0077dd;
+}
+
+.control-section button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.results-summary {
+  background-color: var(--background-color);
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  margin-top: 1rem;
+}
+
+.results-summary pre {
+  background-color: #333;
+  padding: 0.5rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.measurements-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.measurement-item {
+  background-color: var(--background-color);
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+
+.measurement-item h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.measurement-item h5 {
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.analysis-results {
+  margin-top: 1rem;
+}
+
+.analysis-results pre {
+  background-color: #333;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+/* Viewer Container */
+.viewer-container {
+  flex: 1;
+  position: relative;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* OHIF Viewer Styles */
+.ohif-viewer {
+  flex: 1;
+  position: relative;
+}
+
+/* Overlay Styles */
+.quantum-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  max-width: 300px;
+  z-index: 1000;
+}
+
+.overlay-header {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.overlay-content {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.overlay-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.metric-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.metric-label {
+  font-weight: 500;
+}
+
+.metric-value {
+  color: var(--primary-color);
+}
+
+/* Footer */
+.app-footer {
+  background-color: var(--surface-color);
+  padding: 1rem 2rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.app-footer p {
+  margin: 0.25rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .control-panel {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-content {
+    flex-direction: column;
+  }
+
+  .control-panel {
+    width: 100%;
+    max-height: 300px;
+  }
+
+  .app-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .status-indicators {
+    justify-content: center;
+  }
+}
+
+/* Loading States */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error States */
+.error {
+  border-color: var(--error-color);
+  background-color: rgba(255, 68, 68, 0.1);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Success States */
+.success {
+  border-color: var(--success-color);
+  background-color: rgba(68, 255, 68, 0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+/* Focus States */
+button:focus,
+input:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .control-panel,
+  .app-header,
+  .app-footer {
+    display: none;
+  }
+
+  .viewer-container {
+    position: static;
+  }
+}
