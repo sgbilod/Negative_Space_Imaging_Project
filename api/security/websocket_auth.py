@@ -6,7 +6,13 @@ from jose import JWTError, jwt
 from typing import Dict
 
 # Use the same JWT settings as in the main API
-JWT_SECRET = os.getenv("JWT_SECRET", "change-me-in-production")
+JWT_SECRET = os.getenv("JWT_SECRET")
+if not JWT_SECRET:
+    raise ValueError(
+        "CRITICAL: JWT_SECRET environment variable is not set. "
+        "This is required for secure WebSocket operations. "
+        "Set JWT_SECRET in your environment before running the application."
+    )
 JWT_ALGORITHM = "HS256"
 
 async def get_current_user_ws(

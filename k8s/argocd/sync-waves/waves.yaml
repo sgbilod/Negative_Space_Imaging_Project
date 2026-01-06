@@ -1,0 +1,305 @@
+---
+# Wave 0: Infrastructure Setup (namespaces, RBAC, secrets)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-sync-wave-0
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/sync-wave: "0"
+    wave: infrastructure
+data:
+  description: "Wave 0 - Infrastructure: Namespaces, RBAC, Secrets"
+
+---
+# Wave 1: Databases, Persistent Volumes, Secrets, ConfigMaps
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-sync-wave-1
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/sync-wave: "1"
+    wave: data-layer
+data:
+  description: "Wave 1 - Data Layer: Databases, PVs, Secrets, ConfigMaps"
+
+---
+# Wave 2: Core Services (API, ML Processor, Backend Services)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-sync-wave-2
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/sync-wave: "2"
+    wave: core-services
+data:
+  description: "Wave 2 - Core Services: APIs, processors, backend services"
+
+---
+# Wave 3: Frontend & Public Services (Web UI, Gateway)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-sync-wave-3
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/sync-wave: "3"
+    wave: frontend-services
+data:
+  description: "Wave 3 - Frontend Services: Web UI, API Gateway"
+
+---
+# Wave 4: Monitoring & Observability
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-sync-wave-4
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/sync-wave: "4"
+    wave: observability
+data:
+  description: "Wave 4 - Observability: Prometheus, Grafana, Logging"
+
+---
+# Pre-Sync Hook: Backup Existing Database
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pre-sync-backup
+  namespace: negative-space-prod
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      serviceAccountName: argocd-application-controller
+      containers:
+        - name: backup
+          image: postgres:15-alpine
+          env:
+            - name: PGHOST
+              value: postgresql.negative-space-prod.svc.cluster.local
+            - name: PGUSER
+              value: postgres
+            - name: PGPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: password
+          command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Starting database backup..."
+              pg_dump -d negative_space > /backup/pre-sync-backup-$(date +%s).sql
+              echo "Backup completed successfully"
+          volumeMounts:
+            - name: backup-volume
+              mountPath: /backup
+      volumes:
+        - name: backup-volume
+          persistentVolumeClaim:
+            claimName: prod-backup-pvc
+
+---
+# Pre-Sync Hook: Health Check - Verify Current System Health
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pre-sync-health-check
+  namespace: negative-space-prod
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: health-check
+          image: curlimages/curl:latest
+          command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Checking current system health..."
+              response=$(curl -s -o /dev/null -w "%{http_code}" http://negative-space-api:8080/health)
+              if [ "$response" != "200" ]; then
+                echo "ERROR: Current system not healthy (status: $response)"
+                exit 1
+              fi
+              echo "Health check passed"
+
+---
+# Post-Sync Hook: Verify Deployment Success
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: post-sync-verification
+  namespace: negative-space-prod
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: verify
+          image: curlimages/curl:latest
+          command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Verifying deployment..."
+              attempt=1
+              max_attempts=30
+              while [ $attempt -le $max_attempts ]; do
+                response=$(curl -s -o /dev/null -w "%{http_code}" http://negative-space-api:8080/health)
+                if [ "$response" = "200" ]; then
+                  echo "Deployment verification successful"
+                  exit 0
+                fi
+                echo "Attempt $attempt/$max_attempts: Health check returned $response, retrying..."
+                sleep 5
+                attempt=$((attempt + 1))
+              done
+              echo "ERROR: Deployment verification failed after $max_attempts attempts"
+              exit 1
+
+---
+# Post-Sync Hook: Run Smoke Tests
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: post-sync-smoke-tests
+  namespace: negative-space-prod
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: smoke-tests
+          image: curlimages/curl:latest
+          command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Running smoke tests..."
+
+              # Test API endpoint
+              echo "Testing API health..."
+              curl -f http://negative-space-api:8080/health || exit 1
+
+              # Test API version endpoint
+              echo "Testing API version..."
+              curl -f http://negative-space-api:8080/api/v1/version || exit 1
+
+              echo "Smoke tests passed"
+
+---
+# Sync Failed Hook: Automatic Rollback
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sync-failed-rollback
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/hook: SyncFail
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      serviceAccountName: argocd-application-controller
+      containers:
+        - name: rollback
+          image: bitnami/kubectl:latest
+          command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Sync failed - initiating rollback..."
+              kubectl rollout undo deployment/negative-space-api -n negative-space-prod
+              echo "Rollback initiated"
+
+---
+# Sync Wave Configuration for Deployment Order
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-sync-waves-config
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: sync-waves-config
+data:
+  waves.yaml: |
+    waves:
+      - wave: 0
+        name: Infrastructure
+        resources:
+          - kind: Namespace
+          - kind: ServiceAccount
+          - kind: ClusterRole
+          - kind: ClusterRoleBinding
+          - kind: Role
+          - kind: RoleBinding
+        parallel: false
+        timeout: 300s
+
+      - wave: 1
+        name: Data Layer
+        resources:
+          - kind: PersistentVolume
+          - kind: PersistentVolumeClaim
+          - kind: Secret
+          - kind: ConfigMap
+          - kind: StatefulSet  # Databases
+        parallel: false
+        timeout: 600s
+
+      - wave: 2
+        name: Core Services
+        resources:
+          - kind: Deployment
+            selector:
+              matchLabels:
+                tier: core
+          - kind: Service
+            selector:
+              matchLabels:
+                tier: core
+        parallel: true
+        timeout: 600s
+
+      - wave: 3
+        name: Frontend Services
+        resources:
+          - kind: Deployment
+            selector:
+              matchLabels:
+                tier: frontend
+          - kind: Ingress
+        parallel: true
+        timeout: 300s
+
+      - wave: 4
+        name: Observability
+        resources:
+          - kind: ServiceMonitor
+          - kind: PrometheusRule
+        parallel: true
+        timeout: 300s

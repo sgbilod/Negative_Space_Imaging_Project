@@ -54,22 +54,7 @@ from image_acquisition import (
 )
 from advanced_reconstructor import AdvancedReconstructor
 from data_analysis_system import DataAnalysisSystem
-
-
-def load_config(path: str | None) -> Dict[str, Any]:
-    if not path:
-        return {}
-    if not os.path.exists(path):
-        return {}
-    if YAML_AVAILABLE and path.lower().endswith((".yml", ".yaml")):
-        with open(path, "r", encoding="utf-8") as f:
-            return yaml.safe_load(f) or {}
-    # Fallback: attempt JSON
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception:
-        return {}
+from config.config_loader import load_config
 
 
 def configure_logging(log_dir: Path, verbose: bool) -> None:

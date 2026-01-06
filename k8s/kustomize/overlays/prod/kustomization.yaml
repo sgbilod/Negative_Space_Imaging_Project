@@ -1,0 +1,97 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: negative-space
+
+# Production environment label
+commonLabels:
+  environment: prod
+
+commonAnnotations:
+  environment: production
+  description: "Production environment - HA, aggressive scaling, full monitoring"
+  compliance: "SOC2, HIPAA-ready"
+
+# Base resources
+bases:
+  - ../../base
+
+# Production-specific patches
+patchesStrategicMerge:
+  - patches/replica-patch.yaml
+  - patches/resource-limits-patch.yaml
+  - patches/env-vars-patch.yaml
+  - patches/service-patch.yaml
+  - patches/affinity-patch.yaml
+
+# Image tag overrides for production (use release tags)
+images:
+  - name: negative-space-api
+    newTag: v1.0.0
+  - name: negative-space-ml-processor
+    newTag: v1.0.0
+  - name: negative-space-web-viewer
+    newTag: v1.0.0
+
+# Production replicas
+replicas:
+  - name: negative-space-api
+    count: 3
+  - name: negative-space-ml-processor
+    count: 3
+  - name: negative-space-web-viewer
+    count: 3
+
+# ConfigMap overrides for production
+configMapGenerator:
+  - name: negative-space-config
+    behavior: replace
+    literals:
+      - LOG_LEVEL=WARN
+      - ENVIRONMENT=prod
+      - API_TIMEOUT_SECONDS=30
+      - METRICS_ENABLED=true
+      - DB_POOL_SIZE=50
+      - RATE_LIMIT_ENABLED=true
+      - RATE_LIMIT_REQUESTS=10000
+      - ENABLE_TRACING=true
+      - ENABLE_PROFILING=true
+
+# Update HPA for production (aggressive scaling)
+patches:
+  - target:
+      group: autoscaling
+      version: v2
+      kind: HorizontalPodAutoscaler
+      name: negative-space-api-hpa
+    patch: |-
+      - op: replace
+        path: /spec/minReplicas
+        value: 3
+      - op: replace
+        path: /spec/maxReplicas
+        value: 10
+      - op: replace
+        path: /spec/metrics/0/resource/target/averageUtilization
+        value: 60
+  - target:
+      group: autoscaling
+      version: v2
+      kind: HorizontalPodAutoscaler
+      name: negative-space-web-viewer-hpa
+    patch: |-
+      - op: replace
+        path: /spec/minReplicas
+        value: 3
+      - op: replace
+        path: /spec/maxReplicas
+        value: 10
+      - op: replace
+        path: /spec/metrics/0/resource/target/averageUtilization
+        value: 65
+
+# Additional resources for production
+resources:
+  - ingress.yaml
+  - network-policy.yaml
+  - pod-disruption-budget.yaml

@@ -1,0 +1,167 @@
+---
+# RBAC Policy for ArgoCD
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-rbac-policies
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-rbac-policies
+data:
+  rbac-policy.csv: |
+    # === DEFAULT POLICIES ===
+    # Default role: read-only
+    p, role:readonly, applications, get, */*, allow
+    p, role:readonly, repositories, get, *, allow
+
+    # === GLOBAL ROLES ===
+    # Admin: full access everywhere
+    p, role:admin, *, *, */*, allow
+
+    # Deployer: can sync applications
+    p, role:deployer, applications, get, */*, allow
+    p, role:deployer, applications, sync, */*, allow
+    p, role:deployer, repositories, get, *, allow
+
+    # === ENVIRONMENT-SPECIFIC ROLES ===
+    # Development environment
+    p, role:dev-admin, applications, get, dev-project/*, allow
+    p, role:dev-admin, applications, sync, dev-project/*, allow
+    p, role:dev-admin, applications, create, dev-project/*, allow
+    p, role:dev-admin, applications, delete, dev-project/*, allow
+    p, role:dev-admin, applications, override, dev-project/*, allow
+
+    # Staging environment
+    p, role:staging-deployer, applications, get, staging-project/*, allow
+    p, role:staging-deployer, applications, sync, staging-project/*, allow
+    p, role:staging-deployer, applications/status, get, staging-project/*, allow
+
+    p, role:staging-reviewer, applications, get, staging-project/*, allow
+    p, role:staging-reviewer, logs, get, *, allow
+
+    # Production environment
+    p, role:prod-admin, applications, *, prod-project/*, allow
+    p, role:prod-admin, applications/logs, get, prod-project/*, allow
+
+    p, role:prod-viewer, applications, get, prod-project/*, allow
+    p, role:prod-viewer, logs, get, prod-project/*, allow
+
+    # === TEAM ASSIGNMENTS (GitHub Teams) ===
+    g, platform-engineers, role:admin
+    g, dev-team, role:dev-admin
+    g, qa-team, role:staging-reviewer
+    g, devops-team, role:deployer
+    g, sre-team, role:prod-admin
+    g, developers, role:readonly
+
+    # === SERVICE ACCOUNT ASSIGNMENTS ===
+    g, system:serviceaccount:argocd:argocd-server, role:admin
+    g, system:serviceaccount:argocd:argocd-application-controller, role:admin
+    g, system:serviceaccount:argocd:argocd-cicd-deployer, role:deployer
+    g, system:serviceaccount:argocd:argocd-webhook-handler, role:deployer
+
+---
+# SCIM Configuration for Group Synchronization (OIDC)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-scim-config
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-scim-config
+data:
+  scim-enabled: "true"
+  scim-endpoint: "https://your-oidc-provider/scim"
+  scim-auth-method: "bearer" # or "basic"
+  # Groups to sync from OIDC provider
+  scim-groups: |
+    - name: platform-engineers
+      role: role:admin
+    - name: dev-team
+      role: role:dev-admin
+    - name: qa-team
+      role: role:staging-reviewer
+    - name: devops-team
+      role: role:deployer
+    - name: developers
+      role: role:readonly
+
+---
+# Service Account for Automated CI/CD Deployments
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: argocd-cicd-sa
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-cicd-sa
+
+---
+# ClusterRole for CI/CD Service Account
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: argocd-cicd-deployer
+  labels:
+    app.kubernetes.io/name: argocd-cicd-deployer
+rules:
+  # Manage applications
+  - apiGroups:
+      - argoproj.io
+    resources:
+      - applications
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - update
+      - patch
+  # Update application status
+  - apiGroups:
+      - argoproj.io
+    resources:
+      - applications/status
+    verbs:
+      - get
+      - patch
+      - update
+  # Manage repositories
+  - apiGroups:
+      - argoproj.io
+    resources:
+      - repositories
+    verbs:
+      - get
+      - list
+      - watch
+
+---
+# ClusterRoleBinding for CI/CD Service Account
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: argocd-cicd-deployer
+  labels:
+    app.kubernetes.io/name: argocd-cicd-deployer
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: argocd-cicd-deployer
+subjects:
+  - kind: ServiceAccount
+    name: argocd-cicd-sa
+    namespace: argocd
+
+---
+# Token for CI/CD Service Account (store this in your CI system)
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argocd-cicd-token
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-cicd-token
+  annotations:
+    kubernetes.io/description: "CI/CD service account token for automated deployments"
+type: kubernetes.io/service-account-token

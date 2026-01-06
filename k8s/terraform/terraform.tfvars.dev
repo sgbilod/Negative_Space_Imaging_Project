@@ -1,0 +1,65 @@
+# Development Environment Configuration
+
+aws_region  = "us-east-1"
+environment = "dev"
+
+# Cluster Configuration
+cluster_name       = "nsi-dev-cluster"
+kubernetes_version = "1.28"
+
+# VPC Configuration
+vpc_cidr               = "10.0.0.0/16"
+enable_nat_gateway     = true
+enable_flow_logs       = true
+flow_logs_retention_days = 7
+
+# EKS Configuration
+instance_types   = ["t3.medium"]
+desired_capacity = 2
+min_capacity     = 1
+max_capacity     = 5
+capacity_type    = "ON_DEMAND"
+disk_size        = 30
+
+endpoint_public_access = true
+public_access_cidrs    = ["0.0.0.0/0"]
+
+# RDS Configuration
+db_name              = "nsi-dev-db"
+database_name        = "imaging_db"
+master_username      = "postgres"
+rds_instance_class   = "db.t3.micro"
+rds_engine_version   = "14.8"
+allocated_storage    = 20
+storage_type         = "gp3"
+iops                 = 3000
+multi_az             = false
+backup_retention_period = 7
+backup_window        = "03:00-04:00"
+maintenance_window   = "sun:04:00-sun:05:00"
+deletion_protection  = false
+skip_final_snapshot  = true
+monitoring_interval  = 0
+enable_performance_insights = false
+performance_insights_retention_period = 7
+enable_proxy         = false
+log_retention_days   = 7
+
+# ElastiCache Configuration
+cache_cluster_name      = "nsi-dev-cache"
+cache_engine_version    = "7.0"
+cache_node_type         = "cache.t3.micro"
+num_cache_nodes         = 1
+cache_port              = 6379
+cache_automatic_failover = false
+cache_multi_az          = false
+cache_transit_encryption = false
+
+# Common Tags
+common_tags = {
+  Project     = "NegativeSpaceImaging"
+  Environment = "dev"
+  ManagedBy   = "Terraform"
+  CostCenter  = "Engineering"
+  Owner       = "DevOps"
+}

@@ -17,18 +17,9 @@ from rich.console import Console
 from rich.table import Table
 from rich.progress import Progress
 from rich.panel import Panel
+from config.config_loader import load_config
 
 console = Console()
-
-def load_config():
-    """Load the performance monitoring configuration."""
-    config_path = os.path.join(os.path.dirname(__file__), "performance_monitoring_config.yaml")
-    try:
-        with open(config_path, "r") as f:
-            return yaml.safe_load(f)
-    except Exception as e:
-        console.print(f"[bold red]Error loading configuration: {str(e)}[/bold red]")
-        sys.exit(1)
 
 def get_monitoring_status():
     """Check if the monitoring system is running."""

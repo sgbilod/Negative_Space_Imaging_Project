@@ -156,10 +156,10 @@ def analyze_image(image: np.ndarray) -> Dict[str, Any]:
 # Follow PEP 8
 class ImageAnalyzer:
     """Main analyzer class."""
-    
+
     def __init__(self, config: Dict) -> None:
         self.config = config
-    
+
     def process(self, image: np.ndarray) -> Dict:
         """Process image and return results."""
         pass
@@ -171,13 +171,13 @@ negative_space_regions = detect_regions(image)
 def detect_regions(image: np.ndarray) -> List[Region]:
     """
     Detect negative space regions in image.
-    
+
     Args:
         image: Input image array
-        
+
     Returns:
         List of detected regions
-        
+
     Raises:
         ValueError: If image format invalid
     """
@@ -197,7 +197,7 @@ export const ImageViewer: React.FC<ImageViewerProps> = ({
   onAnalyze,
 }) => {
   const [loading, setLoading] = useState(false);
-  
+
   return (
     <div className="image-viewer">
       <img src={imageUrl} alt="Analysis target" />
@@ -209,7 +209,7 @@ export const ImageViewer: React.FC<ImageViewerProps> = ({
 function useImageAnalysis(imageId: string) {
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [error, setError] = useState<Error | null>(null);
-  
+
   return { result, error };
 }
 ```
@@ -231,7 +231,7 @@ describe('ImageAnalyzer', () => {
     const result = await analyzer.analyze(testImage);
     expect(result.regions).toHaveLength(3);
   });
-  
+
   it('should handle invalid images', async () => {
     const analyzer = new ImageAnalyzer();
     await expect(analyzer.analyze(invalidImage)).rejects.toThrow();
@@ -301,6 +301,181 @@ npm outdated
 npm update
 ```
 
+## CI/CD Pipeline
+
+### Automated Checks
+
+Every pull request and push to `main`/`develop` triggers automated checks via GitHub Actions:
+
+#### Pipeline Stages
+
+The unified CI/CD pipeline (`.github/workflows/build-deploy.yml`) executes:
+
+1. **LINT** - Code quality, formatting, type checking
+   - Python: black, flake8, isort, mypy
+   - TypeScript: ESLint, Prettier, TypeScript compiler
+   - YAML: yamllint
+
+2. **TEST** - Unit & integration tests with coverage
+   - Python: pytest with coverage reporting
+   - Node.js: npm test
+   - Coverage reports uploaded to Codecov
+   - E2E smoke tests
+
+3. **BUILD** - Docker image construction
+   - Builds all Dockerfiles (API, Python, Frontend, Monitoring)
+   - Generates SBOM (Software Bill of Materials)
+   - Layer caching for performance
+
+4. **SCAN** - Security vulnerability scanning
+   - Trivy container image scanning
+   - Dependency vulnerability checks
+   - Secret detection
+   - Reports to GitHub Security tab
+   - Fails on CRITICAL/HIGH vulnerabilities
+
+5. **PUSH** - Push to container registry
+   - Only on successful scans
+   - Only on `main`/`develop` branches
+   - Tags: branch, commit SHA, semver
+   - Pushes to ghcr.io
+
+6. **DEPLOY** - Deployment to environments
+   - Staging: Deployed from `develop`
+   - Production: Deployed from `main`
+   - Smoke tests run post-deployment
+   - Monitored for issues
+
+#### Workflow Status
+
+Check the **Actions** tab for:
+- Real-time build status
+- Step-by-step execution logs
+- Artifact downloads (test reports, SBOM)
+- Failure details and logs
+
+### Local Testing
+
+Before pushing, run checks locally to catch issues early:
+
+```bash
+# Install development dependencies
+pip install -r requirements.txt
+npm install
+
+# Run all linting
+npm run lint
+black --check sovereign quantum tests
+flake8 sovereign quantum tests
+mypy sovereign quantum
+
+# Run tests with coverage
+pytest --cov=sovereign --cov=quantum --cov-report=term-missing
+
+# Build Docker images locally
+docker build -f Dockerfile.api -t nsi-api:test .
+docker build -f Dockerfile.python -t nsi-python:test .
+docker build -f Dockerfile.frontend -t nsi-frontend:test .
+
+# Scan images locally with Trivy
+trivy image --severity CRITICAL,HIGH nsi-api:test
+trivy image --severity CRITICAL,HIGH nsi-python:test
+trivy image --severity CRITICAL,HIGH nsi-frontend:test
+
+# Format code automatically
+black sovereign quantum tests
+isort --profile black sovereign quantum tests
+npm run format
+```
+
+### Handling CI Failures
+
+**Linting Failures:**
+```bash
+# Fix formatting
+black sovereign quantum tests
+isort --profile black sovereign quantum tests
+npm run format
+
+# Fix type errors
+mypy sovereign quantum --fix-imports
+```
+
+**Test Failures:**
+```bash
+# Run tests locally to debug
+pytest -xvs path/to/test_file.py::test_name
+
+# View coverage reports
+coverage html
+open htmlcov/index.html
+```
+
+**Security Scan Failures:**
+```bash
+# Scan locally
+trivy image nsi-api:test
+
+# Update vulnerable dependencies
+pip install --upgrade vulnerable-package
+npm audit fix
+
+# If false positive, add to .trivyignore
+echo "CVE-2021-12345" >> .trivyignore
+```
+
+### Container Scanning Details
+
+Container images are scanned for:
+- **OS package vulnerabilities** - from base images
+- **Python dependencies** - from requirements.txt
+- **Node.js dependencies** - from package.json
+- **Secrets** - AWS keys, API tokens, etc.
+
+Scanning happens automatically in CI, but you can test locally:
+
+```bash
+# Install Trivy
+brew install trivy  # macOS
+sudo apt-get install trivy  # Ubuntu
+
+# Scan local image
+trivy image nsi-api:test
+
+# Scan with config file
+trivy image --config .github/trivy-config.yaml nsi-api:test
+
+# Scan filesystem
+trivy fs --severity CRITICAL,HIGH .
+
+# Generate SARIF report
+trivy image --format sarif nsi-api:test > report.sarif
+```
+
+### Branch Protection Rules
+
+**Required checks for `main` branch:**
+- Lint (must pass)
+- Test (must pass)
+- Build (must pass)
+- Scan (must pass)
+- At least 1 approval review
+
+**Recommended:**
+- Dismiss stale reviews when new commits pushed
+- Require up-to-date branch before merging
+- Include administrators in requirements
+
+---
+
+**Old Workflows**
+
+Legacy workflows have been archived:
+- `ci.yml.backup` - Previous CI configuration
+- `ci-cd.yml.backup` - Previous CI/CD configuration
+
+These are kept for reference but should not be used.
+
 ## Issue Management
 
 ### Reporting Bugs
@@ -333,4 +508,4 @@ Include:
 
 Your efforts help make this project better for everyone.
 
-Last Updated: November 2025
+Last Updated: December 2025

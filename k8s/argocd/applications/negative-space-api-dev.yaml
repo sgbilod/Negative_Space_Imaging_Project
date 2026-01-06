@@ -1,0 +1,125 @@
+---
+# ArgoCD Application for Development Environment
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: negative-space-api-dev
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: negative-space-api-dev
+    environment: development
+    tier: frontend
+spec:
+  project: dev-project
+
+  source:
+    repoURL: https://github.com/yourusername/Negative_Space_Imaging_Project
+    targetRevision: develop
+    path: k8s/kustomize/overlays/dev
+    plugin:
+      name: kustomize
+    helm:
+      releaseName: negative-space-api-dev
+    kustomize:
+      version: v4.5.4
+      namespace: negative-space-dev
+      # Kustomization parameters can be overridden here
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: negative-space-dev
+
+  syncPolicy:
+    # Automatic sync enabled for dev
+    automated:
+      prune: true # Delete resources no longer in Git
+      selfHeal: true # Auto-sync when cluster state drifts
+      allow:
+        empty: false
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - RespectIgnoreDifferences=true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+
+  # Health assessment configuration
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+    - group: ""
+      kind: Service
+      jsonPointers:
+        - /spec/clusterIP
+        - /spec/clusterIPs
+
+  # Notification settings
+  info:
+    - name: Documentation
+      value: https://github.com/yourusername/Negative_Space_Imaging_Project/wiki
+    - name: Slack Channel
+      value: "#negative-space-dev"
+    - name: Team
+      value: "Platform Engineers"
+
+---
+# ServiceMonitor for ArgoCD Application (Prometheus metrics)
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: negative-space-api-dev
+  namespace: negative-space-dev
+  labels:
+    app.kubernetes.io/name: negative-space-api-dev
+    environment: development
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: negative-space-api
+  endpoints:
+    - port: metrics
+      interval: 30s
+      path: /metrics
+
+---
+# PrometheusRule for ArgoCD Application (alerting)
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: negative-space-api-dev-alerts
+  namespace: negative-space-dev
+  labels:
+    app.kubernetes.io/name: negative-space-api-dev
+    prometheus: kube-prometheus
+spec:
+  groups:
+    - name: negative-space-api-dev
+      interval: 30s
+      rules:
+        - alert: NegativeSpaceAPIDevDown
+          expr: |
+            up{job="negative-space-api-dev"} == 0
+          for: 5m
+          labels:
+            severity: critical
+            environment: development
+          annotations:
+            summary: "Negative Space API (Dev) is down"
+            description: "Negative Space API development instance has been unreachable for 5 minutes"
+
+        - alert: NegativeSpaceAPIDevHighErrorRate
+          expr: |
+            rate(http_requests_total{job="negative-space-api-dev",status=~"5.."}[5m]) > 0.05
+          for: 10m
+          labels:
+            severity: warning
+            environment: development
+          annotations:
+            summary: "Negative Space API (Dev) high error rate"
+            description: "Error rate is above 5% for 10 minutes"

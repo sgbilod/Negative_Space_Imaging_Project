@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: negative-space-api
+spec:
+  type: LoadBalancer
+  annotations:
+    service.spec.externalTrafficPolicy: Local
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: negative-space-web-viewer
+spec:
+  type: LoadBalancer
+  annotations:
+    service.spec.externalTrafficPolicy: Local

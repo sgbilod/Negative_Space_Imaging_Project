@@ -1,0 +1,125 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: negative-space-api-netpol
+  namespace: negative-space
+  labels:
+    app.kubernetes.io/name: negative-space
+    app.kubernetes.io/component: api
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: negative-space
+      app.kubernetes.io/component: api
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: negative-space
+              app.kubernetes.io/component: web-viewer
+        - namespaceSelector:
+            matchLabels:
+              name: ingress-nginx
+      ports:
+        - protocol: TCP
+          port: 8000
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: negative-space
+              app.kubernetes.io/component: ml-processor
+      ports:
+        - protocol: TCP
+          port: 8080
+    - to:
+        - namespaceSelector: {}
+      ports:
+        - protocol: TCP
+          port: 5432
+          # PostgreSQL
+        - protocol: TCP
+          port: 6379
+          # Redis
+        - protocol: TCP
+          port: 443
+          # HTTPS
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: negative-space-ml-processor-netpol
+  namespace: negative-space
+  labels:
+    app.kubernetes.io/name: negative-space
+    app.kubernetes.io/component: ml-processor
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: negative-space
+      app.kubernetes.io/component: ml-processor
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: negative-space
+              app.kubernetes.io/component: api
+      ports:
+        - protocol: TCP
+          port: 8080
+  egress:
+    - to:
+        - namespaceSelector: {}
+      ports:
+        - protocol: TCP
+          port: 5432
+          # PostgreSQL
+        - protocol: TCP
+          port: 443
+          # HTTPS for model downloads
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: negative-space-web-viewer-netpol
+  namespace: negative-space
+  labels:
+    app.kubernetes.io/name: negative-space
+    app.kubernetes.io/component: web-viewer
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: negative-space
+      app.kubernetes.io/component: web-viewer
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: ingress-nginx
+      ports:
+        - protocol: TCP
+          port: 3000
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: negative-space
+              app.kubernetes.io/component: api
+      ports:
+        - protocol: TCP
+          port: 8000
+    - to:
+        - namespaceSelector: {}
+      ports:
+        - protocol: TCP
+          port: 443
+          # HTTPS

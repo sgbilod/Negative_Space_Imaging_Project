@@ -1,0 +1,67 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: negative-space
+
+# Development environment label
+commonLabels:
+  environment: dev
+
+commonAnnotations:
+  environment: development
+  description: "Development environment - minimal resources, verbose logging"
+
+# Base resources
+bases:
+  - ../../base
+
+# Development-specific patches
+patchesStrategicMerge:
+  - patches/replica-patch.yaml
+  - patches/resource-limits-patch.yaml
+  - patches/env-vars-patch.yaml
+
+# Image tag overrides for development
+images:
+  - name: negative-space-api
+    newTag: dev-latest
+  - name: negative-space-ml-processor
+    newTag: dev-latest
+  - name: negative-space-web-viewer
+    newTag: dev-latest
+
+# Development replicas
+replicas:
+  - name: negative-space-api
+    count: 1
+  - name: negative-space-ml-processor
+    count: 1
+  - name: negative-space-web-viewer
+    count: 1
+
+# ConfigMap overrides for development
+configMapGenerator:
+  - name: negative-space-config
+    behavior: replace
+    literals:
+      - LOG_LEVEL=DEBUG
+      - ENVIRONMENT=dev
+      - API_TIMEOUT_SECONDS=60
+      - METRICS_ENABLED=false
+      - DB_POOL_SIZE=5
+      - RATE_LIMIT_ENABLED=false
+      - DEBUG_MODE=true
+
+# Disable HPA in development
+patches:
+  - target:
+      group: autoscaling
+      version: v2
+      kind: HorizontalPodAutoscaler
+    patch: |-
+      - op: replace
+        path: /spec/minReplicas
+        value: 1
+      - op: replace
+        path: /spec/maxReplicas
+        value: 1

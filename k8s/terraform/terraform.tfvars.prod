@@ -1,0 +1,65 @@
+# Staging Environment Configuration
+
+aws_region  = "us-east-1"
+environment = "staging"
+
+# Cluster Configuration
+cluster_name       = "nsi-staging-cluster"
+kubernetes_version = "1.28"
+
+# VPC Configuration
+vpc_cidr               = "10.1.0.0/16"
+enable_nat_gateway     = true
+enable_flow_logs       = true
+flow_logs_retention_days = 15
+
+# EKS Configuration
+instance_types   = ["t3.large"]
+desired_capacity = 3
+min_capacity     = 2
+max_capacity     = 8
+capacity_type    = "ON_DEMAND"
+disk_size        = 50
+
+endpoint_public_access = true
+public_access_cidrs    = ["0.0.0.0/0"]
+
+# RDS Configuration
+db_name              = "nsi-staging-db"
+database_name        = "imaging_db"
+master_username      = "postgres"
+rds_instance_class   = "db.t3.small"
+rds_engine_version   = "14.8"
+allocated_storage    = 50
+storage_type         = "gp3"
+iops                 = 3000
+multi_az             = true
+backup_retention_period = 15
+backup_window        = "02:00-03:00"
+maintenance_window   = "sun:03:00-sun:04:00"
+deletion_protection  = true
+skip_final_snapshot  = false
+monitoring_interval  = 60
+enable_performance_insights = true
+performance_insights_retention_period = 7
+enable_proxy         = true
+log_retention_days   = 15
+
+# ElastiCache Configuration
+cache_cluster_name      = "nsi-staging-cache"
+cache_engine_version    = "7.0"
+cache_node_type         = "cache.t3.small"
+num_cache_nodes         = 3
+cache_port              = 6379
+cache_automatic_failover = true
+cache_multi_az          = true
+cache_transit_encryption = true
+
+# Common Tags
+common_tags = {
+  Project     = "NegativeSpaceImaging"
+  Environment = "staging"
+  ManagedBy   = "Terraform"
+  CostCenter  = "Engineering"
+  Owner       = "DevOps"
+}

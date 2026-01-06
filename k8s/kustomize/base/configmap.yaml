@@ -1,0 +1,80 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: negative-space-config
+  namespace: negative-space
+  labels:
+    app.kubernetes.io/name: negative-space
+    app.kubernetes.io/component: configuration
+data:
+  # Logging Configuration
+  LOG_FORMAT: "json"
+  LOG_LEVEL: "INFO"
+
+  # Monitoring Configuration
+  METRICS_ENABLED: "true"
+  METRICS_PORT: "9090"
+
+  # API Configuration
+  API_PORT: "8000"
+  API_TIMEOUT_SECONDS: "30"
+
+  # ML Processor Configuration
+  ML_PROCESSOR_PORT: "8080"
+  ML_PROCESSOR_WORKERS: "2"
+
+  # Web Viewer Configuration
+  WEB_VIEWER_PORT: "3000"
+  WEB_VIEWER_CACHE_TTL: "3600"
+
+  # Database Configuration
+  DB_POOL_SIZE: "10"
+  DB_TIMEOUT_SECONDS: "10"
+
+  # Security Configuration
+  CORS_ENABLED: "true"
+  CSRF_PROTECTION: "true"
+  RATE_LIMIT_ENABLED: "true"
+  RATE_LIMIT_REQUESTS: "1000"
+  RATE_LIMIT_WINDOW_SECONDS: "60"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: negative-space-app-config
+  namespace: negative-space
+  labels:
+    app.kubernetes.io/name: negative-space
+    app.kubernetes.io/component: app-config
+data:
+  config.yaml: |
+    app:
+      name: negative-space
+      version: 1.0.0
+      environment: base
+
+    logging:
+      level: INFO
+      format: json
+      handlers:
+        - type: console
+        - type: file
+          path: /var/log/negative-space/app.log
+
+    services:
+      api:
+        port: 8000
+        workers: 4
+        timeout: 30
+      ml_processor:
+        port: 8080
+        workers: 2
+        timeout: 60
+      web_viewer:
+        port: 3000
+        cache_ttl: 3600
+
+    monitoring:
+      enabled: true
+      port: 9090
+      scrape_interval: 30s

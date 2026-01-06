@@ -1,0 +1,50 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: negative-space
+
+# Metadata
+commonLabels:
+  app.kubernetes.io/name: negative-space
+  app.kubernetes.io/part-of: negative-space-imaging
+  app.kubernetes.io/managed-by: kustomize
+
+commonAnnotations:
+  kustomize.config.k8s.io/version: "1.0"
+
+# Resources
+resources:
+  - namespace.yaml
+  - rbac.yaml
+  - configmap.yaml
+  - secrets.yaml
+  - deployment.yaml
+  - service.yaml
+  - hpa.yaml
+
+# Image management
+images:
+  - name: negative-space-api
+    newTag: latest
+  - name: negative-space-ml-processor
+    newTag: latest
+  - name: negative-space-web-viewer
+    newTag: latest
+
+# Replica override (use patches in overlays)
+replicas:
+  - name: negative-space-api
+    count: 2
+  - name: negative-space-ml-processor
+    count: 1
+  - name: negative-space-web-viewer
+    count: 2
+
+# Variable substitution
+vars:
+  - name: NAMESPACE
+    objref:
+      kind: Namespace
+      name: negative-space
+    fieldref:
+      fieldpath: metadata.name

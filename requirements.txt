@@ -82,7 +82,8 @@ mkdocs>=1.4.0
 # ray>=2.6.1         # For distributed computing
 # pytorch-lightning>=2.0.6  # For structured training
 
-# Version Constraints
-setuptools>=68.0.0
-wheel>=0.40.0
-pip>=23.2.1
+# Quantum Computing
+cirq>=1.0.0
+
+# DICOM Processing
+pydicom>=2.4.0

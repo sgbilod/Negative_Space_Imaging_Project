@@ -25,7 +25,13 @@ class Config:
     API_DESCRIPTION = "Advanced imaging system with quantum-enhanced security"
 
     # Security
-    JWT_SECRET = os.getenv("JWT_SECRET", "your-secret-key")  # Change in production
+    JWT_SECRET = os.getenv("JWT_SECRET")
+    if not JWT_SECRET:
+        raise ValueError(
+            "CRITICAL: JWT_SECRET environment variable is not set. "
+            "Production deployments require a strong JWT secret. "
+            "Set JWT_SECRET in your environment before running the application."
+        )
     JWT_ALGORITHM = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES = 30
 

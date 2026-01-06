@@ -1,18 +1,18 @@
 {
-  "workflow_id": "63db52f19133d01e",
-  "start_time": 1755814214.073923,
-  "end_time": 1755814214.079201,
+  "workflow_id": "745aefc387c1f7a4",
+  "start_time": 1764545615.8417456,
+  "end_time": 1764545615.8644862,
   "signature_mode": "threshold",
   "events": [
     {
-      "timestamp": 1755814214.074886,
+      "timestamp": 1764545615.8475819,
       "event_type": "image_acquired",
-      "workflow_id": "63db52f19133d01e",
+      "workflow_id": "745aefc387c1f7a4",
       "details": {
         "image_size": 524288,
         "image_hash": "06c1f131e9731df7",
         "metadata": {
-          "timestamp": 1755814214.0119967,
+          "timestamp": 1764545615.649724,
           "image_id": "test_image_001",
           "width": 256,
           "height": 256,
@@ -22,53 +22,53 @@
       }
     },
     {
-      "timestamp": 1755814214.0753148,
+      "timestamp": 1764545615.8543966,
       "event_type": "image_processing",
-      "workflow_id": "63db52f19133d01e",
+      "workflow_id": "745aefc387c1f7a4",
       "details": {
-        "processing_id": "7d725f60501dadfd",
+        "processing_id": "1fa64161ecbaeb40",
         "image_hash": "06c1f131e9731df7c9cc9db480a88280fa64042164d34857594cee57ebc8012b",
         "algorithm_version": "2.3.0"
       }
     },
     {
-      "timestamp": 1755814214.0758374,
+      "timestamp": 1764545615.8568506,
       "event_type": "signature_request_created",
-      "workflow_id": "63db52f19133d01e",
+      "workflow_id": "745aefc387c1f7a4",
       "details": {
-        "request_id": "3cd6ca460a15024e",
+        "request_id": "56eeea9580e3b9a9",
         "mode": "threshold",
         "num_signers": 3,
         "threshold": 2
       }
     },
     {
-      "timestamp": 1755814214.077195,
+      "timestamp": 1764545615.8609507,
       "event_type": "signature_added",
-      "workflow_id": "63db52f19133d01e",
+      "workflow_id": "745aefc387c1f7a4",
       "details": {
-        "request_id": "3cd6ca460a15024e",
+        "request_id": "56eeea9580e3b9a9",
         "signer_id": "signer_1",
         "success": true
       }
     },
     {
-      "timestamp": 1755814214.078351,
+      "timestamp": 1764545615.8633006,
       "event_type": "signature_added",
-      "workflow_id": "63db52f19133d01e",
+      "workflow_id": "745aefc387c1f7a4",
       "details": {
-        "request_id": "3cd6ca460a15024e",
+        "request_id": "56eeea9580e3b9a9",
         "signer_id": "signer_2",
         "success": true
       }
     },
     {
-      "timestamp": 1755814214.0784943,
+      "timestamp": 1764545615.8634963,
       "event_type": "verification_completed",
-      "workflow_id": "63db52f19133d01e",
+      "workflow_id": "745aefc387c1f7a4",
       "details": {
         "success": true,
-        "processing_id": "7d725f60501dadfd"
+        "processing_id": "1fa64161ecbaeb40"
       }
     }
   ]

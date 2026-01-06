@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: negative-space
+  labels:
+    name: negative-space
+    environment: base
+    managed-by: kustomize

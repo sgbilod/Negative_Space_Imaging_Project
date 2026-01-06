@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: negative-space-api
+spec:
+  template:
+    spec:
+      containers:
+        - name: api
+          env:
+            - name: LOG_LEVEL
+              value: "DEBUG"
+            - name: ENVIRONMENT
+              value: "dev"
+            - name: DEBUG_MODE
+              value: "true"
+            - name: METRICS_ENABLED
+              value: "false"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: negative-space-ml-processor
+spec:
+  template:
+    spec:
+      containers:
+        - name: ml-processor
+          env:
+            - name: LOG_LEVEL
+              value: "DEBUG"
+            - name: ENVIRONMENT
+              value: "dev"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: negative-space-web-viewer
+spec:
+  template:
+    spec:
+      containers:
+        - name: web-viewer
+          env:
+            - name: LOG_LEVEL
+              value: "DEBUG"
+            - name: ENVIRONMENT
+              value: "dev"

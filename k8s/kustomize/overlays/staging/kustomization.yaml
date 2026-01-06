@@ -1,0 +1,91 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: negative-space
+
+# Staging environment label
+commonLabels:
+  environment: staging
+
+commonAnnotations:
+  environment: staging
+  description: "Staging environment - HA testing with LoadBalancer and metrics"
+
+# Base resources
+bases:
+  - ../../base
+
+# Staging-specific patches
+patchesStrategicMerge:
+  - patches/replica-patch.yaml
+  - patches/resource-limits-patch.yaml
+  - patches/env-vars-patch.yaml
+  - patches/service-patch.yaml
+
+# Image tag overrides for staging
+images:
+  - name: negative-space-api
+    newTag: v1.0.0-rc1
+  - name: negative-space-ml-processor
+    newTag: v1.0.0-rc1
+  - name: negative-space-web-viewer
+    newTag: v1.0.0-rc1
+
+# Staging replicas
+replicas:
+  - name: negative-space-api
+    count: 2
+  - name: negative-space-ml-processor
+    count: 2
+  - name: negative-space-web-viewer
+    count: 2
+
+# ConfigMap overrides for staging
+configMapGenerator:
+  - name: negative-space-config
+    behavior: replace
+    literals:
+      - LOG_LEVEL=INFO
+      - ENVIRONMENT=staging
+      - API_TIMEOUT_SECONDS=45
+      - METRICS_ENABLED=true
+      - DB_POOL_SIZE=15
+      - RATE_LIMIT_ENABLED=true
+      - RATE_LIMIT_REQUESTS=5000
+
+# Update HPA for staging
+patches:
+  - target:
+      group: autoscaling
+      version: v2
+      kind: HorizontalPodAutoscaler
+      name: negative-space-api-hpa
+    patch: |-
+      - op: replace
+        path: /spec/minReplicas
+        value: 2
+      - op: replace
+        path: /spec/maxReplicas
+        value: 5
+      - op: replace
+        path: /spec/metrics/0/resource/target/averageUtilization
+        value: 70
+  - target:
+      group: autoscaling
+      version: v2
+      kind: HorizontalPodAutoscaler
+      name: negative-space-web-viewer-hpa
+    patch: |-
+      - op: replace
+        path: /spec/minReplicas
+        value: 2
+      - op: replace
+        path: /spec/maxReplicas
+        value: 5
+      - op: replace
+        path: /spec/metrics/0/resource/target/averageUtilization
+        value: 75
+
+# Additional resources for staging
+resources:
+  - ingress.yaml

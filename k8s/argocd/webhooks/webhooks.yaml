@@ -1,0 +1,272 @@
+---
+# Webhook Service for GitHub Events
+apiVersion: v1
+kind: Service
+metadata:
+  name: argocd-webhook
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-webhook
+    app.kubernetes.io/instance: argocd
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: argocd-server
+
+---
+# Ingress for Webhook Endpoint
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-webhook-ingress
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-webhook-ingress
+    app.kubernetes.io/instance: argocd
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    # Skip authentication for webhook
+    nginx.ingress.kubernetes.io/auth-type: "none"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - webhook.example.com
+      secretName: webhook-tls
+  rules:
+    - host: webhook.example.com
+      http:
+        paths:
+          - path: /api/webhook
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-webhook
+                port:
+                  number: 8080
+          - path: /github/push
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-webhook
+                port:
+                  number: 8080
+          - path: /github/pull_request
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-webhook
+                port:
+                  number: 8080
+
+---
+# TLS Certificate for Webhook
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: webhook-cert
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: webhook-cert
+    app.kubernetes.io/instance: argocd
+spec:
+  secretName: webhook-tls
+  duration: 2160h
+  renewBefore: 720h
+  commonName: webhook.example.com
+  dnsNames:
+    - webhook.example.com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+
+---
+# Network Policy for Webhook
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: argocd-webhook-network-policy
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-webhook-network-policy
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: argocd-server
+  policyTypes:
+    - Ingress
+  ingress:
+    # Allow from NGINX Ingress Controller
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: ingress-nginx
+          podSelector:
+            matchLabels:
+              app.kubernetes.io/name: ingress-nginx
+      ports:
+        - protocol: TCP
+          port: 8080
+    # Allow from external (webhook will come from GitHub)
+    - from:
+        - podSelector: {} # Allow from any pod in cluster
+      ports:
+        - protocol: TCP
+          port: 8080
+
+---
+# ConfigMap for Webhook Configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-webhook-config
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-webhook-config
+data:
+  github-webhook-secret: "your-webhook-secret-here" # Should be stored in a Secret instead
+  github-webhook-events: |
+    - push
+    - pull_request
+  github-webhook-branches: |
+    - main
+    - develop
+    - staging
+  webhook-routes: |
+    routes:
+      - path: /api/webhook
+        method: POST
+        handlers:
+          - type: github-push
+            branches:
+              - main
+            actions:
+              - app: negative-space-api-prod
+                sync: false  # Manual sync for prod
+                notify: true
+          - type: github-push
+            branches:
+              - staging
+            actions:
+              - app: negative-space-api-staging
+                sync: true   # Auto-sync for staging
+                notify: true
+          - type: github-push
+            branches:
+              - develop
+            actions:
+              - app: negative-space-api-dev
+                sync: true   # Auto-sync for dev
+                notify: true
+      - path: /github/pull_request
+        method: POST
+        handlers:
+          - type: github-pull-request
+            actions:
+              - app: negative-space-api-*
+                sync: false
+                notify: true
+
+---
+# Secret for Webhook Authentication (GitHub Webhook Secret)
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argocd-webhook-secret
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-webhook-secret
+type: Opaque
+data:
+  # Base64 encoded GitHub webhook secret
+  github-webhook-secret: "eW91ci13ZWJob29rLXNlY3JldC1oZXJl" # "your-webhook-secret-here" in base64
+
+---
+# ServiceAccount for Webhook Handler
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: argocd-webhook-handler
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-webhook-handler
+
+---
+# Role for Webhook Handler to trigger syncs
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: argocd-webhook-handler
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-webhook-handler
+rules:
+  - apiGroups:
+      - argoproj.io
+    resources:
+      - applications
+    verbs:
+      - get
+      - list
+      - patch
+      - update
+  - apiGroups:
+      - argoproj.io
+    resources:
+      - applications/status
+    verbs:
+      - patch
+      - update
+
+---
+# RoleBinding for Webhook Handler
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: argocd-webhook-handler
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-webhook-handler
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: argocd-webhook-handler
+subjects:
+  - kind: ServiceAccount
+    name: argocd-webhook-handler
+    namespace: argocd
+
+---
+# Webhook Notification Template
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: webhook-notification-templates
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: webhook-notification-templates
+data:
+  github-commit-status.json: |
+    {
+      "state": "{{ if eq .app.status.operationState.phase \"Succeeded\" }}success{{ else }}failure{{ end }}",
+      "description": "ArgoCD sync {{ .app.status.operationState.phase }}",
+      "target_url": "https://argocd.example.com/applications/{{ .app.metadata.name }}",
+      "context": "continuous-deployment/argocd"
+    }
+
+  deployment-webhook.json: |
+    {
+      "event": "deployment",
+      "repository": "{{ .app.spec.source.repoURL }}",
+      "application": "{{ .app.metadata.name }}",
+      "namespace": "{{ .app.spec.destination.namespace }}",
+      "revision": "{{ .app.spec.source.targetRevision }}",
+      "status": "{{ .app.status.operationState.phase }}",
+      "timestamp": "{{ now | date \"2006-01-02T15:04:05Z07:00\" }}"
+    }

@@ -61,7 +61,13 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 # JWT configuration
 import os
-JWT_SECRET = os.getenv("JWT_SECRET", "change-me-in-production")
+JWT_SECRET = os.getenv("JWT_SECRET")
+if not JWT_SECRET:
+    raise ValueError(
+        "CRITICAL: JWT_SECRET environment variable is not set. "
+        "This is required for secure token operations. "
+        "Set JWT_SECRET in your environment before running the application."
+    )
 JWT_ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 

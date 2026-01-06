@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: negative-space-api
+spec:
+  template:
+    spec:
+      containers:
+        - name: api
+          env:
+            - name: LOG_LEVEL
+              value: "WARN"
+            - name: ENVIRONMENT
+              value: "prod"
+            - name: METRICS_ENABLED
+              value: "true"
+            - name: ENABLE_TRACING
+              value: "true"
+            - name: TRACING_SAMPLE_RATE
+              value: "0.1"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: negative-space-ml-processor
+spec:
+  template:
+    spec:
+      containers:
+        - name: ml-processor
+          env:
+            - name: LOG_LEVEL
+              value: "WARN"
+            - name: ENVIRONMENT
+              value: "prod"
+            - name: METRICS_ENABLED
+              value: "true"
+            - name: ENABLE_PROFILING
+              value: "true"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: negative-space-web-viewer
+spec:
+  template:
+    spec:
+      containers:
+        - name: web-viewer
+          env:
+            - name: LOG_LEVEL
+              value: "WARN"
+            - name: ENVIRONMENT
+              value: "prod"
+            - name: CACHE_ENABLED
+              value: "true"
+            - name: CACHE_TTL_SECONDS
+              value: "3600"

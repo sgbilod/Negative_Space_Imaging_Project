@@ -1,0 +1,238 @@
+---
+# ArgoCD RBAC Configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-rbac-policy
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-rbac-policy
+    app.kubernetes.io/instance: argocd
+data:
+  policy.csv: |
+    # === DEFAULT ROLES ===
+    # Global admin - full access to all resources
+    p, role:admin, *, *, */*, allow
+
+    # Read-only access to all applications and repositories
+    p, role:readonly, applications, get, */*, allow
+    p, role:readonly, repositories, get, *, allow
+    p, role:readonly, logs, get, *, allow
+    p, role:readonly, accounts, get, *, allow
+
+    # Deployer role - can sync applications but cannot modify
+    p, role:deployer, applications, get, */*, allow
+    p, role:deployer, applications, sync, */*, allow
+    p, role:deployer, repositories, get, *, allow
+
+    # Reviewer role - can see applications and create PRs but cannot sync
+    p, role:reviewer, applications, get, */*, allow
+    p, role:reviewer, repositories, get, *, allow
+
+    # === PROJECT-SPECIFIC ROLES ===
+    # Dev project - developers can sync freely
+    p, role:dev-admin, applications, *, dev-project/*, allow
+    p, role:dev-deployer, applications, sync, dev-project/*, allow
+    p, role:dev-deployer, applications, get, dev-project/*, allow
+
+    # Staging project - requires review before sync
+    p, role:staging-reviewer, applications, get, staging-project/*, allow
+    p, role:staging-deployer, applications, sync, staging-project/*, allow
+    p, role:staging-deployer, applications, get, staging-project/*, allow
+
+    # Production project - manual sync only, admin approval required
+    p, role:prod-reviewer, applications, get, prod-project/*, allow
+    p, role:prod-admin, applications, sync, prod-project/*, allow
+    p, role:prod-admin, applications, *, prod-project/*, allow
+
+    # === TEAM ASSIGNMENTS ===
+    # Map GitHub teams to ArgoCD roles
+    # Format: g, <github-team>, <argocd-role>
+    g, org:admin-team, role:admin
+    g, org:platform-engineers, role:admin
+    g, org:dev-team, role:dev-admin
+    g, org:qa-team, role:staging-reviewer
+    g, org:devops-team, role:deployer
+    g, org:security-team, role:reviewer
+
+    # === INDIVIDUAL USER ASSIGNMENTS ===
+    g, alice@example.com, role:admin
+    g, bob@example.com, role:deployer
+    g, charlie@example.com, role:readonly
+
+    # === SERVICE ACCOUNT ASSIGNMENTS ===
+    g, system:serviceaccount:argocd:argocd-server, role:admin
+    g, system:serviceaccount:argocd:argocd-application-controller, role:admin
+    g, system:serviceaccount:cicd:deployer, role:deployer
+
+---
+# Service Account for CI/CD Pipeline (GitHub Actions)
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: argocd-cicd-deployer
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-cicd-deployer
+    app.kubernetes.io/instance: argocd
+
+---
+# ClusterRole for CI/CD Service Account
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: argocd-cicd-deployer
+  labels:
+    app.kubernetes.io/name: argocd-cicd-deployer
+    app.kubernetes.io/instance: argocd
+rules:
+  # Manage ArgoCD applications
+  - apiGroups:
+      - argoproj.io
+    resources:
+      - applications
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - update
+      - patch
+  # Read application status
+  - apiGroups:
+      - argoproj.io
+    resources:
+      - applications/status
+    verbs:
+      - get
+      - patch
+      - update
+
+---
+# ClusterRoleBinding for CI/CD Service Account
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: argocd-cicd-deployer
+  labels:
+    app.kubernetes.io/name: argocd-cicd-deployer
+    app.kubernetes.io/instance: argocd
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: argocd-cicd-deployer
+subjects:
+  - kind: ServiceAccount
+    name: argocd-cicd-deployer
+    namespace: argocd
+
+---
+# Role for dev namespace access
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: argocd-dev-deployer
+  namespace: negative-space-dev
+  labels:
+    app.kubernetes.io/name: argocd-dev-deployer
+    app.kubernetes.io/instance: argocd
+rules:
+  - apiGroups:
+      - "*"
+    resources:
+      - "*"
+    verbs:
+      - "*"
+
+---
+# RoleBinding for dev namespace
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: argocd-dev-deployer
+  namespace: negative-space-dev
+  labels:
+    app.kubernetes.io/name: argocd-dev-deployer
+    app.kubernetes.io/instance: argocd
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: argocd-dev-deployer
+subjects:
+  - kind: ServiceAccount
+    name: argocd-application-controller
+    namespace: argocd
+
+---
+# Role for staging namespace access
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: argocd-staging-deployer
+  namespace: negative-space-staging
+  labels:
+    app.kubernetes.io/name: argocd-staging-deployer
+    app.kubernetes.io/instance: argocd
+rules:
+  - apiGroups:
+      - "*"
+    resources:
+      - "*"
+    verbs:
+      - "*"
+
+---
+# RoleBinding for staging namespace
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: argocd-staging-deployer
+  namespace: negative-space-staging
+  labels:
+    app.kubernetes.io/name: argocd-staging-deployer
+    app.kubernetes.io/instance: argocd
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: argocd-staging-deployer
+subjects:
+  - kind: ServiceAccount
+    name: argocd-application-controller
+    namespace: argocd
+
+---
+# Role for prod namespace access
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: argocd-prod-deployer
+  namespace: negative-space-prod
+  labels:
+    app.kubernetes.io/name: argocd-prod-deployer
+    app.kubernetes.io/instance: argocd
+rules:
+  - apiGroups:
+      - "*"
+    resources:
+      - "*"
+    verbs:
+      - "*"
+
+---
+# RoleBinding for prod namespace
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: argocd-prod-deployer
+  namespace: negative-space-prod
+  labels:
+    app.kubernetes.io/name: argocd-prod-deployer
+    app.kubernetes.io/instance: argocd
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: argocd-prod-deployer
+subjects:
+  - kind: ServiceAccount
+    name: argocd-application-controller
+    namespace: argocd

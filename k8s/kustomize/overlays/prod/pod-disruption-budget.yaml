@@ -1,0 +1,44 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: negative-space-api-pdb
+  namespace: negative-space
+  labels:
+    app.kubernetes.io/name: negative-space
+    app.kubernetes.io/component: api
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: negative-space
+      app.kubernetes.io/component: api
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: negative-space-ml-processor-pdb
+  namespace: negative-space
+  labels:
+    app.kubernetes.io/name: negative-space
+    app.kubernetes.io/component: ml-processor
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: negative-space
+      app.kubernetes.io/component: ml-processor
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: negative-space-web-viewer-pdb
+  namespace: negative-space
+  labels:
+    app.kubernetes.io/name: negative-space
+    app.kubernetes.io/component: web-viewer
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: negative-space
+      app.kubernetes.io/component: web-viewer

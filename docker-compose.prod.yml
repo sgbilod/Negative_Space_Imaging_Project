@@ -1,0 +1,285 @@
+version: "3.8"
+
+services:
+  # PostgreSQL Database - Production
+  postgres:
+    image: postgres:15-alpine
+    container_name: nsi_postgres_prod
+    environment:
+      POSTGRES_USER: ${DB_USER:-nsi_admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD?error: DB_PASSWORD not set}
+      POSTGRES_DB: ${DB_NAME:-negative_space}
+    volumes:
+      - postgres_data_prod:/var/lib/postgresql/data
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-nsi_admin}"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+    networks:
+      - nsi_network_prod
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 2G
+        reservations:
+          cpus: "1"
+          memory: 1G
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
+        labels: "service=postgres"
+
+  # Redis Cache - Production
+  redis:
+    image: redis:7-alpine
+    container_name: nsi_redis_prod
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD?error: REDIS_PASSWORD not set}
+    volumes:
+      - redis_data_prod:/data
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+    networks:
+      - nsi_network_prod
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1G
+        reservations:
+          cpus: "0.5"
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
+        labels: "service=redis"
+
+  # Python AI/ML Service - Production
+  python_service:
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+      args:
+        PYTHON_VERSION: "3.11"
+    image: nsi-python:${IMAGE_TAG:-latest}
+    container_name: nsi_python_prod
+    environment:
+      PYTHONUNBUFFERED: 1
+      PYTHONDONTWRITEBYTECODE: 1
+      DATABASE_URL: postgresql://${DB_USER:-nsi_admin}:${DB_PASSWORD?error: DB_PASSWORD not set}@postgres:5432/${DB_NAME:-negative_space}
+      REDIS_URL: redis://:${REDIS_PASSWORD?error: REDIS_PASSWORD not set}@redis:6379
+      PYTHON_ENV: production
+      LOG_LEVEL: ${LOG_LEVEL:-WARNING}
+      WORKERS: ${PYTHON_WORKERS:-4}
+    volumes:
+      - ./src/python:/app/src:ro
+      - ./uploads:/app/uploads
+      - shared_data_prod:/app/shared_data
+    ports:
+      - "${PYTHON_PORT:-8000}:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 15s
+      retries: 5
+      start_period: 60s
+    networks:
+      - nsi_network_prod
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "4"
+          memory: 4G
+        reservations:
+          cpus: "2"
+          memory: 2G
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
+        labels: "service=python"
+    command: gunicorn -w ${PYTHON_WORKERS:-4} -b 0.0.0.0:8000 --timeout 120 --access-logfile - --error-logfile - src.api:app
+
+  # Node.js Backend API - Production
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+      args:
+        NODE_ENV: production
+    image: nsi-backend:${IMAGE_TAG:-latest}
+    container_name: nsi_api_prod
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: postgresql://${DB_USER:-nsi_admin}:${DB_PASSWORD?error: DB_PASSWORD not set}@postgres:5432/${DB_NAME:-negative_space}
+      REDIS_URL: redis://:${REDIS_PASSWORD?error: REDIS_PASSWORD not set}@redis:6379
+      JWT_SECRET: ${JWT_SECRET?error: JWT_SECRET not set}
+      PYTHON_SERVICE_URL: http://python_service:8000
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      NODE_OPTIONS: --max-old-space-size=1024
+      API_RATE_LIMIT: 1000
+      API_RATE_WINDOW: 15m
+    volumes:
+      - ./src:/app/src:ro
+      - ./dist:/app/dist:ro
+      - uploads_prod:/app/uploads
+    ports:
+      - "${API_PORT:-3000}:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      python_service:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 15s
+      retries: 5
+      start_period: 60s
+    networks:
+      - nsi_network_prod
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 2G
+        reservations:
+          cpus: "1"
+          memory: 1G
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
+        labels: "service=api"
+
+  # React Frontend - Production
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      args:
+        NODE_ENV: production
+    image: nsi-frontend:${IMAGE_TAG:-latest}
+    container_name: nsi_frontend_prod
+    environment:
+      REACT_APP_API_URL: ${REACT_APP_API_URL:-https://api.nsi.local}
+      NODE_ENV: production
+    volumes:
+      - ./frontend/src:/app/src:ro
+      - ./frontend/public:/app/public:ro
+    ports:
+      - "${FRONTEND_PORT:-443}:443"
+      - "${FRONTEND_HTTP_PORT:-80}:80"
+    depends_on:
+      - api
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 15s
+      retries: 5
+      start_period: 60s
+    networks:
+      - nsi_network_prod
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+        reservations:
+          cpus: "0.5"
+          memory: 256M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
+        labels: "service=frontend"
+
+  # Monitoring Service (Prometheus)
+  monitoring:
+    build:
+      context: .
+      dockerfile: Dockerfile.monitoring
+    image: nsi-monitoring:${IMAGE_TAG:-latest}
+    container_name: nsi_monitoring_prod
+    environment:
+      PROMETHEUS_CONFIG: /etc/prometheus/prometheus.yml
+      LOG_LEVEL: info
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data_prod:/prometheus
+    ports:
+      - "${MONITORING_PORT:-9090}:9090"
+    networks:
+      - nsi_network_prod
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+        reservations:
+          cpus: "0.5"
+          memory: 256M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
+        labels: "service=monitoring"
+
+volumes:
+  postgres_data_prod:
+    driver: local
+  redis_data_prod:
+    driver: local
+  uploads_prod:
+    driver: local
+  shared_data_prod:
+    driver: local
+  prometheus_data_prod:
+    driver: local
+
+networks:
+  nsi_network_prod:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# Production deployment instructions:
+# 1. Set all required environment variables in .env.prod
+# 2. Deploy with: docker-compose -f docker-compose.prod.yml up -d
+# 3. View logs: docker-compose -f docker-compose.prod.yml logs -f
+# 4. Monitor health: docker-compose -f docker-compose.prod.yml ps
+# 5. Graceful shutdown: docker-compose -f docker-compose.prod.yml down

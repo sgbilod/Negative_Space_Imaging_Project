@@ -1,0 +1,35 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: negative-space-staging
+  namespace: negative-space
+  labels:
+    app.kubernetes.io/name: negative-space
+    environment: staging
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - staging.negative-space.dev
+      secretName: negative-space-staging-tls
+  rules:
+    - host: staging.negative-space.dev
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: negative-space-api
+                port:
+                  number: 8000
+          - path: /viewer
+            pathType: Prefix
+            backend:
+              service:
+                name: negative-space-web-viewer
+                port:
+                  number: 3000

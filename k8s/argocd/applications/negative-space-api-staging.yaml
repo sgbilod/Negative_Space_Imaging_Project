@@ -1,0 +1,158 @@
+---
+# ArgoCD Application for Staging Environment
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: negative-space-api-staging
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: negative-space-api-staging
+    environment: staging
+    tier: frontend
+spec:
+  project: staging-project
+
+  source:
+    repoURL: https://github.com/yourusername/Negative_Space_Imaging_Project
+    targetRevision: main
+    path: k8s/kustomize/overlays/staging
+    plugin:
+      name: kustomize
+    helm:
+      releaseName: negative-space-api-staging
+    kustomize:
+      version: v4.5.4
+      namespace: negative-space-staging
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: negative-space-staging
+
+  syncPolicy:
+    # Automatic sync enabled for staging with sync waves
+    automated:
+      prune: true
+      selfHeal: true
+      allow:
+        empty: false
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=background
+      - RespectIgnoreDifferences=true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+
+  # Sync waves for ordered deployment
+  # Wave 0: Infrastructure, RBAC
+  # Wave 1: Databases, secrets, ConfigMaps
+  # Wave 2: Core services
+  # Wave 3: Web services
+
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+    - group: ""
+      kind: Service
+      jsonPointers:
+        - /spec/clusterIP
+        - /spec/clusterIPs
+
+  info:
+    - name: Documentation
+      value: https://github.com/yourusername/Negative_Space_Imaging_Project/wiki
+    - name: Slack Channel
+      value: "#negative-space-staging"
+    - name: Team
+      value: "QA Team"
+    - name: Status Dashboard
+      value: https://grafana.staging.example.com
+
+---
+# ServiceMonitor for Staging
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: negative-space-api-staging
+  namespace: negative-space-staging
+  labels:
+    app.kubernetes.io/name: negative-space-api-staging
+    environment: staging
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: negative-space-api
+  endpoints:
+    - port: metrics
+      interval: 30s
+      path: /metrics
+
+---
+# PrometheusRule for Staging
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: negative-space-api-staging-alerts
+  namespace: negative-space-staging
+  labels:
+    app.kubernetes.io/name: negative-space-api-staging
+    prometheus: kube-prometheus
+spec:
+  groups:
+    - name: negative-space-api-staging
+      interval: 30s
+      rules:
+        - alert: NegativeSpaceAPIStagingDown
+          expr: |
+            up{job="negative-space-api-staging"} == 0
+          for: 5m
+          labels:
+            severity: warning
+            environment: staging
+          annotations:
+            summary: "Negative Space API (Staging) is down"
+            description: "Negative Space API staging instance has been unreachable for 5 minutes"
+
+        - alert: NegativeSpaceAPIStagingHighErrorRate
+          expr: |
+            rate(http_requests_total{job="negative-space-api-staging",status=~"5.."}[5m]) > 0.1
+          for: 10m
+          labels:
+            severity: warning
+            environment: staging
+          annotations:
+            summary: "Negative Space API (Staging) high error rate"
+            description: "Error rate is above 10% for 10 minutes"
+
+        - alert: NegativeSpaceAPIStagingHighLatency
+          expr: |
+            histogram_quantile(0.95, rate(http_request_duration_seconds_bucket{job="negative-space-api-staging"}[5m])) > 1
+          for: 10m
+          labels:
+            severity: warning
+            environment: staging
+          annotations:
+            summary: "Negative Space API (Staging) high latency"
+            description: "95th percentile latency is above 1 second"
+
+---
+# PersistentVolumeClaim for Staging Backups
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: staging-backup-pvc
+  namespace: negative-space-staging
+  labels:
+    app.kubernetes.io/name: staging-backups
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: fast-ssd

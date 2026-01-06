@@ -52,7 +52,13 @@ from sovereign.master_controller import MasterController, ControlMode
 
 # Initialize Flask app
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_KEY', secrets.token_hex(32))
+app.secret_key = os.environ.get('SECRET_KEY')
+if not app.secret_key:
+    raise ValueError(
+        "CRITICAL: SECRET_KEY environment variable is not set. "
+        "This is required for secure session management. "
+        "Set SECRET_KEY in your environment before running the application."
+    )
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(hours=1)
 

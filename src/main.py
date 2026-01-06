@@ -50,10 +50,16 @@ logger = logging.getLogger("NSI-Main")
 # =============================================================================
 # Configuration Loading
 # =============================================================================
+# Use centralized configuration loader
+from config.config_loader import load_config as _load_config
+
 
 def load_config(config_path: str) -> Dict[str, Any]:
     """
     Load configuration from YAML file.
+
+    DEPRECATED: Use config.config_loader.load_config() instead.
+    This wrapper is maintained for backward compatibility.
 
     Args:
         config_path: Path to configuration file
@@ -61,22 +67,7 @@ def load_config(config_path: str) -> Dict[str, Any]:
     Returns:
         Configuration dictionary
     """
-    path = Path(config_path)
-    if not path.exists():
-        logger.warning(f"Config file not found: {config_path}")
-        return {}
-
-    try:
-        with open(path, 'r', encoding='utf-8') as f:
-            config = yaml.safe_load(f) or {}
-            logger.info(f"Loaded configuration from {config_path}")
-            return config
-    except yaml.YAMLError as e:
-        logger.error(f"Failed to parse config file: {e}")
-        return {}
-    except Exception as e:
-        logger.error(f"Failed to load config file: {e}")
-        return {}
+    return _load_config(config_path)
 
 
 def merge_configs(*configs: Dict[str, Any]) -> Dict[str, Any]:

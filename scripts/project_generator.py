@@ -250,7 +250,12 @@ TEMPLATE_STRUCTURE = {
 
 
 def load_config() -> Dict[str, Any]:
-    """Load configuration from file or create default."""
+    """
+    Load project generator configuration from file or create default.
+
+    NOTE: This is a domain-specific config loader for project generation.
+    For application-wide configuration, use config.config_loader.load_config()
+    """
     if os.path.exists(CONFIG_FILE):
         try:
             with open(CONFIG_FILE, 'r') as f:

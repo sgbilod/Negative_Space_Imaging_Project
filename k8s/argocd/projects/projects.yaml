@@ -1,0 +1,193 @@
+---
+# Development AppProject
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: dev-project
+  namespace: argocd
+  labels:
+    environment: development
+spec:
+  description: Development environment project with auto-sync enabled
+
+  # Source repositories (where applications come from)
+  sourceRepos:
+    - "https://github.com/yourusername/Negative_Space_Imaging_Project"
+    - "https://github.com/yourusername/*" # Allow all personal repos
+    - "https://charts.helm.sh/stable"
+    - "https://charts.bitnami.com/bitnami"
+
+  # Destination clusters and namespaces
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: "negative-space-dev"
+      name: dev-cluster
+    - server: https://kubernetes.default.svc
+      namespace: "negative-space-*"
+      name: dev-all-namespaces
+
+  # Allow all cluster/resource kinds in dev
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
+  # No resources are denied in dev (permissive)
+  namespaceResourceBlacklist: []
+  clusterResourceBlacklist: []
+
+  # Orphaned resources policies
+  orphanedResources:
+    warn: true
+    ignore:
+      - group: "apps"
+        kind: ReplicaSet
+
+  # Roles for access control
+  roles:
+    - name: developers
+      description: Developers can deploy to dev
+      policies:
+        - p, proj:dev-project:developers, applications, sync, dev-project/*, allow
+        - p, proj:dev-project:developers, applications, get, dev-project/*, allow
+    - name: ci
+      description: CI/CD can deploy to dev
+      policies:
+        - p, proj:dev-project:ci, applications, sync, dev-project/*, allow
+        - p, proj:dev-project:ci, applications, get, dev-project/*, allow
+
+  # Service accounts for this project
+  signatureKeys:
+    - keyID: 4AEE18F83AFDEB23
+
+---
+# Staging AppProject
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: staging-project
+  namespace: argocd
+  labels:
+    environment: staging
+spec:
+  description: Staging environment project with controlled auto-sync
+
+  sourceRepos:
+    - "https://github.com/yourusername/Negative_Space_Imaging_Project"
+    - "https://charts.helm.sh/stable"
+    - "https://charts.bitnami.com/bitnami"
+
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: "negative-space-staging"
+      name: staging-cluster
+
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
+  # Prevent deletion of critical resources
+  namespaceResourceBlacklist:
+    - group: "rbac.authorization.k8s.io"
+      kind: "ClusterRole"
+
+  orphanedResources:
+    warn: true
+    ignore:
+      - group: "apps"
+        kind: ReplicaSet
+      - group: "batch"
+        kind: Job
+
+  roles:
+    - name: staging-deployer
+      description: Can deploy to staging after review
+      policies:
+        - p, proj:staging-project:staging-deployer, applications, sync, staging-project/*, allow
+        - p, proj:staging-project:staging-deployer, applications, get, staging-project/*, allow
+    - name: staging-reviewer
+      description: Can review but not deploy to staging
+      policies:
+        - p, proj:staging-project:staging-reviewer, applications, get, staging-project/*, allow
+    - name: qa
+      description: QA team can execute tests
+      policies:
+        - p, proj:staging-project:qa, applications, get, staging-project/*, allow
+
+  signatureKeys:
+    - keyID: 4AEE18F83AFDEB23
+
+---
+# Production AppProject (most restrictive)
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: prod-project
+  namespace: argocd
+  labels:
+    environment: production
+    criticality: mission-critical
+spec:
+  description: Production environment project - MANUAL SYNC ONLY, approval required
+
+  sourceRepos:
+    - "https://github.com/yourusername/Negative_Space_Imaging_Project"
+
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: "negative-space-prod"
+      name: prod-cluster
+
+  # Whitelist allowed resources
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
+  # Strict blacklist for production
+  namespaceResourceBlacklist:
+    - group: "rbac.authorization.k8s.io"
+      kind: "ClusterRole"
+    - group: "rbac.authorization.k8s.io"
+      kind: "ClusterRoleBinding"
+    - group: "policy"
+      kind: "PodSecurityPolicy"
+
+  # Deny orphaned resources - keep everything explicit
+  orphanedResources:
+    warn: true
+    expire: 7d
+    ignore:
+      - group: "batch"
+        kind: Job # Old jobs may be cleaned up
+
+  roles:
+    - name: prod-admin
+      description: Production admins can deploy (requires manual sync + approval)
+      policies:
+        - p, proj:prod-project:prod-admin, applications, sync, prod-project/*, allow
+        - p, proj:prod-project:prod-admin, applications, get, prod-project/*, allow
+        - p, proj:prod-project:prod-admin, applications, override, prod-project/*, allow
+    - name: prod-viewer
+      description: Can view production applications only
+      policies:
+        - p, proj:prod-project:prod-viewer, applications, get, prod-project/*, allow
+        - p, proj:prod-project:prod-viewer, logs, get, *, allow
+    - name: sre-team
+      description: SRE team with full access
+      policies:
+        - p, proj:prod-project:sre-team, applications, *, prod-project/*, allow
+
+  # GPG key verification required for production
+  signatureKeys:
+    - keyID: 4AEE18F83AFDEB23

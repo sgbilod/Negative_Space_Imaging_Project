@@ -1,0 +1,172 @@
+---
+# ArgoCD Server Ingress (HTTPS)
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-server-ingress
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-server-ingress
+    app.kubernetes.io/instance: argocd
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-protocols: "TLSv1.2 TLSv1.3"
+    nginx.ingress.kubernetes.io/ssl-ciphers: "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/auth-type: "basic"
+    nginx.ingress.kubernetes.io/auth-secret: "basic-auth"
+    nginx.ingress.kubernetes.io/auth-realm: "Authentication Required"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - argocd.example.com
+      secretName: argocd-server-tls
+  rules:
+    - host: argocd.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-server
+                port:
+                  number: 80
+
+---
+# Network Policy for ArgoCD Server Ingress
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: argocd-server-ingress-policy
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-server-ingress-policy
+    app.kubernetes.io/instance: argocd
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: argocd-server
+  policyTypes:
+    - Ingress
+  ingress:
+    # Allow from NGINX Ingress Controller
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: ingress-nginx
+          podSelector:
+            matchLabels:
+              app.kubernetes.io/name: ingress-nginx
+      ports:
+        - protocol: TCP
+          port: 8080
+
+---
+# Dex OAuth2 Proxy Ingress
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-dex-server-ingress
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-dex-server-ingress
+    app.kubernetes.io/instance: argocd
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - dex.example.com
+      secretName: dex-server-tls
+  rules:
+    - host: dex.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-dex-server
+                port:
+                  number: 5556
+
+---
+# Network Policy for ArgoCD Dex Server
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: argocd-dex-server-ingress-policy
+  namespace: argocd
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: argocd-dex-server
+  policyTypes:
+    - Ingress
+  ingress:
+    # Allow from NGINX Ingress Controller
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: ingress-nginx
+          podSelector:
+            matchLabels:
+              app.kubernetes.io/name: ingress-nginx
+      ports:
+        - protocol: TCP
+          port: 5556
+    # Allow from ArgoCD Server
+    - from:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: argocd-server
+      ports:
+        - protocol: TCP
+          port: 5556
+
+---
+# TLS Certificate for ArgoCD Server (using cert-manager)
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argocd-server-cert
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-server-cert
+    app.kubernetes.io/instance: argocd
+spec:
+  secretName: argocd-server-tls
+  duration: 2160h # 90 days
+  renewBefore: 720h # 30 days
+  commonName: argocd.example.com
+  dnsNames:
+    - argocd.example.com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+
+---
+# TLS Certificate for Dex Server
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: dex-server-cert
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: dex-server-cert
+    app.kubernetes.io/instance: argocd
+spec:
+  secretName: dex-server-tls
+  duration: 2160h # 90 days
+  renewBefore: 720h # 30 days
+  commonName: dex.example.com
+  dnsNames:
+    - dex.example.com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer

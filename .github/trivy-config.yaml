@@ -1,0 +1,55 @@
+# Trivy Container Image Vulnerability Scanning Configuration
+# Integrated with GitHub Actions and Security Tab
+
+# Severity levels to report
+# CRITICAL: Immediate action required
+# HIGH: Should be addressed soon
+# MEDIUM: Should be tracked and addressed
+# LOW: Informational
+severity:
+  - CRITICAL
+  - HIGH
+
+# Exit code policy
+# Exit with code 1 if vulnerabilities found at specified severity levels
+exit-code: 1
+
+# Image scanning format for GitHub integration
+# SARIF format integrates with GitHub Security tab for easy tracking
+format: sarif
+
+# Output location (relative to working directory)
+output: sarif-report.sarif
+
+# Skip DB update for faster CI runs
+# The default DB is bundled with Trivy and regularly updated
+skip-db-update: true
+
+# Security scanning options
+scanners:
+  - vuln  # Vulnerability scanner
+  - secret  # Secret detection
+
+# Secret detection patterns
+secret:
+  regexp:
+    - 'AWS_ACCESS_KEY_ID|AKIA[0-9A-Z]{16}'
+    - 'AWS_SECRET_ACCESS_KEY|(?i)aws_secret_access_key[=:\s]+["\']?[A-Za-z0-9/+=]{40}["\']?'
+    - 'GITHUB_TOKEN|ghp_[0-9a-zA-Z]{36}'
+    - 'PRIVATE_KEY|-----BEGIN RSA PRIVATE KEY-----'
+
+# Image scanning options
+image:
+  # Scan OS package vulnerabilities
+  scan-layers: true
+
+# Report options
+report:
+  # Don't stop on errors, report what we can
+  skip-update: false
+
+# Ignore specific CVEs (if needed in future)
+# ignorefile: .trivyignore
+
+# Cache directory for DB
+cache-dir: /tmp/trivy-cache

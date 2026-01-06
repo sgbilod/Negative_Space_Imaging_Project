@@ -1,0 +1,43 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: negative-space-prod
+  namespace: negative-space
+  labels:
+    app.kubernetes.io/name: negative-space
+    environment: prod
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/rate-limit: "1000"
+    nginx.ingress.kubernetes.io/limit-rps: "100"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/auth-type: "basic"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - api.negative-space.io
+        - viewer.negative-space.io
+      secretName: negative-space-prod-tls
+  rules:
+    - host: api.negative-space.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: negative-space-api
+                port:
+                  number: 8000
+    - host: viewer.negative-space.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: negative-space-web-viewer
+                port:
+                  number: 3000

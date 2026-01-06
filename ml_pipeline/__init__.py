@@ -1,32 +1,51 @@
 """
-Machine Learning Pipeline for Negative Space Imaging Project
+Negative Space Imaging ML Pipeline
 
-Integrated ML pipeline with:
-- Feature extraction and engineering
-- Multiple model types (classification, regression, clustering)
-- Training and hyperparameter optimization
-- Real-time inference serving
-- Continuous model monitoring
-- Model registry and versioning
+Comprehensive machine learning pipeline for negative space imaging with GPU acceleration,
+batch processing, model management, and monitoring.
+
+Copyright (c) 2025 Stephen Bilodeau. All Rights Reserved.
 """
 
-__version__ = "1.0.0"
-__author__ = "Stephen Bilodeau"
+from .core import MLPipeline, PipelineConfig, DeviceManager
+from .inference import InferenceEngine
+from .models import (
+    AnomalyDetectionModel,
+    BaseModel,
+    ClassificationModel,
+    FeatureExtractorModel,
+    ModelRegistry,
+    SegmentationModel,
+)
+from .monitoring import ModelMonitor
+from .training import TrainingEngine
+from .deployment import ModelDeploymentPipeline
 
-from .core.pipeline import MLPipeline, PipelineStage, PipelineConfig
-from .models.feature_extraction import FeatureExtractor
-from .training.trainer import ModelTrainer
-from .inference.realtime import RealtimePredictor
-from .monitoring.model_monitoring import ModelMonitor
-from .registry.model_registry import ModelRegistry
+__version__ = "1.0.0"
 
 __all__ = [
+    # Core components
     "MLPipeline",
-    "PipelineStage",
     "PipelineConfig",
-    "FeatureExtractor",
-    "ModelTrainer",
-    "RealtimePredictor",
-    "ModelMonitor",
+    "DeviceManager",
+
+    # Model components
+    "BaseModel",
     "ModelRegistry",
+    "FeatureExtractorModel",
+    "SegmentationModel",
+    "ClassificationModel",
+    "AnomalyDetectionModel",
+
+    # Inference components
+    "InferenceEngine",
+
+    # Training components
+    "TrainingEngine",
+
+    # Monitoring components
+    "ModelMonitor",
+
+    # Deployment components
+    "ModelDeploymentPipeline",
 ]

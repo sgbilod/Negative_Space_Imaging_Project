@@ -43,8 +43,8 @@ Complete guide for deploying the Negative Space Imaging Project to production en
 ### Building Images
 
 ```bash
-# Build Node backend
-docker build -f Dockerfile.node -t nsi-backend:latest .
+# Build Node/API backend
+docker build -f Dockerfile.api -t nsi-backend:latest .
 docker tag nsi-backend:latest nsi-backend:$(git rev-parse --short HEAD)
 
 # Build Python service
@@ -299,7 +299,7 @@ groups:
         for: 5m
         annotations:
           summary: "High error rate detected"
-      
+
       - alert: HighResponseTime
         expr: histogram_quantile(0.95, http_request_duration_seconds) > 2
         for: 5m
@@ -308,6 +308,162 @@ groups:
 ```
 
 ## Security
+
+### Container Image Scanning with Trivy
+
+Container image vulnerability scanning is integrated into the CI/CD pipeline via Trivy, an open-source vulnerability scanner. All Docker images are automatically scanned for vulnerabilities during the build process.
+
+#### Configuration
+
+Trivy is configured via `.github/trivy-config.yaml`:
+
+```yaml
+# Severity levels to fail on
+severity:
+  - CRITICAL
+  - HIGH
+
+# Exit with non-zero code on vulnerabilities
+exit-code: 1
+
+# Output format for GitHub Security integration
+format: sarif
+
+# Skip database updates for faster CI runs
+skip-db-update: true
+
+# Scan both vulnerabilities and secrets
+scanners:
+  - vuln
+  - secret
+```
+
+#### Scanned Components
+
+The CI/CD pipeline (`.github/workflows/build-deploy.yml`) scans:
+
+1. **Dockerfile.api** - Express.js API server
+2. **Dockerfile.python** - Python analyzer service
+3. **Dockerfile.frontend** - React frontend with Nginx
+4. **Dockerfile.monitoring** - Prometheus & Grafana stack
+5. **Python dependencies** - `requirements.txt`
+6. **Node.js dependencies** - `package.json`
+
+#### Local Testing
+
+Test images locally before deployment:
+
+```bash
+# Install Trivy (macOS)
+brew install trivy
+
+# Install Trivy (Ubuntu/Debian)
+sudo apt-get install trivy
+
+# Scan Docker image
+docker build -f Dockerfile.api -t nsi-api:test .
+trivy image --severity CRITICAL,HIGH nsi-api:test
+
+# Scan with config file
+trivy image --config .github/trivy-config.yaml nsi-api:test
+
+# Generate SARIF report locally
+trivy image --format sarif --output report.sarif nsi-api:test
+
+# Scan filesystem for vulnerabilities
+trivy fs --severity CRITICAL,HIGH .
+
+# Scan for secrets
+trivy fs --scanners secret .
+```
+
+#### GitHub Integration
+
+Vulnerability reports are automatically uploaded to GitHub's Security tab:
+
+1. Navigate to repository **Security** tab
+2. Select **Code scanning** section
+3. View detailed vulnerability information
+4. Set vulnerability severity thresholds
+
+#### Responding to Vulnerabilities
+
+**CRITICAL vulnerabilities:**
+- Block deployment immediately
+- Create emergency patch branch
+- Test thoroughly before re-scanning
+- Escalate to security team if unable to patch
+
+**HIGH vulnerabilities:**
+- Must be resolved before production deployment
+- Update dependencies: `pip install --upgrade package`
+- Rebuild image and re-scan
+- Document exception if no patch available
+
+**MEDIUM/LOW vulnerabilities:**
+- Track in issue tracker
+- Include in next release cycle
+- Monitor for security updates
+
+#### Base Image Updates
+
+Regularly update base images to receive security patches:
+
+```bash
+# Update base images in Dockerfiles
+# FROM node:20-alpine -> FROM node:20.10-alpine
+# FROM python:3.11-slim -> FROM python:3.13-slim
+# FROM nginx:1.25-alpine -> FROM nginx:1.27-alpine
+
+# Rebuild and re-scan all images
+docker compose build
+trivy image --config .github/trivy-config.yaml nsi-api:latest
+trivy image --config .github/trivy-config.yaml nsi-python:latest
+trivy image --config .github/trivy-config.yaml nsi-frontend:latest
+trivy image --config .github/trivy-config.yaml nsi-monitoring:latest
+```
+
+#### CI/CD Pipeline Integration
+
+The security scanning stage in `.github/workflows/build-deploy.yml`:
+
+```yaml
+# STAGE 4: SCAN - Container Image Vulnerability Scanning
+scan:
+  name: Security Scanning
+  runs-on: ubuntu-latest
+  needs: build
+
+  steps:
+    # Scan all Docker images with Trivy
+    - name: Run Trivy scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        input: '/tmp/api-image.tar'
+        format: 'sarif'
+        output: 'trivy-api.sarif'
+        severity: 'CRITICAL,HIGH'
+
+    # Upload to GitHub Security tab
+    - name: Upload SARIF results
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: 'trivy-*.sarif'
+```
+
+#### False Positives
+
+If a vulnerability is a false positive:
+
+1. Document the CVE ID
+2. Create `.trivyignore` file in project root:
+
+```txt
+# CVE-2021-12345: False positive - package not actually used
+CVE-2021-12345
+```
+
+3. Commit and push for review
 
 ### Secrets Management
 

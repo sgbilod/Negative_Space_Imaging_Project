@@ -1,0 +1,306 @@
+---
+# ArgoCD Application for Production Environment
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: negative-space-api-prod
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: negative-space-api-prod
+    environment: production
+    tier: frontend
+    criticality: mission-critical
+spec:
+  project: prod-project
+
+  source:
+    repoURL: https://github.com/yourusername/Negative_Space_Imaging_Project
+    targetRevision: main
+    path: k8s/kustomize/overlays/prod
+    plugin:
+      name: kustomize
+    helm:
+      releaseName: negative-space-api-prod
+    kustomize:
+      version: v4.5.4
+      namespace: negative-space-prod
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: negative-space-prod
+
+  syncPolicy:
+    # MANUAL SYNC ONLY for production
+    # Requires explicit approval via ArgoCD UI or API
+    automated: null
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=background
+      - RespectIgnoreDifferences=true
+      - Validate=true # Validate manifests before sync
+    retry:
+      limit: 3
+      backoff:
+        duration: 10s
+        factor: 2
+        maxDuration: 5m
+
+  # Ignore differences for immutable fields
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+        - /metadata/generation
+        - /status
+    - group: ""
+      kind: Service
+      jsonPointers:
+        - /spec/clusterIP
+        - /spec/clusterIPs
+        - /metadata/uid
+    - group: batch
+      kind: Job
+      jsonPointers:
+        - /status
+
+  # Health assessment for production
+  info:
+    - name: Documentation
+      value: https://github.com/yourusername/Negative_Space_Imaging_Project/wiki/Production
+    - name: Slack Channel
+      value: "#negative-space-prod"
+    - name: On-Call Team
+      value: "DevOps Team"
+    - name: Status Dashboard
+      value: https://grafana.prod.example.com
+    - name: Runbook
+      value: https://wiki.example.com/negative-space-runbook
+    - name: Incident Response
+      value: https://wiki.example.com/incident-response
+
+---
+# ServiceMonitor for Production
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: negative-space-api-prod
+  namespace: negative-space-prod
+  labels:
+    app.kubernetes.io/name: negative-space-api-prod
+    environment: production
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: negative-space-api
+  endpoints:
+    - port: metrics
+      interval: 15s # More frequent monitoring in prod
+      path: /metrics
+      relabelings:
+        - sourceLabels: [__meta_kubernetes_namespace]
+          targetLabel: namespace
+        - sourceLabels: [__meta_kubernetes_pod_name]
+          targetLabel: pod
+
+---
+# PrometheusRule for Production (critical alerts)
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: negative-space-api-prod-alerts
+  namespace: negative-space-prod
+  labels:
+    app.kubernetes.io/name: negative-space-api-prod
+    prometheus: kube-prometheus
+spec:
+  groups:
+    - name: negative-space-api-prod-critical
+      interval: 15s
+      rules:
+        - alert: NegativeSpaceAPIProdDown
+          expr: |
+            up{job="negative-space-api-prod"} == 0
+          for: 2m # Very aggressive for production
+          labels:
+            severity: critical
+            environment: production
+            team: oncall
+          annotations:
+            summary: "🚨 CRITICAL: Negative Space API (Prod) is DOWN"
+            description: "Negative Space API production instance has been unreachable for 2 minutes. IMMEDIATE ACTION REQUIRED."
+            runbook_url: "https://wiki.example.com/negative-space-api-down"
+
+        - alert: NegativeSpaceAPIProdHighErrorRate
+          expr: |
+            rate(http_requests_total{job="negative-space-api-prod",status=~"5.."}[5m]) > 0.01
+          for: 5m # Low threshold for prod
+          labels:
+            severity: critical
+            environment: production
+            team: oncall
+          annotations:
+            summary: "🚨 CRITICAL: Negative Space API (Prod) high error rate"
+            description: "Error rate (>1%) in production for 5 minutes. Current rate: {{ $value }}"
+            runbook_url: "https://wiki.example.com/high-error-rate"
+
+        - alert: NegativeSpaceAPIProdHighLatency
+          expr: |
+            histogram_quantile(0.99, rate(http_request_duration_seconds_bucket{job="negative-space-api-prod"}[5m])) > 2
+          for: 5m
+          labels:
+            severity: critical
+            environment: production
+            team: oncall
+          annotations:
+            summary: "🚨 CRITICAL: Negative Space API (Prod) high latency"
+            description: "99th percentile latency is above 2 seconds for 5 minutes"
+            runbook_url: "https://wiki.example.com/high-latency"
+
+        - alert: NegativeSpaceAPIProdOOMKill
+          expr: |
+            increase(container_oom_kills_total{pod=~"negative-space-api-prod.*"}[5m]) > 0
+          labels:
+            severity: critical
+            environment: production
+            team: oncall
+          annotations:
+            summary: "🚨 CRITICAL: Negative Space API (Prod) OOMKilled"
+            description: "Container has been OOM killed. Increase memory limits immediately."
+
+        - alert: NegativeSpaceAPIProdCrashLoopBackOff
+          expr: |
+            rate(kube_pod_container_status_restarts_total{pod=~"negative-space-api-prod.*"}[15m]) > 0.1
+          labels:
+            severity: critical
+            environment: production
+            team: oncall
+          annotations:
+            summary: "🚨 CRITICAL: Negative Space API (Prod) CrashLoopBackOff"
+            description: "Pod is restarting frequently. Check application logs immediately."
+
+        - alert: NegativeSpaceAPIProdDiskPressure
+          expr: |
+            kubelet_volume_stats_used_bytes / kubelet_volume_stats_capacity_bytes > 0.85
+          for: 5m
+          labels:
+            severity: warning
+            environment: production
+          annotations:
+            summary: "⚠️ WARNING: Negative Space API (Prod) disk usage high"
+            description: "Disk usage is above 85%. Consider increasing storage capacity."
+
+---
+# PersistentVolumeClaim for Production Data
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: prod-data-pvc
+  namespace: negative-space-prod
+  labels:
+    app.kubernetes.io/name: prod-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+  storageClassName: prod-ssd
+  selector:
+    matchLabels:
+      tier: production-data
+
+---
+# PersistentVolumeClaim for Production Backups
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: prod-backup-pvc
+  namespace: negative-space-prod
+  labels:
+    app.kubernetes.io/name: prod-backups
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Gi
+  storageClassName: backup-archive
+
+---
+# NetworkPolicy for Production (strict ingress/egress)
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: negative-space-prod-network-policy
+  namespace: negative-space-prod
+  labels:
+    app.kubernetes.io/name: negative-space-prod-network-policy
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: negative-space-api
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: ingress-nginx
+      ports:
+        - protocol: TCP
+          port: 8080
+    - from:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: monitoring-prometheus
+      ports:
+        - protocol: TCP
+          port: 8080
+  egress:
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              name: default
+      ports:
+        - protocol: TCP
+          port: 5432 # PostgreSQL
+    - to:
+        - podSelector:
+            matchLabels:
+              k8s-app: kube-dns
+      ports:
+        - protocol: UDP
+          port: 53 # DNS
+
+---
+# ResourceQuota for Production Namespace
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: negative-space-prod-quota
+  namespace: negative-space-prod
+spec:
+  hard:
+    requests.cpu: "10"
+    requests.memory: "50Gi"
+    limits.cpu: "20"
+    limits.memory: "100Gi"
+    pods: "50"
+    services: "10"
+    persistentvolumeclaims: "10"
+
+---
+# PodDisruptionBudget for Production High Availability
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: negative-space-api-prod-pdb
+  namespace: negative-space-prod
+spec:
+  minAvailable: 2 # Maintain at least 2 replicas during disruptions
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: negative-space-api
+      environment: production
