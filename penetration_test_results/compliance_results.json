@@ -1,0 +1,29 @@
+{
+  "owasp_top_10": {
+    "score": 85,
+    "passed_checks": 8,
+    "total_checks": 10,
+    "failures": [
+      "A01:2021",
+      "A03:2021"
+    ]
+  },
+  "nist_framework": {
+    "score": 78,
+    "passed_checks": 15,
+    "total_checks": 20,
+    "failures": [
+      "AC-2",
+      "SC-8"
+    ]
+  },
+  "iso_27001": {
+    "score": 82,
+    "passed_checks": 12,
+    "total_checks": 15,
+    "failures": [
+      "A.9.4.3",
+      "A.12.6.1"
+    ]
+  }
+}

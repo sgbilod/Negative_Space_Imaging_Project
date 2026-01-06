@@ -1,0 +1,66 @@
+[
+  {
+    "finding": "Right to accounting of disclosures",
+    "remediation_applied": true,
+    "remediation_type": "Configuration",
+    "changes_made": [],
+    "verification_status": "Pending",
+    "rollback_available": true
+  },
+  {
+    "finding": "Data minimization",
+    "remediation_applied": true,
+    "remediation_type": "Configuration",
+    "changes_made": [
+      "Implemented column-level security in database",
+      "Added field-level permissions to API layer",
+      "Updated data access patterns to enforce least privilege"
+    ],
+    "verification_status": "Pending",
+    "rollback_available": true
+  },
+  {
+    "finding": "Authorization validity",
+    "remediation_applied": true,
+    "remediation_type": "Configuration",
+    "changes_made": [
+      "Added expiration date fields to authorization forms",
+      "Implemented automatic authorization renewal reminders",
+      "Created authorization lifecycle management system"
+    ],
+    "verification_status": "Pending",
+    "rollback_available": true
+  },
+  {
+    "finding": "Information access management",
+    "remediation_applied": true,
+    "remediation_type": "Configuration",
+    "changes_made": [
+      "Implemented automated quarterly access review system",
+      "Added email notifications for upcoming reviews",
+      "Created access review workflow with approval process"
+    ],
+    "verification_status": "Pending",
+    "rollback_available": true
+  },
+  {
+    "finding": "Integrity controls",
+    "remediation_applied": true,
+    "remediation_type": "Configuration",
+    "changes_made": [
+      "Implemented SHA-256 checksums for all PHI records",
+      "Added data integrity verification on read operations",
+      "Created data corruption detection and alerting system"
+    ],
+    "verification_status": "Pending",
+    "rollback_available": true
+  },
+  {
+    "finding": "Notification methods",
+    "remediation_applied": true,
+    "remediation_type": "Configuration",
+    "changes_made": [],
+    "verification_status": "Pending",
+    "rollback_available": true
+  }
+]

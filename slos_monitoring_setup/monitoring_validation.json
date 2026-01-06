@@ -1,0 +1,97 @@
+[
+  {
+    "validation": "Infrastructure Monitoring",
+    "checks": [
+      {
+        "check": "Metrics collection",
+        "status": "Passed"
+      },
+      {
+        "check": "Alert rules",
+        "status": "Passed"
+      },
+      {
+        "check": "Data retention",
+        "status": "Passed"
+      }
+    ],
+    "overall_status": "Passed",
+    "timestamp": "2026-01-06T08:24:37.204518"
+  },
+  {
+    "validation": "Application Monitoring",
+    "checks": [
+      {
+        "check": "APM traces",
+        "status": "Passed"
+      },
+      {
+        "check": "Error tracking",
+        "status": "Passed"
+      },
+      {
+        "check": "Custom metrics",
+        "status": "Passed"
+      }
+    ],
+    "overall_status": "Passed",
+    "timestamp": "2026-01-06T08:24:37.204538"
+  },
+  {
+    "validation": "SLO Tracking",
+    "checks": [
+      {
+        "check": "SLO definitions",
+        "status": "Passed"
+      },
+      {
+        "check": "Burn rate calculation",
+        "status": "Passed"
+      },
+      {
+        "check": "Error budget tracking",
+        "status": "Passed"
+      }
+    ],
+    "overall_status": "Passed",
+    "timestamp": "2026-01-06T08:24:37.204546"
+  },
+  {
+    "validation": "Alerting System",
+    "checks": [
+      {
+        "check": "Alert rules",
+        "status": "Passed"
+      },
+      {
+        "check": "Notification channels",
+        "status": "Passed"
+      },
+      {
+        "check": "Escalation policies",
+        "status": "Passed"
+      }
+    ],
+    "overall_status": "Passed",
+    "timestamp": "2026-01-06T08:24:37.204552"
+  },
+  {
+    "validation": "Dashboards",
+    "checks": [
+      {
+        "check": "Panel configurations",
+        "status": "Passed"
+      },
+      {
+        "check": "Data sources",
+        "status": "Passed"
+      },
+      {
+        "check": "Refresh intervals",
+        "status": "Passed"
+      }
+    ],
+    "overall_status": "Passed",
+    "timestamp": "2026-01-06T08:24:37.204558"
+  }
+]

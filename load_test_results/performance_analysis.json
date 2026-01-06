@@ -1,0 +1,43 @@
+{
+  "bottleneck_analysis": {
+    "database": {
+      "connections_used": 85,
+      "query_latency_avg": 45,
+      "recommendation": "Increase connection pool from 100 to 125"
+    },
+    "api_gateway": {
+      "rate_limit_hits": 12,
+      "throttling_events": 3,
+      "recommendation": "Increase rate limit from 1000 to 1200 RPS"
+    },
+    "image_processing": {
+      "queue_depth": 150,
+      "processing_latency": 1200,
+      "recommendation": "Scale processing workers from 10 to 15"
+    }
+  },
+  "optimization_actions": [
+    {
+      "action": "Scale database connection pool",
+      "impact": "15% reduction in database latency",
+      "automated": true
+    },
+    {
+      "action": "Optimize image processing pipeline",
+      "impact": "25% reduction in processing time",
+      "automated": true
+    },
+    {
+      "action": "Implement response caching",
+      "impact": "40% reduction in analytics endpoint load",
+      "automated": true
+    }
+  ],
+  "performance_score": 87,
+  "recommendations": [
+    "Implement horizontal pod autoscaling",
+    "Add Redis caching layer",
+    "Optimize database indexes",
+    "Implement API response compression"
+  ]
+}

@@ -1,0 +1,109 @@
+[
+  {
+    "component": "API Monitoring",
+    "endpoints": [
+      "/api/v1/health",
+      "/api/v1/users",
+      "/api/v1/data"
+    ],
+    "metrics": [
+      "request_count",
+      "response_time",
+      "error_rate",
+      "status_codes",
+      "throughput"
+    ],
+    "tools": [
+      "blackbox_exporter",
+      "custom_api_exporter"
+    ],
+    "alert_rules": [
+      "APIHighResponseTime",
+      "APIHighErrorRate",
+      "APIEndpointDown",
+      "APILowThroughput"
+    ],
+    "status": "Configured",
+    "timestamp": "2026-01-06T08:24:37.153358"
+  },
+  {
+    "component": "Service Mesh Monitoring",
+    "mesh": "Istio",
+    "metrics": [
+      "service_request_count",
+      "service_response_time",
+      "circuit_breaker_status",
+      "retry_count",
+      "connection_pool_size"
+    ],
+    "exporters": [
+      "istio-prometheus-adapter"
+    ],
+    "alert_rules": [
+      "ServiceMeshHighLatency",
+      "ServiceMeshCircuitBreakerOpen",
+      "ServiceMeshConnectionPoolExhausted"
+    ],
+    "status": "Configured",
+    "timestamp": "2026-01-06T08:24:37.153377"
+  },
+  {
+    "component": "APM Monitoring",
+    "tools": [
+      "Jaeger",
+      "OpenTelemetry"
+    ],
+    "metrics": [
+      "trace_count",
+      "span_duration",
+      "error_spans",
+      "service_dependencies"
+    ],
+    "alert_rules": [
+      "APMHighSpanDuration",
+      "APMHighErrorRate",
+      "APMServiceDependencyFailure"
+    ],
+    "status": "Configured",
+    "timestamp": "2026-01-06T08:24:37.153384"
+  },
+  {
+    "component": "Business Metrics",
+    "metrics": [
+      "user_registrations",
+      "active_sessions",
+      "transaction_volume",
+      "conversion_rate",
+      "revenue_per_user"
+    ],
+    "collection": "Application instrumentation",
+    "aggregation": "Prometheus + custom exporters",
+    "alert_rules": [
+      "BusinessLowConversionRate",
+      "BusinessHighTransactionVolume",
+      "BusinessRevenueDrop"
+    ],
+    "status": "Configured",
+    "timestamp": "2026-01-06T08:24:37.153391"
+  },
+  {
+    "component": "Error Tracking",
+    "tools": [
+      "Sentry",
+      "custom_error_exporter"
+    ],
+    "metrics": [
+      "error_count",
+      "error_rate",
+      "unique_errors",
+      "affected_users"
+    ],
+    "alert_rules": [
+      "ErrorRateSpike",
+      "NewErrorDetected",
+      "CriticalErrorOccurred"
+    ],
+    "status": "Configured",
+    "timestamp": "2026-01-06T08:24:37.153397"
+  }
+]

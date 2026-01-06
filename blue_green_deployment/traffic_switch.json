@@ -1,0 +1,46 @@
+[
+  {
+    "step": "Traffic Switch 10%",
+    "traffic_distribution": {
+      "blue": "90%",
+      "green": "10%"
+    },
+    "load_balancer_update": "Applied",
+    "service_mesh_update": "Applied",
+    "monitoring_update": "Applied",
+    "timestamp": "2026-01-06T07:27:06.319237"
+  },
+  {
+    "step": "Traffic Switch 25%",
+    "traffic_distribution": {
+      "blue": "75%",
+      "green": "25%"
+    },
+    "load_balancer_update": "Applied",
+    "service_mesh_update": "Applied",
+    "monitoring_update": "Applied",
+    "timestamp": "2026-01-06T07:27:07.331263"
+  },
+  {
+    "step": "Traffic Switch 50%",
+    "traffic_distribution": {
+      "blue": "50%",
+      "green": "50%"
+    },
+    "load_balancer_update": "Applied",
+    "service_mesh_update": "Applied",
+    "monitoring_update": "Applied",
+    "timestamp": "2026-01-06T07:27:08.354251"
+  },
+  {
+    "step": "Traffic Switch 100%",
+    "traffic_distribution": {
+      "blue": "0%",
+      "green": "100%"
+    },
+    "load_balancer_update": "Applied",
+    "service_mesh_update": "Applied",
+    "monitoring_update": "Applied",
+    "timestamp": "2026-01-06T07:27:09.368116"
+  }
+]

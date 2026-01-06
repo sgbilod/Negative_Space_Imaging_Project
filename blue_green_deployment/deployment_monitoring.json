@@ -1,0 +1,129 @@
+[
+  {
+    "minute": 1,
+    "metrics": {
+      "cpu_usage": "30%",
+      "memory_usage": "39%",
+      "response_time_p95": "181ms",
+      "error_rate": "0.027%",
+      "throughput": "1200 req/sec"
+    },
+    "timestamp": "2026-01-06T07:27:09.376831"
+  },
+  {
+    "minute": 2,
+    "metrics": {
+      "cpu_usage": "35%",
+      "memory_usage": "39%",
+      "response_time_p95": "186ms",
+      "error_rate": "0.024%",
+      "throughput": "1269 req/sec"
+    },
+    "timestamp": "2026-01-06T07:27:09.376875"
+  },
+  {
+    "minute": 3,
+    "metrics": {
+      "cpu_usage": "30%",
+      "memory_usage": "41%",
+      "response_time_p95": "189ms",
+      "error_rate": "0.023%",
+      "throughput": "1272 req/sec"
+    },
+    "timestamp": "2026-01-06T07:27:09.376895"
+  },
+  {
+    "minute": 4,
+    "metrics": {
+      "cpu_usage": "30%",
+      "memory_usage": "40%",
+      "response_time_p95": "193ms",
+      "error_rate": "0.023%",
+      "throughput": "1242 req/sec"
+    },
+    "timestamp": "2026-01-06T07:27:09.376908"
+  },
+  {
+    "minute": 5,
+    "metrics": {
+      "cpu_usage": "30%",
+      "memory_usage": "44%",
+      "response_time_p95": "196ms",
+      "error_rate": "0.021%",
+      "throughput": "1272 req/sec"
+    },
+    "timestamp": "2026-01-06T07:27:09.376918"
+  },
+  {
+    "minute": 6,
+    "metrics": {
+      "cpu_usage": "38%",
+      "memory_usage": "44%",
+      "response_time_p95": "199ms",
+      "error_rate": "0.028%",
+      "throughput": "1294 req/sec"
+    },
+    "timestamp": "2026-01-06T07:27:09.376930"
+  },
+  {
+    "minute": 7,
+    "metrics": {
+      "cpu_usage": "32%",
+      "memory_usage": "42%",
+      "response_time_p95": "186ms",
+      "error_rate": "0.021%",
+      "throughput": "1262 req/sec"
+    },
+    "timestamp": "2026-01-06T07:27:09.376941"
+  },
+  {
+    "minute": 8,
+    "metrics": {
+      "cpu_usage": "33%",
+      "memory_usage": "45%",
+      "response_time_p95": "167ms",
+      "error_rate": "0.023%",
+      "throughput": "1289 req/sec"
+    },
+    "timestamp": "2026-01-06T07:27:09.376952"
+  },
+  {
+    "minute": 9,
+    "metrics": {
+      "cpu_usage": "39%",
+      "memory_usage": "42%",
+      "response_time_p95": "174ms",
+      "error_rate": "0.027%",
+      "throughput": "1279 req/sec"
+    },
+    "timestamp": "2026-01-06T07:27:09.376964"
+  },
+  {
+    "minute": 10,
+    "metrics": {
+      "cpu_usage": "31%",
+      "memory_usage": "39%",
+      "response_time_p95": "183ms",
+      "error_rate": "0.023%",
+      "throughput": "1254 req/sec"
+    },
+    "timestamp": "2026-01-06T07:27:09.376991"
+  },
+  {
+    "analysis": "Performance Analysis",
+    "duration_monitored": "10 minutes",
+    "average_response_time": "185ms",
+    "peak_response_time": "220ms",
+    "average_error_rate": "0.025%",
+    "peak_error_rate": "0.045%",
+    "average_throughput": "1245 req/sec",
+    "performance_stability": "High",
+    "recommendations": [
+      "Monitor for another 24 hours",
+      "Consider scaling if load increases",
+      "Schedule regular performance reviews"
+    ],
+    "overall_assessment": "Excellent",
+    "timestamp": "2026-01-06T07:27:09.377000"
+  }
+]

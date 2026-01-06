@@ -1,0 +1,17 @@
+[
+  {
+    "action": "Scale down blue environment",
+    "status": "Completed",
+    "resources_freed": "3 pods, 2 services"
+  },
+  {
+    "action": "Remove old container images",
+    "status": "Completed",
+    "images_cleaned": "5 obsolete images"
+  },
+  {
+    "action": "Update DNS records",
+    "status": "Completed",
+    "records_updated": "2 CNAME records"
+  }
+]

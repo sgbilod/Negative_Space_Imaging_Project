@@ -1,0 +1,110 @@
+[
+  {
+    "alert_name": "HighCPUUsage",
+    "expression": "cpu_usage > 80",
+    "for": "5m",
+    "labels": {
+      "severity": "warning"
+    },
+    "annotations": {
+      "summary": "High CPU usage detected",
+      "description": "CPU usage is above 80% for 5 minutes"
+    }
+  },
+  {
+    "alert_name": "HighMemoryUsage",
+    "expression": "memory_usage > 85",
+    "for": "5m",
+    "labels": {
+      "severity": "warning"
+    },
+    "annotations": {
+      "summary": "High memory usage detected",
+      "description": "Memory usage is above 85% for 5 minutes"
+    }
+  },
+  {
+    "alert_name": "DiskSpaceLow",
+    "expression": "disk_usage > 90",
+    "for": "10m",
+    "labels": {
+      "severity": "critical"
+    },
+    "annotations": {
+      "summary": "Low disk space",
+      "description": "Disk usage is above 90% for 10 minutes"
+    }
+  },
+  {
+    "alert_name": "HighErrorRate",
+    "expression": "error_rate > 1",
+    "for": "5m",
+    "labels": {
+      "severity": "critical"
+    },
+    "annotations": {
+      "summary": "High error rate detected",
+      "description": "Error rate is above 1% for 5 minutes"
+    }
+  },
+  {
+    "alert_name": "SlowResponseTime",
+    "expression": "response_time_p95 > 500",
+    "for": "5m",
+    "labels": {
+      "severity": "warning"
+    },
+    "annotations": {
+      "summary": "Slow response time",
+      "description": "P95 response time is above 500ms for 5 minutes"
+    }
+  },
+  {
+    "alert_name": "LowUserEngagement",
+    "expression": "daily_active_users < 1000",
+    "for": "1h",
+    "labels": {
+      "severity": "warning"
+    },
+    "annotations": {
+      "summary": "Low user engagement",
+      "description": "Daily active users below 1000 for 1 hour"
+    }
+  },
+  {
+    "alert_name": "RevenueDrop",
+    "expression": "revenue_change < -10",
+    "for": "1h",
+    "labels": {
+      "severity": "critical"
+    },
+    "annotations": {
+      "summary": "Revenue drop detected",
+      "description": "Revenue decreased by more than 10% in 1 hour"
+    }
+  },
+  {
+    "alert_name": "SLOBurnRateHigh",
+    "expression": "slo_burn_rate > 2",
+    "for": "1h",
+    "labels": {
+      "severity": "warning"
+    },
+    "annotations": {
+      "summary": "High SLO burn rate",
+      "description": "SLO burn rate is above 2x for 1 hour"
+    }
+  },
+  {
+    "alert_name": "SLOViolation",
+    "expression": "slo_error_budget_remaining < 0",
+    "for": "5m",
+    "labels": {
+      "severity": "critical"
+    },
+    "annotations": {
+      "summary": "SLO violation",
+      "description": "Error budget exhausted for 5 minutes"
+    }
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "failure_timestamp": "2026-01-06T07:09:25.842654",
+  "error_message": "'charmap' codec can't encode characters in position 447-448: character maps to <undefined>",
+  "failure_type": "UnicodeEncodeError",
+  "recovery_actions": [
+    "Restart HIPAA compliance audit",
+    "Check PHI data access permissions",
+    "Validate audit logging configuration",
+    "Review compliance assessment tools",
+    "Escalate to compliance officer if persistent"
+  ],
+  "status": "FAILED_WITH_RECOVERY_ATTEMPTED"
+}

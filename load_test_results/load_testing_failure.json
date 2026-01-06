@@ -1,0 +1,13 @@
+{
+  "failure_timestamp": "2026-01-06T07:02:07.708011",
+  "error_message": "'charmap' codec can't encode character '\\u2705' in position 74: character maps to <undefined>",
+  "failure_type": "UnicodeEncodeError",
+  "recovery_actions": [
+    "Restart load testing infrastructure",
+    "Check system resource availability",
+    "Validate API endpoints accessibility",
+    "Review monitoring configuration",
+    "Escalate to human operator if persistent"
+  ],
+  "status": "FAILED_WITH_RECOVERY_ATTEMPTED"
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "vulnerability_id": "OWASP-A01-2021",
+    "title": "Broken Access Control",
+    "remediation_applied": true,
+    "remediation_type": "Configuration",
+    "changes_made": [],
+    "verification_status": "Pending",
+    "rollback_available": true
+  },
+  {
+    "vulnerability_id": "OWASP-A02-2021",
+    "title": "Cryptographic Failures",
+    "remediation_applied": true,
+    "remediation_type": "Configuration",
+    "changes_made": [],
+    "verification_status": "Pending",
+    "rollback_available": true
+  },
+  {
+    "vulnerability_id": "OWASP-A03-2021",
+    "title": "Injection",
+    "remediation_applied": true,
+    "remediation_type": "Configuration",
+    "changes_made": [],
+    "verification_status": "Pending",
+    "rollback_available": true
+  },
+  {
+    "vulnerability_id": "INFRA-001",
+    "title": "Outdated Software Version",
+    "remediation_applied": true,
+    "remediation_type": "Configuration",
+    "changes_made": [],
+    "verification_status": "Pending",
+    "rollback_available": true
+  },
+  {
+    "vulnerability_id": "INFRA-002",
+    "title": "Missing Security Headers",
+    "remediation_applied": true,
+    "remediation_type": "Configuration",
+    "changes_made": [],
+    "verification_status": "Pending",
+    "rollback_available": true
+  },
+  {
+    "vulnerability_id": "CRYPTO-001",
+    "title": "Weak Cipher Suite",
+    "remediation_applied": true,
+    "remediation_type": "Configuration",
+    "changes_made": [],
+    "verification_status": "Pending",
+    "rollback_available": true
+  },
+  {
+    "vulnerability_id": "API-001",
+    "title": "Missing Rate Limiting",
+    "remediation_applied": true,
+    "remediation_type": "Configuration",
+    "changes_made": [],
+    "verification_status": "Pending",
+    "rollback_available": true
+  },
+  {
+    "vulnerability_id": "API-002",
+    "title": "Information Disclosure",
+    "remediation_applied": true,
+    "remediation_type": "Configuration",
+    "changes_made": [],
+    "verification_status": "Pending",
+    "rollback_available": true
+  }
+]

@@ -1,0 +1,127 @@
+[
+  {
+    "component": "Kubernetes Monitoring",
+    "metrics": [
+      "node_cpu_usage",
+      "node_memory_usage",
+      "pod_status",
+      "container_resource_usage",
+      "network_traffic",
+      "storage_usage"
+    ],
+    "exporters": [
+      "kube-state-metrics",
+      "node-exporter",
+      "cAdvisor"
+    ],
+    "service_monitors": [
+      "prometheus-operator",
+      "kube-prometheus-stack"
+    ],
+    "alert_rules": [
+      "KubeNodeNotReady",
+      "KubePodCrashLooping",
+      "KubePodNotReady",
+      "KubeCPUOvercommit",
+      "KubeMemoryOvercommit"
+    ],
+    "status": "Configured",
+    "timestamp": "2026-01-06T08:24:37.143657"
+  },
+  {
+    "component": "Database Monitoring",
+    "databases": [
+      "PostgreSQL",
+      "Redis",
+      "MongoDB"
+    ],
+    "metrics": [
+      "connection_count",
+      "query_latency",
+      "active_connections",
+      "slow_queries",
+      "cache_hit_ratio",
+      "disk_usage"
+    ],
+    "exporters": [
+      "postgres_exporter",
+      "redis_exporter",
+      "mongodb_exporter"
+    ],
+    "alert_rules": [
+      "DatabaseDown",
+      "DatabaseHighConnectionCount",
+      "DatabaseSlowQuery",
+      "DatabaseHighDiskUsage"
+    ],
+    "status": "Configured",
+    "timestamp": "2026-01-06T08:24:37.143690"
+  },
+  {
+    "component": "Network Monitoring",
+    "metrics": [
+      "bandwidth_usage",
+      "packet_loss",
+      "latency",
+      "error_rate",
+      "connection_count"
+    ],
+    "tools": [
+      "blackbox_exporter",
+      "snmp_exporter",
+      "speedtest_exporter"
+    ],
+    "alert_rules": [
+      "NetworkHighLatency",
+      "NetworkPacketLoss",
+      "NetworkHighErrorRate",
+      "NetworkInterfaceDown"
+    ],
+    "status": "Configured",
+    "timestamp": "2026-01-06T08:24:37.143698"
+  },
+  {
+    "component": "Storage Monitoring",
+    "metrics": [
+      "disk_usage",
+      "inode_usage",
+      "iops",
+      "latency",
+      "throughput"
+    ],
+    "exporters": [
+      "node_exporter",
+      "storage_exporter"
+    ],
+    "alert_rules": [
+      "DiskSpaceLow",
+      "DiskInodeUsageHigh",
+      "StorageLatencyHigh",
+      "StorageIOPSHigh"
+    ],
+    "status": "Configured",
+    "timestamp": "2026-01-06T08:24:37.143705"
+  },
+  {
+    "component": "Hardware Monitoring",
+    "metrics": [
+      "cpu_temperature",
+      "fan_speed",
+      "power_consumption",
+      "memory_ecc_errors",
+      "disk_smart_status"
+    ],
+    "exporters": [
+      "ipmi_exporter",
+      "smartctl_exporter"
+    ],
+    "alert_rules": [
+      "HardwareHighTemperature",
+      "HardwareFanFailure",
+      "HardwareECCError",
+      "HardwareDiskFailure"
+    ],
+    "status": "Configured",
+    "timestamp": "2026-01-06T08:24:37.143711"
+  }
+]

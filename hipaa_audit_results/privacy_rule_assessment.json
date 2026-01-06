@@ -1,0 +1,119 @@
+[
+  {
+    "area": "Individual Rights",
+    "compliance_level": "High",
+    "findings": [
+      {
+        "requirement": "Right to access PHI",
+        "status": "Compliant",
+        "evidence": "API endpoints provide PHI access with proper authentication",
+        "score": 95
+      },
+      {
+        "requirement": "Right to amend PHI",
+        "status": "Compliant",
+        "evidence": "Amendment procedures documented and implemented",
+        "score": 90
+      },
+      {
+        "requirement": "Right to accounting of disclosures",
+        "status": "Partially Compliant",
+        "evidence": "Audit logging implemented but accounting reports need enhancement",
+        "score": 75,
+        "recommendations": [
+          "Implement automated disclosure accounting reports"
+        ]
+      }
+    ],
+    "overall_score": 87,
+    "critical_findings": 0
+  },
+  {
+    "area": "Notice of Privacy Practices",
+    "compliance_level": "High",
+    "findings": [
+      {
+        "requirement": "NPP content accuracy",
+        "status": "Compliant",
+        "evidence": "NPP document reviewed and approved by legal counsel",
+        "score": 100
+      },
+      {
+        "requirement": "NPP distribution",
+        "status": "Compliant",
+        "evidence": "NPP provided to all patients and available online",
+        "score": 95
+      }
+    ],
+    "overall_score": 98,
+    "critical_findings": 0
+  },
+  {
+    "area": "Minimum Necessary Standard",
+    "compliance_level": "Medium",
+    "findings": [
+      {
+        "requirement": "Role-based access controls",
+        "status": "Compliant",
+        "evidence": "RBAC implemented with least privilege principle",
+        "score": 90
+      },
+      {
+        "requirement": "Data minimization",
+        "status": "Needs Improvement",
+        "evidence": "Some queries retrieve more data than necessary",
+        "score": 65,
+        "recommendations": [
+          "Implement field-level access controls",
+          "Review query patterns"
+        ]
+      }
+    ],
+    "overall_score": 78,
+    "critical_findings": 1
+  },
+  {
+    "area": "Uses and Disclosures",
+    "compliance_level": "High",
+    "findings": [
+      {
+        "requirement": "Permitted uses without authorization",
+        "status": "Compliant",
+        "evidence": "Treatment, payment, and operations uses properly implemented",
+        "score": 95
+      },
+      {
+        "requirement": "Marketing disclosures",
+        "status": "Compliant",
+        "evidence": "Marketing authorization obtained before disclosures",
+        "score": 90
+      }
+    ],
+    "overall_score": 93,
+    "critical_findings": 0
+  },
+  {
+    "area": "Authorization Requirements",
+    "compliance_level": "Medium",
+    "findings": [
+      {
+        "requirement": "Authorization forms",
+        "status": "Compliant",
+        "evidence": "Standard authorization templates in use",
+        "score": 85
+      },
+      {
+        "requirement": "Authorization validity",
+        "status": "Needs Improvement",
+        "evidence": "Some authorizations lack expiration dates",
+        "score": 60,
+        "recommendations": [
+          "Add expiration dates to all authorizations",
+          "Implement authorization renewal process"
+        ]
+      }
+    ],
+    "overall_score": 73,
+    "critical_findings": 1
+  }
+]

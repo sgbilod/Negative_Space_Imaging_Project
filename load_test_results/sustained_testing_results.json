@@ -1,0 +1,26 @@
+{
+  "phase": "sustained",
+  "target_rps": 1000,
+  "duration": "30m",
+  "actual_rps_avg": 1013.7143364123227,
+  "actual_rps_min": 950.0,
+  "actual_rps_max": 1050.0,
+  "avg_response_time": 235,
+  "p95_response_time": 394,
+  "p99_response_time": 483,
+  "error_rate": 0.005380250355185259,
+  "throughput_mb_per_sec": 74.15923333477731,
+  "cpu_usage_avg": 68.0995366514612,
+  "memory_usage_avg": 74.06214544367651,
+  "bottlenecks_identified": [
+    "Database connection pool at 80% capacity",
+    "API gateway rate limiting active",
+    "Image processing queue backing up"
+  ],
+  "recommendations": [
+    "Increase database connection pool size by 25%",
+    "Optimize image processing pipeline",
+    "Implement response caching for analytics endpoints"
+  ],
+  "timestamp": "2026-01-06T07:02:07.679220"
+}

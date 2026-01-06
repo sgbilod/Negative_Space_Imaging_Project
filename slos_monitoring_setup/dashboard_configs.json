@@ -1,0 +1,230 @@
+[
+  {
+    "dashboard_name": "Infrastructure Overview",
+    "panels": [
+      {
+        "title": "CPU Usage",
+        "type": "graph",
+        "metrics": [
+          "cpu_usage"
+        ],
+        "layout": {
+          "x": 0,
+          "y": 0,
+          "w": 12,
+          "h": 8
+        }
+      },
+      {
+        "title": "Memory Usage",
+        "type": "graph",
+        "metrics": [
+          "memory_usage"
+        ],
+        "layout": {
+          "x": 12,
+          "y": 0,
+          "w": 12,
+          "h": 8
+        }
+      },
+      {
+        "title": "Network Traffic",
+        "type": "graph",
+        "metrics": [
+          "network_in",
+          "network_out"
+        ],
+        "layout": {
+          "x": 0,
+          "y": 8,
+          "w": 12,
+          "h": 8
+        }
+      },
+      {
+        "title": "Disk Usage",
+        "type": "graph",
+        "metrics": [
+          "disk_usage"
+        ],
+        "layout": {
+          "x": 12,
+          "y": 8,
+          "w": 12,
+          "h": 8
+        }
+      }
+    ],
+    "refresh_interval": "30s",
+    "time_range": "1h",
+    "status": "Created",
+    "timestamp": "2026-01-06T08:24:37.194100"
+  },
+  {
+    "dashboard_name": "Application Performance",
+    "panels": [
+      {
+        "title": "Response Time",
+        "type": "graph",
+        "metrics": [
+          "response_time_p50",
+          "response_time_p95",
+          "response_time_p99"
+        ],
+        "layout": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 8
+        }
+      },
+      {
+        "title": "Error Rate",
+        "type": "graph",
+        "metrics": [
+          "error_rate"
+        ],
+        "layout": {
+          "x": 0,
+          "y": 8,
+          "w": 12,
+          "h": 8
+        }
+      },
+      {
+        "title": "Throughput",
+        "type": "graph",
+        "metrics": [
+          "request_rate"
+        ],
+        "layout": {
+          "x": 12,
+          "y": 8,
+          "w": 12,
+          "h": 8
+        }
+      }
+    ],
+    "refresh_interval": "30s",
+    "time_range": "1h",
+    "status": "Created",
+    "timestamp": "2026-01-06T08:24:37.194124"
+  },
+  {
+    "dashboard_name": "Business Metrics",
+    "panels": [
+      {
+        "title": "User Engagement",
+        "type": "stat",
+        "metrics": [
+          "daily_active_users",
+          "session_duration"
+        ],
+        "layout": {
+          "x": 0,
+          "y": 0,
+          "w": 12,
+          "h": 8
+        }
+      },
+      {
+        "title": "Revenue Metrics",
+        "type": "graph",
+        "metrics": [
+          "monthly_recurring_revenue",
+          "average_revenue_per_user"
+        ],
+        "layout": {
+          "x": 12,
+          "y": 0,
+          "w": 12,
+          "h": 8
+        }
+      },
+      {
+        "title": "Conversion Funnel",
+        "type": "funnel",
+        "metrics": [
+          "visitors",
+          "signups",
+          "conversions"
+        ],
+        "layout": {
+          "x": 0,
+          "y": 8,
+          "w": 24,
+          "h": 8
+        }
+      }
+    ],
+    "refresh_interval": "5m",
+    "time_range": "7d",
+    "status": "Created",
+    "timestamp": "2026-01-06T08:24:37.194134"
+  },
+  {
+    "dashboard_name": "SLO Tracking",
+    "panels": [
+      {
+        "title": "Availability SLO",
+        "type": "gauge",
+        "metrics": [
+          "availability_percentage"
+        ],
+        "target": 99.9,
+        "layout": {
+          "x": 0,
+          "y": 0,
+          "w": 8,
+          "h": 8
+        }
+      },
+      {
+        "title": "Latency SLO",
+        "type": "gauge",
+        "metrics": [
+          "latency_p95"
+        ],
+        "target": 200,
+        "layout": {
+          "x": 8,
+          "y": 0,
+          "w": 8,
+          "h": 8
+        }
+      },
+      {
+        "title": "Error Budget",
+        "type": "gauge",
+        "metrics": [
+          "error_budget_remaining"
+        ],
+        "target": 99.9,
+        "layout": {
+          "x": 16,
+          "y": 0,
+          "w": 8,
+          "h": 8
+        }
+      },
+      {
+        "title": "SLO Burn Rate",
+        "type": "graph",
+        "metrics": [
+          "slo_burn_rate"
+        ],
+        "layout": {
+          "x": 0,
+          "y": 8,
+          "w": 24,
+          "h": 8
+        }
+      }
+    ],
+    "refresh_interval": "1m",
+    "time_range": "30d",
+    "status": "Created",
+    "timestamp": "2026-01-06T08:24:37.194145"
+  }
+]

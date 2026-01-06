@@ -1,0 +1,107 @@
+[
+  {
+    "slo_name": "Service Availability",
+    "target": "99.9%",
+    "measurement_window": "30 days",
+    "error_budget": "0.1%",
+    "indicators": [
+      "uptime_percentage",
+      "successful_requests",
+      "service_health_checks"
+    ],
+    "burn_rate_alerts": [
+      {
+        "threshold": 2,
+        "severity": "warning"
+      },
+      {
+        "threshold": 5,
+        "severity": "critical"
+      },
+      {
+        "threshold": 10,
+        "severity": "emergency"
+      }
+    ],
+    "status": "Defined",
+    "timestamp": "2026-01-06T08:24:37.172831"
+  },
+  {
+    "slo_name": "Request Latency",
+    "target": "200ms P95",
+    "measurement_window": "1 hour",
+    "error_budget": "5%",
+    "indicators": [
+      "response_time_p95",
+      "response_time_p99",
+      "request_duration"
+    ],
+    "alerts": [
+      {
+        "condition": "p95 > 200ms",
+        "severity": "warning"
+      },
+      {
+        "condition": "p95 > 500ms",
+        "severity": "critical"
+      }
+    ],
+    "status": "Defined",
+    "timestamp": "2026-01-06T08:24:37.172849"
+  },
+  {
+    "slo_name": "Error Budget",
+    "target": "0.1% error rate",
+    "measurement_window": "1 hour",
+    "error_budget": "99.9% success rate",
+    "indicators": [
+      "http_5xx_errors",
+      "application_errors",
+      "timeout_errors"
+    ],
+    "alerts": [
+      {
+        "condition": "error_rate > 0.1%",
+        "severity": "warning"
+      },
+      {
+        "condition": "error_rate > 1%",
+        "severity": "critical"
+      }
+    ],
+    "status": "Defined",
+    "timestamp": "2026-01-06T08:24:37.172857"
+  },
+  {
+    "slo_name": "Business Metrics SLOs",
+    "slos": [
+      {
+        "metric": "User Retention",
+        "target": "85%",
+        "window": "30 days"
+      },
+      {
+        "metric": "Conversion Rate",
+        "target": "3%",
+        "window": "7 days"
+      },
+      {
+        "metric": "Revenue Growth",
+        "target": "10% MoM",
+        "window": "30 days"
+      }
+    ],
+    "alerts": [
+      {
+        "condition": "retention < 85%",
+        "severity": "warning"
+      },
+      {
+        "condition": "conversion < 3%",
+        "severity": "critical"
+      }
+    ],
+    "status": "Defined",
+    "timestamp": "2026-01-06T08:24:37.172864"
+  }
+]

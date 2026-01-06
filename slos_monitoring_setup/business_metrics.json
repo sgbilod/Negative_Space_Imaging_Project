@@ -1,0 +1,82 @@
+[
+  {
+    "category": "User Engagement",
+    "metrics": [
+      "daily_active_users",
+      "monthly_active_users",
+      "session_duration",
+      "page_views",
+      "user_retention_rate"
+    ],
+    "collection": "Application analytics",
+    "thresholds": {
+      "daily_active_users": {
+        "warning": 1000,
+        "critical": 500
+      },
+      "session_duration": {
+        "warning": "2m",
+        "critical": "30s"
+      },
+      "user_retention_rate": {
+        "warning": "70%",
+        "critical": "50%"
+      }
+    },
+    "status": "Configured",
+    "timestamp": "2026-01-06T08:24:37.163158"
+  },
+  {
+    "category": "Performance KPIs",
+    "metrics": [
+      "response_time_p95",
+      "error_rate",
+      "throughput",
+      "availability_uptime",
+      "mttr"
+    ],
+    "slos": {
+      "response_time_p95": "200ms",
+      "error_rate": "0.1%",
+      "availability_uptime": "99.9%",
+      "mttr": "5 minutes"
+    },
+    "status": "Configured",
+    "timestamp": "2026-01-06T08:24:37.163180"
+  },
+  {
+    "category": "Revenue Metrics",
+    "metrics": [
+      "monthly_recurring_revenue",
+      "average_revenue_per_user",
+      "customer_acquisition_cost",
+      "customer_lifetime_value",
+      "churn_rate"
+    ],
+    "alerts": [
+      "RevenueDropWarning",
+      "HighChurnRate",
+      "LowCLV"
+    ],
+    "status": "Configured",
+    "timestamp": "2026-01-06T08:24:37.163187"
+  },
+  {
+    "category": "Operational Metrics",
+    "metrics": [
+      "incident_count",
+      "mttr",
+      "mtbf",
+      "deployment_frequency",
+      "lead_time_for_changes"
+    ],
+    "targets": {
+      "mttr": "< 1 hour",
+      "mtbf": "> 30 days",
+      "deployment_frequency": "daily",
+      "lead_time_for_changes": "< 1 hour"
+    },
+    "status": "Configured",
+    "timestamp": "2026-01-06T08:24:37.163194"
+  }
+]

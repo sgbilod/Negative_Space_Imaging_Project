@@ -1,0 +1,91 @@
+{
+  "data_types_audited": [
+    "Patient demographics",
+    "Medical records",
+    "Diagnostic images",
+    "Treatment histories",
+    "Payment information",
+    "Biometric data"
+  ],
+  "handling_practices": [
+    {
+      "data_type": "Patient demographics",
+      "storage_location": "Encrypted database",
+      "access_controls": "RBAC implemented",
+      "encryption": "AES-256 at rest",
+      "transmission": "TLS 1.3",
+      "compliance_score": 90,
+      "issues_found": []
+    },
+    {
+      "data_type": "Medical records",
+      "storage_location": "Encrypted database",
+      "access_controls": "RBAC implemented",
+      "encryption": "AES-256 at rest",
+      "transmission": "TLS 1.3",
+      "compliance_score": 90,
+      "issues_found": []
+    },
+    {
+      "data_type": "Diagnostic images",
+      "storage_location": "Encrypted database",
+      "access_controls": "RBAC implemented",
+      "encryption": "AES-256 at rest",
+      "transmission": "TLS 1.3",
+      "compliance_score": 90,
+      "issues_found": []
+    },
+    {
+      "data_type": "Treatment histories",
+      "storage_location": "Encrypted database",
+      "access_controls": "RBAC implemented",
+      "encryption": "AES-256 at rest",
+      "transmission": "TLS 1.3",
+      "compliance_score": 90,
+      "issues_found": []
+    },
+    {
+      "data_type": "Payment information",
+      "storage_location": "Encrypted database",
+      "access_controls": "RBAC implemented",
+      "encryption": "AES-256 at rest",
+      "transmission": "TLS 1.3",
+      "compliance_score": 90,
+      "issues_found": []
+    },
+    {
+      "data_type": "Biometric data",
+      "storage_location": "Encrypted database",
+      "access_controls": "RBAC implemented",
+      "encryption": "AES-256 at rest",
+      "transmission": "TLS 1.3",
+      "compliance_score": 90,
+      "issues_found": []
+    }
+  ],
+  "encryption_assessment": {
+    "at_rest_encryption": "AES-256 implemented",
+    "in_transit_encryption": "TLS 1.3 required",
+    "key_management": "HSM-based key management",
+    "compliance_score": 95,
+    "issues_found": []
+  },
+  "retention_policies": {
+    "policy_documented": true,
+    "retention_periods_defined": true,
+    "automatic_deletion": false,
+    "compliance_score": 80,
+    "issues_found": [
+      "Implement automated retention enforcement"
+    ]
+  },
+  "disposal_procedures": {
+    "secure_deletion": true,
+    "documentation_required": true,
+    "verification_process": false,
+    "compliance_score": 75,
+    "issues_found": [
+      "Add disposal verification procedures"
+    ]
+  }
+}

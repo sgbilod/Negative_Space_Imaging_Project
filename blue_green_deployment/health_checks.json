@@ -1,0 +1,122 @@
+[
+  {
+    "check": "Container Health",
+    "services": [
+      {
+        "service": "api-gateway",
+        "status": "Healthy",
+        "response_time": "45ms"
+      },
+      {
+        "service": "app-server",
+        "status": "Healthy",
+        "response_time": "120ms"
+      },
+      {
+        "service": "database-proxy",
+        "status": "Healthy",
+        "response_time": "15ms"
+      },
+      {
+        "service": "cache-service",
+        "status": "Healthy",
+        "response_time": "5ms"
+      }
+    ],
+    "overall_status": "Passed",
+    "timestamp": "2026-01-06T07:27:06.308505"
+  },
+  {
+    "check": "Service Connectivity",
+    "connections": [
+      {
+        "from": "api-gateway",
+        "to": "app-server",
+        "status": "Connected"
+      },
+      {
+        "from": "app-server",
+        "to": "database-proxy",
+        "status": "Connected"
+      },
+      {
+        "from": "app-server",
+        "to": "cache-service",
+        "status": "Connected"
+      }
+    ],
+    "network_latency": "12ms average",
+    "packet_loss": "0%",
+    "overall_status": "Passed",
+    "timestamp": "2026-01-06T07:27:06.308524"
+  },
+  {
+    "check": "Database Connectivity",
+    "connections": [
+      {
+        "database": "primary",
+        "status": "Connected",
+        "latency": "8ms"
+      },
+      {
+        "database": "replica",
+        "status": "Connected",
+        "latency": "12ms"
+      }
+    ],
+    "query_performance": "Within acceptable limits",
+    "connection_pool": "Healthy",
+    "overall_status": "Passed",
+    "timestamp": "2026-01-06T07:27:06.308531"
+  },
+  {
+    "check": "API Endpoints",
+    "endpoints": [
+      {
+        "endpoint": "/api/v1/health",
+        "status": "200 OK",
+        "response_time": "25ms"
+      },
+      {
+        "endpoint": "/api/v1/users",
+        "status": "200 OK",
+        "response_time": "85ms"
+      },
+      {
+        "endpoint": "/api/v1/data",
+        "status": "200 OK",
+        "response_time": "145ms"
+      }
+    ],
+    "authentication": "Working",
+    "rate_limiting": "Functional",
+    "overall_status": "Passed",
+    "timestamp": "2026-01-06T07:27:06.308537"
+  },
+  {
+    "check": "Load Balancer",
+    "configuration": {
+      "algorithm": "Least connections",
+      "health_checks": "Enabled",
+      "ssl_termination": "Configured"
+    },
+    "traffic_distribution": "Balanced",
+    "failover": "Ready",
+    "overall_status": "Passed",
+    "timestamp": "2026-01-06T07:27:06.308543"
+  },
+  {
+    "check": "Performance Baseline",
+    "metrics": {
+      "cpu_usage": "35%",
+      "memory_usage": "42%",
+      "response_time_p95": "180ms",
+      "error_rate": "0.02%",
+      "throughput": "1250 req/sec"
+    },
+    "baseline_comparison": "Within expected ranges",
+    "scalability_test": "Passed",
+    "overall_status": "Passed",
+    "timestamp": "2026-01-06T07:27:06.308548"
+  }
+]

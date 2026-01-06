@@ -1,0 +1,87 @@
+[
+  {
+    "area": "Administrative Safeguards",
+    "compliance_level": "High",
+    "findings": [
+      {
+        "requirement": "Security management process",
+        "status": "Compliant",
+        "evidence": "Security officer appointed, policies documented",
+        "score": 95
+      },
+      {
+        "requirement": "Assigned security responsibility",
+        "status": "Compliant",
+        "evidence": "Clear security roles and responsibilities defined",
+        "score": 90
+      },
+      {
+        "requirement": "Information access management",
+        "status": "Partially Compliant",
+        "evidence": "Access controls implemented but periodic review needed",
+        "score": 75,
+        "recommendations": [
+          "Implement quarterly access reviews"
+        ]
+      }
+    ],
+    "overall_score": 87,
+    "critical_findings": 0
+  },
+  {
+    "area": "Physical Safeguards",
+    "compliance_level": "High",
+    "findings": [
+      {
+        "requirement": "Facility access controls",
+        "status": "Compliant",
+        "evidence": "Physical access controls and visitor logs maintained",
+        "score": 95
+      },
+      {
+        "requirement": "Workstation security",
+        "status": "Compliant",
+        "evidence": "Clean desk policy and workstation security measures",
+        "score": 90
+      }
+    ],
+    "overall_score": 93,
+    "critical_findings": 0
+  },
+  {
+    "area": "Technical Safeguards",
+    "compliance_level": "Medium",
+    "findings": [
+      {
+        "requirement": "Access control",
+        "status": "Compliant",
+        "evidence": "Multi-factor authentication and role-based access",
+        "score": 90
+      },
+      {
+        "requirement": "Audit controls",
+        "status": "Compliant",
+        "evidence": "Comprehensive audit logging implemented",
+        "score": 85
+      },
+      {
+        "requirement": "Integrity controls",
+        "status": "Needs Improvement",
+        "evidence": "Data integrity mechanisms partially implemented",
+        "score": 65,
+        "recommendations": [
+          "Implement data integrity verification",
+          "Add checksum validation"
+        ]
+      },
+      {
+        "requirement": "Transmission security",
+        "status": "Compliant",
+        "evidence": "TLS 1.3 encryption for all data transmission",
+        "score": 95
+      }
+    ],
+    "overall_score": 84,
+    "critical_findings": 1
+  }
+]

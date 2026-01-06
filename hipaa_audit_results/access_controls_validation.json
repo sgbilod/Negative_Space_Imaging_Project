@@ -1,0 +1,17 @@
+{
+  "authentication_methods": [
+    "MFA",
+    "Biometric",
+    "Certificate-based"
+  ],
+  "authorization_models": [
+    "RBAC",
+    "ABAC"
+  ],
+  "access_reviews": "Quarterly",
+  "emergency_access": "Break-glass procedures documented",
+  "compliance_score": 88,
+  "issues_found": [
+    "Implement automated access review reminders"
+  ]
+}

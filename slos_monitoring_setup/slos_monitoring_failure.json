@@ -1,0 +1,22 @@
+{
+  "failure_timestamp": "2026-01-06T08:24:37.226265",
+  "error_message": "'charmap' codec can't encode character '\\u2705' in position 388: character maps to <undefined>",
+  "failure_type": "UnicodeEncodeError",
+  "monitoring_state": {
+    "infrastructure_monitoring": true,
+    "application_monitoring": true,
+    "business_metrics": true,
+    "slos_defined": true,
+    "alerting_configured": true,
+    "dashboards_created": true
+  },
+  "recovery_actions": [
+    "Retry monitoring setup with corrected configuration",
+    "Verify infrastructure prerequisites",
+    "Check service mesh and observability stack",
+    "Validate SLO definitions and alerting rules",
+    "Review dashboard configurations",
+    "Manual setup of failed components"
+  ],
+  "status": "FAILED_WITH_RECOVERY_ATTEMPTED"
+}

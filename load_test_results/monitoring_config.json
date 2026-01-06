@@ -1,0 +1,40 @@
+{
+  "prometheus": {
+    "job_name": "load-testing",
+    "static_configs": [
+      {
+        "targets": [
+          "localhost:8089"
+        ]
+      }
+    ],
+    "metrics_path": "/metrics"
+  },
+  "grafana": {
+    "dashboard": {
+      "title": "Load Testing Dashboard",
+      "panels": [
+        {
+          "title": "Request Rate",
+          "type": "graph"
+        },
+        {
+          "title": "Response Time",
+          "type": "graph"
+        },
+        {
+          "title": "Error Rate",
+          "type": "graph"
+        },
+        {
+          "title": "CPU Usage",
+          "type": "graph"
+        },
+        {
+          "title": "Memory Usage",
+          "type": "graph"
+        }
+      ]
+    }
+  }
+}

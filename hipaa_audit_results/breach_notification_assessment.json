@@ -1,0 +1,35 @@
+{
+  "area": "Breach Notification Rule",
+  "compliance_level": "High",
+  "findings": [
+    {
+      "requirement": "Breach definition",
+      "status": "Compliant",
+      "evidence": "Breach definition understood and documented",
+      "score": 95
+    },
+    {
+      "requirement": "Notification timing",
+      "status": "Compliant",
+      "evidence": "60-day notification requirement documented",
+      "score": 90
+    },
+    {
+      "requirement": "Notification content",
+      "status": "Compliant",
+      "evidence": "Notification templates prepared and approved",
+      "score": 90
+    },
+    {
+      "requirement": "Notification methods",
+      "status": "Partially Compliant",
+      "evidence": "Electronic notification system implemented but media notification needs review",
+      "score": 75,
+      "recommendations": [
+        "Review media notification procedures"
+      ]
+    }
+  ],
+  "overall_score": 88,
+  "critical_findings": 0
+}

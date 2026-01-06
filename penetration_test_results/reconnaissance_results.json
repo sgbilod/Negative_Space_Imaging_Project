@@ -1,0 +1,210 @@
+{
+  "target_discovery": [
+    {
+      "url": "http://localhost:8000/api/health",
+      "method": "GET",
+      "description": "Health check endpoint"
+    },
+    {
+      "url": "http://localhost:8000/api/images",
+      "method": "GET",
+      "description": "Images endpoint"
+    },
+    {
+      "url": "http://localhost:8000/api/process",
+      "method": "POST",
+      "description": "Image processing endpoint"
+    },
+    {
+      "url": "http://localhost:8000/api/analytics",
+      "method": "GET",
+      "description": "Analytics endpoint"
+    },
+    {
+      "url": "http://localhost:8000/api/auth/login",
+      "method": "POST",
+      "description": "Authentication endpoint"
+    },
+    {
+      "url": "http://localhost:3000/api/health",
+      "method": "GET",
+      "description": "Health check endpoint"
+    },
+    {
+      "url": "http://localhost:3000/api/images",
+      "method": "GET",
+      "description": "Images endpoint"
+    },
+    {
+      "url": "http://localhost:3000/api/process",
+      "method": "POST",
+      "description": "Image processing endpoint"
+    },
+    {
+      "url": "http://localhost:3000/api/analytics",
+      "method": "GET",
+      "description": "Analytics endpoint"
+    },
+    {
+      "url": "http://localhost:3000/api/auth/login",
+      "method": "POST",
+      "description": "Authentication endpoint"
+    }
+  ],
+  "service_enumeration": [
+    {
+      "target": "http://localhost:8000",
+      "services": [
+        "FastAPI"
+      ],
+      "ports": [
+        8000
+      ],
+      "versions": {
+        "FastAPI": "0.104.1"
+      }
+    },
+    {
+      "target": "http://localhost:3000",
+      "services": [
+        "React"
+      ],
+      "ports": [
+        3000
+      ],
+      "versions": {
+        "React": "18.2.0"
+      }
+    },
+    {
+      "target": "localhost:5432",
+      "services": [
+        "PostgreSQL"
+      ],
+      "ports": [
+        5432
+      ],
+      "versions": {
+        "PostgreSQL": "15.4"
+      }
+    },
+    {
+      "target": "localhost:6379",
+      "services": [
+        "Redis"
+      ],
+      "ports": [
+        6379
+      ],
+      "versions": {
+        "Redis": "7.2.0"
+      }
+    }
+  ],
+  "endpoint_discovery": [
+    {
+      "path": "/api/health",
+      "method": "GET",
+      "parameters": [],
+      "authentication": "None",
+      "description": "System health check"
+    },
+    {
+      "path": "/api/images",
+      "method": "GET",
+      "parameters": [
+        "limit",
+        "offset"
+      ],
+      "authentication": "Bearer Token",
+      "description": "Retrieve images"
+    },
+    {
+      "path": "/api/process",
+      "method": "POST",
+      "parameters": [
+        "image_url",
+        "processing_options"
+      ],
+      "authentication": "Bearer Token",
+      "description": "Process image"
+    },
+    {
+      "path": "/api/analytics",
+      "method": "GET",
+      "parameters": [
+        "period"
+      ],
+      "authentication": "Bearer Token",
+      "description": "Get analytics data"
+    },
+    {
+      "path": "/api/auth/login",
+      "method": "POST",
+      "parameters": [
+        "username",
+        "password"
+      ],
+      "authentication": "None",
+      "description": "User authentication"
+    }
+  ],
+  "technology_fingerprinting": [
+    {
+      "target": "http://localhost:8000",
+      "web_server": "nginx/1.24.0",
+      "application": "FastAPI/0.104.1",
+      "database": "PostgreSQL/15.4",
+      "cache": "Redis/7.2.0",
+      "frontend": "React/18.2.0",
+      "security_headers": {
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'",
+        "Strict-Transport-Security": "max-age=31536000"
+      }
+    },
+    {
+      "target": "http://localhost:3000",
+      "web_server": "nginx/1.24.0",
+      "application": "FastAPI/0.104.1",
+      "database": "PostgreSQL/15.4",
+      "cache": "Redis/7.2.0",
+      "frontend": "React/18.2.0",
+      "security_headers": {
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'",
+        "Strict-Transport-Security": "max-age=31536000"
+      }
+    },
+    {
+      "target": "localhost:5432",
+      "web_server": "nginx/1.24.0",
+      "application": "FastAPI/0.104.1",
+      "database": "PostgreSQL/15.4",
+      "cache": "Redis/7.2.0",
+      "frontend": "React/18.2.0",
+      "security_headers": {
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'",
+        "Strict-Transport-Security": "max-age=31536000"
+      }
+    },
+    {
+      "target": "localhost:6379",
+      "web_server": "nginx/1.24.0",
+      "application": "FastAPI/0.104.1",
+      "database": "PostgreSQL/15.4",
+      "cache": "Redis/7.2.0",
+      "frontend": "React/18.2.0",
+      "security_headers": {
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'",
+        "Strict-Transport-Security": "max-age=31536000"
+      }
+    }
+  ]
+}
