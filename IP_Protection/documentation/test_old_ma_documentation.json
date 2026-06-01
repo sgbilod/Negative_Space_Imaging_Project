@@ -1,0 +1,378 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\ma\\tests\\test_old_ma.py",
+  "classes": [
+    {
+      "name": "TestMa",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_testBasic1d",
+          "docstring": null
+        },
+        {
+          "name": "test_testBasic2d",
+          "docstring": null
+        },
+        {
+          "name": "test_testArithmetic",
+          "docstring": null
+        },
+        {
+          "name": "test_testMixedArithmetic",
+          "docstring": null
+        },
+        {
+          "name": "test_testUfuncs1",
+          "docstring": null
+        },
+        {
+          "name": "test_xtestCount",
+          "docstring": null
+        },
+        {
+          "name": "test_testMinMax",
+          "docstring": null
+        },
+        {
+          "name": "test_testAddSumProd",
+          "docstring": null
+        },
+        {
+          "name": "test_testCI",
+          "docstring": null
+        },
+        {
+          "name": "test_testCopySize",
+          "docstring": null
+        },
+        {
+          "name": "test_testPut",
+          "docstring": null
+        },
+        {
+          "name": "test_testPut2",
+          "docstring": null
+        },
+        {
+          "name": "test_testMaPut",
+          "docstring": null
+        },
+        {
+          "name": "test_testOddFeatures",
+          "docstring": null
+        },
+        {
+          "name": "test_testMinMax2",
+          "docstring": null
+        },
+        {
+          "name": "test_testTakeTransposeInnerOuter",
+          "docstring": null
+        },
+        {
+          "name": "test_testInplace",
+          "docstring": null
+        },
+        {
+          "name": "test_testPickle",
+          "docstring": null
+        },
+        {
+          "name": "test_testMasked",
+          "docstring": null
+        },
+        {
+          "name": "test_testAverage1",
+          "docstring": null
+        },
+        {
+          "name": "test_testAverage2",
+          "docstring": null
+        },
+        {
+          "name": "test_testToPython",
+          "docstring": null
+        },
+        {
+          "name": "test_testScalarArithmetic",
+          "docstring": null
+        },
+        {
+          "name": "test_testArrayMethods",
+          "docstring": null
+        },
+        {
+          "name": "test_testArrayAttributes",
+          "docstring": null
+        },
+        {
+          "name": "test_testAPI",
+          "docstring": null
+        },
+        {
+          "name": "test_testSingleElementSubscript",
+          "docstring": null
+        },
+        {
+          "name": "test_assignment_by_condition",
+          "docstring": null
+        },
+        {
+          "name": "test_assignment_by_condition_2",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestUfuncs",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_testUfuncRegression",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce",
+          "docstring": null
+        },
+        {
+          "name": "test_minmax",
+          "docstring": null
+        },
+        {
+          "name": "test_nonzero",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestArrayMethods",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_trace",
+          "docstring": null
+        },
+        {
+          "name": "test_clip",
+          "docstring": null
+        },
+        {
+          "name": "test_ptp",
+          "docstring": null
+        },
+        {
+          "name": "test_swapaxes",
+          "docstring": null
+        },
+        {
+          "name": "test_cumprod",
+          "docstring": null
+        },
+        {
+          "name": "test_cumsum",
+          "docstring": null
+        },
+        {
+          "name": "test_varstd",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "eq",
+      "docstring": null
+    },
+    {
+      "name": "eqmask",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_testBasic1d",
+      "docstring": null
+    },
+    {
+      "name": "test_testBasic2d",
+      "docstring": null
+    },
+    {
+      "name": "test_testArithmetic",
+      "docstring": null
+    },
+    {
+      "name": "test_testMixedArithmetic",
+      "docstring": null
+    },
+    {
+      "name": "test_testUfuncs1",
+      "docstring": null
+    },
+    {
+      "name": "test_xtestCount",
+      "docstring": null
+    },
+    {
+      "name": "test_testMinMax",
+      "docstring": null
+    },
+    {
+      "name": "test_testAddSumProd",
+      "docstring": null
+    },
+    {
+      "name": "test_testCI",
+      "docstring": null
+    },
+    {
+      "name": "test_testCopySize",
+      "docstring": null
+    },
+    {
+      "name": "test_testPut",
+      "docstring": null
+    },
+    {
+      "name": "test_testPut2",
+      "docstring": null
+    },
+    {
+      "name": "test_testMaPut",
+      "docstring": null
+    },
+    {
+      "name": "test_testOddFeatures",
+      "docstring": null
+    },
+    {
+      "name": "test_testMinMax2",
+      "docstring": null
+    },
+    {
+      "name": "test_testTakeTransposeInnerOuter",
+      "docstring": null
+    },
+    {
+      "name": "test_testInplace",
+      "docstring": null
+    },
+    {
+      "name": "test_testPickle",
+      "docstring": null
+    },
+    {
+      "name": "test_testMasked",
+      "docstring": null
+    },
+    {
+      "name": "test_testAverage1",
+      "docstring": null
+    },
+    {
+      "name": "test_testAverage2",
+      "docstring": null
+    },
+    {
+      "name": "test_testToPython",
+      "docstring": null
+    },
+    {
+      "name": "test_testScalarArithmetic",
+      "docstring": null
+    },
+    {
+      "name": "test_testArrayMethods",
+      "docstring": null
+    },
+    {
+      "name": "test_testArrayAttributes",
+      "docstring": null
+    },
+    {
+      "name": "test_testAPI",
+      "docstring": null
+    },
+    {
+      "name": "test_testSingleElementSubscript",
+      "docstring": null
+    },
+    {
+      "name": "test_assignment_by_condition",
+      "docstring": null
+    },
+    {
+      "name": "test_assignment_by_condition_2",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_testUfuncRegression",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_minmax",
+      "docstring": null
+    },
+    {
+      "name": "test_nonzero",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_trace",
+      "docstring": null
+    },
+    {
+      "name": "test_clip",
+      "docstring": null
+    },
+    {
+      "name": "test_ptp",
+      "docstring": null
+    },
+    {
+      "name": "test_swapaxes",
+      "docstring": null
+    },
+    {
+      "name": "test_cumprod",
+      "docstring": null
+    },
+    {
+      "name": "test_cumsum",
+      "docstring": null
+    },
+    {
+      "name": "test_varstd",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

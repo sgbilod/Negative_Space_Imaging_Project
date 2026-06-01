@@ -1,0 +1,343 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\packages\\six.py",
+  "classes": [
+    {
+      "name": "_LazyDescr",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MovedModule",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_LazyModule",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MovedAttribute",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_SixMetaPathImporter",
+      "docstring": "A meta path importer to import six.moves and its submodules.\n\nThis class implements a PEP302 finder and loader. It should be compatible\nwith Python 2.5 and all existing versions of Python3",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "find_module",
+          "docstring": null
+        },
+        {
+          "name": "find_spec",
+          "docstring": null
+        },
+        {
+          "name": "load_module",
+          "docstring": null
+        },
+        {
+          "name": "is_package",
+          "docstring": "Return true, if the named module is a package.\n\nWe need this method to get correct spec objects with\nPython 3.4 (see PEP451)"
+        },
+        {
+          "name": "get_code",
+          "docstring": "Return None\n\nRequired, if is_package is implemented"
+        },
+        {
+          "name": "create_module",
+          "docstring": null
+        },
+        {
+          "name": "exec_module",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_MovedItems",
+      "docstring": "Lazy loading of moved objects",
+      "methods": []
+    },
+    {
+      "name": "Module_six_moves_urllib_parse",
+      "docstring": "Lazy loading of moved objects in six.moves.urllib_parse",
+      "methods": []
+    },
+    {
+      "name": "Module_six_moves_urllib_error",
+      "docstring": "Lazy loading of moved objects in six.moves.urllib_error",
+      "methods": []
+    },
+    {
+      "name": "Module_six_moves_urllib_request",
+      "docstring": "Lazy loading of moved objects in six.moves.urllib_request",
+      "methods": []
+    },
+    {
+      "name": "Module_six_moves_urllib_response",
+      "docstring": "Lazy loading of moved objects in six.moves.urllib_response",
+      "methods": []
+    },
+    {
+      "name": "Module_six_moves_urllib_robotparser",
+      "docstring": "Lazy loading of moved objects in six.moves.urllib_robotparser",
+      "methods": []
+    },
+    {
+      "name": "Module_six_moves_urllib",
+      "docstring": "Create a six.moves.urllib namespace that resembles the Python 3 namespace",
+      "methods": []
+    },
+    {
+      "name": "Iterator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "next",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "metaclass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "X",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "add_move",
+      "docstring": "Add an item to six.moves."
+    },
+    {
+      "name": "remove_move",
+      "docstring": "Remove item from six.moves."
+    },
+    {
+      "name": "assertCountEqual",
+      "docstring": null
+    },
+    {
+      "name": "assertRaisesRegex",
+      "docstring": null
+    },
+    {
+      "name": "assertRegex",
+      "docstring": null
+    },
+    {
+      "name": "assertNotRegex",
+      "docstring": null
+    },
+    {
+      "name": "with_metaclass",
+      "docstring": "Create a base class with a metaclass."
+    },
+    {
+      "name": "add_metaclass",
+      "docstring": "Class decorator for creating a class with a metaclass."
+    },
+    {
+      "name": "ensure_binary",
+      "docstring": "Coerce **s** to six.binary_type.\n\nFor Python 2:\n  - `unicode` -> encoded to `str`\n  - `str` -> `str`\n\nFor Python 3:\n  - `str` -> encoded to `bytes`\n  - `bytes` -> `bytes`"
+    },
+    {
+      "name": "ensure_str",
+      "docstring": "Coerce *s* to `str`.\n\nFor Python 2:\n  - `unicode` -> encoded to `str`\n  - `str` -> `str`\n\nFor Python 3:\n  - `str` -> `str`\n  - `bytes` -> decoded to `str`"
+    },
+    {
+      "name": "ensure_text",
+      "docstring": "Coerce *s* to six.text_type.\n\nFor Python 2:\n  - `unicode` -> `unicode`\n  - `str` -> `unicode`\n\nFor Python 3:\n  - `str` -> `str`\n  - `bytes` -> decoded to `str`"
+    },
+    {
+      "name": "python_2_unicode_compatible",
+      "docstring": "A class decorator that defines __unicode__ and __str__ methods under Python 2.\nUnder Python 3 it does nothing.\n\nTo support Python 2 and 3 with a single code base, define a __str__ method\nreturning text and apply this decorator to the class."
+    },
+    {
+      "name": "find_module",
+      "docstring": null
+    },
+    {
+      "name": "find_spec",
+      "docstring": null
+    },
+    {
+      "name": "load_module",
+      "docstring": null
+    },
+    {
+      "name": "is_package",
+      "docstring": "Return true, if the named module is a package.\n\nWe need this method to get correct spec objects with\nPython 3.4 (see PEP451)"
+    },
+    {
+      "name": "get_code",
+      "docstring": "Return None\n\nRequired, if is_package is implemented"
+    },
+    {
+      "name": "create_module",
+      "docstring": null
+    },
+    {
+      "name": "exec_module",
+      "docstring": null
+    },
+    {
+      "name": "get_unbound_function",
+      "docstring": null
+    },
+    {
+      "name": "create_unbound_method",
+      "docstring": null
+    },
+    {
+      "name": "get_unbound_function",
+      "docstring": null
+    },
+    {
+      "name": "create_bound_method",
+      "docstring": null
+    },
+    {
+      "name": "create_unbound_method",
+      "docstring": null
+    },
+    {
+      "name": "iterkeys",
+      "docstring": null
+    },
+    {
+      "name": "itervalues",
+      "docstring": null
+    },
+    {
+      "name": "iteritems",
+      "docstring": null
+    },
+    {
+      "name": "iterlists",
+      "docstring": null
+    },
+    {
+      "name": "iterkeys",
+      "docstring": null
+    },
+    {
+      "name": "itervalues",
+      "docstring": null
+    },
+    {
+      "name": "iteritems",
+      "docstring": null
+    },
+    {
+      "name": "iterlists",
+      "docstring": null
+    },
+    {
+      "name": "b",
+      "docstring": null
+    },
+    {
+      "name": "u",
+      "docstring": null
+    },
+    {
+      "name": "b",
+      "docstring": null
+    },
+    {
+      "name": "u",
+      "docstring": null
+    },
+    {
+      "name": "byte2int",
+      "docstring": null
+    },
+    {
+      "name": "indexbytes",
+      "docstring": null
+    },
+    {
+      "name": "reraise",
+      "docstring": null
+    },
+    {
+      "name": "exec_",
+      "docstring": "Execute code in a namespace."
+    },
+    {
+      "name": "raise_from",
+      "docstring": null
+    },
+    {
+      "name": "print_",
+      "docstring": "The new-style print function for Python 2.4 and 2.5."
+    },
+    {
+      "name": "print_",
+      "docstring": null
+    },
+    {
+      "name": "wraps",
+      "docstring": null
+    },
+    {
+      "name": "wrapper",
+      "docstring": null
+    },
+    {
+      "name": "advance_iterator",
+      "docstring": null
+    },
+    {
+      "name": "callable",
+      "docstring": null
+    },
+    {
+      "name": "next",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "      - `str` -> `str`\n      - `bytes` -> decoded to `str`\n    \"\"\"\n    # Optimization: Fast return for the common case.\n    if type(s) is str:\n        return s\n    if PY2 and isinstance(s, text_type):"
+    }
+  ]
+}

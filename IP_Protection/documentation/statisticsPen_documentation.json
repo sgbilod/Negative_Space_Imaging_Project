@@ -1,0 +1,42 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\pens\\statisticsPen.py",
+  "classes": [
+    {
+      "name": "StatisticsBase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "StatisticsPen",
+      "docstring": "Pen calculating area, center of mass, variance and\nstandard-deviation, covariance and correlation, and slant,\nof glyph shapes.\n\nNote that if the glyph shape is self-intersecting, the values\nare not correct (but well-defined). Moreover, area will be\nnegative if contour directions are clockwise.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "StatisticsControlPen",
+      "docstring": "Pen calculating area, center of mass, variance and\nstandard-deviation, covariance and correlation, and slant,\nof glyph shapes, using the control polygon only.\n\nNote that if the glyph shape is self-intersecting, the values\nare not correct (but well-defined). Moreover, area will be\nnegative if contour directions are clockwise.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "main",
+      "docstring": "Report font glyph shape geometricsl statistics"
+    }
+  ],
+  "innovations": []
+}

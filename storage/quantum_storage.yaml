@@ -1,0 +1,43 @@
+# Distributed Storage Configuration
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: quantum-storage
+provisioner: ebs.csi.aws.com
+parameters:
+  type: io2
+  iopsPerGB: "100"
+  fsType: ext4
+  encrypted: "true"
+reclaimPolicy: Retain
+allowVolumeExpansion: true
+volumeBindingMode: WaitForFirstConsumer
+---
+apiVersion: redis.cnrm.cloud.google.com/v1beta1
+kind: RedisCluster
+metadata:
+  name: quantum-cache
+  namespace: negative-space-system
+spec:
+  location: us-central1-a
+  authorizedNetwork: default
+  tier: STANDARD_HA
+  memorySizeGb: 100
+  replicaCount: 5
+  redisVersion: REDIS_6_X
+  transitEncryptionMode: SERVER_AUTHENTICATION
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: quantum-data
+  namespace: negative-space-system
+spec:
+  storageClassName: quantum-storage
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Ti

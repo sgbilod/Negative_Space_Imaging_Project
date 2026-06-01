@@ -1,0 +1,34 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\pens\\svgPathPen.py",
+  "classes": [
+    {
+      "name": "SVGPathPen",
+      "docstring": "Pen to draw SVG path d commands.\n\nArgs:\n    glyphSet: a dictionary of drawable glyph objects keyed by name\n        used to resolve component references in composite glyphs.\n    ntos: a callable that takes a number and returns a string, to\n        customize how numbers are formatted (default: str).\n\n:Example:\n    .. code-block::\n\n        >>> pen = SVGPathPen(None)\n        >>> pen.moveTo((0, 0))\n        >>> pen.lineTo((1, 1))\n        >>> pen.curveTo((2, 2), (3, 3), (4, 4))\n        >>> pen.closePath()\n        >>> pen.getCommands()\n        'M0 0 1 1C2 2 3 3 4 4Z'\n\nNote:\n    Fonts have a coordinate system where Y grows up, whereas in SVG,\n    Y grows down.  As such, rendering path data from this pen in\n    SVG typically results in upside-down glyphs.  You can fix this\n    by wrapping the data from this pen in an SVG group element with\n    transform, or wrap this pen in a transform pen.  For example:\n    .. code-block:: python\n\n        spen = svgPathPen.SVGPathPen(glyphset)\n        pen= TransformPen(spen , (1, 0, 0, -1, 0, 0))\n        glyphset[glyphname].draw(pen)\n        print(tpen.getCommands())",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "getCommands",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "pointToString",
+      "docstring": null
+    },
+    {
+      "name": "main",
+      "docstring": "Generate per-character SVG from font and text"
+    },
+    {
+      "name": "getCommands",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

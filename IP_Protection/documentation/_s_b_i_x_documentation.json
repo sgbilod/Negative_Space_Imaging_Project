@@ -1,0 +1,55 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\_s_b_i_x.py",
+  "classes": [
+    {
+      "name": "table__s_b_i_x",
+      "docstring": "Standard Bitmap Graphics table\n\nThe ``sbix`` table stores bitmap image data in standard graphics formats\nlike JPEG, PNG, or TIFF. The glyphs for which the ``sbix`` table provides\ndata are indexed by Glyph ID. For each such glyph, the ``sbix`` table can\nhold different data for different sizes, called \"strikes.\"\n\nSee also https://learn.microsoft.com/en-us/typography/opentype/spec/sbix",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "sbixStrikeOffset",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,378 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\defchararray.py",
+  "classes": [
+    {
+      "name": "chararray",
+      "docstring": "chararray(shape, itemsize=1, unicode=False, buffer=None, offset=0,\n          strides=None, order=None)\n\nProvides a convenient view on arrays of string and unicode values.\n\n.. note::\n   The `chararray` class exists for backwards compatibility with\n   Numarray, it is not recommended for new development. Starting from numpy\n   1.4, if one needs arrays of strings, it is recommended to use arrays of\n   `dtype` `~numpy.object_`, `~numpy.bytes_` or `~numpy.str_`, and use\n   the free functions in the `numpy.char` module for fast vectorized\n   string operations.\n\nVersus a NumPy array of dtype `~numpy.bytes_` or `~numpy.str_`, this\nclass adds the following functionality:\n\n1) values automatically have whitespace removed from the end\n   when indexed\n\n2) comparison operators automatically remove whitespace from the\n   end when comparing values\n\n3) vectorized string operations are provided as methods\n   (e.g. `.endswith`) and infix operators (e.g. ``\"+\", \"*\", \"%\"``)\n\nchararrays should be created using `numpy.char.array` or\n`numpy.char.asarray`, rather than this constructor directly.\n\nThis constructor creates the array, using `buffer` (with `offset`\nand `strides`) if it is not ``None``. If `buffer` is ``None``, then\nconstructs a new array with `strides` in \"C order\", unless both\n``len(shape) >= 2`` and ``order='F'``, in which case `strides`\nis in \"Fortran order\".\n\nMethods\n-------\nastype\nargsort\ncopy\ncount\ndecode\ndump\ndumps\nencode\nendswith\nexpandtabs\nfill\nfind\nflatten\ngetfield\nindex\nisalnum\nisalpha\nisdecimal\nisdigit\nislower\nisnumeric\nisspace\nistitle\nisupper\nitem\njoin\nljust\nlower\nlstrip\nnonzero\nput\nravel\nrepeat\nreplace\nreshape\nresize\nrfind\nrindex\nrjust\nrsplit\nrstrip\nsearchsorted\nsetfield\nsetflags\nsort\nsplit\nsplitlines\nsqueeze\nstartswith\nstrip\nswapaxes\nswapcase\ntake\ntitle\ntofile\ntolist\ntostring\ntranslate\ntranspose\nupper\nview\nzfill\n\nParameters\n----------\nshape : tuple\n    Shape of the array.\nitemsize : int, optional\n    Length of each array element, in number of characters. Default is 1.\nunicode : bool, optional\n    Are the array elements of type unicode (True) or string (False).\n    Default is False.\nbuffer : object exposing the buffer interface or str, optional\n    Memory address of the start of the array data.  Default is None,\n    in which case a new array is created.\noffset : int, optional\n    Fixed stride displacement from the beginning of an axis?\n    Default is 0. Needs to be >=0.\nstrides : array_like of ints, optional\n    Strides for the array (see `~numpy.ndarray.strides` for\n    full description). Default is None.\norder : {'C', 'F'}, optional\n    The order in which the array data is stored in memory: 'C' ->\n    \"row major\" order (the default), 'F' -> \"column major\"\n    (Fortran) order.\n\nExamples\n--------\n>>> import numpy as np\n>>> charar = np.char.chararray((3, 3))\n>>> charar[:] = 'a'\n>>> charar\nchararray([[b'a', b'a', b'a'],\n           [b'a', b'a', b'a'],\n           [b'a', b'a', b'a']], dtype='|S1')\n\n>>> charar = np.char.chararray(charar.shape, itemsize=5)\n>>> charar[:] = 'abc'\n>>> charar\nchararray([[b'abc', b'abc', b'abc'],\n           [b'abc', b'abc', b'abc'],\n           [b'abc', b'abc', b'abc']], dtype='|S5')",
+      "methods": [
+        {
+          "name": "argsort",
+          "docstring": "Return the indices that sort the array lexicographically.\n\nFor full documentation see `numpy.argsort`, for which this method is\nin fact merely a \"thin wrapper.\"\n\nExamples\n--------\n>>> c = np.array(['a1b c', '1b ca', 'b ca1', 'Ca1b'], 'S5')\n>>> c = c.view(np.char.chararray); c\nchararray(['a1b c', '1b ca', 'b ca1', 'Ca1b'],\n      dtype='|S5')\n>>> c[c.argsort()]\nchararray(['1b ca', 'Ca1b', 'a1b c', 'b ca1'],\n      dtype='|S5')"
+        },
+        {
+          "name": "capitalize",
+          "docstring": "Return a copy of `self` with only the first character of each element\ncapitalized.\n\nSee Also\n--------\nchar.capitalize"
+        },
+        {
+          "name": "center",
+          "docstring": "Return a copy of `self` with its elements centered in a\nstring of length `width`.\n\nSee Also\n--------\ncenter"
+        },
+        {
+          "name": "count",
+          "docstring": "Returns an array with the number of non-overlapping occurrences of\nsubstring `sub` in the range [`start`, `end`].\n\nSee Also\n--------\nchar.count"
+        },
+        {
+          "name": "decode",
+          "docstring": "Calls ``bytes.decode`` element-wise.\n\nSee Also\n--------\nchar.decode"
+        },
+        {
+          "name": "encode",
+          "docstring": "Calls :meth:`str.encode` element-wise.\n\nSee Also\n--------\nchar.encode"
+        },
+        {
+          "name": "endswith",
+          "docstring": "Returns a boolean array which is `True` where the string element\nin `self` ends with `suffix`, otherwise `False`.\n\nSee Also\n--------\nchar.endswith"
+        },
+        {
+          "name": "expandtabs",
+          "docstring": "Return a copy of each string element where all tab characters are\nreplaced by one or more spaces.\n\nSee Also\n--------\nchar.expandtabs"
+        },
+        {
+          "name": "find",
+          "docstring": "For each element, return the lowest index in the string where\nsubstring `sub` is found.\n\nSee Also\n--------\nchar.find"
+        },
+        {
+          "name": "index",
+          "docstring": "Like `find`, but raises :exc:`ValueError` when the substring is not\nfound.\n\nSee Also\n--------\nchar.index"
+        },
+        {
+          "name": "isalnum",
+          "docstring": "Returns true for each element if all characters in the string\nare alphanumeric and there is at least one character, false\notherwise.\n\nSee Also\n--------\nchar.isalnum"
+        },
+        {
+          "name": "isalpha",
+          "docstring": "Returns true for each element if all characters in the string\nare alphabetic and there is at least one character, false\notherwise.\n\nSee Also\n--------\nchar.isalpha"
+        },
+        {
+          "name": "isdigit",
+          "docstring": "Returns true for each element if all characters in the string are\ndigits and there is at least one character, false otherwise.\n\nSee Also\n--------\nchar.isdigit"
+        },
+        {
+          "name": "islower",
+          "docstring": "Returns true for each element if all cased characters in the\nstring are lowercase and there is at least one cased character,\nfalse otherwise.\n\nSee Also\n--------\nchar.islower"
+        },
+        {
+          "name": "isspace",
+          "docstring": "Returns true for each element if there are only whitespace\ncharacters in the string and there is at least one character,\nfalse otherwise.\n\nSee Also\n--------\nchar.isspace"
+        },
+        {
+          "name": "istitle",
+          "docstring": "Returns true for each element if the element is a titlecased\nstring and there is at least one character, false otherwise.\n\nSee Also\n--------\nchar.istitle"
+        },
+        {
+          "name": "isupper",
+          "docstring": "Returns true for each element if all cased characters in the\nstring are uppercase and there is at least one character, false\notherwise.\n\nSee Also\n--------\nchar.isupper"
+        },
+        {
+          "name": "join",
+          "docstring": "Return a string which is the concatenation of the strings in the\nsequence `seq`.\n\nSee Also\n--------\nchar.join"
+        },
+        {
+          "name": "ljust",
+          "docstring": "Return an array with the elements of `self` left-justified in a\nstring of length `width`.\n\nSee Also\n--------\nchar.ljust"
+        },
+        {
+          "name": "lower",
+          "docstring": "Return an array with the elements of `self` converted to\nlowercase.\n\nSee Also\n--------\nchar.lower"
+        },
+        {
+          "name": "lstrip",
+          "docstring": "For each element in `self`, return a copy with the leading characters\nremoved.\n\nSee Also\n--------\nchar.lstrip"
+        },
+        {
+          "name": "partition",
+          "docstring": "Partition each element in `self` around `sep`.\n\nSee Also\n--------\npartition"
+        },
+        {
+          "name": "replace",
+          "docstring": "For each element in `self`, return a copy of the string with all\noccurrences of substring `old` replaced by `new`.\n\nSee Also\n--------\nchar.replace"
+        },
+        {
+          "name": "rfind",
+          "docstring": "For each element in `self`, return the highest index in the string\nwhere substring `sub` is found, such that `sub` is contained\nwithin [`start`, `end`].\n\nSee Also\n--------\nchar.rfind"
+        },
+        {
+          "name": "rindex",
+          "docstring": "Like `rfind`, but raises :exc:`ValueError` when the substring `sub` is\nnot found.\n\nSee Also\n--------\nchar.rindex"
+        },
+        {
+          "name": "rjust",
+          "docstring": "Return an array with the elements of `self`\nright-justified in a string of length `width`.\n\nSee Also\n--------\nchar.rjust"
+        },
+        {
+          "name": "rpartition",
+          "docstring": "Partition each element in `self` around `sep`.\n\nSee Also\n--------\nrpartition"
+        },
+        {
+          "name": "rsplit",
+          "docstring": "For each element in `self`, return a list of the words in\nthe string, using `sep` as the delimiter string.\n\nSee Also\n--------\nchar.rsplit"
+        },
+        {
+          "name": "rstrip",
+          "docstring": "For each element in `self`, return a copy with the trailing\ncharacters removed.\n\nSee Also\n--------\nchar.rstrip"
+        },
+        {
+          "name": "split",
+          "docstring": "For each element in `self`, return a list of the words in the\nstring, using `sep` as the delimiter string.\n\nSee Also\n--------\nchar.split"
+        },
+        {
+          "name": "splitlines",
+          "docstring": "For each element in `self`, return a list of the lines in the\nelement, breaking at line boundaries.\n\nSee Also\n--------\nchar.splitlines"
+        },
+        {
+          "name": "startswith",
+          "docstring": "Returns a boolean array which is `True` where the string element\nin `self` starts with `prefix`, otherwise `False`.\n\nSee Also\n--------\nchar.startswith"
+        },
+        {
+          "name": "strip",
+          "docstring": "For each element in `self`, return a copy with the leading and\ntrailing characters removed.\n\nSee Also\n--------\nchar.strip"
+        },
+        {
+          "name": "swapcase",
+          "docstring": "For each element in `self`, return a copy of the string with\nuppercase characters converted to lowercase and vice versa.\n\nSee Also\n--------\nchar.swapcase"
+        },
+        {
+          "name": "title",
+          "docstring": "For each element in `self`, return a titlecased version of the\nstring: words start with uppercase characters, all remaining cased\ncharacters are lowercase.\n\nSee Also\n--------\nchar.title"
+        },
+        {
+          "name": "translate",
+          "docstring": "For each element in `self`, return a copy of the string where\nall characters occurring in the optional argument\n`deletechars` are removed, and the remaining characters have\nbeen mapped through the given translation table.\n\nSee Also\n--------\nchar.translate"
+        },
+        {
+          "name": "upper",
+          "docstring": "Return an array with the elements of `self` converted to\nuppercase.\n\nSee Also\n--------\nchar.upper"
+        },
+        {
+          "name": "zfill",
+          "docstring": "Return the numeric string left-filled with zeros in a string of\nlength `width`.\n\nSee Also\n--------\nchar.zfill"
+        },
+        {
+          "name": "isnumeric",
+          "docstring": "For each element in `self`, return True if there are only\nnumeric characters in the element.\n\nSee Also\n--------\nchar.isnumeric"
+        },
+        {
+          "name": "isdecimal",
+          "docstring": "For each element in `self`, return True if there are only\ndecimal characters in the element.\n\nSee Also\n--------\nchar.isdecimal"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "equal",
+      "docstring": "Return (x1 == x2) element-wise.\n\nUnlike `numpy.equal`, this comparison is performed by first\nstripping whitespace characters from the end of the string.  This\nbehavior is provided for backward-compatibility with numarray.\n\nParameters\n----------\nx1, x2 : array_like of str or unicode\n    Input arrays of the same shape.\n\nReturns\n-------\nout : ndarray\n    Output array of bools.\n\nExamples\n--------\n>>> import numpy as np\n>>> y = \"aa \"\n>>> x = \"aa\"\n>>> np.char.equal(x, y)\narray(True)\n\nSee Also\n--------\nnot_equal, greater_equal, less_equal, greater, less"
+    },
+    {
+      "name": "not_equal",
+      "docstring": "Return (x1 != x2) element-wise.\n\nUnlike `numpy.not_equal`, this comparison is performed by first\nstripping whitespace characters from the end of the string.  This\nbehavior is provided for backward-compatibility with numarray.\n\nParameters\n----------\nx1, x2 : array_like of str or unicode\n    Input arrays of the same shape.\n\nReturns\n-------\nout : ndarray\n    Output array of bools.\n\nSee Also\n--------\nequal, greater_equal, less_equal, greater, less\n\nExamples\n--------\n>>> import numpy as np\n>>> x1 = np.array(['a', 'b', 'c'])\n>>> np.char.not_equal(x1, 'b')\narray([ True, False,  True])"
+    },
+    {
+      "name": "greater_equal",
+      "docstring": "Return (x1 >= x2) element-wise.\n\nUnlike `numpy.greater_equal`, this comparison is performed by\nfirst stripping whitespace characters from the end of the string.\nThis behavior is provided for backward-compatibility with\nnumarray.\n\nParameters\n----------\nx1, x2 : array_like of str or unicode\n    Input arrays of the same shape.\n\nReturns\n-------\nout : ndarray\n    Output array of bools.\n\nSee Also\n--------\nequal, not_equal, less_equal, greater, less\n\nExamples\n--------\n>>> import numpy as np\n>>> x1 = np.array(['a', 'b', 'c'])\n>>> np.char.greater_equal(x1, 'b')\narray([False,  True,  True])"
+    },
+    {
+      "name": "less_equal",
+      "docstring": "Return (x1 <= x2) element-wise.\n\nUnlike `numpy.less_equal`, this comparison is performed by first\nstripping whitespace characters from the end of the string.  This\nbehavior is provided for backward-compatibility with numarray.\n\nParameters\n----------\nx1, x2 : array_like of str or unicode\n    Input arrays of the same shape.\n\nReturns\n-------\nout : ndarray\n    Output array of bools.\n\nSee Also\n--------\nequal, not_equal, greater_equal, greater, less\n\nExamples\n--------\n>>> import numpy as np\n>>> x1 = np.array(['a', 'b', 'c'])\n>>> np.char.less_equal(x1, 'b')\narray([ True,  True, False])"
+    },
+    {
+      "name": "greater",
+      "docstring": "Return (x1 > x2) element-wise.\n\nUnlike `numpy.greater`, this comparison is performed by first\nstripping whitespace characters from the end of the string.  This\nbehavior is provided for backward-compatibility with numarray.\n\nParameters\n----------\nx1, x2 : array_like of str or unicode\n    Input arrays of the same shape.\n\nReturns\n-------\nout : ndarray\n    Output array of bools.\n\nSee Also\n--------\nequal, not_equal, greater_equal, less_equal, less\n\nExamples\n--------\n>>> import numpy as np\n>>> x1 = np.array(['a', 'b', 'c'])\n>>> np.char.greater(x1, 'b')\narray([False, False,  True])"
+    },
+    {
+      "name": "less",
+      "docstring": "Return (x1 < x2) element-wise.\n\nUnlike `numpy.greater`, this comparison is performed by first\nstripping whitespace characters from the end of the string.  This\nbehavior is provided for backward-compatibility with numarray.\n\nParameters\n----------\nx1, x2 : array_like of str or unicode\n    Input arrays of the same shape.\n\nReturns\n-------\nout : ndarray\n    Output array of bools.\n\nSee Also\n--------\nequal, not_equal, greater_equal, less_equal, greater\n\nExamples\n--------\n>>> import numpy as np\n>>> x1 = np.array(['a', 'b', 'c'])\n>>> np.char.less(x1, 'b')\narray([True, False, False])"
+    },
+    {
+      "name": "multiply",
+      "docstring": "Return (a * i), that is string multiple concatenation,\nelement-wise.\n\nValues in ``i`` of less than 0 are treated as 0 (which yields an\nempty string).\n\nParameters\n----------\na : array_like, with `np.bytes_` or `np.str_` dtype\n\ni : array_like, with any integer dtype\n\nReturns\n-------\nout : ndarray\n    Output array of str or unicode, depending on input types\n\nNotes\n-----\nThis is a thin wrapper around np.strings.multiply that raises\n`ValueError` when ``i`` is not an integer. It only\nexists for backwards-compatibility.\n\nExamples\n--------\n>>> import numpy as np\n>>> a = np.array([\"a\", \"b\", \"c\"])\n>>> np.strings.multiply(a, 3)\narray(['aaa', 'bbb', 'ccc'], dtype='<U3')\n>>> i = np.array([1, 2, 3])\n>>> np.strings.multiply(a, i)\narray(['a', 'bb', 'ccc'], dtype='<U3')\n>>> np.strings.multiply(np.array(['a']), i)\narray(['a', 'aa', 'aaa'], dtype='<U3')\n>>> a = np.array(['a', 'b', 'c', 'd', 'e', 'f']).reshape((2, 3))\n>>> np.strings.multiply(a, 3)\narray([['aaa', 'bbb', 'ccc'],\n       ['ddd', 'eee', 'fff']], dtype='<U3')\n>>> np.strings.multiply(a, i)\narray([['a', 'bb', 'ccc'],\n       ['d', 'ee', 'fff']], dtype='<U3')"
+    },
+    {
+      "name": "partition",
+      "docstring": "Partition each element in `a` around `sep`.\n\nCalls :meth:`str.partition` element-wise.\n\nFor each element in `a`, split the element as the first\noccurrence of `sep`, and return 3 strings containing the part\nbefore the separator, the separator itself, and the part after\nthe separator. If the separator is not found, return 3 strings\ncontaining the string itself, followed by two empty strings.\n\nParameters\n----------\na : array-like, with ``StringDType``, ``bytes_``, or ``str_`` dtype\n    Input array\nsep : {str, unicode}\n    Separator to split each string element in `a`.\n\nReturns\n-------\nout : ndarray\n    Output array of ``StringDType``, ``bytes_`` or ``str_`` dtype,\n    depending on input types. The output array will have an extra\n    dimension with 3 elements per input element.\n\nExamples\n--------\n>>> import numpy as np\n>>> x = np.array([\"Numpy is nice!\"])\n>>> np.char.partition(x, \" \")\narray([['Numpy', ' ', 'is nice!']], dtype='<U8')\n\nSee Also\n--------\nstr.partition"
+    },
+    {
+      "name": "rpartition",
+      "docstring": "Partition (split) each element around the right-most separator.\n\nCalls :meth:`str.rpartition` element-wise.\n\nFor each element in `a`, split the element as the last\noccurrence of `sep`, and return 3 strings containing the part\nbefore the separator, the separator itself, and the part after\nthe separator. If the separator is not found, return 3 strings\ncontaining the string itself, followed by two empty strings.\n\nParameters\n----------\na : array-like, with ``StringDType``, ``bytes_``, or ``str_`` dtype\n    Input array\nsep : str or unicode\n    Right-most separator to split each element in array.\n\nReturns\n-------\nout : ndarray\n    Output array of ``StringDType``, ``bytes_`` or ``str_`` dtype,\n    depending on input types. The output array will have an extra\n    dimension with 3 elements per input element.\n\nSee Also\n--------\nstr.rpartition\n\nExamples\n--------\n>>> import numpy as np\n>>> a = np.array(['aAaAaA', '  aA  ', 'abBABba'])\n>>> np.char.rpartition(a, 'A')\narray([['aAaAa', 'A', ''],\n   ['  a', 'A', '  '],\n   ['abB', 'A', 'Bba']], dtype='<U5')"
+    },
+    {
+      "name": "array",
+      "docstring": "Create a `~numpy.char.chararray`.\n\n.. note::\n   This class is provided for numarray backward-compatibility.\n   New code (not concerned with numarray compatibility) should use\n   arrays of type `bytes_` or `str_` and use the free functions\n   in :mod:`numpy.char` for fast vectorized string operations instead.\n\nVersus a NumPy array of dtype `bytes_` or `str_`, this\nclass adds the following functionality:\n\n1) values automatically have whitespace removed from the end\n   when indexed\n\n2) comparison operators automatically remove whitespace from the\n   end when comparing values\n\n3) vectorized string operations are provided as methods\n   (e.g. `chararray.endswith <numpy.char.chararray.endswith>`)\n   and infix operators (e.g. ``+, *, %``)\n\nParameters\n----------\nobj : array of str or unicode-like\n\nitemsize : int, optional\n    `itemsize` is the number of characters per scalar in the\n    resulting array.  If `itemsize` is None, and `obj` is an\n    object array or a Python list, the `itemsize` will be\n    automatically determined.  If `itemsize` is provided and `obj`\n    is of type str or unicode, then the `obj` string will be\n    chunked into `itemsize` pieces.\n\ncopy : bool, optional\n    If true (default), then the object is copied.  Otherwise, a copy\n    will only be made if ``__array__`` returns a copy, if obj is a\n    nested sequence, or if a copy is needed to satisfy any of the other\n    requirements (`itemsize`, unicode, `order`, etc.).\n\nunicode : bool, optional\n    When true, the resulting `~numpy.char.chararray` can contain Unicode\n    characters, when false only 8-bit characters.  If unicode is\n    None and `obj` is one of the following:\n\n    - a `~numpy.char.chararray`,\n    - an ndarray of type :class:`str_` or :class:`bytes_`\n    - a Python :class:`str` or :class:`bytes` object,\n\n    then the unicode setting of the output array will be\n    automatically determined.\n\norder : {'C', 'F', 'A'}, optional\n    Specify the order of the array.  If order is 'C' (default), then the\n    array will be in C-contiguous order (last-index varies the\n    fastest).  If order is 'F', then the returned array\n    will be in Fortran-contiguous order (first-index varies the\n    fastest).  If order is 'A', then the returned array may\n    be in any order (either C-, Fortran-contiguous, or even\n    discontiguous).\n\nExamples\n--------\n\n>>> import numpy as np\n>>> char_array = np.char.array(['hello', 'world', 'numpy','array'])\n>>> char_array\nchararray(['hello', 'world', 'numpy', 'array'], dtype='<U5')"
+    },
+    {
+      "name": "asarray",
+      "docstring": "Convert the input to a `~numpy.char.chararray`, copying the data only if\nnecessary.\n\nVersus a NumPy array of dtype `bytes_` or `str_`, this\nclass adds the following functionality:\n\n1) values automatically have whitespace removed from the end\n   when indexed\n\n2) comparison operators automatically remove whitespace from the\n   end when comparing values\n\n3) vectorized string operations are provided as methods\n   (e.g. `chararray.endswith <numpy.char.chararray.endswith>`)\n   and infix operators (e.g. ``+``, ``*``, ``%``)\n\nParameters\n----------\nobj : array of str or unicode-like\n\nitemsize : int, optional\n    `itemsize` is the number of characters per scalar in the\n    resulting array.  If `itemsize` is None, and `obj` is an\n    object array or a Python list, the `itemsize` will be\n    automatically determined.  If `itemsize` is provided and `obj`\n    is of type str or unicode, then the `obj` string will be\n    chunked into `itemsize` pieces.\n\nunicode : bool, optional\n    When true, the resulting `~numpy.char.chararray` can contain Unicode\n    characters, when false only 8-bit characters.  If unicode is\n    None and `obj` is one of the following:\n\n    - a `~numpy.char.chararray`,\n    - an ndarray of type `str_` or `unicode_`\n    - a Python str or unicode object,\n\n    then the unicode setting of the output array will be\n    automatically determined.\n\norder : {'C', 'F'}, optional\n    Specify the order of the array.  If order is 'C' (default), then the\n    array will be in C-contiguous order (last-index varies the\n    fastest).  If order is 'F', then the returned array\n    will be in Fortran-contiguous order (first-index varies the\n    fastest).\n\nExamples\n--------\n>>> import numpy as np\n>>> np.char.asarray(['hello', 'world'])\nchararray(['hello', 'world'], dtype='<U5')"
+    },
+    {
+      "name": "argsort",
+      "docstring": "Return the indices that sort the array lexicographically.\n\nFor full documentation see `numpy.argsort`, for which this method is\nin fact merely a \"thin wrapper.\"\n\nExamples\n--------\n>>> c = np.array(['a1b c', '1b ca', 'b ca1', 'Ca1b'], 'S5')\n>>> c = c.view(np.char.chararray); c\nchararray(['a1b c', '1b ca', 'b ca1', 'Ca1b'],\n      dtype='|S5')\n>>> c[c.argsort()]\nchararray(['1b ca', 'Ca1b', 'a1b c', 'b ca1'],\n      dtype='|S5')"
+    },
+    {
+      "name": "capitalize",
+      "docstring": "Return a copy of `self` with only the first character of each element\ncapitalized.\n\nSee Also\n--------\nchar.capitalize"
+    },
+    {
+      "name": "center",
+      "docstring": "Return a copy of `self` with its elements centered in a\nstring of length `width`.\n\nSee Also\n--------\ncenter"
+    },
+    {
+      "name": "count",
+      "docstring": "Returns an array with the number of non-overlapping occurrences of\nsubstring `sub` in the range [`start`, `end`].\n\nSee Also\n--------\nchar.count"
+    },
+    {
+      "name": "decode",
+      "docstring": "Calls ``bytes.decode`` element-wise.\n\nSee Also\n--------\nchar.decode"
+    },
+    {
+      "name": "encode",
+      "docstring": "Calls :meth:`str.encode` element-wise.\n\nSee Also\n--------\nchar.encode"
+    },
+    {
+      "name": "endswith",
+      "docstring": "Returns a boolean array which is `True` where the string element\nin `self` ends with `suffix`, otherwise `False`.\n\nSee Also\n--------\nchar.endswith"
+    },
+    {
+      "name": "expandtabs",
+      "docstring": "Return a copy of each string element where all tab characters are\nreplaced by one or more spaces.\n\nSee Also\n--------\nchar.expandtabs"
+    },
+    {
+      "name": "find",
+      "docstring": "For each element, return the lowest index in the string where\nsubstring `sub` is found.\n\nSee Also\n--------\nchar.find"
+    },
+    {
+      "name": "index",
+      "docstring": "Like `find`, but raises :exc:`ValueError` when the substring is not\nfound.\n\nSee Also\n--------\nchar.index"
+    },
+    {
+      "name": "isalnum",
+      "docstring": "Returns true for each element if all characters in the string\nare alphanumeric and there is at least one character, false\notherwise.\n\nSee Also\n--------\nchar.isalnum"
+    },
+    {
+      "name": "isalpha",
+      "docstring": "Returns true for each element if all characters in the string\nare alphabetic and there is at least one character, false\notherwise.\n\nSee Also\n--------\nchar.isalpha"
+    },
+    {
+      "name": "isdigit",
+      "docstring": "Returns true for each element if all characters in the string are\ndigits and there is at least one character, false otherwise.\n\nSee Also\n--------\nchar.isdigit"
+    },
+    {
+      "name": "islower",
+      "docstring": "Returns true for each element if all cased characters in the\nstring are lowercase and there is at least one cased character,\nfalse otherwise.\n\nSee Also\n--------\nchar.islower"
+    },
+    {
+      "name": "isspace",
+      "docstring": "Returns true for each element if there are only whitespace\ncharacters in the string and there is at least one character,\nfalse otherwise.\n\nSee Also\n--------\nchar.isspace"
+    },
+    {
+      "name": "istitle",
+      "docstring": "Returns true for each element if the element is a titlecased\nstring and there is at least one character, false otherwise.\n\nSee Also\n--------\nchar.istitle"
+    },
+    {
+      "name": "isupper",
+      "docstring": "Returns true for each element if all cased characters in the\nstring are uppercase and there is at least one character, false\notherwise.\n\nSee Also\n--------\nchar.isupper"
+    },
+    {
+      "name": "join",
+      "docstring": "Return a string which is the concatenation of the strings in the\nsequence `seq`.\n\nSee Also\n--------\nchar.join"
+    },
+    {
+      "name": "ljust",
+      "docstring": "Return an array with the elements of `self` left-justified in a\nstring of length `width`.\n\nSee Also\n--------\nchar.ljust"
+    },
+    {
+      "name": "lower",
+      "docstring": "Return an array with the elements of `self` converted to\nlowercase.\n\nSee Also\n--------\nchar.lower"
+    },
+    {
+      "name": "lstrip",
+      "docstring": "For each element in `self`, return a copy with the leading characters\nremoved.\n\nSee Also\n--------\nchar.lstrip"
+    },
+    {
+      "name": "partition",
+      "docstring": "Partition each element in `self` around `sep`.\n\nSee Also\n--------\npartition"
+    },
+    {
+      "name": "replace",
+      "docstring": "For each element in `self`, return a copy of the string with all\noccurrences of substring `old` replaced by `new`.\n\nSee Also\n--------\nchar.replace"
+    },
+    {
+      "name": "rfind",
+      "docstring": "For each element in `self`, return the highest index in the string\nwhere substring `sub` is found, such that `sub` is contained\nwithin [`start`, `end`].\n\nSee Also\n--------\nchar.rfind"
+    },
+    {
+      "name": "rindex",
+      "docstring": "Like `rfind`, but raises :exc:`ValueError` when the substring `sub` is\nnot found.\n\nSee Also\n--------\nchar.rindex"
+    },
+    {
+      "name": "rjust",
+      "docstring": "Return an array with the elements of `self`\nright-justified in a string of length `width`.\n\nSee Also\n--------\nchar.rjust"
+    },
+    {
+      "name": "rpartition",
+      "docstring": "Partition each element in `self` around `sep`.\n\nSee Also\n--------\nrpartition"
+    },
+    {
+      "name": "rsplit",
+      "docstring": "For each element in `self`, return a list of the words in\nthe string, using `sep` as the delimiter string.\n\nSee Also\n--------\nchar.rsplit"
+    },
+    {
+      "name": "rstrip",
+      "docstring": "For each element in `self`, return a copy with the trailing\ncharacters removed.\n\nSee Also\n--------\nchar.rstrip"
+    },
+    {
+      "name": "split",
+      "docstring": "For each element in `self`, return a list of the words in the\nstring, using `sep` as the delimiter string.\n\nSee Also\n--------\nchar.split"
+    },
+    {
+      "name": "splitlines",
+      "docstring": "For each element in `self`, return a list of the lines in the\nelement, breaking at line boundaries.\n\nSee Also\n--------\nchar.splitlines"
+    },
+    {
+      "name": "startswith",
+      "docstring": "Returns a boolean array which is `True` where the string element\nin `self` starts with `prefix`, otherwise `False`.\n\nSee Also\n--------\nchar.startswith"
+    },
+    {
+      "name": "strip",
+      "docstring": "For each element in `self`, return a copy with the leading and\ntrailing characters removed.\n\nSee Also\n--------\nchar.strip"
+    },
+    {
+      "name": "swapcase",
+      "docstring": "For each element in `self`, return a copy of the string with\nuppercase characters converted to lowercase and vice versa.\n\nSee Also\n--------\nchar.swapcase"
+    },
+    {
+      "name": "title",
+      "docstring": "For each element in `self`, return a titlecased version of the\nstring: words start with uppercase characters, all remaining cased\ncharacters are lowercase.\n\nSee Also\n--------\nchar.title"
+    },
+    {
+      "name": "translate",
+      "docstring": "For each element in `self`, return a copy of the string where\nall characters occurring in the optional argument\n`deletechars` are removed, and the remaining characters have\nbeen mapped through the given translation table.\n\nSee Also\n--------\nchar.translate"
+    },
+    {
+      "name": "upper",
+      "docstring": "Return an array with the elements of `self` converted to\nuppercase.\n\nSee Also\n--------\nchar.upper"
+    },
+    {
+      "name": "zfill",
+      "docstring": "Return the numeric string left-filled with zeros in a string of\nlength `width`.\n\nSee Also\n--------\nchar.zfill"
+    },
+    {
+      "name": "isnumeric",
+      "docstring": "For each element in `self`, return True if there are only\nnumeric characters in the element.\n\nSee Also\n--------\nchar.isnumeric"
+    },
+    {
+      "name": "isdecimal",
+      "docstring": "For each element in `self`, return True if there are only\ndecimal characters in the element.\n\nSee Also\n--------\nchar.isdecimal"
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,416 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\text.py",
+  "classes": [
+    {
+      "name": "Span",
+      "docstring": "A marked up region in some text.",
+      "methods": [
+        {
+          "name": "split",
+          "docstring": "Split a span in to 2 from a given offset."
+        },
+        {
+          "name": "move",
+          "docstring": "Move start and end by a given offset.\n\nArgs:\n    offset (int): Number of characters to add to start and end.\n\nReturns:\n    TextSpan: A new TextSpan with adjusted position."
+        },
+        {
+          "name": "right_crop",
+          "docstring": "Crop the span at the given offset.\n\nArgs:\n    offset (int): A value between start and end.\n\nReturns:\n    Span: A new (possibly smaller) span."
+        },
+        {
+          "name": "extend",
+          "docstring": "Extend the span by the given number of cells.\n\nArgs:\n    cells (int): Additional space to add to end of span.\n\nReturns:\n    Span: A span."
+        }
+      ]
+    },
+    {
+      "name": "Text",
+      "docstring": "Text with color / style.\n\nArgs:\n    text (str, optional): Default unstyled text. Defaults to \"\".\n    style (Union[str, Style], optional): Base style for text. Defaults to \"\".\n    justify (str, optional): Justify method: \"left\", \"center\", \"full\", \"right\". Defaults to None.\n    overflow (str, optional): Overflow method: \"crop\", \"fold\", \"ellipsis\". Defaults to None.\n    no_wrap (bool, optional): Disable text wrapping, or None for default. Defaults to None.\n    end (str, optional): Character to end text with. Defaults to \"\\\\n\".\n    tab_size (int): Number of spaces per tab, or ``None`` to use ``console.tab_size``. Defaults to None.\n    spans (List[Span], optional). A list of predefined style spans. Defaults to None.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "cell_len",
+          "docstring": "Get the number of cells required to render this text."
+        },
+        {
+          "name": "markup",
+          "docstring": "Get console markup to render this Text.\n\nReturns:\n    str: A string potentially creating markup tags."
+        },
+        {
+          "name": "from_markup",
+          "docstring": "Create Text instance from markup.\n\nArgs:\n    text (str): A string containing console markup.\n    style (Union[str, Style], optional): Base style for text. Defaults to \"\".\n    emoji (bool, optional): Also render emoji code. Defaults to True.\n    emoji_variant (str, optional): Optional emoji variant, either \"text\" or \"emoji\". Defaults to None.\n    justify (str, optional): Justify method: \"left\", \"center\", \"full\", \"right\". Defaults to None.\n    overflow (str, optional): Overflow method: \"crop\", \"fold\", \"ellipsis\". Defaults to None.\n    end (str, optional): Character to end text with. Defaults to \"\\\\n\".\n\nReturns:\n    Text: A Text instance with markup rendered."
+        },
+        {
+          "name": "from_ansi",
+          "docstring": "Create a Text object from a string containing ANSI escape codes.\n\nArgs:\n    text (str): A string containing escape codes.\n    style (Union[str, Style], optional): Base style for text. Defaults to \"\".\n    justify (str, optional): Justify method: \"left\", \"center\", \"full\", \"right\". Defaults to None.\n    overflow (str, optional): Overflow method: \"crop\", \"fold\", \"ellipsis\". Defaults to None.\n    no_wrap (bool, optional): Disable text wrapping, or None for default. Defaults to None.\n    end (str, optional): Character to end text with. Defaults to \"\\\\n\".\n    tab_size (int): Number of spaces per tab, or ``None`` to use ``console.tab_size``. Defaults to None."
+        },
+        {
+          "name": "styled",
+          "docstring": "Construct a Text instance with a pre-applied styled. A style applied in this way won't be used\nto pad the text when it is justified.\n\nArgs:\n    text (str): A string containing console markup.\n    style (Union[str, Style]): Style to apply to the text. Defaults to \"\".\n    justify (str, optional): Justify method: \"left\", \"center\", \"full\", \"right\". Defaults to None.\n    overflow (str, optional): Overflow method: \"crop\", \"fold\", \"ellipsis\". Defaults to None.\n\nReturns:\n    Text: A text instance with a style applied to the entire string."
+        },
+        {
+          "name": "assemble",
+          "docstring": "Construct a text instance by combining a sequence of strings with optional styles.\nThe positional arguments should be either strings, or a tuple of string + style.\n\nArgs:\n    style (Union[str, Style], optional): Base style for text. Defaults to \"\".\n    justify (str, optional): Justify method: \"left\", \"center\", \"full\", \"right\". Defaults to None.\n    overflow (str, optional): Overflow method: \"crop\", \"fold\", \"ellipsis\". Defaults to None.\n    no_wrap (bool, optional): Disable text wrapping, or None for default. Defaults to None.\n    end (str, optional): Character to end text with. Defaults to \"\\\\n\".\n    tab_size (int): Number of spaces per tab, or ``None`` to use ``console.tab_size``. Defaults to None.\n    meta (Dict[str, Any], optional). Meta data to apply to text, or None for no meta data. Default to None\n\nReturns:\n    Text: A new text instance."
+        },
+        {
+          "name": "plain",
+          "docstring": "Get the text as a single string."
+        },
+        {
+          "name": "plain",
+          "docstring": "Set the text to a new value."
+        },
+        {
+          "name": "spans",
+          "docstring": "Get a reference to the internal list of spans."
+        },
+        {
+          "name": "spans",
+          "docstring": "Set spans."
+        },
+        {
+          "name": "blank_copy",
+          "docstring": "Return a new Text instance with copied metadata (but not the string or spans)."
+        },
+        {
+          "name": "copy",
+          "docstring": "Return a copy of this instance."
+        },
+        {
+          "name": "stylize",
+          "docstring": "Apply a style to the text, or a portion of the text.\n\nArgs:\n    style (Union[str, Style]): Style instance or style definition to apply.\n    start (int): Start offset (negative indexing is supported). Defaults to 0.\n    end (Optional[int], optional): End offset (negative indexing is supported), or None for end of text. Defaults to None."
+        },
+        {
+          "name": "stylize_before",
+          "docstring": "Apply a style to the text, or a portion of the text. Styles will be applied before other styles already present.\n\nArgs:\n    style (Union[str, Style]): Style instance or style definition to apply.\n    start (int): Start offset (negative indexing is supported). Defaults to 0.\n    end (Optional[int], optional): End offset (negative indexing is supported), or None for end of text. Defaults to None."
+        },
+        {
+          "name": "apply_meta",
+          "docstring": "Apply metadata to the text, or a portion of the text.\n\nArgs:\n    meta (Dict[str, Any]): A dict of meta information.\n    start (int): Start offset (negative indexing is supported). Defaults to 0.\n    end (Optional[int], optional): End offset (negative indexing is supported), or None for end of text. Defaults to None."
+        },
+        {
+          "name": "on",
+          "docstring": "Apply event handlers (used by Textual project).\n\nExample:\n    >>> from rich.text import Text\n    >>> text = Text(\"hello world\")\n    >>> text.on(click=\"view.toggle('world')\")\n\nArgs:\n    meta (Dict[str, Any]): Mapping of meta information.\n    **handlers: Keyword args are prefixed with \"@\" to defined handlers.\n\nReturns:\n    Text: Self is returned to method may be chained."
+        },
+        {
+          "name": "remove_suffix",
+          "docstring": "Remove a suffix if it exists.\n\nArgs:\n    suffix (str): Suffix to remove."
+        },
+        {
+          "name": "get_style_at_offset",
+          "docstring": "Get the style of a character at give offset.\n\nArgs:\n    console (~Console): Console where text will be rendered.\n    offset (int): Offset in to text (negative indexing supported)\n\nReturns:\n    Style: A Style instance."
+        },
+        {
+          "name": "extend_style",
+          "docstring": "Extend the Text given number of spaces where the spaces have the same style as the last character.\n\nArgs:\n    spaces (int): Number of spaces to add to the Text."
+        },
+        {
+          "name": "highlight_regex",
+          "docstring": "Highlight text with a regular expression, where group names are\ntranslated to styles.\n\nArgs:\n    re_highlight (Union[re.Pattern, str]): A regular expression object or string.\n    style (Union[GetStyleCallable, StyleType]): Optional style to apply to whole match, or a callable\n        which accepts the matched text and returns a style. Defaults to None.\n    style_prefix (str, optional): Optional prefix to add to style group names.\n\nReturns:\n    int: Number of regex matches"
+        },
+        {
+          "name": "highlight_words",
+          "docstring": "Highlight words with a style.\n\nArgs:\n    words (Iterable[str]): Words to highlight.\n    style (Union[str, Style]): Style to apply.\n    case_sensitive (bool, optional): Enable case sensitive matching. Defaults to True.\n\nReturns:\n    int: Number of words highlighted."
+        },
+        {
+          "name": "rstrip",
+          "docstring": "Strip whitespace from end of text."
+        },
+        {
+          "name": "rstrip_end",
+          "docstring": "Remove whitespace beyond a certain width at the end of the text.\n\nArgs:\n    size (int): The desired size of the text."
+        },
+        {
+          "name": "set_length",
+          "docstring": "Set new length of the text, clipping or padding is required."
+        },
+        {
+          "name": "render",
+          "docstring": "Render the text as Segments.\n\nArgs:\n    console (Console): Console instance.\n    end (Optional[str], optional): Optional end character.\n\nReturns:\n    Iterable[Segment]: Result of render that may be written to the console."
+        },
+        {
+          "name": "join",
+          "docstring": "Join text together with this instance as the separator.\n\nArgs:\n    lines (Iterable[Text]): An iterable of Text instances to join.\n\nReturns:\n    Text: A new text instance containing join text."
+        },
+        {
+          "name": "expand_tabs",
+          "docstring": "Converts tabs to spaces.\n\nArgs:\n    tab_size (int, optional): Size of tabs. Defaults to 8."
+        },
+        {
+          "name": "truncate",
+          "docstring": "Truncate text if it is longer that a given width.\n\nArgs:\n    max_width (int): Maximum number of characters in text.\n    overflow (str, optional): Overflow method: \"crop\", \"fold\", or \"ellipsis\". Defaults to None, to use self.overflow.\n    pad (bool, optional): Pad with spaces if the length is less than max_width. Defaults to False."
+        },
+        {
+          "name": "pad",
+          "docstring": "Pad left and right with a given number of characters.\n\nArgs:\n    count (int): Width of padding.\n    character (str): The character to pad with. Must be a string of length 1."
+        },
+        {
+          "name": "pad_left",
+          "docstring": "Pad the left with a given character.\n\nArgs:\n    count (int): Number of characters to pad.\n    character (str, optional): Character to pad with. Defaults to \" \"."
+        },
+        {
+          "name": "pad_right",
+          "docstring": "Pad the right with a given character.\n\nArgs:\n    count (int): Number of characters to pad.\n    character (str, optional): Character to pad with. Defaults to \" \"."
+        },
+        {
+          "name": "align",
+          "docstring": "Align text to a given width.\n\nArgs:\n    align (AlignMethod): One of \"left\", \"center\", or \"right\".\n    width (int): Desired width.\n    character (str, optional): Character to pad with. Defaults to \" \"."
+        },
+        {
+          "name": "append",
+          "docstring": "Add text with an optional style.\n\nArgs:\n    text (Union[Text, str]): A str or Text to append.\n    style (str, optional): A style name. Defaults to None.\n\nReturns:\n    Text: Returns self for chaining."
+        },
+        {
+          "name": "append_text",
+          "docstring": "Append another Text instance. This method is more performant that Text.append, but\nonly works for Text.\n\nArgs:\n    text (Text): The Text instance to append to this instance.\n\nReturns:\n    Text: Returns self for chaining."
+        },
+        {
+          "name": "append_tokens",
+          "docstring": "Append iterable of str and style. Style may be a Style instance or a str style definition.\n\nArgs:\n    tokens (Iterable[Tuple[str, Optional[StyleType]]]): An iterable of tuples containing str content and style.\n\nReturns:\n    Text: Returns self for chaining."
+        },
+        {
+          "name": "copy_styles",
+          "docstring": "Copy styles from another Text instance.\n\nArgs:\n    text (Text): A Text instance to copy styles from, must be the same length."
+        },
+        {
+          "name": "split",
+          "docstring": "Split rich text in to lines, preserving styles.\n\nArgs:\n    separator (str, optional): String to split on. Defaults to \"\\\\n\".\n    include_separator (bool, optional): Include the separator in the lines. Defaults to False.\n    allow_blank (bool, optional): Return a blank line if the text ends with a separator. Defaults to False.\n\nReturns:\n    List[RichText]: A list of rich text, one per line of the original."
+        },
+        {
+          "name": "divide",
+          "docstring": "Divide text in to a number of lines at given offsets.\n\nArgs:\n    offsets (Iterable[int]): Offsets used to divide text.\n\nReturns:\n    Lines: New RichText instances between offsets."
+        },
+        {
+          "name": "right_crop",
+          "docstring": "Remove a number of characters from the end of the text."
+        },
+        {
+          "name": "wrap",
+          "docstring": "Word wrap the text.\n\nArgs:\n    console (Console): Console instance.\n    width (int): Number of cells available per line.\n    justify (str, optional): Justify method: \"default\", \"left\", \"center\", \"full\", \"right\". Defaults to \"default\".\n    overflow (str, optional): Overflow method: \"crop\", \"fold\", or \"ellipsis\". Defaults to None.\n    tab_size (int, optional): Default tab size. Defaults to 8.\n    no_wrap (bool, optional): Disable wrapping, Defaults to False.\n\nReturns:\n    Lines: Number of lines."
+        },
+        {
+          "name": "fit",
+          "docstring": "Fit the text in to given width by chopping in to lines.\n\nArgs:\n    width (int): Maximum characters in a line.\n\nReturns:\n    Lines: Lines container."
+        },
+        {
+          "name": "detect_indentation",
+          "docstring": "Auto-detect indentation of code.\n\nReturns:\n    int: Number of spaces used to indent code."
+        },
+        {
+          "name": "with_indent_guides",
+          "docstring": "Adds indent guide lines to text.\n\nArgs:\n    indent_size (Optional[int]): Size of indentation, or None to auto detect. Defaults to None.\n    character (str, optional): Character to use for indentation. Defaults to \"\u2502\".\n    style (Union[Style, str], optional): Style of indent guides.\n\nReturns:\n    Text: New text with indentation guides."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "split",
+      "docstring": "Split a span in to 2 from a given offset."
+    },
+    {
+      "name": "move",
+      "docstring": "Move start and end by a given offset.\n\nArgs:\n    offset (int): Number of characters to add to start and end.\n\nReturns:\n    TextSpan: A new TextSpan with adjusted position."
+    },
+    {
+      "name": "right_crop",
+      "docstring": "Crop the span at the given offset.\n\nArgs:\n    offset (int): A value between start and end.\n\nReturns:\n    Span: A new (possibly smaller) span."
+    },
+    {
+      "name": "extend",
+      "docstring": "Extend the span by the given number of cells.\n\nArgs:\n    cells (int): Additional space to add to end of span.\n\nReturns:\n    Span: A span."
+    },
+    {
+      "name": "cell_len",
+      "docstring": "Get the number of cells required to render this text."
+    },
+    {
+      "name": "markup",
+      "docstring": "Get console markup to render this Text.\n\nReturns:\n    str: A string potentially creating markup tags."
+    },
+    {
+      "name": "from_markup",
+      "docstring": "Create Text instance from markup.\n\nArgs:\n    text (str): A string containing console markup.\n    style (Union[str, Style], optional): Base style for text. Defaults to \"\".\n    emoji (bool, optional): Also render emoji code. Defaults to True.\n    emoji_variant (str, optional): Optional emoji variant, either \"text\" or \"emoji\". Defaults to None.\n    justify (str, optional): Justify method: \"left\", \"center\", \"full\", \"right\". Defaults to None.\n    overflow (str, optional): Overflow method: \"crop\", \"fold\", \"ellipsis\". Defaults to None.\n    end (str, optional): Character to end text with. Defaults to \"\\\\n\".\n\nReturns:\n    Text: A Text instance with markup rendered."
+    },
+    {
+      "name": "from_ansi",
+      "docstring": "Create a Text object from a string containing ANSI escape codes.\n\nArgs:\n    text (str): A string containing escape codes.\n    style (Union[str, Style], optional): Base style for text. Defaults to \"\".\n    justify (str, optional): Justify method: \"left\", \"center\", \"full\", \"right\". Defaults to None.\n    overflow (str, optional): Overflow method: \"crop\", \"fold\", \"ellipsis\". Defaults to None.\n    no_wrap (bool, optional): Disable text wrapping, or None for default. Defaults to None.\n    end (str, optional): Character to end text with. Defaults to \"\\\\n\".\n    tab_size (int): Number of spaces per tab, or ``None`` to use ``console.tab_size``. Defaults to None."
+    },
+    {
+      "name": "styled",
+      "docstring": "Construct a Text instance with a pre-applied styled. A style applied in this way won't be used\nto pad the text when it is justified.\n\nArgs:\n    text (str): A string containing console markup.\n    style (Union[str, Style]): Style to apply to the text. Defaults to \"\".\n    justify (str, optional): Justify method: \"left\", \"center\", \"full\", \"right\". Defaults to None.\n    overflow (str, optional): Overflow method: \"crop\", \"fold\", \"ellipsis\". Defaults to None.\n\nReturns:\n    Text: A text instance with a style applied to the entire string."
+    },
+    {
+      "name": "assemble",
+      "docstring": "Construct a text instance by combining a sequence of strings with optional styles.\nThe positional arguments should be either strings, or a tuple of string + style.\n\nArgs:\n    style (Union[str, Style], optional): Base style for text. Defaults to \"\".\n    justify (str, optional): Justify method: \"left\", \"center\", \"full\", \"right\". Defaults to None.\n    overflow (str, optional): Overflow method: \"crop\", \"fold\", \"ellipsis\". Defaults to None.\n    no_wrap (bool, optional): Disable text wrapping, or None for default. Defaults to None.\n    end (str, optional): Character to end text with. Defaults to \"\\\\n\".\n    tab_size (int): Number of spaces per tab, or ``None`` to use ``console.tab_size``. Defaults to None.\n    meta (Dict[str, Any], optional). Meta data to apply to text, or None for no meta data. Default to None\n\nReturns:\n    Text: A new text instance."
+    },
+    {
+      "name": "plain",
+      "docstring": "Get the text as a single string."
+    },
+    {
+      "name": "plain",
+      "docstring": "Set the text to a new value."
+    },
+    {
+      "name": "spans",
+      "docstring": "Get a reference to the internal list of spans."
+    },
+    {
+      "name": "spans",
+      "docstring": "Set spans."
+    },
+    {
+      "name": "blank_copy",
+      "docstring": "Return a new Text instance with copied metadata (but not the string or spans)."
+    },
+    {
+      "name": "copy",
+      "docstring": "Return a copy of this instance."
+    },
+    {
+      "name": "stylize",
+      "docstring": "Apply a style to the text, or a portion of the text.\n\nArgs:\n    style (Union[str, Style]): Style instance or style definition to apply.\n    start (int): Start offset (negative indexing is supported). Defaults to 0.\n    end (Optional[int], optional): End offset (negative indexing is supported), or None for end of text. Defaults to None."
+    },
+    {
+      "name": "stylize_before",
+      "docstring": "Apply a style to the text, or a portion of the text. Styles will be applied before other styles already present.\n\nArgs:\n    style (Union[str, Style]): Style instance or style definition to apply.\n    start (int): Start offset (negative indexing is supported). Defaults to 0.\n    end (Optional[int], optional): End offset (negative indexing is supported), or None for end of text. Defaults to None."
+    },
+    {
+      "name": "apply_meta",
+      "docstring": "Apply metadata to the text, or a portion of the text.\n\nArgs:\n    meta (Dict[str, Any]): A dict of meta information.\n    start (int): Start offset (negative indexing is supported). Defaults to 0.\n    end (Optional[int], optional): End offset (negative indexing is supported), or None for end of text. Defaults to None."
+    },
+    {
+      "name": "on",
+      "docstring": "Apply event handlers (used by Textual project).\n\nExample:\n    >>> from rich.text import Text\n    >>> text = Text(\"hello world\")\n    >>> text.on(click=\"view.toggle('world')\")\n\nArgs:\n    meta (Dict[str, Any]): Mapping of meta information.\n    **handlers: Keyword args are prefixed with \"@\" to defined handlers.\n\nReturns:\n    Text: Self is returned to method may be chained."
+    },
+    {
+      "name": "remove_suffix",
+      "docstring": "Remove a suffix if it exists.\n\nArgs:\n    suffix (str): Suffix to remove."
+    },
+    {
+      "name": "get_style_at_offset",
+      "docstring": "Get the style of a character at give offset.\n\nArgs:\n    console (~Console): Console where text will be rendered.\n    offset (int): Offset in to text (negative indexing supported)\n\nReturns:\n    Style: A Style instance."
+    },
+    {
+      "name": "extend_style",
+      "docstring": "Extend the Text given number of spaces where the spaces have the same style as the last character.\n\nArgs:\n    spaces (int): Number of spaces to add to the Text."
+    },
+    {
+      "name": "highlight_regex",
+      "docstring": "Highlight text with a regular expression, where group names are\ntranslated to styles.\n\nArgs:\n    re_highlight (Union[re.Pattern, str]): A regular expression object or string.\n    style (Union[GetStyleCallable, StyleType]): Optional style to apply to whole match, or a callable\n        which accepts the matched text and returns a style. Defaults to None.\n    style_prefix (str, optional): Optional prefix to add to style group names.\n\nReturns:\n    int: Number of regex matches"
+    },
+    {
+      "name": "highlight_words",
+      "docstring": "Highlight words with a style.\n\nArgs:\n    words (Iterable[str]): Words to highlight.\n    style (Union[str, Style]): Style to apply.\n    case_sensitive (bool, optional): Enable case sensitive matching. Defaults to True.\n\nReturns:\n    int: Number of words highlighted."
+    },
+    {
+      "name": "rstrip",
+      "docstring": "Strip whitespace from end of text."
+    },
+    {
+      "name": "rstrip_end",
+      "docstring": "Remove whitespace beyond a certain width at the end of the text.\n\nArgs:\n    size (int): The desired size of the text."
+    },
+    {
+      "name": "set_length",
+      "docstring": "Set new length of the text, clipping or padding is required."
+    },
+    {
+      "name": "render",
+      "docstring": "Render the text as Segments.\n\nArgs:\n    console (Console): Console instance.\n    end (Optional[str], optional): Optional end character.\n\nReturns:\n    Iterable[Segment]: Result of render that may be written to the console."
+    },
+    {
+      "name": "join",
+      "docstring": "Join text together with this instance as the separator.\n\nArgs:\n    lines (Iterable[Text]): An iterable of Text instances to join.\n\nReturns:\n    Text: A new text instance containing join text."
+    },
+    {
+      "name": "expand_tabs",
+      "docstring": "Converts tabs to spaces.\n\nArgs:\n    tab_size (int, optional): Size of tabs. Defaults to 8."
+    },
+    {
+      "name": "truncate",
+      "docstring": "Truncate text if it is longer that a given width.\n\nArgs:\n    max_width (int): Maximum number of characters in text.\n    overflow (str, optional): Overflow method: \"crop\", \"fold\", or \"ellipsis\". Defaults to None, to use self.overflow.\n    pad (bool, optional): Pad with spaces if the length is less than max_width. Defaults to False."
+    },
+    {
+      "name": "pad",
+      "docstring": "Pad left and right with a given number of characters.\n\nArgs:\n    count (int): Width of padding.\n    character (str): The character to pad with. Must be a string of length 1."
+    },
+    {
+      "name": "pad_left",
+      "docstring": "Pad the left with a given character.\n\nArgs:\n    count (int): Number of characters to pad.\n    character (str, optional): Character to pad with. Defaults to \" \"."
+    },
+    {
+      "name": "pad_right",
+      "docstring": "Pad the right with a given character.\n\nArgs:\n    count (int): Number of characters to pad.\n    character (str, optional): Character to pad with. Defaults to \" \"."
+    },
+    {
+      "name": "align",
+      "docstring": "Align text to a given width.\n\nArgs:\n    align (AlignMethod): One of \"left\", \"center\", or \"right\".\n    width (int): Desired width.\n    character (str, optional): Character to pad with. Defaults to \" \"."
+    },
+    {
+      "name": "append",
+      "docstring": "Add text with an optional style.\n\nArgs:\n    text (Union[Text, str]): A str or Text to append.\n    style (str, optional): A style name. Defaults to None.\n\nReturns:\n    Text: Returns self for chaining."
+    },
+    {
+      "name": "append_text",
+      "docstring": "Append another Text instance. This method is more performant that Text.append, but\nonly works for Text.\n\nArgs:\n    text (Text): The Text instance to append to this instance.\n\nReturns:\n    Text: Returns self for chaining."
+    },
+    {
+      "name": "append_tokens",
+      "docstring": "Append iterable of str and style. Style may be a Style instance or a str style definition.\n\nArgs:\n    tokens (Iterable[Tuple[str, Optional[StyleType]]]): An iterable of tuples containing str content and style.\n\nReturns:\n    Text: Returns self for chaining."
+    },
+    {
+      "name": "copy_styles",
+      "docstring": "Copy styles from another Text instance.\n\nArgs:\n    text (Text): A Text instance to copy styles from, must be the same length."
+    },
+    {
+      "name": "split",
+      "docstring": "Split rich text in to lines, preserving styles.\n\nArgs:\n    separator (str, optional): String to split on. Defaults to \"\\\\n\".\n    include_separator (bool, optional): Include the separator in the lines. Defaults to False.\n    allow_blank (bool, optional): Return a blank line if the text ends with a separator. Defaults to False.\n\nReturns:\n    List[RichText]: A list of rich text, one per line of the original."
+    },
+    {
+      "name": "divide",
+      "docstring": "Divide text in to a number of lines at given offsets.\n\nArgs:\n    offsets (Iterable[int]): Offsets used to divide text.\n\nReturns:\n    Lines: New RichText instances between offsets."
+    },
+    {
+      "name": "right_crop",
+      "docstring": "Remove a number of characters from the end of the text."
+    },
+    {
+      "name": "wrap",
+      "docstring": "Word wrap the text.\n\nArgs:\n    console (Console): Console instance.\n    width (int): Number of cells available per line.\n    justify (str, optional): Justify method: \"default\", \"left\", \"center\", \"full\", \"right\". Defaults to \"default\".\n    overflow (str, optional): Overflow method: \"crop\", \"fold\", or \"ellipsis\". Defaults to None.\n    tab_size (int, optional): Default tab size. Defaults to 8.\n    no_wrap (bool, optional): Disable wrapping, Defaults to False.\n\nReturns:\n    Lines: Number of lines."
+    },
+    {
+      "name": "fit",
+      "docstring": "Fit the text in to given width by chopping in to lines.\n\nArgs:\n    width (int): Maximum characters in a line.\n\nReturns:\n    Lines: Lines container."
+    },
+    {
+      "name": "detect_indentation",
+      "docstring": "Auto-detect indentation of code.\n\nReturns:\n    int: Number of spaces used to indent code."
+    },
+    {
+      "name": "with_indent_guides",
+      "docstring": "Adds indent guide lines to text.\n\nArgs:\n    indent_size (Optional[int]): Size of indentation, or None to auto detect. Defaults to None.\n    character (str, optional): Character to use for indentation. Defaults to \"\u2502\".\n    style (Union[Style, str], optional): Style of indent guides.\n\nReturns:\n    Text: New text with indentation guides."
+    },
+    {
+      "name": "get_text_at",
+      "docstring": null
+    },
+    {
+      "name": "get_current_style",
+      "docstring": "Construct current style from stack."
+    },
+    {
+      "name": "iter_text",
+      "docstring": null
+    },
+    {
+      "name": "flatten_spans",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

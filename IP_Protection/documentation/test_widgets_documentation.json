@@ -1,0 +1,291 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_widgets.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "ax",
+      "docstring": null
+    },
+    {
+      "name": "test_save_blitted_widget_as_pdf",
+      "docstring": null
+    },
+    {
+      "name": "test_rectangle_selector",
+      "docstring": null
+    },
+    {
+      "name": "test_rectangle_minspan",
+      "docstring": null
+    },
+    {
+      "name": "test_rectangle_drag",
+      "docstring": null
+    },
+    {
+      "name": "test_rectangle_selector_set_props_handle_props",
+      "docstring": null
+    },
+    {
+      "name": "test_rectangle_resize",
+      "docstring": null
+    },
+    {
+      "name": "test_rectangle_add_state",
+      "docstring": null
+    },
+    {
+      "name": "test_rectangle_resize_center",
+      "docstring": null
+    },
+    {
+      "name": "test_rectangle_resize_square",
+      "docstring": null
+    },
+    {
+      "name": "test_rectangle_resize_square_center",
+      "docstring": null
+    },
+    {
+      "name": "test_rectangle_rotate",
+      "docstring": null
+    },
+    {
+      "name": "test_rectangle_add_remove_set",
+      "docstring": null
+    },
+    {
+      "name": "test_rectangle_resize_square_center_aspect",
+      "docstring": null
+    },
+    {
+      "name": "test_ellipse",
+      "docstring": "For ellipse, test out the key modifiers"
+    },
+    {
+      "name": "test_rectangle_handles",
+      "docstring": null
+    },
+    {
+      "name": "test_rectangle_selector_onselect",
+      "docstring": null
+    },
+    {
+      "name": "test_rectangle_selector_ignore_outside",
+      "docstring": null
+    },
+    {
+      "name": "test_span_selector",
+      "docstring": null
+    },
+    {
+      "name": "test_span_selector_onselect",
+      "docstring": null
+    },
+    {
+      "name": "test_span_selector_ignore_outside",
+      "docstring": null
+    },
+    {
+      "name": "test_span_selector_drag",
+      "docstring": null
+    },
+    {
+      "name": "test_span_selector_direction",
+      "docstring": null
+    },
+    {
+      "name": "test_span_selector_set_props_handle_props",
+      "docstring": null
+    },
+    {
+      "name": "test_selector_clear",
+      "docstring": null
+    },
+    {
+      "name": "test_selector_clear_method",
+      "docstring": null
+    },
+    {
+      "name": "test_span_selector_add_state",
+      "docstring": null
+    },
+    {
+      "name": "test_tool_line_handle",
+      "docstring": null
+    },
+    {
+      "name": "test_span_selector_bound",
+      "docstring": null
+    },
+    {
+      "name": "test_span_selector_animated_artists_callback",
+      "docstring": "Check that the animated artists changed in callbacks are updated."
+    },
+    {
+      "name": "test_snapping_values_span_selector",
+      "docstring": null
+    },
+    {
+      "name": "test_span_selector_snap",
+      "docstring": null
+    },
+    {
+      "name": "test_span_selector_extents",
+      "docstring": null
+    },
+    {
+      "name": "test_lasso_selector",
+      "docstring": null
+    },
+    {
+      "name": "test_lasso_selector_set_props",
+      "docstring": null
+    },
+    {
+      "name": "test_lasso_set_props",
+      "docstring": null
+    },
+    {
+      "name": "test_CheckButtons",
+      "docstring": null
+    },
+    {
+      "name": "test_TextBox",
+      "docstring": null
+    },
+    {
+      "name": "test_RadioButtons",
+      "docstring": null
+    },
+    {
+      "name": "test_check_radio_buttons_image",
+      "docstring": null
+    },
+    {
+      "name": "test_radio_buttons",
+      "docstring": null
+    },
+    {
+      "name": "test_radio_buttons_props",
+      "docstring": null
+    },
+    {
+      "name": "test_radio_button_active_conflict",
+      "docstring": null
+    },
+    {
+      "name": "test_radio_buttons_activecolor_change",
+      "docstring": null
+    },
+    {
+      "name": "test_check_buttons",
+      "docstring": null
+    },
+    {
+      "name": "test_check_button_props",
+      "docstring": null
+    },
+    {
+      "name": "test_slider_slidermin_slidermax_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_slider_slidermin_slidermax",
+      "docstring": null
+    },
+    {
+      "name": "test_slider_valmin_valmax",
+      "docstring": null
+    },
+    {
+      "name": "test_slider_valstep_snapping",
+      "docstring": null
+    },
+    {
+      "name": "test_slider_horizontal_vertical",
+      "docstring": null
+    },
+    {
+      "name": "test_slider_reset",
+      "docstring": null
+    },
+    {
+      "name": "test_range_slider",
+      "docstring": null
+    },
+    {
+      "name": "test_range_slider_same_init_values",
+      "docstring": null
+    },
+    {
+      "name": "check_polygon_selector",
+      "docstring": "Helper function to test Polygon Selector.\n\nParameters\n----------\nevent_sequence : list of tuples (etype, dict())\n    A sequence of events to perform. The sequence is a list of tuples\n    where the first element of the tuple is an etype (e.g., 'onmove',\n    'press', etc.), and the second element of the tuple is a dictionary of\n     the arguments for the event (e.g., xdata=5, key='shift', etc.).\nexpected_result : list of vertices (xdata, ydata)\n    The list of vertices that are expected to result from the event\n    sequence.\nselections_count : int\n    Wait for the tool to call its `onselect` function `selections_count`\n    times, before comparing the result to the `expected_result`\n**kwargs\n    Keyword arguments are passed to PolygonSelector."
+    },
+    {
+      "name": "polygon_place_vertex",
+      "docstring": null
+    },
+    {
+      "name": "polygon_remove_vertex",
+      "docstring": null
+    },
+    {
+      "name": "test_polygon_selector",
+      "docstring": null
+    },
+    {
+      "name": "test_polygon_selector_set_props_handle_props",
+      "docstring": null
+    },
+    {
+      "name": "test_rect_visibility",
+      "docstring": null
+    },
+    {
+      "name": "test_polygon_selector_remove",
+      "docstring": null
+    },
+    {
+      "name": "test_polygon_selector_remove_first_point",
+      "docstring": null
+    },
+    {
+      "name": "test_polygon_selector_redraw",
+      "docstring": null
+    },
+    {
+      "name": "test_polygon_selector_verts_setter",
+      "docstring": null
+    },
+    {
+      "name": "test_polygon_selector_box",
+      "docstring": null
+    },
+    {
+      "name": "test_polygon_selector_clear_method",
+      "docstring": null
+    },
+    {
+      "name": "test_MultiCursor",
+      "docstring": null
+    },
+    {
+      "name": "mean",
+      "docstring": null
+    },
+    {
+      "name": "onselect",
+      "docstring": null
+    },
+    {
+      "name": "onselect",
+      "docstring": null
+    },
+    {
+      "name": "handle_positions",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

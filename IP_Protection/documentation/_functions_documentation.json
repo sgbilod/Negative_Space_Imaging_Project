@@ -1,0 +1,47 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pywt\\_functions.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "intwave",
+      "docstring": null
+    },
+    {
+      "name": "centrfrq",
+      "docstring": null
+    },
+    {
+      "name": "scal2frq",
+      "docstring": null
+    },
+    {
+      "name": "orthfilt",
+      "docstring": null
+    },
+    {
+      "name": "integrate_wavelet",
+      "docstring": "Integrate `psi` wavelet function from -Inf to x using the rectangle\nintegration method.\n\nParameters\n----------\nwavelet : Wavelet instance or str\n    Wavelet to integrate.  If a string, should be the name of a wavelet.\nprecision : int, optional\n    Precision that will be used for wavelet function\n    approximation computed with the wavefun(level=precision)\n    Wavelet's method (default: 8).\n\nReturns\n-------\n[int_psi, x] :\n    for orthogonal wavelets\n[int_psi_d, int_psi_r, x] :\n    for other wavelets\n\n\nExamples\n--------\n>>> from pywt import Wavelet, integrate_wavelet\n>>> wavelet1 = Wavelet('db2')\n>>> [int_psi, x] = integrate_wavelet(wavelet1, precision=5)\n>>> wavelet2 = Wavelet('bior1.3')\n>>> [int_psi_d, int_psi_r, x] = integrate_wavelet(wavelet2, precision=5)"
+    },
+    {
+      "name": "central_frequency",
+      "docstring": "Computes the central frequency of the `psi` wavelet function.\n\nParameters\n----------\nwavelet : Wavelet instance, str or tuple\n    Wavelet to integrate.  If a string, should be the name of a wavelet.\nprecision : int, optional\n    Precision that will be used for wavelet function\n    approximation computed with the wavefun(level=precision)\n    Wavelet's method (default: 8).\n\nReturns\n-------\nscalar"
+    },
+    {
+      "name": "scale2frequency",
+      "docstring": "Convert from CWT \"scale\" to normalized frequency.\n\nParameters\n----------\nwavelet : Wavelet instance or str\n    Wavelet to integrate.  If a string, should be the name of a wavelet.\nscale : scalar\n    The scale of the CWT.\nprecision : int, optional\n    Precision that will be used for wavelet function approximation computed\n    with ``wavelet.wavefun(level=precision)``.  Default is 8.\n\nReturns\n-------\nfreq : scalar\n    Frequency normalized to the sampling frequency. In other words, for a\n    sampling interval of `dt` seconds, the normalized frequency of 1.0\n    corresponds to (`1/dt` Hz)."
+    },
+    {
+      "name": "frequency2scale",
+      "docstring": "Convert from to normalized frequency to CWT \"scale\".\n\nParameters\n----------\nwavelet : Wavelet instance or str\n    Wavelet to integrate.  If a string, should be the name of a wavelet.\nfreq : scalar\n    Frequency, normalized so that the sampling frequency corresponds to a\n    value of 1.0.\nprecision : int, optional\n    Precision that will be used for wavelet function approximation computed\n    with ``wavelet.wavefun(level=precision)``.  Default is 8.\n\nReturns\n-------\nscale : scalar"
+    },
+    {
+      "name": "qmf",
+      "docstring": "Returns the Quadrature Mirror Filter(QMF).\n\nThe magnitude response of QMF is mirror image about `pi/2` of that of the\ninput filter.\n\nParameters\n----------\nfilt : array_like\n    Input filter for which QMF needs to be computed.\n\nReturns\n-------\nqm_filter : ndarray\n    Quadrature mirror of the input filter."
+    },
+    {
+      "name": "orthogonal_filter_bank",
+      "docstring": "Returns the orthogonal filter bank.\n\nThe orthogonal filter bank consists of the HPFs and LPFs at\ndecomposition and reconstruction stage for the input scaling filter.\n\nParameters\n----------\nscaling_filter : array_like\n    Input scaling filter (father wavelet).\n\nReturns\n-------\north_filt_bank : tuple of 4 ndarrays\n    The orthogonal filter bank of the input scaling filter in the order :\n    1] Decomposition LPF\n    2] Decomposition HPF\n    3] Reconstruction LPF\n    4] Reconstruction HPF"
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,520 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_nditer.py",
+  "classes": [
+    {
+      "name": "TestIterNested",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_reorder",
+          "docstring": null
+        },
+        {
+          "name": "test_flip_axes",
+          "docstring": null
+        },
+        {
+          "name": "test_broadcast",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_copy",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_buffered",
+          "docstring": null
+        },
+        {
+          "name": "test_0d",
+          "docstring": null
+        },
+        {
+          "name": "test_iter_nested_iters_dtype_buffered",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyNDArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "T",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "iter_multi_index",
+      "docstring": null
+    },
+    {
+      "name": "iter_indices",
+      "docstring": null
+    },
+    {
+      "name": "iter_iterindices",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_refcount",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_best_order",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_c_order",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_f_order",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_c_or_f_order",
+      "docstring": null
+    },
+    {
+      "name": "test_nditer_multi_index_set",
+      "docstring": null
+    },
+    {
+      "name": "test_nditer_multi_index_set_refcount",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_best_order_multi_index_1d",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_best_order_multi_index_2d",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_best_order_multi_index_3d",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_best_order_c_index_1d",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_best_order_c_index_2d",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_best_order_c_index_3d",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_best_order_f_index_1d",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_best_order_f_index_2d",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_best_order_f_index_3d",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_no_inner_full_coalesce",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_no_inner_dim_coalescing",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_dim_coalescing",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_broadcasting",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_itershape",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_broadcasting_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_flags_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_slice",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_assign_mapping",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_nbo_align_contig",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_array_cast",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_array_cast_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_scalar_cast",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_scalar_cast_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_object_arrays_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_object_arrays_conversions",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_common_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_copy_if_overlap",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_op_axes",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_op_axes_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_copy",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_copy_casts",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_copy_casts_structured",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_copy_casts_structured2",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_allocate_output_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_allocate_output_buffered_readwrite",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_allocate_output_itorder",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_allocate_output_opaxes",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_allocate_output_types_promotion",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_allocate_output_types_byte_order",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_allocate_output_types_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_allocate_output_subtype",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_allocate_output_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_all_allocated",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_remove_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_remove_multi_index_inner_loop",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_iterindex",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_iterrange",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_buffering",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_write_buffering",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_buffering_delayed_alloc",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_buffered_cast_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_buffered_cast_byteswapped",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_buffered_cast_byteswapped_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_buffered_cast_structured_type",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_buffered_cast_structured_type_failure_with_cleanup",
+      "docstring": null
+    },
+    {
+      "name": "test_buffered_cast_error_paths",
+      "docstring": null
+    },
+    {
+      "name": "test_buffered_cast_error_paths_unraisable",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_buffered_cast_subarray",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_buffering_badwriteback",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_buffering_string",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_buffering_growinner",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_buffered_reduce_reuse",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_no_broadcast",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_reduction_error",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_reduction",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_buffering_reduction",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_buffering_reduction_reuse_reduce_loops",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_writemasked_badinput",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_writemasked",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_writemasked_broadcast_error",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_writemasked_decref",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_non_writable_attribute_deletion",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_writable_attribute_deletion",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_element_deletion",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_allocated_array_dtypes",
+      "docstring": null
+    },
+    {
+      "name": "test_0d_iter",
+      "docstring": null
+    },
+    {
+      "name": "test_object_iter_cleanup",
+      "docstring": null
+    },
+    {
+      "name": "test_object_iter_cleanup_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_object_iter_cleanup_large_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_too_large",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_too_large_with_multiindex",
+      "docstring": null
+    },
+    {
+      "name": "test_writebacks",
+      "docstring": null
+    },
+    {
+      "name": "test_close_equivalent",
+      "docstring": "using a context amanger and using nditer.close are equivalent\n    "
+    },
+    {
+      "name": "test_close_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_close_parameters",
+      "docstring": null
+    },
+    {
+      "name": "test_warn_noclose",
+      "docstring": null
+    },
+    {
+      "name": "test_partial_iteration_cleanup",
+      "docstring": "Checks for reference counting leaks during cleanup.  Using explicit\nreference counts lead to occasional false positives (at least in parallel\ntest setups).  This test now should still test leaks correctly when\nrun e.g. with pytest-valgrind or pytest-leaks"
+    },
+    {
+      "name": "test_partial_iteration_error",
+      "docstring": null
+    },
+    {
+      "name": "test_debug_print",
+      "docstring": "Matches the expected output of a debug print with the actual output.\nNote that the iterator dump should not be considered stable API,\nthis test is mainly to ensure the print does not crash.\n\nCurrently uses a subprocess to avoid dealing with the C level `printf`s."
+    },
+    {
+      "name": "assign_multi_index",
+      "docstring": null
+    },
+    {
+      "name": "assign_index",
+      "docstring": null
+    },
+    {
+      "name": "assign_iterindex",
+      "docstring": null
+    },
+    {
+      "name": "assign_iterrange",
+      "docstring": null
+    },
+    {
+      "name": "get_array",
+      "docstring": null
+    },
+    {
+      "name": "assign_iter",
+      "docstring": null
+    },
+    {
+      "name": "get_params",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_reorder",
+      "docstring": null
+    },
+    {
+      "name": "test_flip_axes",
+      "docstring": null
+    },
+    {
+      "name": "test_broadcast",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_copy",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_buffered",
+      "docstring": null
+    },
+    {
+      "name": "test_0d",
+      "docstring": null
+    },
+    {
+      "name": "test_iter_nested_iters_dtype_buffered",
+      "docstring": null
+    },
+    {
+      "name": "add_close",
+      "docstring": null
+    },
+    {
+      "name": "add_context",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,90 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\visitor.py",
+  "classes": [
+    {
+      "name": "Visitor",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "register",
+          "docstring": null
+        },
+        {
+          "name": "register_attr",
+          "docstring": null
+        },
+        {
+          "name": "register_attrs",
+          "docstring": null
+        },
+        {
+          "name": "visitObject",
+          "docstring": "Called to visit an object. This function loops over all non-private\nattributes of the objects and calls any user-registered (via\n@register_attr() or @register_attrs()) visit() functions.\n\nIf there is no user-registered visit function, of if there is and it\nreturns True, or it returns None (or doesn't return anything) and\nvisitor.defaultStop is False (default), then the visitor will proceed\nto call self.visitAttr()"
+        },
+        {
+          "name": "visitAttr",
+          "docstring": "Called to visit an attribute of an object."
+        },
+        {
+          "name": "visitList",
+          "docstring": "Called to visit any value that is a list."
+        },
+        {
+          "name": "visitDict",
+          "docstring": "Called to visit any value that is a dictionary."
+        },
+        {
+          "name": "visitLeaf",
+          "docstring": "Called to visit any value that is not an object, list,\nor dictionary."
+        },
+        {
+          "name": "visit",
+          "docstring": "This is the main entry to the visitor. The visitor will visit object\nobj.\n\nThe visitor will first determine if there is a registered (via\n@register()) visit function for the type of object. If there is, it\nwill be called, and (visitor, obj, *args, **kwargs) will be passed to\nthe user visit function.\n\nIf there is no user-registered visit function, of if there is and it\nreturns True, or it returns None (or doesn't return anything) and\nvisitor.defaultStop is False (default), then the visitor will proceed\nto dispatch to one of self.visitObject(), self.visitList(),\nself.visitDict(), or self.visitLeaf() (any of which can be overriden in\na subclass)."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "register",
+      "docstring": null
+    },
+    {
+      "name": "register_attr",
+      "docstring": null
+    },
+    {
+      "name": "register_attrs",
+      "docstring": null
+    },
+    {
+      "name": "visitObject",
+      "docstring": "Called to visit an object. This function loops over all non-private\nattributes of the objects and calls any user-registered (via\n@register_attr() or @register_attrs()) visit() functions.\n\nIf there is no user-registered visit function, of if there is and it\nreturns True, or it returns None (or doesn't return anything) and\nvisitor.defaultStop is False (default), then the visitor will proceed\nto call self.visitAttr()"
+    },
+    {
+      "name": "visitAttr",
+      "docstring": "Called to visit an attribute of an object."
+    },
+    {
+      "name": "visitList",
+      "docstring": "Called to visit any value that is a list."
+    },
+    {
+      "name": "visitDict",
+      "docstring": "Called to visit any value that is a dictionary."
+    },
+    {
+      "name": "visitLeaf",
+      "docstring": "Called to visit any value that is not an object, list,\nor dictionary."
+    },
+    {
+      "name": "visit",
+      "docstring": "This is the main entry to the visitor. The visitor will visit object\nobj.\n\nThe visitor will first determine if there is a registered (via\n@register()) visit function for the type of object. If there is, it\nwill be called, and (visitor, obj, *args, **kwargs) will be passed to\nthe user visit function.\n\nIf there is no user-registered visit function, of if there is and it\nreturns True, or it returns None (or doesn't return anything) and\nvisitor.defaultStop is False (default), then the visitor will proceed\nto dispatch to one of self.visitObject(), self.visitList(),\nself.visitDict(), or self.visitLeaf() (any of which can be overriden in\na subclass)."
+    },
+    {
+      "name": "wrapper",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

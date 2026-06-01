@@ -1,0 +1,46 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\_f_p_g_m.py",
+  "classes": [
+    {
+      "name": "table__f_p_g_m",
+      "docstring": "Font Program table\n\nThe ``fpgm`` table typically contains function defintions that are\nused by font instructions. This Font Program is similar to the Control\nValue Program that is stored in the ``prep`` table, but\nthe ``fpgm`` table is only executed one time, when the font is first\nused.\n\nSee also https://learn.microsoft.com/en-us/typography/opentype/spec/fpgm",
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

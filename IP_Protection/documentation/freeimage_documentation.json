@@ -1,0 +1,86 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\freeimage.py",
+  "classes": [
+    {
+      "name": "FreeimageFormat",
+      "docstring": "See :mod:`imageio.plugins.freeimage`",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "fif",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FreeimageBmpFormat",
+      "docstring": "A BMP format based on the Freeimage library.\n\nThis format supports grayscale, RGB and RGBA images.\n\nThe freeimage plugin requires a `freeimage` binary. If this binary\nnot available on the system, it can be downloaded manually from\n<https://github.com/imageio/imageio-binaries> by either\n\n- the command line script ``imageio_download_bin freeimage``\n- the Python method ``imageio.plugins.freeimage.download()``\n\nParameters for saving\n---------------------\ncompression : bool\n    Whether to compress the bitmap using RLE when saving. Default False.\n    It seems this does not always work, but who cares, you should use\n    PNG anyway.",
+      "methods": []
+    },
+    {
+      "name": "FreeimagePngFormat",
+      "docstring": "A PNG format based on the Freeimage library.\n\nThis format supports grayscale, RGB and RGBA images.\n\nThe freeimage plugin requires a `freeimage` binary. If this binary\nnot available on the system, it can be downloaded manually from\n<https://github.com/imageio/imageio-binaries> by either\n\n- the command line script ``imageio_download_bin freeimage``\n- the Python method ``imageio.plugins.freeimage.download()``\n\nParameters for reading\n----------------------\nignoregamma : bool\n    Avoid gamma correction. Default True.\n\nParameters for saving\n---------------------\ncompression : {0, 1, 6, 9}\n    The compression factor. Higher factors result in more\n    compression at the cost of speed. Note that PNG compression is\n    always lossless. Default 9.\nquantize : int\n    If specified, turn the given RGB or RGBA image in a paletted image\n    for more efficient storage. The value should be between 2 and 256.\n    If the value of 0 the image is not quantized.\ninterlaced : bool\n    Save using Adam7 interlacing. Default False.",
+      "methods": []
+    },
+    {
+      "name": "FreeimageJpegFormat",
+      "docstring": "A JPEG format based on the Freeimage library.\n\nThis format supports grayscale and RGB images.\n\nThe freeimage plugin requires a `freeimage` binary. If this binary\nnot available on the system, it can be downloaded manually from\n<https://github.com/imageio/imageio-binaries> by either\n\n- the command line script ``imageio_download_bin freeimage``\n- the Python method ``imageio.plugins.freeimage.download()``\n\nParameters for reading\n----------------------\nexifrotate : bool\n    Automatically rotate the image according to the exif flag.\n    Default True. If 2 is given, do the rotation in Python instead\n    of freeimage.\nquickread : bool\n    Read the image more quickly, at the expense of quality.\n    Default False.\n\nParameters for saving\n---------------------\nquality : scalar\n    The compression factor of the saved image (1..100), higher\n    numbers result in higher quality but larger file size. Default 75.\nprogressive : bool\n    Save as a progressive JPEG file (e.g. for images on the web).\n    Default False.\noptimize : bool\n    On saving, compute optimal Huffman coding tables (can reduce a\n    few percent of file size). Default False.\nbaseline : bool\n    Save basic JPEG, without metadata or any markers. Default False.",
+      "methods": []
+    },
+    {
+      "name": "FreeimagePnmFormat",
+      "docstring": "A PNM format based on the Freeimage library.\n\nThis format supports single bit (PBM), grayscale (PGM) and RGB (PPM)\nimages, even with ASCII or binary coding.\n\nThe freeimage plugin requires a `freeimage` binary. If this binary\nnot available on the system, it can be downloaded manually from\n<https://github.com/imageio/imageio-binaries> by either\n\n- the command line script ``imageio_download_bin freeimage``\n- the Python method ``imageio.plugins.freeimage.download()``\n\nParameters for saving\n---------------------\nuse_ascii : bool\n    Save with ASCII coding. Default True.",
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "fif",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

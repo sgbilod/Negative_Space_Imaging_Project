@@ -1,0 +1,15 @@
+# Core requirements for Negative Space Imaging Project
+numpy>=1.20.0
+matplotlib>=3.4.0
+
+# For Temporal Access Control System
+pyephem>=3.7.7.1  # Astronomical calculations
+cryptography>=36.0.0  # Secure encryption/decryption
+pyvista>=0.34.0  # For 3D visualization
+
+# For Quantum Entangled Ledger
+pyblake2>=1.1.2  # High-performance hashing
+
+# For Mnemonic Data Architecture
+scikit-learn>=1.0.0  # Machine learning utilities
+networkx>=2.6.0  # Graph algorithms

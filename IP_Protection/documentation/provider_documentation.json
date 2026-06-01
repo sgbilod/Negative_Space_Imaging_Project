@@ -1,0 +1,66 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib\\provider.py",
+  "classes": [
+    {
+      "name": "PipProvider",
+      "docstring": "Pip's provider implementation for resolvelib.\n\n:params constraints: A mapping of constraints specified by the user. Keys\n    are canonicalized project names.\n:params ignore_dependencies: Whether the user specified ``--no-deps``.\n:params upgrade_strategy: The user-specified upgrade strategy.\n:params user_requested: A set of canonicalized package names that the user\n    supplied for pip to install/upgrade.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "identify",
+          "docstring": null
+        },
+        {
+          "name": "narrow_requirement_selection",
+          "docstring": "Produce a subset of identifiers that should be considered before others.\n\nCurrently pip narrows the following selection:\n    * Requires-Python, if present is always returned by itself\n    * Backtrack causes are considered next because they can be identified\n      in linear time here, whereas because get_preference() is called\n      for each identifier, it would be quadratic to check for them there.\n      Further, the current backtrack causes likely need to be resolved\n      before other requirements as a resolution can't be found while\n      there is a conflict."
+        },
+        {
+          "name": "get_preference",
+          "docstring": "Produce a sort key for given requirement based on preference.\n\nThe lower the return value is, the more preferred this group of\narguments is.\n\nCurrently pip considers the following in order:\n\n* Any requirement that is \"direct\", e.g., points to an explicit URL.\n* Any requirement that is \"pinned\", i.e., contains the operator ``===``\n  or ``==`` without a wildcard.\n* Any requirement that imposes an upper version limit, i.e., contains the\n  operator ``<``, ``<=``, ``~=``, or ``==`` with a wildcard. Because\n  pip prioritizes the latest version, preferring explicit upper bounds\n  can rule out infeasible candidates sooner. This does not imply that\n  upper bounds are good practice; they can make dependency management\n  and resolution harder.\n* Order user-specified requirements as they are specified, placing\n  other requirements afterward.\n* Any \"non-free\" requirement, i.e., one that contains at least one\n  operator, such as ``>=`` or ``!=``.\n* Alphabetical order for consistency (aids debuggability)."
+        },
+        {
+          "name": "find_matches",
+          "docstring": null
+        },
+        {
+          "name": "is_satisfied_by",
+          "docstring": null
+        },
+        {
+          "name": "get_dependencies",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "identify",
+      "docstring": null
+    },
+    {
+      "name": "narrow_requirement_selection",
+      "docstring": "Produce a subset of identifiers that should be considered before others.\n\nCurrently pip narrows the following selection:\n    * Requires-Python, if present is always returned by itself\n    * Backtrack causes are considered next because they can be identified\n      in linear time here, whereas because get_preference() is called\n      for each identifier, it would be quadratic to check for them there.\n      Further, the current backtrack causes likely need to be resolved\n      before other requirements as a resolution can't be found while\n      there is a conflict."
+    },
+    {
+      "name": "get_preference",
+      "docstring": "Produce a sort key for given requirement based on preference.\n\nThe lower the return value is, the more preferred this group of\narguments is.\n\nCurrently pip considers the following in order:\n\n* Any requirement that is \"direct\", e.g., points to an explicit URL.\n* Any requirement that is \"pinned\", i.e., contains the operator ``===``\n  or ``==`` without a wildcard.\n* Any requirement that imposes an upper version limit, i.e., contains the\n  operator ``<``, ``<=``, ``~=``, or ``==`` with a wildcard. Because\n  pip prioritizes the latest version, preferring explicit upper bounds\n  can rule out infeasible candidates sooner. This does not imply that\n  upper bounds are good practice; they can make dependency management\n  and resolution harder.\n* Order user-specified requirements as they are specified, placing\n  other requirements afterward.\n* Any \"non-free\" requirement, i.e., one that contains at least one\n  operator, such as ``>=`` or ``!=``.\n* Alphabetical order for consistency (aids debuggability)."
+    },
+    {
+      "name": "find_matches",
+      "docstring": null
+    },
+    {
+      "name": "is_satisfied_by",
+      "docstring": null
+    },
+    {
+      "name": "get_dependencies",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,86 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\acquisition\\image_preprocessor.py",
+  "classes": [
+    {
+      "name": "PreprocessingMode",
+      "docstring": "Different preprocessing modes optimized for different scenarios",
+      "methods": []
+    },
+    {
+      "name": "ProcessingParams",
+      "docstring": "Parameters for image preprocessing",
+      "methods": []
+    },
+    {
+      "name": "ImagePreprocessor",
+      "docstring": "Handles specialized preprocessing of images for negative space analysis.\n\nThis class implements various image enhancement and preprocessing techniques\nspecifically designed to highlight the boundaries between objects and\nempty space, which is crucial for negative space mapping.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the image preprocessor with specific mode and parameters.\n\nArgs:\n    mode: Preprocessing mode to use\n    params: Optional custom parameters, if None, default parameters are used"
+        },
+        {
+          "name": "preprocess",
+          "docstring": "Preprocess an image based on the current mode and parameters.\n\nArgs:\n    image: Input image as numpy array\n    depth_map: Optional depth map corresponding to the image\n    \nReturns:\n    Tuple containing:\n        - Preprocessed image\n        - Metadata dict with information about the preprocessing"
+        },
+        {
+          "name": "preprocess_batch",
+          "docstring": "Process a batch of images in parallel.\n\nArgs:\n    images: List of input images\n    depth_maps: Optional list of corresponding depth maps\n    \nReturns:\n    List of processed images"
+        },
+        {
+          "name": "extract_metadata",
+          "docstring": "Extract metadata from an image that might be useful for spatial referencing.\n\nArgs:\n    image: Input image\n    \nReturns:\n    Dictionary of metadata"
+        },
+        {
+          "name": "set_mode",
+          "docstring": "Change the preprocessing mode.\n\nArgs:\n    mode: New preprocessing mode"
+        },
+        {
+          "name": "set_params",
+          "docstring": "Update preprocessing parameters.\n\nArgs:\n    params: New parameters"
+        },
+        {
+          "name": "compare_methods",
+          "docstring": "Apply all preprocessing methods to an image for comparison.\n\nArgs:\n    image: Input image\n    depth_map: Optional depth map\n    \nReturns:\n    Dictionary mapping mode names to processed images"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "preprocess",
+      "docstring": "Preprocess an image based on the current mode and parameters.\n\nArgs:\n    image: Input image as numpy array\n    depth_map: Optional depth map corresponding to the image\n    \nReturns:\n    Tuple containing:\n        - Preprocessed image\n        - Metadata dict with information about the preprocessing"
+    },
+    {
+      "name": "preprocess_batch",
+      "docstring": "Process a batch of images in parallel.\n\nArgs:\n    images: List of input images\n    depth_maps: Optional list of corresponding depth maps\n    \nReturns:\n    List of processed images"
+    },
+    {
+      "name": "extract_metadata",
+      "docstring": "Extract metadata from an image that might be useful for spatial referencing.\n\nArgs:\n    image: Input image\n    \nReturns:\n    Dictionary of metadata"
+    },
+    {
+      "name": "set_mode",
+      "docstring": "Change the preprocessing mode.\n\nArgs:\n    mode: New preprocessing mode"
+    },
+    {
+      "name": "set_params",
+      "docstring": "Update preprocessing parameters.\n\nArgs:\n    params: New parameters"
+    },
+    {
+      "name": "compare_methods",
+      "docstring": "Apply all preprocessing methods to an image for comparison.\n\nArgs:\n    image: Input image\n    depth_map: Optional depth map\n    \nReturns:\n    Dictionary mapping mode names to processed images"
+    },
+    {
+      "name": "process_image",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "        \n        # Merge channels back\n        lab = cv2.merge((l, a, b))\n        enhanced = cv2.cvtColor(lab, cv2.COLOR_LAB2BGR)\n        \n        # Apply bilateral filter for noise reduction while preserving edges\n        denoised = cv2.bilateralFilter("
+    }
+  ]
+}

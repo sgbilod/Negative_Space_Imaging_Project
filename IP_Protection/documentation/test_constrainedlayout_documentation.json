@@ -1,0 +1,195 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_constrainedlayout.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "example_plot",
+      "docstring": null
+    },
+    {
+      "name": "example_pcolor",
+      "docstring": null
+    },
+    {
+      "name": "test_constrained_layout1",
+      "docstring": "Test constrained_layout for a single subplot"
+    },
+    {
+      "name": "test_constrained_layout2",
+      "docstring": "Test constrained_layout for 2x2 subplots"
+    },
+    {
+      "name": "test_constrained_layout3",
+      "docstring": "Test constrained_layout for colorbars with subplots"
+    },
+    {
+      "name": "test_constrained_layout4",
+      "docstring": "Test constrained_layout for a single colorbar with subplots"
+    },
+    {
+      "name": "test_constrained_layout5",
+      "docstring": "Test constrained_layout for a single colorbar with subplots,\ncolorbar bottom"
+    },
+    {
+      "name": "test_constrained_layout6",
+      "docstring": "Test constrained_layout for nested gridspecs"
+    },
+    {
+      "name": "test_identical_subgridspec",
+      "docstring": null
+    },
+    {
+      "name": "test_constrained_layout7",
+      "docstring": "Test for proper warning if fig not set in GridSpec"
+    },
+    {
+      "name": "test_constrained_layout8",
+      "docstring": "Test for gridspecs that are not completely full"
+    },
+    {
+      "name": "test_constrained_layout9",
+      "docstring": "Test for handling suptitle and for sharex and sharey"
+    },
+    {
+      "name": "test_constrained_layout10",
+      "docstring": "Test for handling legend outside axis"
+    },
+    {
+      "name": "test_constrained_layout11",
+      "docstring": "Test for multiple nested gridspecs"
+    },
+    {
+      "name": "test_constrained_layout11rat",
+      "docstring": "Test for multiple nested gridspecs with width_ratios"
+    },
+    {
+      "name": "test_constrained_layout12",
+      "docstring": "Test that very unbalanced labeling still works."
+    },
+    {
+      "name": "test_constrained_layout13",
+      "docstring": "Test that padding works."
+    },
+    {
+      "name": "test_constrained_layout14",
+      "docstring": "Test that padding works."
+    },
+    {
+      "name": "test_constrained_layout15",
+      "docstring": "Test that rcparams work."
+    },
+    {
+      "name": "test_constrained_layout16",
+      "docstring": "Test ax.set_position."
+    },
+    {
+      "name": "test_constrained_layout17",
+      "docstring": "Test uneven gridspecs"
+    },
+    {
+      "name": "test_constrained_layout18",
+      "docstring": "Test twinx"
+    },
+    {
+      "name": "test_constrained_layout19",
+      "docstring": "Test twiny"
+    },
+    {
+      "name": "test_constrained_layout20",
+      "docstring": "Smoke test cl does not mess up added Axes"
+    },
+    {
+      "name": "test_constrained_layout21",
+      "docstring": "#11035: repeated calls to suptitle should not alter the layout"
+    },
+    {
+      "name": "test_constrained_layout22",
+      "docstring": "#11035: suptitle should not be include in CL if manually positioned"
+    },
+    {
+      "name": "test_constrained_layout23",
+      "docstring": "Comment in #11035: suptitle used to cause an exception when\nreusing a figure w/ CL with ``clear=True``."
+    },
+    {
+      "name": "test_colorbar_location",
+      "docstring": "Test that colorbar handling is as expected for various complicated\ncases..."
+    },
+    {
+      "name": "test_hidden_axes",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbar_align",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbars_no_overlapV",
+      "docstring": null
+    },
+    {
+      "name": "test_colorbars_no_overlapH",
+      "docstring": null
+    },
+    {
+      "name": "test_manually_set_position",
+      "docstring": null
+    },
+    {
+      "name": "test_bboxtight",
+      "docstring": null
+    },
+    {
+      "name": "test_bbox",
+      "docstring": null
+    },
+    {
+      "name": "test_align_labels",
+      "docstring": "Tests for a bug in which constrained layout and align_ylabels on\nthree unevenly sized subplots, one of whose y tick labels include\nnegative numbers, drives the non-negative subplots' y labels off\nthe edge of the plot"
+    },
+    {
+      "name": "test_suplabels",
+      "docstring": null
+    },
+    {
+      "name": "test_gridspec_addressing",
+      "docstring": null
+    },
+    {
+      "name": "test_discouraged_api",
+      "docstring": null
+    },
+    {
+      "name": "test_kwargs",
+      "docstring": null
+    },
+    {
+      "name": "test_rect",
+      "docstring": null
+    },
+    {
+      "name": "test_compressed1",
+      "docstring": null
+    },
+    {
+      "name": "test_compressed_suptitle",
+      "docstring": null
+    },
+    {
+      "name": "test_set_constrained_layout",
+      "docstring": null
+    },
+    {
+      "name": "test_constrained_toggle",
+      "docstring": null
+    },
+    {
+      "name": "test_layout_leak",
+      "docstring": null
+    },
+    {
+      "name": "test_submerged_subfig",
+      "docstring": "Test that the submerged margin logic does not get called multiple times\non same axes if it is already in a subfigure"
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,192 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\O_S_2f_2.py",
+  "classes": [
+    {
+      "name": "Panose",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "table_O_S_2f_2",
+      "docstring": "OS/2 and Windows Metrics table\n\nThe ``OS/2`` table contains a variety of font-wide metrics and\nparameters that may be useful to an operating system or other\nsoftware for system-integration purposes.\n\nSee also https://learn.microsoft.com/en-us/typography/opentype/spec/os2",
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "updateFirstAndLastCharIndex",
+          "docstring": null
+        },
+        {
+          "name": "usMaxContex",
+          "docstring": null
+        },
+        {
+          "name": "usMaxContex",
+          "docstring": null
+        },
+        {
+          "name": "fsFirstCharIndex",
+          "docstring": null
+        },
+        {
+          "name": "fsFirstCharIndex",
+          "docstring": null
+        },
+        {
+          "name": "fsLastCharIndex",
+          "docstring": null
+        },
+        {
+          "name": "fsLastCharIndex",
+          "docstring": null
+        },
+        {
+          "name": "getUnicodeRanges",
+          "docstring": "Return the set of 'ulUnicodeRange*' bits currently enabled."
+        },
+        {
+          "name": "setUnicodeRanges",
+          "docstring": "Set the 'ulUnicodeRange*' fields to the specified 'bits'."
+        },
+        {
+          "name": "recalcUnicodeRanges",
+          "docstring": "Intersect the codepoints in the font's Unicode cmap subtables with\nthe Unicode block ranges defined in the OpenType specification (v1.7),\nand set the respective 'ulUnicodeRange*' bits if there is at least ONE\nintersection.\nIf 'pruneOnly' is True, only clear unused bits with NO intersection."
+        },
+        {
+          "name": "getCodePageRanges",
+          "docstring": "Return the set of 'ulCodePageRange*' bits currently enabled."
+        },
+        {
+          "name": "setCodePageRanges",
+          "docstring": "Set the 'ulCodePageRange*' fields to the specified 'bits'."
+        },
+        {
+          "name": "recalcCodePageRanges",
+          "docstring": null
+        },
+        {
+          "name": "recalcAvgCharWidth",
+          "docstring": "Recalculate xAvgCharWidth using metrics from ttFont's 'hmtx' table.\n\nSet it to 0 if the unlikely event 'hmtx' table is not found."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "intersectUnicodeRanges",
+      "docstring": "Intersect a sequence of (int) Unicode codepoints with the Unicode block\nranges defined in the OpenType specification v1.7, and return the set of\n'ulUnicodeRanges' bits for which there is at least ONE intersection.\nIf 'inverse' is True, return the the bits for which there is NO intersection.\n\n>>> intersectUnicodeRanges([0x0410]) == {9}\nTrue\n>>> intersectUnicodeRanges([0x0410, 0x1F000]) == {9, 57, 122}\nTrue\n>>> intersectUnicodeRanges([0x0410, 0x1F000], inverse=True) == (\n...     set(range(len(OS2_UNICODE_RANGES))) - {9, 57, 122})\nTrue"
+    },
+    {
+      "name": "calcCodePageRanges",
+      "docstring": "Given a set of Unicode codepoints (integers), calculate the\ncorresponding OS/2 CodePage range bits.\nThis is a direct translation of FontForge implementation:\nhttps://github.com/fontforge/fontforge/blob/7b2c074/fontforge/tottf.c#L3158"
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "updateFirstAndLastCharIndex",
+      "docstring": null
+    },
+    {
+      "name": "usMaxContex",
+      "docstring": null
+    },
+    {
+      "name": "usMaxContex",
+      "docstring": null
+    },
+    {
+      "name": "fsFirstCharIndex",
+      "docstring": null
+    },
+    {
+      "name": "fsFirstCharIndex",
+      "docstring": null
+    },
+    {
+      "name": "fsLastCharIndex",
+      "docstring": null
+    },
+    {
+      "name": "fsLastCharIndex",
+      "docstring": null
+    },
+    {
+      "name": "getUnicodeRanges",
+      "docstring": "Return the set of 'ulUnicodeRange*' bits currently enabled."
+    },
+    {
+      "name": "setUnicodeRanges",
+      "docstring": "Set the 'ulUnicodeRange*' fields to the specified 'bits'."
+    },
+    {
+      "name": "recalcUnicodeRanges",
+      "docstring": "Intersect the codepoints in the font's Unicode cmap subtables with\nthe Unicode block ranges defined in the OpenType specification (v1.7),\nand set the respective 'ulUnicodeRange*' bits if there is at least ONE\nintersection.\nIf 'pruneOnly' is True, only clear unused bits with NO intersection."
+    },
+    {
+      "name": "getCodePageRanges",
+      "docstring": "Return the set of 'ulCodePageRange*' bits currently enabled."
+    },
+    {
+      "name": "setCodePageRanges",
+      "docstring": "Set the 'ulCodePageRange*' fields to the specified 'bits'."
+    },
+    {
+      "name": "recalcCodePageRanges",
+      "docstring": null
+    },
+    {
+      "name": "recalcAvgCharWidth",
+      "docstring": "Recalculate xAvgCharWidth using metrics from ttFont's 'hmtx' table.\n\nSet it to 0 if the unlikely event 'hmtx' table is not found."
+    }
+  ],
+  "innovations": []
+}

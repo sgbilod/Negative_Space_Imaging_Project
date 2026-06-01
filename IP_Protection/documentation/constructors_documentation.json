@@ -1,0 +1,69 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\req\\constructors.py",
+  "classes": [
+    {
+      "name": "RequirementParts",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "convert_extras",
+      "docstring": null
+    },
+    {
+      "name": "parse_editable",
+      "docstring": "Parses an editable requirement into:\n    - a requirement name\n    - an URL\n    - extras\n    - editable options\nAccepted requirements:\n    svn+http://blahblah@rev#egg=Foobar[baz]&subdirectory=version_subdir\n    .[some_extra]"
+    },
+    {
+      "name": "check_first_requirement_in_file",
+      "docstring": "Check if file is parsable as a requirements file.\n\nThis is heavily based on ``pkg_resources.parse_requirements``, but\nsimplified to just check the first meaningful line.\n\n:raises InvalidRequirement: If the first meaningful line cannot be parsed\n    as an requirement."
+    },
+    {
+      "name": "deduce_helpful_msg",
+      "docstring": "Returns helpful msg in case requirements file does not exist,\nor cannot be parsed.\n\n:params req: Requirements file path"
+    },
+    {
+      "name": "parse_req_from_editable",
+      "docstring": null
+    },
+    {
+      "name": "install_req_from_editable",
+      "docstring": null
+    },
+    {
+      "name": "parse_req_from_line",
+      "docstring": null
+    },
+    {
+      "name": "install_req_from_line",
+      "docstring": "Creates an InstallRequirement from a name, which might be a\nrequirement, directory containing 'setup.py', filename, or URL.\n\n:param line_source: An optional string describing where the line is from,\n    for logging purposes in case of an error."
+    },
+    {
+      "name": "install_req_from_req_string",
+      "docstring": null
+    },
+    {
+      "name": "install_req_from_parsed_requirement",
+      "docstring": null
+    },
+    {
+      "name": "install_req_from_link_and_ireq",
+      "docstring": null
+    },
+    {
+      "name": "install_req_drop_extras",
+      "docstring": "Creates a new InstallationRequirement using the given template but without\nany extras. Sets the original requirement as the new one's parent\n(comes_from)."
+    },
+    {
+      "name": "install_req_extend_extras",
+      "docstring": "Returns a copy of an installation requirement with some additional extras.\nMakes a shallow copy of the ireq object."
+    },
+    {
+      "name": "with_source",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

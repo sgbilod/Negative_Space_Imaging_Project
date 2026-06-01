@@ -1,0 +1,46 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\EpsImagePlugin.py",
+  "classes": [
+    {
+      "name": "EpsImageFile",
+      "docstring": "EPS File Parser for the Python Imaging Library",
+      "methods": [
+        {
+          "name": "load",
+          "docstring": null
+        },
+        {
+          "name": "load_seek",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "has_ghostscript",
+      "docstring": null
+    },
+    {
+      "name": "Ghostscript",
+      "docstring": "Render an image using Ghostscript"
+    },
+    {
+      "name": "load",
+      "docstring": null
+    },
+    {
+      "name": "load_seek",
+      "docstring": null
+    },
+    {
+      "name": "check_required_header_comments",
+      "docstring": "The EPS specification requires that some headers exist.\nThis should be checked when the header comments formally end,\nwhen image data starts, or when the file ends, whichever comes first."
+    },
+    {
+      "name": "read_comment",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

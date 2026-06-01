@@ -1,0 +1,145 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_lines.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "test_segment_hits",
+      "docstring": "Test a problematic case."
+    },
+    {
+      "name": "test_invisible_Line_rendering",
+      "docstring": "GitHub issue #1256 identified a bug in Line.draw method\n\nDespite visibility attribute set to False, the draw method was not\nreturning early enough and some pre-rendering code was executed\nthough not necessary.\n\nConsequence was an excessive draw time for invisible Line instances\nholding a large number of points (Npts> 10**6)"
+    },
+    {
+      "name": "test_set_line_coll_dash",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_line_data",
+      "docstring": null
+    },
+    {
+      "name": "test_line_dashes",
+      "docstring": null
+    },
+    {
+      "name": "test_line_colors",
+      "docstring": null
+    },
+    {
+      "name": "test_valid_colors",
+      "docstring": null
+    },
+    {
+      "name": "test_linestyle_variants",
+      "docstring": null
+    },
+    {
+      "name": "test_valid_linestyles",
+      "docstring": null
+    },
+    {
+      "name": "test_drawstyle_variants",
+      "docstring": null
+    },
+    {
+      "name": "test_no_subslice_with_transform",
+      "docstring": null
+    },
+    {
+      "name": "test_valid_drawstyles",
+      "docstring": null
+    },
+    {
+      "name": "test_set_drawstyle",
+      "docstring": null
+    },
+    {
+      "name": "test_set_line_coll_dash_image",
+      "docstring": null
+    },
+    {
+      "name": "test_marker_fill_styles",
+      "docstring": null
+    },
+    {
+      "name": "test_markerfacecolor_fillstyle",
+      "docstring": "Test that markerfacecolor does not override fillstyle='none'."
+    },
+    {
+      "name": "test_lw_scaling",
+      "docstring": null
+    },
+    {
+      "name": "test_is_sorted_and_has_non_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_step_markers",
+      "docstring": null
+    },
+    {
+      "name": "test_markevery",
+      "docstring": null
+    },
+    {
+      "name": "test_markevery_figure_line_unsupported_relsize",
+      "docstring": null
+    },
+    {
+      "name": "test_marker_as_markerstyle",
+      "docstring": null
+    },
+    {
+      "name": "test_striped_lines",
+      "docstring": null
+    },
+    {
+      "name": "test_odd_dashes",
+      "docstring": null
+    },
+    {
+      "name": "test_picking",
+      "docstring": null
+    },
+    {
+      "name": "test_input_copy",
+      "docstring": null
+    },
+    {
+      "name": "test_markevery_prop_cycle",
+      "docstring": "Test that we can set markevery prop_cycle."
+    },
+    {
+      "name": "test_axline_setters",
+      "docstring": null
+    },
+    {
+      "name": "test_axline_small_slope",
+      "docstring": "Test that small slopes are not coerced to zero in the transform."
+    },
+    {
+      "name": "add_test",
+      "docstring": null
+    },
+    {
+      "name": "add_ref",
+      "docstring": null
+    },
+    {
+      "name": "add_test",
+      "docstring": null
+    },
+    {
+      "name": "add_ref",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    fig, axs = plt.subplots(6)\n    dss = [\"default\", \"steps-mid\", \"steps-pre\", \"steps-post\", \"steps\", None]\n    # We want to check that drawstyles are properly handled even for very long\n    # lines (for which the subslice optimization is on); however, we need\n    # to zoom in so that the difference between the drawstyles is actually\n    # visible.\n    for ax, ds in zip(axs.flat, dss):"
+    }
+  ]
+}

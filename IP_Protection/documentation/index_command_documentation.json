@@ -1,0 +1,40 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\cli\\index_command.py",
+  "classes": [
+    {
+      "name": "SessionCommandMixin",
+      "docstring": "A class mixin for command classes needing _build_session().",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_default_session",
+          "docstring": "Get a default-managed session."
+        }
+      ]
+    },
+    {
+      "name": "IndexGroupCommand",
+      "docstring": "Abstract base class for commands with the index_group options.\n\nThis also corresponds to the commands that permit the pip version check.",
+      "methods": [
+        {
+          "name": "handle_pip_version_check",
+          "docstring": "Do the pip version check if not disabled.\n\nThis overrides the default behavior of not doing the check."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_default_session",
+      "docstring": "Get a default-managed session."
+    },
+    {
+      "name": "handle_pip_version_check",
+      "docstring": "Do the pip version check if not disabled.\n\nThis overrides the default behavior of not doing the check."
+    }
+  ],
+  "innovations": []
+}

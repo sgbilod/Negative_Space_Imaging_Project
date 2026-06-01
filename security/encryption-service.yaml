@@ -1,0 +1,74 @@
+# Encryption Service Configuration
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: quantum-encryption-service
+  namespace: negative-space-system
+  labels:
+    app: quantum-encryption
+spec:
+  serviceName: quantum-encryption
+  replicas: 3
+  selector:
+    matchLabels:
+      app: quantum-encryption
+  template:
+    metadata:
+      labels:
+        app: quantum-encryption
+        role: quantum-encryptor
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      containers:
+      - name: encryption-service
+        image: negative-space/quantum-encryption:latest
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "2"
+            memory: "4Gi"
+          limits:
+            cpu: "4"
+            memory: "8Gi"
+        ports:
+        - containerPort: 443
+          name: https
+        volumeMounts:
+        - name: quantum-keys
+          mountPath: /etc/quantum/keys
+          readOnly: true
+        - name: encryption-state
+          mountPath: /var/lib/quantum
+        env:
+        - name: QUANTUM_ALGORITHM
+          value: "CRYSTALS-Kyber"
+        - name: KEY_ROTATION_INTERVAL
+          value: "1h"
+        - name: VAULT_ADDR
+          value: "https://vault.negative-space-system:8200"
+        - name: LOG_LEVEL
+          value: "INFO"
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+      volumes:
+      - name: quantum-keys
+        secret:
+          secretName: quantum-keys
+  volumeClaimTemplates:
+  - metadata:
+      name: encryption-state
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "premium-ssd"
+      resources:
+        requests:
+          storage: 100Gi

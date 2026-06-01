@@ -1,0 +1,15 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\_tight_layout.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "get_subplotspec_list",
+      "docstring": "Return a list of subplotspec from the given list of Axes.\n\nFor an instance of Axes that does not support subplotspec, None is inserted\nin the list.\n\nIf grid_spec is given, None is inserted for those not from the given\ngrid_spec."
+    },
+    {
+      "name": "get_tight_layout_figure",
+      "docstring": "Return subplot parameters for tight-layouted-figure with specified padding.\n\nParameters\n----------\nfig : Figure\naxes_list : list of Axes\nsubplotspec_list : list of `.SubplotSpec`\n    The subplotspecs of each Axes.\nrenderer : renderer\npad : float\n    Padding between the figure edge and the edges of subplots, as a\n    fraction of the font size.\nh_pad, w_pad : float\n    Padding (height/width) between edges of adjacent subplots.  Defaults to\n    *pad*.\nrect : tuple (left, bottom, right, top), default: None.\n    rectangle in normalized figure coordinates\n    that the whole subplots area (including labels) will fit into.\n    Defaults to using the entire figure.\n\nReturns\n-------\nsubplotspec or None\n    subplotspec kwargs to be passed to `.Figure.subplots_adjust` or\n    None if tight_layout could not be accomplished."
+    }
+  ],
+  "innovations": []
+}

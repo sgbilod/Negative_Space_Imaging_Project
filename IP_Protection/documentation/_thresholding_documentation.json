@@ -1,0 +1,35 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pywt\\_thresholding.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "soft",
+      "docstring": null
+    },
+    {
+      "name": "nn_garrote",
+      "docstring": "Non-negative Garrote."
+    },
+    {
+      "name": "hard",
+      "docstring": null
+    },
+    {
+      "name": "greater",
+      "docstring": null
+    },
+    {
+      "name": "less",
+      "docstring": null
+    },
+    {
+      "name": "threshold",
+      "docstring": "Thresholds the input data depending on the mode argument.\n\nIn ``soft`` thresholding [1]_, data values with absolute value less than\n`param` are replaced with `substitute`. Data values with absolute value\ngreater or equal to the thresholding value are shrunk toward zero\nby `value`.  In other words, the new value is\n``data/np.abs(data) * np.maximum(np.abs(data) - value, 0)``.\n\nIn ``hard`` thresholding, the data values where their absolute value is\nless than the value param are replaced with `substitute`. Data values with\nabsolute value greater or equal to the thresholding value stay untouched.\n\n``garrote`` corresponds to the Non-negative garrote threshold [2]_, [3]_.\nIt is intermediate between ``hard`` and ``soft`` thresholding.  It behaves\nlike soft thresholding for small data values and approaches hard\nthresholding for large data values.\n\nIn ``greater`` thresholding, the data is replaced with `substitute` where\ndata is below the thresholding value. Greater data values pass untouched.\n\nIn ``less`` thresholding, the data is replaced with `substitute` where data\nis above the thresholding value. Lesser data values pass untouched.\n\nBoth ``hard`` and ``soft`` thresholding also support complex-valued data.\n\nParameters\n----------\ndata : array_like\n    Numeric data.\nvalue : scalar\n    Thresholding value.\nmode : {'soft', 'hard', 'garrote', 'greater', 'less'}\n    Decides the type of thresholding to be applied on input data. Default\n    is 'soft'.\nsubstitute : float, optional\n    Substitute value (default: 0).\n\nReturns\n-------\noutput : array\n    Thresholded array.\n\nSee Also\n--------\nthreshold_firm\n\nReferences\n----------\n.. [1] D.L. Donoho and I.M. Johnstone. Ideal Spatial Adaptation via\n    Wavelet Shrinkage. Biometrika. Vol. 81, No. 3, pp.425-455, 1994.\n    DOI:10.1093/biomet/81.3.425\n.. [2] L. Breiman. Better Subset Regression Using the Nonnegative Garrote.\n    Technometrics, Vol. 37, pp. 373-384, 1995.\n    DOI:10.2307/1269730\n.. [3] H-Y. Gao.  Wavelet Shrinkage Denoising Using the Non-Negative\n    Garrote.  Journal of Computational and Graphical Statistics Vol. 7,\n    No. 4, pp.469-488. 1998.\n    DOI:10.1080/10618600.1998.10474789\n\nExamples\n--------\n>>> import numpy as np\n>>> import pywt\n>>> data = np.linspace(1, 4, 7)\n>>> data\narray([ 1. ,  1.5,  2. ,  2.5,  3. ,  3.5,  4. ])\n>>> pywt.threshold(data, 2, 'soft')\narray([ 0. ,  0. ,  0. ,  0.5,  1. ,  1.5,  2. ])\n>>> pywt.threshold(data, 2, 'hard')\narray([ 0. ,  0. ,  2. ,  2.5,  3. ,  3.5,  4. ])\n>>> pywt.threshold(data, 2, 'garrote')\narray([ 0.        ,  0.        ,  0.        ,  0.9       ,  1.66666667,\n        2.35714286,  3.        ])\n>>> pywt.threshold(data, 2, 'greater')\narray([ 0. ,  0. ,  2. ,  2.5,  3. ,  3.5,  4. ])\n>>> pywt.threshold(data, 2, 'less')\narray([ 1. ,  1.5,  2. ,  0. ,  0. ,  0. ,  0. ])"
+    },
+    {
+      "name": "threshold_firm",
+      "docstring": "Firm threshold.\n\nThe approach is intermediate between soft and hard thresholding [1]_. It\nbehaves the same as soft-thresholding for values below `value_low` and\nthe same as hard-thresholding for values above `thresh_high`.  For\nintermediate values, the thresholded value is in between that corresponding\nto soft or hard thresholding.\n\nParameters\n----------\ndata : array-like\n    The data to threshold.  This can be either real or complex-valued.\nvalue_low : float\n    Any values smaller then `value_low` will be set to zero.\nvalue_high : float\n    Any values larger than `value_high` will not be modified.\n\nNotes\n-----\nThis thresholding technique is also known as semi-soft thresholding [2]_.\n\nFor each value, `x`, in `data`. This function computes::\n\n    if np.abs(x) <= value_low:\n        return 0\n    elif np.abs(x) > value_high:\n        return x\n    elif value_low < np.abs(x) and np.abs(x) <= value_high:\n        return x * value_high * (1 - value_low/x)/(value_high - value_low)\n\n``firm`` is a continuous function (like soft thresholding), but is\nunbiased for large values (like hard thresholding).\n\nIf ``value_high == value_low`` this function becomes hard-thresholding.\nIf ``value_high`` is infinity, this function becomes soft-thresholding.\n\nReturns\n-------\nval_new : array-like\n    The values after firm thresholding at the specified thresholds.\n\nSee Also\n--------\nthreshold\n\nReferences\n----------\n.. [1] H.-Y. Gao and A.G. Bruce. Waveshrink with firm shrinkage.\n    Statistica Sinica, Vol. 7, pp. 855-874, 1997.\n.. [2] A. Bruce and H-Y. Gao. WaveShrink: Shrinkage Functions and\n    Thresholds. Proc. SPIE 2569, Wavelet Applications in Signal and\n    Image Processing III, 1995.\n    DOI:10.1117/12.217582"
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,186 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\_internal.py",
+  "classes": [
+    {
+      "name": "dummy_ctype",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_missing_ctypes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "cast",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_ctypes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "data_as",
+          "docstring": "Return the data pointer cast to a particular c-types object.\nFor example, calling ``self._as_parameter_`` is equivalent to\n``self.data_as(ctypes.c_void_p)``. Perhaps you want to use\nthe data as a pointer to a ctypes array of floating-point data:\n``self.data_as(ctypes.POINTER(ctypes.c_double))``.\n\nThe returned pointer will keep a reference to the array."
+        },
+        {
+          "name": "shape_as",
+          "docstring": "Return the shape tuple as an array of some other c-types\ntype. For example: ``self.shape_as(ctypes.c_short)``."
+        },
+        {
+          "name": "strides_as",
+          "docstring": "Return the strides tuple as an array of some other\nc-types type. For example: ``self.strides_as(ctypes.c_longlong)``."
+        },
+        {
+          "name": "data",
+          "docstring": "A pointer to the memory area of the array as a Python integer.\nThis memory area may contain data that is not aligned, or not in\ncorrect byte-order. The memory area may not even be writeable.\nThe array flags and data-type of this array should be respected\nwhen passing this attribute to arbitrary C-code to avoid trouble\nthat can include Python crashing. User Beware! The value of this\nattribute is exactly the same as:\n``self._array_interface_['data'][0]``.\n\nNote that unlike ``data_as``, a reference won't be kept to the array:\ncode like ``ctypes.c_void_p((a + b).ctypes.data)`` will result in a\npointer to a deallocated array, and should be spelt\n``(a + b).ctypes.data_as(ctypes.c_void_p)``"
+        },
+        {
+          "name": "shape",
+          "docstring": "(c_intp*self.ndim): A ctypes array of length self.ndim where\nthe basetype is the C-integer corresponding to ``dtype('p')`` on this\nplatform (see `~numpy.ctypeslib.c_intp`). This base-type could be\n`ctypes.c_int`, `ctypes.c_long`, or `ctypes.c_longlong` depending on\nthe platform. The ctypes array contains the shape of\nthe underlying array."
+        },
+        {
+          "name": "strides",
+          "docstring": "(c_intp*self.ndim): A ctypes array of length self.ndim where\nthe basetype is the same as for the shape attribute. This ctypes\narray contains the strides information from the underlying array.\nThis strides information is important for showing how many bytes\nmust be jumped to get to the next element in the array."
+        },
+        {
+          "name": "get_data",
+          "docstring": "Deprecated getter for the `_ctypes.data` property.\n\n.. deprecated:: 1.21"
+        },
+        {
+          "name": "get_shape",
+          "docstring": "Deprecated getter for the `_ctypes.shape` property.\n\n.. deprecated:: 1.21"
+        },
+        {
+          "name": "get_strides",
+          "docstring": "Deprecated getter for the `_ctypes.strides` property.\n\n.. deprecated:: 1.21"
+        },
+        {
+          "name": "get_as_parameter",
+          "docstring": "Deprecated getter for the `_ctypes._as_parameter_` property.\n\n.. deprecated:: 1.21"
+        }
+      ]
+    },
+    {
+      "name": "_Stream",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "advance",
+          "docstring": null
+        },
+        {
+          "name": "consume",
+          "docstring": null
+        },
+        {
+          "name": "consume_until",
+          "docstring": null
+        },
+        {
+          "name": "next",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "c_void_p",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "array_ufunc_errmsg_formatter",
+      "docstring": "Format the error message for when __array_ufunc__ gives up. "
+    },
+    {
+      "name": "array_function_errmsg_formatter",
+      "docstring": "Format the error message for when __array_ufunc__ gives up. "
+    },
+    {
+      "name": "npy_ctypes_check",
+      "docstring": null
+    },
+    {
+      "name": "cast",
+      "docstring": null
+    },
+    {
+      "name": "data_as",
+      "docstring": "Return the data pointer cast to a particular c-types object.\nFor example, calling ``self._as_parameter_`` is equivalent to\n``self.data_as(ctypes.c_void_p)``. Perhaps you want to use\nthe data as a pointer to a ctypes array of floating-point data:\n``self.data_as(ctypes.POINTER(ctypes.c_double))``.\n\nThe returned pointer will keep a reference to the array."
+    },
+    {
+      "name": "shape_as",
+      "docstring": "Return the shape tuple as an array of some other c-types\ntype. For example: ``self.shape_as(ctypes.c_short)``."
+    },
+    {
+      "name": "strides_as",
+      "docstring": "Return the strides tuple as an array of some other\nc-types type. For example: ``self.strides_as(ctypes.c_longlong)``."
+    },
+    {
+      "name": "data",
+      "docstring": "A pointer to the memory area of the array as a Python integer.\nThis memory area may contain data that is not aligned, or not in\ncorrect byte-order. The memory area may not even be writeable.\nThe array flags and data-type of this array should be respected\nwhen passing this attribute to arbitrary C-code to avoid trouble\nthat can include Python crashing. User Beware! The value of this\nattribute is exactly the same as:\n``self._array_interface_['data'][0]``.\n\nNote that unlike ``data_as``, a reference won't be kept to the array:\ncode like ``ctypes.c_void_p((a + b).ctypes.data)`` will result in a\npointer to a deallocated array, and should be spelt\n``(a + b).ctypes.data_as(ctypes.c_void_p)``"
+    },
+    {
+      "name": "shape",
+      "docstring": "(c_intp*self.ndim): A ctypes array of length self.ndim where\nthe basetype is the C-integer corresponding to ``dtype('p')`` on this\nplatform (see `~numpy.ctypeslib.c_intp`). This base-type could be\n`ctypes.c_int`, `ctypes.c_long`, or `ctypes.c_longlong` depending on\nthe platform. The ctypes array contains the shape of\nthe underlying array."
+    },
+    {
+      "name": "strides",
+      "docstring": "(c_intp*self.ndim): A ctypes array of length self.ndim where\nthe basetype is the same as for the shape attribute. This ctypes\narray contains the strides information from the underlying array.\nThis strides information is important for showing how many bytes\nmust be jumped to get to the next element in the array."
+    },
+    {
+      "name": "get_data",
+      "docstring": "Deprecated getter for the `_ctypes.data` property.\n\n.. deprecated:: 1.21"
+    },
+    {
+      "name": "get_shape",
+      "docstring": "Deprecated getter for the `_ctypes.shape` property.\n\n.. deprecated:: 1.21"
+    },
+    {
+      "name": "get_strides",
+      "docstring": "Deprecated getter for the `_ctypes.strides` property.\n\n.. deprecated:: 1.21"
+    },
+    {
+      "name": "get_as_parameter",
+      "docstring": "Deprecated getter for the `_ctypes._as_parameter_` property.\n\n.. deprecated:: 1.21"
+    },
+    {
+      "name": "advance",
+      "docstring": null
+    },
+    {
+      "name": "consume",
+      "docstring": null
+    },
+    {
+      "name": "consume_until",
+      "docstring": null
+    },
+    {
+      "name": "next",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

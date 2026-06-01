@@ -1,0 +1,406 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\matrixlib\\tests\\test_defmatrix.py",
+  "classes": [
+    {
+      "name": "TestCtor",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_exceptions",
+          "docstring": null
+        },
+        {
+          "name": "test_bmat_nondefault_str",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestProperties",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_sum",
+          "docstring": "Test whether matrix.sum(axis=1) preserves orientation.\nFails in NumPy <= 0.9.6.2127."
+        },
+        {
+          "name": "test_prod",
+          "docstring": null
+        },
+        {
+          "name": "test_max",
+          "docstring": null
+        },
+        {
+          "name": "test_min",
+          "docstring": null
+        },
+        {
+          "name": "test_ptp",
+          "docstring": null
+        },
+        {
+          "name": "test_var",
+          "docstring": null
+        },
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_pinv",
+          "docstring": null
+        },
+        {
+          "name": "test_comparisons",
+          "docstring": null
+        },
+        {
+          "name": "test_asmatrix",
+          "docstring": null
+        },
+        {
+          "name": "test_noaxis",
+          "docstring": null
+        },
+        {
+          "name": "test_repr",
+          "docstring": null
+        },
+        {
+          "name": "test_make_bool_matrix_from_str",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCasting",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAlgebra",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_pow",
+          "docstring": "Test raising a matrix to an integer power works as expected."
+        },
+        {
+          "name": "test_scalar_type_pow",
+          "docstring": null
+        },
+        {
+          "name": "test_notimplemented",
+          "docstring": "Check that 'not implemented' operations produce a failure."
+        }
+      ]
+    },
+    {
+      "name": "TestMatrixReturn",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_instance_methods",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIndexing",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNewScalarIndexing",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_dimesions",
+          "docstring": null
+        },
+        {
+          "name": "test_array_from_matrix_list",
+          "docstring": null
+        },
+        {
+          "name": "test_array_to_list",
+          "docstring": null
+        },
+        {
+          "name": "test_fancy_indexing",
+          "docstring": null
+        },
+        {
+          "name": "test_matrix_element",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar_indexing",
+          "docstring": null
+        },
+        {
+          "name": "test_row_column_indexing",
+          "docstring": null
+        },
+        {
+          "name": "test_boolean_indexing",
+          "docstring": null
+        },
+        {
+          "name": "test_list_indexing",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPower",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_returntype",
+          "docstring": null
+        },
+        {
+          "name": "test_list",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestShape",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_shape",
+          "docstring": null
+        },
+        {
+          "name": "test_numpy_ravel",
+          "docstring": null
+        },
+        {
+          "name": "test_member_ravel",
+          "docstring": null
+        },
+        {
+          "name": "test_member_flatten",
+          "docstring": null
+        },
+        {
+          "name": "test_numpy_ravel_order",
+          "docstring": null
+        },
+        {
+          "name": "test_matrix_ravel_order",
+          "docstring": null
+        },
+        {
+          "name": "test_array_memory_sharing",
+          "docstring": null
+        },
+        {
+          "name": "test_matrix_memory_sharing",
+          "docstring": null
+        },
+        {
+          "name": "test_expand_dims_matrix",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_bmat_nondefault_str",
+      "docstring": null
+    },
+    {
+      "name": "test_sum",
+      "docstring": "Test whether matrix.sum(axis=1) preserves orientation.\nFails in NumPy <= 0.9.6.2127."
+    },
+    {
+      "name": "test_prod",
+      "docstring": null
+    },
+    {
+      "name": "test_max",
+      "docstring": null
+    },
+    {
+      "name": "test_min",
+      "docstring": null
+    },
+    {
+      "name": "test_ptp",
+      "docstring": null
+    },
+    {
+      "name": "test_var",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_pinv",
+      "docstring": null
+    },
+    {
+      "name": "test_comparisons",
+      "docstring": null
+    },
+    {
+      "name": "test_asmatrix",
+      "docstring": null
+    },
+    {
+      "name": "test_noaxis",
+      "docstring": null
+    },
+    {
+      "name": "test_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_make_bool_matrix_from_str",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_pow",
+      "docstring": "Test raising a matrix to an integer power works as expected."
+    },
+    {
+      "name": "test_scalar_type_pow",
+      "docstring": null
+    },
+    {
+      "name": "test_notimplemented",
+      "docstring": "Check that 'not implemented' operations produce a failure."
+    },
+    {
+      "name": "test_instance_methods",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_dimesions",
+      "docstring": null
+    },
+    {
+      "name": "test_array_from_matrix_list",
+      "docstring": null
+    },
+    {
+      "name": "test_array_to_list",
+      "docstring": null
+    },
+    {
+      "name": "test_fancy_indexing",
+      "docstring": null
+    },
+    {
+      "name": "test_matrix_element",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_indexing",
+      "docstring": null
+    },
+    {
+      "name": "test_row_column_indexing",
+      "docstring": null
+    },
+    {
+      "name": "test_boolean_indexing",
+      "docstring": null
+    },
+    {
+      "name": "test_list_indexing",
+      "docstring": null
+    },
+    {
+      "name": "test_returntype",
+      "docstring": null
+    },
+    {
+      "name": "test_list",
+      "docstring": null
+    },
+    {
+      "name": "test_shape",
+      "docstring": null
+    },
+    {
+      "name": "test_numpy_ravel",
+      "docstring": null
+    },
+    {
+      "name": "test_member_ravel",
+      "docstring": null
+    },
+    {
+      "name": "test_member_flatten",
+      "docstring": null
+    },
+    {
+      "name": "test_numpy_ravel_order",
+      "docstring": null
+    },
+    {
+      "name": "test_matrix_ravel_order",
+      "docstring": null
+    },
+    {
+      "name": "test_array_memory_sharing",
+      "docstring": null
+    },
+    {
+      "name": "test_matrix_memory_sharing",
+      "docstring": null
+    },
+    {
+      "name": "test_expand_dims_matrix",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

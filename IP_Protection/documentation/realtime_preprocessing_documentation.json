@@ -1,0 +1,98 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\realtime_preprocessing.py",
+  "classes": [
+    {
+      "name": "ImagePreprocessingPipeline",
+      "docstring": "Real-time image preprocessing pipeline for image acquisition systems.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the preprocessing pipeline.\n\nArgs:\n    max_queue_size: Maximum size of the input and output queues."
+        },
+        {
+          "name": "add_preprocessing_step",
+          "docstring": "Add a preprocessing step to the pipeline.\n\nArgs:\n    step_func: Function that takes an image as input and returns the processed image.\n    step_name: Optional name for the preprocessing step."
+        },
+        {
+          "name": "process_frame",
+          "docstring": "Process a single frame through all preprocessing steps.\n\nArgs:\n    frame: Input image frame.\n    \nReturns:\n    Processed image frame."
+        },
+        {
+          "name": "start",
+          "docstring": "Start the preprocessing pipeline in a separate thread."
+        },
+        {
+          "name": "stop",
+          "docstring": "Stop the preprocessing pipeline."
+        },
+        {
+          "name": "add_frame",
+          "docstring": "Add a frame to the input queue for processing.\n\nArgs:\n    frame: Input image frame.\n    frame_id: Optional identifier for the frame.\n    \nReturns:\n    True if frame was added successfully, False otherwise."
+        },
+        {
+          "name": "get_processed_frame",
+          "docstring": "Get a processed frame from the output queue.\n\nArgs:\n    block: Whether to block until a frame is available.\n    timeout: Maximum time to wait if blocking.\n    \nReturns:\n    Dictionary containing the processed frame and metadata, or None if no frame is available."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "resize_image",
+      "docstring": "Create a function that resizes an image to the target size.\n\nArgs:\n    target_size: Target size as (width, height).\n    \nReturns:\n    Function that takes an image and resizes it."
+    },
+    {
+      "name": "normalize_image",
+      "docstring": "Create a function that normalizes image pixel values to the range [0, 255].\n\nReturns:\n    Function that takes an image and normalizes it."
+    },
+    {
+      "name": "denoise_image",
+      "docstring": "Create a function that applies denoising to an image.\n\nArgs:\n    h: Filter strength for luminance component.\n    hColor: Filter strength for color components.\n    templateWindowSize: Size of template patch.\n    searchWindowSize: Size of window for searching similar patches.\n    \nReturns:\n    Function that takes an image and denoises it."
+    },
+    {
+      "name": "adjust_brightness_contrast",
+      "docstring": "Create a function that adjusts brightness and contrast of an image.\n\nArgs:\n    alpha: Contrast control (1.0 means no change).\n    beta: Brightness control (0 means no change).\n    \nReturns:\n    Function that takes an image and adjusts its brightness and contrast."
+    },
+    {
+      "name": "add_preprocessing_step",
+      "docstring": "Add a preprocessing step to the pipeline.\n\nArgs:\n    step_func: Function that takes an image as input and returns the processed image.\n    step_name: Optional name for the preprocessing step."
+    },
+    {
+      "name": "process_frame",
+      "docstring": "Process a single frame through all preprocessing steps.\n\nArgs:\n    frame: Input image frame.\n    \nReturns:\n    Processed image frame."
+    },
+    {
+      "name": "start",
+      "docstring": "Start the preprocessing pipeline in a separate thread."
+    },
+    {
+      "name": "stop",
+      "docstring": "Stop the preprocessing pipeline."
+    },
+    {
+      "name": "add_frame",
+      "docstring": "Add a frame to the input queue for processing.\n\nArgs:\n    frame: Input image frame.\n    frame_id: Optional identifier for the frame.\n    \nReturns:\n    True if frame was added successfully, False otherwise."
+    },
+    {
+      "name": "get_processed_frame",
+      "docstring": "Get a processed frame from the output queue.\n\nArgs:\n    block: Whether to block until a frame is available.\n    timeout: Maximum time to wait if blocking.\n    \nReturns:\n    Dictionary containing the processed frame and metadata, or None if no frame is available."
+    },
+    {
+      "name": "resize_func",
+      "docstring": null
+    },
+    {
+      "name": "normalize_func",
+      "docstring": null
+    },
+    {
+      "name": "denoise_func",
+      "docstring": null
+    },
+    {
+      "name": "adjust_func",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

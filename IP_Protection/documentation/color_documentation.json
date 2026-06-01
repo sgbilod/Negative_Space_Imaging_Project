@@ -1,0 +1,125 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\color.py",
+  "classes": [
+    {
+      "name": "ColorSystem",
+      "docstring": "One of the 3 color system supported by terminals.",
+      "methods": []
+    },
+    {
+      "name": "ColorType",
+      "docstring": "Type of color stored in Color class.",
+      "methods": []
+    },
+    {
+      "name": "ColorParseError",
+      "docstring": "The color could not be parsed.",
+      "methods": []
+    },
+    {
+      "name": "Color",
+      "docstring": "Terminal color definition.",
+      "methods": [
+        {
+          "name": "system",
+          "docstring": "Get the native color system for this color."
+        },
+        {
+          "name": "is_system_defined",
+          "docstring": "Check if the color is ultimately defined by the system."
+        },
+        {
+          "name": "is_default",
+          "docstring": "Check if the color is a default color."
+        },
+        {
+          "name": "get_truecolor",
+          "docstring": "Get an equivalent color triplet for this color.\n\nArgs:\n    theme (TerminalTheme, optional): Optional terminal theme, or None to use default. Defaults to None.\n    foreground (bool, optional): True for a foreground color, or False for background. Defaults to True.\n\nReturns:\n    ColorTriplet: A color triplet containing RGB components."
+        },
+        {
+          "name": "from_ansi",
+          "docstring": "Create a Color number from it's 8-bit ansi number.\n\nArgs:\n    number (int): A number between 0-255 inclusive.\n\nReturns:\n    Color: A new Color instance."
+        },
+        {
+          "name": "from_triplet",
+          "docstring": "Create a truecolor RGB color from a triplet of values.\n\nArgs:\n    triplet (ColorTriplet): A color triplet containing red, green and blue components.\n\nReturns:\n    Color: A new color object."
+        },
+        {
+          "name": "from_rgb",
+          "docstring": "Create a truecolor from three color components in the range(0->255).\n\nArgs:\n    red (float): Red component in range 0-255.\n    green (float): Green component in range 0-255.\n    blue (float): Blue component in range 0-255.\n\nReturns:\n    Color: A new color object."
+        },
+        {
+          "name": "default",
+          "docstring": "Get a Color instance representing the default color.\n\nReturns:\n    Color: Default color."
+        },
+        {
+          "name": "parse",
+          "docstring": "Parse a color definition."
+        },
+        {
+          "name": "get_ansi_codes",
+          "docstring": "Get the ANSI escape codes for this color."
+        },
+        {
+          "name": "downgrade",
+          "docstring": "Downgrade a color system to a system with fewer colors."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "parse_rgb_hex",
+      "docstring": "Parse six hex characters in to RGB triplet."
+    },
+    {
+      "name": "blend_rgb",
+      "docstring": "Blend one RGB color in to another."
+    },
+    {
+      "name": "system",
+      "docstring": "Get the native color system for this color."
+    },
+    {
+      "name": "is_system_defined",
+      "docstring": "Check if the color is ultimately defined by the system."
+    },
+    {
+      "name": "is_default",
+      "docstring": "Check if the color is a default color."
+    },
+    {
+      "name": "get_truecolor",
+      "docstring": "Get an equivalent color triplet for this color.\n\nArgs:\n    theme (TerminalTheme, optional): Optional terminal theme, or None to use default. Defaults to None.\n    foreground (bool, optional): True for a foreground color, or False for background. Defaults to True.\n\nReturns:\n    ColorTriplet: A color triplet containing RGB components."
+    },
+    {
+      "name": "from_ansi",
+      "docstring": "Create a Color number from it's 8-bit ansi number.\n\nArgs:\n    number (int): A number between 0-255 inclusive.\n\nReturns:\n    Color: A new Color instance."
+    },
+    {
+      "name": "from_triplet",
+      "docstring": "Create a truecolor RGB color from a triplet of values.\n\nArgs:\n    triplet (ColorTriplet): A color triplet containing red, green and blue components.\n\nReturns:\n    Color: A new color object."
+    },
+    {
+      "name": "from_rgb",
+      "docstring": "Create a truecolor from three color components in the range(0->255).\n\nArgs:\n    red (float): Red component in range 0-255.\n    green (float): Green component in range 0-255.\n    blue (float): Blue component in range 0-255.\n\nReturns:\n    Color: A new color object."
+    },
+    {
+      "name": "default",
+      "docstring": "Get a Color instance representing the default color.\n\nReturns:\n    Color: Default color."
+    },
+    {
+      "name": "parse",
+      "docstring": "Parse a color definition."
+    },
+    {
+      "name": "get_ansi_codes",
+      "docstring": "Get the ANSI escape codes for this color."
+    },
+    {
+      "name": "downgrade",
+      "docstring": "Downgrade a color system to a system with fewer colors."
+    }
+  ],
+  "innovations": []
+}

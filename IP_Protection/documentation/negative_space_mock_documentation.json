@@ -1,0 +1,470 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\negative-space-project\\negative_space_mock.py",
+  "classes": [
+    {
+      "name": "MockOpen3D",
+      "docstring": "Mock implementation of Open3D",
+      "methods": []
+    },
+    {
+      "name": "MockRenderOption",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PointCloudGenerator",
+      "docstring": "Mock implementation of the PointCloudGenerator class.\n\nThis provides the essential interfaces needed by the acquisition_integration.py\nfile without requiring open3d to be installed.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a mock point cloud generator.\n\nArgs:\n    cloud_type: Type of point cloud to generate\n    params: Parameters for point cloud generation"
+        },
+        {
+          "name": "generate_from_images_and_features",
+          "docstring": "Mock implementation of point cloud generation.\n\nArgs:\n    frames: List of image frames\n    feature_sets: List of feature sets\n    void_emphasis: Whether to emphasize void regions\n    boundary_preservation: Whether to preserve boundary regions\n    \nReturns:\n    NegativeSpacePointCloud: A mock point cloud"
+        },
+        {
+          "name": "save",
+          "docstring": "Mock implementation of point cloud saving.\n\nArgs:\n    point_cloud: Point cloud to save\n    output_path: Path to save the point cloud to"
+        }
+      ]
+    },
+    {
+      "name": "InterstitialAnalyzer",
+      "docstring": "Mock implementation of the InterstitialAnalyzer class.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the mock analyzer."
+        },
+        {
+          "name": "set_object_points",
+          "docstring": "Set object points."
+        },
+        {
+          "name": "set_void_points",
+          "docstring": "Set void points."
+        },
+        {
+          "name": "analyze",
+          "docstring": "Analyze interstitial spaces.\n\nReturns:\n    list: List of mock interstitial regions"
+        },
+        {
+          "name": "visualize_all_regions",
+          "docstring": "Visualize all regions.\n\nReturns:\n    list: List of mock meshes"
+        }
+      ]
+    },
+    {
+      "name": "InterstitialRegion",
+      "docstring": "Mock implementation of the InterstitialRegion class.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the mock region."
+        }
+      ]
+    },
+    {
+      "name": "ModelAssembler",
+      "docstring": "Mock implementation of the ModelAssembler class.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the mock assembler."
+        },
+        {
+          "name": "create_component_from_points",
+          "docstring": "Create a component from points.\n\nReturns:\n    object: Mock component"
+        },
+        {
+          "name": "assemble",
+          "docstring": "Assemble the model."
+        },
+        {
+          "name": "save",
+          "docstring": "Save the model."
+        },
+        {
+          "name": "visualize",
+          "docstring": "Visualize the model."
+        }
+      ]
+    },
+    {
+      "name": "ModelComponent",
+      "docstring": "Mock implementation of the ModelComponent class.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the mock component."
+        }
+      ]
+    },
+    {
+      "name": "NegativeSpaceComponent",
+      "docstring": "Mock implementation of the NegativeSpaceComponent class.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the mock component."
+        }
+      ]
+    },
+    {
+      "name": "ComponentType",
+      "docstring": "Mock implementation of the ComponentType enum.",
+      "methods": []
+    },
+    {
+      "name": "NegativeSpacePointCloud",
+      "docstring": "Mock implementation of the NegativeSpacePointCloud class.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the mock point cloud."
+        },
+        {
+          "name": "point_count",
+          "docstring": "Get the point count."
+        },
+        {
+          "name": "add_points",
+          "docstring": "Add points to the point cloud."
+        },
+        {
+          "name": "classify_points",
+          "docstring": "Classify points into object, boundary, and void points."
+        },
+        {
+          "name": "generate_void_points",
+          "docstring": "Generate void points."
+        },
+        {
+          "name": "visualize",
+          "docstring": "Visualize the point cloud."
+        },
+        {
+          "name": "export_to_open3d",
+          "docstring": "Export to an Open3D point cloud object.\nSince we're in the mock implementation, this creates a mock object."
+        },
+        {
+          "name": "remove_statistical_outliers",
+          "docstring": "Remove statistical outliers from the point cloud.\nThis is a mock implementation that does nothing but print."
+        },
+        {
+          "name": "segment_objects",
+          "docstring": "Segment objects in the point cloud using DBSCAN.\nThis is a mock implementation that returns random labels."
+        }
+      ]
+    },
+    {
+      "name": "geometry",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "utility",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "visualization",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "draw_geometries",
+          "docstring": "Draw multiple geometries in a single window."
+        },
+        {
+          "name": "draw",
+          "docstring": "Draw a single geometry."
+        }
+      ]
+    },
+    {
+      "name": "PointCloud",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "compute_point_cloud_distance",
+          "docstring": null
+        },
+        {
+          "name": "paint_uniform_color",
+          "docstring": "Paint the point cloud with a uniform color."
+        },
+        {
+          "name": "estimate_normals",
+          "docstring": "Estimate normals for the point cloud."
+        },
+        {
+          "name": "voxel_down_sample",
+          "docstring": "Downsample the point cloud using voxel grid."
+        },
+        {
+          "name": "cluster_dbscan",
+          "docstring": "Cluster points using DBSCAN algorithm."
+        }
+      ]
+    },
+    {
+      "name": "TriangleMesh",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "paint_uniform_color",
+          "docstring": "Paint the mesh with a uniform color."
+        },
+        {
+          "name": "compute_vertex_normals",
+          "docstring": "Compute vertex normals for the mesh."
+        },
+        {
+          "name": "create_sphere",
+          "docstring": "Create a sphere mesh."
+        },
+        {
+          "name": "create_box",
+          "docstring": "Create a box mesh."
+        }
+      ]
+    },
+    {
+      "name": "LineSet",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Vector3dVector",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Vector3iVector",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Visualizer",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "create_window",
+          "docstring": null
+        },
+        {
+          "name": "add_geometry",
+          "docstring": null
+        },
+        {
+          "name": "get_render_option",
+          "docstring": null
+        },
+        {
+          "name": "run",
+          "docstring": null
+        },
+        {
+          "name": "destroy_window",
+          "docstring": null
+        },
+        {
+          "name": "update_geometry",
+          "docstring": null
+        },
+        {
+          "name": "poll_events",
+          "docstring": "Poll events for the visualizer."
+        },
+        {
+          "name": "update_renderer",
+          "docstring": "Update the renderer."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "generate_from_images_and_features",
+      "docstring": "Mock implementation of point cloud generation.\n\nArgs:\n    frames: List of image frames\n    feature_sets: List of feature sets\n    void_emphasis: Whether to emphasize void regions\n    boundary_preservation: Whether to preserve boundary regions\n    \nReturns:\n    NegativeSpacePointCloud: A mock point cloud"
+    },
+    {
+      "name": "save",
+      "docstring": "Mock implementation of point cloud saving.\n\nArgs:\n    point_cloud: Point cloud to save\n    output_path: Path to save the point cloud to"
+    },
+    {
+      "name": "set_object_points",
+      "docstring": "Set object points."
+    },
+    {
+      "name": "set_void_points",
+      "docstring": "Set void points."
+    },
+    {
+      "name": "analyze",
+      "docstring": "Analyze interstitial spaces.\n\nReturns:\n    list: List of mock interstitial regions"
+    },
+    {
+      "name": "visualize_all_regions",
+      "docstring": "Visualize all regions.\n\nReturns:\n    list: List of mock meshes"
+    },
+    {
+      "name": "create_component_from_points",
+      "docstring": "Create a component from points.\n\nReturns:\n    object: Mock component"
+    },
+    {
+      "name": "assemble",
+      "docstring": "Assemble the model."
+    },
+    {
+      "name": "save",
+      "docstring": "Save the model."
+    },
+    {
+      "name": "visualize",
+      "docstring": "Visualize the model."
+    },
+    {
+      "name": "point_count",
+      "docstring": "Get the point count."
+    },
+    {
+      "name": "add_points",
+      "docstring": "Add points to the point cloud."
+    },
+    {
+      "name": "classify_points",
+      "docstring": "Classify points into object, boundary, and void points."
+    },
+    {
+      "name": "generate_void_points",
+      "docstring": "Generate void points."
+    },
+    {
+      "name": "visualize",
+      "docstring": "Visualize the point cloud."
+    },
+    {
+      "name": "export_to_open3d",
+      "docstring": "Export to an Open3D point cloud object.\nSince we're in the mock implementation, this creates a mock object."
+    },
+    {
+      "name": "remove_statistical_outliers",
+      "docstring": "Remove statistical outliers from the point cloud.\nThis is a mock implementation that does nothing but print."
+    },
+    {
+      "name": "segment_objects",
+      "docstring": "Segment objects in the point cloud using DBSCAN.\nThis is a mock implementation that returns random labels."
+    },
+    {
+      "name": "draw_geometries",
+      "docstring": "Draw multiple geometries in a single window."
+    },
+    {
+      "name": "draw",
+      "docstring": "Draw a single geometry."
+    },
+    {
+      "name": "compute_point_cloud_distance",
+      "docstring": null
+    },
+    {
+      "name": "paint_uniform_color",
+      "docstring": "Paint the point cloud with a uniform color."
+    },
+    {
+      "name": "estimate_normals",
+      "docstring": "Estimate normals for the point cloud."
+    },
+    {
+      "name": "voxel_down_sample",
+      "docstring": "Downsample the point cloud using voxel grid."
+    },
+    {
+      "name": "cluster_dbscan",
+      "docstring": "Cluster points using DBSCAN algorithm."
+    },
+    {
+      "name": "paint_uniform_color",
+      "docstring": "Paint the mesh with a uniform color."
+    },
+    {
+      "name": "compute_vertex_normals",
+      "docstring": "Compute vertex normals for the mesh."
+    },
+    {
+      "name": "create_sphere",
+      "docstring": "Create a sphere mesh."
+    },
+    {
+      "name": "create_box",
+      "docstring": "Create a box mesh."
+    },
+    {
+      "name": "create_window",
+      "docstring": null
+    },
+    {
+      "name": "add_geometry",
+      "docstring": null
+    },
+    {
+      "name": "get_render_option",
+      "docstring": null
+    },
+    {
+      "name": "run",
+      "docstring": null
+    },
+    {
+      "name": "destroy_window",
+      "docstring": null
+    },
+    {
+      "name": "update_geometry",
+      "docstring": null
+    },
+    {
+      "name": "poll_events",
+      "docstring": "Poll events for the visualizer."
+    },
+    {
+      "name": "update_renderer",
+      "docstring": "Update the renderer."
+    }
+  ],
+  "innovations": []
+}

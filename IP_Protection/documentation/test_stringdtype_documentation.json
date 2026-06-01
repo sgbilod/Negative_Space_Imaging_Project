@@ -1,0 +1,488 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_stringdtype.py",
+  "classes": [
+    {
+      "name": "TestStringLikeCasts",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_unicode_casts",
+          "docstring": null
+        },
+        {
+          "name": "test_void_casts",
+          "docstring": null
+        },
+        {
+          "name": "test_bytes_casts",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestImplementation",
+      "docstring": "Check that strings are stored in the arena when possible.\n\nThis tests implementation details, so should be adjusted if\nthe implementation changes.",
+      "methods": [
+        {
+          "name": "setup_class",
+          "docstring": null
+        },
+        {
+          "name": "get_view",
+          "docstring": null
+        },
+        {
+          "name": "get_flags",
+          "docstring": null
+        },
+        {
+          "name": "is_short",
+          "docstring": null
+        },
+        {
+          "name": "is_on_heap",
+          "docstring": null
+        },
+        {
+          "name": "is_missing",
+          "docstring": null
+        },
+        {
+          "name": "in_arena",
+          "docstring": null
+        },
+        {
+          "name": "test_setup",
+          "docstring": null
+        },
+        {
+          "name": "test_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_zeros",
+          "docstring": null
+        },
+        {
+          "name": "test_copy",
+          "docstring": null
+        },
+        {
+          "name": "test_arena_use_with_setting",
+          "docstring": null
+        },
+        {
+          "name": "test_arena_reuse_with_setting",
+          "docstring": null
+        },
+        {
+          "name": "test_arena_reuse_after_missing",
+          "docstring": null
+        },
+        {
+          "name": "test_arena_reuse_after_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_arena_reuse_for_shorter",
+          "docstring": null
+        },
+        {
+          "name": "test_arena_reuse_if_possible",
+          "docstring": null
+        },
+        {
+          "name": "test_arena_no_reuse_after_short",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "string_list",
+      "docstring": null
+    },
+    {
+      "name": "random_string_list",
+      "docstring": null
+    },
+    {
+      "name": "coerce",
+      "docstring": null
+    },
+    {
+      "name": "na_object",
+      "docstring": null
+    },
+    {
+      "name": "get_dtype",
+      "docstring": null
+    },
+    {
+      "name": "dtype",
+      "docstring": null
+    },
+    {
+      "name": "coerce2",
+      "docstring": null
+    },
+    {
+      "name": "na_object2",
+      "docstring": null
+    },
+    {
+      "name": "dtype2",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_creation",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_equality",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_create_with_na",
+      "docstring": null
+    },
+    {
+      "name": "test_set_replace_na",
+      "docstring": null
+    },
+    {
+      "name": "test_null_roundtripping",
+      "docstring": null
+    },
+    {
+      "name": "test_string_too_large_error",
+      "docstring": null
+    },
+    {
+      "name": "test_array_creation_utf8",
+      "docstring": null
+    },
+    {
+      "name": "test_scalars_string_conversion",
+      "docstring": null
+    },
+    {
+      "name": "test_self_casts",
+      "docstring": null
+    },
+    {
+      "name": "test_additional_unicode_cast",
+      "docstring": null
+    },
+    {
+      "name": "test_insert_scalar",
+      "docstring": "Test that inserting a scalar works."
+    },
+    {
+      "name": "test_comparisons",
+      "docstring": null
+    },
+    {
+      "name": "test_isnan",
+      "docstring": null
+    },
+    {
+      "name": "test_pickle",
+      "docstring": null
+    },
+    {
+      "name": "test_stdlib_copy",
+      "docstring": null
+    },
+    {
+      "name": "test_sort",
+      "docstring": "Test that sorting matches python's internal sorting."
+    },
+    {
+      "name": "test_nonzero",
+      "docstring": null
+    },
+    {
+      "name": "test_where",
+      "docstring": null
+    },
+    {
+      "name": "test_fancy_indexing",
+      "docstring": null
+    },
+    {
+      "name": "test_creation_functions",
+      "docstring": null
+    },
+    {
+      "name": "test_concatenate",
+      "docstring": null
+    },
+    {
+      "name": "test_resize_method",
+      "docstring": null
+    },
+    {
+      "name": "test_create_with_copy_none",
+      "docstring": null
+    },
+    {
+      "name": "test_astype_copy_false",
+      "docstring": null
+    },
+    {
+      "name": "test_argmax",
+      "docstring": "Test that argmax/argmin matches what python calculates."
+    },
+    {
+      "name": "test_arrfuncs_zeros",
+      "docstring": null
+    },
+    {
+      "name": "test_cast_to_bool",
+      "docstring": null
+    },
+    {
+      "name": "test_cast_from_bool",
+      "docstring": null
+    },
+    {
+      "name": "test_sized_integer_casts",
+      "docstring": null
+    },
+    {
+      "name": "test_unsized_integer_casts",
+      "docstring": null
+    },
+    {
+      "name": "test_float_casts",
+      "docstring": null
+    },
+    {
+      "name": "test_cfloat_casts",
+      "docstring": null
+    },
+    {
+      "name": "test_take",
+      "docstring": null
+    },
+    {
+      "name": "test_ufuncs_minmax",
+      "docstring": "Test that the min/max ufuncs match Python builtin min/max behavior."
+    },
+    {
+      "name": "test_max_regression",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_add",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_add_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_add_promoter",
+      "docstring": null
+    },
+    {
+      "name": "test_add_no_legacy_promote_with_signature",
+      "docstring": null
+    },
+    {
+      "name": "test_add_promoter_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_multiply_reduce",
+      "docstring": null
+    },
+    {
+      "name": "test_multiply_two_string_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_multiply",
+      "docstring": "Test the two-argument ufuncs match python builtin behavior."
+    },
+    {
+      "name": "test_findlike_promoters",
+      "docstring": null
+    },
+    {
+      "name": "test_strip_promoter",
+      "docstring": null
+    },
+    {
+      "name": "test_replace_promoter",
+      "docstring": null
+    },
+    {
+      "name": "test_center_promoter",
+      "docstring": null
+    },
+    {
+      "name": "test_datetime_timedelta_cast",
+      "docstring": null
+    },
+    {
+      "name": "test_nat_casts",
+      "docstring": null
+    },
+    {
+      "name": "test_nat_conversion",
+      "docstring": null
+    },
+    {
+      "name": "test_growing_strings",
+      "docstring": null
+    },
+    {
+      "name": "test_threaded_access_and_mutation",
+      "docstring": null
+    },
+    {
+      "name": "string_array",
+      "docstring": null
+    },
+    {
+      "name": "unicode_array",
+      "docstring": null
+    },
+    {
+      "name": "test_unary",
+      "docstring": null
+    },
+    {
+      "name": "call_func",
+      "docstring": null
+    },
+    {
+      "name": "test_binary",
+      "docstring": null
+    },
+    {
+      "name": "test_non_default_start_stop",
+      "docstring": null
+    },
+    {
+      "name": "test_replace_non_default_repeat",
+      "docstring": null
+    },
+    {
+      "name": "test_strip_ljust_rjust_consistency",
+      "docstring": null
+    },
+    {
+      "name": "test_unset_na_coercion",
+      "docstring": null
+    },
+    {
+      "name": "test_repeat",
+      "docstring": null
+    },
+    {
+      "name": "test_accumulation",
+      "docstring": "Accumulation is odd for StringDType but tests dtypes with references.\n    "
+    },
+    {
+      "name": "test_unicode_casts",
+      "docstring": null
+    },
+    {
+      "name": "test_void_casts",
+      "docstring": null
+    },
+    {
+      "name": "test_bytes_casts",
+      "docstring": null
+    },
+    {
+      "name": "test_sort",
+      "docstring": null
+    },
+    {
+      "name": "func",
+      "docstring": null
+    },
+    {
+      "name": "setup_class",
+      "docstring": null
+    },
+    {
+      "name": "get_view",
+      "docstring": null
+    },
+    {
+      "name": "get_flags",
+      "docstring": null
+    },
+    {
+      "name": "is_short",
+      "docstring": null
+    },
+    {
+      "name": "is_on_heap",
+      "docstring": null
+    },
+    {
+      "name": "is_missing",
+      "docstring": null
+    },
+    {
+      "name": "in_arena",
+      "docstring": null
+    },
+    {
+      "name": "test_setup",
+      "docstring": null
+    },
+    {
+      "name": "test_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_zeros",
+      "docstring": null
+    },
+    {
+      "name": "test_copy",
+      "docstring": null
+    },
+    {
+      "name": "test_arena_use_with_setting",
+      "docstring": null
+    },
+    {
+      "name": "test_arena_reuse_with_setting",
+      "docstring": null
+    },
+    {
+      "name": "test_arena_reuse_after_missing",
+      "docstring": null
+    },
+    {
+      "name": "test_arena_reuse_after_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_arena_reuse_for_shorter",
+      "docstring": null
+    },
+    {
+      "name": "test_arena_reuse_if_possible",
+      "docstring": null
+    },
+    {
+      "name": "test_arena_no_reuse_after_short",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

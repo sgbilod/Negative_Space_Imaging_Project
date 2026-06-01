@@ -1,0 +1,88 @@
+# ============================================================================
+# Dockerfile.api - Express Node.js API Server (Multi-stage Build)
+# Production-grade container for Negative Space Imaging API
+# ============================================================================
+
+# Stage 1: Builder
+# ============================================================================
+FROM node:20-alpine AS builder
+
+LABEL maintainer="Negative Space Systems Team"
+LABEL description="Builder stage for Negative Space Imaging API"
+
+WORKDIR /build
+
+# Install build dependencies for native modules
+RUN apk add --no-cache \
+    python3 \
+    make \
+    g++ \
+    cairo-dev \
+    jpeg-dev \
+    pango-dev \
+    giflib-dev
+
+# Copy package files
+COPY package*.json ./
+COPY tsconfig.json ./
+
+# Install dependencies with npm ci for reproducible builds
+RUN npm ci --prefer-offline --no-audit
+
+# Copy source code
+COPY src ./src
+
+# Build TypeScript to JavaScript
+RUN npm run build
+
+# Prune dev dependencies
+RUN npm prune --production
+
+# ============================================================================
+# Stage 2: Runtime
+# ============================================================================
+FROM node:20-alpine
+
+LABEL maintainer="Negative Space Systems Team"
+LABEL description="Negative Space Imaging API Server"
+LABEL version="1.0.0"
+
+# Set environment variables
+ENV NODE_ENV=production
+ENV PORT=3000
+ENV LOG_LEVEL=info
+ENV NODE_OPTIONS="--max-old-space-size=512"
+
+WORKDIR /app
+
+# Install runtime dependencies only
+RUN apk add --no-cache \
+    dumb-init \
+    curl \
+    ca-certificates \
+    tzdata
+
+# Copy built application from builder stage
+COPY --from=builder --chown=node:node /build/dist ./dist
+COPY --from=builder --chown=node:node /build/node_modules ./node_modules
+COPY --from=builder --chown=node:node /build/package*.json ./
+
+# Create necessary directories
+RUN mkdir -p uploads logs && \
+    chown -R node:node /app
+
+# Switch to non-root user for security
+USER node
+
+# Expose port
+EXPOSE ${PORT}
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:${PORT}/health || exit 1
+
+# Use dumb-init to handle signals properly
+ENTRYPOINT ["/usr/sbin/dumb-init", "--"]
+
+# Start application
+CMD ["node", "dist/index.js"]

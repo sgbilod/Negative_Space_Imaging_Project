@@ -1,0 +1,59 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\ImageTransform.py",
+  "classes": [
+    {
+      "name": "Transform",
+      "docstring": "Base class for other transforms defined in :py:mod:`~PIL.ImageTransform`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "getdata",
+          "docstring": null
+        },
+        {
+          "name": "transform",
+          "docstring": "Perform the transform. Called from :py:meth:`.Image.transform`."
+        }
+      ]
+    },
+    {
+      "name": "AffineTransform",
+      "docstring": "Define an affine image transform.\n\nThis function takes a 6-tuple (a, b, c, d, e, f) which contain the first\ntwo rows from the inverse of an affine transform matrix. For each pixel\n(x, y) in the output image, the new value is taken from a position (a x +\nb y + c, d x + e y + f) in the input image, rounded to nearest pixel.\n\nThis function can be used to scale, translate, rotate, and shear the\noriginal image.\n\nSee :py:meth:`.Image.transform`\n\n:param matrix: A 6-tuple (a, b, c, d, e, f) containing the first two rows\n    from the inverse of an affine transform matrix.",
+      "methods": []
+    },
+    {
+      "name": "PerspectiveTransform",
+      "docstring": "Define a perspective image transform.\n\nThis function takes an 8-tuple (a, b, c, d, e, f, g, h). For each pixel\n(x, y) in the output image, the new value is taken from a position\n((a x + b y + c) / (g x + h y + 1), (d x + e y + f) / (g x + h y + 1)) in\nthe input image, rounded to nearest pixel.\n\nThis function can be used to scale, translate, rotate, and shear the\noriginal image.\n\nSee :py:meth:`.Image.transform`\n\n:param matrix: An 8-tuple (a, b, c, d, e, f, g, h).",
+      "methods": []
+    },
+    {
+      "name": "ExtentTransform",
+      "docstring": "Define a transform to extract a subregion from an image.\n\nMaps a rectangle (defined by two corners) from the image to a rectangle of\nthe given size. The resulting image will contain data sampled from between\nthe corners, such that (x0, y0) in the input image will end up at (0,0) in\nthe output image, and (x1, y1) at size.\n\nThis method can be used to crop, stretch, shrink, or mirror an arbitrary\nrectangle in the current image. It is slightly slower than crop, but about\nas fast as a corresponding resize operation.\n\nSee :py:meth:`.Image.transform`\n\n:param bbox: A 4-tuple (x0, y0, x1, y1) which specifies two points in the\n    input image's coordinate system. See :ref:`coordinate-system`.",
+      "methods": []
+    },
+    {
+      "name": "QuadTransform",
+      "docstring": "Define a quad image transform.\n\nMaps a quadrilateral (a region defined by four corners) from the image to a\nrectangle of the given size.\n\nSee :py:meth:`.Image.transform`\n\n:param xy: An 8-tuple (x0, y0, x1, y1, x2, y2, x3, y3) which contain the\n    upper left, lower left, lower right, and upper right corner of the\n    source quadrilateral.",
+      "methods": []
+    },
+    {
+      "name": "MeshTransform",
+      "docstring": "Define a mesh image transform.  A mesh transform consists of one or more\nindividual quad transforms.\n\nSee :py:meth:`.Image.transform`\n\n:param data: A list of (bbox, quad) tuples.",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "getdata",
+      "docstring": null
+    },
+    {
+      "name": "transform",
+      "docstring": "Perform the transform. Called from :py:meth:`.Image.transform`."
+    }
+  ],
+  "innovations": []
+}

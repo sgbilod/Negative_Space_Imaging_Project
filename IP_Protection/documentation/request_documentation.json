@@ -1,0 +1,213 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\core\\request.py",
+  "classes": [
+    {
+      "name": "IOMode",
+      "docstring": "Available Image modes\n\nThis is a helper enum for ``Request.Mode`` which is a composite of a\n``Request.ImageMode`` and ``Request.IOMode``. The IOMode that tells the\nplugin if the resource should be read from or written to. Available values are\n\n- read (\"r\"): Read from the specified resource\n- write (\"w\"): Write to the specified resource",
+      "methods": []
+    },
+    {
+      "name": "ImageMode",
+      "docstring": "Available Image modes\n\nThis is a helper enum for ``Request.Mode`` which is a composite of a\n``Request.ImageMode`` and ``Request.IOMode``. The image mode that tells the\nplugin the desired (and expected) image shape. Available values are\n\n- single_image (\"i\"): Return a single image extending in two spacial\n  dimensions\n- multi_image (\"I\"): Return a list of images extending in two spacial\n  dimensions\n- single_volume (\"v\"): Return an image extending into multiple dimensions.\n  E.g. three spacial dimensions for image stacks, or two spatial and one\n  time dimension for videos\n- multi_volume (\"V\"): Return a list of images extending into multiple\n  dimensions.\n- any_mode (\"?\"): Return an image in any format (the plugin decides the\n  appropriate action).",
+      "methods": []
+    },
+    {
+      "name": "Mode",
+      "docstring": "The mode to use when interacting with the resource\n\n``Request.Mode`` is a composite of ``Request.ImageMode`` and\n``Request.IOMode``. The image mode that tells the plugin the desired (and\nexpected) image shape and the ``Request.IOMode`` tells the plugin the way\nthe resource should be interacted with. For a detailed description of the\navailable modes, see the documentation for ``Request.ImageMode`` and\n``Request.IOMode`` respectively.\n\nAvailable modes are all combinations of ``Request.IOMode`` and ``Request.ImageMode``:\n\n- read_single_image (\"ri\")\n- read_multi_image (\"rI\")\n- read_single_volume (\"rv\")\n- read_multi_volume (\"rV\")\n- read_any (\"r?\")\n- write_single_image (\"wi\")\n- write_multi_image (\"wI\")\n- write_single_volume (\"wv\")\n- write_multi_volume (\"wV\")\n- write_any (\"w?\")\n\nExamples\n--------\n>>> Request.Mode(\"rI\")  # a list of simple images should be read from the resource\n>>> Request.Mode(\"wv\")  # a single volume should be written to the resource",
+      "methods": [
+        {
+          "name": "io_mode",
+          "docstring": null
+        },
+        {
+          "name": "image_mode",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Request",
+      "docstring": "ImageResource handling utility.\n\nRepresents a request for reading or saving an image resource. This\nobject wraps information to that request and acts as an interface\nfor the plugins to several resources; it allows the user to read\nfrom filenames, files, http, zipfiles, raw bytes, etc., but offer\na simple interface to the plugins via ``get_file()`` and\n``get_local_filename()``.\n\nFor each read/write operation a single Request instance is used and passed\nto the can_read/can_write method of a format, and subsequently to\nthe Reader/Writer class. This allows rudimentary passing of\ninformation between different formats and between a format and\nassociated reader/writer.\n\nParameters\n----------\nuri : {str, bytes, file}\n    The resource to load the image from.\nmode : str\n    The first character is \"r\" or \"w\", indicating a read or write\n    request. The second character is used to indicate the kind of data:\n    \"i\" for an image, \"I\" for multiple images, \"v\" for a volume,\n    \"V\" for multiple volumes, \"?\" for don't care.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "filename",
+          "docstring": "Name of the ImageResource.\n\n\nThe uri for which reading/saving was requested. This\ncan be a filename, an http address, or other resource\nidentifier. Do not rely on the filename to obtain the data,\nbut use ``get_file()`` or ``get_local_filename()`` instead."
+        },
+        {
+          "name": "extension",
+          "docstring": "The (lowercase) extension of the requested filename.\nSuffixes in url's are stripped. Can be None if the request is\nnot based on a filename."
+        },
+        {
+          "name": "format_hint",
+          "docstring": null
+        },
+        {
+          "name": "format_hint",
+          "docstring": null
+        },
+        {
+          "name": "mode",
+          "docstring": "The mode of the request. The first character is \"r\" or \"w\",\nindicating a read or write request. The second character is\nused to indicate the kind of data:\n\"i\" for an image, \"I\" for multiple images, \"v\" for a volume,\n\"V\" for multiple volumes, \"?\" for don't care."
+        },
+        {
+          "name": "kwargs",
+          "docstring": "The dict of keyword arguments supplied by the user."
+        },
+        {
+          "name": "get_file",
+          "docstring": "get_file()\nGet a file object for the resource associated with this request.\nIf this is a reading request, the file is in read mode,\notherwise in write mode. This method is not thread safe. Plugins\nshould not close the file when done.\n\nThis is the preferred way to read/write the data. But if a\nformat cannot handle file-like objects, they should use\n``get_local_filename()``."
+        },
+        {
+          "name": "get_local_filename",
+          "docstring": "get_local_filename()\nIf the filename is an existing file on this filesystem, return\nthat. Otherwise a temporary file is created on the local file\nsystem which can be used by the format to read from or write to."
+        },
+        {
+          "name": "finish",
+          "docstring": "Wrap up this request.\n\nFinishes any pending reads or writes, closes any open files and frees\nany resources allocated by this request."
+        },
+        {
+          "name": "get_result",
+          "docstring": "For internal use. In some situations a write action can have\na result (bytes data). That is obtained with this function."
+        },
+        {
+          "name": "firstbytes",
+          "docstring": "The first 256 bytes of the file. These can be used to\nparse the header to determine the file-format."
+        }
+      ]
+    },
+    {
+      "name": "SeekableFileObject",
+      "docstring": "A readonly wrapper file object that add support for seeking, even if\nthe wrapped file object does not. The allows us to stream from http and\nstill use Pillow.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "readline",
+          "docstring": null
+        },
+        {
+          "name": "tell",
+          "docstring": null
+        },
+        {
+          "name": "seek",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "isatty",
+          "docstring": null
+        },
+        {
+          "name": "seekable",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "InitializationError",
+      "docstring": "The plugin could not initialize from the given request.\n\nThis is a _internal_ error that is raised by plugins that fail to handle\na given request. We use this to differentiate incompatibility between\na plugin and a request from an actual error/bug inside a plugin.",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "read_n_bytes",
+      "docstring": "read_n_bytes(file, n)\n\nRead n bytes from the given file, or less if the file has less\nbytes. Returns zero bytes if the file is closed."
+    },
+    {
+      "name": "io_mode",
+      "docstring": null
+    },
+    {
+      "name": "image_mode",
+      "docstring": null
+    },
+    {
+      "name": "filename",
+      "docstring": "Name of the ImageResource.\n\n\nThe uri for which reading/saving was requested. This\ncan be a filename, an http address, or other resource\nidentifier. Do not rely on the filename to obtain the data,\nbut use ``get_file()`` or ``get_local_filename()`` instead."
+    },
+    {
+      "name": "extension",
+      "docstring": "The (lowercase) extension of the requested filename.\nSuffixes in url's are stripped. Can be None if the request is\nnot based on a filename."
+    },
+    {
+      "name": "format_hint",
+      "docstring": null
+    },
+    {
+      "name": "format_hint",
+      "docstring": null
+    },
+    {
+      "name": "mode",
+      "docstring": "The mode of the request. The first character is \"r\" or \"w\",\nindicating a read or write request. The second character is\nused to indicate the kind of data:\n\"i\" for an image, \"I\" for multiple images, \"v\" for a volume,\n\"V\" for multiple volumes, \"?\" for don't care."
+    },
+    {
+      "name": "kwargs",
+      "docstring": "The dict of keyword arguments supplied by the user."
+    },
+    {
+      "name": "get_file",
+      "docstring": "get_file()\nGet a file object for the resource associated with this request.\nIf this is a reading request, the file is in read mode,\notherwise in write mode. This method is not thread safe. Plugins\nshould not close the file when done.\n\nThis is the preferred way to read/write the data. But if a\nformat cannot handle file-like objects, they should use\n``get_local_filename()``."
+    },
+    {
+      "name": "get_local_filename",
+      "docstring": "get_local_filename()\nIf the filename is an existing file on this filesystem, return\nthat. Otherwise a temporary file is created on the local file\nsystem which can be used by the format to read from or write to."
+    },
+    {
+      "name": "finish",
+      "docstring": "Wrap up this request.\n\nFinishes any pending reads or writes, closes any open files and frees\nany resources allocated by this request."
+    },
+    {
+      "name": "get_result",
+      "docstring": "For internal use. In some situations a write action can have\na result (bytes data). That is obtained with this function."
+    },
+    {
+      "name": "firstbytes",
+      "docstring": "The first 256 bytes of the file. These can be used to\nparse the header to determine the file-format."
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "readline",
+      "docstring": null
+    },
+    {
+      "name": "tell",
+      "docstring": null
+    },
+    {
+      "name": "seek",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "isatty",
+      "docstring": null
+    },
+    {
+      "name": "seekable",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

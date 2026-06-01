@@ -1,0 +1,17 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\exifread\\tags\\makernote\\nikon.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "ev_bias",
+      "docstring": "First digit seems to be in steps of 1/6 EV.\nDoes the third value mean the step size?  It is usually 6,\nbut it is 12 for the ExposureDifference.\nCheck for an error condition that could cause a crash.\nThis only happens if something has gone really wrong in\nreading the Nikon MakerNote.\nhttp://tomtia.plala.jp/DigitalCamera/MakerNote/index.asp"
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    # First 4 bytes are a version number in ASCII, with version specific\n    # info to follow.  It's hard to treat it as a string due to embedded nulls.\n    0x00A8: (\"FlashInfo\", None),\n    0x00A9: (\"ImageOptimization\", None),\n    0x00AA: (\"Saturation\", None),\n    0x00AB: (\"DigitalVariProgram\", None),\n    0x00AC: (\"ImageStabilization\", None),"
+    }
+  ]
+}

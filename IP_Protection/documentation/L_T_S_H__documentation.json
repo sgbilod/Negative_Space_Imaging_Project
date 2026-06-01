@@ -1,0 +1,46 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\L_T_S_H_.py",
+  "classes": [
+    {
+      "name": "table_L_T_S_H_",
+      "docstring": "Linear Threshold table\n\nThe ``LTSH`` table contains per-glyph settings indicating the ppem sizes\nat which the advance width metric should be scaled linearly, despite the\neffects of any TrueType instructions that might otherwise alter the\nadvance width.\n\nSee also https://learn.microsoft.com/en-us/typography/opentype/spec/ltsh",
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

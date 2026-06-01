@@ -1,0 +1,86 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\tags.py",
+  "classes": [
+    {
+      "name": "Tag",
+      "docstring": "A representation of the tag triple for a wheel.\n\nInstances are considered immutable and thus are hashable. Equality checking\nis also supported.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "interpreter",
+          "docstring": null
+        },
+        {
+          "name": "abi",
+          "docstring": null
+        },
+        {
+          "name": "platform",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "parse_tag",
+      "docstring": "Parses the provided tag (e.g. `py3-none-any`) into a frozenset of Tag instances.\n\nReturning a set is required due to the possibility that the tag is a\ncompressed tag set."
+    },
+    {
+      "name": "cpython_tags",
+      "docstring": "Yields the tags for a CPython interpreter.\n\nThe tags consist of:\n- cp<python_version>-<abi>-<platform>\n- cp<python_version>-abi3-<platform>\n- cp<python_version>-none-<platform>\n- cp<less than python_version>-abi3-<platform>  # Older Python versions down to 3.2.\n\nIf python_version only specifies a major version then user-provided ABIs and\nthe 'none' ABItag will be used.\n\nIf 'abi3' or 'none' are specified in 'abis' then they will be yielded at\ntheir normal position and not at the beginning."
+    },
+    {
+      "name": "generic_tags",
+      "docstring": "Yields the tags for a generic interpreter.\n\nThe tags consist of:\n- <interpreter>-<abi>-<platform>\n\nThe \"none\" ABI will be added if it was not explicitly provided."
+    },
+    {
+      "name": "compatible_tags",
+      "docstring": "Yields the sequence of tags that are compatible with a specific version of Python.\n\nThe tags consist of:\n- py*-none-<platform>\n- <interpreter>-none-any  # ... if `interpreter` is provided.\n- py*-none-any"
+    },
+    {
+      "name": "mac_platforms",
+      "docstring": "Yields the platform tags for a macOS system.\n\nThe `version` parameter is a two-item tuple specifying the macOS version to\ngenerate platform tags for. The `arch` parameter is the CPU architecture to\ngenerate platform tags for. Both parameters default to the appropriate value\nfor the current system."
+    },
+    {
+      "name": "ios_platforms",
+      "docstring": "Yields the platform tags for an iOS system.\n\n:param version: A two-item tuple specifying the iOS version to generate\n    platform tags for. Defaults to the current iOS version.\n:param multiarch: The CPU architecture+ABI to generate platform tags for -\n    (the value used by `sys.implementation._multiarch` e.g.,\n    `arm64_iphoneos` or `x84_64_iphonesimulator`). Defaults to the current\n    multiarch value."
+    },
+    {
+      "name": "android_platforms",
+      "docstring": "Yields the :attr:`~Tag.platform` tags for Android. If this function is invoked on\nnon-Android platforms, the ``api_level`` and ``abi`` arguments are required.\n\n:param int api_level: The maximum `API level\n    <https://developer.android.com/tools/releases/platforms>`__ to return. Defaults\n    to the current system's version, as returned by ``platform.android_ver``.\n:param str abi: The `Android ABI <https://developer.android.com/ndk/guides/abis>`__,\n    e.g. ``arm64_v8a``. Defaults to the current system's ABI , as returned by\n    ``sysconfig.get_platform``. Hyphens and periods will be replaced with\n    underscores."
+    },
+    {
+      "name": "platform_tags",
+      "docstring": "Provides the platform tags for this installation."
+    },
+    {
+      "name": "interpreter_name",
+      "docstring": "Returns the name of the running interpreter.\n\nSome implementations have a reserved, two-letter abbreviation which will\nbe returned when appropriate."
+    },
+    {
+      "name": "interpreter_version",
+      "docstring": "Returns the version of the running interpreter."
+    },
+    {
+      "name": "sys_tags",
+      "docstring": "Returns the sequence of tag triples for the running interpreter.\n\nThe order of the sequence corresponds to priority order for the\ninterpreter, from most to least important."
+    },
+    {
+      "name": "interpreter",
+      "docstring": null
+    },
+    {
+      "name": "abi",
+      "docstring": null
+    },
+    {
+      "name": "platform",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

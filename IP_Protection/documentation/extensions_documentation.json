@@ -1,0 +1,32 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\config\\extensions.py",
+  "classes": [
+    {
+      "name": "FileExtension",
+      "docstring": "File Extension Metadata\n\nThis class holds information about a image file format associated with a\ngiven extension. This information is used to track plugins that are known to\nbe able to handle a particular format. It also contains additional\ninformation about a format, which is used when creating the supported format\ndocs.\n\nPlugins known to be able to handle this format are ordered by a ``priority``\nlist. This list is used to determine the ideal plugin to use when choosing a\nplugin based on file extension.\n\nParameters\n----------\nextension : str\n    The name of the extension including the initial dot, e.g. \".png\".\npriority : List\n    A list of plugin names (entries in config.known_plugins) that can handle\n    this format. The position of a plugin expresses a preference, e.g.\n    [\"plugin1\", \"plugin2\"] indicates that, if available, plugin1 should be\n    preferred over plugin2 when handling a request related to this format.\nname : str\n    The full name of the format.\ndescription : str\n    A description of the format.\nexternal_link : str\n    A link to further information about the format. Typically, the format's\n    specification.\nvolume_support : str\n    If True, the format/extension supports volumetric image data.\n\nExamples\n--------\n>>> FileExtension(\n        name=\"Bitmap\",\n        extension=\".bmp\",\n        priority=[\"pillow\", \"BMP-PIL\", \"BMP-FI\", \"ITK\"],\n        external_link=\"https://en.wikipedia.org/wiki/BMP_file_format\",\n    )",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "reset",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "reset",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "        priority=[\"RAW-FI\"],\n    ),\n    FileExtension(\n        name=\"Enhanced Compression Wavelet\",\n        extension=\".ecw\",\n        priority=[\"GDAL\"],\n    ),"
+    }
+  ]
+}

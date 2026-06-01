@@ -1,0 +1,111 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\models\\direct_url.py",
+  "classes": [
+    {
+      "name": "DirectUrlValidationError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "VcsInfo",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArchiveInfo",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "hash",
+          "docstring": null
+        },
+        {
+          "name": "hash",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DirInfo",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "DirectUrl",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "redacted_url",
+          "docstring": "url with user:password part removed unless it is formed with\nenvironment variables as specified in PEP 610, or it is ``git``\nin the case of a git URL."
+        },
+        {
+          "name": "validate",
+          "docstring": null
+        },
+        {
+          "name": "from_dict",
+          "docstring": null
+        },
+        {
+          "name": "to_dict",
+          "docstring": null
+        },
+        {
+          "name": "from_json",
+          "docstring": null
+        },
+        {
+          "name": "to_json",
+          "docstring": null
+        },
+        {
+          "name": "is_local_editable",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "hash",
+      "docstring": null
+    },
+    {
+      "name": "hash",
+      "docstring": null
+    },
+    {
+      "name": "redacted_url",
+      "docstring": "url with user:password part removed unless it is formed with\nenvironment variables as specified in PEP 610, or it is ``git``\nin the case of a git URL."
+    },
+    {
+      "name": "validate",
+      "docstring": null
+    },
+    {
+      "name": "from_dict",
+      "docstring": null
+    },
+    {
+      "name": "to_dict",
+      "docstring": null
+    },
+    {
+      "name": "from_json",
+      "docstring": null
+    },
+    {
+      "name": "to_json",
+      "docstring": null
+    },
+    {
+      "name": "is_local_editable",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

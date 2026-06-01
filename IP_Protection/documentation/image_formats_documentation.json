@@ -1,0 +1,260 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\image_formats.py",
+  "classes": [
+    {
+      "name": "FormatHandler",
+      "docstring": "Base class for handling different image formats.",
+      "methods": [
+        {
+          "name": "can_handle",
+          "docstring": "Check if this handler can process the given file.\n\nArgs:\n    file_path: Path to the image file.\n    \nReturns:\n    True if this handler can process the file, False otherwise."
+        },
+        {
+          "name": "read_image",
+          "docstring": "Read the image file and return it as a numpy array.\n\nArgs:\n    file_path: Path to the image file.\n    \nReturns:\n    Image as a numpy array."
+        },
+        {
+          "name": "extract_metadata",
+          "docstring": "Extract metadata from the image file.\n\nArgs:\n    file_path: Path to the image file.\n    \nReturns:\n    Dictionary containing metadata."
+        },
+        {
+          "name": "write_image",
+          "docstring": "Write the image to a file.\n\nArgs:\n    file_path: Path to save the image to.\n    image: Image as a numpy array.\n    metadata: Optional metadata to save with the image.\n    \nReturns:\n    True if successful, False otherwise."
+        }
+      ]
+    },
+    {
+      "name": "JPEGHandler",
+      "docstring": "Handler for JPEG image format.",
+      "methods": [
+        {
+          "name": "can_handle",
+          "docstring": null
+        },
+        {
+          "name": "read_image",
+          "docstring": null
+        },
+        {
+          "name": "extract_metadata",
+          "docstring": null
+        },
+        {
+          "name": "write_image",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PNGHandler",
+      "docstring": "Handler for PNG image format.",
+      "methods": [
+        {
+          "name": "can_handle",
+          "docstring": null
+        },
+        {
+          "name": "read_image",
+          "docstring": null
+        },
+        {
+          "name": "extract_metadata",
+          "docstring": null
+        },
+        {
+          "name": "write_image",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TIFFHandler",
+      "docstring": "Handler for TIFF image format.",
+      "methods": [
+        {
+          "name": "can_handle",
+          "docstring": null
+        },
+        {
+          "name": "read_image",
+          "docstring": null
+        },
+        {
+          "name": "extract_metadata",
+          "docstring": null
+        },
+        {
+          "name": "write_image",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RAWHandler",
+      "docstring": "Handler for RAW image formats (basic implementation).",
+      "methods": [
+        {
+          "name": "can_handle",
+          "docstring": null
+        },
+        {
+          "name": "read_image",
+          "docstring": null
+        },
+        {
+          "name": "extract_metadata",
+          "docstring": null
+        },
+        {
+          "name": "write_image",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "URLImageHandler",
+      "docstring": "Handler for images from URLs.",
+      "methods": [
+        {
+          "name": "read_from_url",
+          "docstring": "Download and read an image from a URL.\n\nArgs:\n    url: URL of the image.\n    \nReturns:\n    Image as a numpy array."
+        }
+      ]
+    },
+    {
+      "name": "Base64ImageHandler",
+      "docstring": "Handler for base64-encoded images.",
+      "methods": [
+        {
+          "name": "decode_base64",
+          "docstring": "Decode a base64-encoded image.\n\nArgs:\n    base64_string: Base64-encoded image string.\n    \nReturns:\n    Image as a numpy array."
+        },
+        {
+          "name": "encode_base64",
+          "docstring": "Encode an image as base64.\n\nArgs:\n    image: Image as a numpy array.\n    format: Image format extension (e.g., '.jpg', '.png').\n    \nReturns:\n    Base64-encoded image string."
+        }
+      ]
+    },
+    {
+      "name": "DirectoryScanner",
+      "docstring": "Utility for scanning directories for images.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize directory scanner with supported formats.\n\nArgs:\n    supported_formats: List of supported file extensions."
+        },
+        {
+          "name": "scan_directory",
+          "docstring": "Scan directory for supported image files.\n\nArgs:\n    directory_path: Path to the directory to scan.\n    recursive: Whether to scan subdirectories.\n    \nReturns:\n    List of paths to image files."
+        },
+        {
+          "name": "get_handler_for_file",
+          "docstring": "Get the appropriate handler for a file.\n\nArgs:\n    file_path: Path to the image file.\n    \nReturns:\n    Handler class for the file format, or None if not supported."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "can_handle",
+      "docstring": "Check if this handler can process the given file.\n\nArgs:\n    file_path: Path to the image file.\n    \nReturns:\n    True if this handler can process the file, False otherwise."
+    },
+    {
+      "name": "read_image",
+      "docstring": "Read the image file and return it as a numpy array.\n\nArgs:\n    file_path: Path to the image file.\n    \nReturns:\n    Image as a numpy array."
+    },
+    {
+      "name": "extract_metadata",
+      "docstring": "Extract metadata from the image file.\n\nArgs:\n    file_path: Path to the image file.\n    \nReturns:\n    Dictionary containing metadata."
+    },
+    {
+      "name": "write_image",
+      "docstring": "Write the image to a file.\n\nArgs:\n    file_path: Path to save the image to.\n    image: Image as a numpy array.\n    metadata: Optional metadata to save with the image.\n    \nReturns:\n    True if successful, False otherwise."
+    },
+    {
+      "name": "can_handle",
+      "docstring": null
+    },
+    {
+      "name": "read_image",
+      "docstring": null
+    },
+    {
+      "name": "extract_metadata",
+      "docstring": null
+    },
+    {
+      "name": "write_image",
+      "docstring": null
+    },
+    {
+      "name": "can_handle",
+      "docstring": null
+    },
+    {
+      "name": "read_image",
+      "docstring": null
+    },
+    {
+      "name": "extract_metadata",
+      "docstring": null
+    },
+    {
+      "name": "write_image",
+      "docstring": null
+    },
+    {
+      "name": "can_handle",
+      "docstring": null
+    },
+    {
+      "name": "read_image",
+      "docstring": null
+    },
+    {
+      "name": "extract_metadata",
+      "docstring": null
+    },
+    {
+      "name": "write_image",
+      "docstring": null
+    },
+    {
+      "name": "can_handle",
+      "docstring": null
+    },
+    {
+      "name": "read_image",
+      "docstring": null
+    },
+    {
+      "name": "extract_metadata",
+      "docstring": null
+    },
+    {
+      "name": "write_image",
+      "docstring": null
+    },
+    {
+      "name": "read_from_url",
+      "docstring": "Download and read an image from a URL.\n\nArgs:\n    url: URL of the image.\n    \nReturns:\n    Image as a numpy array."
+    },
+    {
+      "name": "decode_base64",
+      "docstring": "Decode a base64-encoded image.\n\nArgs:\n    base64_string: Base64-encoded image string.\n    \nReturns:\n    Image as a numpy array."
+    },
+    {
+      "name": "encode_base64",
+      "docstring": "Encode an image as base64.\n\nArgs:\n    image: Image as a numpy array.\n    format: Image format extension (e.g., '.jpg', '.png').\n    \nReturns:\n    Base64-encoded image string."
+    },
+    {
+      "name": "scan_directory",
+      "docstring": "Scan directory for supported image files.\n\nArgs:\n    directory_path: Path to the directory to scan.\n    recursive: Whether to scan subdirectories.\n    \nReturns:\n    List of paths to image files."
+    },
+    {
+      "name": "get_handler_for_file",
+      "docstring": "Get the appropriate handler for a file.\n\nArgs:\n    file_path: Path to the image file.\n    \nReturns:\n    Handler class for the file format, or None if not supported."
+    }
+  ],
+  "innovations": []
+}

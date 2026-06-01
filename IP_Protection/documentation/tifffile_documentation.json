@@ -1,0 +1,32 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\tifffile.py",
+  "classes": [
+    {
+      "name": "TiffFormat",
+      "docstring": "Provides support for a wide range of Tiff images using the tifffile\nbackend.\n\nImages that contain multiple pages can be read using ``imageio.mimread()``\nto read the individual pages, or ``imageio.volread()`` to obtain a\nsingle (higher dimensional) array.\n\nNote that global metadata is stored with the first frame in a TIFF file.\nThus calling :py:meth:`Format.Writer.set_meta_data` after the first frame\nwas written has no effect. Also, global metadata is ignored if metadata is\nprovided via the `meta` argument of :py:meth:`Format.Writer.append_data`.\n\nIf you have installed tifffile as a Python package, imageio will attempt\nto use that as backend instead of the bundled backend. Doing so can\nprovide access to new performance improvements and bug fixes.\n\nParameters for reading\n----------------------\noffset : int\n    Optional start position of embedded file. By default this is\n    the current file position.\nsize : int\n    Optional size of embedded file. By default this is the number\n    of bytes from the 'offset' to the end of the file.\nmultifile : bool\n    If True (default), series may include pages from multiple files.\n    Currently applies to OME-TIFF only.\nmultifile_close : bool\n    If True (default), keep the handles of other files in multifile\n    series closed. This is inefficient when few files refer to\n    many pages. If False, the C runtime may run out of resources.\n\nParameters for saving\n---------------------\nbigtiff : bool\n    If True, the BigTIFF format is used.\nbyteorder : {'<', '>'}\n    The endianness of the data in the file.\n    By default this is the system's native byte order.\nsoftware : str\n    Name of the software used to create the image.\n    Saved with the first page only.\n\nMetadata for reading\n--------------------\nplanar_configuration : {'contig', 'planar'}\n    Specifies if samples are stored contiguous or in separate planes.\n    By default this setting is inferred from the data shape.\n    'contig': last dimension contains samples.\n    'planar': third last dimension contains samples.\nresolution_unit : (float, float) or ((int, int), (int, int))\n    X and Y resolution in dots per inch as float or rational numbers.\ncompression : int\n    Value indicating the compression algorithm used, e.g. 5 is LZW,\n    7 is JPEG, 8 is deflate.\n    If 1, data are uncompressed.\npredictor : int\n    Value 2 indicates horizontal differencing was used before compression,\n    while 3 indicates floating point horizontal differencing.\n    If 1, no prediction scheme was used before compression.\norientation : {'top_left', 'bottom_right', ...}\n    Oriented of image array.\nis_rgb : bool\n    True if page contains a RGB image.\nis_contig : bool\n    True if page contains a contiguous image.\nis_tiled : bool\n    True if page contains tiled image.\nis_palette : bool\n    True if page contains a palette-colored image and not OME or STK.\nis_reduced : bool\n    True if page is a reduced image of another image.\nis_shaped : bool\n    True if page contains shape in image_description tag.\nis_fluoview : bool\n    True if page contains FluoView MM_STAMP tag.\nis_nih : bool\n    True if page contains NIH image header.\nis_micromanager : bool\n    True if page contains Micro-Manager metadata.\nis_ome : bool\n    True if page contains OME-XML in image_description tag.\nis_sgi : bool\n    True if page contains SGI image and tile depth tags.\nis_stk : bool\n    True if page contains UIC2Tag tag.\nis_mdgel : bool\n    True if page contains md_file_tag tag.\nis_mediacy : bool\n    True if page contains Media Cybernetics Id tag.\nis_stk : bool\n    True if page contains UIC2Tag tag.\nis_lsm : bool\n    True if page contains LSM CZ_LSM_INFO tag.\ndescription : str\n    Image description\ndescription1 : str\n    Additional description\nis_imagej : None or str\n    ImageJ metadata\nsoftware : str\n    Software used to create the TIFF file\ndatetime : datetime.datetime\n    Creation date and time\n\nMetadata for writing\n--------------------\nphotometric : {'minisblack', 'miniswhite', 'rgb'}\n    The color space of the image data.\n    By default this setting is inferred from the data shape.\nplanarconfig : {'contig', 'planar'}\n    Specifies if samples are stored contiguous or in separate planes.\n    By default this setting is inferred from the data shape.\n    'contig': last dimension contains samples.\n    'planar': third last dimension contains samples.\nresolution : (float, float) or ((int, int), (int, int))\n    X and Y resolution in dots per inch as float or rational numbers.\ndescription : str\n    The subject of the image. Saved with the first page only.\ncompress : int\n    Values from 0 to 9 controlling the level of zlib (deflate) compression.\n    If 0, data are written uncompressed (default).\npredictor : bool\n    If True, horizontal differencing is applied before compression.\n    Note that using an int literal 1 actually means no prediction scheme\n    will be used.\nvolume : bool\n    If True, volume data are stored in one tile (if applicable) using\n    the SGI image_depth and tile_depth tags.\n    Image width and depth must be multiple of 16.\n    Few software can read this format, e.g. MeVisLab.\nwriteshape : bool\n    If True, write the data shape to the image_description tag\n    if necessary and no other description is given.\nextratags: sequence of tuples\n    Additional tags as [(code, dtype, count, value, writeonce)].\n\n    code : int\n        The TIFF tag Id.\n    dtype : str\n        Data type of items in 'value' in Python struct format.\n        One of B, s, H, I, 2I, b, h, i, f, d, Q, or q.\n    count : int\n        Number of data values. Not used for string values.\n    value : sequence\n        'Count' values compatible with 'dtype'.\n    writeonce : bool\n        If True, the tag is written to the first page only.",
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "set_meta_data",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "set_meta_data",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

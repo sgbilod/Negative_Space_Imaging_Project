@@ -1,0 +1,45 @@
+# Neural Network Configuration for Quantum Optimization
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+version: '1.0'
+
+model:
+  architecture: "transformer"
+  hidden_layers: 24
+  attention_heads: 16
+  embedding_dim: 1024
+  dropout_rate: 0.1
+  activation: "gelu"
+
+training:
+  batch_size: 64
+  epochs: 1000
+  learning_rate: 0.0001
+  optimizer: "adam"
+  loss_function: "quantum_cross_entropy"
+  gradient_clipping: true
+  mixed_precision: true
+
+quantum_integration:
+  circuit_embedding: true
+  quantum_backprop: true
+  hybrid_optimization: true
+  noise_resilient: true
+
+hardware:
+  gpu_memory_fraction: 0.95
+  multi_gpu: true
+  distributed_training: true
+  precision: "mixed_float16"
+
+optimization:
+  circuit_depth_reduction: true
+  gate_cancellation: true
+  qubit_routing: "dynamic"
+  pulse_level_control: true
+
+monitoring:
+  tensorboard: true
+  grad_norm_tracking: true
+  quantum_state_logging: true
+  performance_profiling: true

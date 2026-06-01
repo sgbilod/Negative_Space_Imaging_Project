@@ -1,0 +1,439 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_colors.py",
+  "classes": [
+    {
+      "name": "TestAsinhNorm",
+      "docstring": "Tests for `~.colors.AsinhNorm`",
+      "methods": [
+        {
+          "name": "test_init",
+          "docstring": null
+        },
+        {
+          "name": "test_norm",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyArray",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_create_lookup_table",
+      "docstring": null
+    },
+    {
+      "name": "test_index_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_resampled",
+      "docstring": "GitHub issue #6025 pointed to incorrect ListedColormap.resampled;\nhere we test the method for LinearSegmentedColormap as well."
+    },
+    {
+      "name": "test_colormaps_get_cmap",
+      "docstring": null
+    },
+    {
+      "name": "test_double_register_builtin_cmap",
+      "docstring": null
+    },
+    {
+      "name": "test_colormap_copy",
+      "docstring": null
+    },
+    {
+      "name": "test_colormap_equals",
+      "docstring": null
+    },
+    {
+      "name": "test_colormap_endian",
+      "docstring": "GitHub issue #1005: a bug in putmask caused erroneous\nmapping of 1.0 when input from a non-native-byteorder\narray."
+    },
+    {
+      "name": "test_colormap_invalid",
+      "docstring": "GitHub issue #9892: Handling of nan's were getting mapped to under\nrather than bad. This tests to make sure all invalid values\n(-inf, nan, inf) are mapped respectively to (under, bad, over)."
+    },
+    {
+      "name": "test_colormap_return_types",
+      "docstring": "Make sure that tuples are returned for scalar input and\nthat the proper shapes are returned for ndarrays."
+    },
+    {
+      "name": "test_BoundaryNorm",
+      "docstring": "GitHub issue #1258: interpolation was failing with numpy\n1.7 pre-release."
+    },
+    {
+      "name": "test_CenteredNorm",
+      "docstring": null
+    },
+    {
+      "name": "test_lognorm_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_LogNorm",
+      "docstring": "LogNorm ignored clip, now it has the same\nbehavior as Normalize, e.g., values > vmax are bigger than 1\nwithout clip, with clip they are 1."
+    },
+    {
+      "name": "test_LogNorm_inverse",
+      "docstring": "Test that lists work, and that the inverse works"
+    },
+    {
+      "name": "test_PowerNorm",
+      "docstring": null
+    },
+    {
+      "name": "test_PowerNorm_translation_invariance",
+      "docstring": null
+    },
+    {
+      "name": "test_powernorm_cbar_limits",
+      "docstring": null
+    },
+    {
+      "name": "test_Normalize",
+      "docstring": null
+    },
+    {
+      "name": "test_FuncNorm",
+      "docstring": null
+    },
+    {
+      "name": "test_TwoSlopeNorm_autoscale",
+      "docstring": null
+    },
+    {
+      "name": "test_TwoSlopeNorm_autoscale_None_vmin",
+      "docstring": null
+    },
+    {
+      "name": "test_TwoSlopeNorm_autoscale_None_vmax",
+      "docstring": null
+    },
+    {
+      "name": "test_TwoSlopeNorm_scale",
+      "docstring": null
+    },
+    {
+      "name": "test_TwoSlopeNorm_scaleout_center",
+      "docstring": null
+    },
+    {
+      "name": "test_TwoSlopeNorm_scaleout_center_max",
+      "docstring": null
+    },
+    {
+      "name": "test_TwoSlopeNorm_Even",
+      "docstring": null
+    },
+    {
+      "name": "test_TwoSlopeNorm_Odd",
+      "docstring": null
+    },
+    {
+      "name": "test_TwoSlopeNorm_VminEqualsVcenter",
+      "docstring": null
+    },
+    {
+      "name": "test_TwoSlopeNorm_VmaxEqualsVcenter",
+      "docstring": null
+    },
+    {
+      "name": "test_TwoSlopeNorm_VminGTVcenter",
+      "docstring": null
+    },
+    {
+      "name": "test_TwoSlopeNorm_TwoSlopeNorm_VminGTVmax",
+      "docstring": null
+    },
+    {
+      "name": "test_TwoSlopeNorm_VcenterGTVmax",
+      "docstring": null
+    },
+    {
+      "name": "test_TwoSlopeNorm_premature_scaling",
+      "docstring": null
+    },
+    {
+      "name": "test_SymLogNorm",
+      "docstring": "Test SymLogNorm behavior"
+    },
+    {
+      "name": "test_SymLogNorm_colorbar",
+      "docstring": "Test un-called SymLogNorm in a colorbar."
+    },
+    {
+      "name": "test_SymLogNorm_single_zero",
+      "docstring": "Test SymLogNorm to ensure it is not adding sub-ticks to zero label"
+    },
+    {
+      "name": "test_cmap_and_norm_from_levels_and_colors",
+      "docstring": null
+    },
+    {
+      "name": "test_boundarynorm_and_colorbarbase",
+      "docstring": null
+    },
+    {
+      "name": "test_cmap_and_norm_from_levels_and_colors2",
+      "docstring": null
+    },
+    {
+      "name": "test_rgb_hsv_round_trip",
+      "docstring": null
+    },
+    {
+      "name": "test_autoscale_masked",
+      "docstring": null
+    },
+    {
+      "name": "test_light_source_topo_surface",
+      "docstring": "Shades a DEM using different v.e.'s and blend modes."
+    },
+    {
+      "name": "test_light_source_shading_default",
+      "docstring": "Array comparison test for the default \"hsv\" blend mode. Ensure the\ndefault result doesn't change without warning."
+    },
+    {
+      "name": "test_light_source_shading_empty_mask",
+      "docstring": null
+    },
+    {
+      "name": "test_light_source_masked_shading",
+      "docstring": "Array comparison test for a surface with a masked portion. Ensures that\nwe don't wind up with \"fringes\" of odd colors around masked regions."
+    },
+    {
+      "name": "test_light_source_hillshading",
+      "docstring": "Compare the current hillshading method against one that should be\nmathematically equivalent. Illuminates a cone from a range of angles."
+    },
+    {
+      "name": "test_light_source_planar_hillshading",
+      "docstring": "Ensure that the illumination intensity is correct for planar surfaces."
+    },
+    {
+      "name": "test_color_names",
+      "docstring": null
+    },
+    {
+      "name": "test_pandas_iterable",
+      "docstring": null
+    },
+    {
+      "name": "test_colormap_reversing",
+      "docstring": "Check the generated _lut data of a colormap and corresponding reversed\ncolormap if they are almost the same."
+    },
+    {
+      "name": "test_has_alpha_channel",
+      "docstring": null
+    },
+    {
+      "name": "test_cn",
+      "docstring": null
+    },
+    {
+      "name": "test_conversions",
+      "docstring": null
+    },
+    {
+      "name": "test_conversions_masked",
+      "docstring": null
+    },
+    {
+      "name": "test_to_rgba_array_single_str",
+      "docstring": null
+    },
+    {
+      "name": "test_to_rgba_array_2tuple_str",
+      "docstring": null
+    },
+    {
+      "name": "test_to_rgba_array_alpha_array",
+      "docstring": null
+    },
+    {
+      "name": "test_to_rgba_array_accepts_color_alpha_tuple",
+      "docstring": null
+    },
+    {
+      "name": "test_to_rgba_array_explicit_alpha_overrides_tuple_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_to_rgba_array_accepts_color_alpha_tuple_with_multiple_colors",
+      "docstring": null
+    },
+    {
+      "name": "test_to_rgba_array_error_with_color_invalid_alpha_tuple",
+      "docstring": null
+    },
+    {
+      "name": "test_to_rgba_accepts_color_alpha_tuple",
+      "docstring": null
+    },
+    {
+      "name": "test_to_rgba_explicit_alpha_overrides_tuple_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_to_rgba_error_with_color_invalid_alpha_tuple",
+      "docstring": null
+    },
+    {
+      "name": "test_scalarmappable_to_rgba",
+      "docstring": null
+    },
+    {
+      "name": "test_scalarmappable_nan_to_rgba",
+      "docstring": null
+    },
+    {
+      "name": "test_failed_conversions",
+      "docstring": null
+    },
+    {
+      "name": "test_grey_gray",
+      "docstring": null
+    },
+    {
+      "name": "test_tableau_order",
+      "docstring": null
+    },
+    {
+      "name": "test_ndarray_subclass_norm",
+      "docstring": null
+    },
+    {
+      "name": "test_same_color",
+      "docstring": null
+    },
+    {
+      "name": "test_hex_shorthand_notation",
+      "docstring": null
+    },
+    {
+      "name": "test_repr_png",
+      "docstring": null
+    },
+    {
+      "name": "test_repr_html",
+      "docstring": null
+    },
+    {
+      "name": "test_get_under_over_bad",
+      "docstring": null
+    },
+    {
+      "name": "test_non_mutable_get_values",
+      "docstring": null
+    },
+    {
+      "name": "test_colormap_alpha_array",
+      "docstring": null
+    },
+    {
+      "name": "test_colormap_bad_data_with_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_2d_to_rgba",
+      "docstring": null
+    },
+    {
+      "name": "test_set_dict_to_rgba",
+      "docstring": null
+    },
+    {
+      "name": "test_norm_deepcopy",
+      "docstring": null
+    },
+    {
+      "name": "test_set_clim_emits_single_callback",
+      "docstring": null
+    },
+    {
+      "name": "test_norm_callback",
+      "docstring": null
+    },
+    {
+      "name": "test_scalarmappable_norm_update",
+      "docstring": null
+    },
+    {
+      "name": "test_norm_update_figs",
+      "docstring": null
+    },
+    {
+      "name": "test_make_norm_from_scale_name",
+      "docstring": null
+    },
+    {
+      "name": "test_color_sequences",
+      "docstring": null
+    },
+    {
+      "name": "test_cm_set_cmap_error",
+      "docstring": null
+    },
+    {
+      "name": "test_set_cmap_mismatched_name",
+      "docstring": null
+    },
+    {
+      "name": "test_cmap_alias_names",
+      "docstring": null
+    },
+    {
+      "name": "test_to_rgba_array_none_color_with_alpha_param",
+      "docstring": null
+    },
+    {
+      "name": "test_is_color_like",
+      "docstring": null
+    },
+    {
+      "name": "test_colorizer_vmin_vmax",
+      "docstring": null
+    },
+    {
+      "name": "forward",
+      "docstring": null
+    },
+    {
+      "name": "inverse",
+      "docstring": null
+    },
+    {
+      "name": "forward",
+      "docstring": null
+    },
+    {
+      "name": "inverse",
+      "docstring": null
+    },
+    {
+      "name": "test_init",
+      "docstring": null
+    },
+    {
+      "name": "test_norm",
+      "docstring": null
+    },
+    {
+      "name": "alternative_hillshade",
+      "docstring": null
+    },
+    {
+      "name": "plane",
+      "docstring": "Create a plane whose normal vector is at the given azimuth and\nelevation."
+    },
+    {
+      "name": "angled_plane",
+      "docstring": "Create a plane whose normal vector is at an angle from the given\nazimuth and elevation."
+    }
+  ],
+  "innovations": []
+}

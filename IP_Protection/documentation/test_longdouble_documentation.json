@@ -1,0 +1,196 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_longdouble.py",
+  "classes": [
+    {
+      "name": "TestFileBased",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_fromfile_bogus",
+          "docstring": null
+        },
+        {
+          "name": "test_fromfile_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_fromfile",
+          "docstring": null
+        },
+        {
+          "name": "test_genfromtxt",
+          "docstring": null
+        },
+        {
+          "name": "test_loadtxt",
+          "docstring": null
+        },
+        {
+          "name": "test_tofile_roundtrip",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCommaDecimalPointLocale",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_str_roundtrip_foreign",
+          "docstring": null
+        },
+        {
+          "name": "test_fromstring_foreign_repr",
+          "docstring": null
+        },
+        {
+          "name": "test_fromstring_best_effort_float",
+          "docstring": null
+        },
+        {
+          "name": "test_fromstring_best_effort",
+          "docstring": null
+        },
+        {
+          "name": "test_fromstring_foreign",
+          "docstring": null
+        },
+        {
+          "name": "test_fromstring_foreign_sep",
+          "docstring": null
+        },
+        {
+          "name": "test_fromstring_foreign_value",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_scalar_extraction",
+      "docstring": "Confirm that extracting a value doesn't convert to python float"
+    },
+    {
+      "name": "test_str_roundtrip",
+      "docstring": null
+    },
+    {
+      "name": "test_str_roundtrip_bytes",
+      "docstring": null
+    },
+    {
+      "name": "test_array_and_stringlike_roundtrip",
+      "docstring": "Test that string representations of long-double roundtrip both\nfor array casting and scalar coercion, see also gh-15608."
+    },
+    {
+      "name": "test_bogus_string",
+      "docstring": null
+    },
+    {
+      "name": "test_fromstring",
+      "docstring": null
+    },
+    {
+      "name": "test_fromstring_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_fromstring_bogus",
+      "docstring": null
+    },
+    {
+      "name": "test_fromstring_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_fromstring_missing",
+      "docstring": null
+    },
+    {
+      "name": "test_str_exact",
+      "docstring": null
+    },
+    {
+      "name": "test_format",
+      "docstring": null
+    },
+    {
+      "name": "test_percent",
+      "docstring": null
+    },
+    {
+      "name": "test_array_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_longdouble_from_int",
+      "docstring": null
+    },
+    {
+      "name": "test_longdouble_from_bool",
+      "docstring": null
+    },
+    {
+      "name": "test_musllinux_x86_64_signature",
+      "docstring": null
+    },
+    {
+      "name": "test_eps_positive",
+      "docstring": null
+    },
+    {
+      "name": "test_fromfile_bogus",
+      "docstring": null
+    },
+    {
+      "name": "test_fromfile_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_fromfile",
+      "docstring": null
+    },
+    {
+      "name": "test_genfromtxt",
+      "docstring": null
+    },
+    {
+      "name": "test_loadtxt",
+      "docstring": null
+    },
+    {
+      "name": "test_tofile_roundtrip",
+      "docstring": null
+    },
+    {
+      "name": "test_str_roundtrip_foreign",
+      "docstring": null
+    },
+    {
+      "name": "test_fromstring_foreign_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_fromstring_best_effort_float",
+      "docstring": null
+    },
+    {
+      "name": "test_fromstring_best_effort",
+      "docstring": null
+    },
+    {
+      "name": "test_fromstring_foreign",
+      "docstring": null
+    },
+    {
+      "name": "test_fromstring_foreign_sep",
+      "docstring": null
+    },
+    {
+      "name": "test_fromstring_foreign_value",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

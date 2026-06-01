@@ -1,0 +1,182 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\msgpack\\fallback.py",
+  "classes": [
+    {
+      "name": "Unpacker",
+      "docstring": "Streaming unpacker.\n\nArguments:\n\n:param file_like:\n    File-like object having `.read(n)` method.\n    If specified, unpacker reads serialized data from it and `.feed()` is not usable.\n\n:param int read_size:\n    Used as `file_like.read(read_size)`. (default: `min(16*1024, max_buffer_size)`)\n\n:param bool use_list:\n    If true, unpack msgpack array to Python list.\n    Otherwise, unpack to Python tuple. (default: True)\n\n:param bool raw:\n    If true, unpack msgpack raw to Python bytes.\n    Otherwise, unpack to Python str by decoding with UTF-8 encoding (default).\n\n:param int timestamp:\n    Control how timestamp type is unpacked:\n\n        0 - Timestamp\n        1 - float  (Seconds from the EPOCH)\n        2 - int  (Nanoseconds from the EPOCH)\n        3 - datetime.datetime  (UTC).\n\n:param bool strict_map_key:\n    If true (default), only str or bytes are accepted for map (dict) keys.\n\n:param object_hook:\n    When specified, it should be callable.\n    Unpacker calls it with a dict argument after unpacking msgpack map.\n    (See also simplejson)\n\n:param object_pairs_hook:\n    When specified, it should be callable.\n    Unpacker calls it with a list of key-value pairs after unpacking msgpack map.\n    (See also simplejson)\n\n:param str unicode_errors:\n    The error handler for decoding unicode. (default: 'strict')\n    This option should be used only when you have msgpack data which\n    contains invalid UTF-8 string.\n\n:param int max_buffer_size:\n    Limits size of data waiting unpacked.  0 means 2**32-1.\n    The default value is 100*1024*1024 (100MiB).\n    Raises `BufferFull` exception when it is insufficient.\n    You should set this parameter when unpacking data from untrusted source.\n\n:param int max_str_len:\n    Deprecated, use *max_buffer_size* instead.\n    Limits max length of str. (default: max_buffer_size)\n\n:param int max_bin_len:\n    Deprecated, use *max_buffer_size* instead.\n    Limits max length of bin. (default: max_buffer_size)\n\n:param int max_array_len:\n    Limits max length of array.\n    (default: max_buffer_size)\n\n:param int max_map_len:\n    Limits max length of map.\n    (default: max_buffer_size//2)\n\n:param int max_ext_len:\n    Deprecated, use *max_buffer_size* instead.\n    Limits max size of ext type.  (default: max_buffer_size)\n\nExample of streaming deserialize from file-like object::\n\n    unpacker = Unpacker(file_like)\n    for o in unpacker:\n        process(o)\n\nExample of streaming deserialize from socket::\n\n    unpacker = Unpacker()\n    while True:\n        buf = sock.recv(1024**2)\n        if not buf:\n            break\n        unpacker.feed(buf)\n        for o in unpacker:\n            process(o)\n\nRaises ``ExtraData`` when *packed* contains extra bytes.\nRaises ``OutOfData`` when *packed* is incomplete.\nRaises ``FormatError`` when *packed* is not valid msgpack.\nRaises ``StackError`` when *packed* contains too nested.\nOther exceptions can be raised during unpacking.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "feed",
+          "docstring": null
+        },
+        {
+          "name": "read_bytes",
+          "docstring": null
+        },
+        {
+          "name": "skip",
+          "docstring": null
+        },
+        {
+          "name": "unpack",
+          "docstring": null
+        },
+        {
+          "name": "read_array_header",
+          "docstring": null
+        },
+        {
+          "name": "read_map_header",
+          "docstring": null
+        },
+        {
+          "name": "tell",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Packer",
+      "docstring": "MessagePack Packer\n\nUsage::\n\n    packer = Packer()\n    astream.write(packer.pack(a))\n    astream.write(packer.pack(b))\n\nPacker's constructor has some keyword arguments:\n\n:param default:\n    When specified, it should be callable.\n    Convert user type to builtin type that Packer supports.\n    See also simplejson's document.\n\n:param bool use_single_float:\n    Use single precision float type for float. (default: False)\n\n:param bool autoreset:\n    Reset buffer after each pack and return its content as `bytes`. (default: True).\n    If set this to false, use `bytes()` to get content and `.reset()` to clear buffer.\n\n:param bool use_bin_type:\n    Use bin type introduced in msgpack spec 2.0 for bytes.\n    It also enables str8 type for unicode. (default: True)\n\n:param bool strict_types:\n    If set to true, types will be checked to be exact. Derived classes\n    from serializable types will not be serialized and will be\n    treated as unsupported type and forwarded to default.\n    Additionally tuples will not be serialized as lists.\n    This is useful when trying to implement accurate serialization\n    for python types.\n\n:param bool datetime:\n    If set to true, datetime with tzinfo is packed into Timestamp type.\n    Note that the tzinfo is stripped in the timestamp.\n    You can get UTC datetime with `timestamp=3` option of the Unpacker.\n\n:param str unicode_errors:\n    The error handler for encoding unicode. (default: 'strict')\n    DO NOT USE THIS!!  This option is kept for very specific usage.\n\n:param int buf_size:\n    Internal buffer size. This option is used only for C implementation.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "pack",
+          "docstring": null
+        },
+        {
+          "name": "pack_map_pairs",
+          "docstring": null
+        },
+        {
+          "name": "pack_array_header",
+          "docstring": null
+        },
+        {
+          "name": "pack_map_header",
+          "docstring": null
+        },
+        {
+          "name": "pack_ext_type",
+          "docstring": null
+        },
+        {
+          "name": "bytes",
+          "docstring": "Return internal buffer contents as bytes object"
+        },
+        {
+          "name": "reset",
+          "docstring": "Reset internal buffer.\n\nThis method is useful only when autoreset=False."
+        },
+        {
+          "name": "getbuffer",
+          "docstring": "Return view of internal buffer."
+        }
+      ]
+    },
+    {
+      "name": "BytesIO",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "getvalue",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "unpackb",
+      "docstring": "Unpack an object from `packed`.\n\nRaises ``ExtraData`` when *packed* contains extra bytes.\nRaises ``ValueError`` when *packed* is incomplete.\nRaises ``FormatError`` when *packed* is not valid msgpack.\nRaises ``StackError`` when *packed* contains too nested.\nOther exceptions can be raised during unpacking.\n\nSee :class:`Unpacker` for options."
+    },
+    {
+      "name": "newlist_hint",
+      "docstring": null
+    },
+    {
+      "name": "feed",
+      "docstring": null
+    },
+    {
+      "name": "read_bytes",
+      "docstring": null
+    },
+    {
+      "name": "skip",
+      "docstring": null
+    },
+    {
+      "name": "unpack",
+      "docstring": null
+    },
+    {
+      "name": "read_array_header",
+      "docstring": null
+    },
+    {
+      "name": "read_map_header",
+      "docstring": null
+    },
+    {
+      "name": "tell",
+      "docstring": null
+    },
+    {
+      "name": "pack",
+      "docstring": null
+    },
+    {
+      "name": "pack_map_pairs",
+      "docstring": null
+    },
+    {
+      "name": "pack_array_header",
+      "docstring": null
+    },
+    {
+      "name": "pack_map_header",
+      "docstring": null
+    },
+    {
+      "name": "pack_ext_type",
+      "docstring": null
+    },
+    {
+      "name": "bytes",
+      "docstring": "Return internal buffer contents as bytes object"
+    },
+    {
+      "name": "reset",
+      "docstring": "Reset internal buffer.\n\nThis method is useful only when autoreset=False."
+    },
+    {
+      "name": "getbuffer",
+      "docstring": "Return view of internal buffer."
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "getvalue",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

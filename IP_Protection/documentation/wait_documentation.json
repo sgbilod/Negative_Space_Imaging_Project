@@ -1,0 +1,41 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\wait.py",
+  "classes": [
+    {
+      "name": "NoWayToWaitForSocketError",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "select_wait_for_socket",
+      "docstring": null
+    },
+    {
+      "name": "poll_wait_for_socket",
+      "docstring": null
+    },
+    {
+      "name": "null_wait_for_socket",
+      "docstring": null
+    },
+    {
+      "name": "wait_for_socket",
+      "docstring": null
+    },
+    {
+      "name": "wait_for_read",
+      "docstring": "Waits for reading to be available on a given socket.\nReturns True if the socket is readable, or False if the timeout expired."
+    },
+    {
+      "name": "wait_for_write",
+      "docstring": "Waits for writing to be available on a given socket.\nReturns True if the socket is readable, or False if the timeout expired."
+    },
+    {
+      "name": "do_poll",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

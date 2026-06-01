@@ -1,0 +1,235 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\backend_pgf.py",
+  "classes": [
+    {
+      "name": "LatexError",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LatexManager",
+      "docstring": "The LatexManager opens an instance of the LaTeX application for\ndetermining the metrics of text elements. The LaTeX environment can be\nmodified by setting fonts and/or a custom preamble in `.rcParams`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_width_height_descent",
+          "docstring": "Get the width, total height, and descent (in TeX points) for a text\ntypeset by the current LaTeX environment."
+        }
+      ]
+    },
+    {
+      "name": "RendererPgf",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a new PGF renderer that translates any drawing instruction\ninto text commands to be interpreted in a latex pgfpicture environment.\n\nAttributes\n----------\nfigure : `~matplotlib.figure.Figure`\n    Matplotlib figure to initialize height, width and dpi from.\nfh : file-like\n    File handle for the output of the drawing commands."
+        },
+        {
+          "name": "draw_markers",
+          "docstring": null
+        },
+        {
+          "name": "draw_path",
+          "docstring": null
+        },
+        {
+          "name": "option_scale_image",
+          "docstring": null
+        },
+        {
+          "name": "option_image_nocomposite",
+          "docstring": null
+        },
+        {
+          "name": "draw_image",
+          "docstring": null
+        },
+        {
+          "name": "draw_tex",
+          "docstring": null
+        },
+        {
+          "name": "draw_text",
+          "docstring": null
+        },
+        {
+          "name": "get_text_width_height_descent",
+          "docstring": null
+        },
+        {
+          "name": "flipy",
+          "docstring": null
+        },
+        {
+          "name": "get_canvas_width_height",
+          "docstring": null
+        },
+        {
+          "name": "points_to_pixels",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FigureCanvasPgf",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "get_default_filetype",
+          "docstring": null
+        },
+        {
+          "name": "print_pgf",
+          "docstring": "Output pgf macros for drawing the figure so it can be included and\nrendered in latex documents."
+        },
+        {
+          "name": "print_pdf",
+          "docstring": "Use LaTeX to compile a pgf generated figure to pdf."
+        },
+        {
+          "name": "print_png",
+          "docstring": "Use LaTeX to compile a pgf figure to pdf and convert it to png."
+        },
+        {
+          "name": "get_renderer",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BackendPgf",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PdfPages",
+      "docstring": "A multi-page PDF file using the pgf backend\n\nExamples\n--------\n>>> import matplotlib.pyplot as plt\n>>> # Initialize:\n>>> with PdfPages('foo.pdf') as pdf:\n...     # As many times as you like, create a figure fig and save it:\n...     fig = plt.figure()\n...     pdf.savefig(fig)\n...     # When no figure is specified the current figure is saved\n...     pdf.savefig()",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a new PdfPages object.\n\nParameters\n----------\nfilename : str or path-like\n    Plots using `PdfPages.savefig` will be written to a file at this\n    location. Any older file with the same name is overwritten.\n\nmetadata : dict, optional\n    Information dictionary object (see PDF reference section 10.2.1\n    'Document Information Dictionary'), e.g.:\n    ``{'Creator': 'My software', 'Author': 'Me', 'Title': 'Awesome'}``.\n\n    The standard keys are 'Title', 'Author', 'Subject', 'Keywords',\n    'Creator', 'Producer', 'CreationDate', 'ModDate', and\n    'Trapped'. Values have been predefined for 'Creator', 'Producer'\n    and 'CreationDate'. They can be removed by setting them to `None`.\n\n    Note that some versions of LaTeX engines may ignore the 'Producer'\n    key and set it to themselves."
+        },
+        {
+          "name": "close",
+          "docstring": "Finalize this object, running LaTeX in a temporary directory\nand moving the final pdf file to *filename*."
+        },
+        {
+          "name": "savefig",
+          "docstring": "Save a `.Figure` to this file as a new page.\n\nAny other keyword arguments are passed to `~.Figure.savefig`.\n\nParameters\n----------\nfigure : `.Figure` or int, default: the active figure\n    The figure, or index of the figure, that is saved to the file."
+        },
+        {
+          "name": "get_pagecount",
+          "docstring": "Return the current number of pages in the multipage pdf file."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "make_pdf_to_png_converter",
+      "docstring": "Return a function that converts a pdf file to a png file."
+    },
+    {
+      "name": "get_width_height_descent",
+      "docstring": "Get the width, total height, and descent (in TeX points) for a text\ntypeset by the current LaTeX environment."
+    },
+    {
+      "name": "draw_markers",
+      "docstring": null
+    },
+    {
+      "name": "draw_path",
+      "docstring": null
+    },
+    {
+      "name": "option_scale_image",
+      "docstring": null
+    },
+    {
+      "name": "option_image_nocomposite",
+      "docstring": null
+    },
+    {
+      "name": "draw_image",
+      "docstring": null
+    },
+    {
+      "name": "draw_tex",
+      "docstring": null
+    },
+    {
+      "name": "draw_text",
+      "docstring": null
+    },
+    {
+      "name": "get_text_width_height_descent",
+      "docstring": null
+    },
+    {
+      "name": "flipy",
+      "docstring": null
+    },
+    {
+      "name": "get_canvas_width_height",
+      "docstring": null
+    },
+    {
+      "name": "points_to_pixels",
+      "docstring": null
+    },
+    {
+      "name": "get_default_filetype",
+      "docstring": null
+    },
+    {
+      "name": "print_pgf",
+      "docstring": "Output pgf macros for drawing the figure so it can be included and\nrendered in latex documents."
+    },
+    {
+      "name": "print_pdf",
+      "docstring": "Use LaTeX to compile a pgf generated figure to pdf."
+    },
+    {
+      "name": "print_png",
+      "docstring": "Use LaTeX to compile a pgf figure to pdf and convert it to png."
+    },
+    {
+      "name": "get_renderer",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": "Finalize this object, running LaTeX in a temporary directory\nand moving the final pdf file to *filename*."
+    },
+    {
+      "name": "savefig",
+      "docstring": "Save a `.Figure` to this file as a new page.\n\nAny other keyword arguments are passed to `~.Figure.savefig`.\n\nParameters\n----------\nfigure : `.Figure` or int, default: the active figure\n    The figure, or index of the figure, that is saved to the file."
+    },
+    {
+      "name": "get_pagecount",
+      "docstring": "Return the current number of pages in the multipage pdf file."
+    },
+    {
+      "name": "finalize_latex",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

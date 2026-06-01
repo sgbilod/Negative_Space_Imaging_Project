@@ -1,0 +1,46 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\commands\\install.py",
+  "classes": [
+    {
+      "name": "InstallCommand",
+      "docstring": "Install packages from:\n\n- PyPI (and other indexes) using requirement specifiers.\n- VCS project urls.\n- Local project directories.\n- Local or remote source archives.\n\npip also supports installing from \"requirements files\", which provide\nan easy way to specify a whole environment to be installed.",
+      "methods": [
+        {
+          "name": "add_options",
+          "docstring": null
+        },
+        {
+          "name": "run",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_lib_location_guesses",
+      "docstring": null
+    },
+    {
+      "name": "site_packages_writable",
+      "docstring": null
+    },
+    {
+      "name": "decide_user_install",
+      "docstring": "Determine whether to do a user install based on the input options.\n\nIf use_user_site is False, no additional checks are done.\nIf use_user_site is True, it is checked for compatibility with other\noptions.\nIf use_user_site is None, the default behaviour depends on the environment,\nwhich is provided by the other arguments."
+    },
+    {
+      "name": "create_os_error_message",
+      "docstring": "Format an error message for an OSError\n\nIt may occur anytime during the execution of the install command."
+    },
+    {
+      "name": "add_options",
+      "docstring": null
+    },
+    {
+      "name": "run",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

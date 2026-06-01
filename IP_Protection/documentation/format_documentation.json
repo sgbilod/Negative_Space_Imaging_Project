@@ -1,0 +1,262 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\core\\format.py",
+  "classes": [
+    {
+      "name": "Format",
+      "docstring": "Represents an implementation to read/write a particular file format\n\nA format instance is responsible for 1) providing information about\na format; 2) determining whether a certain file can be read/written\nwith this format; 3) providing a reader/writer class.\n\nGenerally, imageio will select the right format and use that to\nread/write an image. A format can also be explicitly chosen in all\nread/write functions. Use ``print(format)``, or ``help(format_name)``\nto see its documentation.\n\nTo implement a specific format, one should create a subclass of\nFormat and the Format.Reader and Format.Writer classes. See\n:class:`imageio.plugins` for details.\n\nParameters\n----------\nname : str\n    A short name of this format. Users can select a format using its name.\ndescription : str\n    A one-line description of the format.\nextensions : str | list | None\n    List of filename extensions that this format supports. If a\n    string is passed it should be space or comma separated. The\n    extensions are used in the documentation and to allow users to\n    select a format by file extension. It is not used to determine\n    what format to use for reading/saving a file.\nmodes : str\n    A string containing the modes that this format can handle ('iIvV'),\n    \u201ci\u201d for an image, \u201cI\u201d for multiple images, \u201cv\u201d for a volume,\n    \u201cV\u201d for multiple volumes.\n    This attribute is used in the documentation and to select the\n    formats when reading/saving a file.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the Plugin.\n\nParameters\n----------\nname : str\n    A short name of this format. Users can select a format using its name.\ndescription : str\n    A one-line description of the format.\nextensions : str | list | None\n    List of filename extensions that this format supports. If a\n    string is passed it should be space or comma separated. The\n    extensions are used in the documentation and to allow users to\n    select a format by file extension. It is not used to determine\n    what format to use for reading/saving a file.\nmodes : str\n    A string containing the modes that this format can handle ('iIvV'),\n    \u201ci\u201d for an image, \u201cI\u201d for multiple images, \u201cv\u201d for a volume,\n    \u201cV\u201d for multiple volumes.\n    This attribute is used in the documentation and to select the\n    formats when reading/saving a file."
+        },
+        {
+          "name": "doc",
+          "docstring": "The documentation for this format (name + description + docstring)."
+        },
+        {
+          "name": "name",
+          "docstring": "The name of this format."
+        },
+        {
+          "name": "description",
+          "docstring": "A short description of this format."
+        },
+        {
+          "name": "extensions",
+          "docstring": "A list of file extensions supported by this plugin.\nThese are all lowercase with a leading dot."
+        },
+        {
+          "name": "modes",
+          "docstring": "A string specifying the modes that this format can handle."
+        },
+        {
+          "name": "get_reader",
+          "docstring": "get_reader(request)\n\nReturn a reader object that can be used to read data and info\nfrom the given file. Users are encouraged to use\nimageio.get_reader() instead."
+        },
+        {
+          "name": "get_writer",
+          "docstring": "get_writer(request)\n\nReturn a writer object that can be used to write data and info\nto the given file. Users are encouraged to use\nimageio.get_writer() instead."
+        },
+        {
+          "name": "can_read",
+          "docstring": "can_read(request)\n\nGet whether this format can read data from the specified uri."
+        },
+        {
+          "name": "can_write",
+          "docstring": "can_write(request)\n\nGet whether this format can write data to the speciefed uri."
+        }
+      ]
+    },
+    {
+      "name": "FormatManager",
+      "docstring": "The FormatManager is a singleton plugin factory.\n\nThe format manager supports getting a format object using indexing (by\nformat name or extension). When used as an iterator, this object\nyields all registered format objects.\n\nSee also :func:`.help`.",
+      "methods": [
+        {
+          "name": "sort",
+          "docstring": "sort(name1, name2, name3, ...)\n\nSort the formats based on zero or more given names; a format with\na name that matches one of the given names will take precedence\nover other formats. A match means an equal name, or ending with\nthat name (though the former counts higher). Case insensitive.\n\nFormat preference will match the order of the given names: using\n``sort('TIFF', '-FI', '-PIL')`` would prefer the FreeImage formats\nover the Pillow formats, but prefer TIFF even more. Each time\nthis is called, the starting point is the default format order,\nand calling ``sort()`` with no arguments will reset the order.\n\nBe aware that using the function can affect the behavior of\nother code that makes use of imageio.\n\nAlso see the ``IMAGEIO_FORMAT_ORDER`` environment variable."
+        },
+        {
+          "name": "add_format",
+          "docstring": "add_format(format, overwrite=False)\n\nRegister a format, so that imageio can use it. If a format with the\nsame name already exists, an error is raised, unless overwrite is True,\nin which case the current format is replaced."
+        },
+        {
+          "name": "search_read_format",
+          "docstring": "search_read_format(request)\n\nSearch a format that can read a file according to the given request.\nReturns None if no appropriate format was found. (used internally)"
+        },
+        {
+          "name": "search_write_format",
+          "docstring": "search_write_format(request)\n\nSearch a format that can write a file according to the given request.\nReturns None if no appropriate format was found. (used internally)"
+        },
+        {
+          "name": "get_format_names",
+          "docstring": "Get the names of all registered formats."
+        },
+        {
+          "name": "show",
+          "docstring": "Show a nicely formatted list of available formats"
+        }
+      ]
+    },
+    {
+      "name": "_BaseReaderWriter",
+      "docstring": "Base class for the Reader and Writer class to implement common\nfunctionality. It implements a similar approach for opening/closing\nand context management as Python's file objects.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "format",
+          "docstring": "The :class:`.Format` object corresponding to the current\nread/write operation."
+        },
+        {
+          "name": "request",
+          "docstring": "The :class:`.Request` object corresponding to the\ncurrent read/write operation."
+        },
+        {
+          "name": "close",
+          "docstring": "Flush and close the reader/writer.\nThis method has no effect if it is already closed."
+        },
+        {
+          "name": "closed",
+          "docstring": "Whether the reader/writer is closed."
+        }
+      ]
+    },
+    {
+      "name": "Reader",
+      "docstring": "The purpose of a reader object is to read data from an image\nresource, and should be obtained by calling :func:`.get_reader`.\n\nA reader can be used as an iterator to read multiple images,\nand (if the format permits) only reads data from the file when\nnew data is requested (i.e. streaming). A reader can also be\nused as a context manager so that it is automatically closed.\n\nPlugins implement Reader's for different formats. Though rare,\nplugins may provide additional functionality (beyond what is\nprovided by the base reader class).",
+      "methods": [
+        {
+          "name": "get_length",
+          "docstring": "get_length()\n\nGet the number of images in the file. (Note: you can also\nuse ``len(reader_object)``.)\n\nThe result can be:\n    * 0 for files that only have meta data\n    * 1 for singleton images (e.g. in PNG, JPEG, etc.)\n    * N for image series\n    * inf for streams (series of unknown length)"
+        },
+        {
+          "name": "get_data",
+          "docstring": "get_data(index, **kwargs)\n\nRead image data from the file, using the image index. The\nreturned image has a 'meta' attribute with the meta data.\nRaises IndexError if the index is out of range.\n\nSome formats may support additional keyword arguments. These are\nlisted in the documentation of those formats."
+        },
+        {
+          "name": "get_next_data",
+          "docstring": "get_next_data(**kwargs)\n\nRead the next image from the series.\n\nSome formats may support additional keyword arguments. These are\nlisted in the documentation of those formats."
+        },
+        {
+          "name": "set_image_index",
+          "docstring": "set_image_index(index)\n\nSet the internal pointer such that the next call to\nget_next_data() returns the image specified by the index"
+        },
+        {
+          "name": "get_meta_data",
+          "docstring": "get_meta_data(index=None)\n\nRead meta data from the file. using the image index. If the\nindex is omitted or None, return the file's (global) meta data.\n\nNote that ``get_data`` also provides the meta data for the returned\nimage as an attribute of that image.\n\nThe meta data is a dict, which shape depends on the format.\nE.g. for JPEG, the dict maps group names to subdicts and each\ngroup is a dict with name-value pairs. The groups represent\nthe different metadata formats (EXIF, XMP, etc.)."
+        },
+        {
+          "name": "iter_data",
+          "docstring": "iter_data()\n\nIterate over all images in the series. (Note: you can also\niterate over the reader object.)"
+        }
+      ]
+    },
+    {
+      "name": "Writer",
+      "docstring": "The purpose of a writer object is to write data to an image\nresource, and should be obtained by calling :func:`.get_writer`.\n\nA writer will (if the format permits) write data to the file\nas soon as new data is provided (i.e. streaming). A writer can\nalso be used as a context manager so that it is automatically\nclosed.\n\nPlugins implement Writer's for different formats. Though rare,\nplugins may provide additional functionality (beyond what is\nprovided by the base writer class).",
+      "methods": [
+        {
+          "name": "append_data",
+          "docstring": "append_data(im, meta={})\n\nAppend an image (and meta data) to the file. The final meta\ndata that is used consists of the meta data on the given\nimage (if applicable), updated with the given meta data."
+        },
+        {
+          "name": "set_meta_data",
+          "docstring": "set_meta_data(meta)\n\nSets the file's (global) meta data. The meta data is a dict which\nshape depends on the format. E.g. for JPEG the dict maps\ngroup names to subdicts, and each group is a dict with\nname-value pairs. The groups represents the different\nmetadata formats (EXIF, XMP, etc.).\n\nNote that some meta formats may not be supported for\nwriting, and individual fields may be ignored without\nwarning if they are invalid."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "doc",
+      "docstring": "The documentation for this format (name + description + docstring)."
+    },
+    {
+      "name": "name",
+      "docstring": "The name of this format."
+    },
+    {
+      "name": "description",
+      "docstring": "A short description of this format."
+    },
+    {
+      "name": "extensions",
+      "docstring": "A list of file extensions supported by this plugin.\nThese are all lowercase with a leading dot."
+    },
+    {
+      "name": "modes",
+      "docstring": "A string specifying the modes that this format can handle."
+    },
+    {
+      "name": "get_reader",
+      "docstring": "get_reader(request)\n\nReturn a reader object that can be used to read data and info\nfrom the given file. Users are encouraged to use\nimageio.get_reader() instead."
+    },
+    {
+      "name": "get_writer",
+      "docstring": "get_writer(request)\n\nReturn a writer object that can be used to write data and info\nto the given file. Users are encouraged to use\nimageio.get_writer() instead."
+    },
+    {
+      "name": "can_read",
+      "docstring": "can_read(request)\n\nGet whether this format can read data from the specified uri."
+    },
+    {
+      "name": "can_write",
+      "docstring": "can_write(request)\n\nGet whether this format can write data to the speciefed uri."
+    },
+    {
+      "name": "sort",
+      "docstring": "sort(name1, name2, name3, ...)\n\nSort the formats based on zero or more given names; a format with\na name that matches one of the given names will take precedence\nover other formats. A match means an equal name, or ending with\nthat name (though the former counts higher). Case insensitive.\n\nFormat preference will match the order of the given names: using\n``sort('TIFF', '-FI', '-PIL')`` would prefer the FreeImage formats\nover the Pillow formats, but prefer TIFF even more. Each time\nthis is called, the starting point is the default format order,\nand calling ``sort()`` with no arguments will reset the order.\n\nBe aware that using the function can affect the behavior of\nother code that makes use of imageio.\n\nAlso see the ``IMAGEIO_FORMAT_ORDER`` environment variable."
+    },
+    {
+      "name": "add_format",
+      "docstring": "add_format(format, overwrite=False)\n\nRegister a format, so that imageio can use it. If a format with the\nsame name already exists, an error is raised, unless overwrite is True,\nin which case the current format is replaced."
+    },
+    {
+      "name": "search_read_format",
+      "docstring": "search_read_format(request)\n\nSearch a format that can read a file according to the given request.\nReturns None if no appropriate format was found. (used internally)"
+    },
+    {
+      "name": "search_write_format",
+      "docstring": "search_write_format(request)\n\nSearch a format that can write a file according to the given request.\nReturns None if no appropriate format was found. (used internally)"
+    },
+    {
+      "name": "get_format_names",
+      "docstring": "Get the names of all registered formats."
+    },
+    {
+      "name": "show",
+      "docstring": "Show a nicely formatted list of available formats"
+    },
+    {
+      "name": "format",
+      "docstring": "The :class:`.Format` object corresponding to the current\nread/write operation."
+    },
+    {
+      "name": "request",
+      "docstring": "The :class:`.Request` object corresponding to the\ncurrent read/write operation."
+    },
+    {
+      "name": "close",
+      "docstring": "Flush and close the reader/writer.\nThis method has no effect if it is already closed."
+    },
+    {
+      "name": "closed",
+      "docstring": "Whether the reader/writer is closed."
+    },
+    {
+      "name": "get_length",
+      "docstring": "get_length()\n\nGet the number of images in the file. (Note: you can also\nuse ``len(reader_object)``.)\n\nThe result can be:\n    * 0 for files that only have meta data\n    * 1 for singleton images (e.g. in PNG, JPEG, etc.)\n    * N for image series\n    * inf for streams (series of unknown length)"
+    },
+    {
+      "name": "get_data",
+      "docstring": "get_data(index, **kwargs)\n\nRead image data from the file, using the image index. The\nreturned image has a 'meta' attribute with the meta data.\nRaises IndexError if the index is out of range.\n\nSome formats may support additional keyword arguments. These are\nlisted in the documentation of those formats."
+    },
+    {
+      "name": "get_next_data",
+      "docstring": "get_next_data(**kwargs)\n\nRead the next image from the series.\n\nSome formats may support additional keyword arguments. These are\nlisted in the documentation of those formats."
+    },
+    {
+      "name": "set_image_index",
+      "docstring": "set_image_index(index)\n\nSet the internal pointer such that the next call to\nget_next_data() returns the image specified by the index"
+    },
+    {
+      "name": "get_meta_data",
+      "docstring": "get_meta_data(index=None)\n\nRead meta data from the file. using the image index. If the\nindex is omitted or None, return the file's (global) meta data.\n\nNote that ``get_data`` also provides the meta data for the returned\nimage as an attribute of that image.\n\nThe meta data is a dict, which shape depends on the format.\nE.g. for JPEG, the dict maps group names to subdicts and each\ngroup is a dict with name-value pairs. The groups represent\nthe different metadata formats (EXIF, XMP, etc.)."
+    },
+    {
+      "name": "iter_data",
+      "docstring": "iter_data()\n\nIterate over all images in the series. (Note: you can also\niterate over the reader object.)"
+    },
+    {
+      "name": "append_data",
+      "docstring": "append_data(im, meta={})\n\nAppend an image (and meta data) to the file. The final meta\ndata that is used consists of the meta data on the given\nimage (if applicable), updated with the given meta data."
+    },
+    {
+      "name": "set_meta_data",
+      "docstring": "set_meta_data(meta)\n\nSets the file's (global) meta data. The meta data is a dict which\nshape depends on the format. E.g. for JPEG the dict maps\ngroup names to subdicts, and each group is a dict with\nname-value pairs. The groups represents the different\nmetadata formats (EXIF, XMP, etc.).\n\nNote that some meta formats may not be supported for\nwriting, and individual fields may be ignored without\nwarning if they are invalid."
+    }
+  ],
+  "innovations": []
+}

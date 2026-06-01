@@ -1,0 +1,78 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\testing\\compare.py",
+  "classes": [
+    {
+      "name": "_ConverterError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_Converter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_GSConverter",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_SVGConverter",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_SVGWithMatplotlibFontsConverter",
+      "docstring": "A SVG converter which explicitly adds the fonts shipped by Matplotlib to\nInkspace's font search path, to better support `svg.fonttype = \"none\"`\n(which is in particular used by certain mathtext tests).",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "make_test_filename",
+      "docstring": "Make a new filename by inserting *purpose* before the file's extension."
+    },
+    {
+      "name": "get_cache_dir",
+      "docstring": null
+    },
+    {
+      "name": "get_file_hash",
+      "docstring": null
+    },
+    {
+      "name": "comparable_formats",
+      "docstring": "Return the list of file formats that `.compare_images` can compare\non this system.\n\nReturns\n-------\nlist of str\n    E.g. ``['png', 'pdf', 'svg', 'eps']``."
+    },
+    {
+      "name": "convert",
+      "docstring": "Convert the named file to png; return the name of the created file.\n\nIf *cache* is True, the result of the conversion is cached in\n`matplotlib.get_cachedir() + '/test_cache/'`.  The caching is based on a\nhash of the exact contents of the input file.  Old cache entries are\nautomatically deleted as needed to keep the size of the cache capped to\ntwice the size of all baseline images."
+    },
+    {
+      "name": "crop_to_same",
+      "docstring": null
+    },
+    {
+      "name": "calculate_rms",
+      "docstring": "Calculate the per-pixel errors, then compute the root mean square error."
+    },
+    {
+      "name": "compare_images",
+      "docstring": "Compare two \"image\" files checking differences within a tolerance.\n\nThe two given filenames may point to files which are convertible to\nPNG via the `.converter` dictionary. The underlying RMS is calculated\nwith the `.calculate_rms` function.\n\nParameters\n----------\nexpected : str\n    The filename of the expected image.\nactual : str\n    The filename of the actual image.\ntol : float\n    The tolerance (a color value difference, where 255 is the\n    maximal difference).  The test fails if the average pixel\n    difference is greater than this value.\nin_decorator : bool\n    Determines the output format. If called from image_comparison\n    decorator, this should be True. (default=False)\n\nReturns\n-------\nNone or dict or str\n    Return *None* if the images are equal within the given tolerance.\n\n    If the images differ, the return value depends on  *in_decorator*.\n    If *in_decorator* is true, a dict with the following entries is\n    returned:\n\n    - *rms*: The RMS of the image difference.\n    - *expected*: The filename of the expected image.\n    - *actual*: The filename of the actual image.\n    - *diff_image*: The filename of the difference image.\n    - *tol*: The comparison tolerance.\n\n    Otherwise, a human-readable multi-line string representation of this\n    information is returned.\n\nExamples\n--------\n::\n\n    img1 = \"./baseline/plot.png\"\n    img2 = \"./output/plot.png\"\n    compare_images(img1, img2, 0.001)"
+    },
+    {
+      "name": "save_diff_image",
+      "docstring": "Parameters\n----------\nexpected : str\n    File path of expected image.\nactual : str\n    File path of actual image.\noutput : str\n    File path to save difference image to."
+    },
+    {
+      "name": "encode_and_escape",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

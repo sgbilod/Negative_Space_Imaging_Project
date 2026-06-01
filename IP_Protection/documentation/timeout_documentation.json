@@ -1,0 +1,74 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\timeout.py",
+  "classes": [
+    {
+      "name": "Timeout",
+      "docstring": "Timeout configuration.\n\nTimeouts can be defined as a default for a pool:\n\n.. code-block:: python\n\n   timeout = Timeout(connect=2.0, read=7.0)\n   http = PoolManager(timeout=timeout)\n   response = http.request('GET', 'http://example.com/')\n\nOr per-request (which overrides the default for the pool):\n\n.. code-block:: python\n\n   response = http.request('GET', 'http://example.com/', timeout=Timeout(10))\n\nTimeouts can be disabled by setting all the parameters to ``None``:\n\n.. code-block:: python\n\n   no_timeout = Timeout(connect=None, read=None)\n   response = http.request('GET', 'http://example.com/, timeout=no_timeout)\n\n\n:param total:\n    This combines the connect and read timeouts into one; the read timeout\n    will be set to the time leftover from the connect attempt. In the\n    event that both a connect timeout and a total are specified, or a read\n    timeout and a total are specified, the shorter timeout will be applied.\n\n    Defaults to None.\n\n:type total: int, float, or None\n\n:param connect:\n    The maximum amount of time (in seconds) to wait for a connection\n    attempt to a server to succeed. Omitting the parameter will default the\n    connect timeout to the system default, probably `the global default\n    timeout in socket.py\n    <http://hg.python.org/cpython/file/603b4d593758/Lib/socket.py#l535>`_.\n    None will set an infinite timeout for connection attempts.\n\n:type connect: int, float, or None\n\n:param read:\n    The maximum amount of time (in seconds) to wait between consecutive\n    read operations for a response from the server. Omitting the parameter\n    will default the read timeout to the system default, probably `the\n    global default timeout in socket.py\n    <http://hg.python.org/cpython/file/603b4d593758/Lib/socket.py#l535>`_.\n    None will set an infinite timeout.\n\n:type read: int, float, or None\n\n.. note::\n\n    Many factors can affect the total amount of time for urllib3 to return\n    an HTTP response.\n\n    For example, Python's DNS resolver does not obey the timeout specified\n    on the socket. Other factors that can affect total request time include\n    high CPU load, high swap, the program running at a low priority level,\n    or other behaviors.\n\n    In addition, the read and total timeouts only measure the time between\n    read operations on the socket connecting the client and the server,\n    not the total amount of time for the request to return a complete\n    response. For most requests, the timeout is raised because the server\n    has not sent the first byte in the specified time. This is not always\n    the case; if a server streams one byte every fifteen seconds, a timeout\n    of 20 seconds will not trigger, even though the request will take\n    several minutes to complete.\n\n    If your goal is to cut off any request after a set amount of wall clock\n    time, consider having a second \"watcher\" thread to cut off a slow\n    request.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "resolve_default_timeout",
+          "docstring": null
+        },
+        {
+          "name": "from_float",
+          "docstring": "Create a new Timeout from a legacy timeout value.\n\nThe timeout value used by httplib.py sets the same timeout on the\nconnect(), and recv() socket requests. This creates a :class:`Timeout`\nobject that sets the individual timeouts to the ``timeout`` value\npassed to this function.\n\n:param timeout: The legacy timeout value.\n:type timeout: integer, float, sentinel default object, or None\n:return: Timeout object\n:rtype: :class:`Timeout`"
+        },
+        {
+          "name": "clone",
+          "docstring": "Create a copy of the timeout object\n\nTimeout properties are stored per-pool but each request needs a fresh\nTimeout object to ensure each one has its own start/stop configured.\n\n:return: a copy of the timeout object\n:rtype: :class:`Timeout`"
+        },
+        {
+          "name": "start_connect",
+          "docstring": "Start the timeout clock, used during a connect() attempt\n\n:raises urllib3.exceptions.TimeoutStateError: if you attempt\n    to start a timer that has been started already."
+        },
+        {
+          "name": "get_connect_duration",
+          "docstring": "Gets the time elapsed since the call to :meth:`start_connect`.\n\n:return: Elapsed time in seconds.\n:rtype: float\n:raises urllib3.exceptions.TimeoutStateError: if you attempt\n    to get duration for a timer that hasn't been started."
+        },
+        {
+          "name": "connect_timeout",
+          "docstring": "Get the value to use when setting a connection timeout.\n\nThis will be a positive float or integer, the value None\n(never timeout), or the default system timeout.\n\n:return: Connect timeout.\n:rtype: int, float, :attr:`Timeout.DEFAULT_TIMEOUT` or None"
+        },
+        {
+          "name": "read_timeout",
+          "docstring": "Get the value for the read timeout.\n\nThis assumes some time has elapsed in the connection timeout and\ncomputes the read timeout appropriately.\n\nIf self.total is set, the read timeout is dependent on the amount of\ntime taken by the connect timeout. If the connection time has not been\nestablished, a :exc:`~urllib3.exceptions.TimeoutStateError` will be\nraised.\n\n:return: Value to use for the read timeout.\n:rtype: int, float, :attr:`Timeout.DEFAULT_TIMEOUT` or None\n:raises urllib3.exceptions.TimeoutStateError: If :meth:`start_connect`\n    has not yet been called on this object."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "resolve_default_timeout",
+      "docstring": null
+    },
+    {
+      "name": "from_float",
+      "docstring": "Create a new Timeout from a legacy timeout value.\n\nThe timeout value used by httplib.py sets the same timeout on the\nconnect(), and recv() socket requests. This creates a :class:`Timeout`\nobject that sets the individual timeouts to the ``timeout`` value\npassed to this function.\n\n:param timeout: The legacy timeout value.\n:type timeout: integer, float, sentinel default object, or None\n:return: Timeout object\n:rtype: :class:`Timeout`"
+    },
+    {
+      "name": "clone",
+      "docstring": "Create a copy of the timeout object\n\nTimeout properties are stored per-pool but each request needs a fresh\nTimeout object to ensure each one has its own start/stop configured.\n\n:return: a copy of the timeout object\n:rtype: :class:`Timeout`"
+    },
+    {
+      "name": "start_connect",
+      "docstring": "Start the timeout clock, used during a connect() attempt\n\n:raises urllib3.exceptions.TimeoutStateError: if you attempt\n    to start a timer that has been started already."
+    },
+    {
+      "name": "get_connect_duration",
+      "docstring": "Gets the time elapsed since the call to :meth:`start_connect`.\n\n:return: Elapsed time in seconds.\n:rtype: float\n:raises urllib3.exceptions.TimeoutStateError: if you attempt\n    to get duration for a timer that hasn't been started."
+    },
+    {
+      "name": "connect_timeout",
+      "docstring": "Get the value to use when setting a connection timeout.\n\nThis will be a positive float or integer, the value None\n(never timeout), or the default system timeout.\n\n:return: Connect timeout.\n:rtype: int, float, :attr:`Timeout.DEFAULT_TIMEOUT` or None"
+    },
+    {
+      "name": "read_timeout",
+      "docstring": "Get the value for the read timeout.\n\nThis assumes some time has elapsed in the connection timeout and\ncomputes the read timeout appropriately.\n\nIf self.total is set, the read timeout is dependent on the amount of\ntime taken by the connect timeout. If the connection time has not been\nestablished, a :exc:`~urllib3.exceptions.TimeoutStateError` will be\nraised.\n\n:return: Value to use for the read timeout.\n:rtype: int, float, :attr:`Timeout.DEFAULT_TIMEOUT` or None\n:raises urllib3.exceptions.TimeoutStateError: If :meth:`start_connect`\n    has not yet been called on this object."
+    }
+  ],
+  "innovations": []
+}

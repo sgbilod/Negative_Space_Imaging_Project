@@ -1,0 +1,54 @@
+# Real-Time Visualization System Configuration
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: visualization-system
+  namespace: negative-space-system
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: visualization
+  template:
+    metadata:
+      labels:
+        app: visualization
+    spec:
+      containers:
+      - name: visualization-engine
+        image: negative-space/visualization:latest
+        resources:
+          limits:
+            cpu: "16"
+            memory: "32Gi"
+            nvidia.com/gpu: "2"
+          requests:
+            cpu: "8"
+            memory: "16Gi"
+            nvidia.com/gpu: "1"
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 5000
+          name: websocket
+        env:
+        - name: RENDER_MODE
+          value: "gpu_accelerated"
+        - name: MAX_RESOLUTION
+          value: "16K"
+        - name: REALTIME_UPDATES
+          value: "true"
+        volumeMounts:
+        - name: visualization-cache
+          mountPath: /cache
+        - name: quantum-results
+          mountPath: /data
+      volumes:
+      - name: visualization-cache
+        persistentVolumeClaim:
+          claimName: viz-cache-pvc
+      - name: quantum-results
+        persistentVolumeClaim:
+          claimName: quantum-results-pvc

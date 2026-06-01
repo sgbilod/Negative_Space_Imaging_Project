@@ -1,0 +1,92 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\category.py",
+  "classes": [
+    {
+      "name": "StrCategoryConverter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "convert",
+          "docstring": "Convert strings in *value* to floats using mapping information stored\nin the *unit* object.\n\nParameters\n----------\nvalue : str or iterable\n    Value or list of values to be converted.\nunit : `.UnitData`\n    An object mapping strings to integers.\naxis : `~matplotlib.axis.Axis`\n    The axis on which the converted value is plotted.\n\n    .. note:: *axis* is unused.\n\nReturns\n-------\nfloat or `~numpy.ndarray` of float"
+        },
+        {
+          "name": "axisinfo",
+          "docstring": "Set the default axis ticks and labels.\n\nParameters\n----------\nunit : `.UnitData`\n    object string unit information for value\naxis : `~matplotlib.axis.Axis`\n    axis for which information is being set\n\n    .. note:: *axis* is not used\n\nReturns\n-------\n`~matplotlib.units.AxisInfo`\n    Information to support default tick labeling"
+        },
+        {
+          "name": "default_units",
+          "docstring": "Set and update the `~matplotlib.axis.Axis` units.\n\nParameters\n----------\ndata : str or iterable of str\naxis : `~matplotlib.axis.Axis`\n    axis on which the data is plotted\n\nReturns\n-------\n`.UnitData`\n    object storing string to integer mapping"
+        }
+      ]
+    },
+    {
+      "name": "StrCategoryLocator",
+      "docstring": "Tick at every integer mapping of the string data.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nunits_mapping : dict\n    Mapping of category names (str) to indices (int)."
+        },
+        {
+          "name": "tick_values",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "StrCategoryFormatter",
+      "docstring": "String representation of the data at every tick.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nunits_mapping : dict\n    Mapping of category names (str) to indices (int)."
+        },
+        {
+          "name": "format_ticks",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "UnitData",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create mapping between unique categorical values and integer ids.\n\nParameters\n----------\ndata : iterable\n    sequence of string values"
+        },
+        {
+          "name": "update",
+          "docstring": "Map new values to integer identifiers.\n\nParameters\n----------\ndata : iterable of str or bytes\n\nRaises\n------\nTypeError\n    If elements in *data* are neither str nor bytes."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "convert",
+      "docstring": "Convert strings in *value* to floats using mapping information stored\nin the *unit* object.\n\nParameters\n----------\nvalue : str or iterable\n    Value or list of values to be converted.\nunit : `.UnitData`\n    An object mapping strings to integers.\naxis : `~matplotlib.axis.Axis`\n    The axis on which the converted value is plotted.\n\n    .. note:: *axis* is unused.\n\nReturns\n-------\nfloat or `~numpy.ndarray` of float"
+    },
+    {
+      "name": "axisinfo",
+      "docstring": "Set the default axis ticks and labels.\n\nParameters\n----------\nunit : `.UnitData`\n    object string unit information for value\naxis : `~matplotlib.axis.Axis`\n    axis for which information is being set\n\n    .. note:: *axis* is not used\n\nReturns\n-------\n`~matplotlib.units.AxisInfo`\n    Information to support default tick labeling"
+    },
+    {
+      "name": "default_units",
+      "docstring": "Set and update the `~matplotlib.axis.Axis` units.\n\nParameters\n----------\ndata : str or iterable of str\naxis : `~matplotlib.axis.Axis`\n    axis on which the data is plotted\n\nReturns\n-------\n`.UnitData`\n    object storing string to integer mapping"
+    },
+    {
+      "name": "tick_values",
+      "docstring": null
+    },
+    {
+      "name": "format_ticks",
+      "docstring": null
+    },
+    {
+      "name": "update",
+      "docstring": "Map new values to integer identifiers.\n\nParameters\n----------\ndata : iterable of str or bytes\n\nRaises\n------\nTypeError\n    If elements in *data* are neither str nor bytes."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,38 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\typing\\mypy_plugin.py",
+  "classes": [
+    {
+      "name": "_NumpyPlugin",
+      "docstring": "A mypy plugin for handling versus numpy-specific typing tasks.",
+      "methods": [
+        {
+          "name": "get_type_analyze_hook",
+          "docstring": "Set the precision of platform-specific `numpy.number`\nsubclasses.\n\nFor example: `numpy.int_`, `numpy.longlong` and `numpy.longdouble`."
+        },
+        {
+          "name": "get_additional_deps",
+          "docstring": "Handle all import-based overrides.\n\n* Import platform-specific extended-precision `numpy.number`\n  subclasses (*e.g.* `numpy.float96`, `numpy.float128` and\n  `numpy.complex256`).\n* Import the appropriate `ctypes` equivalent to `numpy.intp`."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "plugin",
+      "docstring": "An entry-point for mypy."
+    },
+    {
+      "name": "plugin",
+      "docstring": "An entry-point for mypy."
+    },
+    {
+      "name": "get_type_analyze_hook",
+      "docstring": "Set the precision of platform-specific `numpy.number`\nsubclasses.\n\nFor example: `numpy.int_`, `numpy.longlong` and `numpy.longdouble`."
+    },
+    {
+      "name": "get_additional_deps",
+      "docstring": "Handle all import-based overrides.\n\n* Import platform-specific extended-precision `numpy.number`\n  subclasses (*e.g.* `numpy.float96`, `numpy.float128` and\n  `numpy.complex256`).\n* Import the appropriate `ctypes` equivalent to `numpy.intp`."
+    }
+  ],
+  "innovations": []
+}

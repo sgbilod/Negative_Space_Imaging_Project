@@ -1,0 +1,27 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\test_deep_space.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "parse_arguments",
+      "docstring": "Parse command line arguments"
+    },
+    {
+      "name": "deep_space_to_point_cloud",
+      "docstring": "Convert a deep space image to a point cloud for negative space analysis.\n\nThis version is optimized for astronomical images, detecting bright objects\nagainst the dark background of space and generating 3D points based on\nbrightness and position.\n\nArgs:\n    image_path: Path to the deep space image file\n    \nReturns:\n    NegativeSpacePointCloud object with points generated from the image"
+    },
+    {
+      "name": "visualize_point_cloud_2d_projections",
+      "docstring": "Create a customized 2D visualization of the deep space point cloud.\n\nArgs:\n    point_cloud: The point cloud to visualize\n    output_path: Path to save the visualization image"
+    },
+    {
+      "name": "compute_spatial_signature",
+      "docstring": "Compute a spatial signature based on the distribution of points.\nThis is specialized for analyzing the distribution of celestial objects\nand the void spaces between them."
+    },
+    {
+      "name": "main",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

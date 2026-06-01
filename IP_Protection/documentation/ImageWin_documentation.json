@@ -1,0 +1,162 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\ImageWin.py",
+  "classes": [
+    {
+      "name": "HDC",
+      "docstring": "Wraps an HDC integer. The resulting object can be passed to the\n:py:meth:`~PIL.ImageWin.Dib.draw` and :py:meth:`~PIL.ImageWin.Dib.expose`\nmethods.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HWND",
+      "docstring": "Wraps an HWND integer. The resulting object can be passed to the\n:py:meth:`~PIL.ImageWin.Dib.draw` and :py:meth:`~PIL.ImageWin.Dib.expose`\nmethods, instead of a DC.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Dib",
+      "docstring": "A Windows bitmap with the given mode and size.  The mode can be one of \"1\",\n\"L\", \"P\", or \"RGB\".\n\nIf the display requires a palette, this constructor creates a suitable\npalette and associates it with the image. For an \"L\" image, 128 graylevels\nare allocated. For an \"RGB\" image, a 6x6x6 colour cube is used, together\nwith 20 graylevels.\n\nTo make sure that palettes work properly under Windows, you must call the\n``palette`` method upon certain events from Windows.\n\n:param image: Either a PIL image, or a mode string. If a mode string is\n              used, a size must also be given.  The mode can be one of \"1\",\n              \"L\", \"P\", or \"RGB\".\n:param size: If the first argument is a mode string, this\n             defines the size of the image.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "expose",
+          "docstring": "Copy the bitmap contents to a device context.\n\n:param handle: Device context (HDC), cast to a Python integer, or an\n               HDC or HWND instance.  In PythonWin, you can use\n               ``CDC.GetHandleAttrib()`` to get a suitable handle."
+        },
+        {
+          "name": "draw",
+          "docstring": "Same as expose, but allows you to specify where to draw the image, and\nwhat part of it to draw.\n\nThe destination and source areas are given as 4-tuple rectangles. If\nthe source is omitted, the entire image is copied. If the source and\nthe destination have different sizes, the image is resized as\nnecessary."
+        },
+        {
+          "name": "query_palette",
+          "docstring": "Installs the palette associated with the image in the given device\ncontext.\n\nThis method should be called upon **QUERYNEWPALETTE** and\n**PALETTECHANGED** events from Windows. If this method returns a\nnon-zero value, one or more display palette entries were changed, and\nthe image should be redrawn.\n\n:param handle: Device context (HDC), cast to a Python integer, or an\n               HDC or HWND instance.\n:return: The number of entries that were changed (if one or more entries,\n         this indicates that the image should be redrawn)."
+        },
+        {
+          "name": "paste",
+          "docstring": "Paste a PIL image into the bitmap image.\n\n:param im: A PIL image.  The size must match the target region.\n           If the mode does not match, the image is converted to the\n           mode of the bitmap image.\n:param box: A 4-tuple defining the left, upper, right, and\n            lower pixel coordinate.  See :ref:`coordinate-system`. If\n            None is given instead of a tuple, all of the image is\n            assumed."
+        },
+        {
+          "name": "frombytes",
+          "docstring": "Load display memory contents from byte data.\n\n:param buffer: A buffer containing display data (usually\n               data returned from :py:func:`~PIL.ImageWin.Dib.tobytes`)"
+        },
+        {
+          "name": "tobytes",
+          "docstring": "Copy display memory contents to bytes object.\n\n:return: A bytes object containing display data."
+        }
+      ]
+    },
+    {
+      "name": "Window",
+      "docstring": "Create a Window with the given title size.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "ui_handle_clear",
+          "docstring": null
+        },
+        {
+          "name": "ui_handle_damage",
+          "docstring": null
+        },
+        {
+          "name": "ui_handle_destroy",
+          "docstring": null
+        },
+        {
+          "name": "ui_handle_repair",
+          "docstring": null
+        },
+        {
+          "name": "ui_handle_resize",
+          "docstring": null
+        },
+        {
+          "name": "mainloop",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ImageWindow",
+      "docstring": "Create an image window which displays the given image.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "ui_handle_repair",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "expose",
+      "docstring": "Copy the bitmap contents to a device context.\n\n:param handle: Device context (HDC), cast to a Python integer, or an\n               HDC or HWND instance.  In PythonWin, you can use\n               ``CDC.GetHandleAttrib()`` to get a suitable handle."
+    },
+    {
+      "name": "draw",
+      "docstring": "Same as expose, but allows you to specify where to draw the image, and\nwhat part of it to draw.\n\nThe destination and source areas are given as 4-tuple rectangles. If\nthe source is omitted, the entire image is copied. If the source and\nthe destination have different sizes, the image is resized as\nnecessary."
+    },
+    {
+      "name": "query_palette",
+      "docstring": "Installs the palette associated with the image in the given device\ncontext.\n\nThis method should be called upon **QUERYNEWPALETTE** and\n**PALETTECHANGED** events from Windows. If this method returns a\nnon-zero value, one or more display palette entries were changed, and\nthe image should be redrawn.\n\n:param handle: Device context (HDC), cast to a Python integer, or an\n               HDC or HWND instance.\n:return: The number of entries that were changed (if one or more entries,\n         this indicates that the image should be redrawn)."
+    },
+    {
+      "name": "paste",
+      "docstring": "Paste a PIL image into the bitmap image.\n\n:param im: A PIL image.  The size must match the target region.\n           If the mode does not match, the image is converted to the\n           mode of the bitmap image.\n:param box: A 4-tuple defining the left, upper, right, and\n            lower pixel coordinate.  See :ref:`coordinate-system`. If\n            None is given instead of a tuple, all of the image is\n            assumed."
+    },
+    {
+      "name": "frombytes",
+      "docstring": "Load display memory contents from byte data.\n\n:param buffer: A buffer containing display data (usually\n               data returned from :py:func:`~PIL.ImageWin.Dib.tobytes`)"
+    },
+    {
+      "name": "tobytes",
+      "docstring": "Copy display memory contents to bytes object.\n\n:return: A bytes object containing display data."
+    },
+    {
+      "name": "ui_handle_clear",
+      "docstring": null
+    },
+    {
+      "name": "ui_handle_damage",
+      "docstring": null
+    },
+    {
+      "name": "ui_handle_destroy",
+      "docstring": null
+    },
+    {
+      "name": "ui_handle_repair",
+      "docstring": null
+    },
+    {
+      "name": "ui_handle_resize",
+      "docstring": null
+    },
+    {
+      "name": "mainloop",
+      "docstring": null
+    },
+    {
+      "name": "ui_handle_repair",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

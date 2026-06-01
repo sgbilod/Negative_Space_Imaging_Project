@@ -1,0 +1,42 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\models\\search_scope.py",
+  "classes": [
+    {
+      "name": "SearchScope",
+      "docstring": "Encapsulates the locations that pip is configured to search.",
+      "methods": [
+        {
+          "name": "create",
+          "docstring": "Create a SearchScope object after normalizing the `find_links`."
+        },
+        {
+          "name": "get_formatted_locations",
+          "docstring": null
+        },
+        {
+          "name": "get_index_urls_locations",
+          "docstring": "Returns the locations found via self.index_urls\n\nChecks the url_name on the main (first in the list) index and\nuse this url_name to produce all locations"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "create",
+      "docstring": "Create a SearchScope object after normalizing the `find_links`."
+    },
+    {
+      "name": "get_formatted_locations",
+      "docstring": null
+    },
+    {
+      "name": "get_index_urls_locations",
+      "docstring": "Returns the locations found via self.index_urls\n\nChecks the url_name on the main (first in the list) index and\nuse this url_name to produce all locations"
+    },
+    {
+      "name": "mkurl_pypi_url",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

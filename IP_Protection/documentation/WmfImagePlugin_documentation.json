@@ -1,0 +1,54 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\WmfImagePlugin.py",
+  "classes": [
+    {
+      "name": "WmfStubImageFile",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "load",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "WmfHandler",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "open",
+          "docstring": null
+        },
+        {
+          "name": "load",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "register_handler",
+      "docstring": "Install application-specific WMF image handler.\n\n:param handler: Handler object."
+    },
+    {
+      "name": "load",
+      "docstring": null
+    },
+    {
+      "name": "open",
+      "docstring": null
+    },
+    {
+      "name": "load",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "                raise SyntaxError(msg)\n\n        elif s.startswith(b\"\\x01\\x00\\x00\\x00\") and s[40:44] == b\" EMF\":\n            # enhanced metafile\n\n            # get bounding box\n            x0 = _long(s, 8)"
+    }
+  ]
+}

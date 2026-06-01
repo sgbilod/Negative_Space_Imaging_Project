@@ -1,0 +1,122 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\_index_tricks_impl.py",
+  "classes": [
+    {
+      "name": "nd_grid",
+      "docstring": "Construct a multi-dimensional \"meshgrid\".\n\n``grid = nd_grid()`` creates an instance which will return a mesh-grid\nwhen indexed.  The dimension and number of the output arrays are equal\nto the number of indexing dimensions.  If the step length is not a\ncomplex number, then the stop is not inclusive.\n\nHowever, if the step length is a **complex number** (e.g. 5j), then the\ninteger part of its magnitude is interpreted as specifying the\nnumber of points to create between the start and stop values, where\nthe stop value **is inclusive**.\n\nIf instantiated with an argument of ``sparse=True``, the mesh-grid is\nopen (or not fleshed out) so that only one-dimension of each returned\nargument is greater than 1.\n\nParameters\n----------\nsparse : bool, optional\n    Whether the grid is sparse or not. Default is False.\n\nNotes\n-----\nTwo instances of `nd_grid` are made available in the NumPy namespace,\n`mgrid` and `ogrid`, approximately defined as::\n\n    mgrid = nd_grid(sparse=False)\n    ogrid = nd_grid(sparse=True)\n\nUsers should use these pre-defined instances instead of using `nd_grid`\ndirectly.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MGridClass",
+      "docstring": "An instance which returns a dense multi-dimensional \"meshgrid\".\n\nAn instance which returns a dense (or fleshed out) mesh-grid\nwhen indexed, so that each returned argument has the same shape.\nThe dimensions and number of the output arrays are equal to the\nnumber of indexing dimensions.  If the step length is not a complex\nnumber, then the stop is not inclusive.\n\nHowever, if the step length is a **complex number** (e.g. 5j), then\nthe integer part of its magnitude is interpreted as specifying the\nnumber of points to create between the start and stop values, where\nthe stop value **is inclusive**.\n\nReturns\n-------\nmesh-grid : ndarray\n    A single array, containing a set of `ndarray`\\ s all of the same\n    dimensions. stacked along the first axis.\n\nSee Also\n--------\nogrid : like `mgrid` but returns open (not fleshed out) mesh grids\nmeshgrid: return coordinate matrices from coordinate vectors\nr_ : array concatenator\n:ref:`how-to-partition`\n\nExamples\n--------\n>>> import numpy as np\n>>> np.mgrid[0:5, 0:5]\narray([[[0, 0, 0, 0, 0],\n        [1, 1, 1, 1, 1],\n        [2, 2, 2, 2, 2],\n        [3, 3, 3, 3, 3],\n        [4, 4, 4, 4, 4]],\n       [[0, 1, 2, 3, 4],\n        [0, 1, 2, 3, 4],\n        [0, 1, 2, 3, 4],\n        [0, 1, 2, 3, 4],\n        [0, 1, 2, 3, 4]]])\n>>> np.mgrid[-1:1:5j]\narray([-1. , -0.5,  0. ,  0.5,  1. ])\n\n>>> np.mgrid[0:4].shape\n(4,)\n>>> np.mgrid[0:4, 0:5].shape\n(2, 4, 5)\n>>> np.mgrid[0:4, 0:5, 0:6].shape\n(3, 4, 5, 6)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "OGridClass",
+      "docstring": "An instance which returns an open multi-dimensional \"meshgrid\".\n\nAn instance which returns an open (i.e. not fleshed out) mesh-grid\nwhen indexed, so that only one dimension of each returned array is\ngreater than 1.  The dimension and number of the output arrays are\nequal to the number of indexing dimensions.  If the step length is\nnot a complex number, then the stop is not inclusive.\n\nHowever, if the step length is a **complex number** (e.g. 5j), then\nthe integer part of its magnitude is interpreted as specifying the\nnumber of points to create between the start and stop values, where\nthe stop value **is inclusive**.\n\nReturns\n-------\nmesh-grid : ndarray or tuple of ndarrays\n    If the input is a single slice, returns an array.\n    If the input is multiple slices, returns a tuple of arrays, with\n    only one dimension not equal to 1.\n\nSee Also\n--------\nmgrid : like `ogrid` but returns dense (or fleshed out) mesh grids\nmeshgrid: return coordinate matrices from coordinate vectors\nr_ : array concatenator\n:ref:`how-to-partition`\n\nExamples\n--------\n>>> from numpy import ogrid\n>>> ogrid[-1:1:5j]\narray([-1. , -0.5,  0. ,  0.5,  1. ])\n>>> ogrid[0:5, 0:5]\n(array([[0],\n        [1],\n        [2],\n        [3],\n        [4]]),\n array([[0, 1, 2, 3, 4]]))",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AxisConcatenator",
+      "docstring": "Translates slice objects to concatenation along an axis.\n\nFor detailed documentation on usage, see `r_`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RClass",
+      "docstring": "Translates slice objects to concatenation along the first axis.\n\nThis is a simple way to build up arrays quickly. There are two use cases.\n\n1. If the index expression contains comma separated arrays, then stack\n   them along their first axis.\n2. If the index expression contains slice notation or scalars then create\n   a 1-D array with a range indicated by the slice notation.\n\nIf slice notation is used, the syntax ``start:stop:step`` is equivalent\nto ``np.arange(start, stop, step)`` inside of the brackets. However, if\n``step`` is an imaginary number (i.e. 100j) then its integer portion is\ninterpreted as a number-of-points desired and the start and stop are\ninclusive. In other words ``start:stop:stepj`` is interpreted as\n``np.linspace(start, stop, step, endpoint=1)`` inside of the brackets.\nAfter expansion of slice notation, all comma separated sequences are\nconcatenated together.\n\nOptional character strings placed as the first element of the index\nexpression can be used to change the output. The strings 'r' or 'c' result\nin matrix output. If the result is 1-D and 'r' is specified a 1 x N (row)\nmatrix is produced. If the result is 1-D and 'c' is specified, then a N x 1\n(column) matrix is produced. If the result is 2-D then both provide the\nsame matrix result.\n\nA string integer specifies which axis to stack multiple comma separated\narrays along. A string of two comma-separated integers allows indication\nof the minimum number of dimensions to force each entry into as the\nsecond integer (the axis to concatenate along is still the first integer).\n\nA string with three comma-separated integers allows specification of the\naxis to concatenate along, the minimum number of dimensions to force the\nentries to, and which axis should contain the start of the arrays which\nare less than the specified number of dimensions. In other words the third\ninteger allows you to specify where the 1's should be placed in the shape\nof the arrays that have their shapes upgraded. By default, they are placed\nin the front of the shape tuple. The third argument allows you to specify\nwhere the start of the array should be instead. Thus, a third argument of\n'0' would place the 1's at the end of the array shape. Negative integers\nspecify where in the new shape tuple the last dimension of upgraded arrays\nshould be placed, so the default is '-1'.\n\nParameters\n----------\nNot a function, so takes no parameters\n\n\nReturns\n-------\nA concatenated ndarray or matrix.\n\nSee Also\n--------\nconcatenate : Join a sequence of arrays along an existing axis.\nc_ : Translates slice objects to concatenation along the second axis.\n\nExamples\n--------\n>>> import numpy as np\n>>> np.r_[np.array([1,2,3]), 0, 0, np.array([4,5,6])]\narray([1, 2, 3, ..., 4, 5, 6])\n>>> np.r_[-1:1:6j, [0]*3, 5, 6]\narray([-1. , -0.6, -0.2,  0.2,  0.6,  1. ,  0. ,  0. ,  0. ,  5. ,  6. ])\n\nString integers specify the axis to concatenate along or the minimum\nnumber of dimensions to force entries into.\n\n>>> a = np.array([[0, 1, 2], [3, 4, 5]])\n>>> np.r_['-1', a, a] # concatenate along last axis\narray([[0, 1, 2, 0, 1, 2],\n       [3, 4, 5, 3, 4, 5]])\n>>> np.r_['0,2', [1,2,3], [4,5,6]] # concatenate along first axis, dim>=2\narray([[1, 2, 3],\n       [4, 5, 6]])\n\n>>> np.r_['0,2,0', [1,2,3], [4,5,6]]\narray([[1],\n       [2],\n       [3],\n       [4],\n       [5],\n       [6]])\n>>> np.r_['1,2,0', [1,2,3], [4,5,6]]\narray([[1, 4],\n       [2, 5],\n       [3, 6]])\n\nUsing 'r' or 'c' as a first string argument creates a matrix.\n\n>>> np.r_['r',[1,2,3], [4,5,6]]\nmatrix([[1, 2, 3, 4, 5, 6]])",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CClass",
+      "docstring": "Translates slice objects to concatenation along the second axis.\n\nThis is short-hand for ``np.r_['-1,2,0', index expression]``, which is\nuseful because of its common occurrence. In particular, arrays will be\nstacked along their last axis after being upgraded to at least 2-D with\n1's post-pended to the shape (column vectors made out of 1-D arrays).\n\nSee Also\n--------\ncolumn_stack : Stack 1-D arrays as columns into a 2-D array.\nr_ : For more detailed documentation.\n\nExamples\n--------\n>>> import numpy as np\n>>> np.c_[np.array([1,2,3]), np.array([4,5,6])]\narray([[1, 4],\n       [2, 5],\n       [3, 6]])\n>>> np.c_[np.array([[1,2,3]]), 0, 0, np.array([[4,5,6]])]\narray([[1, 2, 3, ..., 4, 5, 6]])",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ndenumerate",
+      "docstring": "Multidimensional index iterator.\n\nReturn an iterator yielding pairs of array coordinates and values.\n\nParameters\n----------\narr : ndarray\n  Input array.\n\nSee Also\n--------\nndindex, flatiter\n\nExamples\n--------\n>>> import numpy as np\n>>> a = np.array([[1, 2], [3, 4]])\n>>> for index, x in np.ndenumerate(a):\n...     print(index, x)\n(0, 0) 1\n(0, 1) 2\n(1, 0) 3\n(1, 1) 4",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ndindex",
+      "docstring": "An N-dimensional iterator object to index arrays.\n\nGiven the shape of an array, an `ndindex` instance iterates over\nthe N-dimensional index of the array. At each iteration a tuple\nof indices is returned, the last dimension is iterated over first.\n\nParameters\n----------\nshape : ints, or a single tuple of ints\n    The size of each dimension of the array can be passed as\n    individual parameters or as the elements of a tuple.\n\nSee Also\n--------\nndenumerate, flatiter\n\nExamples\n--------\n>>> import numpy as np\n\nDimensions as individual arguments\n\n>>> for index in np.ndindex(3, 2, 1):\n...     print(index)\n(0, 0, 0)\n(0, 1, 0)\n(1, 0, 0)\n(1, 1, 0)\n(2, 0, 0)\n(2, 1, 0)\n\nSame dimensions - but in a tuple ``(3, 2, 1)``\n\n>>> for index in np.ndindex((3, 2, 1)):\n...     print(index)\n(0, 0, 0)\n(0, 1, 0)\n(1, 0, 0)\n(1, 1, 0)\n(2, 0, 0)\n(2, 1, 0)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "ndincr",
+          "docstring": "Increment the multi-dimensional index by one.\n\nThis method is for backward compatibility only: do not use.\n\n.. deprecated:: 1.20.0\n    This method has been advised against since numpy 1.8.0, but only\n    started emitting DeprecationWarning as of this version."
+        }
+      ]
+    },
+    {
+      "name": "IndexExpression",
+      "docstring": "A nicer way to build up index tuples for arrays.\n\n.. note::\n   Use one of the two predefined instances ``index_exp`` or `s_`\n   rather than directly using `IndexExpression`.\n\nFor any index combination, including slicing and axis insertion,\n``a[indices]`` is the same as ``a[np.index_exp[indices]]`` for any\narray `a`. However, ``np.index_exp[indices]`` can be used anywhere\nin Python code and returns a tuple of slice objects that can be\nused in the construction of complex index expressions.\n\nParameters\n----------\nmaketuple : bool\n    If True, always returns a tuple.\n\nSee Also\n--------\ns_ : Predefined instance without tuple conversion:\n   `s_ = IndexExpression(maketuple=False)`.\n   The ``index_exp`` is another predefined instance that\n   always returns a tuple:\n   `index_exp = IndexExpression(maketuple=True)`.\n\nNotes\n-----\nYou can do all this with :class:`slice` plus a few special objects,\nbut there's a lot to remember and this version is simpler because\nit uses the standard array indexing syntax.\n\nExamples\n--------\n>>> import numpy as np\n>>> np.s_[2::2]\nslice(2, None, 2)\n>>> np.index_exp[2::2]\n(slice(2, None, 2),)\n\n>>> np.array([0, 1, 2, 3, 4])[np.s_[2::2]]\narray([2, 4])",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "ix_",
+      "docstring": "Construct an open mesh from multiple sequences.\n\nThis function takes N 1-D sequences and returns N outputs with N\ndimensions each, such that the shape is 1 in all but one dimension\nand the dimension with the non-unit shape value cycles through all\nN dimensions.\n\nUsing `ix_` one can quickly construct index arrays that will index\nthe cross product. ``a[np.ix_([1,3],[2,5])]`` returns the array\n``[[a[1,2] a[1,5]], [a[3,2] a[3,5]]]``.\n\nParameters\n----------\nargs : 1-D sequences\n    Each sequence should be of integer or boolean type.\n    Boolean sequences will be interpreted as boolean masks for the\n    corresponding dimension (equivalent to passing in\n    ``np.nonzero(boolean_sequence)``).\n\nReturns\n-------\nout : tuple of ndarrays\n    N arrays with N dimensions each, with N the number of input\n    sequences. Together these arrays form an open mesh.\n\nSee Also\n--------\nogrid, mgrid, meshgrid\n\nExamples\n--------\n>>> import numpy as np\n>>> a = np.arange(10).reshape(2, 5)\n>>> a\narray([[0, 1, 2, 3, 4],\n       [5, 6, 7, 8, 9]])\n>>> ixgrid = np.ix_([0, 1], [2, 4])\n>>> ixgrid\n(array([[0],\n       [1]]), array([[2, 4]]))\n>>> ixgrid[0].shape, ixgrid[1].shape\n((2, 1), (1, 2))\n>>> a[ixgrid]\narray([[2, 4],\n       [7, 9]])\n\n>>> ixgrid = np.ix_([True, True], [2, 4])\n>>> a[ixgrid]\narray([[2, 4],\n       [7, 9]])\n>>> ixgrid = np.ix_([True, True], [False, False, True, False, True])\n>>> a[ixgrid]\narray([[2, 4],\n       [7, 9]])"
+    },
+    {
+      "name": "fill_diagonal",
+      "docstring": "Fill the main diagonal of the given array of any dimensionality.\n\nFor an array `a` with ``a.ndim >= 2``, the diagonal is the list of\nvalues ``a[i, ..., i]`` with indices ``i`` all identical.  This function\nmodifies the input array in-place without returning a value.\n\nParameters\n----------\na : array, at least 2-D.\n  Array whose diagonal is to be filled in-place.\nval : scalar or array_like\n  Value(s) to write on the diagonal. If `val` is scalar, the value is\n  written along the diagonal. If array-like, the flattened `val` is\n  written along the diagonal, repeating if necessary to fill all\n  diagonal entries.\n\nwrap : bool\n  For tall matrices in NumPy version up to 1.6.2, the\n  diagonal \"wrapped\" after N columns. You can have this behavior\n  with this option. This affects only tall matrices.\n\nSee also\n--------\ndiag_indices, diag_indices_from\n\nNotes\n-----\nThis functionality can be obtained via `diag_indices`, but internally\nthis version uses a much faster implementation that never constructs the\nindices and uses simple slicing.\n\nExamples\n--------\n>>> import numpy as np\n>>> a = np.zeros((3, 3), int)\n>>> np.fill_diagonal(a, 5)\n>>> a\narray([[5, 0, 0],\n       [0, 5, 0],\n       [0, 0, 5]])\n\nThe same function can operate on a 4-D array:\n\n>>> a = np.zeros((3, 3, 3, 3), int)\n>>> np.fill_diagonal(a, 4)\n\nWe only show a few blocks for clarity:\n\n>>> a[0, 0]\narray([[4, 0, 0],\n       [0, 0, 0],\n       [0, 0, 0]])\n>>> a[1, 1]\narray([[0, 0, 0],\n       [0, 4, 0],\n       [0, 0, 0]])\n>>> a[2, 2]\narray([[0, 0, 0],\n       [0, 0, 0],\n       [0, 0, 4]])\n\nThe wrap option affects only tall matrices:\n\n>>> # tall matrices no wrap\n>>> a = np.zeros((5, 3), int)\n>>> np.fill_diagonal(a, 4)\n>>> a\narray([[4, 0, 0],\n       [0, 4, 0],\n       [0, 0, 4],\n       [0, 0, 0],\n       [0, 0, 0]])\n\n>>> # tall matrices wrap\n>>> a = np.zeros((5, 3), int)\n>>> np.fill_diagonal(a, 4, wrap=True)\n>>> a\narray([[4, 0, 0],\n       [0, 4, 0],\n       [0, 0, 4],\n       [0, 0, 0],\n       [4, 0, 0]])\n\n>>> # wide matrices\n>>> a = np.zeros((3, 5), int)\n>>> np.fill_diagonal(a, 4, wrap=True)\n>>> a\narray([[4, 0, 0, 0, 0],\n       [0, 4, 0, 0, 0],\n       [0, 0, 4, 0, 0]])\n\nThe anti-diagonal can be filled by reversing the order of elements\nusing either `numpy.flipud` or `numpy.fliplr`.\n\n>>> a = np.zeros((3, 3), int);\n>>> np.fill_diagonal(np.fliplr(a), [1,2,3])  # Horizontal flip\n>>> a\narray([[0, 0, 1],\n       [0, 2, 0],\n       [3, 0, 0]])\n>>> np.fill_diagonal(np.flipud(a), [1,2,3])  # Vertical flip\n>>> a\narray([[0, 0, 3],\n       [0, 2, 0],\n       [1, 0, 0]])\n\nNote that the order in which the diagonal is filled varies depending\non the flip function."
+    },
+    {
+      "name": "diag_indices",
+      "docstring": "Return the indices to access the main diagonal of an array.\n\nThis returns a tuple of indices that can be used to access the main\ndiagonal of an array `a` with ``a.ndim >= 2`` dimensions and shape\n(n, n, ..., n). For ``a.ndim = 2`` this is the usual diagonal, for\n``a.ndim > 2`` this is the set of indices to access ``a[i, i, ..., i]``\nfor ``i = [0..n-1]``.\n\nParameters\n----------\nn : int\n  The size, along each dimension, of the arrays for which the returned\n  indices can be used.\n\nndim : int, optional\n  The number of dimensions.\n\nSee Also\n--------\ndiag_indices_from\n\nExamples\n--------\n>>> import numpy as np\n\nCreate a set of indices to access the diagonal of a (4, 4) array:\n\n>>> di = np.diag_indices(4)\n>>> di\n(array([0, 1, 2, 3]), array([0, 1, 2, 3]))\n>>> a = np.arange(16).reshape(4, 4)\n>>> a\narray([[ 0,  1,  2,  3],\n       [ 4,  5,  6,  7],\n       [ 8,  9, 10, 11],\n       [12, 13, 14, 15]])\n>>> a[di] = 100\n>>> a\narray([[100,   1,   2,   3],\n       [  4, 100,   6,   7],\n       [  8,   9, 100,  11],\n       [ 12,  13,  14, 100]])\n\nNow, we create indices to manipulate a 3-D array:\n\n>>> d3 = np.diag_indices(2, 3)\n>>> d3\n(array([0, 1]), array([0, 1]), array([0, 1]))\n\nAnd use it to set the diagonal of an array of zeros to 1:\n\n>>> a = np.zeros((2, 2, 2), dtype=int)\n>>> a[d3] = 1\n>>> a\narray([[[1, 0],\n        [0, 0]],\n       [[0, 0],\n        [0, 1]]])"
+    },
+    {
+      "name": "diag_indices_from",
+      "docstring": "Return the indices to access the main diagonal of an n-dimensional array.\n\nSee `diag_indices` for full details.\n\nParameters\n----------\narr : array, at least 2-D\n\nSee Also\n--------\ndiag_indices\n\nExamples\n--------\n>>> import numpy as np\n\nCreate a 4 by 4 array.\n\n>>> a = np.arange(16).reshape(4, 4)\n>>> a\narray([[ 0,  1,  2,  3],\n       [ 4,  5,  6,  7],\n       [ 8,  9, 10, 11],\n       [12, 13, 14, 15]])\n\nGet the indices of the diagonal elements.\n\n>>> di = np.diag_indices_from(a)\n>>> di\n(array([0, 1, 2, 3]), array([0, 1, 2, 3]))\n\n>>> a[di]\narray([ 0,  5, 10, 15])\n\nThis is simply syntactic sugar for diag_indices.\n\n>>> np.diag_indices(a.shape[0])\n(array([0, 1, 2, 3]), array([0, 1, 2, 3]))"
+    },
+    {
+      "name": "ndincr",
+      "docstring": "Increment the multi-dimensional index by one.\n\nThis method is for backward compatibility only: do not use.\n\n.. deprecated:: 1.20.0\n    This method has been advised against since numpy 1.8.0, but only\n    started emitting DeprecationWarning as of this version."
+    }
+  ],
+  "innovations": []
+}

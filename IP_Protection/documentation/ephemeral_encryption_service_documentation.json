@@ -1,0 +1,132 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\revenue\\ephemeral_encryption\\ephemeral_encryption_service.py",
+  "classes": [
+    {
+      "name": "EphemeralKeyStream",
+      "docstring": "Generates a continuous stream of ephemeral one-time-pad keys.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize an ephemeral key stream.\n\nArgs:\n    session_id: Unique identifier for this key stream session\n    celestial_objects: List of celestial objects to use for key generation\n    update_frequency: How often to update the key (in seconds)\n    signature_generator: SpatialSignatureGenerator instance\n    randomness_oracle: Optional AcausalRandomnessOracle for additional entropy\n    entropy_multiplier: Factor to increase the entropy pool size"
+        },
+        {
+          "name": "start",
+          "docstring": "Start the key stream generation process.\n\nReturns:\n    True if started successfully, False otherwise"
+        },
+        {
+          "name": "stop",
+          "docstring": "Stop the key stream generation process.\n\nReturns:\n    True if stopped successfully, False otherwise"
+        },
+        {
+          "name": "get_key_bytes",
+          "docstring": "Get key bytes from the stream. This consumes the bytes from the stream.\n\nArgs:\n    num_bytes: Number of key bytes to get\n    \nReturns:\n    The requested number of key bytes"
+        }
+      ]
+    },
+    {
+      "name": "SecureDataEscrow",
+      "docstring": "A service for encrypting data that can only be decrypted when a specific future\ncelestial event occurs.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the secure data escrow service.\n\nArgs:\n    signature_generator: SpatialSignatureGenerator instance\n    randomness_oracle: Optional AcausalRandomnessOracle for additional entropy"
+        },
+        {
+          "name": "escrow_data",
+          "docstring": "Escrow data to be decrypted when a future celestial event occurs.\n\nArgs:\n    data: The data to escrow\n    future_event: Description of the future celestial event\n    metadata: Optional metadata about the escrowed data\n    \nReturns:\n    Information about the escrowed data"
+        },
+        {
+          "name": "attempt_decrypt",
+          "docstring": "Attempt to decrypt escrowed data based on current celestial configuration.\n\nArgs:\n    escrow_id: ID of the escrowed data\n    \nReturns:\n    Decryption result"
+        }
+      ]
+    },
+    {
+      "name": "EphemeralEncryptionService",
+      "docstring": "The main service for the Ephemeral One-Time-Pad Encryption System.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the ephemeral encryption service."
+        },
+        {
+          "name": "create_secure_channel",
+          "docstring": "Create a secure communication channel.\n\nArgs:\n    celestial_objects: List of celestial objects to use for key generation\n    update_frequency: How often to update the key (in seconds)\n    entropy_multiplier: Factor to increase the entropy pool size\n    \nReturns:\n    Channel information"
+        },
+        {
+          "name": "close_secure_channel",
+          "docstring": "Close a secure communication channel.\n\nArgs:\n    session_id: ID of the channel to close\n    \nReturns:\n    Closure result"
+        },
+        {
+          "name": "encrypt_message",
+          "docstring": "Encrypt a message using the ephemeral key stream.\n\nArgs:\n    session_id: ID of the secure channel\n    message: Message to encrypt\n    \nReturns:\n    Encryption result"
+        },
+        {
+          "name": "decrypt_message",
+          "docstring": "Decrypt a message using the ephemeral key stream.\n\nArgs:\n    session_id: ID of the secure channel\n    encrypted_data: Encrypted message data (base64 encoded)\n    \nReturns:\n    Decryption result"
+        },
+        {
+          "name": "escrow_data",
+          "docstring": "Escrow data to be decrypted when a future celestial event occurs.\n\nArgs:\n    data: Data to escrow\n    future_event: Description of the future celestial event\n    metadata: Optional metadata about the escrowed data\n    \nReturns:\n    Escrow result"
+        },
+        {
+          "name": "attempt_decrypt_escrow",
+          "docstring": "Attempt to decrypt escrowed data based on current celestial configuration.\n\nArgs:\n    escrow_id: ID of the escrowed data\n    \nReturns:\n    Decryption result"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "start",
+      "docstring": "Start the key stream generation process.\n\nReturns:\n    True if started successfully, False otherwise"
+    },
+    {
+      "name": "stop",
+      "docstring": "Stop the key stream generation process.\n\nReturns:\n    True if stopped successfully, False otherwise"
+    },
+    {
+      "name": "get_key_bytes",
+      "docstring": "Get key bytes from the stream. This consumes the bytes from the stream.\n\nArgs:\n    num_bytes: Number of key bytes to get\n    \nReturns:\n    The requested number of key bytes"
+    },
+    {
+      "name": "escrow_data",
+      "docstring": "Escrow data to be decrypted when a future celestial event occurs.\n\nArgs:\n    data: The data to escrow\n    future_event: Description of the future celestial event\n    metadata: Optional metadata about the escrowed data\n    \nReturns:\n    Information about the escrowed data"
+    },
+    {
+      "name": "attempt_decrypt",
+      "docstring": "Attempt to decrypt escrowed data based on current celestial configuration.\n\nArgs:\n    escrow_id: ID of the escrowed data\n    \nReturns:\n    Decryption result"
+    },
+    {
+      "name": "create_secure_channel",
+      "docstring": "Create a secure communication channel.\n\nArgs:\n    celestial_objects: List of celestial objects to use for key generation\n    update_frequency: How often to update the key (in seconds)\n    entropy_multiplier: Factor to increase the entropy pool size\n    \nReturns:\n    Channel information"
+    },
+    {
+      "name": "close_secure_channel",
+      "docstring": "Close a secure communication channel.\n\nArgs:\n    session_id: ID of the channel to close\n    \nReturns:\n    Closure result"
+    },
+    {
+      "name": "encrypt_message",
+      "docstring": "Encrypt a message using the ephemeral key stream.\n\nArgs:\n    session_id: ID of the secure channel\n    message: Message to encrypt\n    \nReturns:\n    Encryption result"
+    },
+    {
+      "name": "decrypt_message",
+      "docstring": "Decrypt a message using the ephemeral key stream.\n\nArgs:\n    session_id: ID of the secure channel\n    encrypted_data: Encrypted message data (base64 encoded)\n    \nReturns:\n    Decryption result"
+    },
+    {
+      "name": "escrow_data",
+      "docstring": "Escrow data to be decrypted when a future celestial event occurs.\n\nArgs:\n    data: Data to escrow\n    future_event: Description of the future celestial event\n    metadata: Optional metadata about the escrowed data\n    \nReturns:\n    Escrow result"
+    },
+    {
+      "name": "attempt_decrypt_escrow",
+      "docstring": "Attempt to decrypt escrowed data based on current celestial configuration.\n\nArgs:\n    escrow_id: ID of the escrowed data\n    \nReturns:\n    Decryption result"
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "        now = time.time()\n        \n        # Use the actual current configuration and mix in any predictions\n        # for enhanced security\n        \n        # Generate base entropy from the signature generator\n        coordinates = self._get_current_spatial_coordinates()"
+    }
+  ]
+}

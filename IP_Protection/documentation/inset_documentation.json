@@ -1,0 +1,82 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\inset.py",
+  "classes": [
+    {
+      "name": "InsetIndicator",
+      "docstring": "An artist to highlight an area of interest.\n\nAn inset indicator is a rectangle on the plot at the position indicated by\n*bounds* that optionally has lines that connect the rectangle to an inset\nAxes (`.Axes.inset_axes`).\n\n.. versionadded:: 3.10",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nbounds : [x0, y0, width, height], optional\n    Lower-left corner of rectangle to be marked, and its width\n    and height.  If not set, the bounds will be calculated from the\n    data limits of inset_ax, which must be supplied.\n\ninset_ax : `~.axes.Axes`, optional\n    An optional inset Axes to draw connecting lines to.  Two lines are\n    drawn connecting the indicator box to the inset Axes on corners\n    chosen so as to not overlap with the indicator box.\n\nzorder : float, default: 4.99\n    Drawing order of the rectangle and connector lines.  The default,\n    4.99, is just below the default level of inset Axes.\n\n**kwargs\n    Other keyword arguments are passed on to the `.Rectangle` patch."
+        },
+        {
+          "name": "set_alpha",
+          "docstring": null
+        },
+        {
+          "name": "set_edgecolor",
+          "docstring": "Set the edge color of the rectangle and the connectors.\n\nParameters\n----------\ncolor : :mpltype:`color` or None"
+        },
+        {
+          "name": "set_color",
+          "docstring": "Set the edgecolor of the rectangle and the connectors, and the\nfacecolor for the rectangle.\n\nParameters\n----------\nc : :mpltype:`color`"
+        },
+        {
+          "name": "set_linewidth",
+          "docstring": "Set the linewidth in points of the rectangle and the connectors.\n\nParameters\n----------\nw : float or None"
+        },
+        {
+          "name": "set_linestyle",
+          "docstring": "Set the linestyle of the rectangle and the connectors.\n\n==========================================  =================\nlinestyle                                   description\n==========================================  =================\n``'-'`` or ``'solid'``                      solid line\n``'--'`` or ``'dashed'``                    dashed line\n``'-.'`` or ``'dashdot'``                   dash-dotted line\n``':'`` or ``'dotted'``                     dotted line\n``'none'``, ``'None'``, ``' '``, or ``''``  draw nothing\n==========================================  =================\n\nAlternatively a dash tuple of the following form can be provided::\n\n    (offset, onoffseq)\n\nwhere ``onoffseq`` is an even length tuple of on and off ink in points.\n\nParameters\n----------\nls : {'-', '--', '-.', ':', '', (offset, on-off-seq), ...}\n    The line style."
+        },
+        {
+          "name": "rectangle",
+          "docstring": "`.Rectangle`: the indicator frame."
+        },
+        {
+          "name": "connectors",
+          "docstring": "4-tuple of `.patches.ConnectionPatch` or None\n    The four connector lines connecting to (lower_left, upper_left,\n    lower_right upper_right) corners of *inset_ax*. Two lines are\n    set with visibility to *False*,  but the user can set the\n    visibility to True if the automatic choice is not deemed correct."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "set_alpha",
+      "docstring": null
+    },
+    {
+      "name": "set_edgecolor",
+      "docstring": "Set the edge color of the rectangle and the connectors.\n\nParameters\n----------\ncolor : :mpltype:`color` or None"
+    },
+    {
+      "name": "set_color",
+      "docstring": "Set the edgecolor of the rectangle and the connectors, and the\nfacecolor for the rectangle.\n\nParameters\n----------\nc : :mpltype:`color`"
+    },
+    {
+      "name": "set_linewidth",
+      "docstring": "Set the linewidth in points of the rectangle and the connectors.\n\nParameters\n----------\nw : float or None"
+    },
+    {
+      "name": "set_linestyle",
+      "docstring": "Set the linestyle of the rectangle and the connectors.\n\n==========================================  =================\nlinestyle                                   description\n==========================================  =================\n``'-'`` or ``'solid'``                      solid line\n``'--'`` or ``'dashed'``                    dashed line\n``'-.'`` or ``'dashdot'``                   dash-dotted line\n``':'`` or ``'dotted'``                     dotted line\n``'none'``, ``'None'``, ``' '``, or ``''``  draw nothing\n==========================================  =================\n\nAlternatively a dash tuple of the following form can be provided::\n\n    (offset, onoffseq)\n\nwhere ``onoffseq`` is an even length tuple of on and off ink in points.\n\nParameters\n----------\nls : {'-', '--', '-.', ':', '', (offset, on-off-seq), ...}\n    The line style."
+    },
+    {
+      "name": "rectangle",
+      "docstring": "`.Rectangle`: the indicator frame."
+    },
+    {
+      "name": "connectors",
+      "docstring": "4-tuple of `.patches.ConnectionPatch` or None\n    The four connector lines connecting to (lower_left, upper_left,\n    lower_right upper_right) corners of *inset_ax*. Two lines are\n    set with visibility to *False*,  but the user can set the\n    visibility to True if the automatic choice is not deemed correct."
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

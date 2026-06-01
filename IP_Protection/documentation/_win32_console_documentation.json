@@ -1,0 +1,215 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\_win32_console.py",
+  "classes": [
+    {
+      "name": "LegacyWindowsError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "WindowsCoordinates",
+      "docstring": "Coordinates in the Windows Console API are (y, x), not (x, y).\nThis class is intended to prevent that confusion.\nRows and columns are indexed from 0.\nThis class can be used in place of wintypes._COORD in arguments and argtypes.",
+      "methods": [
+        {
+          "name": "from_param",
+          "docstring": "Converts a WindowsCoordinates into a wintypes _COORD structure.\nThis classmethod is internally called by ctypes to perform the conversion.\n\nArgs:\n    value (WindowsCoordinates): The input coordinates to convert.\n\nReturns:\n    wintypes._COORD: The converted coordinates struct."
+        }
+      ]
+    },
+    {
+      "name": "CONSOLE_SCREEN_BUFFER_INFO",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "CONSOLE_CURSOR_INFO",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "LegacyWindowsTerm",
+      "docstring": "This class allows interaction with the legacy Windows Console API. It should only be used in the context\nof environments where virtual terminal processing is not available. However, if it is used in a Windows environment,\nthe entire API should work.\n\nArgs:\n    file (IO[str]): The file which the Windows Console API HANDLE is retrieved from, defaults to sys.stdout.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "cursor_position",
+          "docstring": "Returns the current position of the cursor (0-based)\n\nReturns:\n    WindowsCoordinates: The current cursor position."
+        },
+        {
+          "name": "screen_size",
+          "docstring": "Returns the current size of the console screen buffer, in character columns and rows\n\nReturns:\n    WindowsCoordinates: The width and height of the screen as WindowsCoordinates."
+        },
+        {
+          "name": "write_text",
+          "docstring": "Write text directly to the terminal without any modification of styles\n\nArgs:\n    text (str): The text to write to the console"
+        },
+        {
+          "name": "write_styled",
+          "docstring": "Write styled text to the terminal.\n\nArgs:\n    text (str): The text to write\n    style (Style): The style of the text"
+        },
+        {
+          "name": "move_cursor_to",
+          "docstring": "Set the position of the cursor\n\nArgs:\n    new_position (WindowsCoordinates): The WindowsCoordinates representing the new position of the cursor."
+        },
+        {
+          "name": "erase_line",
+          "docstring": "Erase all content on the line the cursor is currently located at"
+        },
+        {
+          "name": "erase_end_of_line",
+          "docstring": "Erase all content from the cursor position to the end of that line"
+        },
+        {
+          "name": "erase_start_of_line",
+          "docstring": "Erase all content from the cursor position to the start of that line"
+        },
+        {
+          "name": "move_cursor_up",
+          "docstring": "Move the cursor up a single cell"
+        },
+        {
+          "name": "move_cursor_down",
+          "docstring": "Move the cursor down a single cell"
+        },
+        {
+          "name": "move_cursor_forward",
+          "docstring": "Move the cursor forward a single cell. Wrap to the next line if required."
+        },
+        {
+          "name": "move_cursor_to_column",
+          "docstring": "Move cursor to the column specified by the zero-based column index, staying on the same row\n\nArgs:\n    column (int): The zero-based column index to move the cursor to."
+        },
+        {
+          "name": "move_cursor_backward",
+          "docstring": "Move the cursor backward a single cell. Wrap to the previous line if required."
+        },
+        {
+          "name": "hide_cursor",
+          "docstring": "Hide the cursor"
+        },
+        {
+          "name": "show_cursor",
+          "docstring": "Show the cursor"
+        },
+        {
+          "name": "set_title",
+          "docstring": "Set the title of the terminal window\n\nArgs:\n    title (str): The new title of the console window"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "GetStdHandle",
+      "docstring": "Retrieves a handle to the specified standard device (standard input, standard output, or standard error).\n\nArgs:\n    handle (int): Integer identifier for the handle. Defaults to -11 (stdout).\n\nReturns:\n    wintypes.HANDLE: The handle"
+    },
+    {
+      "name": "GetConsoleMode",
+      "docstring": "Retrieves the current input mode of a console's input buffer\nor the current output mode of a console screen buffer.\n\nArgs:\n    std_handle (wintypes.HANDLE): A handle to the console input buffer or the console screen buffer.\n\nRaises:\n    LegacyWindowsError: If any error occurs while calling the Windows console API.\n\nReturns:\n    int: Value representing the current console mode as documented at\n        https://docs.microsoft.com/en-us/windows/console/getconsolemode#parameters"
+    },
+    {
+      "name": "FillConsoleOutputCharacter",
+      "docstring": "Writes a character to the console screen buffer a specified number of times, beginning at the specified coordinates.\n\nArgs:\n    std_handle (wintypes.HANDLE): A handle to the console input buffer or the console screen buffer.\n    char (str): The character to write. Must be a string of length 1.\n    length (int): The number of times to write the character.\n    start (WindowsCoordinates): The coordinates to start writing at.\n\nReturns:\n    int: The number of characters written."
+    },
+    {
+      "name": "FillConsoleOutputAttribute",
+      "docstring": "Sets the character attributes for a specified number of character cells,\nbeginning at the specified coordinates in a screen buffer.\n\nArgs:\n    std_handle (wintypes.HANDLE): A handle to the console input buffer or the console screen buffer.\n    attributes (int): Integer value representing the foreground and background colours of the cells.\n    length (int): The number of cells to set the output attribute of.\n    start (WindowsCoordinates): The coordinates of the first cell whose attributes are to be set.\n\nReturns:\n    int: The number of cells whose attributes were actually set."
+    },
+    {
+      "name": "SetConsoleTextAttribute",
+      "docstring": "Set the colour attributes for all text written after this function is called.\n\nArgs:\n    std_handle (wintypes.HANDLE): A handle to the console input buffer or the console screen buffer.\n    attributes (int): Integer value representing the foreground and background colours.\n\n\nReturns:\n    bool: True if the attribute was set successfully, otherwise False."
+    },
+    {
+      "name": "GetConsoleScreenBufferInfo",
+      "docstring": "Retrieves information about the specified console screen buffer.\n\nArgs:\n    std_handle (wintypes.HANDLE): A handle to the console input buffer or the console screen buffer.\n\nReturns:\n    CONSOLE_SCREEN_BUFFER_INFO: A CONSOLE_SCREEN_BUFFER_INFO ctype struct contain information about\n        screen size, cursor position, colour attributes, and more."
+    },
+    {
+      "name": "SetConsoleCursorPosition",
+      "docstring": "Set the position of the cursor in the console screen\n\nArgs:\n    std_handle (wintypes.HANDLE): A handle to the console input buffer or the console screen buffer.\n    coords (WindowsCoordinates): The coordinates to move the cursor to.\n\nReturns:\n    bool: True if the function succeeds, otherwise False."
+    },
+    {
+      "name": "GetConsoleCursorInfo",
+      "docstring": "Get the cursor info - used to get cursor visibility and width\n\nArgs:\n    std_handle (wintypes.HANDLE): A handle to the console input buffer or the console screen buffer.\n    cursor_info (CONSOLE_CURSOR_INFO): CONSOLE_CURSOR_INFO ctype struct that receives information\n        about the console's cursor.\n\nReturns:\n      bool: True if the function succeeds, otherwise False."
+    },
+    {
+      "name": "SetConsoleCursorInfo",
+      "docstring": "Set the cursor info - used for adjusting cursor visibility and width\n\nArgs:\n    std_handle (wintypes.HANDLE): A handle to the console input buffer or the console screen buffer.\n    cursor_info (CONSOLE_CURSOR_INFO): CONSOLE_CURSOR_INFO ctype struct containing the new cursor info.\n\nReturns:\n      bool: True if the function succeeds, otherwise False."
+    },
+    {
+      "name": "SetConsoleTitle",
+      "docstring": "Sets the title of the current console window\n\nArgs:\n    title (str): The new title of the console window.\n\nReturns:\n    bool: True if the function succeeds, otherwise False."
+    },
+    {
+      "name": "from_param",
+      "docstring": "Converts a WindowsCoordinates into a wintypes _COORD structure.\nThis classmethod is internally called by ctypes to perform the conversion.\n\nArgs:\n    value (WindowsCoordinates): The input coordinates to convert.\n\nReturns:\n    wintypes._COORD: The converted coordinates struct."
+    },
+    {
+      "name": "cursor_position",
+      "docstring": "Returns the current position of the cursor (0-based)\n\nReturns:\n    WindowsCoordinates: The current cursor position."
+    },
+    {
+      "name": "screen_size",
+      "docstring": "Returns the current size of the console screen buffer, in character columns and rows\n\nReturns:\n    WindowsCoordinates: The width and height of the screen as WindowsCoordinates."
+    },
+    {
+      "name": "write_text",
+      "docstring": "Write text directly to the terminal without any modification of styles\n\nArgs:\n    text (str): The text to write to the console"
+    },
+    {
+      "name": "write_styled",
+      "docstring": "Write styled text to the terminal.\n\nArgs:\n    text (str): The text to write\n    style (Style): The style of the text"
+    },
+    {
+      "name": "move_cursor_to",
+      "docstring": "Set the position of the cursor\n\nArgs:\n    new_position (WindowsCoordinates): The WindowsCoordinates representing the new position of the cursor."
+    },
+    {
+      "name": "erase_line",
+      "docstring": "Erase all content on the line the cursor is currently located at"
+    },
+    {
+      "name": "erase_end_of_line",
+      "docstring": "Erase all content from the cursor position to the end of that line"
+    },
+    {
+      "name": "erase_start_of_line",
+      "docstring": "Erase all content from the cursor position to the start of that line"
+    },
+    {
+      "name": "move_cursor_up",
+      "docstring": "Move the cursor up a single cell"
+    },
+    {
+      "name": "move_cursor_down",
+      "docstring": "Move the cursor down a single cell"
+    },
+    {
+      "name": "move_cursor_forward",
+      "docstring": "Move the cursor forward a single cell. Wrap to the next line if required."
+    },
+    {
+      "name": "move_cursor_to_column",
+      "docstring": "Move cursor to the column specified by the zero-based column index, staying on the same row\n\nArgs:\n    column (int): The zero-based column index to move the cursor to."
+    },
+    {
+      "name": "move_cursor_backward",
+      "docstring": "Move the cursor backward a single cell. Wrap to the previous line if required."
+    },
+    {
+      "name": "hide_cursor",
+      "docstring": "Hide the cursor"
+    },
+    {
+      "name": "show_cursor",
+      "docstring": "Show the cursor"
+    },
+    {
+      "name": "set_title",
+      "docstring": "Set the title of the terminal window\n\nArgs:\n    title (str): The new title of the console window"
+    }
+  ],
+  "innovations": []
+}

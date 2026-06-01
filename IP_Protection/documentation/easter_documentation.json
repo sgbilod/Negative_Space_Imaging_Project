@@ -1,0 +1,17 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\dateutil\\easter.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "easter",
+      "docstring": "This method was ported from the work done by GM Arts,\non top of the algorithm by Claus Tondering, which was\nbased in part on the algorithm of Ouding (1940), as\nquoted in \"Explanatory Supplement to the Astronomical\nAlmanac\", P.  Kenneth Seidelmann, editor.\n\nThis algorithm implements three different Easter\ncalculation methods:\n\n1. Original calculation in Julian calendar, valid in\n   dates after 326 AD\n2. Original method, with date converted to Gregorian\n   calendar, valid in years 1583 to 4099\n3. Revised method, in Gregorian calendar, valid in\n   years 1583 to 4099 as well\n\nThese methods are represented by the constants:\n\n* ``EASTER_JULIAN   = 1``\n* ``EASTER_ORTHODOX = 2``\n* ``EASTER_WESTERN  = 3``\n\nThe default method is method 3.\n\nMore about the algorithm may be found at:\n\n`GM Arts: Easter Algorithms <http://www.gmarts.org/index.php?go=415>`_\n\nand\n\n`The Calendar FAQ: Easter <https://www.tondering.dk/claus/cal/easter.php>`_"
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "new method",
+      "context": "            if y > 1600:\n                e = e + y//100 - 16 - (y//100 - 16)//4\n    else:\n        # New method\n        c = y//100\n        h = (c - c//4 - (8*c + 13)//25 + 19*g + 15) % 30\n        i = h - (h//28)*(1 - (h//28)*(29//(h + 1))*((21 - g)//11))"
+    }
+  ]
+}

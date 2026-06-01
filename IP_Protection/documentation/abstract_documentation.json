@@ -1,0 +1,31 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\resolvelib\\resolvers\\abstract.py",
+  "classes": [
+    {
+      "name": "AbstractResolver",
+      "docstring": "The thing that performs the actual resolution work.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "resolve",
+          "docstring": "Take a collection of constraints, spit out the resolution result.\n\nThis returns a representation of the final resolution state, with one\nguarenteed attribute ``mapping`` that contains resolved candidates as\nvalues. The keys are their respective identifiers.\n\n:param requirements: A collection of constraints.\n:param kwargs: Additional keyword arguments that subclasses may accept.\n\n:raises: ``self.base_exception`` or its subclass."
+        }
+      ]
+    },
+    {
+      "name": "Result",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "resolve",
+      "docstring": "Take a collection of constraints, spit out the resolution result.\n\nThis returns a representation of the final resolution state, with one\nguarenteed attribute ``mapping`` that contains resolved candidates as\nvalues. The keys are their respective identifiers.\n\n:param requirements: A collection of constraints.\n:param kwargs: Additional keyword arguments that subclasses may accept.\n\n:raises: ``self.base_exception`` or its subclass."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,46 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\cm.py",
+  "classes": [
+    {
+      "name": "ColormapRegistry",
+      "docstring": "Container for colormaps that are known to Matplotlib by name.\n\nThe universal registry instance is `matplotlib.colormaps`. There should be\nno need for users to instantiate `.ColormapRegistry` themselves.\n\nRead access uses a dict-like interface mapping names to `.Colormap`\\s::\n\n    import matplotlib as mpl\n    cmap = mpl.colormaps['viridis']\n\nReturned `.Colormap`\\s are copies, so that their modification does not\nchange the global definition of the colormap.\n\nAdditional colormaps can be added via `.ColormapRegistry.register`::\n\n    mpl.colormaps.register(my_colormap)\n\nTo get a list of all registered colormaps, you can do::\n\n    from matplotlib import colormaps\n    list(colormaps)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "register",
+          "docstring": "Register a new colormap.\n\nThe colormap name can then be used as a string argument to any ``cmap``\nparameter in Matplotlib. It is also available in ``pyplot.get_cmap``.\n\nThe colormap registry stores a copy of the given colormap, so that\nfuture changes to the original colormap instance do not affect the\nregistered colormap. Think of this as the registry taking a snapshot\nof the colormap at registration.\n\nParameters\n----------\ncmap : matplotlib.colors.Colormap\n    The colormap to register.\n\nname : str, optional\n    The name for the colormap. If not given, ``cmap.name`` is used.\n\nforce : bool, default: False\n    If False, a ValueError is raised if trying to overwrite an already\n    registered name. True supports overwriting registered colormaps\n    other than the builtin colormaps."
+        },
+        {
+          "name": "unregister",
+          "docstring": "Remove a colormap from the registry.\n\nYou cannot remove built-in colormaps.\n\nIf the named colormap is not registered, returns with no error, raises\nif you try to de-register a default colormap.\n\n.. warning::\n\n    Colormap names are currently a shared namespace that may be used\n    by multiple packages. Use `unregister` only if you know you\n    have registered that name before. In particular, do not\n    unregister just in case to clean the name before registering a\n    new colormap.\n\nParameters\n----------\nname : str\n    The name of the colormap to be removed.\n\nRaises\n------\nValueError\n    If you try to remove a default built-in colormap."
+        },
+        {
+          "name": "get_cmap",
+          "docstring": "Return a color map specified through *cmap*.\n\nParameters\n----------\ncmap : str or `~matplotlib.colors.Colormap` or None\n\n    - if a `.Colormap`, return it\n    - if a string, look it up in ``mpl.colormaps``\n    - if None, return the Colormap defined in :rc:`image.cmap`\n\nReturns\n-------\nColormap"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_cmap",
+      "docstring": "Get a colormap instance, defaulting to rc values if *name* is None.\n\nParameters\n----------\nname : `~matplotlib.colors.Colormap` or str or None, default: None\n    If a `.Colormap` instance, it will be returned. Otherwise, the name of\n    a colormap known to Matplotlib, which will be resampled by *lut*. The\n    default, None, means :rc:`image.cmap`.\nlut : int or None, default: None\n    If *name* is not already a Colormap instance and *lut* is not None, the\n    colormap will be resampled to have *lut* entries in the lookup table.\n\nReturns\n-------\nColormap"
+    },
+    {
+      "name": "register",
+      "docstring": "Register a new colormap.\n\nThe colormap name can then be used as a string argument to any ``cmap``\nparameter in Matplotlib. It is also available in ``pyplot.get_cmap``.\n\nThe colormap registry stores a copy of the given colormap, so that\nfuture changes to the original colormap instance do not affect the\nregistered colormap. Think of this as the registry taking a snapshot\nof the colormap at registration.\n\nParameters\n----------\ncmap : matplotlib.colors.Colormap\n    The colormap to register.\n\nname : str, optional\n    The name for the colormap. If not given, ``cmap.name`` is used.\n\nforce : bool, default: False\n    If False, a ValueError is raised if trying to overwrite an already\n    registered name. True supports overwriting registered colormaps\n    other than the builtin colormaps."
+    },
+    {
+      "name": "unregister",
+      "docstring": "Remove a colormap from the registry.\n\nYou cannot remove built-in colormaps.\n\nIf the named colormap is not registered, returns with no error, raises\nif you try to de-register a default colormap.\n\n.. warning::\n\n    Colormap names are currently a shared namespace that may be used\n    by multiple packages. Use `unregister` only if you know you\n    have registered that name before. In particular, do not\n    unregister just in case to clean the name before registering a\n    new colormap.\n\nParameters\n----------\nname : str\n    The name of the colormap to be removed.\n\nRaises\n------\nValueError\n    If you try to remove a default built-in colormap."
+    },
+    {
+      "name": "get_cmap",
+      "docstring": "Return a color map specified through *cmap*.\n\nParameters\n----------\ncmap : str or `~matplotlib.colors.Colormap` or None\n\n    - if a `.Colormap`, return it\n    - if a string, look it up in ``mpl.colormaps``\n    - if None, return the Colormap defined in :rc:`image.cmap`\n\nReturns\n-------\nColormap"
+    }
+  ],
+  "innovations": []
+}

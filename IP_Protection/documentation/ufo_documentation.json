@@ -1,0 +1,100 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\cu2qu\\ufo.py",
+  "classes": [
+    {
+      "name": "GetSegmentsPen",
+      "docstring": "Pen to collect segments into lists of points for conversion.\n\nCurves always include their initial on-curve point, so some points are\nduplicated between segments.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "moveTo",
+          "docstring": null
+        },
+        {
+          "name": "lineTo",
+          "docstring": null
+        },
+        {
+          "name": "qCurveTo",
+          "docstring": null
+        },
+        {
+          "name": "curveTo",
+          "docstring": null
+        },
+        {
+          "name": "closePath",
+          "docstring": null
+        },
+        {
+          "name": "endPath",
+          "docstring": null
+        },
+        {
+          "name": "addComponent",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "zip",
+      "docstring": "Ensure each argument to zip has the same length. Also make sure a list is\nreturned for python 2/3 compatibility."
+    },
+    {
+      "name": "glyphs_to_quadratic",
+      "docstring": "Convert the curves of a set of compatible of glyphs to quadratic.\n\nAll curves will be converted to quadratic at once, ensuring interpolation\ncompatibility. If this is not required, calling glyphs_to_quadratic with one\nglyph at a time may yield slightly more optimized results.\n\nReturn True if glyphs were modified, else return False.\n\nRaises IncompatibleGlyphsError if glyphs have non-interpolatable outlines."
+    },
+    {
+      "name": "fonts_to_quadratic",
+      "docstring": "Convert the curves of a collection of fonts to quadratic.\n\nAll curves will be converted to quadratic at once, ensuring interpolation\ncompatibility. If this is not required, calling fonts_to_quadratic with one\nfont at a time may yield slightly more optimized results.\n\nReturn the set of modified glyph names if any, else return an empty set.\n\nBy default, cu2qu stores the curve type in the fonts' lib, under a private\nkey \"com.github.googlei18n.cu2qu.curve_type\", and will not try to convert\nthem again if the curve type is already set to \"quadratic\".\nSetting 'remember_curve_type' to False disables this optimization.\n\nRaises IncompatibleFontsError if same-named glyphs from different fonts\nhave non-interpolatable outlines."
+    },
+    {
+      "name": "glyph_to_quadratic",
+      "docstring": "Convenience wrapper around glyphs_to_quadratic, for just one glyph.\nReturn True if the glyph was modified, else return False."
+    },
+    {
+      "name": "font_to_quadratic",
+      "docstring": "Convenience wrapper around fonts_to_quadratic, for just one font.\nReturn the set of modified glyph names if any, else return empty set."
+    },
+    {
+      "name": "moveTo",
+      "docstring": null
+    },
+    {
+      "name": "lineTo",
+      "docstring": null
+    },
+    {
+      "name": "qCurveTo",
+      "docstring": null
+    },
+    {
+      "name": "curveTo",
+      "docstring": null
+    },
+    {
+      "name": "closePath",
+      "docstring": null
+    },
+    {
+      "name": "endPath",
+      "docstring": null
+    },
+    {
+      "name": "addComponent",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    By default, cu2qu stores the curve type in the fonts' lib, under a private\n    key \"com.github.googlei18n.cu2qu.curve_type\", and will not try to convert\n    them again if the curve type is already set to \"quadratic\".\n    Setting 'remember_curve_type' to False disables this optimization.\n\n    Raises IncompatibleFontsError if same-named glyphs from different fonts\n    have non-interpolatable outlines."
+    }
+  ]
+}

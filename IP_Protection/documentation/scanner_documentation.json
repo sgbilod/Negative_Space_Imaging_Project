@@ -1,0 +1,63 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\scanner.py",
+  "classes": [
+    {
+      "name": "EndOfText",
+      "docstring": "Raise if end of text is reached and the user\ntried to call a match function.",
+      "methods": []
+    },
+    {
+      "name": "Scanner",
+      "docstring": "Simple scanner\n\nAll method patterns are regular expression strings (not\ncompiled expressions!)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": ":param text:    The text which should be scanned\n:param flags:   default regular expression flags"
+        },
+        {
+          "name": "eos",
+          "docstring": "`True` if the scanner reached the end of text."
+        },
+        {
+          "name": "check",
+          "docstring": "Apply `pattern` on the current position and return\nthe match object. (Doesn't touch pos). Use this for\nlookahead."
+        },
+        {
+          "name": "test",
+          "docstring": "Apply a pattern on the current position and check\nif it patches. Doesn't touch pos."
+        },
+        {
+          "name": "scan",
+          "docstring": "Scan the text for the given pattern and update pos/match\nand related fields. The return value is a boolean that\nindicates if the pattern matched. The matched value is\nstored on the instance as ``match``, the last value is\nstored as ``last``. ``start_pos`` is the position of the\npointer before the pattern was matched, ``pos`` is the\nend position."
+        },
+        {
+          "name": "get_char",
+          "docstring": "Scan exactly one char."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "eos",
+      "docstring": "`True` if the scanner reached the end of text."
+    },
+    {
+      "name": "check",
+      "docstring": "Apply `pattern` on the current position and return\nthe match object. (Doesn't touch pos). Use this for\nlookahead."
+    },
+    {
+      "name": "test",
+      "docstring": "Apply a pattern on the current position and check\nif it patches. Doesn't touch pos."
+    },
+    {
+      "name": "scan",
+      "docstring": "Scan the text for the given pattern and update pos/match\nand related fields. The return value is a boolean that\nindicates if the pattern matched. The matched value is\nstored on the instance as ``match``, the last value is\nstored as ``last``. ``start_pos`` is the position of the\npointer before the pattern was matched, ``pos`` is the\nend position."
+    },
+    {
+      "name": "get_char",
+      "docstring": "Scan exactly one char."
+    }
+  ],
+  "innovations": []
+}

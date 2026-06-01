@@ -1,0 +1,186 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\_layoutgrid.py",
+  "classes": [
+    {
+      "name": "LayoutGrid",
+      "docstring": "Analogous to a gridspec, and contained in another LayoutGrid.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "reset_margins",
+          "docstring": "Reset all the margins to zero.  Must do this after changing\nfigure size, for instance, because the relative size of the\naxes labels etc changes."
+        },
+        {
+          "name": "add_constraints",
+          "docstring": null
+        },
+        {
+          "name": "hard_constraints",
+          "docstring": "These are the redundant constraints, plus ones that make the\nrest of the code easier."
+        },
+        {
+          "name": "add_child",
+          "docstring": null
+        },
+        {
+          "name": "parent_constraints",
+          "docstring": null
+        },
+        {
+          "name": "grid_constraints",
+          "docstring": null
+        },
+        {
+          "name": "edit_margin",
+          "docstring": "Change the size of the margin for one cell.\n\nParameters\n----------\ntodo : string (one of 'left', 'right', 'bottom', 'top')\n    margin to alter.\n\nsize : float\n    Size of the margin.  If it is larger than the existing minimum it\n    updates the margin size. Fraction of figure size.\n\ncell : int\n    Cell column or row to edit."
+        },
+        {
+          "name": "edit_margin_min",
+          "docstring": "Change the minimum size of the margin for one cell.\n\nParameters\n----------\ntodo : string (one of 'left', 'right', 'bottom', 'top')\n    margin to alter.\n\nsize : float\n    Minimum size of the margin .  If it is larger than the\n    existing minimum it updates the margin size. Fraction of\n    figure size.\n\ncell : int\n    Cell column or row to edit."
+        },
+        {
+          "name": "edit_margins",
+          "docstring": "Change the size of all the margin of all the cells in the layout grid.\n\nParameters\n----------\ntodo : string (one of 'left', 'right', 'bottom', 'top')\n    margin to alter.\n\nsize : float\n    Size to set the margins.  Fraction of figure size."
+        },
+        {
+          "name": "edit_all_margins_min",
+          "docstring": "Change the minimum size of all the margin of all\nthe cells in the layout grid.\n\nParameters\n----------\ntodo : {'left', 'right', 'bottom', 'top'}\n    The margin to alter.\n\nsize : float\n    Minimum size of the margin.  If it is larger than the\n    existing minimum it updates the margin size. Fraction of\n    figure size."
+        },
+        {
+          "name": "edit_outer_margin_mins",
+          "docstring": "Edit all four margin minimums in one statement.\n\nParameters\n----------\nmargin : dict\n    size of margins in a dict with keys 'left', 'right', 'bottom',\n    'top'\n\nss : SubplotSpec\n    defines the subplotspec these margins should be applied to"
+        },
+        {
+          "name": "get_margins",
+          "docstring": "Return the margin at this position"
+        },
+        {
+          "name": "get_outer_bbox",
+          "docstring": "Return the outer bounding box of the subplot specs\ngiven by rows and cols.  rows and cols can be spans."
+        },
+        {
+          "name": "get_inner_bbox",
+          "docstring": "Return the inner bounding box of the subplot specs\ngiven by rows and cols.  rows and cols can be spans."
+        },
+        {
+          "name": "get_bbox_for_cb",
+          "docstring": "Return the bounding box that includes the\ndecorations but, *not* the colorbar..."
+        },
+        {
+          "name": "get_left_margin_bbox",
+          "docstring": "Return the left margin bounding box of the subplot specs\ngiven by rows and cols.  rows and cols can be spans."
+        },
+        {
+          "name": "get_bottom_margin_bbox",
+          "docstring": "Return the left margin bounding box of the subplot specs\ngiven by rows and cols.  rows and cols can be spans."
+        },
+        {
+          "name": "get_right_margin_bbox",
+          "docstring": "Return the left margin bounding box of the subplot specs\ngiven by rows and cols.  rows and cols can be spans."
+        },
+        {
+          "name": "get_top_margin_bbox",
+          "docstring": "Return the left margin bounding box of the subplot specs\ngiven by rows and cols.  rows and cols can be spans."
+        },
+        {
+          "name": "update_variables",
+          "docstring": "Update the variables for the solver attached to this layoutgrid."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "seq_id",
+      "docstring": "Generate a short sequential id for layoutbox objects."
+    },
+    {
+      "name": "plot_children",
+      "docstring": "Simple plotting to show where boxes are."
+    },
+    {
+      "name": "reset_margins",
+      "docstring": "Reset all the margins to zero.  Must do this after changing\nfigure size, for instance, because the relative size of the\naxes labels etc changes."
+    },
+    {
+      "name": "add_constraints",
+      "docstring": null
+    },
+    {
+      "name": "hard_constraints",
+      "docstring": "These are the redundant constraints, plus ones that make the\nrest of the code easier."
+    },
+    {
+      "name": "add_child",
+      "docstring": null
+    },
+    {
+      "name": "parent_constraints",
+      "docstring": null
+    },
+    {
+      "name": "grid_constraints",
+      "docstring": null
+    },
+    {
+      "name": "edit_margin",
+      "docstring": "Change the size of the margin for one cell.\n\nParameters\n----------\ntodo : string (one of 'left', 'right', 'bottom', 'top')\n    margin to alter.\n\nsize : float\n    Size of the margin.  If it is larger than the existing minimum it\n    updates the margin size. Fraction of figure size.\n\ncell : int\n    Cell column or row to edit."
+    },
+    {
+      "name": "edit_margin_min",
+      "docstring": "Change the minimum size of the margin for one cell.\n\nParameters\n----------\ntodo : string (one of 'left', 'right', 'bottom', 'top')\n    margin to alter.\n\nsize : float\n    Minimum size of the margin .  If it is larger than the\n    existing minimum it updates the margin size. Fraction of\n    figure size.\n\ncell : int\n    Cell column or row to edit."
+    },
+    {
+      "name": "edit_margins",
+      "docstring": "Change the size of all the margin of all the cells in the layout grid.\n\nParameters\n----------\ntodo : string (one of 'left', 'right', 'bottom', 'top')\n    margin to alter.\n\nsize : float\n    Size to set the margins.  Fraction of figure size."
+    },
+    {
+      "name": "edit_all_margins_min",
+      "docstring": "Change the minimum size of all the margin of all\nthe cells in the layout grid.\n\nParameters\n----------\ntodo : {'left', 'right', 'bottom', 'top'}\n    The margin to alter.\n\nsize : float\n    Minimum size of the margin.  If it is larger than the\n    existing minimum it updates the margin size. Fraction of\n    figure size."
+    },
+    {
+      "name": "edit_outer_margin_mins",
+      "docstring": "Edit all four margin minimums in one statement.\n\nParameters\n----------\nmargin : dict\n    size of margins in a dict with keys 'left', 'right', 'bottom',\n    'top'\n\nss : SubplotSpec\n    defines the subplotspec these margins should be applied to"
+    },
+    {
+      "name": "get_margins",
+      "docstring": "Return the margin at this position"
+    },
+    {
+      "name": "get_outer_bbox",
+      "docstring": "Return the outer bounding box of the subplot specs\ngiven by rows and cols.  rows and cols can be spans."
+    },
+    {
+      "name": "get_inner_bbox",
+      "docstring": "Return the inner bounding box of the subplot specs\ngiven by rows and cols.  rows and cols can be spans."
+    },
+    {
+      "name": "get_bbox_for_cb",
+      "docstring": "Return the bounding box that includes the\ndecorations but, *not* the colorbar..."
+    },
+    {
+      "name": "get_left_margin_bbox",
+      "docstring": "Return the left margin bounding box of the subplot specs\ngiven by rows and cols.  rows and cols can be spans."
+    },
+    {
+      "name": "get_bottom_margin_bbox",
+      "docstring": "Return the left margin bounding box of the subplot specs\ngiven by rows and cols.  rows and cols can be spans."
+    },
+    {
+      "name": "get_right_margin_bbox",
+      "docstring": "Return the left margin bounding box of the subplot specs\ngiven by rows and cols.  rows and cols can be spans."
+    },
+    {
+      "name": "get_top_margin_bbox",
+      "docstring": "Return the left margin bounding box of the subplot specs\ngiven by rows and cols.  rows and cols can be spans."
+    },
+    {
+      "name": "update_variables",
+      "docstring": "Update the variables for the solver attached to this layoutgrid."
+    }
+  ],
+  "innovations": []
+}

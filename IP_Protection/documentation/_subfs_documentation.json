@@ -1,0 +1,160 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\filesystem\\_subfs.py",
+  "classes": [
+    {
+      "name": "SubFS",
+      "docstring": "Maps a sub-directory of another filesystem.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "delegate_fs",
+          "docstring": null
+        },
+        {
+          "name": "open",
+          "docstring": null
+        },
+        {
+          "name": "exists",
+          "docstring": null
+        },
+        {
+          "name": "isdir",
+          "docstring": null
+        },
+        {
+          "name": "isfile",
+          "docstring": null
+        },
+        {
+          "name": "listdir",
+          "docstring": null
+        },
+        {
+          "name": "makedir",
+          "docstring": null
+        },
+        {
+          "name": "makedirs",
+          "docstring": null
+        },
+        {
+          "name": "getinfo",
+          "docstring": null
+        },
+        {
+          "name": "remove",
+          "docstring": null
+        },
+        {
+          "name": "removedir",
+          "docstring": null
+        },
+        {
+          "name": "removetree",
+          "docstring": null
+        },
+        {
+          "name": "movedir",
+          "docstring": null
+        },
+        {
+          "name": "getsyspath",
+          "docstring": null
+        },
+        {
+          "name": "readbytes",
+          "docstring": null
+        },
+        {
+          "name": "writebytes",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ClosingSubFS",
+      "docstring": "Like SubFS, but auto-closes the parent filesystem when closed.",
+      "methods": [
+        {
+          "name": "close",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "delegate_fs",
+      "docstring": null
+    },
+    {
+      "name": "open",
+      "docstring": null
+    },
+    {
+      "name": "exists",
+      "docstring": null
+    },
+    {
+      "name": "isdir",
+      "docstring": null
+    },
+    {
+      "name": "isfile",
+      "docstring": null
+    },
+    {
+      "name": "listdir",
+      "docstring": null
+    },
+    {
+      "name": "makedir",
+      "docstring": null
+    },
+    {
+      "name": "makedirs",
+      "docstring": null
+    },
+    {
+      "name": "getinfo",
+      "docstring": null
+    },
+    {
+      "name": "remove",
+      "docstring": null
+    },
+    {
+      "name": "removedir",
+      "docstring": null
+    },
+    {
+      "name": "removetree",
+      "docstring": null
+    },
+    {
+      "name": "movedir",
+      "docstring": null
+    },
+    {
+      "name": "getsyspath",
+      "docstring": null
+    },
+    {
+      "name": "readbytes",
+      "docstring": null
+    },
+    {
+      "name": "writebytes",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

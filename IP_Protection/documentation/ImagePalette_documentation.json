@@ -1,0 +1,122 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\ImagePalette.py",
+  "classes": [
+    {
+      "name": "ImagePalette",
+      "docstring": "Color palette for palette mapped images\n\n:param mode: The mode to use for the palette. See:\n    :ref:`concept-modes`. Defaults to \"RGB\"\n:param palette: An optional palette. If given, it must be a bytearray,\n    an array or a list of ints between 0-255. The list must consist of\n    all channels for one color followed by the next color (e.g. RGBRGBRGB).\n    Defaults to an empty palette.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "palette",
+          "docstring": null
+        },
+        {
+          "name": "palette",
+          "docstring": null
+        },
+        {
+          "name": "colors",
+          "docstring": null
+        },
+        {
+          "name": "colors",
+          "docstring": null
+        },
+        {
+          "name": "copy",
+          "docstring": null
+        },
+        {
+          "name": "getdata",
+          "docstring": "Get palette contents in format suitable for the low-level\n``im.putpalette`` primitive.\n\n.. warning:: This method is experimental."
+        },
+        {
+          "name": "tobytes",
+          "docstring": "Convert palette to bytes.\n\n.. warning:: This method is experimental."
+        },
+        {
+          "name": "getcolor",
+          "docstring": "Given an rgb tuple, allocate palette entry.\n\n.. warning:: This method is experimental."
+        },
+        {
+          "name": "save",
+          "docstring": "Save palette to text file.\n\n.. warning:: This method is experimental."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "raw",
+      "docstring": null
+    },
+    {
+      "name": "make_linear_lut",
+      "docstring": null
+    },
+    {
+      "name": "make_gamma_lut",
+      "docstring": null
+    },
+    {
+      "name": "negative",
+      "docstring": null
+    },
+    {
+      "name": "random",
+      "docstring": null
+    },
+    {
+      "name": "sepia",
+      "docstring": null
+    },
+    {
+      "name": "wedge",
+      "docstring": null
+    },
+    {
+      "name": "load",
+      "docstring": null
+    },
+    {
+      "name": "palette",
+      "docstring": null
+    },
+    {
+      "name": "palette",
+      "docstring": null
+    },
+    {
+      "name": "colors",
+      "docstring": null
+    },
+    {
+      "name": "colors",
+      "docstring": null
+    },
+    {
+      "name": "copy",
+      "docstring": null
+    },
+    {
+      "name": "getdata",
+      "docstring": "Get palette contents in format suitable for the low-level\n``im.putpalette`` primitive.\n\n.. warning:: This method is experimental."
+    },
+    {
+      "name": "tobytes",
+      "docstring": "Convert palette to bytes.\n\n.. warning:: This method is experimental."
+    },
+    {
+      "name": "getcolor",
+      "docstring": "Given an rgb tuple, allocate palette entry.\n\n.. warning:: This method is experimental."
+    },
+    {
+      "name": "save",
+      "docstring": "Save palette to text file.\n\n.. warning:: This method is experimental."
+    }
+  ],
+  "innovations": []
+}

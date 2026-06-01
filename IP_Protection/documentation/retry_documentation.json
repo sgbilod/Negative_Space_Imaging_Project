@@ -1,0 +1,19 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\utils\\retry.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "retry",
+      "docstring": "Decorator to automatically retry a function on error.\n\nIf the function raises, the function is recalled with the same arguments\nuntil it returns or the time limit is reached. When the time limit is\nsurpassed, the last exception raised is reraised.\n\n:param wait: The time to wait after an error before retrying, in seconds.\n:param stop_after_delay: The time limit after which retries will cease,\n    in seconds."
+    },
+    {
+      "name": "wrapper",
+      "docstring": null
+    },
+    {
+      "name": "retry_wrapped",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

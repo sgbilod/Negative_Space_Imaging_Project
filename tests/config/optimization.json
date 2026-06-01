@@ -1,0 +1,62 @@
+{
+  "cpu": {
+    "high_threshold": 80,
+    "critical_threshold": 90,
+    "actions": [
+      {
+        "trigger": "high",
+        "action": "throttle",
+        "params": {
+          "factor": 0.8
+        }
+      },
+      {
+        "trigger": "critical",
+        "action": "offload",
+        "params": {
+          "target": "gpu"
+        }
+      }
+    ]
+  },
+  "memory": {
+    "high_threshold": 85,
+    "critical_threshold": 95,
+    "actions": [
+      {
+        "trigger": "high",
+        "action": "cache",
+        "params": {
+          "clear_factor": 0.3
+        }
+      },
+      {
+        "trigger": "critical",
+        "action": "scale_up",
+        "params": {
+          "increment": "2GB"
+        }
+      }
+    ]
+  },
+  "gpu": {
+    "high_threshold": 85,
+    "critical_threshold": 95,
+    "actions": [
+      {
+        "trigger": "high",
+        "action": "throttle",
+        "params": {
+          "factor": 0.7
+        }
+      },
+      {
+        "trigger": "critical",
+        "action": "offload",
+        "params": {
+          "target": "cpu"
+        }
+      }
+    ]
+  }
+}

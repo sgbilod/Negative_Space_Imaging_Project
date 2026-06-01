@@ -1,0 +1,560 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_scalarmath.py",
+  "classes": [
+    {
+      "name": "TestTypes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_types",
+          "docstring": null
+        },
+        {
+          "name": "test_type_add",
+          "docstring": null
+        },
+        {
+          "name": "test_type_create",
+          "docstring": null
+        },
+        {
+          "name": "test_leak",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestBaseMath",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_blocked",
+          "docstring": null
+        },
+        {
+          "name": "test_lower_align",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPower",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_small_types",
+          "docstring": null
+        },
+        {
+          "name": "test_large_types",
+          "docstring": null
+        },
+        {
+          "name": "test_integers_to_negative_integer_power",
+          "docstring": null
+        },
+        {
+          "name": "test_mixed_types",
+          "docstring": null
+        },
+        {
+          "name": "test_modular_power",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestModulus",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_modulus_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_float_modulus_exact",
+          "docstring": null
+        },
+        {
+          "name": "test_float_modulus_roundoff",
+          "docstring": null
+        },
+        {
+          "name": "test_float_modulus_corner_cases",
+          "docstring": null
+        },
+        {
+          "name": "test_inplace_floordiv_handling",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestComplexDivision",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_zero_division",
+          "docstring": null
+        },
+        {
+          "name": "test_signed_zeros",
+          "docstring": null
+        },
+        {
+          "name": "test_branches",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestConversion",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_int_from_long",
+          "docstring": null
+        },
+        {
+          "name": "test_iinfo_long_values",
+          "docstring": null
+        },
+        {
+          "name": "test_int_raise_behaviour",
+          "docstring": null
+        },
+        {
+          "name": "test_int_from_infinite_longdouble",
+          "docstring": null
+        },
+        {
+          "name": "test_int_from_infinite_longdouble___int__",
+          "docstring": null
+        },
+        {
+          "name": "test_int_from_huge_longdouble",
+          "docstring": null
+        },
+        {
+          "name": "test_int_from_longdouble",
+          "docstring": null
+        },
+        {
+          "name": "test_numpy_scalar_relational_operators",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar_comparison_to_none",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestRepr",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_float_repr",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMultiply",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_seq_repeat",
+          "docstring": null
+        },
+        {
+          "name": "test_no_seq_repeat_basic_array_like",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNegative",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_exceptions",
+          "docstring": null
+        },
+        {
+          "name": "test_result",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSubtract",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_exceptions",
+          "docstring": null
+        },
+        {
+          "name": "test_result",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAbs",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_builtin_abs",
+          "docstring": null
+        },
+        {
+          "name": "test_numpy_abs",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestBitShifts",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_shift_all_bits",
+          "docstring": "Shifts where the shift amount is the width of the type or wider "
+        }
+      ]
+    },
+    {
+      "name": "TestHash",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_integer_hashes",
+          "docstring": null
+        },
+        {
+          "name": "test_float_and_complex_hashes",
+          "docstring": null
+        },
+        {
+          "name": "test_complex_hashes",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSizeOf",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_equal_nbytes",
+          "docstring": null
+        },
+        {
+          "name": "test_error",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "myf_simple1",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "myf_simple2",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArrayLike",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "check_ufunc_scalar_equivalence",
+      "docstring": null
+    },
+    {
+      "name": "test_array_scalar_ufunc_equivalence",
+      "docstring": "This is a thorough test attempting to cover important promotion paths\nand ensuring that arrays and scalars stay as aligned as possible.\nHowever, if it creates troubles, it should maybe just be removed."
+    },
+    {
+      "name": "test_array_scalar_ufunc_dtypes",
+      "docstring": null
+    },
+    {
+      "name": "test_int_float_promotion_truediv",
+      "docstring": null
+    },
+    {
+      "name": "floordiv_and_mod",
+      "docstring": null
+    },
+    {
+      "name": "recursionlimit",
+      "docstring": null
+    },
+    {
+      "name": "test_operator_object_left",
+      "docstring": null
+    },
+    {
+      "name": "test_operator_object_right",
+      "docstring": null
+    },
+    {
+      "name": "test_operator_scalars",
+      "docstring": null
+    },
+    {
+      "name": "test_longdouble_operators_with_obj",
+      "docstring": null
+    },
+    {
+      "name": "test_longdouble_with_arrlike",
+      "docstring": null
+    },
+    {
+      "name": "test_longdouble_operators_with_large_int",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_integer_operation_overflow",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_signed_integer_overflow",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_unsigned_integer_overflow",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_integer_operation_divbyzero",
+      "docstring": null
+    },
+    {
+      "name": "test_subclass_deferral",
+      "docstring": "This test covers scalar subclass deferral.  Note that this is exceedingly\ncomplicated, especially since it tends to fall back to the array paths and\nthese additionally add the \"array priority\" mechanism.\n\nThe behaviour was modified subtly in 1.22 (to make it closer to how Python\nscalars work).  Due to its complexity and the fact that subclassing NumPy\nscalars is probably a bad idea to begin with.  There is probably room\nfor adjustments here."
+    },
+    {
+      "name": "test_longdouble_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_pyscalar_subclasses",
+      "docstring": null
+    },
+    {
+      "name": "test_truediv_int",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_matches_array_op_with_pyscalar",
+      "docstring": null
+    },
+    {
+      "name": "test_types",
+      "docstring": null
+    },
+    {
+      "name": "test_type_add",
+      "docstring": null
+    },
+    {
+      "name": "test_type_create",
+      "docstring": null
+    },
+    {
+      "name": "test_leak",
+      "docstring": null
+    },
+    {
+      "name": "test_blocked",
+      "docstring": null
+    },
+    {
+      "name": "test_lower_align",
+      "docstring": null
+    },
+    {
+      "name": "test_small_types",
+      "docstring": null
+    },
+    {
+      "name": "test_large_types",
+      "docstring": null
+    },
+    {
+      "name": "test_integers_to_negative_integer_power",
+      "docstring": null
+    },
+    {
+      "name": "test_mixed_types",
+      "docstring": null
+    },
+    {
+      "name": "test_modular_power",
+      "docstring": null
+    },
+    {
+      "name": "test_modulus_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_float_modulus_exact",
+      "docstring": null
+    },
+    {
+      "name": "test_float_modulus_roundoff",
+      "docstring": null
+    },
+    {
+      "name": "test_float_modulus_corner_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_inplace_floordiv_handling",
+      "docstring": null
+    },
+    {
+      "name": "test_zero_division",
+      "docstring": null
+    },
+    {
+      "name": "test_signed_zeros",
+      "docstring": null
+    },
+    {
+      "name": "test_branches",
+      "docstring": null
+    },
+    {
+      "name": "test_int_from_long",
+      "docstring": null
+    },
+    {
+      "name": "test_iinfo_long_values",
+      "docstring": null
+    },
+    {
+      "name": "test_int_raise_behaviour",
+      "docstring": null
+    },
+    {
+      "name": "test_int_from_infinite_longdouble",
+      "docstring": null
+    },
+    {
+      "name": "test_int_from_infinite_longdouble___int__",
+      "docstring": null
+    },
+    {
+      "name": "test_int_from_huge_longdouble",
+      "docstring": null
+    },
+    {
+      "name": "test_int_from_longdouble",
+      "docstring": null
+    },
+    {
+      "name": "test_numpy_scalar_relational_operators",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_comparison_to_none",
+      "docstring": null
+    },
+    {
+      "name": "test_float_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_seq_repeat",
+      "docstring": null
+    },
+    {
+      "name": "test_no_seq_repeat_basic_array_like",
+      "docstring": null
+    },
+    {
+      "name": "test_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_result",
+      "docstring": null
+    },
+    {
+      "name": "test_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_result",
+      "docstring": null
+    },
+    {
+      "name": "test_builtin_abs",
+      "docstring": null
+    },
+    {
+      "name": "test_numpy_abs",
+      "docstring": null
+    },
+    {
+      "name": "test_shift_all_bits",
+      "docstring": "Shifts where the shift amount is the width of the type or wider "
+    },
+    {
+      "name": "test_integer_hashes",
+      "docstring": null
+    },
+    {
+      "name": "test_float_and_complex_hashes",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_hashes",
+      "docstring": null
+    },
+    {
+      "name": "op_func",
+      "docstring": null
+    },
+    {
+      "name": "rop_func",
+      "docstring": null
+    },
+    {
+      "name": "op_func",
+      "docstring": null
+    },
+    {
+      "name": "rop_func",
+      "docstring": null
+    },
+    {
+      "name": "overflow_error_func",
+      "docstring": null
+    },
+    {
+      "name": "test_equal_nbytes",
+      "docstring": null
+    },
+    {
+      "name": "test_error",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

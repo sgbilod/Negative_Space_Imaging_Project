@@ -1,0 +1,50 @@
+# Visualization Network Service Configuration
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: visualization-service
+  namespace: negative-space-system
+  labels:
+    app: visualization
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 443
+    targetPort: 8080
+    protocol: TCP
+    name: https
+  - port: 5000
+    targetPort: 5000
+    protocol: TCP
+    name: websocket
+  selector:
+    app: visualization
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: visualization-ingress
+  namespace: negative-space-system
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: quantum-resistant-issuer
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/websocket-services: "visualization-service"
+spec:
+  tls:
+  - hosts:
+    - viz.negative-space.io
+    secretName: viz-tls
+  rules:
+  - host: viz.negative-space.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: visualization-service
+            port:
+              number: 443

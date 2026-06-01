@@ -1,0 +1,26 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\pens\\qu2cuPen.py",
+  "classes": [
+    {
+      "name": "Qu2CuPen",
+      "docstring": "A filter pen to convert quadratic bezier splines to cubic curves\nusing the FontTools SegmentPen protocol.\n\nArgs:\n\n    other_pen: another SegmentPen used to draw the transformed outline.\n    max_err: maximum approximation error in font units. For optimal results,\n        if you know the UPEM of the font, we recommend setting this to a\n        value equal, or close to UPEM / 1000.\n    reverse_direction: flip the contours' direction but keep starting point.\n    stats: a dictionary counting the point numbers of cubic segments.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "filterContour",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "filterContour",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

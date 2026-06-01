@@ -1,0 +1,68 @@
+# Deployment Automation Configuration
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+version: '1.0'
+
+automation:
+  providers:
+    aws:
+      region: us-east-1
+      availability_zones: ["us-east-1a", "us-east-1b", "us-east-1c"]
+      vpc:
+        cidr: "10.0.0.0/16"
+        subnets:
+          private: ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+          public: ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
+
+    gcp:
+      region: us-central1
+      zones: ["us-central1-a", "us-central1-b", "us-central1-c"]
+      network:
+        name: "quantum-network"
+        subnet: "10.1.0.0/16"
+
+    azure:
+      region: eastus
+      zones: ["1", "2", "3"]
+      vnet:
+        name: "quantum-vnet"
+        address_space: ["10.2.0.0/16"]
+
+infrastructure:
+  kubernetes:
+    version: "1.28"
+    node_pools:
+      - name: quantum-compute
+        machine_type: "g5.48xlarge"
+        min_nodes: 10
+        max_nodes: 100
+      - name: visualization
+        machine_type: "p4d.24xlarge"
+        min_nodes: 5
+        max_nodes: 50
+      - name: general
+        machine_type: "m6i.32xlarge"
+        min_nodes: 5
+        max_nodes: 30
+
+  storage:
+    class: io2
+    iops_per_gb: 100
+    throughput: "10000 MB/s"
+    encryption: true
+    backup:
+      enabled: true
+      retention: 30d
+
+  networking:
+    cdn:
+      enabled: true
+      ssl: true
+    load_balancer:
+      type: application
+      ssl_termination: true
+    firewall:
+      default_deny: true
+      allow_list:
+        - protocol: tcp
+          ports: [443, 8443, 9000]

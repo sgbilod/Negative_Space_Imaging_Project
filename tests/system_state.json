@@ -1,0 +1,37 @@
+{
+  "timestamp": "2025-08-14T12:04:20.143334",
+  "state": "shutting_down",
+  "last_validation": {
+    "timestamp": 1755187460.1442368,
+    "validation_level": "basic",
+    "results": [
+      {
+        "component": "image_processing",
+        "success": false,
+        "message": "Test image not found",
+        "details": {
+          "missing_file": "C:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\tests\\Hoag's_object.jpg"
+        }
+      }
+    ]
+  },
+  "final_metrics": {},
+  "performance_optimization": {},
+  "error_analysis": {
+    "total_errors": 1,
+    "errors_by_component": {
+      "system_validation": 1
+    },
+    "errors_by_type": {
+      "ValidationError": 1
+    },
+    "error_timeline": [
+      {
+        "timestamp": "2025-08-14T12:04:20.114622",
+        "component": "system_validation",
+        "error_type": "ValidationError"
+      }
+    ],
+    "critical_errors": []
+  }
+}

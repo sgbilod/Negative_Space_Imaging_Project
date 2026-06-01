@@ -1,0 +1,19 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\core\\findlib.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "looks_lib",
+      "docstring": "Returns True if the given filename looks like a dynamic library.\nBased on extension, but cross-platform and more flexible."
+    },
+    {
+      "name": "generate_candidate_libs",
+      "docstring": "Generate a list of candidate filenames of what might be the dynamic\nlibrary corresponding with the given list of names.\nReturns (lib_dirs, lib_paths)"
+    },
+    {
+      "name": "load_lib",
+      "docstring": "load_lib(exact_lib_names, lib_names, lib_dirs=None)\n\nLoad a dynamic library.\n\nThis function first tries to load the library from the given exact\nnames. When that fails, it tries to find the library in common\nlocations. It searches for files that start with one of the names\ngiven in lib_names (case insensitive). The search is performed in\nthe given lib_dirs and a set of common library dirs.\n\nReturns ``(ctypes_library, library_path)``"
+    }
+  ],
+  "innovations": []
+}

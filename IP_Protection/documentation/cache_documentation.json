@@ -1,0 +1,66 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\network\\cache.py",
+  "classes": [
+    {
+      "name": "SafeFileCache",
+      "docstring": "A file based cache which is safe to use even when the target directory may\nnot be accessible or writable.\n\nThere is a race condition when two processes try to write and/or read the\nsame entry at the same time, since each entry consists of two separate\nfiles (https://github.com/psf/cachecontrol/issues/324).  We therefore have\nadditional logic that makes sure that both files to be present before\nreturning an entry; this fixes the read side of the race condition.\n\nFor the write side, we assume that the server will only ever return the\nsame data for the same URL, which ought to be the case for files pip is\ndownloading.  PyPI does not have a mechanism to swap out a wheel for\nanother wheel, for example.  If this assumption is not true, the\nCacheControl issue will need to be fixed.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get",
+          "docstring": null
+        },
+        {
+          "name": "set",
+          "docstring": null
+        },
+        {
+          "name": "delete",
+          "docstring": null
+        },
+        {
+          "name": "get_body",
+          "docstring": null
+        },
+        {
+          "name": "set_body",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "is_from_cache",
+      "docstring": null
+    },
+    {
+      "name": "suppressed_cache_errors",
+      "docstring": "If we can't access the cache then we can just skip caching and process\nrequests as if caching wasn't enabled."
+    },
+    {
+      "name": "get",
+      "docstring": null
+    },
+    {
+      "name": "set",
+      "docstring": null
+    },
+    {
+      "name": "delete",
+      "docstring": null
+    },
+    {
+      "name": "get_body",
+      "docstring": null
+    },
+    {
+      "name": "set_body",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

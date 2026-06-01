@@ -1,0 +1,35 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\backend_qtagg.py",
+  "classes": [
+    {
+      "name": "FigureCanvasQTAgg",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "paintEvent",
+          "docstring": "Copy the image from the Agg canvas to the qt.drawable.\n\nIn Qt, all drawing should be done inside of here when a widget is\nshown onscreen."
+        },
+        {
+          "name": "print_figure",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BackendQTAgg",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "paintEvent",
+      "docstring": "Copy the image from the Agg canvas to the qt.drawable.\n\nIn Qt, all drawing should be done inside of here when a widget is\nshown onscreen."
+    },
+    {
+      "name": "print_figure",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

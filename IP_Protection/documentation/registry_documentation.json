@@ -1,0 +1,91 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\registry.py",
+  "classes": [
+    {
+      "name": "BackendFilter",
+      "docstring": "Filter used with :meth:`~matplotlib.backends.registry.BackendRegistry.list_builtin`\n\n.. versionadded:: 3.9",
+      "methods": []
+    },
+    {
+      "name": "BackendRegistry",
+      "docstring": "Registry of backends available within Matplotlib.\n\nThis is the single source of truth for available backends.\n\nAll use of ``BackendRegistry`` should be via the singleton instance\n``backend_registry`` which can be imported from ``matplotlib.backends``.\n\nEach backend has a name, a module name containing the backend code, and an\noptional GUI framework that must be running if the backend is interactive.\nThere are three sources of backends: built-in (source code is within the\nMatplotlib repository), explicit ``module://some.backend`` syntax (backend is\nobtained by loading the module), or via an entry point (self-registering\nbackend in an external package).\n\n.. versionadded:: 3.9",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "backend_for_gui_framework",
+          "docstring": "Return the name of the backend corresponding to the specified GUI framework.\n\nParameters\n----------\nframework : str\n    GUI framework such as \"qt\".\n\nReturns\n-------\nstr or None\n    Backend name or None if GUI framework not recognised."
+        },
+        {
+          "name": "is_valid_backend",
+          "docstring": "Return True if the backend name is valid, False otherwise.\n\nA backend name is valid if it is one of the built-in backends or has been\ndynamically added via an entry point. Those beginning with ``module://`` are\nalways considered valid and are added to the current list of all backends\nwithin this function.\n\nEven if a name is valid, it may not be importable or usable. This can only be\ndetermined by loading and using the backend module.\n\nParameters\n----------\nbackend : str\n    Name of backend.\n\nReturns\n-------\nbool\n    True if backend is valid, False otherwise."
+        },
+        {
+          "name": "list_all",
+          "docstring": "Return list of all known backends.\n\nThese include built-in backends and those obtained at runtime either from entry\npoints or explicit ``module://some.backend`` syntax.\n\nEntry points will be loaded if they haven't been already.\n\nReturns\n-------\nlist of str\n    Backend names."
+        },
+        {
+          "name": "list_builtin",
+          "docstring": "Return list of backends that are built into Matplotlib.\n\nParameters\n----------\nfilter_ : `~.BackendFilter`, optional\n    Filter to apply to returned backends. For example, to return only\n    non-interactive backends use `.BackendFilter.NON_INTERACTIVE`.\n\nReturns\n-------\nlist of str\n    Backend names."
+        },
+        {
+          "name": "list_gui_frameworks",
+          "docstring": "Return list of GUI frameworks used by Matplotlib backends.\n\nReturns\n-------\nlist of str\n    GUI framework names."
+        },
+        {
+          "name": "load_backend_module",
+          "docstring": "Load and return the module containing the specified backend.\n\nParameters\n----------\nbackend : str\n    Name of backend to load.\n\nReturns\n-------\nModule\n    Module containing backend."
+        },
+        {
+          "name": "resolve_backend",
+          "docstring": "Return the backend and GUI framework for the specified backend name.\n\nIf the GUI framework is not yet known then it will be determined by loading the\nbackend module and checking the ``FigureCanvas.required_interactive_framework``\nattribute.\n\nThis function only loads entry points if they have not already been loaded and\nthe backend is not built-in and not of ``module://some.backend`` format.\n\nParameters\n----------\nbackend : str or None\n    Name of backend, or None to use the default backend.\n\nReturns\n-------\nbackend : str\n    The backend name.\nframework : str or None\n    The GUI framework, which will be None for a backend that is non-interactive."
+        },
+        {
+          "name": "resolve_gui_or_backend",
+          "docstring": "Return the backend and GUI framework for the specified string that may be\neither a GUI framework or a backend name, tested in that order.\n\nThis is for use with the IPython %matplotlib magic command which may be a GUI\nframework such as ``%matplotlib qt`` or a backend name such as\n``%matplotlib qtagg``.\n\nThis function only loads entry points if they have not already been loaded and\nthe backend is not built-in and not of ``module://some.backend`` format.\n\nParameters\n----------\ngui_or_backend : str or None\n    Name of GUI framework or backend, or None to use the default backend.\n\nReturns\n-------\nbackend : str\n    The backend name.\nframework : str or None\n    The GUI framework, which will be None for a backend that is non-interactive."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "backend_for_gui_framework",
+      "docstring": "Return the name of the backend corresponding to the specified GUI framework.\n\nParameters\n----------\nframework : str\n    GUI framework such as \"qt\".\n\nReturns\n-------\nstr or None\n    Backend name or None if GUI framework not recognised."
+    },
+    {
+      "name": "is_valid_backend",
+      "docstring": "Return True if the backend name is valid, False otherwise.\n\nA backend name is valid if it is one of the built-in backends or has been\ndynamically added via an entry point. Those beginning with ``module://`` are\nalways considered valid and are added to the current list of all backends\nwithin this function.\n\nEven if a name is valid, it may not be importable or usable. This can only be\ndetermined by loading and using the backend module.\n\nParameters\n----------\nbackend : str\n    Name of backend.\n\nReturns\n-------\nbool\n    True if backend is valid, False otherwise."
+    },
+    {
+      "name": "list_all",
+      "docstring": "Return list of all known backends.\n\nThese include built-in backends and those obtained at runtime either from entry\npoints or explicit ``module://some.backend`` syntax.\n\nEntry points will be loaded if they haven't been already.\n\nReturns\n-------\nlist of str\n    Backend names."
+    },
+    {
+      "name": "list_builtin",
+      "docstring": "Return list of backends that are built into Matplotlib.\n\nParameters\n----------\nfilter_ : `~.BackendFilter`, optional\n    Filter to apply to returned backends. For example, to return only\n    non-interactive backends use `.BackendFilter.NON_INTERACTIVE`.\n\nReturns\n-------\nlist of str\n    Backend names."
+    },
+    {
+      "name": "list_gui_frameworks",
+      "docstring": "Return list of GUI frameworks used by Matplotlib backends.\n\nReturns\n-------\nlist of str\n    GUI framework names."
+    },
+    {
+      "name": "load_backend_module",
+      "docstring": "Load and return the module containing the specified backend.\n\nParameters\n----------\nbackend : str\n    Name of backend to load.\n\nReturns\n-------\nModule\n    Module containing backend."
+    },
+    {
+      "name": "resolve_backend",
+      "docstring": "Return the backend and GUI framework for the specified backend name.\n\nIf the GUI framework is not yet known then it will be determined by loading the\nbackend module and checking the ``FigureCanvas.required_interactive_framework``\nattribute.\n\nThis function only loads entry points if they have not already been loaded and\nthe backend is not built-in and not of ``module://some.backend`` format.\n\nParameters\n----------\nbackend : str or None\n    Name of backend, or None to use the default backend.\n\nReturns\n-------\nbackend : str\n    The backend name.\nframework : str or None\n    The GUI framework, which will be None for a backend that is non-interactive."
+    },
+    {
+      "name": "resolve_gui_or_backend",
+      "docstring": "Return the backend and GUI framework for the specified string that may be\neither a GUI framework or a backend name, tested in that order.\n\nThis is for use with the IPython %matplotlib magic command which may be a GUI\nframework such as ``%matplotlib qt`` or a backend name such as\n``%matplotlib qtagg``.\n\nThis function only loads entry points if they have not already been loaded and\nthe backend is not built-in and not of ``module://some.backend`` format.\n\nParameters\n----------\ngui_or_backend : str or None\n    Name of GUI framework or backend, or None to use the default backend.\n\nReturns\n-------\nbackend : str\n    The backend name.\nframework : str or None\n    The GUI framework, which will be None for a backend that is non-interactive."
+    },
+    {
+      "name": "backward_compatible_entry_points",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

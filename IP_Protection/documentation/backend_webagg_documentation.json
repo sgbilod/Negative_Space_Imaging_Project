@@ -1,0 +1,198 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\backend_webagg.py",
+  "classes": [
+    {
+      "name": "FigureManagerWebAgg",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "pyplot_show",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FigureCanvasWebAgg",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "WebAggApplication",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "initialize",
+          "docstring": null
+        },
+        {
+          "name": "start",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BackendWebAgg",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "FavIcon",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "get",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SingleFigurePage",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AllFiguresPage",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MplJs",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "get",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Download",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "get",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "WebSocket",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "open",
+          "docstring": null
+        },
+        {
+          "name": "on_close",
+          "docstring": null
+        },
+        {
+          "name": "on_message",
+          "docstring": null
+        },
+        {
+          "name": "send_json",
+          "docstring": null
+        },
+        {
+          "name": "send_binary",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "ipython_inline_display",
+      "docstring": null
+    },
+    {
+      "name": "pyplot_show",
+      "docstring": null
+    },
+    {
+      "name": "initialize",
+      "docstring": null
+    },
+    {
+      "name": "start",
+      "docstring": null
+    },
+    {
+      "name": "get",
+      "docstring": null
+    },
+    {
+      "name": "get",
+      "docstring": null
+    },
+    {
+      "name": "get",
+      "docstring": null
+    },
+    {
+      "name": "get",
+      "docstring": null
+    },
+    {
+      "name": "get",
+      "docstring": null
+    },
+    {
+      "name": "open",
+      "docstring": null
+    },
+    {
+      "name": "on_close",
+      "docstring": null
+    },
+    {
+      "name": "on_message",
+      "docstring": null
+    },
+    {
+      "name": "send_json",
+      "docstring": null
+    },
+    {
+      "name": "send_binary",
+      "docstring": null
+    },
+    {
+      "name": "random_ports",
+      "docstring": "Generate a list of n random ports near the given port.\n\nThe first 5 ports will be sequential, and the remaining n-5 will be\nrandomly selected in the range [port-2*n, port+2*n]."
+    },
+    {
+      "name": "shutdown",
+      "docstring": null
+    },
+    {
+      "name": "catch_sigint",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

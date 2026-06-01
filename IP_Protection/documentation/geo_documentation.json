@@ -1,0 +1,438 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\projections\\geo.py",
+  "classes": [
+    {
+      "name": "GeoAxes",
+      "docstring": "An abstract base class for geographic projections.",
+      "methods": [
+        {
+          "name": "clear",
+          "docstring": null
+        },
+        {
+          "name": "get_xaxis_transform",
+          "docstring": null
+        },
+        {
+          "name": "get_xaxis_text1_transform",
+          "docstring": null
+        },
+        {
+          "name": "get_xaxis_text2_transform",
+          "docstring": null
+        },
+        {
+          "name": "get_yaxis_transform",
+          "docstring": null
+        },
+        {
+          "name": "get_yaxis_text1_transform",
+          "docstring": null
+        },
+        {
+          "name": "get_yaxis_text2_transform",
+          "docstring": null
+        },
+        {
+          "name": "set_yscale",
+          "docstring": null
+        },
+        {
+          "name": "set_xlim",
+          "docstring": "Not supported. Please consider using Cartopy."
+        },
+        {
+          "name": "invert_xaxis",
+          "docstring": "Not supported. Please consider using Cartopy."
+        },
+        {
+          "name": "format_coord",
+          "docstring": "Return a format string formatting the coordinate."
+        },
+        {
+          "name": "set_longitude_grid",
+          "docstring": "Set the number of degrees between each longitude grid."
+        },
+        {
+          "name": "set_latitude_grid",
+          "docstring": "Set the number of degrees between each latitude grid."
+        },
+        {
+          "name": "set_longitude_grid_ends",
+          "docstring": "Set the latitude(s) at which to stop drawing the longitude grids."
+        },
+        {
+          "name": "get_data_ratio",
+          "docstring": "Return the aspect ratio of the data itself."
+        },
+        {
+          "name": "can_zoom",
+          "docstring": "Return whether this Axes supports the zoom box button functionality.\n\nThis Axes object does not support interactive zoom box."
+        },
+        {
+          "name": "can_pan",
+          "docstring": "Return whether this Axes supports the pan/zoom button functionality.\n\nThis Axes object does not support interactive pan/zoom."
+        },
+        {
+          "name": "start_pan",
+          "docstring": null
+        },
+        {
+          "name": "end_pan",
+          "docstring": null
+        },
+        {
+          "name": "drag_pan",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_GeoTransform",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a new geographical transform.\n\nResolution is the number of steps to interpolate between each input\nline segment to approximate its path in curved space."
+        },
+        {
+          "name": "transform_path_non_affine",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AitoffAxes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HammerAxes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MollweideAxes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LambertAxes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "clear",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ThetaFormatter",
+      "docstring": "Used to format the theta tick labels.  Converts the native\nunit of radians into degrees and adds a degree symbol.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AitoffTransform",
+      "docstring": "The base Aitoff transform.",
+      "methods": [
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "InvertedAitoffTransform",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HammerTransform",
+      "docstring": "The base Hammer transform.",
+      "methods": [
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "InvertedHammerTransform",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MollweideTransform",
+      "docstring": "The base Mollweide transform.",
+      "methods": [
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "InvertedMollweideTransform",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LambertTransform",
+      "docstring": "The base Lambert transform.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a new Lambert transform.  Resolution is the number of steps\nto interpolate between each input line segment to approximate its\npath in curved Lambert space."
+        },
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "InvertedLambertTransform",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "clear",
+      "docstring": null
+    },
+    {
+      "name": "get_xaxis_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_xaxis_text1_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_xaxis_text2_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_yaxis_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_yaxis_text1_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_yaxis_text2_transform",
+      "docstring": null
+    },
+    {
+      "name": "set_yscale",
+      "docstring": null
+    },
+    {
+      "name": "set_xlim",
+      "docstring": "Not supported. Please consider using Cartopy."
+    },
+    {
+      "name": "invert_xaxis",
+      "docstring": "Not supported. Please consider using Cartopy."
+    },
+    {
+      "name": "format_coord",
+      "docstring": "Return a format string formatting the coordinate."
+    },
+    {
+      "name": "set_longitude_grid",
+      "docstring": "Set the number of degrees between each longitude grid."
+    },
+    {
+      "name": "set_latitude_grid",
+      "docstring": "Set the number of degrees between each latitude grid."
+    },
+    {
+      "name": "set_longitude_grid_ends",
+      "docstring": "Set the latitude(s) at which to stop drawing the longitude grids."
+    },
+    {
+      "name": "get_data_ratio",
+      "docstring": "Return the aspect ratio of the data itself."
+    },
+    {
+      "name": "can_zoom",
+      "docstring": "Return whether this Axes supports the zoom box button functionality.\n\nThis Axes object does not support interactive zoom box."
+    },
+    {
+      "name": "can_pan",
+      "docstring": "Return whether this Axes supports the pan/zoom button functionality.\n\nThis Axes object does not support interactive pan/zoom."
+    },
+    {
+      "name": "start_pan",
+      "docstring": null
+    },
+    {
+      "name": "end_pan",
+      "docstring": null
+    },
+    {
+      "name": "drag_pan",
+      "docstring": null
+    },
+    {
+      "name": "transform_path_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "clear",
+      "docstring": null
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "d",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

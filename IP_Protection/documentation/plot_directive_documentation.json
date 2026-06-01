@@ -1,0 +1,89 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\sphinxext\\plot_directive.py",
+  "classes": [
+    {
+      "name": "PlotDirective",
+      "docstring": "The ``.. plot::`` directive, as documented in the module's docstring.",
+      "methods": [
+        {
+          "name": "run",
+          "docstring": "Run the plot directive."
+        }
+      ]
+    },
+    {
+      "name": "ImageFile",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "filename",
+          "docstring": null
+        },
+        {
+          "name": "filenames",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PlotError",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "mark_plot_labels",
+      "docstring": "To make plots referenceable, we need to move the reference from the\n\"htmlonly\" (or \"latexonly\") node to the actual figure node itself."
+    },
+    {
+      "name": "setup",
+      "docstring": null
+    },
+    {
+      "name": "contains_doctest",
+      "docstring": null
+    },
+    {
+      "name": "out_of_date",
+      "docstring": "Return whether *derived* is out-of-date relative to *original* or any of\nthe RST files included in it using the RST include directive (*includes*).\n*derived* and *original* are full paths, and *includes* is optionally a\nlist of full paths which may have been included in the *original*."
+    },
+    {
+      "name": "clear_state",
+      "docstring": null
+    },
+    {
+      "name": "get_plot_formats",
+      "docstring": null
+    },
+    {
+      "name": "render_figures",
+      "docstring": "Run a pyplot script and save the images in *output_dir*.\n\nSave the images under *output_dir* with file names derived from\n*output_base*"
+    },
+    {
+      "name": "run",
+      "docstring": null
+    },
+    {
+      "name": "run",
+      "docstring": "Run the plot directive."
+    },
+    {
+      "name": "filename",
+      "docstring": null
+    },
+    {
+      "name": "filenames",
+      "docstring": null
+    },
+    {
+      "name": "out_of_date_one",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

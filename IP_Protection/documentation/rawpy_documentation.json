@@ -1,0 +1,66 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\rawpy.py",
+  "classes": [
+    {
+      "name": "RawPyPlugin",
+      "docstring": "A class representing the rawpy plugin.\n\nMethods\n-------\n\n.. autosummary::\n:toctree: _plugins/rawpy\n\nRawPyPlugin.read",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Instantiates a new rawpy plugin object\n\nParameters\n----------\nrequest: Request\n    A request object representing the resource to be operated on."
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": "Read Raw Image.\n\nReturns\n-------\nnd_image: ndarray\n    The image data"
+        },
+        {
+          "name": "write",
+          "docstring": "RawPy does not support writing."
+        },
+        {
+          "name": "iter",
+          "docstring": "Load the image.\n\nReturns\n-------\nnd_image: ndarray\n    The image data"
+        },
+        {
+          "name": "metadata",
+          "docstring": "Read ndimage metadata.\n\nParameters\n----------\nexclude_applied : bool\n    If True, exclude metadata fields that are applied to the image while\n    reading. For example, if the binary data contains a rotation flag,\n    the image is rotated by default and the rotation flag is excluded\n    from the metadata to avoid confusion.\n\nReturns\n-------\nmetadata : dict\n    A dictionary of format-specific metadata."
+        },
+        {
+          "name": "properties",
+          "docstring": "Standardized ndimage metadata\n\nReturns\n-------\nproperties : ImageProperties\n    A dataclass filled with standardized image metadata.\n\nNotes\n-----\nThis does not decode pixel data and is fast for large images."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": "Read Raw Image.\n\nReturns\n-------\nnd_image: ndarray\n    The image data"
+    },
+    {
+      "name": "write",
+      "docstring": "RawPy does not support writing."
+    },
+    {
+      "name": "iter",
+      "docstring": "Load the image.\n\nReturns\n-------\nnd_image: ndarray\n    The image data"
+    },
+    {
+      "name": "metadata",
+      "docstring": "Read ndimage metadata.\n\nParameters\n----------\nexclude_applied : bool\n    If True, exclude metadata fields that are applied to the image while\n    reading. For example, if the binary data contains a rotation flag,\n    the image is rotated by default and the rotation flag is excluded\n    from the metadata to avoid confusion.\n\nReturns\n-------\nmetadata : dict\n    A dictionary of format-specific metadata."
+    },
+    {
+      "name": "properties",
+      "docstring": "Standardized ndimage metadata\n\nReturns\n-------\nproperties : ImageProperties\n    A dataclass filled with standardized image metadata.\n\nNotes\n-----\nThis does not decode pixel data and is fast for large images."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: StorageClass
+metadata:
+  name: {{ cluster_name }}-storage
+  labels:
+    cluster: {{ cluster_name }}
+spec:
+  # Main storage configuration
+  storageClasses:
+    # Fast local storage for processing
+    - name: {{ cluster_name }}-fast-local
+      provisioner: kubernetes.io/local-storage
+      reclaimPolicy: Retain
+      volumeBindingMode: WaitForFirstConsumer
+      parameters:
+        type: SSD
+
+    # Persistent network storage
+    - name: {{ cluster_name }}-persistent
+      provisioner: kubernetes.io/aws-ebs
+      reclaimPolicy: Retain
+      parameters:
+        type: gp2
+        fsType: ext4
+
+    # High-performance storage for GPU processing
+    - name: {{ cluster_name }}-high-performance
+      provisioner: kubernetes.io/local-storage
+      reclaimPolicy: Retain
+      volumeBindingMode: WaitForFirstConsumer
+      parameters:
+        type: NVMe
+
+  # Persistent Volume Claims
+  persistentVolumeClaims:
+    # Data storage
+    - name: {{ cluster_name }}-data
+      storageClassName: {{ cluster_name }}-persistent
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: {{ storage.data.capacity }}
+
+    # Model storage
+    - name: {{ cluster_name }}-models
+      storageClassName: {{ cluster_name }}-persistent
+      accessModes:
+        - ReadOnlyMany
+      resources:
+        requests:
+          storage: {{ storage.models.capacity }}
+
+    # Cache storage
+    - name: {{ cluster_name }}-cache
+      storageClassName: {{ cluster_name }}-fast-local
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: {{ storage.cache.capacity }}
+
+    # Processing storage
+    - name: {{ cluster_name }}-processing
+      storageClassName: {{ cluster_name }}-high-performance
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: {{ storage.processing.capacity }}

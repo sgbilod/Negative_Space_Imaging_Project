@@ -1,0 +1,545 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_arrayprint.py",
+  "classes": [
+    {
+      "name": "TestArrayRepr",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_nan_inf",
+          "docstring": null
+        },
+        {
+          "name": "test_subclass",
+          "docstring": null
+        },
+        {
+          "name": "test_object_subclass",
+          "docstring": null
+        },
+        {
+          "name": "test_0d_object_subclass",
+          "docstring": null
+        },
+        {
+          "name": "test_self_containing",
+          "docstring": null
+        },
+        {
+          "name": "test_containing_list",
+          "docstring": null
+        },
+        {
+          "name": "test_void_scalar_recursion",
+          "docstring": null
+        },
+        {
+          "name": "test_fieldless_structured",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestComplexArray",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_str",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestArray2String",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": "Basic test of array2string."
+        },
+        {
+          "name": "test_unexpected_kwarg",
+          "docstring": null
+        },
+        {
+          "name": "test_format_function",
+          "docstring": "Test custom format function for each element in array."
+        },
+        {
+          "name": "test_structure_format_mixed",
+          "docstring": null
+        },
+        {
+          "name": "test_structure_format_int",
+          "docstring": null
+        },
+        {
+          "name": "test_structure_format_float",
+          "docstring": null
+        },
+        {
+          "name": "test_unstructured_void_repr",
+          "docstring": null
+        },
+        {
+          "name": "test_edgeitems_kwarg",
+          "docstring": null
+        },
+        {
+          "name": "test_summarize_1d",
+          "docstring": null
+        },
+        {
+          "name": "test_summarize_2d",
+          "docstring": null
+        },
+        {
+          "name": "test_summarize_2d_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_summarize_structure",
+          "docstring": null
+        },
+        {
+          "name": "test_linewidth",
+          "docstring": null
+        },
+        {
+          "name": "test_wide_element",
+          "docstring": null
+        },
+        {
+          "name": "test_multiline_repr",
+          "docstring": null
+        },
+        {
+          "name": "test_nested_array_repr",
+          "docstring": null
+        },
+        {
+          "name": "test_any_text",
+          "docstring": null
+        },
+        {
+          "name": "test_refcount",
+          "docstring": null
+        },
+        {
+          "name": "test_with_sign",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPrintOptions",
+      "docstring": "Test getting and setting global print options.",
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "teardown_method",
+          "docstring": null
+        },
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_precision_zero",
+          "docstring": null
+        },
+        {
+          "name": "test_formatter",
+          "docstring": null
+        },
+        {
+          "name": "test_formatter_reset",
+          "docstring": null
+        },
+        {
+          "name": "test_override_repr",
+          "docstring": null
+        },
+        {
+          "name": "test_0d_arrays",
+          "docstring": null
+        },
+        {
+          "name": "test_float_spacing",
+          "docstring": null
+        },
+        {
+          "name": "test_bool_spacing",
+          "docstring": null
+        },
+        {
+          "name": "test_sign_spacing",
+          "docstring": null
+        },
+        {
+          "name": "test_float_overflow_nowarn",
+          "docstring": null
+        },
+        {
+          "name": "test_sign_spacing_structured",
+          "docstring": null
+        },
+        {
+          "name": "test_floatmode",
+          "docstring": null
+        },
+        {
+          "name": "test_legacy_mode_scalars",
+          "docstring": null
+        },
+        {
+          "name": "test_legacy_stray_comma",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_linewidth_wrapping",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_endianness_repr",
+          "docstring": "there was an issue where\nrepr(array([0], dtype='<u2')) and repr(array([0], dtype='>u2'))\nboth returned the same thing:\narray([0], dtype=uint16)\neven though their dtypes have different endianness."
+        },
+        {
+          "name": "test_linewidth_repr",
+          "docstring": null
+        },
+        {
+          "name": "test_linewidth_str",
+          "docstring": null
+        },
+        {
+          "name": "test_edgeitems",
+          "docstring": null
+        },
+        {
+          "name": "test_edgeitems_structured",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_args",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestContextManager",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_ctx_mgr",
+          "docstring": null
+        },
+        {
+          "name": "test_ctx_mgr_restores",
+          "docstring": null
+        },
+        {
+          "name": "test_ctx_mgr_exceptions",
+          "docstring": null
+        },
+        {
+          "name": "test_ctx_mgr_as_smth",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "sub",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "sub",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "sub",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "DuckCounter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "to_string",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MultiLine",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MultiLineLong",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_unicode_object_array",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_repr_numbers",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_repr_special",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_void_float_str",
+      "docstring": null
+    },
+    {
+      "name": "test_printoptions_asyncio_safe",
+      "docstring": null
+    },
+    {
+      "name": "test_multithreaded_array_printing",
+      "docstring": null
+    },
+    {
+      "name": "test_nan_inf",
+      "docstring": null
+    },
+    {
+      "name": "test_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_object_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_0d_object_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_self_containing",
+      "docstring": null
+    },
+    {
+      "name": "test_containing_list",
+      "docstring": null
+    },
+    {
+      "name": "test_void_scalar_recursion",
+      "docstring": null
+    },
+    {
+      "name": "test_fieldless_structured",
+      "docstring": null
+    },
+    {
+      "name": "test_str",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": "Basic test of array2string."
+    },
+    {
+      "name": "test_unexpected_kwarg",
+      "docstring": null
+    },
+    {
+      "name": "test_format_function",
+      "docstring": "Test custom format function for each element in array."
+    },
+    {
+      "name": "test_structure_format_mixed",
+      "docstring": null
+    },
+    {
+      "name": "test_structure_format_int",
+      "docstring": null
+    },
+    {
+      "name": "test_structure_format_float",
+      "docstring": null
+    },
+    {
+      "name": "test_unstructured_void_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_edgeitems_kwarg",
+      "docstring": null
+    },
+    {
+      "name": "test_summarize_1d",
+      "docstring": null
+    },
+    {
+      "name": "test_summarize_2d",
+      "docstring": null
+    },
+    {
+      "name": "test_summarize_2d_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_summarize_structure",
+      "docstring": null
+    },
+    {
+      "name": "test_linewidth",
+      "docstring": null
+    },
+    {
+      "name": "test_wide_element",
+      "docstring": null
+    },
+    {
+      "name": "test_multiline_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_nested_array_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_any_text",
+      "docstring": null
+    },
+    {
+      "name": "test_refcount",
+      "docstring": null
+    },
+    {
+      "name": "test_with_sign",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "teardown_method",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_precision_zero",
+      "docstring": null
+    },
+    {
+      "name": "test_formatter",
+      "docstring": null
+    },
+    {
+      "name": "test_formatter_reset",
+      "docstring": null
+    },
+    {
+      "name": "test_override_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_0d_arrays",
+      "docstring": null
+    },
+    {
+      "name": "test_float_spacing",
+      "docstring": null
+    },
+    {
+      "name": "test_bool_spacing",
+      "docstring": null
+    },
+    {
+      "name": "test_sign_spacing",
+      "docstring": null
+    },
+    {
+      "name": "test_float_overflow_nowarn",
+      "docstring": null
+    },
+    {
+      "name": "test_sign_spacing_structured",
+      "docstring": null
+    },
+    {
+      "name": "test_floatmode",
+      "docstring": null
+    },
+    {
+      "name": "test_legacy_mode_scalars",
+      "docstring": null
+    },
+    {
+      "name": "test_legacy_stray_comma",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_linewidth_wrapping",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_endianness_repr",
+      "docstring": "there was an issue where\nrepr(array([0], dtype='<u2')) and repr(array([0], dtype='>u2'))\nboth returned the same thing:\narray([0], dtype=uint16)\neven though their dtypes have different endianness."
+    },
+    {
+      "name": "test_linewidth_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_linewidth_str",
+      "docstring": null
+    },
+    {
+      "name": "test_edgeitems",
+      "docstring": null
+    },
+    {
+      "name": "test_edgeitems_structured",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_args",
+      "docstring": null
+    },
+    {
+      "name": "test_ctx_mgr",
+      "docstring": null
+    },
+    {
+      "name": "test_ctx_mgr_restores",
+      "docstring": null
+    },
+    {
+      "name": "test_ctx_mgr_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_ctx_mgr_as_smth",
+      "docstring": null
+    },
+    {
+      "name": "make_str",
+      "docstring": null
+    },
+    {
+      "name": "to_string",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

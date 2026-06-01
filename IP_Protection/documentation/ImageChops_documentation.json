@@ -1,0 +1,91 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\ImageChops.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "constant",
+      "docstring": "Fill a channel with a given gray level.\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "duplicate",
+      "docstring": "Copy a channel. Alias for :py:meth:`PIL.Image.Image.copy`.\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "invert",
+      "docstring": "Invert an image (channel). ::\n\n    out = MAX - image\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "lighter",
+      "docstring": "Compares the two images, pixel by pixel, and returns a new image containing\nthe lighter values. ::\n\n    out = max(image1, image2)\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "darker",
+      "docstring": "Compares the two images, pixel by pixel, and returns a new image containing\nthe darker values. ::\n\n    out = min(image1, image2)\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "difference",
+      "docstring": "Returns the absolute value of the pixel-by-pixel difference between the two\nimages. ::\n\n    out = abs(image1 - image2)\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "multiply",
+      "docstring": "Superimposes two images on top of each other.\n\nIf you multiply an image with a solid black image, the result is black. If\nyou multiply with a solid white image, the image is unaffected. ::\n\n    out = image1 * image2 / MAX\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "screen",
+      "docstring": "Superimposes two inverted images on top of each other. ::\n\n    out = MAX - ((MAX - image1) * (MAX - image2) / MAX)\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "soft_light",
+      "docstring": "Superimposes two images on top of each other using the Soft Light algorithm\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "hard_light",
+      "docstring": "Superimposes two images on top of each other using the Hard Light algorithm\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "overlay",
+      "docstring": "Superimposes two images on top of each other using the Overlay algorithm\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "add",
+      "docstring": "Adds two images, dividing the result by scale and adding the\noffset. If omitted, scale defaults to 1.0, and offset to 0.0. ::\n\n    out = ((image1 + image2) / scale + offset)\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "subtract",
+      "docstring": "Subtracts two images, dividing the result by scale and adding the offset.\nIf omitted, scale defaults to 1.0, and offset to 0.0. ::\n\n    out = ((image1 - image2) / scale + offset)\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "add_modulo",
+      "docstring": "Add two images, without clipping the result. ::\n\n    out = ((image1 + image2) % MAX)\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "subtract_modulo",
+      "docstring": "Subtract two images, without clipping the result. ::\n\n    out = ((image1 - image2) % MAX)\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "logical_and",
+      "docstring": "Logical AND between two images.\n\nBoth of the images must have mode \"1\". If you would like to perform a\nlogical AND on an image with a mode other than \"1\", try\n:py:meth:`~PIL.ImageChops.multiply` instead, using a black-and-white mask\nas the second image. ::\n\n    out = ((image1 and image2) % MAX)\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "logical_or",
+      "docstring": "Logical OR between two images.\n\nBoth of the images must have mode \"1\". ::\n\n    out = ((image1 or image2) % MAX)\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "logical_xor",
+      "docstring": "Logical XOR between two images.\n\nBoth of the images must have mode \"1\". ::\n\n    out = ((bool(image1) != bool(image2)) % MAX)\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "blend",
+      "docstring": "Blend images using constant transparency weight. Alias for\n:py:func:`PIL.Image.blend`.\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "composite",
+      "docstring": "Create composite using transparency mask. Alias for\n:py:func:`PIL.Image.composite`.\n\n:rtype: :py:class:`~PIL.Image.Image`"
+    },
+    {
+      "name": "offset",
+      "docstring": "Returns a copy of the image where data has been offset by the given\ndistances. Data wraps around the edges. If ``yoffset`` is omitted, it\nis assumed to be equal to ``xoffset``.\n\n:param image: Input image.\n:param xoffset: The horizontal distance.\n:param yoffset: The vertical distance.  If omitted, both\n    distances are set to the same value.\n:rtype: :py:class:`~PIL.Image.Image`"
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,533 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\backend_qt.py",
+  "classes": [
+    {
+      "name": "TimerQT",
+      "docstring": "Subclass of `.TimerBase` using QTimer events.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FigureCanvasQT",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "eventFilter",
+          "docstring": null
+        },
+        {
+          "name": "showEvent",
+          "docstring": null
+        },
+        {
+          "name": "set_cursor",
+          "docstring": null
+        },
+        {
+          "name": "mouseEventCoords",
+          "docstring": "Calculate mouse coordinates in physical pixels.\n\nQt uses logical pixels, but the figure is scaled to physical\npixels for rendering.  Transform to physical pixels so that\nall of the down-stream transforms work as expected.\n\nAlso, the origin is different and needs to be corrected."
+        },
+        {
+          "name": "enterEvent",
+          "docstring": null
+        },
+        {
+          "name": "leaveEvent",
+          "docstring": null
+        },
+        {
+          "name": "mousePressEvent",
+          "docstring": null
+        },
+        {
+          "name": "mouseDoubleClickEvent",
+          "docstring": null
+        },
+        {
+          "name": "mouseMoveEvent",
+          "docstring": null
+        },
+        {
+          "name": "mouseReleaseEvent",
+          "docstring": null
+        },
+        {
+          "name": "wheelEvent",
+          "docstring": null
+        },
+        {
+          "name": "keyPressEvent",
+          "docstring": null
+        },
+        {
+          "name": "keyReleaseEvent",
+          "docstring": null
+        },
+        {
+          "name": "resizeEvent",
+          "docstring": null
+        },
+        {
+          "name": "sizeHint",
+          "docstring": null
+        },
+        {
+          "name": "minimumSizeHint",
+          "docstring": null
+        },
+        {
+          "name": "flush_events",
+          "docstring": null
+        },
+        {
+          "name": "start_event_loop",
+          "docstring": null
+        },
+        {
+          "name": "stop_event_loop",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": "Render the figure, and queue a request for a Qt draw."
+        },
+        {
+          "name": "draw_idle",
+          "docstring": "Queue redraw of the Agg buffer and request Qt paintEvent."
+        },
+        {
+          "name": "blit",
+          "docstring": null
+        },
+        {
+          "name": "drawRectangle",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MainWindow",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "closeEvent",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FigureManagerQT",
+      "docstring": "Attributes\n----------\ncanvas : `FigureCanvas`\n    The FigureCanvas instance\nnum : int or str\n    The Figure number\ntoolbar : qt.QToolBar\n    The qt.QToolBar\nwindow : qt.QMainWindow\n    The qt.QMainWindow",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "full_screen_toggle",
+          "docstring": null
+        },
+        {
+          "name": "resize",
+          "docstring": null
+        },
+        {
+          "name": "start_main_loop",
+          "docstring": null
+        },
+        {
+          "name": "show",
+          "docstring": null
+        },
+        {
+          "name": "destroy",
+          "docstring": null
+        },
+        {
+          "name": "get_window_title",
+          "docstring": null
+        },
+        {
+          "name": "set_window_title",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "NavigationToolbar2QT",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "coordinates: should we show the coordinates on the right?"
+        },
+        {
+          "name": "edit_parameters",
+          "docstring": null
+        },
+        {
+          "name": "pan",
+          "docstring": null
+        },
+        {
+          "name": "zoom",
+          "docstring": null
+        },
+        {
+          "name": "set_message",
+          "docstring": null
+        },
+        {
+          "name": "draw_rubberband",
+          "docstring": null
+        },
+        {
+          "name": "remove_rubberband",
+          "docstring": null
+        },
+        {
+          "name": "configure_subplots",
+          "docstring": null
+        },
+        {
+          "name": "save_figure",
+          "docstring": null
+        },
+        {
+          "name": "set_history_buttons",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SubplotToolQt",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "update_from_current_subplotpars",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolbarQt",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "add_toolitem",
+          "docstring": null
+        },
+        {
+          "name": "toggle_toolitem",
+          "docstring": null
+        },
+        {
+          "name": "remove_toolitem",
+          "docstring": null
+        },
+        {
+          "name": "set_message",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ConfigureSubplotsQt",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SaveFigureQt",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RubberbandQt",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "draw_rubberband",
+          "docstring": null
+        },
+        {
+          "name": "remove_rubberband",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HelpQt",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolCopyToClipboardQT",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BackendQT",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "prepare_notifier",
+      "docstring": null
+    },
+    {
+      "name": "handle_sigint",
+      "docstring": null
+    },
+    {
+      "name": "eventFilter",
+      "docstring": null
+    },
+    {
+      "name": "showEvent",
+      "docstring": null
+    },
+    {
+      "name": "set_cursor",
+      "docstring": null
+    },
+    {
+      "name": "mouseEventCoords",
+      "docstring": "Calculate mouse coordinates in physical pixels.\n\nQt uses logical pixels, but the figure is scaled to physical\npixels for rendering.  Transform to physical pixels so that\nall of the down-stream transforms work as expected.\n\nAlso, the origin is different and needs to be corrected."
+    },
+    {
+      "name": "enterEvent",
+      "docstring": null
+    },
+    {
+      "name": "leaveEvent",
+      "docstring": null
+    },
+    {
+      "name": "mousePressEvent",
+      "docstring": null
+    },
+    {
+      "name": "mouseDoubleClickEvent",
+      "docstring": null
+    },
+    {
+      "name": "mouseMoveEvent",
+      "docstring": null
+    },
+    {
+      "name": "mouseReleaseEvent",
+      "docstring": null
+    },
+    {
+      "name": "wheelEvent",
+      "docstring": null
+    },
+    {
+      "name": "keyPressEvent",
+      "docstring": null
+    },
+    {
+      "name": "keyReleaseEvent",
+      "docstring": null
+    },
+    {
+      "name": "resizeEvent",
+      "docstring": null
+    },
+    {
+      "name": "sizeHint",
+      "docstring": null
+    },
+    {
+      "name": "minimumSizeHint",
+      "docstring": null
+    },
+    {
+      "name": "flush_events",
+      "docstring": null
+    },
+    {
+      "name": "start_event_loop",
+      "docstring": null
+    },
+    {
+      "name": "stop_event_loop",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": "Render the figure, and queue a request for a Qt draw."
+    },
+    {
+      "name": "draw_idle",
+      "docstring": "Queue redraw of the Agg buffer and request Qt paintEvent."
+    },
+    {
+      "name": "blit",
+      "docstring": null
+    },
+    {
+      "name": "drawRectangle",
+      "docstring": null
+    },
+    {
+      "name": "closeEvent",
+      "docstring": null
+    },
+    {
+      "name": "full_screen_toggle",
+      "docstring": null
+    },
+    {
+      "name": "resize",
+      "docstring": null
+    },
+    {
+      "name": "start_main_loop",
+      "docstring": null
+    },
+    {
+      "name": "show",
+      "docstring": null
+    },
+    {
+      "name": "destroy",
+      "docstring": null
+    },
+    {
+      "name": "get_window_title",
+      "docstring": null
+    },
+    {
+      "name": "set_window_title",
+      "docstring": null
+    },
+    {
+      "name": "edit_parameters",
+      "docstring": null
+    },
+    {
+      "name": "pan",
+      "docstring": null
+    },
+    {
+      "name": "zoom",
+      "docstring": null
+    },
+    {
+      "name": "set_message",
+      "docstring": null
+    },
+    {
+      "name": "draw_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "remove_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "configure_subplots",
+      "docstring": null
+    },
+    {
+      "name": "save_figure",
+      "docstring": null
+    },
+    {
+      "name": "set_history_buttons",
+      "docstring": null
+    },
+    {
+      "name": "update_from_current_subplotpars",
+      "docstring": null
+    },
+    {
+      "name": "add_toolitem",
+      "docstring": null
+    },
+    {
+      "name": "toggle_toolitem",
+      "docstring": null
+    },
+    {
+      "name": "remove_toolitem",
+      "docstring": null
+    },
+    {
+      "name": "set_message",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "draw_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "remove_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "handler",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

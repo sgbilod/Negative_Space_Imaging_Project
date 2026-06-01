@@ -1,0 +1,30 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\panel.py",
+  "classes": [
+    {
+      "name": "Panel",
+      "docstring": "A console renderable that draws a border around its contents.\n\nExample:\n    >>> console.print(Panel(\"Hello, World!\"))\n\nArgs:\n    renderable (RenderableType): A console renderable object.\n    box (Box): A Box instance that defines the look of the border (see :ref:`appendix_box`. Defaults to box.ROUNDED.\n    title (Optional[TextType], optional): Optional title displayed in panel header. Defaults to None.\n    title_align (AlignMethod, optional): Alignment of title. Defaults to \"center\".\n    subtitle (Optional[TextType], optional): Optional subtitle displayed in panel footer. Defaults to None.\n    subtitle_align (AlignMethod, optional): Alignment of subtitle. Defaults to \"center\".\n    safe_box (bool, optional): Disable box characters that don't display on windows legacy terminal with *raster* fonts. Defaults to True.\n    expand (bool, optional): If True the panel will stretch to fill the console width, otherwise it will be sized to fit the contents. Defaults to True.\n    style (str, optional): The style of the panel (border and contents). Defaults to \"none\".\n    border_style (str, optional): The style of the border. Defaults to \"none\".\n    width (Optional[int], optional): Optional width of panel. Defaults to None to auto-detect.\n    height (Optional[int], optional): Optional height of panel. Defaults to None to auto-detect.\n    padding (Optional[PaddingDimensions]): Optional padding around renderable. Defaults to 0.\n    highlight (bool, optional): Enable automatic highlighting of panel title (if str). Defaults to False.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "fit",
+          "docstring": "An alternative constructor that sets expand=False."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "fit",
+      "docstring": "An alternative constructor that sets expand=False."
+    },
+    {
+      "name": "align_text",
+      "docstring": "Gets new aligned text.\n\nArgs:\n    text (Text): Title or subtitle text.\n    width (int): Desired width.\n    align (str): Alignment.\n    character (str): Character for alignment.\n    style (Style): Border style\n\nReturns:\n    Text: New text instance"
+    }
+  ],
+  "innovations": []
+}

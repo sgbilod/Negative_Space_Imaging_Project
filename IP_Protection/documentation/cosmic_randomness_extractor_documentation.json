@@ -1,0 +1,52 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\revenue\\random_generation\\cosmic_randomness_extractor.py",
+  "classes": [
+    {
+      "name": "CosmicRandomnessExtractor",
+      "docstring": "Extracts true randomness from spatial signatures and astronomical data.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the randomness extractor.\n\nArgs:\n    use_astronomical_data: Whether to incorporate astronomical data\n    extraction_rounds: Number of extraction rounds for additional security\n    bits_per_extraction: Number of random bits to extract per round"
+        },
+        {
+          "name": "generate_random_number",
+          "docstring": "Generate a random number from spatial data and astronomical sources.\n\nArgs:\n    spatial_data: Either a pre-computed signature string or raw coordinates\n    bit_length: Length of the random number in bits\n    as_integer: Return as integer instead of hex string\n    \nReturns:\n    Dictionary with the random number and metadata about the sources"
+        }
+      ]
+    },
+    {
+      "name": "RandomnessAPI",
+      "docstring": "API for the randomness generation service.\nThis is a skeleton implementation for Phase 1.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the Randomness API."
+        },
+        {
+          "name": "generate_random",
+          "docstring": "Generate a random number based on the request parameters.\n\nArgs:\n    request_data: Dictionary containing spatial data and generation parameters\n    \nReturns:\n    Random number and metadata"
+        },
+        {
+          "name": "generate_random_stream",
+          "docstring": "Start a stream of random numbers (placeholder for WebSocket implementation).\n\nArgs:\n    request_data: Dictionary containing stream parameters\n    \nReturns:\n    Stream identifier and metadata"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "generate_random_number",
+      "docstring": "Generate a random number from spatial data and astronomical sources.\n\nArgs:\n    spatial_data: Either a pre-computed signature string or raw coordinates\n    bit_length: Length of the random number in bits\n    as_integer: Return as integer instead of hex string\n    \nReturns:\n    Dictionary with the random number and metadata about the sources"
+    },
+    {
+      "name": "generate_random",
+      "docstring": "Generate a random number based on the request parameters.\n\nArgs:\n    request_data: Dictionary containing spatial data and generation parameters\n    \nReturns:\n    Random number and metadata"
+    },
+    {
+      "name": "generate_random_stream",
+      "docstring": "Start a stream of random numbers (placeholder for WebSocket implementation).\n\nArgs:\n    request_data: Dictionary containing stream parameters\n    \nReturns:\n    Stream identifier and metadata"
+    }
+  ],
+  "innovations": []
+}

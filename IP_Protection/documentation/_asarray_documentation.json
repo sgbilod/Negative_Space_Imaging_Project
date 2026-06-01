@@ -1,0 +1,11 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\_asarray.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "require",
+      "docstring": "Return an ndarray of the provided type that satisfies requirements.\n\nThis function is useful to be sure that an array with the correct flags\nis returned for passing to compiled code (perhaps through ctypes).\n\nParameters\n----------\na : array_like\n   The object to be converted to a type-and-requirement-satisfying array.\ndtype : data-type\n   The required data-type. If None preserve the current dtype. If your\n   application requires the data to be in native byteorder, include\n   a byteorder specification as a part of the dtype specification.\nrequirements : str or sequence of str\n   The requirements list can be any of the following\n\n   * 'F_CONTIGUOUS' ('F') - ensure a Fortran-contiguous array\n   * 'C_CONTIGUOUS' ('C') - ensure a C-contiguous array\n   * 'ALIGNED' ('A')      - ensure a data-type aligned array\n   * 'WRITEABLE' ('W')    - ensure a writable array\n   * 'OWNDATA' ('O')      - ensure an array that owns its own data\n   * 'ENSUREARRAY', ('E') - ensure a base array, instead of a subclass\n${ARRAY_FUNCTION_LIKE}\n\n    .. versionadded:: 1.20.0\n\nReturns\n-------\nout : ndarray\n    Array with specified requirements and type if given.\n\nSee Also\n--------\nasarray : Convert input to an ndarray.\nasanyarray : Convert to an ndarray, but pass through ndarray subclasses.\nascontiguousarray : Convert input to a contiguous array.\nasfortranarray : Convert input to an ndarray with column-major\n                 memory order.\nndarray.flags : Information about the memory layout of the array.\n\nNotes\n-----\nThe returned array will be guaranteed to have the listed requirements\nby making a copy if needed.\n\nExamples\n--------\n>>> import numpy as np\n>>> x = np.arange(6).reshape(2,3)\n>>> x.flags\n  C_CONTIGUOUS : True\n  F_CONTIGUOUS : False\n  OWNDATA : False\n  WRITEABLE : True\n  ALIGNED : True\n  WRITEBACKIFCOPY : False\n\n>>> y = np.require(x, dtype=np.float32, requirements=['A', 'O', 'W', 'F'])\n>>> y.flags\n  C_CONTIGUOUS : False\n  F_CONTIGUOUS : True\n  OWNDATA : True\n  WRITEABLE : True\n  ALIGNED : True\n  WRITEBACKIFCOPY : False"
+    }
+  ],
+  "innovations": []
+}

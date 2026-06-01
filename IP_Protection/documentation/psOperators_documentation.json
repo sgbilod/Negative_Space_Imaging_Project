@@ -1,0 +1,511 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\psOperators.py",
+  "classes": [
+    {
+      "name": "ps_object",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ps_operator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ps_procedure",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ps_name",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ps_literal",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ps_array",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ps_font",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ps_file",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ps_dict",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ps_mark",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ps_procmark",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ps_null",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ps_boolean",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ps_string",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ps_integer",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ps_real",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PSOperators",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "ps_def",
+          "docstring": null
+        },
+        {
+          "name": "ps_bind",
+          "docstring": null
+        },
+        {
+          "name": "proc_bind",
+          "docstring": null
+        },
+        {
+          "name": "ps_exch",
+          "docstring": null
+        },
+        {
+          "name": "ps_dup",
+          "docstring": null
+        },
+        {
+          "name": "ps_exec",
+          "docstring": null
+        },
+        {
+          "name": "ps_count",
+          "docstring": null
+        },
+        {
+          "name": "ps_eq",
+          "docstring": null
+        },
+        {
+          "name": "ps_ne",
+          "docstring": null
+        },
+        {
+          "name": "ps_cvx",
+          "docstring": null
+        },
+        {
+          "name": "ps_matrix",
+          "docstring": null
+        },
+        {
+          "name": "ps_string",
+          "docstring": null
+        },
+        {
+          "name": "ps_type",
+          "docstring": null
+        },
+        {
+          "name": "ps_store",
+          "docstring": null
+        },
+        {
+          "name": "ps_where",
+          "docstring": null
+        },
+        {
+          "name": "ps_systemdict",
+          "docstring": null
+        },
+        {
+          "name": "ps_userdict",
+          "docstring": null
+        },
+        {
+          "name": "ps_currentdict",
+          "docstring": null
+        },
+        {
+          "name": "ps_currentfile",
+          "docstring": null
+        },
+        {
+          "name": "ps_eexec",
+          "docstring": null
+        },
+        {
+          "name": "ps_closefile",
+          "docstring": null
+        },
+        {
+          "name": "ps_cleartomark",
+          "docstring": null
+        },
+        {
+          "name": "ps_readstring",
+          "docstring": null
+        },
+        {
+          "name": "ps_known",
+          "docstring": null
+        },
+        {
+          "name": "ps_if",
+          "docstring": null
+        },
+        {
+          "name": "ps_ifelse",
+          "docstring": null
+        },
+        {
+          "name": "ps_readonly",
+          "docstring": null
+        },
+        {
+          "name": "ps_executeonly",
+          "docstring": null
+        },
+        {
+          "name": "ps_noaccess",
+          "docstring": null
+        },
+        {
+          "name": "ps_not",
+          "docstring": null
+        },
+        {
+          "name": "ps_print",
+          "docstring": null
+        },
+        {
+          "name": "ps_anchorsearch",
+          "docstring": null
+        },
+        {
+          "name": "ps_array",
+          "docstring": null
+        },
+        {
+          "name": "ps_astore",
+          "docstring": null
+        },
+        {
+          "name": "ps_load",
+          "docstring": null
+        },
+        {
+          "name": "ps_put",
+          "docstring": null
+        },
+        {
+          "name": "ps_get",
+          "docstring": null
+        },
+        {
+          "name": "ps_getinterval",
+          "docstring": null
+        },
+        {
+          "name": "ps_putinterval",
+          "docstring": null
+        },
+        {
+          "name": "ps_cvn",
+          "docstring": null
+        },
+        {
+          "name": "ps_index",
+          "docstring": null
+        },
+        {
+          "name": "ps_for",
+          "docstring": null
+        },
+        {
+          "name": "ps_forall",
+          "docstring": null
+        },
+        {
+          "name": "ps_definefont",
+          "docstring": null
+        },
+        {
+          "name": "ps_findfont",
+          "docstring": null
+        },
+        {
+          "name": "ps_pop",
+          "docstring": null
+        },
+        {
+          "name": "ps_dict",
+          "docstring": null
+        },
+        {
+          "name": "ps_begin",
+          "docstring": null
+        },
+        {
+          "name": "ps_end",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "ps_def",
+      "docstring": null
+    },
+    {
+      "name": "ps_bind",
+      "docstring": null
+    },
+    {
+      "name": "proc_bind",
+      "docstring": null
+    },
+    {
+      "name": "ps_exch",
+      "docstring": null
+    },
+    {
+      "name": "ps_dup",
+      "docstring": null
+    },
+    {
+      "name": "ps_exec",
+      "docstring": null
+    },
+    {
+      "name": "ps_count",
+      "docstring": null
+    },
+    {
+      "name": "ps_eq",
+      "docstring": null
+    },
+    {
+      "name": "ps_ne",
+      "docstring": null
+    },
+    {
+      "name": "ps_cvx",
+      "docstring": null
+    },
+    {
+      "name": "ps_matrix",
+      "docstring": null
+    },
+    {
+      "name": "ps_string",
+      "docstring": null
+    },
+    {
+      "name": "ps_type",
+      "docstring": null
+    },
+    {
+      "name": "ps_store",
+      "docstring": null
+    },
+    {
+      "name": "ps_where",
+      "docstring": null
+    },
+    {
+      "name": "ps_systemdict",
+      "docstring": null
+    },
+    {
+      "name": "ps_userdict",
+      "docstring": null
+    },
+    {
+      "name": "ps_currentdict",
+      "docstring": null
+    },
+    {
+      "name": "ps_currentfile",
+      "docstring": null
+    },
+    {
+      "name": "ps_eexec",
+      "docstring": null
+    },
+    {
+      "name": "ps_closefile",
+      "docstring": null
+    },
+    {
+      "name": "ps_cleartomark",
+      "docstring": null
+    },
+    {
+      "name": "ps_readstring",
+      "docstring": null
+    },
+    {
+      "name": "ps_known",
+      "docstring": null
+    },
+    {
+      "name": "ps_if",
+      "docstring": null
+    },
+    {
+      "name": "ps_ifelse",
+      "docstring": null
+    },
+    {
+      "name": "ps_readonly",
+      "docstring": null
+    },
+    {
+      "name": "ps_executeonly",
+      "docstring": null
+    },
+    {
+      "name": "ps_noaccess",
+      "docstring": null
+    },
+    {
+      "name": "ps_not",
+      "docstring": null
+    },
+    {
+      "name": "ps_print",
+      "docstring": null
+    },
+    {
+      "name": "ps_anchorsearch",
+      "docstring": null
+    },
+    {
+      "name": "ps_array",
+      "docstring": null
+    },
+    {
+      "name": "ps_astore",
+      "docstring": null
+    },
+    {
+      "name": "ps_load",
+      "docstring": null
+    },
+    {
+      "name": "ps_put",
+      "docstring": null
+    },
+    {
+      "name": "ps_get",
+      "docstring": null
+    },
+    {
+      "name": "ps_getinterval",
+      "docstring": null
+    },
+    {
+      "name": "ps_putinterval",
+      "docstring": null
+    },
+    {
+      "name": "ps_cvn",
+      "docstring": null
+    },
+    {
+      "name": "ps_index",
+      "docstring": null
+    },
+    {
+      "name": "ps_for",
+      "docstring": null
+    },
+    {
+      "name": "ps_forall",
+      "docstring": null
+    },
+    {
+      "name": "ps_definefont",
+      "docstring": null
+    },
+    {
+      "name": "ps_findfont",
+      "docstring": null
+    },
+    {
+      "name": "ps_pop",
+      "docstring": null
+    },
+    {
+      "name": "ps_dict",
+      "docstring": null
+    },
+    {
+      "name": "ps_begin",
+      "docstring": null
+    },
+    {
+      "name": "ps_end",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

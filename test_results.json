@@ -1,0 +1,46 @@
+{
+  "timestamp": 1754694898.985545,
+  "processing_id": "b8c4a1a101b7bf85",
+  "image_hash": "27114a2f45c67891bd8d714a10bc371b96a7ece884ba8b82a65e688442c34576",
+  "image_metadata": {
+    "timestamp": 1754694548.2051392,
+    "image_id": "64737f1cae93b262",
+    "width": 512,
+    "height": 512,
+    "format": "RAW",
+    "bit_depth": 8,
+    "acquisition_params": {
+      "exposure": 100,
+      "gain": 1.0,
+      "binning": 1
+    }
+  },
+  "algorithm": "standard",
+  "negative_space_analysis": {
+    "detected_regions": [
+      {
+        "x": 120,
+        "y": 145,
+        "width": 50,
+        "height": 30,
+        "confidence": 0.92
+      },
+      {
+        "x": 210,
+        "y": 280,
+        "width": 25,
+        "height": 40,
+        "confidence": 0.87
+      },
+      {
+        "x": 315,
+        "y": 210,
+        "width": 35,
+        "height": 22,
+        "confidence": 0.79
+      }
+    ],
+    "algorithm_version": "2.3.0",
+    "processing_time_ms": 238
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\enhanced_realtime_demo.py",
+  "classes": [
+    {
+      "name": "DemoMode",
+      "docstring": "Demo modes for enhanced real-time tracking",
+      "methods": []
+    },
+    {
+      "name": "EnhancedRealTimeDemo",
+      "docstring": "Enhanced real-time negative space analysis demo",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the enhanced real-time demo\n\nArgs:\n    mode: Demo mode (webcam, video file, or synthetic)\n    viz_mode: Visualization mode\n    analysis_mode: Analysis mode for the tracker\n    video_path: Path to video file (for VIDEO_FILE mode)\n    camera_id: Camera ID (for WEBCAM mode)\n    resolution: Camera resolution (for WEBCAM mode)"
+        },
+        {
+          "name": "init_components",
+          "docstring": "Initialize demo components"
+        },
+        {
+          "name": "start",
+          "docstring": "Start the demo"
+        },
+        {
+          "name": "run_loop",
+          "docstring": "Main processing loop"
+        },
+        {
+          "name": "get_frame",
+          "docstring": "Get a frame from the current source\n\nReturns:\n    Frame from current source, or None if no frames are available"
+        },
+        {
+          "name": "cleanup",
+          "docstring": "Clean up resources"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "parse_args",
+      "docstring": "Parse command-line arguments"
+    },
+    {
+      "name": "main",
+      "docstring": "Main function"
+    },
+    {
+      "name": "init_components",
+      "docstring": "Initialize demo components"
+    },
+    {
+      "name": "start",
+      "docstring": "Start the demo"
+    },
+    {
+      "name": "run_loop",
+      "docstring": "Main processing loop"
+    },
+    {
+      "name": "get_frame",
+      "docstring": "Get a frame from the current source\n\nReturns:\n    Frame from current source, or None if no frames are available"
+    },
+    {
+      "name": "cleanup",
+      "docstring": "Clean up resources"
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "\"\"\"\nEnhanced Real-Time Negative Space Analysis Demo\n\nThis script demonstrates the advanced visualization capabilities of the\nreal-time negative space analysis system, including AR overlays,"
+    }
+  ]
+}

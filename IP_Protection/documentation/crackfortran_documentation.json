@@ -1,0 +1,239 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\f2py\\crackfortran.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "reset_global_f2py_vars",
+      "docstring": null
+    },
+    {
+      "name": "outmess",
+      "docstring": null
+    },
+    {
+      "name": "rmbadname1",
+      "docstring": null
+    },
+    {
+      "name": "rmbadname",
+      "docstring": null
+    },
+    {
+      "name": "undo_rmbadname1",
+      "docstring": null
+    },
+    {
+      "name": "undo_rmbadname",
+      "docstring": null
+    },
+    {
+      "name": "openhook",
+      "docstring": "Ensures that filename is opened with correct encoding parameter.\n\nThis function uses charset_normalizer package, when available, for\ndetermining the encoding of the file to be opened. When charset_normalizer\nis not available, the function detects only UTF encodings, otherwise, ASCII\nencoding is used as fallback."
+    },
+    {
+      "name": "is_free_format",
+      "docstring": "Check if file is in free format Fortran."
+    },
+    {
+      "name": "readfortrancode",
+      "docstring": "Read fortran codes from files and\n 1) Get rid of comments, line continuations, and empty lines; lower cases.\n 2) Call dowithline(line) on every line.\n 3) Recursively call itself when statement \"include '<filename>'\" is met."
+    },
+    {
+      "name": "split_by_unquoted",
+      "docstring": "Splits the line into (line[:i], line[i:]),\nwhere i is the index of first occurrence of one of the characters\nnot within quotes, or len(line) if no such index exists"
+    },
+    {
+      "name": "crackline",
+      "docstring": "reset=-1  --- initialize\nreset=0   --- crack the line\nreset=1   --- final check if mismatch of blocks occurred\n\nCracked data is saved in grouplist[0]."
+    },
+    {
+      "name": "markouterparen",
+      "docstring": null
+    },
+    {
+      "name": "markoutercomma",
+      "docstring": null
+    },
+    {
+      "name": "unmarkouterparen",
+      "docstring": null
+    },
+    {
+      "name": "appenddecl",
+      "docstring": null
+    },
+    {
+      "name": "parse_name_for_bind",
+      "docstring": null
+    },
+    {
+      "name": "analyzeline",
+      "docstring": "Reads each line in the input file in sequence and updates global vars.\n\nEffectively reads and collects information from the input file to the\nglobal variable groupcache, a dictionary containing info about each part\nof the fortran module.\n\nAt the end of analyzeline, information is filtered into the correct dict\nkeys, but parameter values and dimensions are not yet interpreted."
+    },
+    {
+      "name": "appendmultiline",
+      "docstring": null
+    },
+    {
+      "name": "cracktypespec0",
+      "docstring": null
+    },
+    {
+      "name": "removespaces",
+      "docstring": null
+    },
+    {
+      "name": "markinnerspaces",
+      "docstring": "The function replace all spaces in the input variable line which are \nsurrounded with quotation marks, with the triplet \"@_@\".\n\nFor instance, for the input \"a 'b c'\" the function returns \"a 'b@_@c'\"\n\nParameters\n----------\nline : str\n\nReturns\n-------\nstr"
+    },
+    {
+      "name": "updatevars",
+      "docstring": "Returns last_name, the variable name without special chars, parenthesis\n    or dimension specifiers.\n\nAlters groupcache to add the name, typespec, attrspec (and possibly value)\nof current variable."
+    },
+    {
+      "name": "cracktypespec",
+      "docstring": null
+    },
+    {
+      "name": "setattrspec",
+      "docstring": null
+    },
+    {
+      "name": "setkindselector",
+      "docstring": null
+    },
+    {
+      "name": "setcharselector",
+      "docstring": null
+    },
+    {
+      "name": "getblockname",
+      "docstring": null
+    },
+    {
+      "name": "setmesstext",
+      "docstring": null
+    },
+    {
+      "name": "get_usedict",
+      "docstring": null
+    },
+    {
+      "name": "get_useparameters",
+      "docstring": null
+    },
+    {
+      "name": "postcrack2",
+      "docstring": null
+    },
+    {
+      "name": "postcrack",
+      "docstring": "TODO:\n      function return values\n      determine expression types if in argument list"
+    },
+    {
+      "name": "sortvarnames",
+      "docstring": null
+    },
+    {
+      "name": "analyzecommon",
+      "docstring": null
+    },
+    {
+      "name": "analyzebody",
+      "docstring": null
+    },
+    {
+      "name": "buildimplicitrules",
+      "docstring": null
+    },
+    {
+      "name": "myeval",
+      "docstring": "Like `eval` but returns only integers and floats "
+    },
+    {
+      "name": "getlincoef",
+      "docstring": "Obtain ``a`` and ``b`` when ``e == \"a*x+b\"``, where ``x`` is a symbol in\nxset.\n\n>>> getlincoef('2*x + 1', {'x'})\n(2, 1, 'x')\n>>> getlincoef('3*x + x*2 + 2 + 1', {'x'})\n(5, 3, 'x')\n>>> getlincoef('0', {'x'})\n(0, 0, None)\n>>> getlincoef('0*x', {'x'})\n(0, 0, 'x')\n>>> getlincoef('x*x', {'x'})\n(None, None, None)\n\nThis can be tricked by sufficiently complex expressions\n\n>>> getlincoef('(x - 0.5)*(x - 1.5)*(x - 1)*x + 2*x + 3', {'x'})\n(2.0, 3.0, 'x')"
+    },
+    {
+      "name": "get_sorted_names",
+      "docstring": null
+    },
+    {
+      "name": "get_parameters",
+      "docstring": null
+    },
+    {
+      "name": "analyzevars",
+      "docstring": "Sets correct dimension information for each variable/parameter"
+    },
+    {
+      "name": "param_eval",
+      "docstring": "Creates a dictionary of indices and values for each parameter in a\nparameter array to be evaluated later.\n\nWARNING: It is not possible to initialize multidimensional array\nparameters e.g. dimension(-3:1, 4, 3:5) at this point. This is because in\nFortran initialization through array constructor requires the RESHAPE\nintrinsic function. Since the right-hand side of the parameter declaration\nis not executed in f2py, but rather at the compiled c/fortran extension,\nlater, it is not possible to execute a reshape of a parameter array.\nOne issue remains: if the user wants to access the array parameter from\npython, we should either\n1) allow them to access the parameter array using python standard indexing\n   (which is often incompatible with the original fortran indexing)\n2) allow the parameter array to be accessed in python as a dictionary with\n   fortran indices as keys\nWe are choosing 2 for now."
+    },
+    {
+      "name": "param_parse",
+      "docstring": "Recursively parse array dimensions.\n\nParses the declaration of an array variable or parameter\n`dimension` keyword, and is called recursively if the\ndimension for this array is a previously defined parameter\n(found in `params`).\n\nParameters\n----------\nd : str\n    Fortran expression describing the dimension of an array.\nparams : dict\n    Previously parsed parameters declared in the Fortran source file.\n\nReturns\n-------\nout : str\n    Parsed dimension expression.\n\nExamples\n--------\n\n* If the line being analyzed is\n\n  `integer, parameter, dimension(2) :: pa = (/ 3, 5 /)`\n\n  then `d = 2` and we return immediately, with\n\n>>> d = '2'\n>>> param_parse(d, params)\n2\n\n* If the line being analyzed is\n\n  `integer, parameter, dimension(pa) :: pb = (/1, 2, 3/)`\n\n  then `d = 'pa'`; since `pa` is a previously parsed parameter,\n  and `pa = 3`, we call `param_parse` recursively, to obtain\n\n>>> d = 'pa'\n>>> params = {'pa': 3}\n>>> param_parse(d, params)\n3\n\n* If the line being analyzed is\n\n  `integer, parameter, dimension(pa(1)) :: pb = (/1, 2, 3/)`\n\n  then `d = 'pa(1)'`; since `pa` is a previously parsed parameter,\n  and `pa(1) = 3`, we call `param_parse` recursively, to obtain\n\n>>> d = 'pa(1)'\n>>> params = dict(pa={1: 3, 2: 5})\n>>> param_parse(d, params)\n3"
+    },
+    {
+      "name": "expr2name",
+      "docstring": null
+    },
+    {
+      "name": "analyzeargs",
+      "docstring": null
+    },
+    {
+      "name": "determineexprtype",
+      "docstring": null
+    },
+    {
+      "name": "crack2fortrangen",
+      "docstring": null
+    },
+    {
+      "name": "common2fortran",
+      "docstring": null
+    },
+    {
+      "name": "use2fortran",
+      "docstring": null
+    },
+    {
+      "name": "true_intent_list",
+      "docstring": null
+    },
+    {
+      "name": "vars2fortran",
+      "docstring": null
+    },
+    {
+      "name": "crackfortran",
+      "docstring": null
+    },
+    {
+      "name": "crack2fortran",
+      "docstring": null
+    },
+    {
+      "name": "traverse",
+      "docstring": "Traverse f2py data structure with the following visit function:\n\ndef visit(item, parents, result, *args, **kwargs):\n    \"\"\"\n\n    parents is a list of key-\"f2py data structure\" pairs from which\n    items are taken from.\n\n    result is a f2py data structure that is filled with the\n    return value of the visit function.\n\n    item is 2-tuple (index, value) if parents[-1][1] is a list\n    item is 2-tuple (key, value) if parents[-1][1] is a dict\n\n    The return value of visit must be None, or of the same kind as\n    item, that is, if parents[-1] is a list, the return value must\n    be 2-tuple (new_index, new_value), or if parents[-1] is a\n    dict, the return value must be 2-tuple (new_key, new_value).\n\n    If new_index or new_value is None, the return value of visit\n    is ignored, that is, it will not be added to the result.\n\n    If the return value is None, the content of obj will be\n    traversed, otherwise not.\n    \"\"\""
+    },
+    {
+      "name": "character_backward_compatibility_hook",
+      "docstring": "Previously, Fortran character was incorrectly treated as\ncharacter*1. This hook fixes the usage of the corresponding\nvariables in `check`, `dimension`, `=`, and `callstatement`\nexpressions.\n\nThe usage of `char*` in `callprotoargument` expression can be left\nunchanged because C `character` is C typedef of `char`, although,\nnew implementations should use `character*` in the corresponding\nexpressions.\n\nSee https://github.com/numpy/numpy/pull/19388 for more information."
+    },
+    {
+      "name": "fix_usage",
+      "docstring": null
+    },
+    {
+      "name": "compute_deps",
+      "docstring": null
+    },
+    {
+      "name": "solve_v",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

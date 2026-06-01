@@ -1,0 +1,335 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_records.py",
+  "classes": [
+    {
+      "name": "TestFromrecords",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_fromrecords",
+          "docstring": null
+        },
+        {
+          "name": "test_fromrecords_0len",
+          "docstring": "Verify fromrecords works with a 0-length input "
+        },
+        {
+          "name": "test_fromrecords_2d",
+          "docstring": null
+        },
+        {
+          "name": "test_method_array",
+          "docstring": null
+        },
+        {
+          "name": "test_method_array2",
+          "docstring": null
+        },
+        {
+          "name": "test_recarray_slices",
+          "docstring": null
+        },
+        {
+          "name": "test_recarray_fromarrays",
+          "docstring": null
+        },
+        {
+          "name": "test_recarray_fromfile",
+          "docstring": null
+        },
+        {
+          "name": "test_recarray_from_obj",
+          "docstring": null
+        },
+        {
+          "name": "test_recarray_repr",
+          "docstring": null
+        },
+        {
+          "name": "test_0d_recarray_repr",
+          "docstring": null
+        },
+        {
+          "name": "test_recarray_from_repr",
+          "docstring": null
+        },
+        {
+          "name": "test_recarray_views",
+          "docstring": null
+        },
+        {
+          "name": "test_recarray_from_names",
+          "docstring": null
+        },
+        {
+          "name": "test_recarray_conflict_fields",
+          "docstring": null
+        },
+        {
+          "name": "test_fromrecords_with_explicit_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_recarray_stringtypes",
+          "docstring": null
+        },
+        {
+          "name": "test_recarray_returntypes",
+          "docstring": null
+        },
+        {
+          "name": "test_zero_width_strings",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPathUsage",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_tofile_fromfile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestRecord",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_assignment1",
+          "docstring": null
+        },
+        {
+          "name": "test_assignment2",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_assignment",
+          "docstring": null
+        },
+        {
+          "name": "test_nonwriteable_setfield",
+          "docstring": null
+        },
+        {
+          "name": "test_out_of_order_fields",
+          "docstring": null
+        },
+        {
+          "name": "test_pickle_1",
+          "docstring": null
+        },
+        {
+          "name": "test_pickle_2",
+          "docstring": null
+        },
+        {
+          "name": "test_pickle_3",
+          "docstring": null
+        },
+        {
+          "name": "test_pickle_void",
+          "docstring": null
+        },
+        {
+          "name": "test_objview_record",
+          "docstring": null
+        },
+        {
+          "name": "test_record_scalar_setitem",
+          "docstring": null
+        },
+        {
+          "name": "test_missing_field",
+          "docstring": null
+        },
+        {
+          "name": "test_fromarrays_nested_structured_arrays",
+          "docstring": null
+        },
+        {
+          "name": "test_assign_dtype_attribute",
+          "docstring": null
+        },
+        {
+          "name": "test_nested_fields_are_records",
+          "docstring": "Test that nested structured types are treated as records too "
+        },
+        {
+          "name": "test_nested_dtype_padding",
+          "docstring": "test that trailing padding is preserved "
+        }
+      ]
+    },
+    {
+      "name": "C",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_find_duplicate",
+      "docstring": null
+    },
+    {
+      "name": "test_fromrecords",
+      "docstring": null
+    },
+    {
+      "name": "test_fromrecords_0len",
+      "docstring": "Verify fromrecords works with a 0-length input "
+    },
+    {
+      "name": "test_fromrecords_2d",
+      "docstring": null
+    },
+    {
+      "name": "test_method_array",
+      "docstring": null
+    },
+    {
+      "name": "test_method_array2",
+      "docstring": null
+    },
+    {
+      "name": "test_recarray_slices",
+      "docstring": null
+    },
+    {
+      "name": "test_recarray_fromarrays",
+      "docstring": null
+    },
+    {
+      "name": "test_recarray_fromfile",
+      "docstring": null
+    },
+    {
+      "name": "test_recarray_from_obj",
+      "docstring": null
+    },
+    {
+      "name": "test_recarray_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_0d_recarray_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_recarray_from_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_recarray_views",
+      "docstring": null
+    },
+    {
+      "name": "test_recarray_from_names",
+      "docstring": null
+    },
+    {
+      "name": "test_recarray_conflict_fields",
+      "docstring": null
+    },
+    {
+      "name": "test_fromrecords_with_explicit_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_recarray_stringtypes",
+      "docstring": null
+    },
+    {
+      "name": "test_recarray_returntypes",
+      "docstring": null
+    },
+    {
+      "name": "test_zero_width_strings",
+      "docstring": null
+    },
+    {
+      "name": "test_tofile_fromfile",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_assignment1",
+      "docstring": null
+    },
+    {
+      "name": "test_assignment2",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_assignment",
+      "docstring": null
+    },
+    {
+      "name": "test_nonwriteable_setfield",
+      "docstring": null
+    },
+    {
+      "name": "test_out_of_order_fields",
+      "docstring": null
+    },
+    {
+      "name": "test_pickle_1",
+      "docstring": null
+    },
+    {
+      "name": "test_pickle_2",
+      "docstring": null
+    },
+    {
+      "name": "test_pickle_3",
+      "docstring": null
+    },
+    {
+      "name": "test_pickle_void",
+      "docstring": null
+    },
+    {
+      "name": "test_objview_record",
+      "docstring": null
+    },
+    {
+      "name": "test_record_scalar_setitem",
+      "docstring": null
+    },
+    {
+      "name": "test_missing_field",
+      "docstring": null
+    },
+    {
+      "name": "test_fromarrays_nested_structured_arrays",
+      "docstring": null
+    },
+    {
+      "name": "test_assign_dtype_attribute",
+      "docstring": null
+    },
+    {
+      "name": "test_nested_fields_are_records",
+      "docstring": "Test that nested structured types are treated as records too "
+    },
+    {
+      "name": "test_nested_dtype_padding",
+      "docstring": "test that trailing padding is preserved "
+    },
+    {
+      "name": "assign_invalid_column",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,246 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\colorbar.py",
+  "classes": [
+    {
+      "name": "_ColorbarSpine",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_window_extent",
+          "docstring": null
+        },
+        {
+          "name": "set_xy",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_ColorbarAxesLocator",
+      "docstring": "Shrink the Axes if there are triangular or rectangular extends.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_subplotspec",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Colorbar",
+      "docstring": "Draw a colorbar in an existing Axes.\n\nTypically, colorbars are created using `.Figure.colorbar` or\n`.pyplot.colorbar` and associated with `.ScalarMappable`\\s (such as an\n`.AxesImage` generated via `~.axes.Axes.imshow`).\n\nIn order to draw a colorbar not associated with other elements in the\nfigure, e.g. when showing a colormap by itself, one can create an empty\n`.ScalarMappable`, or directly pass *cmap* and *norm* instead of *mappable*\nto `Colorbar`.\n\nUseful public methods are :meth:`set_label` and :meth:`add_lines`.\n\nAttributes\n----------\nax : `~matplotlib.axes.Axes`\n    The `~.axes.Axes` instance in which the colorbar is drawn.\nlines : list\n    A list of `.LineCollection` (empty if no lines were drawn).\ndividers : `.LineCollection`\n    A LineCollection (empty if *drawedges* is ``False``).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nax : `~matplotlib.axes.Axes`\n    The `~.axes.Axes` instance in which the colorbar is drawn.\n\nmappable : `.ScalarMappable`\n    The mappable whose colormap and norm will be used.\n\n    To show the colors versus index instead of on a 0-1 scale, set the\n    mappable's norm to ``colors.NoNorm()``.\n\nalpha : float\n    The colorbar transparency between 0 (transparent) and 1 (opaque).\n\nlocation : None or {'left', 'right', 'top', 'bottom'}\n    Set the colorbar's *orientation* and *ticklocation*. Colorbars on\n    the left and right are vertical, colorbars at the top and bottom\n    are horizontal. The *ticklocation* is the same as *location*, so if\n    *location* is 'top', the ticks are on the top. *orientation* and/or\n    *ticklocation* can be provided as well and overrides the value set by\n    *location*, but there will be an error for incompatible combinations.\n\n    .. versionadded:: 3.7\n\n%(_colormap_kw_doc)s\n\nOther Parameters\n----------------\ncmap : `~matplotlib.colors.Colormap`, default: :rc:`image.cmap`\n    The colormap to use.  This parameter is ignored, unless *mappable* is\n    None.\n\nnorm : `~matplotlib.colors.Normalize`\n    The normalization to use.  This parameter is ignored, unless *mappable*\n    is None.\n\norientation : None or {'vertical', 'horizontal'}\n    If None, use the value determined by *location*. If both\n    *orientation* and *location* are None then defaults to 'vertical'.\n\nticklocation : {'auto', 'left', 'right', 'top', 'bottom'}\n    The location of the colorbar ticks. The *ticklocation* must match\n    *orientation*. For example, a horizontal colorbar can only have ticks\n    at the top or the bottom. If 'auto', the ticks will be the same as\n    *location*, so a colorbar to the left will have ticks to the left. If\n    *location* is None, the ticks will be at the bottom for a horizontal\n    colorbar and at the right for a vertical."
+        },
+        {
+          "name": "long_axis",
+          "docstring": "Axis that has decorations (ticks, etc) on it."
+        },
+        {
+          "name": "locator",
+          "docstring": "Major tick `.Locator` for the colorbar."
+        },
+        {
+          "name": "locator",
+          "docstring": null
+        },
+        {
+          "name": "minorlocator",
+          "docstring": "Minor tick `.Locator` for the colorbar."
+        },
+        {
+          "name": "minorlocator",
+          "docstring": null
+        },
+        {
+          "name": "formatter",
+          "docstring": "Major tick label `.Formatter` for the colorbar."
+        },
+        {
+          "name": "formatter",
+          "docstring": null
+        },
+        {
+          "name": "minorformatter",
+          "docstring": "Minor tick `.Formatter` for the colorbar."
+        },
+        {
+          "name": "minorformatter",
+          "docstring": null
+        },
+        {
+          "name": "update_normal",
+          "docstring": "Update solid patches, lines, etc.\n\nThis is meant to be called when the norm of the image or contour plot\nto which this colorbar belongs changes.\n\nIf the norm on the mappable is different than before, this resets the\nlocator and formatter for the axis, so if these have been customized,\nthey will need to be customized again.  However, if the norm only\nchanges values of *vmin*, *vmax* or *cmap* then the old formatter\nand locator will be preserved."
+        },
+        {
+          "name": "add_lines",
+          "docstring": "Draw lines on the colorbar.\n\nThe lines are appended to the list :attr:`lines`.\n\nParameters\n----------\nlevels : array-like\n    The positions of the lines.\ncolors : :mpltype:`color` or list of :mpltype:`color`\n    Either a single color applying to all lines or one color value for\n    each line.\nlinewidths : float or array-like\n    Either a single linewidth applying to all lines or one linewidth\n    for each line.\nerase : bool, default: True\n    Whether to remove any previously added lines.\n\nNotes\n-----\nAlternatively, this method can also be called with the signature\n``colorbar.add_lines(contour_set, erase=True)``, in which case\n*levels*, *colors*, and *linewidths* are taken from *contour_set*."
+        },
+        {
+          "name": "update_ticks",
+          "docstring": "Set up the ticks and ticklabels. This should not be needed by users."
+        },
+        {
+          "name": "set_ticks",
+          "docstring": "Set tick locations.\n\nParameters\n----------\nticks : 1D array-like\n    List of tick locations.\nlabels : list of str, optional\n    List of tick labels. If not set, the labels show the data value.\nminor : bool, default: False\n    If ``False``, set the major ticks; if ``True``, the minor ticks.\n**kwargs\n    `.Text` properties for the labels. These take effect only if you\n    pass *labels*. In other cases, please use `~.Axes.tick_params`."
+        },
+        {
+          "name": "get_ticks",
+          "docstring": "Return the ticks as a list of locations.\n\nParameters\n----------\nminor : boolean, default: False\n    if True return the minor ticks."
+        },
+        {
+          "name": "set_ticklabels",
+          "docstring": "[*Discouraged*] Set tick labels.\n\n.. admonition:: Discouraged\n\n    The use of this method is discouraged, because of the dependency\n    on tick positions. In most cases, you'll want to use\n    ``set_ticks(positions, labels=labels)`` instead.\n\n    If you are using this method, you should always fix the tick\n    positions before, e.g. by using `.Colorbar.set_ticks` or by\n    explicitly setting a `~.ticker.FixedLocator` on the long axis\n    of the colorbar. Otherwise, ticks are free to move and the\n    labels may end up in unexpected positions.\n\nParameters\n----------\nticklabels : sequence of str or of `.Text`\n    Texts for labeling each tick location in the sequence set by\n    `.Colorbar.set_ticks`; the number of labels must match the number\n    of locations.\n\nupdate_ticks : bool, default: True\n    This keyword argument is ignored and will be removed.\n    Deprecated\n\nminor : bool\n    If True, set minor ticks instead of major ticks.\n\n**kwargs\n    `.Text` properties for the labels."
+        },
+        {
+          "name": "minorticks_on",
+          "docstring": "Turn on colorbar minor ticks."
+        },
+        {
+          "name": "minorticks_off",
+          "docstring": "Turn the minor ticks of the colorbar off."
+        },
+        {
+          "name": "set_label",
+          "docstring": "Add a label to the long axis of the colorbar.\n\nParameters\n----------\nlabel : str\n    The label text.\nloc : str, optional\n    The location of the label.\n\n    - For horizontal orientation one of {'left', 'center', 'right'}\n    - For vertical orientation one of {'bottom', 'center', 'top'}\n\n    Defaults to :rc:`xaxis.labellocation` or :rc:`yaxis.labellocation`\n    depending on the orientation.\n**kwargs\n    Keyword arguments are passed to `~.Axes.set_xlabel` /\n    `~.Axes.set_ylabel`.\n    Supported keywords are *labelpad* and `.Text` properties."
+        },
+        {
+          "name": "set_alpha",
+          "docstring": "Set the transparency between 0 (transparent) and 1 (opaque).\n\nIf an array is provided, *alpha* will be set to None to use the\ntransparency values associated with the colormap."
+        },
+        {
+          "name": "remove",
+          "docstring": "Remove this colorbar from the figure.\n\nIf the colorbar was created with ``use_gridspec=True`` the previous\ngridspec is restored."
+        },
+        {
+          "name": "drag_pan",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "make_axes",
+      "docstring": "Create an `~.axes.Axes` suitable for a colorbar.\n\nThe Axes is placed in the figure of the *parents* Axes, by resizing and\nrepositioning *parents*.\n\nParameters\n----------\nparents : `~matplotlib.axes.Axes` or iterable or `numpy.ndarray` of `~.axes.Axes`\n    The Axes to use as parents for placing the colorbar.\n%(_make_axes_kw_doc)s\n\nReturns\n-------\ncax : `~matplotlib.axes.Axes`\n    The child Axes.\nkwargs : dict\n    The reduced keyword dictionary to be passed when creating the colorbar\n    instance."
+    },
+    {
+      "name": "make_axes_gridspec",
+      "docstring": "Create an `~.axes.Axes` suitable for a colorbar.\n\nThe Axes is placed in the figure of the *parent* Axes, by resizing and\nrepositioning *parent*.\n\nThis function is similar to `.make_axes` and mostly compatible with it.\nPrimary differences are\n\n- `.make_axes_gridspec` requires the *parent* to have a subplotspec.\n- `.make_axes` positions the Axes in figure coordinates;\n  `.make_axes_gridspec` positions it using a subplotspec.\n- `.make_axes` updates the position of the parent.  `.make_axes_gridspec`\n  replaces the parent gridspec with a new one.\n\nParameters\n----------\nparent : `~matplotlib.axes.Axes`\n    The Axes to use as parent for placing the colorbar.\n%(_make_axes_kw_doc)s\n\nReturns\n-------\ncax : `~matplotlib.axes.Axes`\n    The child Axes.\nkwargs : dict\n    The reduced keyword dictionary to be passed when creating the colorbar\n    instance."
+    },
+    {
+      "name": "get_window_extent",
+      "docstring": null
+    },
+    {
+      "name": "set_xy",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "get_subplotspec",
+      "docstring": null
+    },
+    {
+      "name": "long_axis",
+      "docstring": "Axis that has decorations (ticks, etc) on it."
+    },
+    {
+      "name": "locator",
+      "docstring": "Major tick `.Locator` for the colorbar."
+    },
+    {
+      "name": "locator",
+      "docstring": null
+    },
+    {
+      "name": "minorlocator",
+      "docstring": "Minor tick `.Locator` for the colorbar."
+    },
+    {
+      "name": "minorlocator",
+      "docstring": null
+    },
+    {
+      "name": "formatter",
+      "docstring": "Major tick label `.Formatter` for the colorbar."
+    },
+    {
+      "name": "formatter",
+      "docstring": null
+    },
+    {
+      "name": "minorformatter",
+      "docstring": "Minor tick `.Formatter` for the colorbar."
+    },
+    {
+      "name": "minorformatter",
+      "docstring": null
+    },
+    {
+      "name": "update_normal",
+      "docstring": "Update solid patches, lines, etc.\n\nThis is meant to be called when the norm of the image or contour plot\nto which this colorbar belongs changes.\n\nIf the norm on the mappable is different than before, this resets the\nlocator and formatter for the axis, so if these have been customized,\nthey will need to be customized again.  However, if the norm only\nchanges values of *vmin*, *vmax* or *cmap* then the old formatter\nand locator will be preserved."
+    },
+    {
+      "name": "add_lines",
+      "docstring": "Draw lines on the colorbar.\n\nThe lines are appended to the list :attr:`lines`.\n\nParameters\n----------\nlevels : array-like\n    The positions of the lines.\ncolors : :mpltype:`color` or list of :mpltype:`color`\n    Either a single color applying to all lines or one color value for\n    each line.\nlinewidths : float or array-like\n    Either a single linewidth applying to all lines or one linewidth\n    for each line.\nerase : bool, default: True\n    Whether to remove any previously added lines.\n\nNotes\n-----\nAlternatively, this method can also be called with the signature\n``colorbar.add_lines(contour_set, erase=True)``, in which case\n*levels*, *colors*, and *linewidths* are taken from *contour_set*."
+    },
+    {
+      "name": "update_ticks",
+      "docstring": "Set up the ticks and ticklabels. This should not be needed by users."
+    },
+    {
+      "name": "set_ticks",
+      "docstring": "Set tick locations.\n\nParameters\n----------\nticks : 1D array-like\n    List of tick locations.\nlabels : list of str, optional\n    List of tick labels. If not set, the labels show the data value.\nminor : bool, default: False\n    If ``False``, set the major ticks; if ``True``, the minor ticks.\n**kwargs\n    `.Text` properties for the labels. These take effect only if you\n    pass *labels*. In other cases, please use `~.Axes.tick_params`."
+    },
+    {
+      "name": "get_ticks",
+      "docstring": "Return the ticks as a list of locations.\n\nParameters\n----------\nminor : boolean, default: False\n    if True return the minor ticks."
+    },
+    {
+      "name": "set_ticklabels",
+      "docstring": "[*Discouraged*] Set tick labels.\n\n.. admonition:: Discouraged\n\n    The use of this method is discouraged, because of the dependency\n    on tick positions. In most cases, you'll want to use\n    ``set_ticks(positions, labels=labels)`` instead.\n\n    If you are using this method, you should always fix the tick\n    positions before, e.g. by using `.Colorbar.set_ticks` or by\n    explicitly setting a `~.ticker.FixedLocator` on the long axis\n    of the colorbar. Otherwise, ticks are free to move and the\n    labels may end up in unexpected positions.\n\nParameters\n----------\nticklabels : sequence of str or of `.Text`\n    Texts for labeling each tick location in the sequence set by\n    `.Colorbar.set_ticks`; the number of labels must match the number\n    of locations.\n\nupdate_ticks : bool, default: True\n    This keyword argument is ignored and will be removed.\n    Deprecated\n\nminor : bool\n    If True, set minor ticks instead of major ticks.\n\n**kwargs\n    `.Text` properties for the labels."
+    },
+    {
+      "name": "minorticks_on",
+      "docstring": "Turn on colorbar minor ticks."
+    },
+    {
+      "name": "minorticks_off",
+      "docstring": "Turn the minor ticks of the colorbar off."
+    },
+    {
+      "name": "set_label",
+      "docstring": "Add a label to the long axis of the colorbar.\n\nParameters\n----------\nlabel : str\n    The label text.\nloc : str, optional\n    The location of the label.\n\n    - For horizontal orientation one of {'left', 'center', 'right'}\n    - For vertical orientation one of {'bottom', 'center', 'top'}\n\n    Defaults to :rc:`xaxis.labellocation` or :rc:`yaxis.labellocation`\n    depending on the orientation.\n**kwargs\n    Keyword arguments are passed to `~.Axes.set_xlabel` /\n    `~.Axes.set_ylabel`.\n    Supported keywords are *labelpad* and `.Text` properties."
+    },
+    {
+      "name": "set_alpha",
+      "docstring": "Set the transparency between 0 (transparent) and 1 (opaque).\n\nIf an array is provided, *alpha* will be set to None to use the\ntransparency values associated with the colormap."
+    },
+    {
+      "name": "remove",
+      "docstring": "Remove this colorbar from the figure.\n\nIf the colorbar was created with ``use_gridspec=True`` the previous\ngridspec is restored."
+    },
+    {
+      "name": "drag_pan",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

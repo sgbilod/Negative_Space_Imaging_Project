@@ -1,0 +1,93 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\C_B_D_T_.py",
+  "classes": [
+    {
+      "name": "table_C_B_D_T_",
+      "docstring": "Color Bitmap Data table\n\nThe ``CBDT`` table contains color bitmap data for glyphs. It must\nbe used in concert with the ``CBLC`` table.\n\nIt is backwards-compatible with the monochrome/grayscale ``EBDT`` table.\n\nSee also https://learn.microsoft.com/en-us/typography/opentype/spec/cbdt",
+      "methods": [
+        {
+          "name": "getImageFormatClass",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ColorBitmapGlyph",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "cbdt_bitmap_format_17",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "cbdt_bitmap_format_18",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "cbdt_bitmap_format_19",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "getImageFormatClass",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,866 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\ma\\tests\\test_extras.py",
+  "classes": [
+    {
+      "name": "TestGeneric",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_masked_all",
+          "docstring": null
+        },
+        {
+          "name": "test_masked_all_with_object_nested",
+          "docstring": null
+        },
+        {
+          "name": "test_masked_all_with_object",
+          "docstring": null
+        },
+        {
+          "name": "test_masked_all_like",
+          "docstring": null
+        },
+        {
+          "name": "check_clump",
+          "docstring": null
+        },
+        {
+          "name": "test_clump_masked",
+          "docstring": null
+        },
+        {
+          "name": "test_clump_unmasked",
+          "docstring": null
+        },
+        {
+          "name": "test_flatnotmasked_contiguous",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAverage",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_testAverage1",
+          "docstring": null
+        },
+        {
+          "name": "test_testAverage2",
+          "docstring": null
+        },
+        {
+          "name": "test_testAverage3",
+          "docstring": null
+        },
+        {
+          "name": "test_testAverage4",
+          "docstring": null
+        },
+        {
+          "name": "test_weight_and_input_dims_different",
+          "docstring": null
+        },
+        {
+          "name": "test_onintegers_with_mask",
+          "docstring": null
+        },
+        {
+          "name": "test_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_basic_keepdims",
+          "docstring": null
+        },
+        {
+          "name": "test_masked_weights",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestConcatenator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_1d",
+          "docstring": null
+        },
+        {
+          "name": "test_2d",
+          "docstring": null
+        },
+        {
+          "name": "test_masked_constant",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNotMasked",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_edges",
+          "docstring": null
+        },
+        {
+          "name": "test_contiguous",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCompressFunctions",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_compress_nd",
+          "docstring": null
+        },
+        {
+          "name": "test_compress_rowcols",
+          "docstring": null
+        },
+        {
+          "name": "test_mask_rowcols",
+          "docstring": null
+        },
+        {
+          "name": "test_mask_row_cols_axis_deprecation",
+          "docstring": null
+        },
+        {
+          "name": "test_dot",
+          "docstring": null
+        },
+        {
+          "name": "test_dot_returns_maskedarray",
+          "docstring": null
+        },
+        {
+          "name": "test_dot_out",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestApplyAlongAxis",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_3d",
+          "docstring": null
+        },
+        {
+          "name": "test_3d_kwargs",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestApplyOverAxes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMedian",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_pytype",
+          "docstring": null
+        },
+        {
+          "name": "test_inf",
+          "docstring": null
+        },
+        {
+          "name": "test_non_masked",
+          "docstring": null
+        },
+        {
+          "name": "test_docstring_examples",
+          "docstring": "test the examples given in the docstring of ma.median"
+        },
+        {
+          "name": "test_axis_argument_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_masked_0d",
+          "docstring": null
+        },
+        {
+          "name": "test_masked_1d",
+          "docstring": null
+        },
+        {
+          "name": "test_1d_shape_consistency",
+          "docstring": null
+        },
+        {
+          "name": "test_2d",
+          "docstring": null
+        },
+        {
+          "name": "test_2d_waxis",
+          "docstring": null
+        },
+        {
+          "name": "test_3d",
+          "docstring": null
+        },
+        {
+          "name": "test_neg_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_out_1d",
+          "docstring": null
+        },
+        {
+          "name": "test_out",
+          "docstring": null
+        },
+        {
+          "name": "test_keepdims_out",
+          "docstring": null
+        },
+        {
+          "name": "test_single_non_masked_value_on_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_nan",
+          "docstring": null
+        },
+        {
+          "name": "test_out_nan",
+          "docstring": null
+        },
+        {
+          "name": "test_nan_behavior",
+          "docstring": null
+        },
+        {
+          "name": "test_ambigous_fill",
+          "docstring": null
+        },
+        {
+          "name": "test_special",
+          "docstring": null
+        },
+        {
+          "name": "test_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_object",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCov",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_covhelper",
+          "docstring": null
+        },
+        {
+          "name": "test_1d_without_missing",
+          "docstring": null
+        },
+        {
+          "name": "test_2d_without_missing",
+          "docstring": null
+        },
+        {
+          "name": "test_1d_with_missing",
+          "docstring": null
+        },
+        {
+          "name": "test_2d_with_missing",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCorrcoef",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_ddof",
+          "docstring": null
+        },
+        {
+          "name": "test_bias",
+          "docstring": null
+        },
+        {
+          "name": "test_1d_without_missing",
+          "docstring": null
+        },
+        {
+          "name": "test_2d_without_missing",
+          "docstring": null
+        },
+        {
+          "name": "test_1d_with_missing",
+          "docstring": null
+        },
+        {
+          "name": "test_2d_with_missing",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPolynomial",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_polyfit",
+          "docstring": null
+        },
+        {
+          "name": "test_polyfit_with_masked_NaNs",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestArraySetOps",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_unique_onlist",
+          "docstring": null
+        },
+        {
+          "name": "test_unique_onmaskedarray",
+          "docstring": null
+        },
+        {
+          "name": "test_unique_allmasked",
+          "docstring": null
+        },
+        {
+          "name": "test_ediff1d",
+          "docstring": null
+        },
+        {
+          "name": "test_ediff1d_tobegin",
+          "docstring": null
+        },
+        {
+          "name": "test_ediff1d_toend",
+          "docstring": null
+        },
+        {
+          "name": "test_ediff1d_tobegin_toend",
+          "docstring": null
+        },
+        {
+          "name": "test_ediff1d_ndarray",
+          "docstring": null
+        },
+        {
+          "name": "test_intersect1d",
+          "docstring": null
+        },
+        {
+          "name": "test_setxor1d",
+          "docstring": null
+        },
+        {
+          "name": "test_setxor1d_unique",
+          "docstring": null
+        },
+        {
+          "name": "test_isin",
+          "docstring": null
+        },
+        {
+          "name": "test_in1d",
+          "docstring": null
+        },
+        {
+          "name": "test_in1d_invert",
+          "docstring": null
+        },
+        {
+          "name": "test_union1d",
+          "docstring": null
+        },
+        {
+          "name": "test_setdiff1d",
+          "docstring": null
+        },
+        {
+          "name": "test_setdiff1d_char_array",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestShapeBase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_atleast_2d",
+          "docstring": null
+        },
+        {
+          "name": "test_shape_scalar",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNDEnumerate",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_ndenumerate_nomasked",
+          "docstring": null
+        },
+        {
+          "name": "test_ndenumerate_allmasked",
+          "docstring": null
+        },
+        {
+          "name": "test_ndenumerate_mixedmasked",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestStack",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_stack_1d",
+          "docstring": null
+        },
+        {
+          "name": "test_stack_masks",
+          "docstring": null
+        },
+        {
+          "name": "test_stack_nd",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_masked_all",
+      "docstring": null
+    },
+    {
+      "name": "test_masked_all_with_object_nested",
+      "docstring": null
+    },
+    {
+      "name": "test_masked_all_with_object",
+      "docstring": null
+    },
+    {
+      "name": "test_masked_all_like",
+      "docstring": null
+    },
+    {
+      "name": "check_clump",
+      "docstring": null
+    },
+    {
+      "name": "test_clump_masked",
+      "docstring": null
+    },
+    {
+      "name": "test_clump_unmasked",
+      "docstring": null
+    },
+    {
+      "name": "test_flatnotmasked_contiguous",
+      "docstring": null
+    },
+    {
+      "name": "test_testAverage1",
+      "docstring": null
+    },
+    {
+      "name": "test_testAverage2",
+      "docstring": null
+    },
+    {
+      "name": "test_testAverage3",
+      "docstring": null
+    },
+    {
+      "name": "test_testAverage4",
+      "docstring": null
+    },
+    {
+      "name": "test_weight_and_input_dims_different",
+      "docstring": null
+    },
+    {
+      "name": "test_onintegers_with_mask",
+      "docstring": null
+    },
+    {
+      "name": "test_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_basic_keepdims",
+      "docstring": null
+    },
+    {
+      "name": "test_masked_weights",
+      "docstring": null
+    },
+    {
+      "name": "test_1d",
+      "docstring": null
+    },
+    {
+      "name": "test_2d",
+      "docstring": null
+    },
+    {
+      "name": "test_masked_constant",
+      "docstring": null
+    },
+    {
+      "name": "test_edges",
+      "docstring": null
+    },
+    {
+      "name": "test_contiguous",
+      "docstring": null
+    },
+    {
+      "name": "test_compress_nd",
+      "docstring": null
+    },
+    {
+      "name": "test_compress_rowcols",
+      "docstring": null
+    },
+    {
+      "name": "test_mask_rowcols",
+      "docstring": null
+    },
+    {
+      "name": "test_mask_row_cols_axis_deprecation",
+      "docstring": null
+    },
+    {
+      "name": "test_dot",
+      "docstring": null
+    },
+    {
+      "name": "test_dot_returns_maskedarray",
+      "docstring": null
+    },
+    {
+      "name": "test_dot_out",
+      "docstring": null
+    },
+    {
+      "name": "test_3d",
+      "docstring": null
+    },
+    {
+      "name": "test_3d_kwargs",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_pytype",
+      "docstring": null
+    },
+    {
+      "name": "test_inf",
+      "docstring": null
+    },
+    {
+      "name": "test_non_masked",
+      "docstring": null
+    },
+    {
+      "name": "test_docstring_examples",
+      "docstring": "test the examples given in the docstring of ma.median"
+    },
+    {
+      "name": "test_axis_argument_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_masked_0d",
+      "docstring": null
+    },
+    {
+      "name": "test_masked_1d",
+      "docstring": null
+    },
+    {
+      "name": "test_1d_shape_consistency",
+      "docstring": null
+    },
+    {
+      "name": "test_2d",
+      "docstring": null
+    },
+    {
+      "name": "test_2d_waxis",
+      "docstring": null
+    },
+    {
+      "name": "test_3d",
+      "docstring": null
+    },
+    {
+      "name": "test_neg_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_out_1d",
+      "docstring": null
+    },
+    {
+      "name": "test_out",
+      "docstring": null
+    },
+    {
+      "name": "test_keepdims_out",
+      "docstring": null
+    },
+    {
+      "name": "test_single_non_masked_value_on_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_out_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_nan_behavior",
+      "docstring": null
+    },
+    {
+      "name": "test_ambigous_fill",
+      "docstring": null
+    },
+    {
+      "name": "test_special",
+      "docstring": null
+    },
+    {
+      "name": "test_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_object",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_covhelper",
+      "docstring": null
+    },
+    {
+      "name": "test_1d_without_missing",
+      "docstring": null
+    },
+    {
+      "name": "test_2d_without_missing",
+      "docstring": null
+    },
+    {
+      "name": "test_1d_with_missing",
+      "docstring": null
+    },
+    {
+      "name": "test_2d_with_missing",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_ddof",
+      "docstring": null
+    },
+    {
+      "name": "test_bias",
+      "docstring": null
+    },
+    {
+      "name": "test_1d_without_missing",
+      "docstring": null
+    },
+    {
+      "name": "test_2d_without_missing",
+      "docstring": null
+    },
+    {
+      "name": "test_1d_with_missing",
+      "docstring": null
+    },
+    {
+      "name": "test_2d_with_missing",
+      "docstring": null
+    },
+    {
+      "name": "test_polyfit",
+      "docstring": null
+    },
+    {
+      "name": "test_polyfit_with_masked_NaNs",
+      "docstring": null
+    },
+    {
+      "name": "test_unique_onlist",
+      "docstring": null
+    },
+    {
+      "name": "test_unique_onmaskedarray",
+      "docstring": null
+    },
+    {
+      "name": "test_unique_allmasked",
+      "docstring": null
+    },
+    {
+      "name": "test_ediff1d",
+      "docstring": null
+    },
+    {
+      "name": "test_ediff1d_tobegin",
+      "docstring": null
+    },
+    {
+      "name": "test_ediff1d_toend",
+      "docstring": null
+    },
+    {
+      "name": "test_ediff1d_tobegin_toend",
+      "docstring": null
+    },
+    {
+      "name": "test_ediff1d_ndarray",
+      "docstring": null
+    },
+    {
+      "name": "test_intersect1d",
+      "docstring": null
+    },
+    {
+      "name": "test_setxor1d",
+      "docstring": null
+    },
+    {
+      "name": "test_setxor1d_unique",
+      "docstring": null
+    },
+    {
+      "name": "test_isin",
+      "docstring": null
+    },
+    {
+      "name": "test_in1d",
+      "docstring": null
+    },
+    {
+      "name": "test_in1d_invert",
+      "docstring": null
+    },
+    {
+      "name": "test_union1d",
+      "docstring": null
+    },
+    {
+      "name": "test_setdiff1d",
+      "docstring": null
+    },
+    {
+      "name": "test_setdiff1d_char_array",
+      "docstring": null
+    },
+    {
+      "name": "test_atleast_2d",
+      "docstring": null
+    },
+    {
+      "name": "test_shape_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_ndenumerate_nomasked",
+      "docstring": null
+    },
+    {
+      "name": "test_ndenumerate_allmasked",
+      "docstring": null
+    },
+    {
+      "name": "test_ndenumerate_mixedmasked",
+      "docstring": null
+    },
+    {
+      "name": "test_stack_1d",
+      "docstring": null
+    },
+    {
+      "name": "test_stack_masks",
+      "docstring": null
+    },
+    {
+      "name": "test_stack_nd",
+      "docstring": null
+    },
+    {
+      "name": "myfunc",
+      "docstring": null
+    },
+    {
+      "name": "myfunc",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

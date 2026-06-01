@@ -1,0 +1,30 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\pens\\reverseContourPen.py",
+  "classes": [
+    {
+      "name": "ReverseContourPen",
+      "docstring": "Filter pen that passes outline data to another pen, but reversing\nthe winding direction of all contours. Components are simply passed\nthrough unchanged.\n\nClosed contours are reversed in such a way that the first point remains\nthe first point.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "filterContour",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "reversedContour",
+      "docstring": "Generator that takes a list of pen's (operator, operands) tuples,\nand yields them with the winding direction reversed."
+    },
+    {
+      "name": "filterContour",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,1323 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\psCharStrings.py",
+  "classes": [
+    {
+      "name": "CharStringCompileError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "SimpleT2Decompiler",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "reset",
+          "docstring": null
+        },
+        {
+          "name": "execute",
+          "docstring": null
+        },
+        {
+          "name": "pop",
+          "docstring": null
+        },
+        {
+          "name": "popall",
+          "docstring": null
+        },
+        {
+          "name": "push",
+          "docstring": null
+        },
+        {
+          "name": "op_return",
+          "docstring": null
+        },
+        {
+          "name": "op_endchar",
+          "docstring": null
+        },
+        {
+          "name": "op_ignore",
+          "docstring": null
+        },
+        {
+          "name": "op_callsubr",
+          "docstring": null
+        },
+        {
+          "name": "op_callgsubr",
+          "docstring": null
+        },
+        {
+          "name": "op_hstem",
+          "docstring": null
+        },
+        {
+          "name": "op_vstem",
+          "docstring": null
+        },
+        {
+          "name": "op_hstemhm",
+          "docstring": null
+        },
+        {
+          "name": "op_vstemhm",
+          "docstring": null
+        },
+        {
+          "name": "op_hintmask",
+          "docstring": null
+        },
+        {
+          "name": "countHints",
+          "docstring": null
+        },
+        {
+          "name": "op_and",
+          "docstring": null
+        },
+        {
+          "name": "op_or",
+          "docstring": null
+        },
+        {
+          "name": "op_not",
+          "docstring": null
+        },
+        {
+          "name": "op_store",
+          "docstring": null
+        },
+        {
+          "name": "op_abs",
+          "docstring": null
+        },
+        {
+          "name": "op_add",
+          "docstring": null
+        },
+        {
+          "name": "op_sub",
+          "docstring": null
+        },
+        {
+          "name": "op_div",
+          "docstring": null
+        },
+        {
+          "name": "op_load",
+          "docstring": null
+        },
+        {
+          "name": "op_neg",
+          "docstring": null
+        },
+        {
+          "name": "op_eq",
+          "docstring": null
+        },
+        {
+          "name": "op_drop",
+          "docstring": null
+        },
+        {
+          "name": "op_put",
+          "docstring": null
+        },
+        {
+          "name": "op_get",
+          "docstring": null
+        },
+        {
+          "name": "op_ifelse",
+          "docstring": null
+        },
+        {
+          "name": "op_random",
+          "docstring": null
+        },
+        {
+          "name": "op_mul",
+          "docstring": null
+        },
+        {
+          "name": "op_sqrt",
+          "docstring": null
+        },
+        {
+          "name": "op_dup",
+          "docstring": null
+        },
+        {
+          "name": "op_exch",
+          "docstring": null
+        },
+        {
+          "name": "op_index",
+          "docstring": null
+        },
+        {
+          "name": "op_roll",
+          "docstring": null
+        },
+        {
+          "name": "op_blend",
+          "docstring": null
+        },
+        {
+          "name": "op_vsindex",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "T2WidthExtractor",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "reset",
+          "docstring": null
+        },
+        {
+          "name": "popallWidth",
+          "docstring": null
+        },
+        {
+          "name": "countHints",
+          "docstring": null
+        },
+        {
+          "name": "op_rmoveto",
+          "docstring": null
+        },
+        {
+          "name": "op_hmoveto",
+          "docstring": null
+        },
+        {
+          "name": "op_vmoveto",
+          "docstring": null
+        },
+        {
+          "name": "op_endchar",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "T2OutlineExtractor",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "reset",
+          "docstring": null
+        },
+        {
+          "name": "execute",
+          "docstring": null
+        },
+        {
+          "name": "rMoveTo",
+          "docstring": null
+        },
+        {
+          "name": "rLineTo",
+          "docstring": null
+        },
+        {
+          "name": "rCurveTo",
+          "docstring": null
+        },
+        {
+          "name": "closePath",
+          "docstring": null
+        },
+        {
+          "name": "endPath",
+          "docstring": null
+        },
+        {
+          "name": "op_rmoveto",
+          "docstring": null
+        },
+        {
+          "name": "op_hmoveto",
+          "docstring": null
+        },
+        {
+          "name": "op_vmoveto",
+          "docstring": null
+        },
+        {
+          "name": "op_endchar",
+          "docstring": null
+        },
+        {
+          "name": "op_rlineto",
+          "docstring": null
+        },
+        {
+          "name": "op_hlineto",
+          "docstring": null
+        },
+        {
+          "name": "op_vlineto",
+          "docstring": null
+        },
+        {
+          "name": "op_rrcurveto",
+          "docstring": "{dxa dya dxb dyb dxc dyc}+ rrcurveto"
+        },
+        {
+          "name": "op_rcurveline",
+          "docstring": "{dxa dya dxb dyb dxc dyc}+ dxd dyd rcurveline"
+        },
+        {
+          "name": "op_rlinecurve",
+          "docstring": "{dxa dya}+ dxb dyb dxc dyc dxd dyd rlinecurve"
+        },
+        {
+          "name": "op_vvcurveto",
+          "docstring": "dx1? {dya dxb dyb dyc}+ vvcurveto"
+        },
+        {
+          "name": "op_hhcurveto",
+          "docstring": "dy1? {dxa dxb dyb dxc}+ hhcurveto"
+        },
+        {
+          "name": "op_vhcurveto",
+          "docstring": "dy1 dx2 dy2 dx3 {dxa dxb dyb dyc dyd dxe dye dxf}* dyf? vhcurveto (30)\n{dya dxb dyb dxc dxd dxe dye dyf}+ dxf? vhcurveto"
+        },
+        {
+          "name": "op_hvcurveto",
+          "docstring": "dx1 dx2 dy2 dy3 {dya dxb dyb dxc dxd dxe dye dyf}* dxf?\n{dxa dxb dyb dyc dyd dxe dye dxf}+ dyf?"
+        },
+        {
+          "name": "op_hflex",
+          "docstring": null
+        },
+        {
+          "name": "op_flex",
+          "docstring": null
+        },
+        {
+          "name": "op_hflex1",
+          "docstring": null
+        },
+        {
+          "name": "op_flex1",
+          "docstring": null
+        },
+        {
+          "name": "op_and",
+          "docstring": null
+        },
+        {
+          "name": "op_or",
+          "docstring": null
+        },
+        {
+          "name": "op_not",
+          "docstring": null
+        },
+        {
+          "name": "op_store",
+          "docstring": null
+        },
+        {
+          "name": "op_abs",
+          "docstring": null
+        },
+        {
+          "name": "op_add",
+          "docstring": null
+        },
+        {
+          "name": "op_sub",
+          "docstring": null
+        },
+        {
+          "name": "op_div",
+          "docstring": null
+        },
+        {
+          "name": "op_load",
+          "docstring": null
+        },
+        {
+          "name": "op_neg",
+          "docstring": null
+        },
+        {
+          "name": "op_eq",
+          "docstring": null
+        },
+        {
+          "name": "op_drop",
+          "docstring": null
+        },
+        {
+          "name": "op_put",
+          "docstring": null
+        },
+        {
+          "name": "op_get",
+          "docstring": null
+        },
+        {
+          "name": "op_ifelse",
+          "docstring": null
+        },
+        {
+          "name": "op_random",
+          "docstring": null
+        },
+        {
+          "name": "op_mul",
+          "docstring": null
+        },
+        {
+          "name": "op_sqrt",
+          "docstring": null
+        },
+        {
+          "name": "op_dup",
+          "docstring": null
+        },
+        {
+          "name": "op_exch",
+          "docstring": null
+        },
+        {
+          "name": "op_index",
+          "docstring": null
+        },
+        {
+          "name": "op_roll",
+          "docstring": null
+        },
+        {
+          "name": "alternatingLineto",
+          "docstring": null
+        },
+        {
+          "name": "vcurveto",
+          "docstring": null
+        },
+        {
+          "name": "hcurveto",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "T1OutlineExtractor",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "reset",
+          "docstring": null
+        },
+        {
+          "name": "endPath",
+          "docstring": null
+        },
+        {
+          "name": "popallWidth",
+          "docstring": null
+        },
+        {
+          "name": "exch",
+          "docstring": null
+        },
+        {
+          "name": "op_rmoveto",
+          "docstring": null
+        },
+        {
+          "name": "op_hmoveto",
+          "docstring": null
+        },
+        {
+          "name": "op_vmoveto",
+          "docstring": null
+        },
+        {
+          "name": "op_closepath",
+          "docstring": null
+        },
+        {
+          "name": "op_setcurrentpoint",
+          "docstring": null
+        },
+        {
+          "name": "op_endchar",
+          "docstring": null
+        },
+        {
+          "name": "op_hsbw",
+          "docstring": null
+        },
+        {
+          "name": "op_sbw",
+          "docstring": null
+        },
+        {
+          "name": "op_callsubr",
+          "docstring": null
+        },
+        {
+          "name": "op_callothersubr",
+          "docstring": null
+        },
+        {
+          "name": "op_pop",
+          "docstring": null
+        },
+        {
+          "name": "doFlex",
+          "docstring": null
+        },
+        {
+          "name": "op_dotsection",
+          "docstring": null
+        },
+        {
+          "name": "op_hstem3",
+          "docstring": null
+        },
+        {
+          "name": "op_seac",
+          "docstring": "asb adx ady bchar achar seac"
+        },
+        {
+          "name": "op_vstem3",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "T2CharString",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "getNumRegions",
+          "docstring": null
+        },
+        {
+          "name": "getIntEncoder",
+          "docstring": null
+        },
+        {
+          "name": "getFixedEncoder",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        },
+        {
+          "name": "calcBounds",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "needsDecompilation",
+          "docstring": null
+        },
+        {
+          "name": "setProgram",
+          "docstring": null
+        },
+        {
+          "name": "setBytecode",
+          "docstring": null
+        },
+        {
+          "name": "getToken",
+          "docstring": null
+        },
+        {
+          "name": "getBytes",
+          "docstring": null
+        },
+        {
+          "name": "handle_operator",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "T1CharString",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "getIntEncoder",
+          "docstring": null
+        },
+        {
+          "name": "getFixedEncoder",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DictDecompiler",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "getDict",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "pop",
+          "docstring": null
+        },
+        {
+          "name": "popall",
+          "docstring": null
+        },
+        {
+          "name": "handle_operator",
+          "docstring": null
+        },
+        {
+          "name": "arg_number",
+          "docstring": null
+        },
+        {
+          "name": "arg_blend_number",
+          "docstring": null
+        },
+        {
+          "name": "arg_SID",
+          "docstring": null
+        },
+        {
+          "name": "arg_array",
+          "docstring": null
+        },
+        {
+          "name": "arg_blendList",
+          "docstring": "There may be non-blend args at the top of the stack. We first calculate\nwhere the blend args start in the stack. These are the last\nnumMasters*numBlends) +1 args.\nThe blend args starts with numMasters relative coordinate values, the  BlueValues in the list from the default master font. This is followed by\nnumBlends list of values. Each of  value in one of these lists is the\nVariable Font delta for the matching region.\n\nWe re-arrange this to be a list of numMaster entries. Each entry starts with the corresponding default font relative value, and is followed by\nthe delta values. We then convert the default values, the first item in each entry, to an absolute value."
+        },
+        {
+          "name": "arg_delta",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "read_operator",
+      "docstring": null
+    },
+    {
+      "name": "read_byte",
+      "docstring": null
+    },
+    {
+      "name": "read_smallInt1",
+      "docstring": null
+    },
+    {
+      "name": "read_smallInt2",
+      "docstring": null
+    },
+    {
+      "name": "read_shortInt",
+      "docstring": null
+    },
+    {
+      "name": "read_longInt",
+      "docstring": null
+    },
+    {
+      "name": "read_fixed1616",
+      "docstring": null
+    },
+    {
+      "name": "read_reserved",
+      "docstring": null
+    },
+    {
+      "name": "read_realNumber",
+      "docstring": null
+    },
+    {
+      "name": "buildOperatorDict",
+      "docstring": null
+    },
+    {
+      "name": "getIntEncoder",
+      "docstring": null
+    },
+    {
+      "name": "encodeFixed",
+      "docstring": "For T2 only"
+    },
+    {
+      "name": "encodeFloat",
+      "docstring": null
+    },
+    {
+      "name": "calcSubrBias",
+      "docstring": null
+    },
+    {
+      "name": "encodeInt",
+      "docstring": null
+    },
+    {
+      "name": "reset",
+      "docstring": null
+    },
+    {
+      "name": "execute",
+      "docstring": null
+    },
+    {
+      "name": "pop",
+      "docstring": null
+    },
+    {
+      "name": "popall",
+      "docstring": null
+    },
+    {
+      "name": "push",
+      "docstring": null
+    },
+    {
+      "name": "op_return",
+      "docstring": null
+    },
+    {
+      "name": "op_endchar",
+      "docstring": null
+    },
+    {
+      "name": "op_ignore",
+      "docstring": null
+    },
+    {
+      "name": "op_callsubr",
+      "docstring": null
+    },
+    {
+      "name": "op_callgsubr",
+      "docstring": null
+    },
+    {
+      "name": "op_hstem",
+      "docstring": null
+    },
+    {
+      "name": "op_vstem",
+      "docstring": null
+    },
+    {
+      "name": "op_hstemhm",
+      "docstring": null
+    },
+    {
+      "name": "op_vstemhm",
+      "docstring": null
+    },
+    {
+      "name": "op_hintmask",
+      "docstring": null
+    },
+    {
+      "name": "countHints",
+      "docstring": null
+    },
+    {
+      "name": "op_and",
+      "docstring": null
+    },
+    {
+      "name": "op_or",
+      "docstring": null
+    },
+    {
+      "name": "op_not",
+      "docstring": null
+    },
+    {
+      "name": "op_store",
+      "docstring": null
+    },
+    {
+      "name": "op_abs",
+      "docstring": null
+    },
+    {
+      "name": "op_add",
+      "docstring": null
+    },
+    {
+      "name": "op_sub",
+      "docstring": null
+    },
+    {
+      "name": "op_div",
+      "docstring": null
+    },
+    {
+      "name": "op_load",
+      "docstring": null
+    },
+    {
+      "name": "op_neg",
+      "docstring": null
+    },
+    {
+      "name": "op_eq",
+      "docstring": null
+    },
+    {
+      "name": "op_drop",
+      "docstring": null
+    },
+    {
+      "name": "op_put",
+      "docstring": null
+    },
+    {
+      "name": "op_get",
+      "docstring": null
+    },
+    {
+      "name": "op_ifelse",
+      "docstring": null
+    },
+    {
+      "name": "op_random",
+      "docstring": null
+    },
+    {
+      "name": "op_mul",
+      "docstring": null
+    },
+    {
+      "name": "op_sqrt",
+      "docstring": null
+    },
+    {
+      "name": "op_dup",
+      "docstring": null
+    },
+    {
+      "name": "op_exch",
+      "docstring": null
+    },
+    {
+      "name": "op_index",
+      "docstring": null
+    },
+    {
+      "name": "op_roll",
+      "docstring": null
+    },
+    {
+      "name": "op_blend",
+      "docstring": null
+    },
+    {
+      "name": "op_vsindex",
+      "docstring": null
+    },
+    {
+      "name": "reset",
+      "docstring": null
+    },
+    {
+      "name": "popallWidth",
+      "docstring": null
+    },
+    {
+      "name": "countHints",
+      "docstring": null
+    },
+    {
+      "name": "op_rmoveto",
+      "docstring": null
+    },
+    {
+      "name": "op_hmoveto",
+      "docstring": null
+    },
+    {
+      "name": "op_vmoveto",
+      "docstring": null
+    },
+    {
+      "name": "op_endchar",
+      "docstring": null
+    },
+    {
+      "name": "reset",
+      "docstring": null
+    },
+    {
+      "name": "execute",
+      "docstring": null
+    },
+    {
+      "name": "rMoveTo",
+      "docstring": null
+    },
+    {
+      "name": "rLineTo",
+      "docstring": null
+    },
+    {
+      "name": "rCurveTo",
+      "docstring": null
+    },
+    {
+      "name": "closePath",
+      "docstring": null
+    },
+    {
+      "name": "endPath",
+      "docstring": null
+    },
+    {
+      "name": "op_rmoveto",
+      "docstring": null
+    },
+    {
+      "name": "op_hmoveto",
+      "docstring": null
+    },
+    {
+      "name": "op_vmoveto",
+      "docstring": null
+    },
+    {
+      "name": "op_endchar",
+      "docstring": null
+    },
+    {
+      "name": "op_rlineto",
+      "docstring": null
+    },
+    {
+      "name": "op_hlineto",
+      "docstring": null
+    },
+    {
+      "name": "op_vlineto",
+      "docstring": null
+    },
+    {
+      "name": "op_rrcurveto",
+      "docstring": "{dxa dya dxb dyb dxc dyc}+ rrcurveto"
+    },
+    {
+      "name": "op_rcurveline",
+      "docstring": "{dxa dya dxb dyb dxc dyc}+ dxd dyd rcurveline"
+    },
+    {
+      "name": "op_rlinecurve",
+      "docstring": "{dxa dya}+ dxb dyb dxc dyc dxd dyd rlinecurve"
+    },
+    {
+      "name": "op_vvcurveto",
+      "docstring": "dx1? {dya dxb dyb dyc}+ vvcurveto"
+    },
+    {
+      "name": "op_hhcurveto",
+      "docstring": "dy1? {dxa dxb dyb dxc}+ hhcurveto"
+    },
+    {
+      "name": "op_vhcurveto",
+      "docstring": "dy1 dx2 dy2 dx3 {dxa dxb dyb dyc dyd dxe dye dxf}* dyf? vhcurveto (30)\n{dya dxb dyb dxc dxd dxe dye dyf}+ dxf? vhcurveto"
+    },
+    {
+      "name": "op_hvcurveto",
+      "docstring": "dx1 dx2 dy2 dy3 {dya dxb dyb dxc dxd dxe dye dyf}* dxf?\n{dxa dxb dyb dyc dyd dxe dye dxf}+ dyf?"
+    },
+    {
+      "name": "op_hflex",
+      "docstring": null
+    },
+    {
+      "name": "op_flex",
+      "docstring": null
+    },
+    {
+      "name": "op_hflex1",
+      "docstring": null
+    },
+    {
+      "name": "op_flex1",
+      "docstring": null
+    },
+    {
+      "name": "op_and",
+      "docstring": null
+    },
+    {
+      "name": "op_or",
+      "docstring": null
+    },
+    {
+      "name": "op_not",
+      "docstring": null
+    },
+    {
+      "name": "op_store",
+      "docstring": null
+    },
+    {
+      "name": "op_abs",
+      "docstring": null
+    },
+    {
+      "name": "op_add",
+      "docstring": null
+    },
+    {
+      "name": "op_sub",
+      "docstring": null
+    },
+    {
+      "name": "op_div",
+      "docstring": null
+    },
+    {
+      "name": "op_load",
+      "docstring": null
+    },
+    {
+      "name": "op_neg",
+      "docstring": null
+    },
+    {
+      "name": "op_eq",
+      "docstring": null
+    },
+    {
+      "name": "op_drop",
+      "docstring": null
+    },
+    {
+      "name": "op_put",
+      "docstring": null
+    },
+    {
+      "name": "op_get",
+      "docstring": null
+    },
+    {
+      "name": "op_ifelse",
+      "docstring": null
+    },
+    {
+      "name": "op_random",
+      "docstring": null
+    },
+    {
+      "name": "op_mul",
+      "docstring": null
+    },
+    {
+      "name": "op_sqrt",
+      "docstring": null
+    },
+    {
+      "name": "op_dup",
+      "docstring": null
+    },
+    {
+      "name": "op_exch",
+      "docstring": null
+    },
+    {
+      "name": "op_index",
+      "docstring": null
+    },
+    {
+      "name": "op_roll",
+      "docstring": null
+    },
+    {
+      "name": "alternatingLineto",
+      "docstring": null
+    },
+    {
+      "name": "vcurveto",
+      "docstring": null
+    },
+    {
+      "name": "hcurveto",
+      "docstring": null
+    },
+    {
+      "name": "reset",
+      "docstring": null
+    },
+    {
+      "name": "endPath",
+      "docstring": null
+    },
+    {
+      "name": "popallWidth",
+      "docstring": null
+    },
+    {
+      "name": "exch",
+      "docstring": null
+    },
+    {
+      "name": "op_rmoveto",
+      "docstring": null
+    },
+    {
+      "name": "op_hmoveto",
+      "docstring": null
+    },
+    {
+      "name": "op_vmoveto",
+      "docstring": null
+    },
+    {
+      "name": "op_closepath",
+      "docstring": null
+    },
+    {
+      "name": "op_setcurrentpoint",
+      "docstring": null
+    },
+    {
+      "name": "op_endchar",
+      "docstring": null
+    },
+    {
+      "name": "op_hsbw",
+      "docstring": null
+    },
+    {
+      "name": "op_sbw",
+      "docstring": null
+    },
+    {
+      "name": "op_callsubr",
+      "docstring": null
+    },
+    {
+      "name": "op_callothersubr",
+      "docstring": null
+    },
+    {
+      "name": "op_pop",
+      "docstring": null
+    },
+    {
+      "name": "doFlex",
+      "docstring": null
+    },
+    {
+      "name": "op_dotsection",
+      "docstring": null
+    },
+    {
+      "name": "op_hstem3",
+      "docstring": null
+    },
+    {
+      "name": "op_seac",
+      "docstring": "asb adx ady bchar achar seac"
+    },
+    {
+      "name": "op_vstem3",
+      "docstring": null
+    },
+    {
+      "name": "getNumRegions",
+      "docstring": null
+    },
+    {
+      "name": "getIntEncoder",
+      "docstring": null
+    },
+    {
+      "name": "getFixedEncoder",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "calcBounds",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "needsDecompilation",
+      "docstring": null
+    },
+    {
+      "name": "setProgram",
+      "docstring": null
+    },
+    {
+      "name": "setBytecode",
+      "docstring": null
+    },
+    {
+      "name": "getToken",
+      "docstring": null
+    },
+    {
+      "name": "getBytes",
+      "docstring": null
+    },
+    {
+      "name": "handle_operator",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "getIntEncoder",
+      "docstring": null
+    },
+    {
+      "name": "getFixedEncoder",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "getDict",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "pop",
+      "docstring": null
+    },
+    {
+      "name": "popall",
+      "docstring": null
+    },
+    {
+      "name": "handle_operator",
+      "docstring": null
+    },
+    {
+      "name": "arg_number",
+      "docstring": null
+    },
+    {
+      "name": "arg_blend_number",
+      "docstring": null
+    },
+    {
+      "name": "arg_SID",
+      "docstring": null
+    },
+    {
+      "name": "arg_array",
+      "docstring": null
+    },
+    {
+      "name": "arg_blendList",
+      "docstring": "There may be non-blend args at the top of the stack. We first calculate\nwhere the blend args start in the stack. These are the last\nnumMasters*numBlends) +1 args.\nThe blend args starts with numMasters relative coordinate values, the  BlueValues in the list from the default master font. This is followed by\nnumBlends list of values. Each of  value in one of these lists is the\nVariable Font delta for the matching region.\n\nWe re-arrange this to be a list of numMaster entries. Each entry starts with the corresponding default font relative value, and is followed by\nthe delta values. We then convert the default values, the first item in each entry, to an absolute value."
+    },
+    {
+      "name": "arg_delta",
+      "docstring": null
+    },
+    {
+      "name": "encodeFixed",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

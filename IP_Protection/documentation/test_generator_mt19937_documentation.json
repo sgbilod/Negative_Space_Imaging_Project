@@ -1,0 +1,1798 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\random\\tests\\test_generator_mt19937.py",
+  "classes": [
+    {
+      "name": "TestSeed",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_array",
+          "docstring": null
+        },
+        {
+          "name": "test_seedsequence",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_array",
+          "docstring": null
+        },
+        {
+          "name": "test_noninstantized_bitgen",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestBinomial",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_n_zero",
+          "docstring": null
+        },
+        {
+          "name": "test_p_is_nan",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMultinomial",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_zero_probability",
+          "docstring": null
+        },
+        {
+          "name": "test_int_negative_interval",
+          "docstring": null
+        },
+        {
+          "name": "test_size",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_prob",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_n",
+          "docstring": null
+        },
+        {
+          "name": "test_p_non_contiguous",
+          "docstring": null
+        },
+        {
+          "name": "test_multinomial_pvals_float32",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMultivariateHypergeometric",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_argument_validation",
+          "docstring": null
+        },
+        {
+          "name": "test_edge_cases",
+          "docstring": null
+        },
+        {
+          "name": "test_typical_cases",
+          "docstring": null
+        },
+        {
+          "name": "test_repeatability1",
+          "docstring": null
+        },
+        {
+          "name": "test_repeatability2",
+          "docstring": null
+        },
+        {
+          "name": "test_repeatability3",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSetState",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_gaussian_reset",
+          "docstring": null
+        },
+        {
+          "name": "test_gaussian_reset_in_media_res",
+          "docstring": null
+        },
+        {
+          "name": "test_negative_binomial",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIntegers",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_unsupported_type",
+          "docstring": null
+        },
+        {
+          "name": "test_bounds_checking",
+          "docstring": null
+        },
+        {
+          "name": "test_bounds_checking_array",
+          "docstring": null
+        },
+        {
+          "name": "test_rng_zero_and_extremes",
+          "docstring": null
+        },
+        {
+          "name": "test_rng_zero_and_extremes_array",
+          "docstring": null
+        },
+        {
+          "name": "test_full_range",
+          "docstring": null
+        },
+        {
+          "name": "test_full_range_array",
+          "docstring": null
+        },
+        {
+          "name": "test_in_bounds_fuzz",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar_array_equiv",
+          "docstring": null
+        },
+        {
+          "name": "test_repeatability",
+          "docstring": null
+        },
+        {
+          "name": "test_repeatability_broadcasting",
+          "docstring": null
+        },
+        {
+          "name": "test_repeatability_32bit_boundary",
+          "docstring": null
+        },
+        {
+          "name": "test_repeatability_32bit_boundary_broadcasting",
+          "docstring": null
+        },
+        {
+          "name": "test_int64_uint64_broadcast_exceptions",
+          "docstring": null
+        },
+        {
+          "name": "test_int64_uint64_corner_case",
+          "docstring": null
+        },
+        {
+          "name": "test_respect_dtype_singleton",
+          "docstring": null
+        },
+        {
+          "name": "test_respect_dtype_array",
+          "docstring": null
+        },
+        {
+          "name": "test_zero_size",
+          "docstring": null
+        },
+        {
+          "name": "test_error_byteorder",
+          "docstring": null
+        },
+        {
+          "name": "test_integers_small_dtype_chisquared",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestRandomDist",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_integers",
+          "docstring": null
+        },
+        {
+          "name": "test_integers_masked",
+          "docstring": null
+        },
+        {
+          "name": "test_integers_closed",
+          "docstring": null
+        },
+        {
+          "name": "test_integers_max_int",
+          "docstring": null
+        },
+        {
+          "name": "test_random",
+          "docstring": null
+        },
+        {
+          "name": "test_random_float",
+          "docstring": null
+        },
+        {
+          "name": "test_random_float_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_random_distribution_of_lsb",
+          "docstring": null
+        },
+        {
+          "name": "test_random_unsupported_type",
+          "docstring": null
+        },
+        {
+          "name": "test_choice_uniform_replace",
+          "docstring": null
+        },
+        {
+          "name": "test_choice_nonuniform_replace",
+          "docstring": null
+        },
+        {
+          "name": "test_choice_uniform_noreplace",
+          "docstring": null
+        },
+        {
+          "name": "test_choice_nonuniform_noreplace",
+          "docstring": null
+        },
+        {
+          "name": "test_choice_noninteger",
+          "docstring": null
+        },
+        {
+          "name": "test_choice_multidimensional_default_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_choice_multidimensional_custom_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_choice_exceptions",
+          "docstring": null
+        },
+        {
+          "name": "test_choice_return_shape",
+          "docstring": null
+        },
+        {
+          "name": "test_choice_nan_probabilities",
+          "docstring": null
+        },
+        {
+          "name": "test_choice_p_non_contiguous",
+          "docstring": null
+        },
+        {
+          "name": "test_choice_return_type",
+          "docstring": null
+        },
+        {
+          "name": "test_choice_large_sample",
+          "docstring": null
+        },
+        {
+          "name": "test_choice_array_size_empty_tuple",
+          "docstring": null
+        },
+        {
+          "name": "test_bytes",
+          "docstring": null
+        },
+        {
+          "name": "test_shuffle",
+          "docstring": null
+        },
+        {
+          "name": "test_shuffle_custom_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_shuffle_custom_axis_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_shuffle_axis_nonsquare",
+          "docstring": null
+        },
+        {
+          "name": "test_shuffle_masked",
+          "docstring": null
+        },
+        {
+          "name": "test_shuffle_exceptions",
+          "docstring": null
+        },
+        {
+          "name": "test_shuffle_not_writeable",
+          "docstring": null
+        },
+        {
+          "name": "test_permutation",
+          "docstring": null
+        },
+        {
+          "name": "test_permutation_custom_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_permutation_exceptions",
+          "docstring": null
+        },
+        {
+          "name": "test_permuted",
+          "docstring": null
+        },
+        {
+          "name": "test_permuted_with_strides",
+          "docstring": null
+        },
+        {
+          "name": "test_permuted_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_permuted_out_with_wrong_shape",
+          "docstring": null
+        },
+        {
+          "name": "test_permuted_out_with_wrong_type",
+          "docstring": null
+        },
+        {
+          "name": "test_permuted_not_writeable",
+          "docstring": null
+        },
+        {
+          "name": "test_beta",
+          "docstring": null
+        },
+        {
+          "name": "test_binomial",
+          "docstring": null
+        },
+        {
+          "name": "test_chisquare",
+          "docstring": null
+        },
+        {
+          "name": "test_dirichlet",
+          "docstring": null
+        },
+        {
+          "name": "test_dirichlet_size",
+          "docstring": null
+        },
+        {
+          "name": "test_dirichlet_bad_alpha",
+          "docstring": null
+        },
+        {
+          "name": "test_dirichlet_alpha_non_contiguous",
+          "docstring": null
+        },
+        {
+          "name": "test_dirichlet_small_alpha",
+          "docstring": null
+        },
+        {
+          "name": "test_dirichlet_moderately_small_alpha",
+          "docstring": null
+        },
+        {
+          "name": "test_dirichlet_multiple_zeros_in_alpha",
+          "docstring": null
+        },
+        {
+          "name": "test_exponential",
+          "docstring": null
+        },
+        {
+          "name": "test_exponential_0",
+          "docstring": null
+        },
+        {
+          "name": "test_f",
+          "docstring": null
+        },
+        {
+          "name": "test_gamma",
+          "docstring": null
+        },
+        {
+          "name": "test_gamma_0",
+          "docstring": null
+        },
+        {
+          "name": "test_geometric",
+          "docstring": null
+        },
+        {
+          "name": "test_geometric_exceptions",
+          "docstring": null
+        },
+        {
+          "name": "test_gumbel",
+          "docstring": null
+        },
+        {
+          "name": "test_gumbel_0",
+          "docstring": null
+        },
+        {
+          "name": "test_hypergeometric",
+          "docstring": null
+        },
+        {
+          "name": "test_laplace",
+          "docstring": null
+        },
+        {
+          "name": "test_laplace_0",
+          "docstring": null
+        },
+        {
+          "name": "test_logistic",
+          "docstring": null
+        },
+        {
+          "name": "test_lognormal",
+          "docstring": null
+        },
+        {
+          "name": "test_lognormal_0",
+          "docstring": null
+        },
+        {
+          "name": "test_logseries",
+          "docstring": null
+        },
+        {
+          "name": "test_logseries_zero",
+          "docstring": null
+        },
+        {
+          "name": "test_logseries_exceptions",
+          "docstring": null
+        },
+        {
+          "name": "test_multinomial",
+          "docstring": null
+        },
+        {
+          "name": "test_multivariate_normal",
+          "docstring": null
+        },
+        {
+          "name": "test_multivariate_normal_disallow_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_multivariate_normal_basic_stats",
+          "docstring": null
+        },
+        {
+          "name": "test_negative_binomial",
+          "docstring": null
+        },
+        {
+          "name": "test_negative_binomial_exceptions",
+          "docstring": null
+        },
+        {
+          "name": "test_negative_binomial_p0_exception",
+          "docstring": null
+        },
+        {
+          "name": "test_negative_binomial_invalid_p_n_combination",
+          "docstring": null
+        },
+        {
+          "name": "test_noncentral_chisquare",
+          "docstring": null
+        },
+        {
+          "name": "test_noncentral_f",
+          "docstring": null
+        },
+        {
+          "name": "test_noncentral_f_nan",
+          "docstring": null
+        },
+        {
+          "name": "test_normal",
+          "docstring": null
+        },
+        {
+          "name": "test_normal_0",
+          "docstring": null
+        },
+        {
+          "name": "test_pareto",
+          "docstring": null
+        },
+        {
+          "name": "test_poisson",
+          "docstring": null
+        },
+        {
+          "name": "test_poisson_exceptions",
+          "docstring": null
+        },
+        {
+          "name": "test_power",
+          "docstring": null
+        },
+        {
+          "name": "test_rayleigh",
+          "docstring": null
+        },
+        {
+          "name": "test_rayleigh_0",
+          "docstring": null
+        },
+        {
+          "name": "test_standard_cauchy",
+          "docstring": null
+        },
+        {
+          "name": "test_standard_exponential",
+          "docstring": null
+        },
+        {
+          "name": "test_standard_expoential_type_error",
+          "docstring": null
+        },
+        {
+          "name": "test_standard_gamma",
+          "docstring": null
+        },
+        {
+          "name": "test_standard_gammma_scalar_float",
+          "docstring": null
+        },
+        {
+          "name": "test_standard_gamma_float",
+          "docstring": null
+        },
+        {
+          "name": "test_standard_gammma_float_out",
+          "docstring": null
+        },
+        {
+          "name": "test_standard_gamma_unknown_type",
+          "docstring": null
+        },
+        {
+          "name": "test_out_size_mismatch",
+          "docstring": null
+        },
+        {
+          "name": "test_standard_gamma_0",
+          "docstring": null
+        },
+        {
+          "name": "test_standard_normal",
+          "docstring": null
+        },
+        {
+          "name": "test_standard_normal_unsupported_type",
+          "docstring": null
+        },
+        {
+          "name": "test_standard_t",
+          "docstring": null
+        },
+        {
+          "name": "test_triangular",
+          "docstring": null
+        },
+        {
+          "name": "test_uniform",
+          "docstring": null
+        },
+        {
+          "name": "test_uniform_range_bounds",
+          "docstring": null
+        },
+        {
+          "name": "test_uniform_zero_range",
+          "docstring": null
+        },
+        {
+          "name": "test_uniform_neg_range",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar_exception_propagation",
+          "docstring": null
+        },
+        {
+          "name": "test_vonmises",
+          "docstring": null
+        },
+        {
+          "name": "test_vonmises_small",
+          "docstring": null
+        },
+        {
+          "name": "test_vonmises_nan",
+          "docstring": null
+        },
+        {
+          "name": "test_vonmises_large_kappa",
+          "docstring": null
+        },
+        {
+          "name": "test_vonmises_large_kappa_range",
+          "docstring": null
+        },
+        {
+          "name": "test_wald",
+          "docstring": null
+        },
+        {
+          "name": "test_weibull",
+          "docstring": null
+        },
+        {
+          "name": "test_weibull_0",
+          "docstring": null
+        },
+        {
+          "name": "test_zipf",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestBroadcast",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_uniform",
+          "docstring": null
+        },
+        {
+          "name": "test_normal",
+          "docstring": null
+        },
+        {
+          "name": "test_beta",
+          "docstring": null
+        },
+        {
+          "name": "test_exponential",
+          "docstring": null
+        },
+        {
+          "name": "test_standard_gamma",
+          "docstring": null
+        },
+        {
+          "name": "test_gamma",
+          "docstring": null
+        },
+        {
+          "name": "test_f",
+          "docstring": null
+        },
+        {
+          "name": "test_noncentral_f",
+          "docstring": null
+        },
+        {
+          "name": "test_noncentral_f_small_df",
+          "docstring": null
+        },
+        {
+          "name": "test_chisquare",
+          "docstring": null
+        },
+        {
+          "name": "test_noncentral_chisquare",
+          "docstring": null
+        },
+        {
+          "name": "test_standard_t",
+          "docstring": null
+        },
+        {
+          "name": "test_vonmises",
+          "docstring": null
+        },
+        {
+          "name": "test_pareto",
+          "docstring": null
+        },
+        {
+          "name": "test_weibull",
+          "docstring": null
+        },
+        {
+          "name": "test_power",
+          "docstring": null
+        },
+        {
+          "name": "test_laplace",
+          "docstring": null
+        },
+        {
+          "name": "test_gumbel",
+          "docstring": null
+        },
+        {
+          "name": "test_logistic",
+          "docstring": null
+        },
+        {
+          "name": "test_lognormal",
+          "docstring": null
+        },
+        {
+          "name": "test_rayleigh",
+          "docstring": null
+        },
+        {
+          "name": "test_wald",
+          "docstring": null
+        },
+        {
+          "name": "test_triangular",
+          "docstring": null
+        },
+        {
+          "name": "test_binomial",
+          "docstring": null
+        },
+        {
+          "name": "test_negative_binomial",
+          "docstring": null
+        },
+        {
+          "name": "test_poisson",
+          "docstring": null
+        },
+        {
+          "name": "test_zipf",
+          "docstring": null
+        },
+        {
+          "name": "test_geometric",
+          "docstring": null
+        },
+        {
+          "name": "test_hypergeometric",
+          "docstring": null
+        },
+        {
+          "name": "test_logseries",
+          "docstring": null
+        },
+        {
+          "name": "test_multinomial",
+          "docstring": null
+        },
+        {
+          "name": "test_multinomial_pval_broadcast",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_pvals_broadcast",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_outputs",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestThread",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "check_function",
+          "docstring": null
+        },
+        {
+          "name": "test_normal",
+          "docstring": null
+        },
+        {
+          "name": "test_exp",
+          "docstring": null
+        },
+        {
+          "name": "test_multinomial",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSingleEltArrayInput",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_one_arg_funcs",
+          "docstring": null
+        },
+        {
+          "name": "test_two_arg_funcs",
+          "docstring": null
+        },
+        {
+          "name": "test_integers",
+          "docstring": null
+        },
+        {
+          "name": "test_three_arg_funcs",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ThrowingFloat",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ThrowingInteger",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "endpoint",
+      "docstring": null
+    },
+    {
+      "name": "test_jumped",
+      "docstring": null
+    },
+    {
+      "name": "test_broadcast_size_error",
+      "docstring": null
+    },
+    {
+      "name": "test_broadcast_size_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_ragged_shuffle",
+      "docstring": null
+    },
+    {
+      "name": "test_single_arg_integer_exception",
+      "docstring": null
+    },
+    {
+      "name": "test_c_contig_req_out",
+      "docstring": null
+    },
+    {
+      "name": "test_contig_req_out",
+      "docstring": null
+    },
+    {
+      "name": "test_generator_ctor_old_style_pickle",
+      "docstring": null
+    },
+    {
+      "name": "test_pickle_preserves_seed_sequence",
+      "docstring": null
+    },
+    {
+      "name": "test_legacy_pickle",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_array",
+      "docstring": null
+    },
+    {
+      "name": "test_seedsequence",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_array",
+      "docstring": null
+    },
+    {
+      "name": "test_noninstantized_bitgen",
+      "docstring": null
+    },
+    {
+      "name": "test_n_zero",
+      "docstring": null
+    },
+    {
+      "name": "test_p_is_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_zero_probability",
+      "docstring": null
+    },
+    {
+      "name": "test_int_negative_interval",
+      "docstring": null
+    },
+    {
+      "name": "test_size",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_prob",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_n",
+      "docstring": null
+    },
+    {
+      "name": "test_p_non_contiguous",
+      "docstring": null
+    },
+    {
+      "name": "test_multinomial_pvals_float32",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_argument_validation",
+      "docstring": null
+    },
+    {
+      "name": "test_edge_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_typical_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_repeatability1",
+      "docstring": null
+    },
+    {
+      "name": "test_repeatability2",
+      "docstring": null
+    },
+    {
+      "name": "test_repeatability3",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_gaussian_reset",
+      "docstring": null
+    },
+    {
+      "name": "test_gaussian_reset_in_media_res",
+      "docstring": null
+    },
+    {
+      "name": "test_negative_binomial",
+      "docstring": null
+    },
+    {
+      "name": "test_unsupported_type",
+      "docstring": null
+    },
+    {
+      "name": "test_bounds_checking",
+      "docstring": null
+    },
+    {
+      "name": "test_bounds_checking_array",
+      "docstring": null
+    },
+    {
+      "name": "test_rng_zero_and_extremes",
+      "docstring": null
+    },
+    {
+      "name": "test_rng_zero_and_extremes_array",
+      "docstring": null
+    },
+    {
+      "name": "test_full_range",
+      "docstring": null
+    },
+    {
+      "name": "test_full_range_array",
+      "docstring": null
+    },
+    {
+      "name": "test_in_bounds_fuzz",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_array_equiv",
+      "docstring": null
+    },
+    {
+      "name": "test_repeatability",
+      "docstring": null
+    },
+    {
+      "name": "test_repeatability_broadcasting",
+      "docstring": null
+    },
+    {
+      "name": "test_repeatability_32bit_boundary",
+      "docstring": null
+    },
+    {
+      "name": "test_repeatability_32bit_boundary_broadcasting",
+      "docstring": null
+    },
+    {
+      "name": "test_int64_uint64_broadcast_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_int64_uint64_corner_case",
+      "docstring": null
+    },
+    {
+      "name": "test_respect_dtype_singleton",
+      "docstring": null
+    },
+    {
+      "name": "test_respect_dtype_array",
+      "docstring": null
+    },
+    {
+      "name": "test_zero_size",
+      "docstring": null
+    },
+    {
+      "name": "test_error_byteorder",
+      "docstring": null
+    },
+    {
+      "name": "test_integers_small_dtype_chisquared",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_integers",
+      "docstring": null
+    },
+    {
+      "name": "test_integers_masked",
+      "docstring": null
+    },
+    {
+      "name": "test_integers_closed",
+      "docstring": null
+    },
+    {
+      "name": "test_integers_max_int",
+      "docstring": null
+    },
+    {
+      "name": "test_random",
+      "docstring": null
+    },
+    {
+      "name": "test_random_float",
+      "docstring": null
+    },
+    {
+      "name": "test_random_float_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_random_distribution_of_lsb",
+      "docstring": null
+    },
+    {
+      "name": "test_random_unsupported_type",
+      "docstring": null
+    },
+    {
+      "name": "test_choice_uniform_replace",
+      "docstring": null
+    },
+    {
+      "name": "test_choice_nonuniform_replace",
+      "docstring": null
+    },
+    {
+      "name": "test_choice_uniform_noreplace",
+      "docstring": null
+    },
+    {
+      "name": "test_choice_nonuniform_noreplace",
+      "docstring": null
+    },
+    {
+      "name": "test_choice_noninteger",
+      "docstring": null
+    },
+    {
+      "name": "test_choice_multidimensional_default_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_choice_multidimensional_custom_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_choice_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_choice_return_shape",
+      "docstring": null
+    },
+    {
+      "name": "test_choice_nan_probabilities",
+      "docstring": null
+    },
+    {
+      "name": "test_choice_p_non_contiguous",
+      "docstring": null
+    },
+    {
+      "name": "test_choice_return_type",
+      "docstring": null
+    },
+    {
+      "name": "test_choice_large_sample",
+      "docstring": null
+    },
+    {
+      "name": "test_choice_array_size_empty_tuple",
+      "docstring": null
+    },
+    {
+      "name": "test_bytes",
+      "docstring": null
+    },
+    {
+      "name": "test_shuffle",
+      "docstring": null
+    },
+    {
+      "name": "test_shuffle_custom_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_shuffle_custom_axis_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_shuffle_axis_nonsquare",
+      "docstring": null
+    },
+    {
+      "name": "test_shuffle_masked",
+      "docstring": null
+    },
+    {
+      "name": "test_shuffle_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_shuffle_not_writeable",
+      "docstring": null
+    },
+    {
+      "name": "test_permutation",
+      "docstring": null
+    },
+    {
+      "name": "test_permutation_custom_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_permutation_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_permuted",
+      "docstring": null
+    },
+    {
+      "name": "test_permuted_with_strides",
+      "docstring": null
+    },
+    {
+      "name": "test_permuted_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_permuted_out_with_wrong_shape",
+      "docstring": null
+    },
+    {
+      "name": "test_permuted_out_with_wrong_type",
+      "docstring": null
+    },
+    {
+      "name": "test_permuted_not_writeable",
+      "docstring": null
+    },
+    {
+      "name": "test_beta",
+      "docstring": null
+    },
+    {
+      "name": "test_binomial",
+      "docstring": null
+    },
+    {
+      "name": "test_chisquare",
+      "docstring": null
+    },
+    {
+      "name": "test_dirichlet",
+      "docstring": null
+    },
+    {
+      "name": "test_dirichlet_size",
+      "docstring": null
+    },
+    {
+      "name": "test_dirichlet_bad_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_dirichlet_alpha_non_contiguous",
+      "docstring": null
+    },
+    {
+      "name": "test_dirichlet_small_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_dirichlet_moderately_small_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_dirichlet_multiple_zeros_in_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_exponential",
+      "docstring": null
+    },
+    {
+      "name": "test_exponential_0",
+      "docstring": null
+    },
+    {
+      "name": "test_f",
+      "docstring": null
+    },
+    {
+      "name": "test_gamma",
+      "docstring": null
+    },
+    {
+      "name": "test_gamma_0",
+      "docstring": null
+    },
+    {
+      "name": "test_geometric",
+      "docstring": null
+    },
+    {
+      "name": "test_geometric_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_gumbel",
+      "docstring": null
+    },
+    {
+      "name": "test_gumbel_0",
+      "docstring": null
+    },
+    {
+      "name": "test_hypergeometric",
+      "docstring": null
+    },
+    {
+      "name": "test_laplace",
+      "docstring": null
+    },
+    {
+      "name": "test_laplace_0",
+      "docstring": null
+    },
+    {
+      "name": "test_logistic",
+      "docstring": null
+    },
+    {
+      "name": "test_lognormal",
+      "docstring": null
+    },
+    {
+      "name": "test_lognormal_0",
+      "docstring": null
+    },
+    {
+      "name": "test_logseries",
+      "docstring": null
+    },
+    {
+      "name": "test_logseries_zero",
+      "docstring": null
+    },
+    {
+      "name": "test_logseries_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_multinomial",
+      "docstring": null
+    },
+    {
+      "name": "test_multivariate_normal",
+      "docstring": null
+    },
+    {
+      "name": "test_multivariate_normal_disallow_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_multivariate_normal_basic_stats",
+      "docstring": null
+    },
+    {
+      "name": "test_negative_binomial",
+      "docstring": null
+    },
+    {
+      "name": "test_negative_binomial_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_negative_binomial_p0_exception",
+      "docstring": null
+    },
+    {
+      "name": "test_negative_binomial_invalid_p_n_combination",
+      "docstring": null
+    },
+    {
+      "name": "test_noncentral_chisquare",
+      "docstring": null
+    },
+    {
+      "name": "test_noncentral_f",
+      "docstring": null
+    },
+    {
+      "name": "test_noncentral_f_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_normal",
+      "docstring": null
+    },
+    {
+      "name": "test_normal_0",
+      "docstring": null
+    },
+    {
+      "name": "test_pareto",
+      "docstring": null
+    },
+    {
+      "name": "test_poisson",
+      "docstring": null
+    },
+    {
+      "name": "test_poisson_exceptions",
+      "docstring": null
+    },
+    {
+      "name": "test_power",
+      "docstring": null
+    },
+    {
+      "name": "test_rayleigh",
+      "docstring": null
+    },
+    {
+      "name": "test_rayleigh_0",
+      "docstring": null
+    },
+    {
+      "name": "test_standard_cauchy",
+      "docstring": null
+    },
+    {
+      "name": "test_standard_exponential",
+      "docstring": null
+    },
+    {
+      "name": "test_standard_expoential_type_error",
+      "docstring": null
+    },
+    {
+      "name": "test_standard_gamma",
+      "docstring": null
+    },
+    {
+      "name": "test_standard_gammma_scalar_float",
+      "docstring": null
+    },
+    {
+      "name": "test_standard_gamma_float",
+      "docstring": null
+    },
+    {
+      "name": "test_standard_gammma_float_out",
+      "docstring": null
+    },
+    {
+      "name": "test_standard_gamma_unknown_type",
+      "docstring": null
+    },
+    {
+      "name": "test_out_size_mismatch",
+      "docstring": null
+    },
+    {
+      "name": "test_standard_gamma_0",
+      "docstring": null
+    },
+    {
+      "name": "test_standard_normal",
+      "docstring": null
+    },
+    {
+      "name": "test_standard_normal_unsupported_type",
+      "docstring": null
+    },
+    {
+      "name": "test_standard_t",
+      "docstring": null
+    },
+    {
+      "name": "test_triangular",
+      "docstring": null
+    },
+    {
+      "name": "test_uniform",
+      "docstring": null
+    },
+    {
+      "name": "test_uniform_range_bounds",
+      "docstring": null
+    },
+    {
+      "name": "test_uniform_zero_range",
+      "docstring": null
+    },
+    {
+      "name": "test_uniform_neg_range",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_exception_propagation",
+      "docstring": null
+    },
+    {
+      "name": "test_vonmises",
+      "docstring": null
+    },
+    {
+      "name": "test_vonmises_small",
+      "docstring": null
+    },
+    {
+      "name": "test_vonmises_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_vonmises_large_kappa",
+      "docstring": null
+    },
+    {
+      "name": "test_vonmises_large_kappa_range",
+      "docstring": null
+    },
+    {
+      "name": "test_wald",
+      "docstring": null
+    },
+    {
+      "name": "test_weibull",
+      "docstring": null
+    },
+    {
+      "name": "test_weibull_0",
+      "docstring": null
+    },
+    {
+      "name": "test_zipf",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_uniform",
+      "docstring": null
+    },
+    {
+      "name": "test_normal",
+      "docstring": null
+    },
+    {
+      "name": "test_beta",
+      "docstring": null
+    },
+    {
+      "name": "test_exponential",
+      "docstring": null
+    },
+    {
+      "name": "test_standard_gamma",
+      "docstring": null
+    },
+    {
+      "name": "test_gamma",
+      "docstring": null
+    },
+    {
+      "name": "test_f",
+      "docstring": null
+    },
+    {
+      "name": "test_noncentral_f",
+      "docstring": null
+    },
+    {
+      "name": "test_noncentral_f_small_df",
+      "docstring": null
+    },
+    {
+      "name": "test_chisquare",
+      "docstring": null
+    },
+    {
+      "name": "test_noncentral_chisquare",
+      "docstring": null
+    },
+    {
+      "name": "test_standard_t",
+      "docstring": null
+    },
+    {
+      "name": "test_vonmises",
+      "docstring": null
+    },
+    {
+      "name": "test_pareto",
+      "docstring": null
+    },
+    {
+      "name": "test_weibull",
+      "docstring": null
+    },
+    {
+      "name": "test_power",
+      "docstring": null
+    },
+    {
+      "name": "test_laplace",
+      "docstring": null
+    },
+    {
+      "name": "test_gumbel",
+      "docstring": null
+    },
+    {
+      "name": "test_logistic",
+      "docstring": null
+    },
+    {
+      "name": "test_lognormal",
+      "docstring": null
+    },
+    {
+      "name": "test_rayleigh",
+      "docstring": null
+    },
+    {
+      "name": "test_wald",
+      "docstring": null
+    },
+    {
+      "name": "test_triangular",
+      "docstring": null
+    },
+    {
+      "name": "test_binomial",
+      "docstring": null
+    },
+    {
+      "name": "test_negative_binomial",
+      "docstring": null
+    },
+    {
+      "name": "test_poisson",
+      "docstring": null
+    },
+    {
+      "name": "test_zipf",
+      "docstring": null
+    },
+    {
+      "name": "test_geometric",
+      "docstring": null
+    },
+    {
+      "name": "test_hypergeometric",
+      "docstring": null
+    },
+    {
+      "name": "test_logseries",
+      "docstring": null
+    },
+    {
+      "name": "test_multinomial",
+      "docstring": null
+    },
+    {
+      "name": "test_multinomial_pval_broadcast",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_pvals_broadcast",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_outputs",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "check_function",
+      "docstring": null
+    },
+    {
+      "name": "test_normal",
+      "docstring": null
+    },
+    {
+      "name": "test_exp",
+      "docstring": null
+    },
+    {
+      "name": "test_multinomial",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_one_arg_funcs",
+      "docstring": null
+    },
+    {
+      "name": "test_two_arg_funcs",
+      "docstring": null
+    },
+    {
+      "name": "test_integers",
+      "docstring": null
+    },
+    {
+      "name": "test_three_arg_funcs",
+      "docstring": null
+    },
+    {
+      "name": "gen_random",
+      "docstring": null
+    },
+    {
+      "name": "gen_random",
+      "docstring": null
+    },
+    {
+      "name": "gen_random",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

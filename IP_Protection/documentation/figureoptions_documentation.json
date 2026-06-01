@@ -1,0 +1,23 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\qt_editor\\figureoptions.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "figure_edit",
+      "docstring": "Edit matplotlib figure options"
+    },
+    {
+      "name": "convert_limits",
+      "docstring": "Convert axis limits for correct input editors."
+    },
+    {
+      "name": "prepare_data",
+      "docstring": "Prepare entry for FormLayout.\n\n*d* is a mapping of shorthands to style names (a single style may\nhave multiple shorthands, in particular the shorthands `None`,\n`\"None\"`, `\"none\"` and `\"\"` are synonyms); *init* is one shorthand\nof the initial style.\n\nThis function returns an list suitable for initializing a\nFormLayout combobox, namely `[initial_name, (shorthand,\nstyle_name), (shorthand, style_name), ...]`."
+    },
+    {
+      "name": "apply_callback",
+      "docstring": "A callback to apply changes."
+    }
+  ],
+  "innovations": []
+}

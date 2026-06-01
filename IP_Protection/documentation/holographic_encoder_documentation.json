@@ -1,0 +1,34 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\negative-space-project\\src\\negative_mapping\\holographic_encoder.py",
+  "classes": [
+    {
+      "name": "HolographicNegativeSpaceEncoder",
+      "docstring": "Encodes negative space signatures using holographic principles.\n\nThe holographic principle suggests that the information within a volume\ncan be encoded on its boundary. This class extends this concept to\nnegative spaces, encoding their fractal properties in a holographic\nmanner that distributes information across the entire signature.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the holographic encoder.\n\nArgs:\n    encoding_dims: Dimensionality of the holographic encoding\n    redundancy_factor: Information redundancy factor (resilience)\n    use_phase_encoding: Whether to use phase for encoding (more secure)\n    quantum_resistant: Use quantum-resistant algorithms"
+        },
+        {
+          "name": "encode",
+          "docstring": "Encode negative space coordinates holographically.\n\nArgs:\n    coordinates: Array of 3D coordinates\n    \nReturns:\n    Dictionary containing encoded holographic representation:\n        - holographic_signature: The holographic encoding\n        - entropy_measure: Information density measure\n        - verification_key: Key for verifying the encoding\n        - fractal_fingerprint: Original fractal fingerprint"
+        },
+        {
+          "name": "verify",
+          "docstring": "Verify if coordinates match the holographic signature.\n\nArgs:\n    holographic_data: Previously encoded holographic data\n    coordinates: Coordinates to verify\n    \nReturns:\n    True if verification successful, False otherwise"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "encode",
+      "docstring": "Encode negative space coordinates holographically.\n\nArgs:\n    coordinates: Array of 3D coordinates\n    \nReturns:\n    Dictionary containing encoded holographic representation:\n        - holographic_signature: The holographic encoding\n        - entropy_measure: Information density measure\n        - verification_key: Key for verifying the encoding\n        - fractal_fingerprint: Original fractal fingerprint"
+    },
+    {
+      "name": "verify",
+      "docstring": "Verify if coordinates match the holographic signature.\n\nArgs:\n    holographic_data: Previously encoded holographic data\n    coordinates: Coordinates to verify\n    \nReturns:\n    True if verification successful, False otherwise"
+    }
+  ],
+  "innovations": []
+}

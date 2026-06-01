@@ -1,0 +1,868 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\colors.py",
+  "classes": [
+    {
+      "name": "_ColorMapping",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ColorSequenceRegistry",
+      "docstring": "Container for sequences of colors that are known to Matplotlib by name.\n\nThe universal registry instance is `matplotlib.color_sequences`. There\nshould be no need for users to instantiate `.ColorSequenceRegistry`\nthemselves.\n\nRead access uses a dict-like interface mapping names to lists of colors::\n\n    import matplotlib as mpl\n    colors = mpl.color_sequences['tab10']\n\nFor a list of built in color sequences, see :doc:`/gallery/color/color_sequences`.\nThe returned lists are copies, so that their modification does not change\nthe global definition of the color sequence.\n\nAdditional color sequences can be added via\n`.ColorSequenceRegistry.register`::\n\n    mpl.color_sequences.register('rgb', ['r', 'g', 'b'])",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "register",
+          "docstring": "Register a new color sequence.\n\nThe color sequence registry stores a copy of the given *color_list*, so\nthat future changes to the original list do not affect the registered\ncolor sequence. Think of this as the registry taking a snapshot\nof *color_list* at registration.\n\nParameters\n----------\nname : str\n    The name for the color sequence.\n\ncolor_list : list of :mpltype:`color`\n    An iterable returning valid Matplotlib colors when iterating over.\n    Note however that the returned color sequence will always be a\n    list regardless of the input type."
+        },
+        {
+          "name": "unregister",
+          "docstring": "Remove a sequence from the registry.\n\nYou cannot remove built-in color sequences.\n\nIf the name is not registered, returns with no error."
+        }
+      ]
+    },
+    {
+      "name": "ColorConverter",
+      "docstring": "A class only kept for backwards compatibility.\n\nIts functionality is entirely provided by module-level functions.",
+      "methods": []
+    },
+    {
+      "name": "Colormap",
+      "docstring": "Baseclass for all scalar to RGBA mappings.\n\nTypically, Colormap instances are used to convert data values (floats)\nfrom the interval ``[0, 1]`` to the RGBA color that the respective\nColormap represents. For scaling of data into the ``[0, 1]`` interval see\n`matplotlib.colors.Normalize`. Subclasses of `matplotlib.cm.ScalarMappable`\nmake heavy use of this ``data -> normalize -> map-to-color`` processing\nchain.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nname : str\n    The name of the colormap.\nN : int\n    The number of RGB quantization levels."
+        },
+        {
+          "name": "get_bad",
+          "docstring": "Get the color for masked values."
+        },
+        {
+          "name": "set_bad",
+          "docstring": "Set the color for masked values."
+        },
+        {
+          "name": "get_under",
+          "docstring": "Get the color for low out-of-range values."
+        },
+        {
+          "name": "set_under",
+          "docstring": "Set the color for low out-of-range values."
+        },
+        {
+          "name": "get_over",
+          "docstring": "Get the color for high out-of-range values."
+        },
+        {
+          "name": "set_over",
+          "docstring": "Set the color for high out-of-range values."
+        },
+        {
+          "name": "set_extremes",
+          "docstring": "Set the colors for masked (*bad*) values and, when ``norm.clip =\nFalse``, low (*under*) and high (*over*) out-of-range values."
+        },
+        {
+          "name": "with_extremes",
+          "docstring": "Return a copy of the colormap, for which the colors for masked (*bad*)\nvalues and, when ``norm.clip = False``, low (*under*) and high (*over*)\nout-of-range values, have been set accordingly."
+        },
+        {
+          "name": "is_gray",
+          "docstring": "Return whether the colormap is grayscale."
+        },
+        {
+          "name": "resampled",
+          "docstring": "Return a new colormap with *lutsize* entries."
+        },
+        {
+          "name": "reversed",
+          "docstring": "Return a reversed instance of the Colormap.\n\n.. note:: This function is not implemented for the base class.\n\nParameters\n----------\nname : str, optional\n    The name for the reversed colormap. If None, the\n    name is set to ``self.name + \"_r\"``.\n\nSee Also\n--------\nLinearSegmentedColormap.reversed\nListedColormap.reversed"
+        },
+        {
+          "name": "copy",
+          "docstring": "Return a copy of the colormap."
+        }
+      ]
+    },
+    {
+      "name": "LinearSegmentedColormap",
+      "docstring": "Colormap objects based on lookup tables using linear segments.\n\nThe lookup table is generated using linear interpolation for each\nprimary color, with the 0-1 domain divided into any number of\nsegments.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create colormap from linear mapping segments\n\nsegmentdata argument is a dictionary with a red, green and blue\nentries. Each entry should be a list of *x*, *y0*, *y1* tuples,\nforming rows in a table. Entries for alpha are optional.\n\nExample: suppose you want red to increase from 0 to 1 over\nthe bottom half, green to do the same over the middle half,\nand blue over the top half.  Then you would use::\n\n    cdict = {'red':   [(0.0,  0.0, 0.0),\n                       (0.5,  1.0, 1.0),\n                       (1.0,  1.0, 1.0)],\n\n             'green': [(0.0,  0.0, 0.0),\n                       (0.25, 0.0, 0.0),\n                       (0.75, 1.0, 1.0),\n                       (1.0,  1.0, 1.0)],\n\n             'blue':  [(0.0,  0.0, 0.0),\n                       (0.5,  0.0, 0.0),\n                       (1.0,  1.0, 1.0)]}\n\nEach row in the table for a given color is a sequence of\n*x*, *y0*, *y1* tuples.  In each sequence, *x* must increase\nmonotonically from 0 to 1.  For any input value *z* falling\nbetween *x[i]* and *x[i+1]*, the output value of a given color\nwill be linearly interpolated between *y1[i]* and *y0[i+1]*::\n\n    row i:   x  y0  y1\n                   /\n                  /\n    row i+1: x  y0  y1\n\nHence y0 in the first row and y1 in the last row are never used.\n\nSee Also\n--------\nLinearSegmentedColormap.from_list\n    Static method; factory function for generating a smoothly-varying\n    LinearSegmentedColormap."
+        },
+        {
+          "name": "set_gamma",
+          "docstring": "Set a new gamma value and regenerate colormap."
+        },
+        {
+          "name": "from_list",
+          "docstring": "Create a `LinearSegmentedColormap` from a list of colors.\n\nParameters\n----------\nname : str\n    The name of the colormap.\ncolors : list of :mpltype:`color` or list of (value, color)\n    If only colors are given, they are equidistantly mapped from the\n    range :math:`[0, 1]`; i.e. 0 maps to ``colors[0]`` and 1 maps to\n    ``colors[-1]``.\n    If (value, color) pairs are given, the mapping is from *value*\n    to *color*. This can be used to divide the range unevenly.\nN : int\n    The number of RGB quantization levels.\ngamma : float"
+        },
+        {
+          "name": "resampled",
+          "docstring": "Return a new colormap with *lutsize* entries."
+        },
+        {
+          "name": "reversed",
+          "docstring": "Return a reversed instance of the Colormap.\n\nParameters\n----------\nname : str, optional\n    The name for the reversed colormap. If None, the\n    name is set to ``self.name + \"_r\"``.\n\nReturns\n-------\nLinearSegmentedColormap\n    The reversed colormap."
+        }
+      ]
+    },
+    {
+      "name": "ListedColormap",
+      "docstring": "Colormap object generated from a list of colors.\n\nThis may be most useful when indexing directly into a colormap,\nbut it can also be used to generate special colormaps for ordinary\nmapping.\n\nParameters\n----------\ncolors : list, array\n    Sequence of Matplotlib color specifications (color names or RGB(A)\n    values).\nname : str, optional\n    String to identify the colormap.\nN : int, optional\n    Number of entries in the map. The default is *None*, in which case\n    there is one colormap entry for each element in the list of colors.\n    If ::\n\n        N < len(colors)\n\n    the list will be truncated at *N*. If ::\n\n        N > len(colors)\n\n    the list will be extended by repetition.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "resampled",
+          "docstring": "Return a new colormap with *lutsize* entries."
+        },
+        {
+          "name": "reversed",
+          "docstring": "Return a reversed instance of the Colormap.\n\nParameters\n----------\nname : str, optional\n    The name for the reversed colormap. If None, the\n    name is set to ``self.name + \"_r\"``.\n\nReturns\n-------\nListedColormap\n    A reversed instance of the colormap."
+        }
+      ]
+    },
+    {
+      "name": "MultivarColormap",
+      "docstring": "Class for holding multiple `~matplotlib.colors.Colormap` for use in a\n`~matplotlib.cm.ScalarMappable` object",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\ncolormaps: list or tuple of `~matplotlib.colors.Colormap` objects\n    The individual colormaps that are combined\ncombination_mode: str, 'sRGB_add' or 'sRGB_sub'\n    Describe how colormaps are combined in sRGB space\n\n    - If 'sRGB_add' -> Mixing produces brighter colors\n      `sRGB = sum(colors)`\n    - If 'sRGB_sub' -> Mixing produces darker colors\n      `sRGB = 1 - sum(1 - colors)`\nname : str, optional\n    The name of the colormap family."
+        },
+        {
+          "name": "copy",
+          "docstring": "Return a copy of the multivarcolormap."
+        },
+        {
+          "name": "get_bad",
+          "docstring": "Get the color for masked values."
+        },
+        {
+          "name": "resampled",
+          "docstring": "Return a new colormap with *lutshape* entries.\n\nParameters\n----------\nlutshape : tuple of (`int`, `None`)\n    The tuple must have a length matching the number of variates.\n    For each element in the tuple, if `int`, the corresponding colorbar\n    is resampled, if `None`, the corresponding colorbar is not resampled.\n\nReturns\n-------\nMultivarColormap"
+        },
+        {
+          "name": "with_extremes",
+          "docstring": "Return a copy of the `MultivarColormap` with modified out-of-range attributes.\n\nThe *bad* keyword modifies the copied `MultivarColormap` while *under* and\n*over* modifies the attributes of the copied component colormaps.\nNote that *under* and *over* colors are subject to the mixing rules determined\nby the *combination_mode*.\n\nParameters\n----------\nbad: :mpltype:`color`, default: None\n    If Matplotlib color, the bad value is set accordingly in the copy\n\nunder tuple of :mpltype:`color`, default: None\n    If tuple, the `under` value of each component is set with the values\n    from the tuple.\n\nover tuple of :mpltype:`color`, default: None\n    If tuple, the `over` value of each component is set with the values\n    from the tuple.\n\nReturns\n-------\nMultivarColormap\n    copy of self with attributes set"
+        },
+        {
+          "name": "combination_mode",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BivarColormap",
+      "docstring": "Base class for all bivariate to RGBA mappings.\n\nDesigned as a drop-in replacement for Colormap when using a 2D\nlookup table. To be used with `~matplotlib.cm.ScalarMappable`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nN : int, default: 256\n    The number of RGB quantization levels along the first axis.\nM : int, default: 256\n    The number of RGB quantization levels along the second axis.\nshape : {'square', 'circle', 'ignore', 'circleignore'}\n\n    - 'square' each variate is clipped to [0,1] independently\n    - 'circle' the variates are clipped radially to the center\n      of the colormap, and a circular mask is applied when the colormap\n      is displayed\n    - 'ignore' the variates are not clipped, but instead assigned the\n      'outside' color\n    - 'circleignore' a circular mask is applied, but the data is not\n      clipped and instead assigned the 'outside' color\n\norigin : (float, float), default: (0,0)\n    The relative origin of the colormap. Typically (0, 0), for colormaps\n    that are linear on both axis, and (.5, .5) for circular colormaps.\n    Used when getting 1D colormaps from 2D colormaps.\nname : str, optional\n    The name of the colormap."
+        },
+        {
+          "name": "lut",
+          "docstring": "For external access to the lut, i.e. for displaying the cmap.\nFor circular colormaps this returns a lut with a circular mask.\n\nInternal functions (such as to_rgb()) should use _lut\nwhich stores the lut without a circular mask\nA lut without the circular mask is needed in to_rgb() because the\nconversion from floats to ints results in some some pixel-requests\njust outside of the circular mask"
+        },
+        {
+          "name": "get_bad",
+          "docstring": "Get the color for masked values."
+        },
+        {
+          "name": "get_outside",
+          "docstring": "Get the color for out-of-range values."
+        },
+        {
+          "name": "resampled",
+          "docstring": "Return a new colormap with *lutshape* entries.\n\nNote that this function does not move the origin.\n\nParameters\n----------\nlutshape : tuple of ints or None\n    The tuple must be of length 2, and each entry is either an int or None.\n\n    - If an int, the corresponding axis is resampled.\n    - If negative the corresponding axis is resampled in reverse\n    - If -1, the axis is inverted\n    - If 1 or None, the corresponding axis is not resampled.\n\ntransposed : bool, default: False\n    if True, the axes are swapped after resampling\n\nReturns\n-------\nBivarColormap"
+        },
+        {
+          "name": "reversed",
+          "docstring": "Reverses both or one of the axis."
+        },
+        {
+          "name": "transposed",
+          "docstring": "Transposes the colormap by swapping the order of the axis"
+        },
+        {
+          "name": "with_extremes",
+          "docstring": "Return a copy of the `BivarColormap` with modified attributes.\n\nNote that the *outside* color is only relevant if `shape` = 'ignore'\nor 'circleignore'.\n\nParameters\n----------\nbad : None or :mpltype:`color`\n    If Matplotlib color, the *bad* value is set accordingly in the copy\n\noutside : None or :mpltype:`color`\n    If Matplotlib color and shape is 'ignore' or 'circleignore', values\n    *outside* the colormap are colored accordingly in the copy\n\nshape : {'square', 'circle', 'ignore', 'circleignore'}\n\n    - If 'square' each variate is clipped to [0,1] independently\n    - If 'circle' the variates are clipped radially to the center\n      of the colormap, and a circular mask is applied when the colormap\n      is displayed\n    - If 'ignore' the variates are not clipped, but instead assigned the\n      *outside* color\n    - If 'circleignore' a circular mask is applied, but the data is not\n      clipped and instead assigned the *outside* color\n\norigin : (float, float)\n    The relative origin of the colormap. Typically (0, 0), for colormaps\n    that are linear on both axis, and (.5, .5) for circular colormaps.\n    Used when getting 1D colormaps from 2D colormaps.\n\nReturns\n-------\nBivarColormap\n    copy of self with attributes set"
+        },
+        {
+          "name": "shape",
+          "docstring": null
+        },
+        {
+          "name": "origin",
+          "docstring": null
+        },
+        {
+          "name": "copy",
+          "docstring": "Return a copy of the colormap."
+        }
+      ]
+    },
+    {
+      "name": "SegmentedBivarColormap",
+      "docstring": "BivarColormap object generated by supersampling a regular grid.\n\nParameters\n----------\npatch : np.array\n    Patch is required to have a shape (k, l, 3), and will get supersampled\n    to a lut of shape (N, N, 4).\nN : int\n    The number of RGB quantization levels along each axis.\nshape : {'square', 'circle', 'ignore', 'circleignore'}\n\n    - If 'square' each variate is clipped to [0,1] independently\n    - If 'circle' the variates are clipped radially to the center\n      of the colormap, and a circular mask is applied when the colormap\n      is displayed\n    - If 'ignore' the variates are not clipped, but instead assigned the\n      'outside' color\n    - If 'circleignore' a circular mask is applied, but the data is not clipped\n\norigin : (float, float)\n    The relative origin of the colormap. Typically (0, 0), for colormaps\n    that are linear on both axis, and (.5, .5) for circular colormaps.\n    Used when getting 1D colormaps from 2D colormaps.\n\nname : str, optional\n    The name of the colormap.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BivarColormapFromImage",
+      "docstring": "BivarColormap object generated by supersampling a regular grid.\n\nParameters\n----------\nlut : nparray of shape (N, M, 3) or (N, M, 4)\n    The look-up-table\nshape: {'square', 'circle', 'ignore', 'circleignore'}\n\n    - If 'square' each variate is clipped to [0,1] independently\n    - If 'circle' the variates are clipped radially to the center\n      of the colormap, and a circular mask is applied when the colormap\n      is displayed\n    - If 'ignore' the variates are not clipped, but instead assigned the\n      'outside' color\n    - If 'circleignore' a circular mask is applied, but the data is not clipped\n\norigin: (float, float)\n    The relative origin of the colormap. Typically (0, 0), for colormaps\n    that are linear on both axis, and (.5, .5) for circular colormaps.\n    Used when getting 1D colormaps from 2D colormaps.\nname : str, optional\n    The name of the colormap.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Normalize",
+      "docstring": "A class which, when called, maps values within the interval\n``[vmin, vmax]`` linearly to the interval ``[0.0, 1.0]``. The mapping of\nvalues outside ``[vmin, vmax]`` depends on *clip*.\n\nExamples\n--------\n::\n\n    x = [-2, -1, 0, 1, 2]\n\n    norm = mpl.colors.Normalize(vmin=-1, vmax=1, clip=False)\n    norm(x)  # [-0.5, 0., 0.5, 1., 1.5]\n    norm = mpl.colors.Normalize(vmin=-1, vmax=1, clip=True)\n    norm(x)  # [0., 0., 0.5, 1., 1.]\n\nSee Also\n--------\n:ref:`colormapnorms`",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nvmin, vmax : float or None\n    Values within the range ``[vmin, vmax]`` from the input data will be\n    linearly mapped to ``[0, 1]``. If either *vmin* or *vmax* is not\n    provided, they default to the minimum and maximum values of the input,\n    respectively.\n\nclip : bool, default: False\n    Determines the behavior for mapping values outside the range\n    ``[vmin, vmax]``.\n\n    If clipping is off, values outside the range ``[vmin, vmax]`` are\n    also transformed, resulting in values outside ``[0, 1]``.  This\n    behavior is usually desirable, as colormaps can mark these *under*\n    and *over* values with specific colors.\n\n    If clipping is on, values below *vmin* are mapped to 0 and values\n    above *vmax* are mapped to 1. Such values become indistinguishable\n    from regular boundary values, which may cause misinterpretation of\n    the data.\n\nNotes\n-----\nIf ``vmin == vmax``, input data will be mapped to 0."
+        },
+        {
+          "name": "vmin",
+          "docstring": null
+        },
+        {
+          "name": "vmin",
+          "docstring": null
+        },
+        {
+          "name": "vmax",
+          "docstring": null
+        },
+        {
+          "name": "vmax",
+          "docstring": null
+        },
+        {
+          "name": "clip",
+          "docstring": null
+        },
+        {
+          "name": "clip",
+          "docstring": null
+        },
+        {
+          "name": "process_value",
+          "docstring": "Homogenize the input *value* for easy and efficient normalization.\n\n*value* can be a scalar or sequence.\n\nParameters\n----------\nvalue\n    Data to normalize.\n\nReturns\n-------\nresult : masked array\n    Masked array with the same shape as *value*.\nis_scalar : bool\n    Whether *value* is a scalar.\n\nNotes\n-----\nFloat dtypes are preserved; integer types with two bytes or smaller are\nconverted to np.float32, and larger types are converted to np.float64.\nPreserving float32 when possible, and using in-place operations,\ngreatly improves speed for large arrays."
+        },
+        {
+          "name": "inverse",
+          "docstring": "Maps the normalized value (i.e., index in the colormap) back to image\ndata value.\n\nParameters\n----------\nvalue\n    Normalized value."
+        },
+        {
+          "name": "autoscale",
+          "docstring": "Set *vmin*, *vmax* to min, max of *A*."
+        },
+        {
+          "name": "autoscale_None",
+          "docstring": "If *vmin* or *vmax* are not set, use the min/max of *A* to set them."
+        },
+        {
+          "name": "scaled",
+          "docstring": "Return whether *vmin* and *vmax* are both set."
+        }
+      ]
+    },
+    {
+      "name": "TwoSlopeNorm",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Normalize data with a set center.\n\nUseful when mapping data with an unequal rates of change around a\nconceptual center, e.g., data that range from -2 to 4, with 0 as\nthe midpoint.\n\nParameters\n----------\nvcenter : float\n    The data value that defines ``0.5`` in the normalization.\nvmin : float, optional\n    The data value that defines ``0.0`` in the normalization.\n    Defaults to the min value of the dataset.\nvmax : float, optional\n    The data value that defines ``1.0`` in the normalization.\n    Defaults to the max value of the dataset.\n\nExamples\n--------\nThis maps data value -4000 to 0., 0 to 0.5, and +10000 to 1.0; data\nbetween is linearly interpolated::\n\n    >>> import matplotlib.colors as mcolors\n    >>> offset = mcolors.TwoSlopeNorm(vmin=-4000.,\n    ...                               vcenter=0., vmax=10000)\n    >>> data = [-4000., -2000., 0., 2500., 5000., 7500., 10000.]\n    >>> offset(data)\n    array([0., 0.25, 0.5, 0.625, 0.75, 0.875, 1.0])"
+        },
+        {
+          "name": "vcenter",
+          "docstring": null
+        },
+        {
+          "name": "vcenter",
+          "docstring": null
+        },
+        {
+          "name": "autoscale_None",
+          "docstring": "Get vmin and vmax.\n\nIf vcenter isn't in the range [vmin, vmax], either vmin or vmax\nis expanded so that vcenter lies in the middle of the modified range\n[vmin, vmax]."
+        },
+        {
+          "name": "inverse",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CenteredNorm",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Normalize symmetrical data around a center (0 by default).\n\nUnlike `TwoSlopeNorm`, `CenteredNorm` applies an equal rate of change\naround the center.\n\nUseful when mapping symmetrical data around a conceptual center\ne.g., data that range from -2 to 4, with 0 as the midpoint, and\nwith equal rates of change around that midpoint.\n\nParameters\n----------\nvcenter : float, default: 0\n    The data value that defines ``0.5`` in the normalization.\nhalfrange : float, optional\n    The range of data values that defines a range of ``0.5`` in the\n    normalization, so that *vcenter* - *halfrange* is ``0.0`` and\n    *vcenter* + *halfrange* is ``1.0`` in the normalization.\n    Defaults to the largest absolute difference to *vcenter* for\n    the values in the dataset.\nclip : bool, default: False\n    Determines the behavior for mapping values outside the range\n    ``[vmin, vmax]``.\n\n    If clipping is off, values outside the range ``[vmin, vmax]`` are\n    also transformed, resulting in values outside ``[0, 1]``.  This\n    behavior is usually desirable, as colormaps can mark these *under*\n    and *over* values with specific colors.\n\n    If clipping is on, values below *vmin* are mapped to 0 and values\n    above *vmax* are mapped to 1. Such values become indistinguishable\n    from regular boundary values, which may cause misinterpretation of\n    the data.\n\nExamples\n--------\nThis maps data values -2 to 0.25, 0 to 0.5, and 4 to 1.0\n(assuming equal rates of change above and below 0.0):\n\n    >>> import matplotlib.colors as mcolors\n    >>> norm = mcolors.CenteredNorm(halfrange=4.0)\n    >>> data = [-2., 0., 4.]\n    >>> norm(data)\n    array([0.25, 0.5 , 1.  ])"
+        },
+        {
+          "name": "autoscale",
+          "docstring": "Set *halfrange* to ``max(abs(A-vcenter))``, then set *vmin* and *vmax*."
+        },
+        {
+          "name": "autoscale_None",
+          "docstring": "Set *vmin* and *vmax*."
+        },
+        {
+          "name": "vmin",
+          "docstring": null
+        },
+        {
+          "name": "vmin",
+          "docstring": null
+        },
+        {
+          "name": "vmax",
+          "docstring": null
+        },
+        {
+          "name": "vmax",
+          "docstring": null
+        },
+        {
+          "name": "vcenter",
+          "docstring": null
+        },
+        {
+          "name": "vcenter",
+          "docstring": null
+        },
+        {
+          "name": "halfrange",
+          "docstring": null
+        },
+        {
+          "name": "halfrange",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FuncNorm",
+      "docstring": "Arbitrary normalization using functions for the forward and inverse.\n\nParameters\n----------\nfunctions : (callable, callable)\n    two-tuple of the forward and inverse functions for the normalization.\n    The forward function must be monotonic.\n\n    Both functions must have the signature ::\n\n       def forward(values: array-like) -> array-like\n\nvmin, vmax : float or None\n    If *vmin* and/or *vmax* is not given, they are initialized from the\n    minimum and maximum value, respectively, of the first input\n    processed; i.e., ``__call__(A)`` calls ``autoscale_None(A)``.\n\nclip : bool, default: False\n    Determines the behavior for mapping values outside the range\n    ``[vmin, vmax]``.\n\n    If clipping is off, values outside the range ``[vmin, vmax]`` are also\n    transformed by the function, resulting in values outside ``[0, 1]``.\n    This behavior is usually desirable, as colormaps can mark these *under*\n    and *over* values with specific colors.\n\n    If clipping is on, values below *vmin* are mapped to 0 and values above\n    *vmax* are mapped to 1. Such values become indistinguishable from\n    regular boundary values, which may cause misinterpretation of the data.",
+      "methods": []
+    },
+    {
+      "name": "SymLogNorm",
+      "docstring": "The symmetrical logarithmic scale is logarithmic in both the\npositive and negative directions from the origin.\n\nSince the values close to zero tend toward infinity, there is a\nneed to have a range around zero that is linear.  The parameter\n*linthresh* allows the user to specify the size of this range\n(-*linthresh*, *linthresh*).\n\nParameters\n----------\nlinthresh : float\n    The range within which the plot is linear (to avoid having the plot\n    go to infinity around zero).\nlinscale : float, default: 1\n    This allows the linear range (-*linthresh* to *linthresh*) to be\n    stretched relative to the logarithmic range. Its value is the\n    number of decades to use for each half of the linear range. For\n    example, when *linscale* == 1.0 (the default), the space used for\n    the positive and negative halves of the linear range will be equal\n    to one decade in the logarithmic range.\nbase : float, default: 10",
+      "methods": [
+        {
+          "name": "linthresh",
+          "docstring": null
+        },
+        {
+          "name": "linthresh",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AsinhNorm",
+      "docstring": "The inverse hyperbolic sine scale is approximately linear near\nthe origin, but becomes logarithmic for larger positive\nor negative values. Unlike the `SymLogNorm`, the transition between\nthese linear and logarithmic regions is smooth, which may reduce\nthe risk of visual artifacts.\n\n.. note::\n\n   This API is provisional and may be revised in the future\n   based on early user feedback.\n\nParameters\n----------\nlinear_width : float, default: 1\n    The effective width of the linear region, beyond which\n    the transformation becomes asymptotically logarithmic",
+      "methods": [
+        {
+          "name": "linear_width",
+          "docstring": null
+        },
+        {
+          "name": "linear_width",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PowerNorm",
+      "docstring": "Linearly map a given value to the 0-1 range and then apply\na power-law normalization over that range.\n\nParameters\n----------\ngamma : float\n    Power law exponent.\nvmin, vmax : float or None\n    If *vmin* and/or *vmax* is not given, they are initialized from the\n    minimum and maximum value, respectively, of the first input\n    processed; i.e., ``__call__(A)`` calls ``autoscale_None(A)``.\nclip : bool, default: False\n    Determines the behavior for mapping values outside the range\n    ``[vmin, vmax]``.\n\n    If clipping is off, values above *vmax* are transformed by the power\n    function, resulting in values above 1, and values below *vmin* are linearly\n    transformed resulting in values below 0. This behavior is usually desirable, as\n    colormaps can mark these *under* and *over* values with specific colors.\n\n    If clipping is on, values below *vmin* are mapped to 0 and values above\n    *vmax* are mapped to 1. Such values become indistinguishable from\n    regular boundary values, which may cause misinterpretation of the data.\n\nNotes\n-----\nThe normalization formula is\n\n.. math::\n\n    \\left ( \\frac{x - v_{min}}{v_{max}  - v_{min}} \\right )^{\\gamma}\n\nFor input values below *vmin*, gamma is set to one.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "inverse",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BoundaryNorm",
+      "docstring": "Generate a colormap index based on discrete intervals.\n\nUnlike `Normalize` or `LogNorm`, `BoundaryNorm` maps values to integers\ninstead of to the interval 0-1.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nboundaries : array-like\n    Monotonically increasing sequence of at least 2 bin edges:  data\n    falling in the n-th bin will be mapped to the n-th color.\n\nncolors : int\n    Number of colors in the colormap to be used.\n\nclip : bool, optional\n    If clip is ``True``, out of range values are mapped to 0 if they\n    are below ``boundaries[0]`` or mapped to ``ncolors - 1`` if they\n    are above ``boundaries[-1]``.\n\n    If clip is ``False``, out of range values are mapped to -1 if\n    they are below ``boundaries[0]`` or mapped to *ncolors* if they are\n    above ``boundaries[-1]``. These are then converted to valid indices\n    by `Colormap.__call__`.\n\nextend : {'neither', 'both', 'min', 'max'}, default: 'neither'\n    Extend the number of bins to include one or both of the\n    regions beyond the boundaries.  For example, if ``extend``\n    is 'min', then the color to which the region between the first\n    pair of boundaries is mapped will be distinct from the first\n    color in the colormap, and by default a\n    `~matplotlib.colorbar.Colorbar` will be drawn with\n    the triangle extension on the left or lower end.\n\nNotes\n-----\nIf there are fewer bins (including extensions) than colors, then the\ncolor index is chosen by linearly interpolating the ``[0, nbins - 1]``\nrange onto the ``[0, ncolors - 1]`` range, effectively skipping some\ncolors in the middle of the colormap."
+        },
+        {
+          "name": "inverse",
+          "docstring": "Raises\n------\nValueError\n    BoundaryNorm is not invertible, so calling this method will always\n    raise an error"
+        }
+      ]
+    },
+    {
+      "name": "NoNorm",
+      "docstring": "Dummy replacement for `Normalize`, for the case where we want to use\nindices directly in a `~matplotlib.cm.ScalarMappable`.",
+      "methods": [
+        {
+          "name": "inverse",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LightSource",
+      "docstring": "Create a light source coming from the specified azimuth and elevation.\nAngles are in degrees, with the azimuth measured\nclockwise from north and elevation up from the zero plane of the surface.\n\n`shade` is used to produce \"shaded\" RGB values for a data array.\n`shade_rgb` can be used to combine an RGB image with an elevation map.\n`hillshade` produces an illumination map of a surface.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Specify the azimuth (measured clockwise from south) and altitude\n(measured up from the plane of the surface) of the light source\nin degrees.\n\nParameters\n----------\nazdeg : float, default: 315 degrees (from the northwest)\n    The azimuth (0-360, degrees clockwise from North) of the light\n    source.\naltdeg : float, default: 45 degrees\n    The altitude (0-90, degrees up from horizontal) of the light\n    source.\nhsv_min_val : number, default: 0\n    The minimum value (\"v\" in \"hsv\") that the *intensity* map can shift the\n    output image to.\nhsv_max_val : number, default: 1\n    The maximum value (\"v\" in \"hsv\") that the *intensity* map can shift the\n    output image to.\nhsv_min_sat : number, default: 1\n    The minimum saturation value that the *intensity* map can shift the output\n    image to.\nhsv_max_sat : number, default: 0\n    The maximum saturation value that the *intensity* map can shift the output\n    image to.\n\nNotes\n-----\nFor backwards compatibility, the parameters *hsv_min_val*,\n*hsv_max_val*, *hsv_min_sat*, and *hsv_max_sat* may be supplied at\ninitialization as well.  However, these parameters will only be used if\n\"blend_mode='hsv'\" is passed into `shade` or `shade_rgb`.\nSee the documentation for `blend_hsv` for more details."
+        },
+        {
+          "name": "direction",
+          "docstring": "The unit vector direction towards the light source."
+        },
+        {
+          "name": "hillshade",
+          "docstring": "Calculate the illumination intensity for a surface using the defined\nazimuth and elevation for the light source.\n\nThis computes the normal vectors for the surface, and then passes them\non to `shade_normals`\n\nParameters\n----------\nelevation : 2D array-like\n    The height values used to generate an illumination map\nvert_exag : number, optional\n    The amount to exaggerate the elevation values by when calculating\n    illumination. This can be used either to correct for differences in\n    units between the x-y coordinate system and the elevation\n    coordinate system (e.g. decimal degrees vs. meters) or to\n    exaggerate or de-emphasize topographic effects.\ndx : number, optional\n    The x-spacing (columns) of the input *elevation* grid.\ndy : number, optional\n    The y-spacing (rows) of the input *elevation* grid.\nfraction : number, optional\n    Increases or decreases the contrast of the hillshade.  Values\n    greater than one will cause intermediate values to move closer to\n    full illumination or shadow (and clipping any values that move\n    beyond 0 or 1). Note that this is not visually or mathematically\n    the same as vertical exaggeration.\n\nReturns\n-------\n`~numpy.ndarray`\n    A 2D array of illumination values between 0-1, where 0 is\n    completely in shadow and 1 is completely illuminated."
+        },
+        {
+          "name": "shade_normals",
+          "docstring": "Calculate the illumination intensity for the normal vectors of a\nsurface using the defined azimuth and elevation for the light source.\n\nImagine an artificial sun placed at infinity in some azimuth and\nelevation position illuminating our surface. The parts of the surface\nthat slope toward the sun should brighten while those sides facing away\nshould become darker.\n\nParameters\n----------\nfraction : number, optional\n    Increases or decreases the contrast of the hillshade.  Values\n    greater than one will cause intermediate values to move closer to\n    full illumination or shadow (and clipping any values that move\n    beyond 0 or 1). Note that this is not visually or mathematically\n    the same as vertical exaggeration.\n\nReturns\n-------\n`~numpy.ndarray`\n    A 2D array of illumination values between 0-1, where 0 is\n    completely in shadow and 1 is completely illuminated."
+        },
+        {
+          "name": "shade",
+          "docstring": "Combine colormapped data values with an illumination intensity map\n(a.k.a.  \"hillshade\") of the values.\n\nParameters\n----------\ndata : 2D array-like\n    The height values used to generate a shaded map.\ncmap : `~matplotlib.colors.Colormap`\n    The colormap used to color the *data* array. Note that this must be\n    a `~matplotlib.colors.Colormap` instance.  For example, rather than\n    passing in ``cmap='gist_earth'``, use\n    ``cmap=plt.get_cmap('gist_earth')`` instead.\nnorm : `~matplotlib.colors.Normalize` instance, optional\n    The normalization used to scale values before colormapping. If\n    None, the input will be linearly scaled between its min and max.\nblend_mode : {'hsv', 'overlay', 'soft'} or callable, optional\n    The type of blending used to combine the colormapped data\n    values with the illumination intensity.  Default is\n    \"overlay\".  Note that for most topographic surfaces,\n    \"overlay\" or \"soft\" appear more visually realistic. If a\n    user-defined function is supplied, it is expected to\n    combine an (M, N, 3) RGB array of floats (ranging 0 to 1) with\n    an (M, N, 1) hillshade array (also 0 to 1).  (Call signature\n    ``func(rgb, illum, **kwargs)``) Additional kwargs supplied\n    to this function will be passed on to the *blend_mode*\n    function.\nvmin : float or None, optional\n    The minimum value used in colormapping *data*. If *None* the\n    minimum value in *data* is used. If *norm* is specified, then this\n    argument will be ignored.\nvmax : float or None, optional\n    The maximum value used in colormapping *data*. If *None* the\n    maximum value in *data* is used. If *norm* is specified, then this\n    argument will be ignored.\nvert_exag : number, optional\n    The amount to exaggerate the elevation values by when calculating\n    illumination. This can be used either to correct for differences in\n    units between the x-y coordinate system and the elevation\n    coordinate system (e.g. decimal degrees vs. meters) or to\n    exaggerate or de-emphasize topography.\ndx : number, optional\n    The x-spacing (columns) of the input *elevation* grid.\ndy : number, optional\n    The y-spacing (rows) of the input *elevation* grid.\nfraction : number, optional\n    Increases or decreases the contrast of the hillshade.  Values\n    greater than one will cause intermediate values to move closer to\n    full illumination or shadow (and clipping any values that move\n    beyond 0 or 1). Note that this is not visually or mathematically\n    the same as vertical exaggeration.\n**kwargs\n    Additional kwargs are passed on to the *blend_mode* function.\n\nReturns\n-------\n`~numpy.ndarray`\n    An (M, N, 4) array of floats ranging between 0-1."
+        },
+        {
+          "name": "shade_rgb",
+          "docstring": "Use this light source to adjust the colors of the *rgb* input array to\ngive the impression of a shaded relief map with the given *elevation*.\n\nParameters\n----------\nrgb : array-like\n    An (M, N, 3) RGB array, assumed to be in the range of 0 to 1.\nelevation : array-like\n    An (M, N) array of the height values used to generate a shaded map.\nfraction : number\n    Increases or decreases the contrast of the hillshade.  Values\n    greater than one will cause intermediate values to move closer to\n    full illumination or shadow (and clipping any values that move\n    beyond 0 or 1). Note that this is not visually or mathematically\n    the same as vertical exaggeration.\nblend_mode : {'hsv', 'overlay', 'soft'} or callable, optional\n    The type of blending used to combine the colormapped data values\n    with the illumination intensity.  For backwards compatibility, this\n    defaults to \"hsv\". Note that for most topographic surfaces,\n    \"overlay\" or \"soft\" appear more visually realistic. If a\n    user-defined function is supplied, it is expected to combine an\n    (M, N, 3) RGB array of floats (ranging 0 to 1) with an (M, N, 1)\n    hillshade array (also 0 to 1).  (Call signature\n    ``func(rgb, illum, **kwargs)``)\n    Additional kwargs supplied to this function will be passed on to\n    the *blend_mode* function.\nvert_exag : number, optional\n    The amount to exaggerate the elevation values by when calculating\n    illumination. This can be used either to correct for differences in\n    units between the x-y coordinate system and the elevation\n    coordinate system (e.g. decimal degrees vs. meters) or to\n    exaggerate or de-emphasize topography.\ndx : number, optional\n    The x-spacing (columns) of the input *elevation* grid.\ndy : number, optional\n    The y-spacing (rows) of the input *elevation* grid.\n**kwargs\n    Additional kwargs are passed on to the *blend_mode* function.\n\nReturns\n-------\n`~numpy.ndarray`\n    An (m, n, 3) array of floats ranging between 0-1."
+        },
+        {
+          "name": "blend_hsv",
+          "docstring": "Take the input data array, convert to HSV values in the given colormap,\nthen adjust those color values to give the impression of a shaded\nrelief map with a specified light source.  RGBA values are returned,\nwhich can then be used to plot the shaded image with imshow.\n\nThe color of the resulting image will be darkened by moving the (s, v)\nvalues (in HSV colorspace) toward (hsv_min_sat, hsv_min_val) in the\nshaded regions, or lightened by sliding (s, v) toward (hsv_max_sat,\nhsv_max_val) in regions that are illuminated.  The default extremes are\nchose so that completely shaded points are nearly black (s = 1, v = 0)\nand completely illuminated points are nearly white (s = 0, v = 1).\n\nParameters\n----------\nrgb : `~numpy.ndarray`\n    An (M, N, 3) RGB array of floats ranging from 0 to 1 (color image).\nintensity : `~numpy.ndarray`\n    An (M, N, 1) array of floats ranging from 0 to 1 (grayscale image).\nhsv_max_sat : number, optional\n    The maximum saturation value that the *intensity* map can shift the output\n    image to. If not provided, use the value provided upon initialization.\nhsv_min_sat : number, optional\n    The minimum saturation value that the *intensity* map can shift the output\n    image to. If not provided, use the value provided upon initialization.\nhsv_max_val : number, optional\n    The maximum value (\"v\" in \"hsv\") that the *intensity* map can shift the\n    output image to. If not provided, use the value provided upon\n    initialization.\nhsv_min_val : number, optional\n    The minimum value (\"v\" in \"hsv\") that the *intensity* map can shift the\n    output image to. If not provided, use the value provided upon\n    initialization.\n\nReturns\n-------\n`~numpy.ndarray`\n    An (M, N, 3) RGB array representing the combined images."
+        },
+        {
+          "name": "blend_soft_light",
+          "docstring": "Combine an RGB image with an intensity map using \"soft light\" blending,\nusing the \"pegtop\" formula.\n\nParameters\n----------\nrgb : `~numpy.ndarray`\n    An (M, N, 3) RGB array of floats ranging from 0 to 1 (color image).\nintensity : `~numpy.ndarray`\n    An (M, N, 1) array of floats ranging from 0 to 1 (grayscale image).\n\nReturns\n-------\n`~numpy.ndarray`\n    An (M, N, 3) RGB array representing the combined images."
+        },
+        {
+          "name": "blend_overlay",
+          "docstring": "Combine an RGB image with an intensity map using \"overlay\" blending.\n\nParameters\n----------\nrgb : `~numpy.ndarray`\n    An (M, N, 3) RGB array of floats ranging from 0 to 1 (color image).\nintensity : `~numpy.ndarray`\n    An (M, N, 1) array of floats ranging from 0 to 1 (grayscale image).\n\nReturns\n-------\nndarray\n    An (M, N, 3) RGB array representing the combined images."
+        }
+      ]
+    },
+    {
+      "name": "Norm",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "inverse",
+          "docstring": null
+        },
+        {
+          "name": "autoscale_None",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_named_colors_mapping",
+      "docstring": "Return the global mapping of names to named colors."
+    },
+    {
+      "name": "is_color_like",
+      "docstring": "Return whether *c* can be interpreted as an RGB(A) color."
+    },
+    {
+      "name": "same_color",
+      "docstring": "Return whether the colors *c1* and *c2* are the same.\n\n*c1*, *c2* can be single colors or lists/arrays of colors."
+    },
+    {
+      "name": "to_rgba",
+      "docstring": "Convert *c* to an RGBA color.\n\nParameters\n----------\nc : Matplotlib color or ``np.ma.masked``\n\nalpha : float, optional\n    If *alpha* is given, force the alpha value of the returned RGBA tuple\n    to *alpha*.\n\n    If None, the alpha value from *c* is used. If *c* does not have an\n    alpha channel, then alpha defaults to 1.\n\n    *alpha* is ignored for the color value ``\"none\"`` (case-insensitive),\n    which always maps to ``(0, 0, 0, 0)``.\n\nReturns\n-------\ntuple\n    Tuple of floats ``(r, g, b, a)``, where each channel (red, green, blue,\n    alpha) can assume values between 0 and 1."
+    },
+    {
+      "name": "to_rgba_array",
+      "docstring": "Convert *c* to a (n, 4) array of RGBA colors.\n\nParameters\n----------\nc : Matplotlib color or array of colors\n    If *c* is a masked array, an `~numpy.ndarray` is returned with a\n    (0, 0, 0, 0) row for each masked value or row in *c*.\n\nalpha : float or sequence of floats, optional\n    If *alpha* is given, force the alpha value of the returned RGBA tuple\n    to *alpha*.\n\n    If None, the alpha value from *c* is used. If *c* does not have an\n    alpha channel, then alpha defaults to 1.\n\n    *alpha* is ignored for the color value ``\"none\"`` (case-insensitive),\n    which always maps to ``(0, 0, 0, 0)``.\n\n    If *alpha* is a sequence and *c* is a single color, *c* will be\n    repeated to match the length of *alpha*.\n\nReturns\n-------\narray\n    (n, 4) array of RGBA colors,  where each channel (red, green, blue,\n    alpha) can assume values between 0 and 1."
+    },
+    {
+      "name": "to_rgb",
+      "docstring": "Convert *c* to an RGB color, silently dropping the alpha channel."
+    },
+    {
+      "name": "to_hex",
+      "docstring": "Convert *c* to a hex color.\n\nParameters\n----------\nc : :ref:`color <colors_def>` or `numpy.ma.masked`\n\nkeep_alpha : bool, default: False\n  If False, use the ``#rrggbb`` format, otherwise use ``#rrggbbaa``.\n\nReturns\n-------\nstr\n  ``#rrggbb`` or ``#rrggbbaa`` hex color string"
+    },
+    {
+      "name": "make_norm_from_scale",
+      "docstring": "Decorator for building a `.Normalize` subclass from a `~.scale.ScaleBase`\nsubclass.\n\nAfter ::\n\n    @make_norm_from_scale(scale_cls)\n    class norm_cls(Normalize):\n        ...\n\n*norm_cls* is filled with methods so that normalization computations are\nforwarded to *scale_cls* (i.e., *scale_cls* is the scale that would be used\nfor the colorbar of a mappable normalized with *norm_cls*).\n\nIf *init* is not passed, then the constructor signature of *norm_cls*\nwill be ``norm_cls(vmin=None, vmax=None, clip=False)``; these three\nparameters will be forwarded to the base class (``Normalize.__init__``),\nand a *scale_cls* object will be initialized with no arguments (other than\na dummy axis).\n\nIf the *scale_cls* constructor takes additional parameters, then *init*\nshould be passed to `make_norm_from_scale`.  It is a callable which is\n*only* used for its signature.  First, this signature will become the\nsignature of *norm_cls*.  Second, the *norm_cls* constructor will bind the\nparameters passed to it using this signature, extract the bound *vmin*,\n*vmax*, and *clip* values, pass those to ``Normalize.__init__``, and\nforward the remaining bound values (including any defaults defined by the\nsignature) to the *scale_cls* constructor."
+    },
+    {
+      "name": "rgb_to_hsv",
+      "docstring": "Convert an array of float RGB values (in the range [0, 1]) to HSV values.\n\nParameters\n----------\narr : (..., 3) array-like\n   All values must be in the range [0, 1]\n\nReturns\n-------\n(..., 3) `~numpy.ndarray`\n   Colors converted to HSV values in range [0, 1]"
+    },
+    {
+      "name": "hsv_to_rgb",
+      "docstring": "Convert HSV values to RGB.\n\nParameters\n----------\nhsv : (..., 3) array-like\n   All values assumed to be in range [0, 1]\n\nReturns\n-------\n(..., 3) `~numpy.ndarray`\n   Colors converted to RGB values in range [0, 1]"
+    },
+    {
+      "name": "from_levels_and_colors",
+      "docstring": "A helper routine to generate a cmap and a norm instance which\nbehave similar to contourf's levels and colors arguments.\n\nParameters\n----------\nlevels : sequence of numbers\n    The quantization levels used to construct the `BoundaryNorm`.\n    Value ``v`` is quantized to level ``i`` if ``lev[i] <= v < lev[i+1]``.\ncolors : sequence of colors\n    The fill color to use for each level. If *extend* is \"neither\" there\n    must be ``n_level - 1`` colors. For an *extend* of \"min\" or \"max\" add\n    one extra color, and for an *extend* of \"both\" add two colors.\nextend : {'neither', 'min', 'max', 'both'}, optional\n    The behaviour when a value falls out of range of the given levels.\n    See `~.Axes.contourf` for details.\n\nReturns\n-------\ncmap : `~matplotlib.colors.Colormap`\nnorm : `~matplotlib.colors.Normalize`"
+    },
+    {
+      "name": "register",
+      "docstring": "Register a new color sequence.\n\nThe color sequence registry stores a copy of the given *color_list*, so\nthat future changes to the original list do not affect the registered\ncolor sequence. Think of this as the registry taking a snapshot\nof *color_list* at registration.\n\nParameters\n----------\nname : str\n    The name for the color sequence.\n\ncolor_list : list of :mpltype:`color`\n    An iterable returning valid Matplotlib colors when iterating over.\n    Note however that the returned color sequence will always be a\n    list regardless of the input type."
+    },
+    {
+      "name": "unregister",
+      "docstring": "Remove a sequence from the registry.\n\nYou cannot remove built-in color sequences.\n\nIf the name is not registered, returns with no error."
+    },
+    {
+      "name": "get_bad",
+      "docstring": "Get the color for masked values."
+    },
+    {
+      "name": "set_bad",
+      "docstring": "Set the color for masked values."
+    },
+    {
+      "name": "get_under",
+      "docstring": "Get the color for low out-of-range values."
+    },
+    {
+      "name": "set_under",
+      "docstring": "Set the color for low out-of-range values."
+    },
+    {
+      "name": "get_over",
+      "docstring": "Get the color for high out-of-range values."
+    },
+    {
+      "name": "set_over",
+      "docstring": "Set the color for high out-of-range values."
+    },
+    {
+      "name": "set_extremes",
+      "docstring": "Set the colors for masked (*bad*) values and, when ``norm.clip =\nFalse``, low (*under*) and high (*over*) out-of-range values."
+    },
+    {
+      "name": "with_extremes",
+      "docstring": "Return a copy of the colormap, for which the colors for masked (*bad*)\nvalues and, when ``norm.clip = False``, low (*under*) and high (*over*)\nout-of-range values, have been set accordingly."
+    },
+    {
+      "name": "is_gray",
+      "docstring": "Return whether the colormap is grayscale."
+    },
+    {
+      "name": "resampled",
+      "docstring": "Return a new colormap with *lutsize* entries."
+    },
+    {
+      "name": "reversed",
+      "docstring": "Return a reversed instance of the Colormap.\n\n.. note:: This function is not implemented for the base class.\n\nParameters\n----------\nname : str, optional\n    The name for the reversed colormap. If None, the\n    name is set to ``self.name + \"_r\"``.\n\nSee Also\n--------\nLinearSegmentedColormap.reversed\nListedColormap.reversed"
+    },
+    {
+      "name": "copy",
+      "docstring": "Return a copy of the colormap."
+    },
+    {
+      "name": "set_gamma",
+      "docstring": "Set a new gamma value and regenerate colormap."
+    },
+    {
+      "name": "from_list",
+      "docstring": "Create a `LinearSegmentedColormap` from a list of colors.\n\nParameters\n----------\nname : str\n    The name of the colormap.\ncolors : list of :mpltype:`color` or list of (value, color)\n    If only colors are given, they are equidistantly mapped from the\n    range :math:`[0, 1]`; i.e. 0 maps to ``colors[0]`` and 1 maps to\n    ``colors[-1]``.\n    If (value, color) pairs are given, the mapping is from *value*\n    to *color*. This can be used to divide the range unevenly.\nN : int\n    The number of RGB quantization levels.\ngamma : float"
+    },
+    {
+      "name": "resampled",
+      "docstring": "Return a new colormap with *lutsize* entries."
+    },
+    {
+      "name": "reversed",
+      "docstring": "Return a reversed instance of the Colormap.\n\nParameters\n----------\nname : str, optional\n    The name for the reversed colormap. If None, the\n    name is set to ``self.name + \"_r\"``.\n\nReturns\n-------\nLinearSegmentedColormap\n    The reversed colormap."
+    },
+    {
+      "name": "resampled",
+      "docstring": "Return a new colormap with *lutsize* entries."
+    },
+    {
+      "name": "reversed",
+      "docstring": "Return a reversed instance of the Colormap.\n\nParameters\n----------\nname : str, optional\n    The name for the reversed colormap. If None, the\n    name is set to ``self.name + \"_r\"``.\n\nReturns\n-------\nListedColormap\n    A reversed instance of the colormap."
+    },
+    {
+      "name": "copy",
+      "docstring": "Return a copy of the multivarcolormap."
+    },
+    {
+      "name": "get_bad",
+      "docstring": "Get the color for masked values."
+    },
+    {
+      "name": "resampled",
+      "docstring": "Return a new colormap with *lutshape* entries.\n\nParameters\n----------\nlutshape : tuple of (`int`, `None`)\n    The tuple must have a length matching the number of variates.\n    For each element in the tuple, if `int`, the corresponding colorbar\n    is resampled, if `None`, the corresponding colorbar is not resampled.\n\nReturns\n-------\nMultivarColormap"
+    },
+    {
+      "name": "with_extremes",
+      "docstring": "Return a copy of the `MultivarColormap` with modified out-of-range attributes.\n\nThe *bad* keyword modifies the copied `MultivarColormap` while *under* and\n*over* modifies the attributes of the copied component colormaps.\nNote that *under* and *over* colors are subject to the mixing rules determined\nby the *combination_mode*.\n\nParameters\n----------\nbad: :mpltype:`color`, default: None\n    If Matplotlib color, the bad value is set accordingly in the copy\n\nunder tuple of :mpltype:`color`, default: None\n    If tuple, the `under` value of each component is set with the values\n    from the tuple.\n\nover tuple of :mpltype:`color`, default: None\n    If tuple, the `over` value of each component is set with the values\n    from the tuple.\n\nReturns\n-------\nMultivarColormap\n    copy of self with attributes set"
+    },
+    {
+      "name": "combination_mode",
+      "docstring": null
+    },
+    {
+      "name": "lut",
+      "docstring": "For external access to the lut, i.e. for displaying the cmap.\nFor circular colormaps this returns a lut with a circular mask.\n\nInternal functions (such as to_rgb()) should use _lut\nwhich stores the lut without a circular mask\nA lut without the circular mask is needed in to_rgb() because the\nconversion from floats to ints results in some some pixel-requests\njust outside of the circular mask"
+    },
+    {
+      "name": "get_bad",
+      "docstring": "Get the color for masked values."
+    },
+    {
+      "name": "get_outside",
+      "docstring": "Get the color for out-of-range values."
+    },
+    {
+      "name": "resampled",
+      "docstring": "Return a new colormap with *lutshape* entries.\n\nNote that this function does not move the origin.\n\nParameters\n----------\nlutshape : tuple of ints or None\n    The tuple must be of length 2, and each entry is either an int or None.\n\n    - If an int, the corresponding axis is resampled.\n    - If negative the corresponding axis is resampled in reverse\n    - If -1, the axis is inverted\n    - If 1 or None, the corresponding axis is not resampled.\n\ntransposed : bool, default: False\n    if True, the axes are swapped after resampling\n\nReturns\n-------\nBivarColormap"
+    },
+    {
+      "name": "reversed",
+      "docstring": "Reverses both or one of the axis."
+    },
+    {
+      "name": "transposed",
+      "docstring": "Transposes the colormap by swapping the order of the axis"
+    },
+    {
+      "name": "with_extremes",
+      "docstring": "Return a copy of the `BivarColormap` with modified attributes.\n\nNote that the *outside* color is only relevant if `shape` = 'ignore'\nor 'circleignore'.\n\nParameters\n----------\nbad : None or :mpltype:`color`\n    If Matplotlib color, the *bad* value is set accordingly in the copy\n\noutside : None or :mpltype:`color`\n    If Matplotlib color and shape is 'ignore' or 'circleignore', values\n    *outside* the colormap are colored accordingly in the copy\n\nshape : {'square', 'circle', 'ignore', 'circleignore'}\n\n    - If 'square' each variate is clipped to [0,1] independently\n    - If 'circle' the variates are clipped radially to the center\n      of the colormap, and a circular mask is applied when the colormap\n      is displayed\n    - If 'ignore' the variates are not clipped, but instead assigned the\n      *outside* color\n    - If 'circleignore' a circular mask is applied, but the data is not\n      clipped and instead assigned the *outside* color\n\norigin : (float, float)\n    The relative origin of the colormap. Typically (0, 0), for colormaps\n    that are linear on both axis, and (.5, .5) for circular colormaps.\n    Used when getting 1D colormaps from 2D colormaps.\n\nReturns\n-------\nBivarColormap\n    copy of self with attributes set"
+    },
+    {
+      "name": "shape",
+      "docstring": null
+    },
+    {
+      "name": "origin",
+      "docstring": null
+    },
+    {
+      "name": "copy",
+      "docstring": "Return a copy of the colormap."
+    },
+    {
+      "name": "vmin",
+      "docstring": null
+    },
+    {
+      "name": "vmin",
+      "docstring": null
+    },
+    {
+      "name": "vmax",
+      "docstring": null
+    },
+    {
+      "name": "vmax",
+      "docstring": null
+    },
+    {
+      "name": "clip",
+      "docstring": null
+    },
+    {
+      "name": "clip",
+      "docstring": null
+    },
+    {
+      "name": "process_value",
+      "docstring": "Homogenize the input *value* for easy and efficient normalization.\n\n*value* can be a scalar or sequence.\n\nParameters\n----------\nvalue\n    Data to normalize.\n\nReturns\n-------\nresult : masked array\n    Masked array with the same shape as *value*.\nis_scalar : bool\n    Whether *value* is a scalar.\n\nNotes\n-----\nFloat dtypes are preserved; integer types with two bytes or smaller are\nconverted to np.float32, and larger types are converted to np.float64.\nPreserving float32 when possible, and using in-place operations,\ngreatly improves speed for large arrays."
+    },
+    {
+      "name": "inverse",
+      "docstring": "Maps the normalized value (i.e., index in the colormap) back to image\ndata value.\n\nParameters\n----------\nvalue\n    Normalized value."
+    },
+    {
+      "name": "autoscale",
+      "docstring": "Set *vmin*, *vmax* to min, max of *A*."
+    },
+    {
+      "name": "autoscale_None",
+      "docstring": "If *vmin* or *vmax* are not set, use the min/max of *A* to set them."
+    },
+    {
+      "name": "scaled",
+      "docstring": "Return whether *vmin* and *vmax* are both set."
+    },
+    {
+      "name": "vcenter",
+      "docstring": null
+    },
+    {
+      "name": "vcenter",
+      "docstring": null
+    },
+    {
+      "name": "autoscale_None",
+      "docstring": "Get vmin and vmax.\n\nIf vcenter isn't in the range [vmin, vmax], either vmin or vmax\nis expanded so that vcenter lies in the middle of the modified range\n[vmin, vmax]."
+    },
+    {
+      "name": "inverse",
+      "docstring": null
+    },
+    {
+      "name": "autoscale",
+      "docstring": "Set *halfrange* to ``max(abs(A-vcenter))``, then set *vmin* and *vmax*."
+    },
+    {
+      "name": "autoscale_None",
+      "docstring": "Set *vmin* and *vmax*."
+    },
+    {
+      "name": "vmin",
+      "docstring": null
+    },
+    {
+      "name": "vmin",
+      "docstring": null
+    },
+    {
+      "name": "vmax",
+      "docstring": null
+    },
+    {
+      "name": "vmax",
+      "docstring": null
+    },
+    {
+      "name": "vcenter",
+      "docstring": null
+    },
+    {
+      "name": "vcenter",
+      "docstring": null
+    },
+    {
+      "name": "halfrange",
+      "docstring": null
+    },
+    {
+      "name": "halfrange",
+      "docstring": null
+    },
+    {
+      "name": "linthresh",
+      "docstring": null
+    },
+    {
+      "name": "linthresh",
+      "docstring": null
+    },
+    {
+      "name": "linear_width",
+      "docstring": null
+    },
+    {
+      "name": "linear_width",
+      "docstring": null
+    },
+    {
+      "name": "inverse",
+      "docstring": null
+    },
+    {
+      "name": "inverse",
+      "docstring": "Raises\n------\nValueError\n    BoundaryNorm is not invertible, so calling this method will always\n    raise an error"
+    },
+    {
+      "name": "inverse",
+      "docstring": null
+    },
+    {
+      "name": "direction",
+      "docstring": "The unit vector direction towards the light source."
+    },
+    {
+      "name": "hillshade",
+      "docstring": "Calculate the illumination intensity for a surface using the defined\nazimuth and elevation for the light source.\n\nThis computes the normal vectors for the surface, and then passes them\non to `shade_normals`\n\nParameters\n----------\nelevation : 2D array-like\n    The height values used to generate an illumination map\nvert_exag : number, optional\n    The amount to exaggerate the elevation values by when calculating\n    illumination. This can be used either to correct for differences in\n    units between the x-y coordinate system and the elevation\n    coordinate system (e.g. decimal degrees vs. meters) or to\n    exaggerate or de-emphasize topographic effects.\ndx : number, optional\n    The x-spacing (columns) of the input *elevation* grid.\ndy : number, optional\n    The y-spacing (rows) of the input *elevation* grid.\nfraction : number, optional\n    Increases or decreases the contrast of the hillshade.  Values\n    greater than one will cause intermediate values to move closer to\n    full illumination or shadow (and clipping any values that move\n    beyond 0 or 1). Note that this is not visually or mathematically\n    the same as vertical exaggeration.\n\nReturns\n-------\n`~numpy.ndarray`\n    A 2D array of illumination values between 0-1, where 0 is\n    completely in shadow and 1 is completely illuminated."
+    },
+    {
+      "name": "shade_normals",
+      "docstring": "Calculate the illumination intensity for the normal vectors of a\nsurface using the defined azimuth and elevation for the light source.\n\nImagine an artificial sun placed at infinity in some azimuth and\nelevation position illuminating our surface. The parts of the surface\nthat slope toward the sun should brighten while those sides facing away\nshould become darker.\n\nParameters\n----------\nfraction : number, optional\n    Increases or decreases the contrast of the hillshade.  Values\n    greater than one will cause intermediate values to move closer to\n    full illumination or shadow (and clipping any values that move\n    beyond 0 or 1). Note that this is not visually or mathematically\n    the same as vertical exaggeration.\n\nReturns\n-------\n`~numpy.ndarray`\n    A 2D array of illumination values between 0-1, where 0 is\n    completely in shadow and 1 is completely illuminated."
+    },
+    {
+      "name": "shade",
+      "docstring": "Combine colormapped data values with an illumination intensity map\n(a.k.a.  \"hillshade\") of the values.\n\nParameters\n----------\ndata : 2D array-like\n    The height values used to generate a shaded map.\ncmap : `~matplotlib.colors.Colormap`\n    The colormap used to color the *data* array. Note that this must be\n    a `~matplotlib.colors.Colormap` instance.  For example, rather than\n    passing in ``cmap='gist_earth'``, use\n    ``cmap=plt.get_cmap('gist_earth')`` instead.\nnorm : `~matplotlib.colors.Normalize` instance, optional\n    The normalization used to scale values before colormapping. If\n    None, the input will be linearly scaled between its min and max.\nblend_mode : {'hsv', 'overlay', 'soft'} or callable, optional\n    The type of blending used to combine the colormapped data\n    values with the illumination intensity.  Default is\n    \"overlay\".  Note that for most topographic surfaces,\n    \"overlay\" or \"soft\" appear more visually realistic. If a\n    user-defined function is supplied, it is expected to\n    combine an (M, N, 3) RGB array of floats (ranging 0 to 1) with\n    an (M, N, 1) hillshade array (also 0 to 1).  (Call signature\n    ``func(rgb, illum, **kwargs)``) Additional kwargs supplied\n    to this function will be passed on to the *blend_mode*\n    function.\nvmin : float or None, optional\n    The minimum value used in colormapping *data*. If *None* the\n    minimum value in *data* is used. If *norm* is specified, then this\n    argument will be ignored.\nvmax : float or None, optional\n    The maximum value used in colormapping *data*. If *None* the\n    maximum value in *data* is used. If *norm* is specified, then this\n    argument will be ignored.\nvert_exag : number, optional\n    The amount to exaggerate the elevation values by when calculating\n    illumination. This can be used either to correct for differences in\n    units between the x-y coordinate system and the elevation\n    coordinate system (e.g. decimal degrees vs. meters) or to\n    exaggerate or de-emphasize topography.\ndx : number, optional\n    The x-spacing (columns) of the input *elevation* grid.\ndy : number, optional\n    The y-spacing (rows) of the input *elevation* grid.\nfraction : number, optional\n    Increases or decreases the contrast of the hillshade.  Values\n    greater than one will cause intermediate values to move closer to\n    full illumination or shadow (and clipping any values that move\n    beyond 0 or 1). Note that this is not visually or mathematically\n    the same as vertical exaggeration.\n**kwargs\n    Additional kwargs are passed on to the *blend_mode* function.\n\nReturns\n-------\n`~numpy.ndarray`\n    An (M, N, 4) array of floats ranging between 0-1."
+    },
+    {
+      "name": "shade_rgb",
+      "docstring": "Use this light source to adjust the colors of the *rgb* input array to\ngive the impression of a shaded relief map with the given *elevation*.\n\nParameters\n----------\nrgb : array-like\n    An (M, N, 3) RGB array, assumed to be in the range of 0 to 1.\nelevation : array-like\n    An (M, N) array of the height values used to generate a shaded map.\nfraction : number\n    Increases or decreases the contrast of the hillshade.  Values\n    greater than one will cause intermediate values to move closer to\n    full illumination or shadow (and clipping any values that move\n    beyond 0 or 1). Note that this is not visually or mathematically\n    the same as vertical exaggeration.\nblend_mode : {'hsv', 'overlay', 'soft'} or callable, optional\n    The type of blending used to combine the colormapped data values\n    with the illumination intensity.  For backwards compatibility, this\n    defaults to \"hsv\". Note that for most topographic surfaces,\n    \"overlay\" or \"soft\" appear more visually realistic. If a\n    user-defined function is supplied, it is expected to combine an\n    (M, N, 3) RGB array of floats (ranging 0 to 1) with an (M, N, 1)\n    hillshade array (also 0 to 1).  (Call signature\n    ``func(rgb, illum, **kwargs)``)\n    Additional kwargs supplied to this function will be passed on to\n    the *blend_mode* function.\nvert_exag : number, optional\n    The amount to exaggerate the elevation values by when calculating\n    illumination. This can be used either to correct for differences in\n    units between the x-y coordinate system and the elevation\n    coordinate system (e.g. decimal degrees vs. meters) or to\n    exaggerate or de-emphasize topography.\ndx : number, optional\n    The x-spacing (columns) of the input *elevation* grid.\ndy : number, optional\n    The y-spacing (rows) of the input *elevation* grid.\n**kwargs\n    Additional kwargs are passed on to the *blend_mode* function.\n\nReturns\n-------\n`~numpy.ndarray`\n    An (m, n, 3) array of floats ranging between 0-1."
+    },
+    {
+      "name": "blend_hsv",
+      "docstring": "Take the input data array, convert to HSV values in the given colormap,\nthen adjust those color values to give the impression of a shaded\nrelief map with a specified light source.  RGBA values are returned,\nwhich can then be used to plot the shaded image with imshow.\n\nThe color of the resulting image will be darkened by moving the (s, v)\nvalues (in HSV colorspace) toward (hsv_min_sat, hsv_min_val) in the\nshaded regions, or lightened by sliding (s, v) toward (hsv_max_sat,\nhsv_max_val) in regions that are illuminated.  The default extremes are\nchose so that completely shaded points are nearly black (s = 1, v = 0)\nand completely illuminated points are nearly white (s = 0, v = 1).\n\nParameters\n----------\nrgb : `~numpy.ndarray`\n    An (M, N, 3) RGB array of floats ranging from 0 to 1 (color image).\nintensity : `~numpy.ndarray`\n    An (M, N, 1) array of floats ranging from 0 to 1 (grayscale image).\nhsv_max_sat : number, optional\n    The maximum saturation value that the *intensity* map can shift the output\n    image to. If not provided, use the value provided upon initialization.\nhsv_min_sat : number, optional\n    The minimum saturation value that the *intensity* map can shift the output\n    image to. If not provided, use the value provided upon initialization.\nhsv_max_val : number, optional\n    The maximum value (\"v\" in \"hsv\") that the *intensity* map can shift the\n    output image to. If not provided, use the value provided upon\n    initialization.\nhsv_min_val : number, optional\n    The minimum value (\"v\" in \"hsv\") that the *intensity* map can shift the\n    output image to. If not provided, use the value provided upon\n    initialization.\n\nReturns\n-------\n`~numpy.ndarray`\n    An (M, N, 3) RGB array representing the combined images."
+    },
+    {
+      "name": "blend_soft_light",
+      "docstring": "Combine an RGB image with an intensity map using \"soft light\" blending,\nusing the \"pegtop\" formula.\n\nParameters\n----------\nrgb : `~numpy.ndarray`\n    An (M, N, 3) RGB array of floats ranging from 0 to 1 (color image).\nintensity : `~numpy.ndarray`\n    An (M, N, 1) array of floats ranging from 0 to 1 (grayscale image).\n\nReturns\n-------\n`~numpy.ndarray`\n    An (M, N, 3) RGB array representing the combined images."
+    },
+    {
+      "name": "blend_overlay",
+      "docstring": "Combine an RGB image with an intensity map using \"overlay\" blending.\n\nParameters\n----------\nrgb : `~numpy.ndarray`\n    An (M, N, 3) RGB array of floats ranging from 0 to 1 (color image).\nintensity : `~numpy.ndarray`\n    An (M, N, 1) array of floats ranging from 0 to 1 (grayscale image).\n\nReturns\n-------\nndarray\n    An (M, N, 3) RGB array representing the combined images."
+    },
+    {
+      "name": "color_block",
+      "docstring": null
+    },
+    {
+      "name": "color_block",
+      "docstring": null
+    },
+    {
+      "name": "init",
+      "docstring": null
+    },
+    {
+      "name": "inverse",
+      "docstring": null
+    },
+    {
+      "name": "autoscale_None",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

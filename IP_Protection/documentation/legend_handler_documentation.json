@@ -1,0 +1,350 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\legend_handler.py",
+  "classes": [
+    {
+      "name": "HandlerBase",
+      "docstring": "A base class for default legend handlers.\n\nThe derived classes are meant to override *create_artists* method, which\nhas the following signature::\n\n  def create_artists(self, legend, orig_handle,\n                     xdescent, ydescent, width, height, fontsize,\n                     trans):\n\nThe overridden method needs to create artists of the given\ntransform that fits in the given dimension (xdescent, ydescent,\nwidth, height) that are scaled by fontsize if necessary.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nxpad : float, optional\n    Padding in x-direction.\nypad : float, optional\n    Padding in y-direction.\nupdate_func : callable, optional\n    Function for updating the legend handler properties from another\n    legend handler, used by `~HandlerBase.update_prop`."
+        },
+        {
+          "name": "update_prop",
+          "docstring": null
+        },
+        {
+          "name": "adjust_drawing_area",
+          "docstring": null
+        },
+        {
+          "name": "legend_artist",
+          "docstring": "Return the artist that this HandlerBase generates for the given\noriginal artist/handle.\n\nParameters\n----------\nlegend : `~matplotlib.legend.Legend`\n    The legend for which these legend artists are being created.\norig_handle : :class:`matplotlib.artist.Artist` or similar\n    The object for which these legend artists are being created.\nfontsize : int\n    The fontsize in pixels. The artists being created should\n    be scaled according to the given fontsize.\nhandlebox : `~matplotlib.offsetbox.OffsetBox`\n    The box which has been created to hold this legend entry's\n    artists. Artists created in the `legend_artist` method must\n    be added to this handlebox inside this method."
+        },
+        {
+          "name": "create_artists",
+          "docstring": "Return the legend artists generated.\n\nParameters\n----------\nlegend : `~matplotlib.legend.Legend`\n    The legend for which these legend artists are being created.\norig_handle : `~matplotlib.artist.Artist` or similar\n    The object for which these legend artists are being created.\nxdescent, ydescent, width, height : int\n    The rectangle (*xdescent*, *ydescent*, *width*, *height*) that the\n    legend artists being created should fit within.\nfontsize : int\n    The fontsize in pixels. The legend artists being created should\n    be scaled according to the given fontsize.\ntrans : `~matplotlib.transforms.Transform`\n    The transform that is applied to the legend artists being created.\n    Typically from unit coordinates in the handler box to screen\n    coordinates."
+        }
+      ]
+    },
+    {
+      "name": "HandlerNpoints",
+      "docstring": "A legend handler that shows *numpoints* points in the legend entry.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nmarker_pad : float\n    Padding between points in legend entry.\nnumpoints : int\n    Number of points to show in legend entry.\n**kwargs\n    Keyword arguments forwarded to `.HandlerBase`."
+        },
+        {
+          "name": "get_numpoints",
+          "docstring": null
+        },
+        {
+          "name": "get_xdata",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HandlerNpointsYoffsets",
+      "docstring": "A legend handler that shows *numpoints* in the legend, and allows them to\nbe individually offset in the y-direction.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nnumpoints : int\n    Number of points to show in legend entry.\nyoffsets : array of floats\n    Length *numpoints* list of y offsets for each point in\n    legend entry.\n**kwargs\n    Keyword arguments forwarded to `.HandlerNpoints`."
+        },
+        {
+          "name": "get_ydata",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HandlerLine2DCompound",
+      "docstring": "Original handler for `.Line2D` instances, that relies on combining\na line-only with a marker-only artist.  May be deprecated in the future.",
+      "methods": [
+        {
+          "name": "create_artists",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HandlerLine2D",
+      "docstring": "Handler for `.Line2D` instances.\n\nSee Also\n--------\nHandlerLine2DCompound : An earlier handler implementation, which used one\n                        artist for the line and another for the marker(s).",
+      "methods": [
+        {
+          "name": "create_artists",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HandlerPatch",
+      "docstring": "Handler for `.Patch` instances.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\npatch_func : callable, optional\n    The function that creates the legend key artist.\n    *patch_func* should have the signature::\n\n        def patch_func(legend=legend, orig_handle=orig_handle,\n                       xdescent=xdescent, ydescent=ydescent,\n                       width=width, height=height, fontsize=fontsize)\n\n    Subsequently, the created artist will have its ``update_prop``\n    method called and the appropriate transform will be applied.\n\n**kwargs\n    Keyword arguments forwarded to `.HandlerBase`."
+        },
+        {
+          "name": "create_artists",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HandlerStepPatch",
+      "docstring": "Handler for `~.matplotlib.patches.StepPatch` instances.",
+      "methods": [
+        {
+          "name": "create_artists",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HandlerLineCollection",
+      "docstring": "Handler for `.LineCollection` instances.",
+      "methods": [
+        {
+          "name": "get_numpoints",
+          "docstring": null
+        },
+        {
+          "name": "create_artists",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HandlerRegularPolyCollection",
+      "docstring": "Handler for `.RegularPolyCollection`\\s.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_numpoints",
+          "docstring": null
+        },
+        {
+          "name": "get_sizes",
+          "docstring": null
+        },
+        {
+          "name": "update_prop",
+          "docstring": null
+        },
+        {
+          "name": "create_collection",
+          "docstring": null
+        },
+        {
+          "name": "create_artists",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HandlerPathCollection",
+      "docstring": "Handler for `.PathCollection`\\s, which are used by `~.Axes.scatter`.",
+      "methods": [
+        {
+          "name": "create_collection",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HandlerCircleCollection",
+      "docstring": "Handler for `.CircleCollection`\\s.",
+      "methods": [
+        {
+          "name": "create_collection",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HandlerErrorbar",
+      "docstring": "Handler for Errorbars.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_err_size",
+          "docstring": null
+        },
+        {
+          "name": "create_artists",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HandlerStem",
+      "docstring": "Handler for plots produced by `~.Axes.stem`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nmarker_pad : float, default: 0.3\n    Padding between points in legend entry.\nnumpoints : int, optional\n    Number of points to show in legend entry.\nbottom : float, optional\n\nyoffsets : array of floats, optional\n    Length *numpoints* list of y offsets for each point in\n    legend entry.\n**kwargs\n    Keyword arguments forwarded to `.HandlerNpointsYoffsets`."
+        },
+        {
+          "name": "get_ydata",
+          "docstring": null
+        },
+        {
+          "name": "create_artists",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HandlerTuple",
+      "docstring": "Handler for Tuple.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nndivide : int or None, default: 1\n    The number of sections to divide the legend area into.  If None,\n    use the length of the input tuple.\npad : float, default: :rc:`legend.borderpad`\n    Padding in units of fraction of font size.\n**kwargs\n    Keyword arguments forwarded to `.HandlerBase`."
+        },
+        {
+          "name": "create_artists",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HandlerPolyCollection",
+      "docstring": "Handler for `.PolyCollection` used in `~.Axes.fill_between` and\n`~.Axes.stackplot`.",
+      "methods": [
+        {
+          "name": "create_artists",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "update_from_first_child",
+      "docstring": null
+    },
+    {
+      "name": "update_prop",
+      "docstring": null
+    },
+    {
+      "name": "adjust_drawing_area",
+      "docstring": null
+    },
+    {
+      "name": "legend_artist",
+      "docstring": "Return the artist that this HandlerBase generates for the given\noriginal artist/handle.\n\nParameters\n----------\nlegend : `~matplotlib.legend.Legend`\n    The legend for which these legend artists are being created.\norig_handle : :class:`matplotlib.artist.Artist` or similar\n    The object for which these legend artists are being created.\nfontsize : int\n    The fontsize in pixels. The artists being created should\n    be scaled according to the given fontsize.\nhandlebox : `~matplotlib.offsetbox.OffsetBox`\n    The box which has been created to hold this legend entry's\n    artists. Artists created in the `legend_artist` method must\n    be added to this handlebox inside this method."
+    },
+    {
+      "name": "create_artists",
+      "docstring": "Return the legend artists generated.\n\nParameters\n----------\nlegend : `~matplotlib.legend.Legend`\n    The legend for which these legend artists are being created.\norig_handle : `~matplotlib.artist.Artist` or similar\n    The object for which these legend artists are being created.\nxdescent, ydescent, width, height : int\n    The rectangle (*xdescent*, *ydescent*, *width*, *height*) that the\n    legend artists being created should fit within.\nfontsize : int\n    The fontsize in pixels. The legend artists being created should\n    be scaled according to the given fontsize.\ntrans : `~matplotlib.transforms.Transform`\n    The transform that is applied to the legend artists being created.\n    Typically from unit coordinates in the handler box to screen\n    coordinates."
+    },
+    {
+      "name": "get_numpoints",
+      "docstring": null
+    },
+    {
+      "name": "get_xdata",
+      "docstring": null
+    },
+    {
+      "name": "get_ydata",
+      "docstring": null
+    },
+    {
+      "name": "create_artists",
+      "docstring": null
+    },
+    {
+      "name": "create_artists",
+      "docstring": null
+    },
+    {
+      "name": "create_artists",
+      "docstring": null
+    },
+    {
+      "name": "create_artists",
+      "docstring": null
+    },
+    {
+      "name": "get_numpoints",
+      "docstring": null
+    },
+    {
+      "name": "create_artists",
+      "docstring": null
+    },
+    {
+      "name": "get_numpoints",
+      "docstring": null
+    },
+    {
+      "name": "get_sizes",
+      "docstring": null
+    },
+    {
+      "name": "update_prop",
+      "docstring": null
+    },
+    {
+      "name": "create_collection",
+      "docstring": null
+    },
+    {
+      "name": "create_artists",
+      "docstring": null
+    },
+    {
+      "name": "create_collection",
+      "docstring": null
+    },
+    {
+      "name": "create_collection",
+      "docstring": null
+    },
+    {
+      "name": "get_err_size",
+      "docstring": null
+    },
+    {
+      "name": "create_artists",
+      "docstring": null
+    },
+    {
+      "name": "get_ydata",
+      "docstring": null
+    },
+    {
+      "name": "create_artists",
+      "docstring": null
+    },
+    {
+      "name": "create_artists",
+      "docstring": null
+    },
+    {
+      "name": "create_artists",
+      "docstring": null
+    },
+    {
+      "name": "first_color",
+      "docstring": null
+    },
+    {
+      "name": "get_first",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

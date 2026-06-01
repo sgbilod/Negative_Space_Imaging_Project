@@ -1,0 +1,137 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\utils\\logging.py",
+  "classes": [
+    {
+      "name": "BrokenStdoutLoggingError",
+      "docstring": "Raised if BrokenPipeError occurs for the stdout stream while logging.",
+      "methods": []
+    },
+    {
+      "name": "IndentingFormatter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "A logging.Formatter that obeys the indent_log() context manager.\n\n:param add_timestamp: A bool indicating output lines should be prefixed\n    with their record's timestamp."
+        },
+        {
+          "name": "get_message_start",
+          "docstring": "Return the start of the formatted log message (not counting the\nprefix to add to each line)."
+        },
+        {
+          "name": "format",
+          "docstring": "Calls the standard formatter, but will indent all of the log message\nlines by our current indentation level."
+        }
+      ]
+    },
+    {
+      "name": "IndentedRenderable",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PipConsole",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "on_broken_pipe",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RichPipStreamHandler",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "emit",
+          "docstring": null
+        },
+        {
+          "name": "handleError",
+          "docstring": "Called when logging is unable to log some output."
+        }
+      ]
+    },
+    {
+      "name": "BetterRotatingFileHandler",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MaxLevelFilter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "filter",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ExcludeLoggerFilter",
+      "docstring": "A logging Filter that excludes records from a logger (or its children).",
+      "methods": [
+        {
+          "name": "filter",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "indent_log",
+      "docstring": "A context manager which will cause the log output to be indented for any\nlog messages emitted inside it."
+    },
+    {
+      "name": "get_indentation",
+      "docstring": null
+    },
+    {
+      "name": "get_console",
+      "docstring": null
+    },
+    {
+      "name": "setup_logging",
+      "docstring": "Configures and sets up all of the logging\n\nReturns the requested logging level, as its integer value."
+    },
+    {
+      "name": "get_message_start",
+      "docstring": "Return the start of the formatted log message (not counting the\nprefix to add to each line)."
+    },
+    {
+      "name": "format",
+      "docstring": "Calls the standard formatter, but will indent all of the log message\nlines by our current indentation level."
+    },
+    {
+      "name": "on_broken_pipe",
+      "docstring": null
+    },
+    {
+      "name": "emit",
+      "docstring": null
+    },
+    {
+      "name": "handleError",
+      "docstring": "Called when logging is unable to log some output."
+    },
+    {
+      "name": "filter",
+      "docstring": null
+    },
+    {
+      "name": "filter",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

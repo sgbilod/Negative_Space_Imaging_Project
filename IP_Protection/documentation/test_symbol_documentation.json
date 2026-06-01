@@ -1,0 +1,272 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\polynomial\\tests\\test_symbol.py",
+  "classes": [
+    {
+      "name": "TestInit",
+      "docstring": "Test polynomial creation with symbol kwarg.",
+      "methods": [
+        {
+          "name": "test_default_symbol",
+          "docstring": null
+        },
+        {
+          "name": "test_symbol_bad_input",
+          "docstring": null
+        },
+        {
+          "name": "test_valid_symbols",
+          "docstring": "Values for symbol that should pass input validation."
+        },
+        {
+          "name": "test_property",
+          "docstring": "'symbol' attribute is read only."
+        },
+        {
+          "name": "test_change_symbol",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestUnaryOperators",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_neg",
+          "docstring": null
+        },
+        {
+          "name": "test_scalarmul",
+          "docstring": null
+        },
+        {
+          "name": "test_rscalarmul",
+          "docstring": null
+        },
+        {
+          "name": "test_pow",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestBinaryOperatorsSameSymbol",
+      "docstring": "Ensure symbol is preserved for numeric operations on polynomials with\nthe same symbol",
+      "methods": [
+        {
+          "name": "test_add",
+          "docstring": null
+        },
+        {
+          "name": "test_sub",
+          "docstring": null
+        },
+        {
+          "name": "test_polymul",
+          "docstring": null
+        },
+        {
+          "name": "test_divmod",
+          "docstring": null
+        },
+        {
+          "name": "test_radd",
+          "docstring": null
+        },
+        {
+          "name": "test_rsub",
+          "docstring": null
+        },
+        {
+          "name": "test_rmul",
+          "docstring": null
+        },
+        {
+          "name": "test_rdivmod",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestBinaryOperatorsDifferentSymbol",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_binops_fails",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEquality",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_eq",
+          "docstring": null
+        },
+        {
+          "name": "test_neq",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestExtraMethods",
+      "docstring": "Test other methods for manipulating/creating polynomial objects.",
+      "methods": [
+        {
+          "name": "test_copy",
+          "docstring": null
+        },
+        {
+          "name": "test_trim",
+          "docstring": null
+        },
+        {
+          "name": "test_truncate",
+          "docstring": null
+        },
+        {
+          "name": "test_convert",
+          "docstring": null
+        },
+        {
+          "name": "test_integ",
+          "docstring": null
+        },
+        {
+          "name": "test_deriv",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_composition",
+      "docstring": null
+    },
+    {
+      "name": "test_fit",
+      "docstring": null
+    },
+    {
+      "name": "test_froomroots",
+      "docstring": null
+    },
+    {
+      "name": "test_identity",
+      "docstring": null
+    },
+    {
+      "name": "test_basis",
+      "docstring": null
+    },
+    {
+      "name": "test_default_symbol",
+      "docstring": null
+    },
+    {
+      "name": "test_symbol_bad_input",
+      "docstring": null
+    },
+    {
+      "name": "test_valid_symbols",
+      "docstring": "Values for symbol that should pass input validation."
+    },
+    {
+      "name": "test_property",
+      "docstring": "'symbol' attribute is read only."
+    },
+    {
+      "name": "test_change_symbol",
+      "docstring": null
+    },
+    {
+      "name": "test_neg",
+      "docstring": null
+    },
+    {
+      "name": "test_scalarmul",
+      "docstring": null
+    },
+    {
+      "name": "test_rscalarmul",
+      "docstring": null
+    },
+    {
+      "name": "test_pow",
+      "docstring": null
+    },
+    {
+      "name": "test_add",
+      "docstring": null
+    },
+    {
+      "name": "test_sub",
+      "docstring": null
+    },
+    {
+      "name": "test_polymul",
+      "docstring": null
+    },
+    {
+      "name": "test_divmod",
+      "docstring": null
+    },
+    {
+      "name": "test_radd",
+      "docstring": null
+    },
+    {
+      "name": "test_rsub",
+      "docstring": null
+    },
+    {
+      "name": "test_rmul",
+      "docstring": null
+    },
+    {
+      "name": "test_rdivmod",
+      "docstring": null
+    },
+    {
+      "name": "test_binops_fails",
+      "docstring": null
+    },
+    {
+      "name": "test_eq",
+      "docstring": null
+    },
+    {
+      "name": "test_neq",
+      "docstring": null
+    },
+    {
+      "name": "test_copy",
+      "docstring": null
+    },
+    {
+      "name": "test_trim",
+      "docstring": null
+    },
+    {
+      "name": "test_truncate",
+      "docstring": null
+    },
+    {
+      "name": "test_convert",
+      "docstring": null
+    },
+    {
+      "name": "test_integ",
+      "docstring": null
+    },
+    {
+      "name": "test_deriv",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

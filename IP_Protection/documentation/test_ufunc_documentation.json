@@ -1,0 +1,1553 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_ufunc.py",
+  "classes": [
+    {
+      "name": "TestUfuncKwargs",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_kwarg_exact",
+          "docstring": null
+        },
+        {
+          "name": "test_sig_signature",
+          "docstring": null
+        },
+        {
+          "name": "test_sig_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_extobj_removed",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestUfuncGenericLoops",
+      "docstring": "Test generic loops.\n\nThe loops to be tested are:\n\n    PyUFunc_ff_f_As_dd_d\n    PyUFunc_ff_f\n    PyUFunc_dd_d\n    PyUFunc_gg_g\n    PyUFunc_FF_F_As_DD_D\n    PyUFunc_DD_D\n    PyUFunc_FF_F\n    PyUFunc_GG_G\n    PyUFunc_OO_O\n    PyUFunc_OO_O_method\n    PyUFunc_f_f_As_d_d\n    PyUFunc_d_d\n    PyUFunc_f_f\n    PyUFunc_g_g\n    PyUFunc_F_F_As_D_D\n    PyUFunc_F_F\n    PyUFunc_D_D\n    PyUFunc_G_G\n    PyUFunc_O_O\n    PyUFunc_O_O_method\n    PyUFunc_On_Om\n\nWhere:\n\n    f -- float\n    d -- double\n    g -- long double\n    F -- complex float\n    D -- complex double\n    G -- complex long double\n    O -- python object\n\nIt is difficult to assure that each of these loops is entered from the\nPython level as the special cased loops are a moving target and the\ncorresponding types are architecture dependent. We probably need to\ndefine C level testing ufuncs to get at them. For the time being, I've\njust looked at the signatures registered in the build directory to find\nrelevant functions.",
+      "methods": [
+        {
+          "name": "test_unary_PyUFunc",
+          "docstring": null
+        },
+        {
+          "name": "f2",
+          "docstring": null
+        },
+        {
+          "name": "test_binary_PyUFunc",
+          "docstring": null
+        },
+        {
+          "name": "test_unary_PyUFunc_O_O",
+          "docstring": null
+        },
+        {
+          "name": "test_unary_PyUFunc_O_O_method_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_binary_PyUFunc_OO_O",
+          "docstring": null
+        },
+        {
+          "name": "test_binary_PyUFunc_OO_O_method",
+          "docstring": null
+        },
+        {
+          "name": "test_binary_PyUFunc_On_Om_method",
+          "docstring": null
+        },
+        {
+          "name": "test_python_complex_conjugate",
+          "docstring": null
+        },
+        {
+          "name": "test_unary_PyUFunc_O_O_method_full",
+          "docstring": "Compare the result of the object loop with non-object one"
+        }
+      ]
+    },
+    {
+      "name": "TestUfunc",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_pickle",
+          "docstring": null
+        },
+        {
+          "name": "test_pickle_withstring",
+          "docstring": null
+        },
+        {
+          "name": "test_pickle_name_is_qualname",
+          "docstring": null
+        },
+        {
+          "name": "test_reduceat_shifting_sum",
+          "docstring": null
+        },
+        {
+          "name": "test_all_ufunc",
+          "docstring": "Try to check presence and results of all ufuncs.\n\nThe list of ufuncs comes from generate_umath.py and is as follows:\n\n=====  ====  =============  ===============  ========================\ndone   args   function        types                notes\n=====  ====  =============  ===============  ========================\nn      1     conjugate      nums + O\nn      1     absolute       nums + O         complex -> real\nn      1     negative       nums + O\nn      1     sign           nums + O         -> int\nn      1     invert         bool + ints + O  flts raise an error\nn      1     degrees        real + M         cmplx raise an error\nn      1     radians        real + M         cmplx raise an error\nn      1     arccos         flts + M\nn      1     arccosh        flts + M\nn      1     arcsin         flts + M\nn      1     arcsinh        flts + M\nn      1     arctan         flts + M\nn      1     arctanh        flts + M\nn      1     cos            flts + M\nn      1     sin            flts + M\nn      1     tan            flts + M\nn      1     cosh           flts + M\nn      1     sinh           flts + M\nn      1     tanh           flts + M\nn      1     exp            flts + M\nn      1     expm1          flts + M\nn      1     log            flts + M\nn      1     log10          flts + M\nn      1     log1p          flts + M\nn      1     sqrt           flts + M         real x < 0 raises error\nn      1     ceil           real + M\nn      1     trunc          real + M\nn      1     floor          real + M\nn      1     fabs           real + M\nn      1     rint           flts + M\nn      1     isnan          flts             -> bool\nn      1     isinf          flts             -> bool\nn      1     isfinite       flts             -> bool\nn      1     signbit        real             -> bool\nn      1     modf           real             -> (frac, int)\nn      1     logical_not    bool + nums + M  -> bool\nn      2     left_shift     ints + O         flts raise an error\nn      2     right_shift    ints + O         flts raise an error\nn      2     add            bool + nums + O  boolean + is ||\nn      2     subtract       bool + nums + O  boolean - is ^\nn      2     multiply       bool + nums + O  boolean * is &\nn      2     divide         nums + O\nn      2     floor_divide   nums + O\nn      2     true_divide    nums + O         bBhH -> f, iIlLqQ -> d\nn      2     fmod           nums + M\nn      2     power          nums + O\nn      2     greater        bool + nums + O  -> bool\nn      2     greater_equal  bool + nums + O  -> bool\nn      2     less           bool + nums + O  -> bool\nn      2     less_equal     bool + nums + O  -> bool\nn      2     equal          bool + nums + O  -> bool\nn      2     not_equal      bool + nums + O  -> bool\nn      2     logical_and    bool + nums + M  -> bool\nn      2     logical_or     bool + nums + M  -> bool\nn      2     logical_xor    bool + nums + M  -> bool\nn      2     maximum        bool + nums + O\nn      2     minimum        bool + nums + O\nn      2     bitwise_and    bool + ints + O  flts raise an error\nn      2     bitwise_or     bool + ints + O  flts raise an error\nn      2     bitwise_xor    bool + ints + O  flts raise an error\nn      2     arctan2        real + M\nn      2     remainder      ints + real + O\nn      2     hypot          real + M\n=====  ====  =============  ===============  ========================\n\nTypes other than those listed will be accepted, but they are cast to\nthe smallest compatible type for which the function is defined. The\ncasting rules are:\n\nbool -> int8 -> float32\nints -> double"
+        },
+        {
+          "name": "test_signature0",
+          "docstring": null
+        },
+        {
+          "name": "test_signature1",
+          "docstring": null
+        },
+        {
+          "name": "test_signature2",
+          "docstring": null
+        },
+        {
+          "name": "test_signature3",
+          "docstring": null
+        },
+        {
+          "name": "test_signature4",
+          "docstring": null
+        },
+        {
+          "name": "test_signature5",
+          "docstring": null
+        },
+        {
+          "name": "test_signature6",
+          "docstring": null
+        },
+        {
+          "name": "test_signature7",
+          "docstring": null
+        },
+        {
+          "name": "test_signature8",
+          "docstring": null
+        },
+        {
+          "name": "test_signature9",
+          "docstring": null
+        },
+        {
+          "name": "test_signature10",
+          "docstring": null
+        },
+        {
+          "name": "test_signature_failure_extra_parenthesis",
+          "docstring": null
+        },
+        {
+          "name": "test_signature_failure_mismatching_parenthesis",
+          "docstring": null
+        },
+        {
+          "name": "test_signature_failure_signature_missing_input_arg",
+          "docstring": null
+        },
+        {
+          "name": "test_signature_failure_signature_missing_output_arg",
+          "docstring": null
+        },
+        {
+          "name": "test_get_signature",
+          "docstring": null
+        },
+        {
+          "name": "test_forced_sig",
+          "docstring": null
+        },
+        {
+          "name": "test_signature_all_None",
+          "docstring": null
+        },
+        {
+          "name": "test_signature_dtype_type",
+          "docstring": null
+        },
+        {
+          "name": "test_signature_dtype_instances_allowed",
+          "docstring": null
+        },
+        {
+          "name": "test_signature_dtype_instances_allowed",
+          "docstring": null
+        },
+        {
+          "name": "test_partial_signature_mismatch",
+          "docstring": null
+        },
+        {
+          "name": "test_partial_signature_mismatch_with_cache",
+          "docstring": null
+        },
+        {
+          "name": "test_use_output_signature_for_all_arguments",
+          "docstring": null
+        },
+        {
+          "name": "test_signature_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_forced_dtype_times",
+          "docstring": null
+        },
+        {
+          "name": "test_cast_safety",
+          "docstring": "Basic test for the safest casts, because ufuncs inner loops can\nindicate a cast-safety as well (which is normally always \"no\")."
+        },
+        {
+          "name": "test_cast_safety_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_cast_safety_scalar_special",
+          "docstring": null
+        },
+        {
+          "name": "test_true_divide",
+          "docstring": null
+        },
+        {
+          "name": "test_sum_stability",
+          "docstring": null
+        },
+        {
+          "name": "test_sum",
+          "docstring": null
+        },
+        {
+          "name": "test_sum_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_sum_initial",
+          "docstring": null
+        },
+        {
+          "name": "test_sum_where",
+          "docstring": null
+        },
+        {
+          "name": "test_vecdot",
+          "docstring": null
+        },
+        {
+          "name": "test_matvec",
+          "docstring": null
+        },
+        {
+          "name": "test_vecmatvec_identity",
+          "docstring": "Check that (x\u2020A)x equals x\u2020(Ax)."
+        },
+        {
+          "name": "test_vecdot_matvec_vecmat_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_vecdot_subclass",
+          "docstring": null
+        },
+        {
+          "name": "test_vecdot_object_no_conjugate",
+          "docstring": null
+        },
+        {
+          "name": "test_vecdot_object_breaks_outer_loop_on_error",
+          "docstring": null
+        },
+        {
+          "name": "test_broadcast",
+          "docstring": null
+        },
+        {
+          "name": "test_out_broadcasts",
+          "docstring": null
+        },
+        {
+          "name": "test_out_broadcast_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_type_cast",
+          "docstring": null
+        },
+        {
+          "name": "test_endian",
+          "docstring": null
+        },
+        {
+          "name": "test_incontiguous_array",
+          "docstring": null
+        },
+        {
+          "name": "test_output_argument",
+          "docstring": null
+        },
+        {
+          "name": "test_axes_argument",
+          "docstring": null
+        },
+        {
+          "name": "test_axis_argument",
+          "docstring": null
+        },
+        {
+          "name": "test_keepdims_argument",
+          "docstring": null
+        },
+        {
+          "name": "test_innerwt",
+          "docstring": null
+        },
+        {
+          "name": "test_innerwt_empty",
+          "docstring": "Test generalized ufunc with zero-sized operands"
+        },
+        {
+          "name": "test_cross1d",
+          "docstring": "Test with fixed-sized signature."
+        },
+        {
+          "name": "test_can_ignore_signature",
+          "docstring": null
+        },
+        {
+          "name": "test_matrix_multiply",
+          "docstring": null
+        },
+        {
+          "name": "test_matrix_multiply_umath_empty",
+          "docstring": null
+        },
+        {
+          "name": "compare_matrix_multiply_results",
+          "docstring": null
+        },
+        {
+          "name": "test_euclidean_pdist",
+          "docstring": null
+        },
+        {
+          "name": "test_cumsum",
+          "docstring": null
+        },
+        {
+          "name": "test_object_logical",
+          "docstring": null
+        },
+        {
+          "name": "test_object_comparison",
+          "docstring": null
+        },
+        {
+          "name": "test_object_array_reduction",
+          "docstring": null
+        },
+        {
+          "name": "test_object_array_accumulate_inplace",
+          "docstring": null
+        },
+        {
+          "name": "test_object_array_accumulate_failure",
+          "docstring": null
+        },
+        {
+          "name": "test_object_array_reduceat_inplace",
+          "docstring": null
+        },
+        {
+          "name": "test_object_array_reduceat_failure",
+          "docstring": null
+        },
+        {
+          "name": "test_zerosize_reduction",
+          "docstring": null
+        },
+        {
+          "name": "test_axis_out_of_bounds",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar_reduction",
+          "docstring": null
+        },
+        {
+          "name": "test_casting_out_param",
+          "docstring": null
+        },
+        {
+          "name": "test_where_param",
+          "docstring": null
+        },
+        {
+          "name": "test_where_param_buffer_output",
+          "docstring": null
+        },
+        {
+          "name": "test_where_param_alloc",
+          "docstring": null
+        },
+        {
+          "name": "test_where_with_broadcasting",
+          "docstring": null
+        },
+        {
+          "name": "identityless_reduce_arrs",
+          "docstring": null
+        },
+        {
+          "name": "test_identityless_reduction",
+          "docstring": null
+        },
+        {
+          "name": "test_identityless_reduction_huge_array",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce_identity_depends_on_loop",
+          "docstring": "The type of the result should always depend on the selected loop, not\nnecessarily the output (only relevant for object arrays)."
+        },
+        {
+          "name": "test_initial_reduction",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_reduction_and_identity",
+          "docstring": null
+        },
+        {
+          "name": "test_reduction_with_where",
+          "docstring": null
+        },
+        {
+          "name": "test_reduction_with_where_and_initial",
+          "docstring": null
+        },
+        {
+          "name": "test_reduction_where_initial_needed",
+          "docstring": null
+        },
+        {
+          "name": "test_identityless_reduction_nonreorderable",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce_zero_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_safe_casting",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_custom_out",
+          "docstring": null
+        },
+        {
+          "name": "test_operand_flags",
+          "docstring": null
+        },
+        {
+          "name": "test_struct_ufunc",
+          "docstring": null
+        },
+        {
+          "name": "test_custom_ufunc",
+          "docstring": null
+        },
+        {
+          "name": "test_custom_ufunc_forced_sig",
+          "docstring": null
+        },
+        {
+          "name": "test_custom_array_like",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_at_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_at_inner_loops",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_at_inner_loops_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_at_ellipsis",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_at_negative",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_at_large",
+          "docstring": null
+        },
+        {
+          "name": "test_cast_index_fastpath",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_at_scalar_value_fastpath",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_at_multiD",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_at_0D",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_at_dtypes",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_at_boolean",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_at_advanced",
+          "docstring": null
+        },
+        {
+          "name": "test_at_negative_indexes",
+          "docstring": null
+        },
+        {
+          "name": "test_at_not_none_signature",
+          "docstring": null
+        },
+        {
+          "name": "test_at_no_loop_for_op",
+          "docstring": null
+        },
+        {
+          "name": "test_at_output_casting",
+          "docstring": null
+        },
+        {
+          "name": "test_at_broadcast_failure",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce_arguments",
+          "docstring": null
+        },
+        {
+          "name": "test_structured_equal",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar_equal",
+          "docstring": null
+        },
+        {
+          "name": "test_NotImplemented_not_returned",
+          "docstring": null
+        },
+        {
+          "name": "test_logical_ufuncs_object_signatures",
+          "docstring": null
+        },
+        {
+          "name": "test_logical_ufuncs_mixed_object_signatures",
+          "docstring": null
+        },
+        {
+          "name": "test_logical_ufuncs_support_anything",
+          "docstring": null
+        },
+        {
+          "name": "test_logical_ufuncs_supports_string",
+          "docstring": null
+        },
+        {
+          "name": "test_logical_ufuncs_out_cast_check",
+          "docstring": null
+        },
+        {
+          "name": "test_reducelike_byteorder_resolution",
+          "docstring": null
+        },
+        {
+          "name": "test_reducelike_out_promotes",
+          "docstring": null
+        },
+        {
+          "name": "test_reducelike_output_needs_identical_cast",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce_noncontig_output",
+          "docstring": null
+        },
+        {
+          "name": "test_reduceat_and_accumulate_out_shape_mismatch",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce_wrong_dimension_output",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce_output_does_not_broadcast_input",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce_output_subclass_ok",
+          "docstring": null
+        },
+        {
+          "name": "test_no_doc_string",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_args",
+          "docstring": null
+        },
+        {
+          "name": "test_nat_is_not_finite",
+          "docstring": null
+        },
+        {
+          "name": "test_nat_is_nan",
+          "docstring": null
+        },
+        {
+          "name": "test_nat_is_not_inf",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestGUFuncProcessCoreDims",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_conv1d_full_without_out",
+          "docstring": null
+        },
+        {
+          "name": "test_conv1d_full_with_out",
+          "docstring": null
+        },
+        {
+          "name": "test_conv1d_full_basic_broadcast",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_out_shape",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_input_both_inputs_length_zero",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLowlevelAPIAccess",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_resolve_dtypes_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_resolve_dtypes_comparison",
+          "docstring": null
+        },
+        {
+          "name": "test_weird_dtypes",
+          "docstring": null
+        },
+        {
+          "name": "test_resolve_dtypes_reduction",
+          "docstring": null
+        },
+        {
+          "name": "test_resolve_dtypes_reduction_no_output",
+          "docstring": null
+        },
+        {
+          "name": "test_resolve_dtypes_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_resolve_dtypes_reduction_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_loop_access",
+          "docstring": null
+        },
+        {
+          "name": "test__get_strided_loop_errors_bad_strides",
+          "docstring": null
+        },
+        {
+          "name": "test__get_strided_loop_errors_bad_call_info",
+          "docstring": null
+        },
+        {
+          "name": "test_long_arrays",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "foo",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "conjugate",
+          "docstring": null
+        },
+        {
+          "name": "logical_xor",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyFloat",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MySubclass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "HasComparisons",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MyArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MyThing",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyA",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MyArr",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "call_info_t",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_ufunc_types",
+      "docstring": "Check all ufuncs that the correct type is returned. Avoid\nobject and boolean types since many operations are not defined for\nfor them.\n\nChoose the shape so even dot and matmul will succeed"
+    },
+    {
+      "name": "test_ufunc_noncontiguous",
+      "docstring": "Check that contiguous and non-contiguous calls to ufuncs\nhave the same results for values in range(9)"
+    },
+    {
+      "name": "test_ufunc_warn_with_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_out_casterrors",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_input_casterrors",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_input_floatingpoint_error",
+      "docstring": null
+    },
+    {
+      "name": "test_trivial_loop_invalid_cast",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce_casterrors",
+      "docstring": null
+    },
+    {
+      "name": "test_object_reduce_cleanup_on_failure",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_methods_floaterrors",
+      "docstring": null
+    },
+    {
+      "name": "test_addition_negative_zero",
+      "docstring": null
+    },
+    {
+      "name": "test_addition_reduce_negative_zero",
+      "docstring": null
+    },
+    {
+      "name": "test_addition_string_types",
+      "docstring": null
+    },
+    {
+      "name": "test_addition_unicode_inverse_byte_order",
+      "docstring": null
+    },
+    {
+      "name": "test_find_non_long_args",
+      "docstring": null
+    },
+    {
+      "name": "test_find_access_past_buffer",
+      "docstring": null
+    },
+    {
+      "name": "test_kwarg_exact",
+      "docstring": null
+    },
+    {
+      "name": "test_sig_signature",
+      "docstring": null
+    },
+    {
+      "name": "test_sig_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_extobj_removed",
+      "docstring": null
+    },
+    {
+      "name": "test_unary_PyUFunc",
+      "docstring": null
+    },
+    {
+      "name": "f2",
+      "docstring": null
+    },
+    {
+      "name": "test_binary_PyUFunc",
+      "docstring": null
+    },
+    {
+      "name": "test_unary_PyUFunc_O_O",
+      "docstring": null
+    },
+    {
+      "name": "test_unary_PyUFunc_O_O_method_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_binary_PyUFunc_OO_O",
+      "docstring": null
+    },
+    {
+      "name": "test_binary_PyUFunc_OO_O_method",
+      "docstring": null
+    },
+    {
+      "name": "test_binary_PyUFunc_On_Om_method",
+      "docstring": null
+    },
+    {
+      "name": "test_python_complex_conjugate",
+      "docstring": null
+    },
+    {
+      "name": "test_unary_PyUFunc_O_O_method_full",
+      "docstring": "Compare the result of the object loop with non-object one"
+    },
+    {
+      "name": "test_pickle",
+      "docstring": null
+    },
+    {
+      "name": "test_pickle_withstring",
+      "docstring": null
+    },
+    {
+      "name": "test_pickle_name_is_qualname",
+      "docstring": null
+    },
+    {
+      "name": "test_reduceat_shifting_sum",
+      "docstring": null
+    },
+    {
+      "name": "test_all_ufunc",
+      "docstring": "Try to check presence and results of all ufuncs.\n\nThe list of ufuncs comes from generate_umath.py and is as follows:\n\n=====  ====  =============  ===============  ========================\ndone   args   function        types                notes\n=====  ====  =============  ===============  ========================\nn      1     conjugate      nums + O\nn      1     absolute       nums + O         complex -> real\nn      1     negative       nums + O\nn      1     sign           nums + O         -> int\nn      1     invert         bool + ints + O  flts raise an error\nn      1     degrees        real + M         cmplx raise an error\nn      1     radians        real + M         cmplx raise an error\nn      1     arccos         flts + M\nn      1     arccosh        flts + M\nn      1     arcsin         flts + M\nn      1     arcsinh        flts + M\nn      1     arctan         flts + M\nn      1     arctanh        flts + M\nn      1     cos            flts + M\nn      1     sin            flts + M\nn      1     tan            flts + M\nn      1     cosh           flts + M\nn      1     sinh           flts + M\nn      1     tanh           flts + M\nn      1     exp            flts + M\nn      1     expm1          flts + M\nn      1     log            flts + M\nn      1     log10          flts + M\nn      1     log1p          flts + M\nn      1     sqrt           flts + M         real x < 0 raises error\nn      1     ceil           real + M\nn      1     trunc          real + M\nn      1     floor          real + M\nn      1     fabs           real + M\nn      1     rint           flts + M\nn      1     isnan          flts             -> bool\nn      1     isinf          flts             -> bool\nn      1     isfinite       flts             -> bool\nn      1     signbit        real             -> bool\nn      1     modf           real             -> (frac, int)\nn      1     logical_not    bool + nums + M  -> bool\nn      2     left_shift     ints + O         flts raise an error\nn      2     right_shift    ints + O         flts raise an error\nn      2     add            bool + nums + O  boolean + is ||\nn      2     subtract       bool + nums + O  boolean - is ^\nn      2     multiply       bool + nums + O  boolean * is &\nn      2     divide         nums + O\nn      2     floor_divide   nums + O\nn      2     true_divide    nums + O         bBhH -> f, iIlLqQ -> d\nn      2     fmod           nums + M\nn      2     power          nums + O\nn      2     greater        bool + nums + O  -> bool\nn      2     greater_equal  bool + nums + O  -> bool\nn      2     less           bool + nums + O  -> bool\nn      2     less_equal     bool + nums + O  -> bool\nn      2     equal          bool + nums + O  -> bool\nn      2     not_equal      bool + nums + O  -> bool\nn      2     logical_and    bool + nums + M  -> bool\nn      2     logical_or     bool + nums + M  -> bool\nn      2     logical_xor    bool + nums + M  -> bool\nn      2     maximum        bool + nums + O\nn      2     minimum        bool + nums + O\nn      2     bitwise_and    bool + ints + O  flts raise an error\nn      2     bitwise_or     bool + ints + O  flts raise an error\nn      2     bitwise_xor    bool + ints + O  flts raise an error\nn      2     arctan2        real + M\nn      2     remainder      ints + real + O\nn      2     hypot          real + M\n=====  ====  =============  ===============  ========================\n\nTypes other than those listed will be accepted, but they are cast to\nthe smallest compatible type for which the function is defined. The\ncasting rules are:\n\nbool -> int8 -> float32\nints -> double"
+    },
+    {
+      "name": "test_signature0",
+      "docstring": null
+    },
+    {
+      "name": "test_signature1",
+      "docstring": null
+    },
+    {
+      "name": "test_signature2",
+      "docstring": null
+    },
+    {
+      "name": "test_signature3",
+      "docstring": null
+    },
+    {
+      "name": "test_signature4",
+      "docstring": null
+    },
+    {
+      "name": "test_signature5",
+      "docstring": null
+    },
+    {
+      "name": "test_signature6",
+      "docstring": null
+    },
+    {
+      "name": "test_signature7",
+      "docstring": null
+    },
+    {
+      "name": "test_signature8",
+      "docstring": null
+    },
+    {
+      "name": "test_signature9",
+      "docstring": null
+    },
+    {
+      "name": "test_signature10",
+      "docstring": null
+    },
+    {
+      "name": "test_signature_failure_extra_parenthesis",
+      "docstring": null
+    },
+    {
+      "name": "test_signature_failure_mismatching_parenthesis",
+      "docstring": null
+    },
+    {
+      "name": "test_signature_failure_signature_missing_input_arg",
+      "docstring": null
+    },
+    {
+      "name": "test_signature_failure_signature_missing_output_arg",
+      "docstring": null
+    },
+    {
+      "name": "test_get_signature",
+      "docstring": null
+    },
+    {
+      "name": "test_forced_sig",
+      "docstring": null
+    },
+    {
+      "name": "test_signature_all_None",
+      "docstring": null
+    },
+    {
+      "name": "test_signature_dtype_type",
+      "docstring": null
+    },
+    {
+      "name": "test_signature_dtype_instances_allowed",
+      "docstring": null
+    },
+    {
+      "name": "test_signature_dtype_instances_allowed",
+      "docstring": null
+    },
+    {
+      "name": "test_partial_signature_mismatch",
+      "docstring": null
+    },
+    {
+      "name": "test_partial_signature_mismatch_with_cache",
+      "docstring": null
+    },
+    {
+      "name": "test_use_output_signature_for_all_arguments",
+      "docstring": null
+    },
+    {
+      "name": "test_signature_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_forced_dtype_times",
+      "docstring": null
+    },
+    {
+      "name": "test_cast_safety",
+      "docstring": "Basic test for the safest casts, because ufuncs inner loops can\nindicate a cast-safety as well (which is normally always \"no\")."
+    },
+    {
+      "name": "test_cast_safety_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_cast_safety_scalar_special",
+      "docstring": null
+    },
+    {
+      "name": "test_true_divide",
+      "docstring": null
+    },
+    {
+      "name": "test_sum_stability",
+      "docstring": null
+    },
+    {
+      "name": "test_sum",
+      "docstring": null
+    },
+    {
+      "name": "test_sum_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_sum_initial",
+      "docstring": null
+    },
+    {
+      "name": "test_sum_where",
+      "docstring": null
+    },
+    {
+      "name": "test_vecdot",
+      "docstring": null
+    },
+    {
+      "name": "test_matvec",
+      "docstring": null
+    },
+    {
+      "name": "test_vecmatvec_identity",
+      "docstring": "Check that (x\u2020A)x equals x\u2020(Ax)."
+    },
+    {
+      "name": "test_vecdot_matvec_vecmat_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_vecdot_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_vecdot_object_no_conjugate",
+      "docstring": null
+    },
+    {
+      "name": "test_vecdot_object_breaks_outer_loop_on_error",
+      "docstring": null
+    },
+    {
+      "name": "test_broadcast",
+      "docstring": null
+    },
+    {
+      "name": "test_out_broadcasts",
+      "docstring": null
+    },
+    {
+      "name": "test_out_broadcast_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_type_cast",
+      "docstring": null
+    },
+    {
+      "name": "test_endian",
+      "docstring": null
+    },
+    {
+      "name": "test_incontiguous_array",
+      "docstring": null
+    },
+    {
+      "name": "test_output_argument",
+      "docstring": null
+    },
+    {
+      "name": "test_axes_argument",
+      "docstring": null
+    },
+    {
+      "name": "test_axis_argument",
+      "docstring": null
+    },
+    {
+      "name": "test_keepdims_argument",
+      "docstring": null
+    },
+    {
+      "name": "test_innerwt",
+      "docstring": null
+    },
+    {
+      "name": "test_innerwt_empty",
+      "docstring": "Test generalized ufunc with zero-sized operands"
+    },
+    {
+      "name": "test_cross1d",
+      "docstring": "Test with fixed-sized signature."
+    },
+    {
+      "name": "test_can_ignore_signature",
+      "docstring": null
+    },
+    {
+      "name": "test_matrix_multiply",
+      "docstring": null
+    },
+    {
+      "name": "test_matrix_multiply_umath_empty",
+      "docstring": null
+    },
+    {
+      "name": "compare_matrix_multiply_results",
+      "docstring": null
+    },
+    {
+      "name": "test_euclidean_pdist",
+      "docstring": null
+    },
+    {
+      "name": "test_cumsum",
+      "docstring": null
+    },
+    {
+      "name": "test_object_logical",
+      "docstring": null
+    },
+    {
+      "name": "test_object_comparison",
+      "docstring": null
+    },
+    {
+      "name": "test_object_array_reduction",
+      "docstring": null
+    },
+    {
+      "name": "test_object_array_accumulate_inplace",
+      "docstring": null
+    },
+    {
+      "name": "test_object_array_accumulate_failure",
+      "docstring": null
+    },
+    {
+      "name": "test_object_array_reduceat_inplace",
+      "docstring": null
+    },
+    {
+      "name": "test_object_array_reduceat_failure",
+      "docstring": null
+    },
+    {
+      "name": "test_zerosize_reduction",
+      "docstring": null
+    },
+    {
+      "name": "test_axis_out_of_bounds",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_reduction",
+      "docstring": null
+    },
+    {
+      "name": "test_casting_out_param",
+      "docstring": null
+    },
+    {
+      "name": "test_where_param",
+      "docstring": null
+    },
+    {
+      "name": "test_where_param_buffer_output",
+      "docstring": null
+    },
+    {
+      "name": "test_where_param_alloc",
+      "docstring": null
+    },
+    {
+      "name": "test_where_with_broadcasting",
+      "docstring": null
+    },
+    {
+      "name": "identityless_reduce_arrs",
+      "docstring": null
+    },
+    {
+      "name": "test_identityless_reduction",
+      "docstring": null
+    },
+    {
+      "name": "test_identityless_reduction_huge_array",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce_identity_depends_on_loop",
+      "docstring": "The type of the result should always depend on the selected loop, not\nnecessarily the output (only relevant for object arrays)."
+    },
+    {
+      "name": "test_initial_reduction",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_reduction_and_identity",
+      "docstring": null
+    },
+    {
+      "name": "test_reduction_with_where",
+      "docstring": null
+    },
+    {
+      "name": "test_reduction_with_where_and_initial",
+      "docstring": null
+    },
+    {
+      "name": "test_reduction_where_initial_needed",
+      "docstring": null
+    },
+    {
+      "name": "test_identityless_reduction_nonreorderable",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce_zero_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_safe_casting",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_custom_out",
+      "docstring": null
+    },
+    {
+      "name": "test_operand_flags",
+      "docstring": null
+    },
+    {
+      "name": "test_struct_ufunc",
+      "docstring": null
+    },
+    {
+      "name": "test_custom_ufunc",
+      "docstring": null
+    },
+    {
+      "name": "test_custom_ufunc_forced_sig",
+      "docstring": null
+    },
+    {
+      "name": "test_custom_array_like",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_at_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_at_inner_loops",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_at_inner_loops_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_at_ellipsis",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_at_negative",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_at_large",
+      "docstring": null
+    },
+    {
+      "name": "test_cast_index_fastpath",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_at_scalar_value_fastpath",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_at_multiD",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_at_0D",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_at_dtypes",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_at_boolean",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_at_advanced",
+      "docstring": null
+    },
+    {
+      "name": "test_at_negative_indexes",
+      "docstring": null
+    },
+    {
+      "name": "test_at_not_none_signature",
+      "docstring": null
+    },
+    {
+      "name": "test_at_no_loop_for_op",
+      "docstring": null
+    },
+    {
+      "name": "test_at_output_casting",
+      "docstring": null
+    },
+    {
+      "name": "test_at_broadcast_failure",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce_arguments",
+      "docstring": null
+    },
+    {
+      "name": "test_structured_equal",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_equal",
+      "docstring": null
+    },
+    {
+      "name": "test_NotImplemented_not_returned",
+      "docstring": null
+    },
+    {
+      "name": "test_logical_ufuncs_object_signatures",
+      "docstring": null
+    },
+    {
+      "name": "test_logical_ufuncs_mixed_object_signatures",
+      "docstring": null
+    },
+    {
+      "name": "test_logical_ufuncs_support_anything",
+      "docstring": null
+    },
+    {
+      "name": "test_logical_ufuncs_supports_string",
+      "docstring": null
+    },
+    {
+      "name": "test_logical_ufuncs_out_cast_check",
+      "docstring": null
+    },
+    {
+      "name": "test_reducelike_byteorder_resolution",
+      "docstring": null
+    },
+    {
+      "name": "test_reducelike_out_promotes",
+      "docstring": null
+    },
+    {
+      "name": "test_reducelike_output_needs_identical_cast",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce_noncontig_output",
+      "docstring": null
+    },
+    {
+      "name": "test_reduceat_and_accumulate_out_shape_mismatch",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce_wrong_dimension_output",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce_output_does_not_broadcast_input",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce_output_subclass_ok",
+      "docstring": null
+    },
+    {
+      "name": "test_no_doc_string",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_args",
+      "docstring": null
+    },
+    {
+      "name": "test_nat_is_not_finite",
+      "docstring": null
+    },
+    {
+      "name": "test_nat_is_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_nat_is_not_inf",
+      "docstring": null
+    },
+    {
+      "name": "test_conv1d_full_without_out",
+      "docstring": null
+    },
+    {
+      "name": "test_conv1d_full_with_out",
+      "docstring": null
+    },
+    {
+      "name": "test_conv1d_full_basic_broadcast",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_out_shape",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_input_both_inputs_length_zero",
+      "docstring": null
+    },
+    {
+      "name": "test_resolve_dtypes_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_resolve_dtypes_comparison",
+      "docstring": null
+    },
+    {
+      "name": "test_weird_dtypes",
+      "docstring": null
+    },
+    {
+      "name": "test_resolve_dtypes_reduction",
+      "docstring": null
+    },
+    {
+      "name": "test_resolve_dtypes_reduction_no_output",
+      "docstring": null
+    },
+    {
+      "name": "test_resolve_dtypes_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_resolve_dtypes_reduction_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_loop_access",
+      "docstring": null
+    },
+    {
+      "name": "test__get_strided_loop_errors_bad_strides",
+      "docstring": null
+    },
+    {
+      "name": "test__get_strided_loop_errors_bad_call_info",
+      "docstring": null
+    },
+    {
+      "name": "test_long_arrays",
+      "docstring": null
+    },
+    {
+      "name": "conjugate",
+      "docstring": null
+    },
+    {
+      "name": "logical_xor",
+      "docstring": null
+    },
+    {
+      "name": "call_ufunc",
+      "docstring": null
+    },
+    {
+      "name": "permute_n",
+      "docstring": null
+    },
+    {
+      "name": "slice_n",
+      "docstring": null
+    },
+    {
+      "name": "broadcastable",
+      "docstring": null
+    },
+    {
+      "name": "ok",
+      "docstring": null
+    },
+    {
+      "name": "err",
+      "docstring": null
+    },
+    {
+      "name": "t",
+      "docstring": null
+    },
+    {
+      "name": "add_inplace",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

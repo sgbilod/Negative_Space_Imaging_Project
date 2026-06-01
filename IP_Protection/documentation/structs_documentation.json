@@ -1,0 +1,126 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\resolvelib\\structs.py",
+  "classes": [
+    {
+      "name": "DirectedGraph",
+      "docstring": "A graph structure with directed edges.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "copy",
+          "docstring": "Return a shallow copy of this graph."
+        },
+        {
+          "name": "add",
+          "docstring": "Add a new vertex to the graph."
+        },
+        {
+          "name": "remove",
+          "docstring": "Remove a vertex from the graph, disconnecting all edges from/to it."
+        },
+        {
+          "name": "connected",
+          "docstring": null
+        },
+        {
+          "name": "connect",
+          "docstring": "Connect two existing vertices.\n\nNothing happens if the vertices are already connected."
+        },
+        {
+          "name": "iter_edges",
+          "docstring": null
+        },
+        {
+          "name": "iter_children",
+          "docstring": null
+        },
+        {
+          "name": "iter_parents",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "IteratorMapping",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_FactoryIterableView",
+      "docstring": "Wrap an iterator factory returned by `find_matches()`.\n\nCalling `iter()` on this class would invoke the underlying iterator\nfactory, making it a \"collection with ordering\" that can be iterated\nthrough multiple times, but lacks random access methods presented in\nbuilt-in Python sequence types.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_SequenceIterableView",
+      "docstring": "Wrap an iterable returned by find_matches().\n\nThis is essentially just a proxy to the underlying sequence that provides\nthe same interface as `_FactoryIterableView`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RequirementInformation",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "State",
+      "docstring": "Resolution state in a round.",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "build_iter_view",
+      "docstring": "Build an iterable view from the value returned by `find_matches()`."
+    },
+    {
+      "name": "copy",
+      "docstring": "Return a shallow copy of this graph."
+    },
+    {
+      "name": "add",
+      "docstring": "Add a new vertex to the graph."
+    },
+    {
+      "name": "remove",
+      "docstring": "Remove a vertex from the graph, disconnecting all edges from/to it."
+    },
+    {
+      "name": "connected",
+      "docstring": null
+    },
+    {
+      "name": "connect",
+      "docstring": "Connect two existing vertices.\n\nNothing happens if the vertices are already connected."
+    },
+    {
+      "name": "iter_edges",
+      "docstring": null
+    },
+    {
+      "name": "iter_children",
+      "docstring": null
+    },
+    {
+      "name": "iter_parents",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

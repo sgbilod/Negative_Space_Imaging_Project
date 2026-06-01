@@ -1,0 +1,70 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\controller.py",
+  "classes": [
+    {
+      "name": "CacheController",
+      "docstring": "An interface to see if request should cached or not.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "cache_url",
+          "docstring": null
+        },
+        {
+          "name": "parse_cache_control",
+          "docstring": null
+        },
+        {
+          "name": "cached_request",
+          "docstring": "Return a cached response if it exists in the cache, otherwise\nreturn False."
+        },
+        {
+          "name": "conditional_headers",
+          "docstring": null
+        },
+        {
+          "name": "cache_response",
+          "docstring": "Algorithm for caching requests.\n\nThis assumes a requests Response object."
+        },
+        {
+          "name": "update_cached_response",
+          "docstring": "On a 304 we will get a new set of headers that we want to\nupdate our cached value with, assuming we have one.\n\nThis should only ever be called when we've sent an ETag and\ngotten a 304 as the response."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "parse_uri",
+      "docstring": "Parses a URI using the regex given in Appendix B of RFC 3986.\n\n(scheme, authority, path, query, fragment) = parse_uri(uri)"
+    },
+    {
+      "name": "cache_url",
+      "docstring": null
+    },
+    {
+      "name": "parse_cache_control",
+      "docstring": null
+    },
+    {
+      "name": "cached_request",
+      "docstring": "Return a cached response if it exists in the cache, otherwise\nreturn False."
+    },
+    {
+      "name": "conditional_headers",
+      "docstring": null
+    },
+    {
+      "name": "cache_response",
+      "docstring": "Algorithm for caching requests.\n\nThis assumes a requests Response object."
+    },
+    {
+      "name": "update_cached_response",
+      "docstring": "On a 304 we will get a new set of headers that we want to\nupdate our cached value with, assuming we have one.\n\nThis should only ever be called when we've sent an ETag and\ngotten a 304 as the response."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,376 @@
+# ============================================================================
+# Docker Compose - Production Configuration
+# Multi-service orchestration with enhanced security and performance
+# ============================================================================
+
+version: "3.8"
+
+networks:
+  app-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  postgres-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /data/postgres
+  redis-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /data/redis
+  prometheus-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /data/prometheus
+  grafana-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /data/grafana
+
+services:
+  # =========================================================================
+  # PostgreSQL Database (Production)
+  # =========================================================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: nsip-postgres-prod
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=en_US.UTF-8"
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./scripts/backup.sh:/usr/local/bin/backup.sh:ro
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    logging:
+      driver: "awslogs"
+      options:
+        awslogs-group: "/ecs/nsip-postgres"
+        awslogs-region: "${AWS_REGION}"
+        awslogs-stream-prefix: "ecs"
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65535
+    security_opt:
+      - no-new-privileges:true
+
+  # =========================================================================
+  # Redis Cache (Production)
+  # =========================================================================
+  redis:
+    image: redis:7-alpine
+    container_name: nsip-redis-prod
+    restart: always
+    command: >
+      redis-server
+      --appendonly yes
+      --appendfsync everysec
+      --maxmemory ${REDIS_MAX_MEMORY}
+      --maxmemory-policy allkeys-lru
+      --requirepass ${REDIS_PASSWORD}
+      --port 6379
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    logging:
+      driver: "awslogs"
+      options:
+        awslogs-group: "/ecs/nsip-redis"
+        awslogs-region: "${AWS_REGION}"
+        awslogs-stream-prefix: "ecs"
+    security_opt:
+      - no-new-privileges:true
+
+  # =========================================================================
+  # Express API Server (Production)
+  # =========================================================================
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+      args:
+        NODE_ENV: production
+    image: nsip-api:latest
+    container_name: nsip-api-prod
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      LOG_LEVEL: info
+
+      # Database
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+
+      # Redis
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      REDIS_DB: 0
+
+      # Security
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRE: 7d
+
+      # API Config
+      CORS_ORIGIN: ${CORS_ORIGIN}
+      API_RATE_LIMIT: 1000
+      MAX_FILE_SIZE: 104857600
+
+      # Monitoring
+      PROMETHEUS_ENABLED: "true"
+      SENTRY_DSN: ${SENTRY_DSN}
+
+      # Python Analyzer
+      PYTHON_ANALYZER_URL: http://python-analyzer:5000
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./logs:/app/logs
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: "awslogs"
+      options:
+        awslogs-group: "/ecs/nsip-api"
+        awslogs-region: "${AWS_REGION}"
+        awslogs-stream-prefix: "ecs"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+
+  # =========================================================================
+  # React Frontend with Nginx (Production)
+  # =========================================================================
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    image: nsip-frontend:latest
+    container_name: nsip-frontend-prod
+    restart: always
+    environment:
+      NGINX_HOST: ${DOMAIN}
+      NGINX_PORT: 80
+      VITE_API_BASE_URL: https://${DOMAIN}/api
+    ports:
+      - "127.0.0.1:3001:80"
+    depends_on:
+      - api
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: "awslogs"
+      options:
+        awslogs-group: "/ecs/nsip-frontend"
+        awslogs-region: "${AWS_REGION}"
+        awslogs-stream-prefix: "ecs"
+    security_opt:
+      - no-new-privileges:true
+
+  # =========================================================================
+  # Python Analyzer Service (Production)
+  # =========================================================================
+  python-analyzer:
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+    image: nsip-python-analyzer:latest
+    container_name: nsip-python-analyzer-prod
+    restart: always
+    environment:
+      PYTHONUNBUFFERED: "1"
+      PORT: 5000
+      LOG_LEVEL: info
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      SENTRY_DSN: ${SENTRY_DSN}
+    ports:
+      - "127.0.0.1:5000:5000"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./logs:/app/logs
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: "awslogs"
+      options:
+        awslogs-group: "/ecs/nsip-python-analyzer"
+        awslogs-region: "${AWS_REGION}"
+        awslogs-stream-prefix: "ecs"
+    security_opt:
+      - no-new-privileges:true
+
+  # =========================================================================
+  # Prometheus Monitoring (Production)
+  # =========================================================================
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: nsip-prometheus-prod
+    restart: always
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--storage.tsdb.retention.time=90d"
+      - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+      - "--web.console.templates=/usr/share/prometheus/consoles"
+    ports:
+      - "127.0.0.1:9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    networks:
+      - app-network
+    depends_on:
+      - api
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9090/-/healthy"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    logging:
+      driver: "awslogs"
+      options:
+        awslogs-group: "/ecs/nsip-prometheus"
+        awslogs-region: "${AWS_REGION}"
+        awslogs-stream-prefix: "ecs"
+
+  # =========================================================================
+  # Grafana Dashboards (Production)
+  # =========================================================================
+  grafana:
+    image: grafana/grafana:latest
+    container_name: nsip-grafana-prod
+    restart: always
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD}
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_USER}
+      GF_INSTALL_PLUGINS: grafana-piechart-panel
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_AUTH_BASIC_ENABLED: "true"
+      GF_SERVER_ROOT_URL: https://${DOMAIN}/grafana
+    ports:
+      - "127.0.0.1:3002:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+    networks:
+      - app-network
+    depends_on:
+      - prometheus
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    logging:
+      driver: "awslogs"
+      options:
+        awslogs-group: "/ecs/nsip-grafana"
+        awslogs-region: "${AWS_REGION}"
+        awslogs-stream-prefix: "ecs"
+
+  # =========================================================================
+  # Nginx Reverse Proxy (Production)
+  # =========================================================================
+  nginx:
+    image: nginx:1.25-alpine
+    container_name: nsip-nginx-prod
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./monitoring/nginx.prod.conf:/etc/nginx/nginx.conf:ro
+      - ./monitoring/ssl:/etc/nginx/ssl:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    networks:
+      - app-network
+    depends_on:
+      - api
+      - frontend
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    logging:
+      driver: "awslogs"
+      options:
+        awslogs-group: "/ecs/nsip-nginx"
+        awslogs-region: "${AWS_REGION}"
+        awslogs-stream-prefix: "ecs"
+    security_opt:
+      - no-new-privileges:true

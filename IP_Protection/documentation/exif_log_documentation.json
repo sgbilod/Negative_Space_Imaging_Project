@@ -1,0 +1,44 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\exifread\\exif_log.py",
+  "classes": [
+    {
+      "name": "Formatter",
+      "docstring": "Custom formatter, we like colors!",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "format",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Handler",
+      "docstring": "Custom StreamHandler so we can use the Formatter.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_logger",
+      "docstring": "Use this from all files needing to log."
+    },
+    {
+      "name": "setup_logger",
+      "docstring": "Configure the logger."
+    },
+    {
+      "name": "format",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

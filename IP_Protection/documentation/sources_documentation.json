@@ -1,0 +1,204 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\index\\sources.py",
+  "classes": [
+    {
+      "name": "LinkSource",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "link",
+          "docstring": "Returns the underlying link, if there's one."
+        },
+        {
+          "name": "page_candidates",
+          "docstring": "Candidates found by parsing an archive listing HTML file."
+        },
+        {
+          "name": "file_links",
+          "docstring": "Links found by specifying archives directly."
+        }
+      ]
+    },
+    {
+      "name": "_FlatDirectoryToUrls",
+      "docstring": "Scans directory and caches results",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "page_candidates",
+          "docstring": null
+        },
+        {
+          "name": "project_name_to_urls",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_FlatDirectorySource",
+      "docstring": "Link source specified by ``--find-links=<path-to-dir>``.\n\nThis looks the content of the directory, and returns:\n\n* ``page_candidates``: Links listed on each HTML file in the directory.\n* ``file_candidates``: Archives in the directory.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "link",
+          "docstring": null
+        },
+        {
+          "name": "page_candidates",
+          "docstring": null
+        },
+        {
+          "name": "file_links",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_LocalFileSource",
+      "docstring": "``--find-links=<path-or-url>`` or ``--[extra-]index-url=<path-or-url>``.\n\nIf a URL is supplied, it must be a ``file:`` URL. If a path is supplied to\nthe option, it is converted to a URL first. This returns:\n\n* ``page_candidates``: Links listed on an HTML file.\n* ``file_candidates``: The non-HTML file.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "link",
+          "docstring": null
+        },
+        {
+          "name": "page_candidates",
+          "docstring": null
+        },
+        {
+          "name": "file_links",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_RemoteFileSource",
+      "docstring": "``--find-links=<url>`` or ``--[extra-]index-url=<url>``.\n\nThis returns:\n\n* ``page_candidates``: Links listed on an HTML file.\n* ``file_candidates``: The non-HTML file.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "link",
+          "docstring": null
+        },
+        {
+          "name": "page_candidates",
+          "docstring": null
+        },
+        {
+          "name": "file_links",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_IndexDirectorySource",
+      "docstring": "``--[extra-]index-url=<path-to-directory>``.\n\nThis is treated like a remote URL; ``candidates_from_page`` contains logic\nfor this by appending ``index.html`` to the link.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "link",
+          "docstring": null
+        },
+        {
+          "name": "page_candidates",
+          "docstring": null
+        },
+        {
+          "name": "file_links",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "build_source",
+      "docstring": null
+    },
+    {
+      "name": "link",
+      "docstring": "Returns the underlying link, if there's one."
+    },
+    {
+      "name": "page_candidates",
+      "docstring": "Candidates found by parsing an archive listing HTML file."
+    },
+    {
+      "name": "file_links",
+      "docstring": "Links found by specifying archives directly."
+    },
+    {
+      "name": "page_candidates",
+      "docstring": null
+    },
+    {
+      "name": "project_name_to_urls",
+      "docstring": null
+    },
+    {
+      "name": "link",
+      "docstring": null
+    },
+    {
+      "name": "page_candidates",
+      "docstring": null
+    },
+    {
+      "name": "file_links",
+      "docstring": null
+    },
+    {
+      "name": "link",
+      "docstring": null
+    },
+    {
+      "name": "page_candidates",
+      "docstring": null
+    },
+    {
+      "name": "file_links",
+      "docstring": null
+    },
+    {
+      "name": "link",
+      "docstring": null
+    },
+    {
+      "name": "page_candidates",
+      "docstring": null
+    },
+    {
+      "name": "file_links",
+      "docstring": null
+    },
+    {
+      "name": "link",
+      "docstring": null
+    },
+    {
+      "name": "page_candidates",
+      "docstring": null
+    },
+    {
+      "name": "file_links",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

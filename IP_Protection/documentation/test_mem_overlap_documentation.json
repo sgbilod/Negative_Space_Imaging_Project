@@ -1,0 +1,266 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_mem_overlap.py",
+  "classes": [
+    {
+      "name": "TestUFunc",
+      "docstring": "Test ufunc call memory overlap handling",
+      "methods": [
+        {
+          "name": "check_unary_fuzz",
+          "docstring": null
+        },
+        {
+          "name": "test_unary_ufunc_call_fuzz",
+          "docstring": null
+        },
+        {
+          "name": "test_unary_ufunc_call_complex_fuzz",
+          "docstring": null
+        },
+        {
+          "name": "test_binary_ufunc_accumulate_fuzz",
+          "docstring": null
+        },
+        {
+          "name": "test_binary_ufunc_reduce_fuzz",
+          "docstring": null
+        },
+        {
+          "name": "test_binary_ufunc_reduceat_fuzz",
+          "docstring": null
+        },
+        {
+          "name": "test_binary_ufunc_reduceat_manual",
+          "docstring": null
+        },
+        {
+          "name": "test_unary_gufunc_fuzz",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_at_manual",
+          "docstring": null
+        },
+        {
+          "name": "test_unary_ufunc_1d_manual",
+          "docstring": null
+        },
+        {
+          "name": "test_unary_ufunc_where_same",
+          "docstring": null
+        },
+        {
+          "name": "test_binary_ufunc_1d_manual",
+          "docstring": null
+        },
+        {
+          "name": "test_inplace_op_simple_manual",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyArray",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyArray2",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_overlapping_assignments",
+      "docstring": null
+    },
+    {
+      "name": "test_diophantine_fuzz",
+      "docstring": null
+    },
+    {
+      "name": "test_diophantine_overflow",
+      "docstring": null
+    },
+    {
+      "name": "check_may_share_memory_exact",
+      "docstring": null
+    },
+    {
+      "name": "test_may_share_memory_manual",
+      "docstring": null
+    },
+    {
+      "name": "iter_random_view_pairs",
+      "docstring": null
+    },
+    {
+      "name": "check_may_share_memory_easy_fuzz",
+      "docstring": null
+    },
+    {
+      "name": "test_may_share_memory_easy_fuzz",
+      "docstring": null
+    },
+    {
+      "name": "test_may_share_memory_harder_fuzz",
+      "docstring": null
+    },
+    {
+      "name": "test_shares_memory_api",
+      "docstring": null
+    },
+    {
+      "name": "test_may_share_memory_bad_max_work",
+      "docstring": null
+    },
+    {
+      "name": "test_internal_overlap_diophantine",
+      "docstring": null
+    },
+    {
+      "name": "test_internal_overlap_slices",
+      "docstring": null
+    },
+    {
+      "name": "check_internal_overlap",
+      "docstring": null
+    },
+    {
+      "name": "test_internal_overlap_manual",
+      "docstring": null
+    },
+    {
+      "name": "test_internal_overlap_fuzz",
+      "docstring": null
+    },
+    {
+      "name": "test_non_ndarray_inputs",
+      "docstring": null
+    },
+    {
+      "name": "view_element_first_byte",
+      "docstring": "Construct an array viewing the first byte of each element of `x`"
+    },
+    {
+      "name": "assert_copy_equivalent",
+      "docstring": "Check that operation(*args, out=out) produces results\nequivalent to out[...] = operation(*args, out=out.copy())"
+    },
+    {
+      "name": "random_slice",
+      "docstring": null
+    },
+    {
+      "name": "random_slice_fixed_size",
+      "docstring": null
+    },
+    {
+      "name": "check",
+      "docstring": null
+    },
+    {
+      "name": "random_slice",
+      "docstring": null
+    },
+    {
+      "name": "check_unary_fuzz",
+      "docstring": null
+    },
+    {
+      "name": "test_unary_ufunc_call_fuzz",
+      "docstring": null
+    },
+    {
+      "name": "test_unary_ufunc_call_complex_fuzz",
+      "docstring": null
+    },
+    {
+      "name": "test_binary_ufunc_accumulate_fuzz",
+      "docstring": null
+    },
+    {
+      "name": "test_binary_ufunc_reduce_fuzz",
+      "docstring": null
+    },
+    {
+      "name": "test_binary_ufunc_reduceat_fuzz",
+      "docstring": null
+    },
+    {
+      "name": "test_binary_ufunc_reduceat_manual",
+      "docstring": null
+    },
+    {
+      "name": "test_unary_gufunc_fuzz",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_at_manual",
+      "docstring": null
+    },
+    {
+      "name": "test_unary_ufunc_1d_manual",
+      "docstring": null
+    },
+    {
+      "name": "test_unary_ufunc_where_same",
+      "docstring": null
+    },
+    {
+      "name": "test_binary_ufunc_1d_manual",
+      "docstring": null
+    },
+    {
+      "name": "test_inplace_op_simple_manual",
+      "docstring": null
+    },
+    {
+      "name": "get_out_axis_size",
+      "docstring": null
+    },
+    {
+      "name": "get_out_axis_size",
+      "docstring": null
+    },
+    {
+      "name": "get_out_axis_size",
+      "docstring": null
+    },
+    {
+      "name": "do_reduceat",
+      "docstring": null
+    },
+    {
+      "name": "check",
+      "docstring": null
+    },
+    {
+      "name": "check",
+      "docstring": null
+    },
+    {
+      "name": "check",
+      "docstring": null
+    },
+    {
+      "name": "check",
+      "docstring": null
+    },
+    {
+      "name": "check",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

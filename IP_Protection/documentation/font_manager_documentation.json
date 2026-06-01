@@ -1,0 +1,359 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\font_manager.py",
+  "classes": [
+    {
+      "name": "FontEntry",
+      "docstring": "A class for storing Font properties.\n\nIt is used when populating the font lookup dictionary.",
+      "methods": []
+    },
+    {
+      "name": "FontProperties",
+      "docstring": "A class for storing and manipulating font properties.\n\nThe font properties are the six properties described in the\n`W3C Cascading Style Sheet, Level 1\n<http://www.w3.org/TR/1998/REC-CSS2-19980512/>`_ font\nspecification and *math_fontfamily* for math fonts:\n\n- family: A list of font names in decreasing order of priority.\n  The items may include a generic font family name, either 'sans-serif',\n  'serif', 'cursive', 'fantasy', or 'monospace'.  In that case, the actual\n  font to be used will be looked up from the associated rcParam during the\n  search process in `.findfont`. Default: :rc:`font.family`\n\n- style: Either 'normal', 'italic' or 'oblique'.\n  Default: :rc:`font.style`\n\n- variant: Either 'normal' or 'small-caps'.\n  Default: :rc:`font.variant`\n\n- stretch: A numeric value in the range 0-1000 or one of\n  'ultra-condensed', 'extra-condensed', 'condensed',\n  'semi-condensed', 'normal', 'semi-expanded', 'expanded',\n  'extra-expanded' or 'ultra-expanded'. Default: :rc:`font.stretch`\n\n- weight: A numeric value in the range 0-1000 or one of\n  'ultralight', 'light', 'normal', 'regular', 'book', 'medium',\n  'roman', 'semibold', 'demibold', 'demi', 'bold', 'heavy',\n  'extra bold', 'black'. Default: :rc:`font.weight`\n\n- size: Either a relative value of 'xx-small', 'x-small',\n  'small', 'medium', 'large', 'x-large', 'xx-large' or an\n  absolute font size, e.g., 10. Default: :rc:`font.size`\n\n- math_fontfamily: The family of fonts used to render math text.\n  Supported values are: 'dejavusans', 'dejavuserif', 'cm',\n  'stix', 'stixsans' and 'custom'. Default: :rc:`mathtext.fontset`\n\nAlternatively, a font may be specified using the absolute path to a font\nfile, by using the *fname* kwarg.  However, in this case, it is typically\nsimpler to just pass the path (as a `pathlib.Path`, not a `str`) to the\n*font* kwarg of the `.Text` object.\n\nThe preferred usage of font sizes is to use the relative values,\ne.g.,  'large', instead of absolute font sizes, e.g., 12.  This\napproach allows all text sizes to be made larger or smaller based\non the font manager's default font size.\n\nThis class accepts a single positional string as fontconfig_ pattern_,\nor alternatively individual properties as keyword arguments::\n\n    FontProperties(pattern)\n    FontProperties(*, family=None, style=None, variant=None, ...)\n\nThis support does not depend on fontconfig; we are merely borrowing its\npattern syntax for use here.\n\n.. _fontconfig: https://www.freedesktop.org/wiki/Software/fontconfig/\n.. _pattern:\n   https://www.freedesktop.org/software/fontconfig/fontconfig-user.html\n\nNote that Matplotlib's internal font manager and fontconfig use a\ndifferent algorithm to lookup fonts, so the results of the same pattern\nmay be different in Matplotlib than in other applications that use\nfontconfig.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_family",
+          "docstring": "Return a list of individual font family names or generic family names.\n\nThe font families or generic font families (which will be resolved\nfrom their respective rcParams when searching for a matching font) in\nthe order of preference."
+        },
+        {
+          "name": "get_name",
+          "docstring": "Return the name of the font that best matches the font properties."
+        },
+        {
+          "name": "get_style",
+          "docstring": "Return the font style.  Values are: 'normal', 'italic' or 'oblique'."
+        },
+        {
+          "name": "get_variant",
+          "docstring": "Return the font variant.  Values are: 'normal' or 'small-caps'."
+        },
+        {
+          "name": "get_weight",
+          "docstring": "Set the font weight.  Options are: A numeric value in the\nrange 0-1000 or one of 'light', 'normal', 'regular', 'book',\n'medium', 'roman', 'semibold', 'demibold', 'demi', 'bold',\n'heavy', 'extra bold', 'black'"
+        },
+        {
+          "name": "get_stretch",
+          "docstring": "Return the font stretch or width.  Options are: 'ultra-condensed',\n'extra-condensed', 'condensed', 'semi-condensed', 'normal',\n'semi-expanded', 'expanded', 'extra-expanded', 'ultra-expanded'."
+        },
+        {
+          "name": "get_size",
+          "docstring": "Return the font size."
+        },
+        {
+          "name": "get_file",
+          "docstring": "Return the filename of the associated font."
+        },
+        {
+          "name": "get_fontconfig_pattern",
+          "docstring": "Get a fontconfig_ pattern_ suitable for looking up the font as\nspecified with fontconfig's ``fc-match`` utility.\n\nThis support does not depend on fontconfig; we are merely borrowing its\npattern syntax for use here."
+        },
+        {
+          "name": "set_family",
+          "docstring": "Change the font family.  Can be either an alias (generic name\nis CSS parlance), such as: 'serif', 'sans-serif', 'cursive',\n'fantasy', or 'monospace', a real font name or a list of real\nfont names.  Real font names are not supported when\n:rc:`text.usetex` is `True`. Default: :rc:`font.family`"
+        },
+        {
+          "name": "set_style",
+          "docstring": "Set the font style.\n\nParameters\n----------\nstyle : {'normal', 'italic', 'oblique'}, default: :rc:`font.style`"
+        },
+        {
+          "name": "set_variant",
+          "docstring": "Set the font variant.\n\nParameters\n----------\nvariant : {'normal', 'small-caps'}, default: :rc:`font.variant`"
+        },
+        {
+          "name": "set_weight",
+          "docstring": "Set the font weight.\n\nParameters\n----------\nweight : int or {'ultralight', 'light', 'normal', 'regular', 'book', 'medium', 'roman', 'semibold', 'demibold', 'demi', 'bold', 'heavy', 'extra bold', 'black'}, default: :rc:`font.weight`\n    If int, must be in the range  0-1000."
+        },
+        {
+          "name": "set_stretch",
+          "docstring": "Set the font stretch or width.\n\nParameters\n----------\nstretch : int or {'ultra-condensed', 'extra-condensed', 'condensed', 'semi-condensed', 'normal', 'semi-expanded', 'expanded', 'extra-expanded', 'ultra-expanded'}, default: :rc:`font.stretch`\n    If int, must be in the range  0-1000."
+        },
+        {
+          "name": "set_size",
+          "docstring": "Set the font size.\n\nParameters\n----------\nsize : float or {'xx-small', 'x-small', 'small', 'medium', 'large', 'x-large', 'xx-large'}, default: :rc:`font.size`\n    If a float, the font size in points. The string values denote\n    sizes relative to the default font size."
+        },
+        {
+          "name": "set_file",
+          "docstring": "Set the filename of the fontfile to use.  In this case, all\nother properties will be ignored."
+        },
+        {
+          "name": "set_fontconfig_pattern",
+          "docstring": "Set the properties by parsing a fontconfig_ *pattern*.\n\nThis support does not depend on fontconfig; we are merely borrowing its\npattern syntax for use here."
+        },
+        {
+          "name": "get_math_fontfamily",
+          "docstring": "Return the name of the font family used for math text.\n\nThe default font is :rc:`mathtext.fontset`."
+        },
+        {
+          "name": "set_math_fontfamily",
+          "docstring": "Set the font family for text in math mode.\n\nIf not set explicitly, :rc:`mathtext.fontset` will be used.\n\nParameters\n----------\nfontfamily : str\n    The name of the font family.\n\n    Available font families are defined in the\n    :ref:`default matplotlibrc file <customizing-with-matplotlibrc-files>`.\n\nSee Also\n--------\n.text.Text.get_math_fontfamily"
+        },
+        {
+          "name": "copy",
+          "docstring": "Return a copy of self."
+        }
+      ]
+    },
+    {
+      "name": "_JSONEncoder",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "default",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FontManager",
+      "docstring": "On import, the `FontManager` singleton instance creates a list of ttf and\nafm fonts and caches their `FontProperties`.  The `FontManager.findfont`\nmethod does a nearest neighbor search to find the font that most closely\nmatches the specification.  If no good enough match is found, the default\nfont is returned.\n\nFonts added with the `FontManager.addfont` method will not persist in the\ncache; therefore, `addfont` will need to be called every time Matplotlib is\nimported. This method should only be used if and when a font cannot be\ninstalled on your operating system by other means.\n\nNotes\n-----\nThe `FontManager.addfont` method must be called on the global `FontManager`\ninstance.\n\nExample usage::\n\n    import matplotlib.pyplot as plt\n    from matplotlib import font_manager\n\n    font_dirs = [\"/resources/fonts\"]  # The path to the custom font file.\n    font_files = font_manager.findSystemFonts(fontpaths=font_dirs)\n\n    for font_file in font_files:\n        font_manager.fontManager.addfont(font_file)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "addfont",
+          "docstring": "Cache the properties of the font at *path* to make it available to the\n`FontManager`.  The type of font is inferred from the path suffix.\n\nParameters\n----------\npath : str or path-like\n\nNotes\n-----\nThis method is useful for adding a custom font without installing it in\nyour operating system. See the `FontManager` singleton instance for\nusage and caveats about this function."
+        },
+        {
+          "name": "defaultFont",
+          "docstring": null
+        },
+        {
+          "name": "get_default_weight",
+          "docstring": "Return the default font weight."
+        },
+        {
+          "name": "get_default_size",
+          "docstring": "Return the default font size."
+        },
+        {
+          "name": "set_default_weight",
+          "docstring": "Set the default font weight.  The initial value is 'normal'."
+        },
+        {
+          "name": "score_family",
+          "docstring": "Return a match score between the list of font families in\n*families* and the font family name *family2*.\n\nAn exact match at the head of the list returns 0.0.\n\nA match further down the list will return between 0 and 1.\n\nNo match will return 1.0."
+        },
+        {
+          "name": "score_style",
+          "docstring": "Return a match score between *style1* and *style2*.\n\nAn exact match returns 0.0.\n\nA match between 'italic' and 'oblique' returns 0.1.\n\nNo match returns 1.0."
+        },
+        {
+          "name": "score_variant",
+          "docstring": "Return a match score between *variant1* and *variant2*.\n\nAn exact match returns 0.0, otherwise 1.0."
+        },
+        {
+          "name": "score_stretch",
+          "docstring": "Return a match score between *stretch1* and *stretch2*.\n\nThe result is the absolute value of the difference between the\nCSS numeric values of *stretch1* and *stretch2*, normalized\nbetween 0.0 and 1.0."
+        },
+        {
+          "name": "score_weight",
+          "docstring": "Return a match score between *weight1* and *weight2*.\n\nThe result is 0.0 if both weight1 and weight 2 are given as strings\nand have the same value.\n\nOtherwise, the result is the absolute value of the difference between\nthe CSS numeric values of *weight1* and *weight2*, normalized between\n0.05 and 1.0."
+        },
+        {
+          "name": "score_size",
+          "docstring": "Return a match score between *size1* and *size2*.\n\nIf *size2* (the size specified in the font file) is 'scalable', this\nfunction always returns 0.0, since any font size can be generated.\n\nOtherwise, the result is the absolute distance between *size1* and\n*size2*, normalized so that the usual range of font sizes (6pt -\n72pt) will lie between 0.0 and 1.0."
+        },
+        {
+          "name": "findfont",
+          "docstring": "Find the path to the font file most closely matching the given font properties.\n\nParameters\n----------\nprop : str or `~matplotlib.font_manager.FontProperties`\n    The font properties to search for. This can be either a\n    `.FontProperties` object or a string defining a\n    `fontconfig patterns`_.\n\nfontext : {'ttf', 'afm'}, default: 'ttf'\n    The extension of the font file:\n\n    - 'ttf': TrueType and OpenType fonts (.ttf, .ttc, .otf)\n    - 'afm': Adobe Font Metrics (.afm)\n\ndirectory : str, optional\n    If given, only search this directory and its subdirectories.\n\nfallback_to_default : bool\n    If True, will fall back to the default font family (usually\n    \"DejaVu Sans\" or \"Helvetica\") if the first lookup hard-fails.\n\nrebuild_if_missing : bool\n    Whether to rebuild the font cache and search again if the first\n    match appears to point to a nonexisting font (i.e., the font cache\n    contains outdated entries).\n\nReturns\n-------\nstr\n    The filename of the best matching font.\n\nNotes\n-----\nThis performs a nearest neighbor search.  Each font is given a\nsimilarity score to the target font properties.  The first font with\nthe highest score is returned.  If no matches below a certain\nthreshold are found, the default font (usually DejaVu Sans) is\nreturned.\n\nThe result is cached, so subsequent lookups don't have to\nperform the O(n) nearest neighbor search.\n\nSee the `W3C Cascading Style Sheet, Level 1\n<http://www.w3.org/TR/1998/REC-CSS2-19980512/>`_ documentation\nfor a description of the font finding algorithm.\n\n.. _fontconfig patterns:\n   https://www.freedesktop.org/software/fontconfig/fontconfig-user.html"
+        },
+        {
+          "name": "get_font_names",
+          "docstring": "Return the list of available fonts."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_fontext_synonyms",
+      "docstring": "Return a list of file extensions that are synonyms for\nthe given file extension *fileext*."
+    },
+    {
+      "name": "list_fonts",
+      "docstring": "Return a list of all fonts matching any of the extensions, found\nrecursively under the directory."
+    },
+    {
+      "name": "win32FontDirectory",
+      "docstring": "Return the user-specified font directory for Win32.  This is\nlooked up from the registry key ::\n\n  \\\\HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders\\Fonts\n\nIf the key is not found, ``%WINDIR%\\Fonts`` will be returned."
+    },
+    {
+      "name": "findSystemFonts",
+      "docstring": "Search for fonts in the specified font paths.  If no paths are\ngiven, will use a standard set of system paths, as well as the\nlist of fonts tracked by fontconfig if fontconfig is installed and\navailable.  A list of TrueType fonts are returned by default with\nAFM fonts as an option."
+    },
+    {
+      "name": "ttfFontProperty",
+      "docstring": "Extract information from a TrueType font file.\n\nParameters\n----------\nfont : `.FT2Font`\n    The TrueType font file from which information will be extracted.\n\nReturns\n-------\n`FontEntry`\n    The extracted font properties."
+    },
+    {
+      "name": "afmFontProperty",
+      "docstring": "Extract information from an AFM font file.\n\nParameters\n----------\nfontpath : str\n    The filename corresponding to *font*.\nfont : AFM\n    The AFM font file from which information will be extracted.\n\nReturns\n-------\n`FontEntry`\n    The extracted font properties."
+    },
+    {
+      "name": "json_dump",
+      "docstring": "Dump `FontManager` *data* as JSON to the file named *filename*.\n\nSee Also\n--------\njson_load\n\nNotes\n-----\nFile paths that are children of the Matplotlib data path (typically, fonts\nshipped with Matplotlib) are stored relative to that data path (to remain\nvalid across virtualenvs).\n\nThis function temporarily locks the output file to prevent multiple\nprocesses from overwriting one another's output."
+    },
+    {
+      "name": "json_load",
+      "docstring": "Load a `FontManager` from the JSON file named *filename*.\n\nSee Also\n--------\njson_dump"
+    },
+    {
+      "name": "is_opentype_cff_font",
+      "docstring": "Return whether the given font is a Postscript Compact Font Format Font\nembedded in an OpenType wrapper.  Used by the PostScript and PDF backends\nthat cannot subset these fonts."
+    },
+    {
+      "name": "get_font",
+      "docstring": "Get an `.ft2font.FT2Font` object given a list of file paths.\n\nParameters\n----------\nfont_filepaths : Iterable[str, Path, bytes], str, Path, bytes\n    Relative or absolute paths to the font files to be used.\n\n    If a single string, bytes, or `pathlib.Path`, then it will be treated\n    as a list with that entry only.\n\n    If more than one filepath is passed, then the returned FT2Font object\n    will fall back through the fonts, in the order given, to find a needed\n    glyph.\n\nReturns\n-------\n`.ft2font.FT2Font`"
+    },
+    {
+      "name": "get_weight",
+      "docstring": null
+    },
+    {
+      "name": "wrapper",
+      "docstring": null
+    },
+    {
+      "name": "get_family",
+      "docstring": "Return a list of individual font family names or generic family names.\n\nThe font families or generic font families (which will be resolved\nfrom their respective rcParams when searching for a matching font) in\nthe order of preference."
+    },
+    {
+      "name": "get_name",
+      "docstring": "Return the name of the font that best matches the font properties."
+    },
+    {
+      "name": "get_style",
+      "docstring": "Return the font style.  Values are: 'normal', 'italic' or 'oblique'."
+    },
+    {
+      "name": "get_variant",
+      "docstring": "Return the font variant.  Values are: 'normal' or 'small-caps'."
+    },
+    {
+      "name": "get_weight",
+      "docstring": "Set the font weight.  Options are: A numeric value in the\nrange 0-1000 or one of 'light', 'normal', 'regular', 'book',\n'medium', 'roman', 'semibold', 'demibold', 'demi', 'bold',\n'heavy', 'extra bold', 'black'"
+    },
+    {
+      "name": "get_stretch",
+      "docstring": "Return the font stretch or width.  Options are: 'ultra-condensed',\n'extra-condensed', 'condensed', 'semi-condensed', 'normal',\n'semi-expanded', 'expanded', 'extra-expanded', 'ultra-expanded'."
+    },
+    {
+      "name": "get_size",
+      "docstring": "Return the font size."
+    },
+    {
+      "name": "get_file",
+      "docstring": "Return the filename of the associated font."
+    },
+    {
+      "name": "get_fontconfig_pattern",
+      "docstring": "Get a fontconfig_ pattern_ suitable for looking up the font as\nspecified with fontconfig's ``fc-match`` utility.\n\nThis support does not depend on fontconfig; we are merely borrowing its\npattern syntax for use here."
+    },
+    {
+      "name": "set_family",
+      "docstring": "Change the font family.  Can be either an alias (generic name\nis CSS parlance), such as: 'serif', 'sans-serif', 'cursive',\n'fantasy', or 'monospace', a real font name or a list of real\nfont names.  Real font names are not supported when\n:rc:`text.usetex` is `True`. Default: :rc:`font.family`"
+    },
+    {
+      "name": "set_style",
+      "docstring": "Set the font style.\n\nParameters\n----------\nstyle : {'normal', 'italic', 'oblique'}, default: :rc:`font.style`"
+    },
+    {
+      "name": "set_variant",
+      "docstring": "Set the font variant.\n\nParameters\n----------\nvariant : {'normal', 'small-caps'}, default: :rc:`font.variant`"
+    },
+    {
+      "name": "set_weight",
+      "docstring": "Set the font weight.\n\nParameters\n----------\nweight : int or {'ultralight', 'light', 'normal', 'regular', 'book', 'medium', 'roman', 'semibold', 'demibold', 'demi', 'bold', 'heavy', 'extra bold', 'black'}, default: :rc:`font.weight`\n    If int, must be in the range  0-1000."
+    },
+    {
+      "name": "set_stretch",
+      "docstring": "Set the font stretch or width.\n\nParameters\n----------\nstretch : int or {'ultra-condensed', 'extra-condensed', 'condensed', 'semi-condensed', 'normal', 'semi-expanded', 'expanded', 'extra-expanded', 'ultra-expanded'}, default: :rc:`font.stretch`\n    If int, must be in the range  0-1000."
+    },
+    {
+      "name": "set_size",
+      "docstring": "Set the font size.\n\nParameters\n----------\nsize : float or {'xx-small', 'x-small', 'small', 'medium', 'large', 'x-large', 'xx-large'}, default: :rc:`font.size`\n    If a float, the font size in points. The string values denote\n    sizes relative to the default font size."
+    },
+    {
+      "name": "set_file",
+      "docstring": "Set the filename of the fontfile to use.  In this case, all\nother properties will be ignored."
+    },
+    {
+      "name": "set_fontconfig_pattern",
+      "docstring": "Set the properties by parsing a fontconfig_ *pattern*.\n\nThis support does not depend on fontconfig; we are merely borrowing its\npattern syntax for use here."
+    },
+    {
+      "name": "get_math_fontfamily",
+      "docstring": "Return the name of the font family used for math text.\n\nThe default font is :rc:`mathtext.fontset`."
+    },
+    {
+      "name": "set_math_fontfamily",
+      "docstring": "Set the font family for text in math mode.\n\nIf not set explicitly, :rc:`mathtext.fontset` will be used.\n\nParameters\n----------\nfontfamily : str\n    The name of the font family.\n\n    Available font families are defined in the\n    :ref:`default matplotlibrc file <customizing-with-matplotlibrc-files>`.\n\nSee Also\n--------\n.text.Text.get_math_fontfamily"
+    },
+    {
+      "name": "copy",
+      "docstring": "Return a copy of self."
+    },
+    {
+      "name": "default",
+      "docstring": null
+    },
+    {
+      "name": "addfont",
+      "docstring": "Cache the properties of the font at *path* to make it available to the\n`FontManager`.  The type of font is inferred from the path suffix.\n\nParameters\n----------\npath : str or path-like\n\nNotes\n-----\nThis method is useful for adding a custom font without installing it in\nyour operating system. See the `FontManager` singleton instance for\nusage and caveats about this function."
+    },
+    {
+      "name": "defaultFont",
+      "docstring": null
+    },
+    {
+      "name": "get_default_weight",
+      "docstring": "Return the default font weight."
+    },
+    {
+      "name": "get_default_size",
+      "docstring": "Return the default font size."
+    },
+    {
+      "name": "set_default_weight",
+      "docstring": "Set the default font weight.  The initial value is 'normal'."
+    },
+    {
+      "name": "score_family",
+      "docstring": "Return a match score between the list of font families in\n*families* and the font family name *family2*.\n\nAn exact match at the head of the list returns 0.0.\n\nA match further down the list will return between 0 and 1.\n\nNo match will return 1.0."
+    },
+    {
+      "name": "score_style",
+      "docstring": "Return a match score between *style1* and *style2*.\n\nAn exact match returns 0.0.\n\nA match between 'italic' and 'oblique' returns 0.1.\n\nNo match returns 1.0."
+    },
+    {
+      "name": "score_variant",
+      "docstring": "Return a match score between *variant1* and *variant2*.\n\nAn exact match returns 0.0, otherwise 1.0."
+    },
+    {
+      "name": "score_stretch",
+      "docstring": "Return a match score between *stretch1* and *stretch2*.\n\nThe result is the absolute value of the difference between the\nCSS numeric values of *stretch1* and *stretch2*, normalized\nbetween 0.0 and 1.0."
+    },
+    {
+      "name": "score_weight",
+      "docstring": "Return a match score between *weight1* and *weight2*.\n\nThe result is 0.0 if both weight1 and weight 2 are given as strings\nand have the same value.\n\nOtherwise, the result is the absolute value of the difference between\nthe CSS numeric values of *weight1* and *weight2*, normalized between\n0.05 and 1.0."
+    },
+    {
+      "name": "score_size",
+      "docstring": "Return a match score between *size1* and *size2*.\n\nIf *size2* (the size specified in the font file) is 'scalable', this\nfunction always returns 0.0, since any font size can be generated.\n\nOtherwise, the result is the absolute distance between *size1* and\n*size2*, normalized so that the usual range of font sizes (6pt -\n72pt) will lie between 0.0 and 1.0."
+    },
+    {
+      "name": "findfont",
+      "docstring": "Find the path to the font file most closely matching the given font properties.\n\nParameters\n----------\nprop : str or `~matplotlib.font_manager.FontProperties`\n    The font properties to search for. This can be either a\n    `.FontProperties` object or a string defining a\n    `fontconfig patterns`_.\n\nfontext : {'ttf', 'afm'}, default: 'ttf'\n    The extension of the font file:\n\n    - 'ttf': TrueType and OpenType fonts (.ttf, .ttc, .otf)\n    - 'afm': Adobe Font Metrics (.afm)\n\ndirectory : str, optional\n    If given, only search this directory and its subdirectories.\n\nfallback_to_default : bool\n    If True, will fall back to the default font family (usually\n    \"DejaVu Sans\" or \"Helvetica\") if the first lookup hard-fails.\n\nrebuild_if_missing : bool\n    Whether to rebuild the font cache and search again if the first\n    match appears to point to a nonexisting font (i.e., the font cache\n    contains outdated entries).\n\nReturns\n-------\nstr\n    The filename of the best matching font.\n\nNotes\n-----\nThis performs a nearest neighbor search.  Each font is given a\nsimilarity score to the target font properties.  The first font with\nthe highest score is returned.  If no matches below a certain\nthreshold are found, the default font (usually DejaVu Sans) is\nreturned.\n\nThe result is cached, so subsequent lookups don't have to\nperform the O(n) nearest neighbor search.\n\nSee the `W3C Cascading Style Sheet, Level 1\n<http://www.w3.org/TR/1998/REC-CSS2-19980512/>`_ documentation\nfor a description of the font finding algorithm.\n\n.. _fontconfig patterns:\n   https://www.freedesktop.org/software/fontconfig/fontconfig-user.html"
+    },
+    {
+      "name": "get_font_names",
+      "docstring": "Return the list of available fonts."
+    }
+  ],
+  "innovations": []
+}

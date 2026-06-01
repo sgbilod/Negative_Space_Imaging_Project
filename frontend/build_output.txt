@@ -1,0 +1,17 @@
+
+> negative-space-imaging-frontend@1.0.0 build
+> react-scripts build
+
+Creating an optimized production build...
+Failed to compile.
+
+TS2339: Property 'name' does not exist on type 'User'.
+  [0m [90m 142 |[39m           [33m<[39m[33mBox[39m sx[33m=[39m{{ display[33m:[39m [32m'flex'[39m[33m,[39m alignItems[33m:[39m [32m'center'[39m[33m,[39m gap[33m:[39m [35m1[39m }}[33m>[39m
+   [90m 143 |[39m             [33m<[39m[33mAvatar[39m sx[33m=[39m{{ cursor[33m:[39m [32m'pointer'[39m[33m,[39m bgcolor[33m:[39m [32m'secondary.main'[39m }} onClick[33m=[39m{handleMenuOpen}[33m>[39m
+  [31m[1m>[22m[39m[90m 144 |[39m               {user[33m?[39m[33m.[39mname[33m?[39m[33m.[39mcharAt([35m0[39m)[33m.[39mtoUpperCase() [33m||[39m [32m'U'[39m}
+   [90m     |[39m                      [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 145 |[39m             [33m<[39m[33m/[39m[33mAvatar[39m[33m>[39m
+   [90m 146 |[39m             [33m<[39m[33mTypography[39m variant[33m=[39m[32m"body2"[39m sx[33m=[39m{{ display[33m:[39m { xs[33m:[39m [32m'none'[39m[33m,[39m sm[33m:[39m [32m'block'[39m } }}[33m>[39m
+   [90m 147 |[39m               {user[33m?[39m[33m.[39mname [33m||[39m [32m'User'[39m}[0m
+
+

@@ -1,0 +1,119 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\req\\req_file.py",
+  "classes": [
+    {
+      "name": "ParsedRequirement",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ParsedLine",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "is_editable",
+          "docstring": null
+        },
+        {
+          "name": "requirement",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RequirementsFileParser",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "parse",
+          "docstring": "Parse a given file, yielding parsed lines."
+        }
+      ]
+    },
+    {
+      "name": "OptionParsingError",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "parse_requirements",
+      "docstring": "Parse a requirements file and yield ParsedRequirement instances.\n\n:param filename:    Path or url of requirements file.\n:param session:     PipSession instance.\n:param finder:      Instance of pip.index.PackageFinder.\n:param options:     cli options.\n:param constraint:  If true, parsing a constraint file rather than\n    requirements file."
+    },
+    {
+      "name": "preprocess",
+      "docstring": "Split, filter, and join lines, and return a line iterator\n\n:param content: the content of the requirements file"
+    },
+    {
+      "name": "handle_requirement_line",
+      "docstring": null
+    },
+    {
+      "name": "handle_option_line",
+      "docstring": null
+    },
+    {
+      "name": "handle_line",
+      "docstring": "Handle a single parsed requirements line; This can result in\ncreating/yielding requirements, or updating the finder.\n\n:param line:        The parsed line to be processed.\n:param options:     CLI options.\n:param finder:      The finder - updated by non-requirement lines.\n:param session:     The session - updated by non-requirement lines.\n\nReturns a ParsedRequirement object if the line is a requirement line,\notherwise returns None.\n\nFor lines that contain requirements, the only options that have an effect\nare from SUPPORTED_OPTIONS_REQ, and they are scoped to the\nrequirement. Other options from SUPPORTED_OPTIONS may be present, but are\nignored.\n\nFor lines that do not contain requirements, the only options that have an\neffect are from SUPPORTED_OPTIONS. Options from SUPPORTED_OPTIONS_REQ may\nbe present, but are ignored. These lines may contain multiple options\n(although our docs imply only one is supported), and all our parsed and\naffect the finder."
+    },
+    {
+      "name": "get_line_parser",
+      "docstring": null
+    },
+    {
+      "name": "break_args_options",
+      "docstring": "Break up the line into an args and options string.  We only want to shlex\n(and then optparse) the options, not the args.  args can contain markers\nwhich are corrupted by shlex."
+    },
+    {
+      "name": "build_parser",
+      "docstring": "Return a parser for parsing requirement lines"
+    },
+    {
+      "name": "join_lines",
+      "docstring": "Joins a line ending in '' with the previous line (except when following\ncomments).  The joined line takes on the index of the first line."
+    },
+    {
+      "name": "ignore_comments",
+      "docstring": "Strips comments and filter empty lines."
+    },
+    {
+      "name": "expand_env_variables",
+      "docstring": "Replace all environment variables that can be retrieved via `os.getenv`.\n\nThe only allowed format for environment variables defined in the\nrequirement file is `${MY_VARIABLE_1}` to ensure two things:\n\n1. Strings that contain a `$` aren't accidentally (partially) expanded.\n2. Ensure consistency across platforms for requirement files.\n\nThese points are the result of a discussion on the `github pull\nrequest #3514 <https://github.com/pypa/pip/pull/3514>`_.\n\nValid characters in variable names follow the `POSIX standard\n<http://pubs.opengroup.org/onlinepubs/9699919799/>`_ and are limited\nto uppercase letter, digits and the `_` (underscore)."
+    },
+    {
+      "name": "get_file_content",
+      "docstring": "Gets the content of a file; it may be a filename, file: URL, or\nhttp: URL.  Returns (location, content).  Content is unicode.\nRespects # -*- coding: declarations on the retrieved files.\n\n:param url:         File path or url.\n:param session:     PipSession instance."
+    },
+    {
+      "name": "is_editable",
+      "docstring": null
+    },
+    {
+      "name": "requirement",
+      "docstring": null
+    },
+    {
+      "name": "parse",
+      "docstring": "Parse a given file, yielding parsed lines."
+    },
+    {
+      "name": "parse_line",
+      "docstring": null
+    },
+    {
+      "name": "parser_exit",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

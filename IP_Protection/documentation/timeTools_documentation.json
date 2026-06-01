@@ -1,0 +1,27 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\timeTools.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "asctime",
+      "docstring": "Convert a tuple or struct_time representing a time as returned by gmtime()\nor localtime() to a 24-character string of the following form:\n\n>>> asctime(time.gmtime(0))\n'Thu Jan  1 00:00:00 1970'\n\nIf t is not provided, the current time as returned by localtime() is used.\nLocale information is not used by asctime().\n\nThis is meant to normalise the output of the built-in time.asctime() across\ndifferent platforms and Python versions.\nIn Python 3.x, the day of the month is right-justified, whereas on Windows\nPython 2.7 it is padded with zeros.\n\nSee https://github.com/fonttools/fonttools/issues/455"
+    },
+    {
+      "name": "timestampToString",
+      "docstring": null
+    },
+    {
+      "name": "timestampFromString",
+      "docstring": null
+    },
+    {
+      "name": "timestampNow",
+      "docstring": null
+    },
+    {
+      "name": "timestampSinceEpoch",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

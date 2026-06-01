@@ -1,0 +1,144 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\network\\session.py",
+  "classes": [
+    {
+      "name": "LocalFSAdapter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "send",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_SSLContextAdapterMixin",
+      "docstring": "Mixin to add the ``ssl_context`` constructor argument to HTTP adapters.\n\nThe additional argument is forwarded directly to the pool manager. This allows us\nto dynamically decide what SSL store to use at runtime, which is used to implement\nthe optional ``truststore`` backend.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "init_poolmanager",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HTTPAdapter",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "CacheControlAdapter",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "InsecureHTTPAdapter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "cert_verify",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "InsecureCacheControlAdapter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "cert_verify",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PipSession",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": ":param trusted_hosts: Domains not to emit warnings for when not using\n    HTTPS."
+        },
+        {
+          "name": "update_index_urls",
+          "docstring": ":param new_index_urls: New index urls to update the authentication\n    handler with."
+        },
+        {
+          "name": "add_trusted_host",
+          "docstring": ":param host: It is okay to provide a host that has previously been\n    added.\n:param source: An optional source string, for logging where the host\n    string came from."
+        },
+        {
+          "name": "iter_secure_origins",
+          "docstring": null
+        },
+        {
+          "name": "is_secure_origin",
+          "docstring": null
+        },
+        {
+          "name": "request",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "looks_like_ci",
+      "docstring": "Return whether it looks like pip is running under CI."
+    },
+    {
+      "name": "user_agent",
+      "docstring": "Return a string representing the user agent."
+    },
+    {
+      "name": "send",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "init_poolmanager",
+      "docstring": null
+    },
+    {
+      "name": "cert_verify",
+      "docstring": null
+    },
+    {
+      "name": "cert_verify",
+      "docstring": null
+    },
+    {
+      "name": "update_index_urls",
+      "docstring": ":param new_index_urls: New index urls to update the authentication\n    handler with."
+    },
+    {
+      "name": "add_trusted_host",
+      "docstring": ":param host: It is okay to provide a host that has previously been\n    added.\n:param source: An optional source string, for logging where the host\n    string came from."
+    },
+    {
+      "name": "iter_secure_origins",
+      "docstring": null
+    },
+    {
+      "name": "is_secure_origin",
+      "docstring": null
+    },
+    {
+      "name": "request",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

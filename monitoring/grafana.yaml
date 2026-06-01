@@ -1,0 +1,49 @@
+# Grafana Configuration
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+apiVersion: grafana.k8s.io/v1beta1
+kind: Grafana
+metadata:
+  name: negative-space-grafana
+  namespace: monitoring
+spec:
+  config:
+    auth:
+      disable_login_form: false
+      oauth_auto_login: true
+    auth.generic_oauth:
+      enabled: true
+      allow_sign_up: true
+      team_ids: ""
+      allowed_organizations: "negative-space"
+    server:
+      root_url: https://grafana.negative-space.io
+    security:
+      disable_initial_admin_creation: true
+      cookie_secure: true
+      strict_transport_security: true
+    unified_alerting:
+      enabled: true
+  dashboardLabelSelector:
+    - matchLabels:
+        app: negative-space
+  deployment:
+    replicas: 3
+    resources:
+      limits:
+        cpu: "4"
+        memory: 4Gi
+      requests:
+        cpu: "2"
+        memory: 2Gi
+  ingress:
+    enabled: true
+    hostname: grafana.negative-space.io
+    tls:
+      - hosts:
+          - grafana.negative-space.io
+        secretName: grafana-tls
+  persistence:
+    enabled: true
+    size: 100Gi
+    storageClassName: premium-ssd

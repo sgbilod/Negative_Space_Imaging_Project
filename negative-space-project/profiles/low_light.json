@@ -1,0 +1,33 @@
+{
+  "name": "Low Light",
+  "description": "Profile for low-light conditions",
+  "camera_settings": {
+    "exposure": "long",
+    "gain": "high",
+    "fps": 15,
+    "resolution": "1080p"
+  },
+  "preprocessing_settings": {
+    "resize": {
+      "width": 1280,
+      "height": 720
+    },
+    "denoise": true,
+    "denoise_params": {
+      "h": 15,
+      "hColor": 15
+    },
+    "normalize": true,
+    "brightness": 1.2,
+    "contrast": 1.1
+  },
+  "format_settings": {
+    "output_format": "png",
+    "compression": "low"
+  },
+  "storage_settings": {
+    "buffer_size": 30,
+    "storage_mode": "file",
+    "naming_pattern": "ll_%timestamp%"
+  }
+}

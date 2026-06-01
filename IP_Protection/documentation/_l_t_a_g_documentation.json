@@ -1,0 +1,58 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\_l_t_a_g.py",
+  "classes": [
+    {
+      "name": "table__l_t_a_g",
+      "docstring": "Language Tag table\n\nThe AAT ``ltag`` table contains mappings between the numeric codes used\nin the language field of the ``name`` table and IETF language tags.\n\nSee also https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6ltag.html",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "addTag",
+          "docstring": "Add 'tag' to the list of langauge tags if not already there.\n\nReturns the integer index of 'tag' in the list of all tags."
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "addTag",
+      "docstring": "Add 'tag' to the list of langauge tags if not already there.\n\nReturns the integer index of 'tag' in the list of all tags."
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

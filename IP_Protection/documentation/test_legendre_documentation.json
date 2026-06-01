@@ -1,0 +1,384 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\polynomial\\tests\\test_legendre.py",
+  "classes": [
+    {
+      "name": "TestConstants",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_legdomain",
+          "docstring": null
+        },
+        {
+          "name": "test_legzero",
+          "docstring": null
+        },
+        {
+          "name": "test_legone",
+          "docstring": null
+        },
+        {
+          "name": "test_legx",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestArithmetic",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_legadd",
+          "docstring": null
+        },
+        {
+          "name": "test_legsub",
+          "docstring": null
+        },
+        {
+          "name": "test_legmulx",
+          "docstring": null
+        },
+        {
+          "name": "test_legmul",
+          "docstring": null
+        },
+        {
+          "name": "test_legdiv",
+          "docstring": null
+        },
+        {
+          "name": "test_legpow",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEvaluation",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_legval",
+          "docstring": null
+        },
+        {
+          "name": "test_legval2d",
+          "docstring": null
+        },
+        {
+          "name": "test_legval3d",
+          "docstring": null
+        },
+        {
+          "name": "test_leggrid2d",
+          "docstring": null
+        },
+        {
+          "name": "test_leggrid3d",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIntegral",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_legint",
+          "docstring": null
+        },
+        {
+          "name": "test_legint_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_legint_zerointord",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDerivative",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_legder",
+          "docstring": null
+        },
+        {
+          "name": "test_legder_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_legder_orderhigherthancoeff",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestVander",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_legvander",
+          "docstring": null
+        },
+        {
+          "name": "test_legvander2d",
+          "docstring": null
+        },
+        {
+          "name": "test_legvander3d",
+          "docstring": null
+        },
+        {
+          "name": "test_legvander_negdeg",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFitting",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_legfit",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCompanion",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_raises",
+          "docstring": null
+        },
+        {
+          "name": "test_dimensions",
+          "docstring": null
+        },
+        {
+          "name": "test_linear_root",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestGauss",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_100",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMisc",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_legfromroots",
+          "docstring": null
+        },
+        {
+          "name": "test_legroots",
+          "docstring": null
+        },
+        {
+          "name": "test_legtrim",
+          "docstring": null
+        },
+        {
+          "name": "test_legline",
+          "docstring": null
+        },
+        {
+          "name": "test_legline_zeroscl",
+          "docstring": null
+        },
+        {
+          "name": "test_leg2poly",
+          "docstring": null
+        },
+        {
+          "name": "test_poly2leg",
+          "docstring": null
+        },
+        {
+          "name": "test_weight",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "trim",
+      "docstring": null
+    },
+    {
+      "name": "test_legdomain",
+      "docstring": null
+    },
+    {
+      "name": "test_legzero",
+      "docstring": null
+    },
+    {
+      "name": "test_legone",
+      "docstring": null
+    },
+    {
+      "name": "test_legx",
+      "docstring": null
+    },
+    {
+      "name": "test_legadd",
+      "docstring": null
+    },
+    {
+      "name": "test_legsub",
+      "docstring": null
+    },
+    {
+      "name": "test_legmulx",
+      "docstring": null
+    },
+    {
+      "name": "test_legmul",
+      "docstring": null
+    },
+    {
+      "name": "test_legdiv",
+      "docstring": null
+    },
+    {
+      "name": "test_legpow",
+      "docstring": null
+    },
+    {
+      "name": "test_legval",
+      "docstring": null
+    },
+    {
+      "name": "test_legval2d",
+      "docstring": null
+    },
+    {
+      "name": "test_legval3d",
+      "docstring": null
+    },
+    {
+      "name": "test_leggrid2d",
+      "docstring": null
+    },
+    {
+      "name": "test_leggrid3d",
+      "docstring": null
+    },
+    {
+      "name": "test_legint",
+      "docstring": null
+    },
+    {
+      "name": "test_legint_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_legint_zerointord",
+      "docstring": null
+    },
+    {
+      "name": "test_legder",
+      "docstring": null
+    },
+    {
+      "name": "test_legder_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_legder_orderhigherthancoeff",
+      "docstring": null
+    },
+    {
+      "name": "test_legvander",
+      "docstring": null
+    },
+    {
+      "name": "test_legvander2d",
+      "docstring": null
+    },
+    {
+      "name": "test_legvander3d",
+      "docstring": null
+    },
+    {
+      "name": "test_legvander_negdeg",
+      "docstring": null
+    },
+    {
+      "name": "test_legfit",
+      "docstring": null
+    },
+    {
+      "name": "test_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_dimensions",
+      "docstring": null
+    },
+    {
+      "name": "test_linear_root",
+      "docstring": null
+    },
+    {
+      "name": "test_100",
+      "docstring": null
+    },
+    {
+      "name": "test_legfromroots",
+      "docstring": null
+    },
+    {
+      "name": "test_legroots",
+      "docstring": null
+    },
+    {
+      "name": "test_legtrim",
+      "docstring": null
+    },
+    {
+      "name": "test_legline",
+      "docstring": null
+    },
+    {
+      "name": "test_legline_zeroscl",
+      "docstring": null
+    },
+    {
+      "name": "test_leg2poly",
+      "docstring": null
+    },
+    {
+      "name": "test_poly2leg",
+      "docstring": null
+    },
+    {
+      "name": "test_weight",
+      "docstring": null
+    },
+    {
+      "name": "f",
+      "docstring": null
+    },
+    {
+      "name": "f2",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

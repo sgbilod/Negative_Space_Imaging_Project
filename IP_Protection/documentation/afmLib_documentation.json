@@ -1,0 +1,139 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\afmLib.py",
+  "classes": [
+    {
+      "name": "error",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "AFM",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "AFM file reader.\n\nInstantiating an object with a path name will cause the file to be opened,\nread, and parsed. Alternatively the path can be left unspecified, and a\nfile can be parsed later with the :meth:`read` method."
+        },
+        {
+          "name": "read",
+          "docstring": "Opens, reads and parses a file."
+        },
+        {
+          "name": "parsechar",
+          "docstring": null
+        },
+        {
+          "name": "parsekernpair",
+          "docstring": null
+        },
+        {
+          "name": "parseattr",
+          "docstring": null
+        },
+        {
+          "name": "parsecomposite",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": "Writes out an AFM font to the given path."
+        },
+        {
+          "name": "has_kernpair",
+          "docstring": "Returns `True` if the given glyph pair (specified as a tuple) exists\nin the kerning dictionary."
+        },
+        {
+          "name": "kernpairs",
+          "docstring": "Returns a list of all kern pairs in the kerning dictionary."
+        },
+        {
+          "name": "has_char",
+          "docstring": "Returns `True` if the given glyph exists in the font."
+        },
+        {
+          "name": "chars",
+          "docstring": "Returns a list of all glyph names in the font."
+        },
+        {
+          "name": "comments",
+          "docstring": "Returns all comments from the file."
+        },
+        {
+          "name": "addComment",
+          "docstring": "Adds a new comment to the file."
+        },
+        {
+          "name": "addComposite",
+          "docstring": "Specifies that the glyph `glyphName` is made up of the given components.\nThe components list should be of the following form::\n\n        [\n                (glyphname, xOffset, yOffset),\n                ...\n        ]"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "readlines",
+      "docstring": null
+    },
+    {
+      "name": "writelines",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": "Opens, reads and parses a file."
+    },
+    {
+      "name": "parsechar",
+      "docstring": null
+    },
+    {
+      "name": "parsekernpair",
+      "docstring": null
+    },
+    {
+      "name": "parseattr",
+      "docstring": null
+    },
+    {
+      "name": "parsecomposite",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": "Writes out an AFM font to the given path."
+    },
+    {
+      "name": "has_kernpair",
+      "docstring": "Returns `True` if the given glyph pair (specified as a tuple) exists\nin the kerning dictionary."
+    },
+    {
+      "name": "kernpairs",
+      "docstring": "Returns a list of all kern pairs in the kerning dictionary."
+    },
+    {
+      "name": "has_char",
+      "docstring": "Returns `True` if the given glyph exists in the font."
+    },
+    {
+      "name": "chars",
+      "docstring": "Returns a list of all glyph names in the font."
+    },
+    {
+      "name": "comments",
+      "docstring": "Returns all comments from the file."
+    },
+    {
+      "name": "addComment",
+      "docstring": "Adds a new comment to the file."
+    },
+    {
+      "name": "addComposite",
+      "docstring": "Specifies that the glyph `glyphName` is made up of the given components.\nThe components list should be of the following form::\n\n        [\n                (glyphname, xOffset, yOffset),\n                ...\n        ]"
+    },
+    {
+      "name": "myKey",
+      "docstring": "Custom key function to make sure unencoded chars (-1)\nend up at the end of the list after sorting."
+    }
+  ],
+  "innovations": []
+}

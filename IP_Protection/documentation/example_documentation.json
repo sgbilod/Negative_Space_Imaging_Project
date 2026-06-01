@@ -1,0 +1,32 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\example.py",
+  "classes": [
+    {
+      "name": "DummyFormat",
+      "docstring": "The dummy format is an example format that does nothing.\nIt will never indicate that it can read or write a file. When\nexplicitly asked to read, it will simply read the bytes. When\nexplicitly asked to write, it will raise an error.\n\nThis documentation is shown when the user does ``help('thisformat')``.\n\nParameters for reading\n----------------------\nSpecify arguments in numpy doc style here.\n\nParameters for saving\n---------------------\nSpecify arguments in numpy doc style here.",
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "set_meta_data",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "set_meta_data",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,559 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\backend_wx.py",
+  "classes": [
+    {
+      "name": "TimerWx",
+      "docstring": "Subclass of `.TimerBase` using wx.Timer events.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RendererWx",
+      "docstring": "The renderer handles all the drawing primitives using a graphics\ncontext instance that controls the colors/styles. It acts as the\n'renderer' instance used by many classes in the hierarchy.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialise a wxWindows renderer instance."
+        },
+        {
+          "name": "flipy",
+          "docstring": null
+        },
+        {
+          "name": "get_text_width_height_descent",
+          "docstring": null
+        },
+        {
+          "name": "get_canvas_width_height",
+          "docstring": null
+        },
+        {
+          "name": "handle_clip_rectangle",
+          "docstring": null
+        },
+        {
+          "name": "convert_path",
+          "docstring": null
+        },
+        {
+          "name": "draw_path",
+          "docstring": null
+        },
+        {
+          "name": "draw_image",
+          "docstring": null
+        },
+        {
+          "name": "draw_text",
+          "docstring": null
+        },
+        {
+          "name": "new_gc",
+          "docstring": null
+        },
+        {
+          "name": "get_wx_font",
+          "docstring": "Return a wx font.  Cache font instances for efficiency."
+        },
+        {
+          "name": "points_to_pixels",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GraphicsContextWx",
+      "docstring": "The graphics context provides the color, line styles, etc.\n\nThis class stores a reference to a wxMemoryDC, and a\nwxGraphicsContext that draws to it.  Creating a wxGraphicsContext\nseems to be fairly heavy, so these objects are cached based on the\nbitmap object that is passed in.\n\nThe base GraphicsContext stores colors as an RGB tuple on the unit\ninterval, e.g., (0.5, 0.0, 1.0).  wxPython uses an int interval, but\nsince wxPython colour management is rather simple, I have not chosen\nto implement a separate colour manager class.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "select",
+          "docstring": "Select the current bitmap into this wxDC instance."
+        },
+        {
+          "name": "unselect",
+          "docstring": "Select a Null bitmap into this wxDC instance."
+        },
+        {
+          "name": "set_foreground",
+          "docstring": null
+        },
+        {
+          "name": "set_linewidth",
+          "docstring": null
+        },
+        {
+          "name": "set_capstyle",
+          "docstring": null
+        },
+        {
+          "name": "set_joinstyle",
+          "docstring": null
+        },
+        {
+          "name": "get_wxcolour",
+          "docstring": "Convert an RGB(A) color to a wx.Colour."
+        }
+      ]
+    },
+    {
+      "name": "_FigureCanvasWxBase",
+      "docstring": "The FigureCanvas contains the figure and does event handling.\n\nIn the wxPython backend, it is derived from wxPanel, and (usually) lives\ninside a frame instantiated by a FigureManagerWx. The parent window\nprobably implements a wx.Sizer to control the displayed control size - but\nwe give a hint as to our preferred minimum size.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a FigureWx instance.\n\n- Initialize the FigureCanvasBase and wxPanel parents.\n- Set event handlers for resize, paint, and keyboard and mouse\n  interaction."
+        },
+        {
+          "name": "Copy_to_Clipboard",
+          "docstring": "Copy bitmap of canvas to system clipboard."
+        },
+        {
+          "name": "draw_idle",
+          "docstring": null
+        },
+        {
+          "name": "flush_events",
+          "docstring": null
+        },
+        {
+          "name": "start_event_loop",
+          "docstring": null
+        },
+        {
+          "name": "stop_event_loop",
+          "docstring": null
+        },
+        {
+          "name": "gui_repaint",
+          "docstring": "Update the displayed image on the GUI canvas, using the supplied\nwx.PaintDC device context."
+        },
+        {
+          "name": "set_cursor",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FigureCanvasWx",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "draw",
+          "docstring": "Render the figure using RendererWx instance renderer, or using a\npreviously defined renderer if none is specified."
+        }
+      ]
+    },
+    {
+      "name": "FigureFrameWx",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FigureManagerWx",
+      "docstring": "Container/controller for the FigureCanvas and GUI frame.\n\nIt is instantiated by Gcf whenever a new figure is created.  Gcf is\nresponsible for managing multiple instances of FigureManagerWx.\n\nAttributes\n----------\ncanvas : `FigureCanvas`\n    a FigureCanvasWx(wx.Panel) instance\nwindow : wxFrame\n    a wxFrame instance - wxpython.org/Phoenix/docs/html/Frame.html",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "create_with_canvas",
+          "docstring": null
+        },
+        {
+          "name": "start_main_loop",
+          "docstring": null
+        },
+        {
+          "name": "show",
+          "docstring": null
+        },
+        {
+          "name": "destroy",
+          "docstring": null
+        },
+        {
+          "name": "full_screen_toggle",
+          "docstring": null
+        },
+        {
+          "name": "get_window_title",
+          "docstring": null
+        },
+        {
+          "name": "set_window_title",
+          "docstring": null
+        },
+        {
+          "name": "resize",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "NavigationToolbar2Wx",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "zoom",
+          "docstring": null
+        },
+        {
+          "name": "pan",
+          "docstring": null
+        },
+        {
+          "name": "save_figure",
+          "docstring": null
+        },
+        {
+          "name": "draw_rubberband",
+          "docstring": null
+        },
+        {
+          "name": "remove_rubberband",
+          "docstring": null
+        },
+        {
+          "name": "set_message",
+          "docstring": null
+        },
+        {
+          "name": "set_history_buttons",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolbarWx",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "add_toolitem",
+          "docstring": null
+        },
+        {
+          "name": "toggle_toolitem",
+          "docstring": null
+        },
+        {
+          "name": "remove_toolitem",
+          "docstring": null
+        },
+        {
+          "name": "set_message",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ConfigureSubplotsWx",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SaveFigureWx",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RubberbandWx",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "draw_rubberband",
+          "docstring": null
+        },
+        {
+          "name": "remove_rubberband",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_HelpDialog",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "show",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HelpWx",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolCopyToClipboardWx",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BackendWx",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "flipy",
+      "docstring": null
+    },
+    {
+      "name": "get_text_width_height_descent",
+      "docstring": null
+    },
+    {
+      "name": "get_canvas_width_height",
+      "docstring": null
+    },
+    {
+      "name": "handle_clip_rectangle",
+      "docstring": null
+    },
+    {
+      "name": "convert_path",
+      "docstring": null
+    },
+    {
+      "name": "draw_path",
+      "docstring": null
+    },
+    {
+      "name": "draw_image",
+      "docstring": null
+    },
+    {
+      "name": "draw_text",
+      "docstring": null
+    },
+    {
+      "name": "new_gc",
+      "docstring": null
+    },
+    {
+      "name": "get_wx_font",
+      "docstring": "Return a wx font.  Cache font instances for efficiency."
+    },
+    {
+      "name": "points_to_pixels",
+      "docstring": null
+    },
+    {
+      "name": "select",
+      "docstring": "Select the current bitmap into this wxDC instance."
+    },
+    {
+      "name": "unselect",
+      "docstring": "Select a Null bitmap into this wxDC instance."
+    },
+    {
+      "name": "set_foreground",
+      "docstring": null
+    },
+    {
+      "name": "set_linewidth",
+      "docstring": null
+    },
+    {
+      "name": "set_capstyle",
+      "docstring": null
+    },
+    {
+      "name": "set_joinstyle",
+      "docstring": null
+    },
+    {
+      "name": "get_wxcolour",
+      "docstring": "Convert an RGB(A) color to a wx.Colour."
+    },
+    {
+      "name": "Copy_to_Clipboard",
+      "docstring": "Copy bitmap of canvas to system clipboard."
+    },
+    {
+      "name": "draw_idle",
+      "docstring": null
+    },
+    {
+      "name": "flush_events",
+      "docstring": null
+    },
+    {
+      "name": "start_event_loop",
+      "docstring": null
+    },
+    {
+      "name": "stop_event_loop",
+      "docstring": null
+    },
+    {
+      "name": "gui_repaint",
+      "docstring": "Update the displayed image on the GUI canvas, using the supplied\nwx.PaintDC device context."
+    },
+    {
+      "name": "set_cursor",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": "Render the figure using RendererWx instance renderer, or using a\npreviously defined renderer if none is specified."
+    },
+    {
+      "name": "create_with_canvas",
+      "docstring": null
+    },
+    {
+      "name": "start_main_loop",
+      "docstring": null
+    },
+    {
+      "name": "show",
+      "docstring": null
+    },
+    {
+      "name": "destroy",
+      "docstring": null
+    },
+    {
+      "name": "full_screen_toggle",
+      "docstring": null
+    },
+    {
+      "name": "get_window_title",
+      "docstring": null
+    },
+    {
+      "name": "set_window_title",
+      "docstring": null
+    },
+    {
+      "name": "resize",
+      "docstring": null
+    },
+    {
+      "name": "zoom",
+      "docstring": null
+    },
+    {
+      "name": "pan",
+      "docstring": null
+    },
+    {
+      "name": "save_figure",
+      "docstring": null
+    },
+    {
+      "name": "draw_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "remove_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "set_message",
+      "docstring": null
+    },
+    {
+      "name": "set_history_buttons",
+      "docstring": null
+    },
+    {
+      "name": "add_toolitem",
+      "docstring": null
+    },
+    {
+      "name": "toggle_toolitem",
+      "docstring": null
+    },
+    {
+      "name": "remove_toolitem",
+      "docstring": null
+    },
+    {
+      "name": "set_message",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "draw_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "remove_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "show",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "handler",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

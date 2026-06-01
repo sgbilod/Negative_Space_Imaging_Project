@@ -1,0 +1,116 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\f2py\\_backends\\_meson.py",
+  "classes": [
+    {
+      "name": "MesonTemplate",
+      "docstring": "Template meson build file generation class.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "meson_build_template",
+          "docstring": null
+        },
+        {
+          "name": "initialize_template",
+          "docstring": null
+        },
+        {
+          "name": "sources_substitution",
+          "docstring": null
+        },
+        {
+          "name": "deps_substitution",
+          "docstring": null
+        },
+        {
+          "name": "libraries_substitution",
+          "docstring": null
+        },
+        {
+          "name": "include_substitution",
+          "docstring": null
+        },
+        {
+          "name": "fortran_args_substitution",
+          "docstring": null
+        },
+        {
+          "name": "generate_meson_build",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MesonBackend",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "write_meson_build",
+          "docstring": "Writes the meson build file at specified location"
+        },
+        {
+          "name": "run_meson",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "meson_build_template",
+      "docstring": null
+    },
+    {
+      "name": "initialize_template",
+      "docstring": null
+    },
+    {
+      "name": "sources_substitution",
+      "docstring": null
+    },
+    {
+      "name": "deps_substitution",
+      "docstring": null
+    },
+    {
+      "name": "libraries_substitution",
+      "docstring": null
+    },
+    {
+      "name": "include_substitution",
+      "docstring": null
+    },
+    {
+      "name": "fortran_args_substitution",
+      "docstring": null
+    },
+    {
+      "name": "generate_meson_build",
+      "docstring": null
+    },
+    {
+      "name": "write_meson_build",
+      "docstring": "Writes the meson build file at specified location"
+    },
+    {
+      "name": "run_meson",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

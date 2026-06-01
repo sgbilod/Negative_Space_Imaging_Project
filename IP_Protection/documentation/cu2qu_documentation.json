@@ -1,0 +1,59 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\cu2qu\\cu2qu.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "dot",
+      "docstring": "Return the dot product of two vectors.\n\nArgs:\n    v1 (complex): First vector.\n    v2 (complex): Second vector.\n\nReturns:\n    double: Dot product."
+    },
+    {
+      "name": "calc_cubic_points",
+      "docstring": null
+    },
+    {
+      "name": "calc_cubic_parameters",
+      "docstring": null
+    },
+    {
+      "name": "split_cubic_into_n_iter",
+      "docstring": "Split a cubic Bezier into n equal parts.\n\nSplits the curve into `n` equal parts by curve time.\n(t=0..1/n, t=1/n..2/n, ...)\n\nArgs:\n    p0 (complex): Start point of curve.\n    p1 (complex): First handle of curve.\n    p2 (complex): Second handle of curve.\n    p3 (complex): End point of curve.\n\nReturns:\n    An iterator yielding the control points (four complex values) of the\n    subcurves."
+    },
+    {
+      "name": "split_cubic_into_two",
+      "docstring": "Split a cubic Bezier into two equal parts.\n\nSplits the curve into two equal parts at t = 0.5\n\nArgs:\n    p0 (complex): Start point of curve.\n    p1 (complex): First handle of curve.\n    p2 (complex): Second handle of curve.\n    p3 (complex): End point of curve.\n\nReturns:\n    tuple: Two cubic Beziers (each expressed as a tuple of four complex\n    values)."
+    },
+    {
+      "name": "split_cubic_into_three",
+      "docstring": "Split a cubic Bezier into three equal parts.\n\nSplits the curve into three equal parts at t = 1/3 and t = 2/3\n\nArgs:\n    p0 (complex): Start point of curve.\n    p1 (complex): First handle of curve.\n    p2 (complex): Second handle of curve.\n    p3 (complex): End point of curve.\n\nReturns:\n    tuple: Three cubic Beziers (each expressed as a tuple of four complex\n    values)."
+    },
+    {
+      "name": "cubic_approx_control",
+      "docstring": "Approximate a cubic Bezier using a quadratic one.\n\nArgs:\n    t (double): Position of control point.\n    p0 (complex): Start point of curve.\n    p1 (complex): First handle of curve.\n    p2 (complex): Second handle of curve.\n    p3 (complex): End point of curve.\n\nReturns:\n    complex: Location of candidate control point on quadratic curve."
+    },
+    {
+      "name": "calc_intersect",
+      "docstring": "Calculate the intersection of two lines.\n\nArgs:\n    a (complex): Start point of first line.\n    b (complex): End point of first line.\n    c (complex): Start point of second line.\n    d (complex): End point of second line.\n\nReturns:\n    complex: Location of intersection if one present, ``complex(NaN,NaN)``\n    if no intersection was found."
+    },
+    {
+      "name": "cubic_farthest_fit_inside",
+      "docstring": "Check if a cubic Bezier lies within a given distance of the origin.\n\n\"Origin\" means *the* origin (0,0), not the start of the curve. Note that no\nchecks are made on the start and end positions of the curve; this function\nonly checks the inside of the curve.\n\nArgs:\n    p0 (complex): Start point of curve.\n    p1 (complex): First handle of curve.\n    p2 (complex): Second handle of curve.\n    p3 (complex): End point of curve.\n    tolerance (double): Distance from origin.\n\nReturns:\n    bool: True if the cubic Bezier ``p`` entirely lies within a distance\n    ``tolerance`` of the origin, False otherwise."
+    },
+    {
+      "name": "cubic_approx_quadratic",
+      "docstring": "Approximate a cubic Bezier with a single quadratic within a given tolerance.\n\nArgs:\n    cubic (sequence): Four complex numbers representing control points of\n        the cubic Bezier curve.\n    tolerance (double): Permitted deviation from the original curve.\n\nReturns:\n    Three complex numbers representing control points of the quadratic\n    curve if it fits within the given tolerance, or ``None`` if no suitable\n    curve could be calculated."
+    },
+    {
+      "name": "cubic_approx_spline",
+      "docstring": "Approximate a cubic Bezier curve with a spline of n quadratics.\n\nArgs:\n    cubic (sequence): Four complex numbers representing control points of\n        the cubic Bezier curve.\n    n (int): Number of quadratic Bezier curves in the spline.\n    tolerance (double): Permitted deviation from the original curve.\n\nReturns:\n    A list of ``n+2`` complex numbers, representing control points of the\n    quadratic spline if it fits within the given tolerance, or ``None`` if\n    no suitable spline could be calculated."
+    },
+    {
+      "name": "curve_to_quadratic",
+      "docstring": "Approximate a cubic Bezier curve with a spline of n quadratics.\n\nArgs:\n    cubic (sequence): Four 2D tuples representing control points of\n        the cubic Bezier curve.\n    max_err (double): Permitted deviation from the original curve.\n    all_quadratic (bool): If True (default) returned value is a\n        quadratic spline. If False, it's either a single quadratic\n        curve or a single cubic curve.\n\nReturns:\n    If all_quadratic is True: A list of 2D tuples, representing\n    control points of the quadratic spline if it fits within the\n    given tolerance, or ``None`` if no suitable spline could be\n    calculated.\n\n    If all_quadratic is False: Either a quadratic curve (if length\n    of output is 3), or a cubic curve (if length of output is 4)."
+    },
+    {
+      "name": "curves_to_quadratic",
+      "docstring": "Return quadratic Bezier splines approximating the input cubic Beziers.\n\nArgs:\n    curves: A sequence of *n* curves, each curve being a sequence of four\n        2D tuples.\n    max_errors: A sequence of *n* floats representing the maximum permissible\n        deviation from each of the cubic Bezier curves.\n    all_quadratic (bool): If True (default) returned values are a\n        quadratic spline. If False, they are either a single quadratic\n        curve or a single cubic curve.\n\nExample::\n\n    >>> curves_to_quadratic( [\n    ...   [ (50,50), (100,100), (150,100), (200,50) ],\n    ...   [ (75,50), (120,100), (150,75),  (200,60) ]\n    ... ], [1,1] )\n    [[(50.0, 50.0), (75.0, 75.0), (125.0, 91.66666666666666), (175.0, 75.0), (200.0, 50.0)], [(75.0, 50.0), (97.5, 75.0), (135.41666666666666, 82.08333333333333), (175.0, 67.5), (200.0, 60.0)]]\n\nThe returned splines have \"implied oncurve points\" suitable for use in\nTrueType ``glif`` outlines - i.e. in the first spline returned above,\nthe first quadratic segment runs from (50,50) to\n( (75 + 125)/2 , (120 + 91.666..)/2 ) = (100, 83.333...).\n\nReturns:\n    If all_quadratic is True, a list of splines, each spline being a list\n    of 2D tuples.\n\n    If all_quadratic is False, a list of curves, each curve being a quadratic\n    (length 3), or cubic (length 4).\n\nRaises:\n    fontTools.cu2qu.Errors.ApproxNotFoundError: if no suitable approximation\n    can be found for all curves with the given parameters."
+    }
+  ],
+  "innovations": []
+}

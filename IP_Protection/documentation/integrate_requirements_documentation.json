@@ -1,0 +1,23 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\negative-space-project\\integrate_requirements.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "parse_requirements",
+      "docstring": "Parse requirements from a requirements file.\n\nArgs:\n    file_path: Path to the requirements file\n    \nReturns:\n    dict: Mapping of package names to versions and comments"
+    },
+    {
+      "name": "merge_requirements",
+      "docstring": "Merge two sets of requirements, giving preference to base requirements.\n\nArgs:\n    base_reqs: Base requirements\n    additional_reqs: Additional requirements to merge\n    \nReturns:\n    dict: Merged requirements"
+    },
+    {
+      "name": "write_requirements",
+      "docstring": "Write merged requirements to a file.\n\nArgs:\n    requirements: Dictionary of requirements\n    output_file: Path to output file"
+    },
+    {
+      "name": "main",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

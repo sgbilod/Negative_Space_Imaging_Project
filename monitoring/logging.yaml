@@ -1,0 +1,90 @@
+# Logging Configuration
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+apiVersion: logging-operator.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: negative-space-logging
+  namespace: monitoring
+spec:
+  enableRecreateWorkloadOnImmutableFieldChange: true
+  watchNamespaces:
+    - negative-space-system
+  controlNamespace: monitoring
+  fluentd:
+    scaling:
+      replicas: 3
+    resources:
+      limits:
+        cpu: "2"
+        memory: 2Gi
+      requests:
+        cpu: "1"
+        memory: 1Gi
+    security:
+      roleBasedAccessControlCreate: true
+      podSecurityPolicyCreate: true
+    metrics:
+      serviceMonitor: true
+---
+apiVersion: logging-operator.banzaicloud.io/v1beta1
+kind: Flow
+metadata:
+  name: negative-space-flow
+  namespace: negative-space-system
+spec:
+  filters:
+    - parser:
+        remove_key_name_field: true
+        parse:
+          type: json
+    - tag_normaliser:
+        format: ${namespace_name}.${pod_name}.${container_name}
+    - record_modifier:
+        records:
+          - app: negative-space
+          - environment: production
+  match:
+    - select:
+        labels:
+          app: negative-space
+  localOutputRefs:
+    - negative-space-cloudwatch
+    - negative-space-elasticsearch
+---
+apiVersion: logging-operator.banzaicloud.io/v1beta1
+kind: ClusterOutput
+metadata:
+  name: negative-space-cloudwatch
+  namespace: monitoring
+spec:
+  cloudwatch:
+    region: us-east-1
+    log_group_name: negative-space-logs
+    log_stream_name: ${tag}
+    auto_create_stream: true
+    retention_in_days: 30
+    buffer:
+      timekey: 1m
+      timekey_wait: 30s
+      timekey_use_utc: true
+---
+apiVersion: logging-operator.banzaicloud.io/v1beta1
+kind: ClusterOutput
+metadata:
+  name: negative-space-elasticsearch
+  namespace: monitoring
+spec:
+  elasticsearch:
+    host: elasticsearch-master
+    port: 9200
+    scheme: https
+    ssl_verify: true
+    ssl_version: TLSv1_2
+    buffer:
+      timekey: 1m
+      timekey_wait: 30s
+      timekey_use_utc: true
+    index_name: negative-space-logs-%Y.%m.%d
+    template_name: negative-space
+    template_file: /etc/fluent/config.d/index-template.json

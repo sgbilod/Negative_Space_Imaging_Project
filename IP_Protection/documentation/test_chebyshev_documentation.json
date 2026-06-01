@@ -1,0 +1,432 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\polynomial\\tests\\test_chebyshev.py",
+  "classes": [
+    {
+      "name": "TestPrivate",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test__cseries_to_zseries",
+          "docstring": null
+        },
+        {
+          "name": "test__zseries_to_cseries",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestConstants",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_chebdomain",
+          "docstring": null
+        },
+        {
+          "name": "test_chebzero",
+          "docstring": null
+        },
+        {
+          "name": "test_chebone",
+          "docstring": null
+        },
+        {
+          "name": "test_chebx",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestArithmetic",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_chebadd",
+          "docstring": null
+        },
+        {
+          "name": "test_chebsub",
+          "docstring": null
+        },
+        {
+          "name": "test_chebmulx",
+          "docstring": null
+        },
+        {
+          "name": "test_chebmul",
+          "docstring": null
+        },
+        {
+          "name": "test_chebdiv",
+          "docstring": null
+        },
+        {
+          "name": "test_chebpow",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEvaluation",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_chebval",
+          "docstring": null
+        },
+        {
+          "name": "test_chebval2d",
+          "docstring": null
+        },
+        {
+          "name": "test_chebval3d",
+          "docstring": null
+        },
+        {
+          "name": "test_chebgrid2d",
+          "docstring": null
+        },
+        {
+          "name": "test_chebgrid3d",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIntegral",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_chebint",
+          "docstring": null
+        },
+        {
+          "name": "test_chebint_axis",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDerivative",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_chebder",
+          "docstring": null
+        },
+        {
+          "name": "test_chebder_axis",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestVander",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_chebvander",
+          "docstring": null
+        },
+        {
+          "name": "test_chebvander2d",
+          "docstring": null
+        },
+        {
+          "name": "test_chebvander3d",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFitting",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_chebfit",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestInterpolate",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "f",
+          "docstring": null
+        },
+        {
+          "name": "test_raises",
+          "docstring": null
+        },
+        {
+          "name": "test_dimensions",
+          "docstring": null
+        },
+        {
+          "name": "test_approximation",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCompanion",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_raises",
+          "docstring": null
+        },
+        {
+          "name": "test_dimensions",
+          "docstring": null
+        },
+        {
+          "name": "test_linear_root",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestGauss",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_100",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMisc",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_chebfromroots",
+          "docstring": null
+        },
+        {
+          "name": "test_chebroots",
+          "docstring": null
+        },
+        {
+          "name": "test_chebtrim",
+          "docstring": null
+        },
+        {
+          "name": "test_chebline",
+          "docstring": null
+        },
+        {
+          "name": "test_cheb2poly",
+          "docstring": null
+        },
+        {
+          "name": "test_poly2cheb",
+          "docstring": null
+        },
+        {
+          "name": "test_weight",
+          "docstring": null
+        },
+        {
+          "name": "test_chebpts1",
+          "docstring": null
+        },
+        {
+          "name": "test_chebpts2",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "trim",
+      "docstring": null
+    },
+    {
+      "name": "test__cseries_to_zseries",
+      "docstring": null
+    },
+    {
+      "name": "test__zseries_to_cseries",
+      "docstring": null
+    },
+    {
+      "name": "test_chebdomain",
+      "docstring": null
+    },
+    {
+      "name": "test_chebzero",
+      "docstring": null
+    },
+    {
+      "name": "test_chebone",
+      "docstring": null
+    },
+    {
+      "name": "test_chebx",
+      "docstring": null
+    },
+    {
+      "name": "test_chebadd",
+      "docstring": null
+    },
+    {
+      "name": "test_chebsub",
+      "docstring": null
+    },
+    {
+      "name": "test_chebmulx",
+      "docstring": null
+    },
+    {
+      "name": "test_chebmul",
+      "docstring": null
+    },
+    {
+      "name": "test_chebdiv",
+      "docstring": null
+    },
+    {
+      "name": "test_chebpow",
+      "docstring": null
+    },
+    {
+      "name": "test_chebval",
+      "docstring": null
+    },
+    {
+      "name": "test_chebval2d",
+      "docstring": null
+    },
+    {
+      "name": "test_chebval3d",
+      "docstring": null
+    },
+    {
+      "name": "test_chebgrid2d",
+      "docstring": null
+    },
+    {
+      "name": "test_chebgrid3d",
+      "docstring": null
+    },
+    {
+      "name": "test_chebint",
+      "docstring": null
+    },
+    {
+      "name": "test_chebint_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_chebder",
+      "docstring": null
+    },
+    {
+      "name": "test_chebder_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_chebvander",
+      "docstring": null
+    },
+    {
+      "name": "test_chebvander2d",
+      "docstring": null
+    },
+    {
+      "name": "test_chebvander3d",
+      "docstring": null
+    },
+    {
+      "name": "test_chebfit",
+      "docstring": null
+    },
+    {
+      "name": "f",
+      "docstring": null
+    },
+    {
+      "name": "test_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_dimensions",
+      "docstring": null
+    },
+    {
+      "name": "test_approximation",
+      "docstring": null
+    },
+    {
+      "name": "test_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_dimensions",
+      "docstring": null
+    },
+    {
+      "name": "test_linear_root",
+      "docstring": null
+    },
+    {
+      "name": "test_100",
+      "docstring": null
+    },
+    {
+      "name": "test_chebfromroots",
+      "docstring": null
+    },
+    {
+      "name": "test_chebroots",
+      "docstring": null
+    },
+    {
+      "name": "test_chebtrim",
+      "docstring": null
+    },
+    {
+      "name": "test_chebline",
+      "docstring": null
+    },
+    {
+      "name": "test_cheb2poly",
+      "docstring": null
+    },
+    {
+      "name": "test_poly2cheb",
+      "docstring": null
+    },
+    {
+      "name": "test_weight",
+      "docstring": null
+    },
+    {
+      "name": "test_chebpts1",
+      "docstring": null
+    },
+    {
+      "name": "test_chebpts2",
+      "docstring": null
+    },
+    {
+      "name": "f",
+      "docstring": null
+    },
+    {
+      "name": "f2",
+      "docstring": null
+    },
+    {
+      "name": "powx",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

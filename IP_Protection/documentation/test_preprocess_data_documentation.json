@@ -1,0 +1,122 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_preprocess_data.py",
+  "classes": [
+    {
+      "name": "TestPlotTypes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_dict_unpack",
+          "docstring": null
+        },
+        {
+          "name": "test_data_kwarg",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "plot_func",
+      "docstring": null
+    },
+    {
+      "name": "test_compiletime_checks",
+      "docstring": "Test decorator invocations -> no replacements."
+    },
+    {
+      "name": "test_function_call_without_data",
+      "docstring": "Test without data -> no replacements."
+    },
+    {
+      "name": "test_function_call_with_dict_input",
+      "docstring": "Tests with dict input, unpacking via preprocess_pipeline"
+    },
+    {
+      "name": "test_function_call_with_dict_data",
+      "docstring": "Test with dict data -> label comes from the value of 'x' parameter."
+    },
+    {
+      "name": "test_function_call_with_dict_data_not_in_data",
+      "docstring": "Test the case that one var is not in data -> half replaces, half kept"
+    },
+    {
+      "name": "test_function_call_with_pandas_data",
+      "docstring": "Test with pandas dataframe -> label comes from ``data[\"col\"].name``."
+    },
+    {
+      "name": "test_function_call_replace_all",
+      "docstring": "Test without a \"replace_names\" argument, all vars should be replaced."
+    },
+    {
+      "name": "test_no_label_replacements",
+      "docstring": "Test with \"label_namer=None\" -> no label replacement at all."
+    },
+    {
+      "name": "test_more_args_than_pos_parameter",
+      "docstring": null
+    },
+    {
+      "name": "test_docstring_addition",
+      "docstring": null
+    },
+    {
+      "name": "test_data_parameter_replacement",
+      "docstring": "Test that the docstring contains the correct *data* parameter stub\nfor all methods that we run _preprocess_data() on."
+    },
+    {
+      "name": "func",
+      "docstring": null
+    },
+    {
+      "name": "func_args",
+      "docstring": null
+    },
+    {
+      "name": "func_kwargs",
+      "docstring": null
+    },
+    {
+      "name": "func_no_ax_args",
+      "docstring": null
+    },
+    {
+      "name": "func_replace_all",
+      "docstring": null
+    },
+    {
+      "name": "func_no_label",
+      "docstring": null
+    },
+    {
+      "name": "func",
+      "docstring": null
+    },
+    {
+      "name": "funcy",
+      "docstring": "Parameters\n----------\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER"
+    },
+    {
+      "name": "funcy",
+      "docstring": "Parameters\n----------\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER"
+    },
+    {
+      "name": "funcy",
+      "docstring": "Parameters\n----------\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER"
+    },
+    {
+      "name": "funcy",
+      "docstring": "Parameters\n----------\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER"
+    },
+    {
+      "name": "test_dict_unpack",
+      "docstring": null
+    },
+    {
+      "name": "test_data_kwarg",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

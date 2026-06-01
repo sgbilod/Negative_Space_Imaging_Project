@@ -1,0 +1,15 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\ImageColor.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "getrgb",
+      "docstring": " Convert a color string to an RGB or RGBA tuple. If the string cannot be\n parsed, this function raises a :py:exc:`ValueError` exception.\n\n.. versionadded:: 1.1.4\n\n:param color: A color string\n:return: ``(red, green, blue[, alpha])``"
+    },
+    {
+      "name": "getcolor",
+      "docstring": "Same as :py:func:`~PIL.ImageColor.getrgb` for most modes. However, if\n``mode`` is HSV, converts the RGB value to a HSV value, or if ``mode`` is\nnot color or a palette image, converts the RGB value to a grayscale value.\nIf the string cannot be parsed, this function raises a :py:exc:`ValueError`\nexception.\n\n.. versionadded:: 1.1.4\n\n:param color: A color string\n:param mode: Convert result to this mode\n:return: ``graylevel, (graylevel, alpha) or (red, green, blue[, alpha])``"
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,732 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\tests\\test_shape_base.py",
+  "classes": [
+    {
+      "name": "TestTakeAlongAxis",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_argequivalent",
+          "docstring": "Test it translates from arg<func> to <func> "
+        },
+        {
+          "name": "test_invalid",
+          "docstring": "Test it errors when indices has too few dimensions "
+        },
+        {
+          "name": "test_empty",
+          "docstring": "Test everything is ok with empty results, even with inserted dims "
+        },
+        {
+          "name": "test_broadcast",
+          "docstring": "Test that non-indexing dimensions are broadcast in both directions "
+        }
+      ]
+    },
+    {
+      "name": "TestPutAlongAxis",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_replace_max",
+          "docstring": null
+        },
+        {
+          "name": "test_broadcast",
+          "docstring": "Test that non-indexing dimensions are broadcast in both directions "
+        },
+        {
+          "name": "test_invalid",
+          "docstring": "Test invalid inputs "
+        }
+      ]
+    },
+    {
+      "name": "TestApplyAlongAxis",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_simple101",
+          "docstring": null
+        },
+        {
+          "name": "test_3d",
+          "docstring": null
+        },
+        {
+          "name": "test_preserve_subclass",
+          "docstring": null
+        },
+        {
+          "name": "test_subclass",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar_array",
+          "docstring": null
+        },
+        {
+          "name": "test_0d_array",
+          "docstring": null
+        },
+        {
+          "name": "test_axis_insertion",
+          "docstring": null
+        },
+        {
+          "name": "test_subclass_preservation",
+          "docstring": null
+        },
+        {
+          "name": "test_axis_insertion_ma",
+          "docstring": null
+        },
+        {
+          "name": "test_tuple_func1d",
+          "docstring": null
+        },
+        {
+          "name": "test_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_with_iterable_object",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestApplyOverAxes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_simple",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestExpandDims",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_functionality",
+          "docstring": null
+        },
+        {
+          "name": "test_axis_tuple",
+          "docstring": null
+        },
+        {
+          "name": "test_axis_out_of_range",
+          "docstring": null
+        },
+        {
+          "name": "test_repeated_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_subclasses",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestArraySplit",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_integer_0_split",
+          "docstring": null
+        },
+        {
+          "name": "test_integer_split",
+          "docstring": null
+        },
+        {
+          "name": "test_integer_split_2D_rows",
+          "docstring": null
+        },
+        {
+          "name": "test_integer_split_2D_cols",
+          "docstring": null
+        },
+        {
+          "name": "test_integer_split_2D_default",
+          "docstring": "This will fail if we change default axis\n        "
+        },
+        {
+          "name": "test_integer_split_2D_rows_greater_max_int32",
+          "docstring": null
+        },
+        {
+          "name": "test_index_split_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_index_split_low_bound",
+          "docstring": null
+        },
+        {
+          "name": "test_index_split_high_bound",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSplit",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_equal_split",
+          "docstring": null
+        },
+        {
+          "name": "test_unequal_split",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestColumnStack",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_non_iterable",
+          "docstring": null
+        },
+        {
+          "name": "test_1D_arrays",
+          "docstring": null
+        },
+        {
+          "name": "test_2D_arrays",
+          "docstring": null
+        },
+        {
+          "name": "test_generator",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDstack",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_non_iterable",
+          "docstring": null
+        },
+        {
+          "name": "test_0D_array",
+          "docstring": null
+        },
+        {
+          "name": "test_1D_array",
+          "docstring": null
+        },
+        {
+          "name": "test_2D_array",
+          "docstring": null
+        },
+        {
+          "name": "test_2D_array2",
+          "docstring": null
+        },
+        {
+          "name": "test_generator",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestHsplit",
+      "docstring": "Only testing for integer splits.\n\n    ",
+      "methods": [
+        {
+          "name": "test_non_iterable",
+          "docstring": null
+        },
+        {
+          "name": "test_0D_array",
+          "docstring": null
+        },
+        {
+          "name": "test_1D_array",
+          "docstring": null
+        },
+        {
+          "name": "test_2D_array",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestVsplit",
+      "docstring": "Only testing for integer splits.\n\n    ",
+      "methods": [
+        {
+          "name": "test_non_iterable",
+          "docstring": null
+        },
+        {
+          "name": "test_0D_array",
+          "docstring": null
+        },
+        {
+          "name": "test_1D_array",
+          "docstring": null
+        },
+        {
+          "name": "test_2D_array",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDsplit",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_non_iterable",
+          "docstring": null
+        },
+        {
+          "name": "test_0D_array",
+          "docstring": null
+        },
+        {
+          "name": "test_1D_array",
+          "docstring": null
+        },
+        {
+          "name": "test_2D_array",
+          "docstring": null
+        },
+        {
+          "name": "test_3D_array",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSqueeze",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestKron",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_return_type",
+          "docstring": null
+        },
+        {
+          "name": "test_kron_smoke",
+          "docstring": null
+        },
+        {
+          "name": "test_kron_ma",
+          "docstring": null
+        },
+        {
+          "name": "test_kron_shape",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestTile",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_tile_one_repetition_on_array_gh4679",
+          "docstring": null
+        },
+        {
+          "name": "test_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_kroncompare",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMayShareMemory",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyNDArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MinimalSubclass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MinimalSubclass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "myarray",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "compare_results",
+      "docstring": "Compare lists of arrays."
+    },
+    {
+      "name": "wrapped",
+      "docstring": null
+    },
+    {
+      "name": "test_argequivalent",
+      "docstring": "Test it translates from arg<func> to <func> "
+    },
+    {
+      "name": "test_invalid",
+      "docstring": "Test it errors when indices has too few dimensions "
+    },
+    {
+      "name": "test_empty",
+      "docstring": "Test everything is ok with empty results, even with inserted dims "
+    },
+    {
+      "name": "test_broadcast",
+      "docstring": "Test that non-indexing dimensions are broadcast in both directions "
+    },
+    {
+      "name": "test_replace_max",
+      "docstring": null
+    },
+    {
+      "name": "test_broadcast",
+      "docstring": "Test that non-indexing dimensions are broadcast in both directions "
+    },
+    {
+      "name": "test_invalid",
+      "docstring": "Test invalid inputs "
+    },
+    {
+      "name": "test_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_simple101",
+      "docstring": null
+    },
+    {
+      "name": "test_3d",
+      "docstring": null
+    },
+    {
+      "name": "test_preserve_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar_array",
+      "docstring": null
+    },
+    {
+      "name": "test_0d_array",
+      "docstring": null
+    },
+    {
+      "name": "test_axis_insertion",
+      "docstring": null
+    },
+    {
+      "name": "test_subclass_preservation",
+      "docstring": null
+    },
+    {
+      "name": "test_axis_insertion_ma",
+      "docstring": null
+    },
+    {
+      "name": "test_tuple_func1d",
+      "docstring": null
+    },
+    {
+      "name": "test_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_with_iterable_object",
+      "docstring": null
+    },
+    {
+      "name": "test_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_functionality",
+      "docstring": null
+    },
+    {
+      "name": "test_axis_tuple",
+      "docstring": null
+    },
+    {
+      "name": "test_axis_out_of_range",
+      "docstring": null
+    },
+    {
+      "name": "test_repeated_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_subclasses",
+      "docstring": null
+    },
+    {
+      "name": "test_integer_0_split",
+      "docstring": null
+    },
+    {
+      "name": "test_integer_split",
+      "docstring": null
+    },
+    {
+      "name": "test_integer_split_2D_rows",
+      "docstring": null
+    },
+    {
+      "name": "test_integer_split_2D_cols",
+      "docstring": null
+    },
+    {
+      "name": "test_integer_split_2D_default",
+      "docstring": "This will fail if we change default axis\n        "
+    },
+    {
+      "name": "test_integer_split_2D_rows_greater_max_int32",
+      "docstring": null
+    },
+    {
+      "name": "test_index_split_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_index_split_low_bound",
+      "docstring": null
+    },
+    {
+      "name": "test_index_split_high_bound",
+      "docstring": null
+    },
+    {
+      "name": "test_equal_split",
+      "docstring": null
+    },
+    {
+      "name": "test_unequal_split",
+      "docstring": null
+    },
+    {
+      "name": "test_non_iterable",
+      "docstring": null
+    },
+    {
+      "name": "test_1D_arrays",
+      "docstring": null
+    },
+    {
+      "name": "test_2D_arrays",
+      "docstring": null
+    },
+    {
+      "name": "test_generator",
+      "docstring": null
+    },
+    {
+      "name": "test_non_iterable",
+      "docstring": null
+    },
+    {
+      "name": "test_0D_array",
+      "docstring": null
+    },
+    {
+      "name": "test_1D_array",
+      "docstring": null
+    },
+    {
+      "name": "test_2D_array",
+      "docstring": null
+    },
+    {
+      "name": "test_2D_array2",
+      "docstring": null
+    },
+    {
+      "name": "test_generator",
+      "docstring": null
+    },
+    {
+      "name": "test_non_iterable",
+      "docstring": null
+    },
+    {
+      "name": "test_0D_array",
+      "docstring": null
+    },
+    {
+      "name": "test_1D_array",
+      "docstring": null
+    },
+    {
+      "name": "test_2D_array",
+      "docstring": null
+    },
+    {
+      "name": "test_non_iterable",
+      "docstring": null
+    },
+    {
+      "name": "test_0D_array",
+      "docstring": null
+    },
+    {
+      "name": "test_1D_array",
+      "docstring": null
+    },
+    {
+      "name": "test_2D_array",
+      "docstring": null
+    },
+    {
+      "name": "test_non_iterable",
+      "docstring": null
+    },
+    {
+      "name": "test_0D_array",
+      "docstring": null
+    },
+    {
+      "name": "test_1D_array",
+      "docstring": null
+    },
+    {
+      "name": "test_2D_array",
+      "docstring": null
+    },
+    {
+      "name": "test_3D_array",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_return_type",
+      "docstring": null
+    },
+    {
+      "name": "test_kron_smoke",
+      "docstring": null
+    },
+    {
+      "name": "test_kron_ma",
+      "docstring": null
+    },
+    {
+      "name": "test_kron_shape",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_tile_one_repetition_on_array_gh4679",
+      "docstring": null
+    },
+    {
+      "name": "test_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_kroncompare",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "double",
+      "docstring": null
+    },
+    {
+      "name": "minimal_function",
+      "docstring": null
+    },
+    {
+      "name": "sum_to_0d",
+      "docstring": "Sum x, returning a 0d array of the same class "
+    },
+    {
+      "name": "f1to2",
+      "docstring": "produces an asymmetric non-square matrix from x"
+    },
+    {
+      "name": "f1to2",
+      "docstring": "produces an asymmetric non-square matrix from x"
+    },
+    {
+      "name": "sample_1d",
+      "docstring": null
+    },
+    {
+      "name": "never_call",
+      "docstring": null
+    },
+    {
+      "name": "empty_to_1",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

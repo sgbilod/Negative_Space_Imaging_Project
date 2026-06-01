@@ -1,0 +1,217 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\backend_ps.py",
+  "classes": [
+    {
+      "name": "RendererPS",
+      "docstring": "The renderer handles all the drawing primitives using a graphics\ncontext instance that controls the colors/styles.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_color",
+          "docstring": null
+        },
+        {
+          "name": "set_linewidth",
+          "docstring": null
+        },
+        {
+          "name": "set_linejoin",
+          "docstring": null
+        },
+        {
+          "name": "set_linecap",
+          "docstring": null
+        },
+        {
+          "name": "set_linedash",
+          "docstring": null
+        },
+        {
+          "name": "set_font",
+          "docstring": null
+        },
+        {
+          "name": "create_hatch",
+          "docstring": null
+        },
+        {
+          "name": "get_image_magnification",
+          "docstring": "Get the factor by which to magnify images passed to draw_image.\nAllows a backend to have images at a different resolution to other\nartists."
+        },
+        {
+          "name": "draw_image",
+          "docstring": null
+        },
+        {
+          "name": "draw_path",
+          "docstring": null
+        },
+        {
+          "name": "draw_markers",
+          "docstring": null
+        },
+        {
+          "name": "draw_path_collection",
+          "docstring": null
+        },
+        {
+          "name": "draw_tex",
+          "docstring": null
+        },
+        {
+          "name": "draw_text",
+          "docstring": null
+        },
+        {
+          "name": "draw_mathtext",
+          "docstring": "Draw the math text using matplotlib.mathtext."
+        },
+        {
+          "name": "draw_gouraud_triangles",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_Orientation",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "swap_if_landscape",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FigureCanvasPS",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "get_default_filetype",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BackendPS",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "gs_distill",
+      "docstring": "Use ghostscript's pswrite or epswrite device to distill a file.\nThis yields smaller files without illegal encapsulated postscript\noperators. The output is low-level, converting text to outlines."
+    },
+    {
+      "name": "xpdf_distill",
+      "docstring": "Use ghostscript's ps2pdf and xpdf's/poppler's pdftops to distill a file.\nThis yields smaller files without illegal encapsulated postscript\noperators. This distiller is preferred, generating high-level postscript\noutput that treats text as text."
+    },
+    {
+      "name": "get_bbox_header",
+      "docstring": "Return a postscript header string for the given bbox lbrt=(l, b, r, t).\nOptionally, return rotate command."
+    },
+    {
+      "name": "pstoeps",
+      "docstring": "Convert the postscript to encapsulated postscript.  The bbox of\nthe eps file will be replaced with the given *bbox* argument. If\nNone, original bbox will be used."
+    },
+    {
+      "name": "wrapper",
+      "docstring": null
+    },
+    {
+      "name": "set_color",
+      "docstring": null
+    },
+    {
+      "name": "set_linewidth",
+      "docstring": null
+    },
+    {
+      "name": "set_linejoin",
+      "docstring": null
+    },
+    {
+      "name": "set_linecap",
+      "docstring": null
+    },
+    {
+      "name": "set_linedash",
+      "docstring": null
+    },
+    {
+      "name": "set_font",
+      "docstring": null
+    },
+    {
+      "name": "create_hatch",
+      "docstring": null
+    },
+    {
+      "name": "get_image_magnification",
+      "docstring": "Get the factor by which to magnify images passed to draw_image.\nAllows a backend to have images at a different resolution to other\nartists."
+    },
+    {
+      "name": "draw_image",
+      "docstring": null
+    },
+    {
+      "name": "draw_path",
+      "docstring": null
+    },
+    {
+      "name": "draw_markers",
+      "docstring": null
+    },
+    {
+      "name": "draw_path_collection",
+      "docstring": null
+    },
+    {
+      "name": "draw_tex",
+      "docstring": null
+    },
+    {
+      "name": "draw_text",
+      "docstring": null
+    },
+    {
+      "name": "draw_mathtext",
+      "docstring": "Draw the math text using matplotlib.mathtext."
+    },
+    {
+      "name": "draw_gouraud_triangles",
+      "docstring": null
+    },
+    {
+      "name": "swap_if_landscape",
+      "docstring": null
+    },
+    {
+      "name": "get_default_filetype",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "print_figure_impl",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "                             offsets, offset_trans, facecolors, edgecolors,\n                             linewidths, linestyles, antialiaseds, urls,\n                             offset_position):\n        # Is the optimization worth it? Rough calculation:\n        # cost of emitting a path in-line is\n        #     (len_path + 2) * uses_per_path\n        # cost of definition+use is"
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_cpu_features.py",
+  "classes": [
+    {
+      "name": "AbstractTest",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "load_flags",
+          "docstring": null
+        },
+        {
+          "name": "test_features",
+          "docstring": null
+        },
+        {
+          "name": "cpu_have",
+          "docstring": null
+        },
+        {
+          "name": "load_flags_cpuinfo",
+          "docstring": null
+        },
+        {
+          "name": "get_cpuinfo_item",
+          "docstring": null
+        },
+        {
+          "name": "load_flags_auxv",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEnvPrivation",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_class",
+          "docstring": null
+        },
+        {
+          "name": "setup_method",
+          "docstring": "Ensure that the environment is reset"
+        },
+        {
+          "name": "test_runtime_feature_selection",
+          "docstring": "Ensure that when selecting `NPY_ENABLE_CPU_FEATURES`, only the\nfeatures exactly specified are dispatched."
+        },
+        {
+          "name": "test_both_enable_disable_set",
+          "docstring": "Ensure that when both environment variables are set then an\nImportError is thrown"
+        },
+        {
+          "name": "test_variable_too_long",
+          "docstring": "Test that an error is thrown if the environment variables are too long\nto be processed. Current limit is 1024, but this may change later."
+        },
+        {
+          "name": "test_impossible_feature_disable",
+          "docstring": "Test that a RuntimeError is thrown if an impossible feature-disabling\nrequest is made. This includes disabling a baseline feature."
+        },
+        {
+          "name": "test_impossible_feature_enable",
+          "docstring": "Test that a RuntimeError is thrown if an impossible feature-enabling\nrequest is made. This includes enabling a feature not supported by the\nmachine, or disabling a baseline optimization."
+        }
+      ]
+    },
+    {
+      "name": "Test_X86_Features",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "load_flags",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Test_POWER_Features",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "load_flags",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Test_ZARCH_Features",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "load_flags",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Test_ARM_Features",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "load_flags",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "assert_features_equal",
+      "docstring": null
+    },
+    {
+      "name": "load_flags",
+      "docstring": null
+    },
+    {
+      "name": "test_features",
+      "docstring": null
+    },
+    {
+      "name": "cpu_have",
+      "docstring": null
+    },
+    {
+      "name": "load_flags_cpuinfo",
+      "docstring": null
+    },
+    {
+      "name": "get_cpuinfo_item",
+      "docstring": null
+    },
+    {
+      "name": "load_flags_auxv",
+      "docstring": null
+    },
+    {
+      "name": "setup_class",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": "Ensure that the environment is reset"
+    },
+    {
+      "name": "test_runtime_feature_selection",
+      "docstring": "Ensure that when selecting `NPY_ENABLE_CPU_FEATURES`, only the\nfeatures exactly specified are dispatched."
+    },
+    {
+      "name": "test_both_enable_disable_set",
+      "docstring": "Ensure that when both environment variables are set then an\nImportError is thrown"
+    },
+    {
+      "name": "test_variable_too_long",
+      "docstring": "Test that an error is thrown if the environment variables are too long\nto be processed. Current limit is 1024, but this may change later."
+    },
+    {
+      "name": "test_impossible_feature_disable",
+      "docstring": "Test that a RuntimeError is thrown if an impossible feature-disabling\nrequest is made. This includes disabling a baseline feature."
+    },
+    {
+      "name": "test_impossible_feature_enable",
+      "docstring": "Test that a RuntimeError is thrown if an impossible feature-enabling\nrequest is made. This includes enabling a feature not supported by the\nmachine, or disabling a baseline optimization."
+    },
+    {
+      "name": "load_flags",
+      "docstring": null
+    },
+    {
+      "name": "load_flags",
+      "docstring": null
+    },
+    {
+      "name": "load_flags",
+      "docstring": null
+    },
+    {
+      "name": "load_flags",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        self.env['NPY_DISABLE_CPU_FEATURES'] = bad_feature\n        msg = (\n            f\"You cannot disable CPU feature '{bad_feature}', since it is \"\n            \"part of the baseline optimizations\"\n        )\n        err_type = \"RuntimeError\"\n        self._expect_error(msg, err_type)"
+    }
+  ]
+}

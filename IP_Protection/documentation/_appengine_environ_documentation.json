@@ -1,0 +1,27 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\_appengine_environ.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "is_appengine",
+      "docstring": null
+    },
+    {
+      "name": "is_appengine_sandbox",
+      "docstring": "Reports if the app is running in the first generation sandbox.\n\nThe second generation runtimes are technically still in a sandbox, but it\nis much less restrictive, so generally you shouldn't need to check for it.\nsee https://cloud.google.com/appengine/docs/standard/runtimes"
+    },
+    {
+      "name": "is_local_appengine",
+      "docstring": null
+    },
+    {
+      "name": "is_prod_appengine",
+      "docstring": null
+    },
+    {
+      "name": "is_prod_appengine_mvms",
+      "docstring": "Deprecated."
+    }
+  ],
+  "innovations": []
+}

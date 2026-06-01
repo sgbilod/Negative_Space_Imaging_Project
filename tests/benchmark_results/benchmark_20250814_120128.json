@@ -1,0 +1,26 @@
+{
+  "timestamp": 1755187288.0009623,
+  "results": [
+    {
+      "component": "system",
+      "metric": "memory_usage",
+      "value": 1334.5,
+      "unit": "MB",
+      "context": {
+        "virtual_memory": 49369.38671875,
+        "percent_used": 4.161851119336847
+      }
+    },
+    {
+      "component": "threading",
+      "metric": "parallel_processing_time",
+      "value": 0.06252717971801758,
+      "unit": "seconds",
+      "context": {
+        "n_threads": 4,
+        "tasks_per_thread": 2,
+        "avg_task_time": 0.01606658101081848
+      }
+    }
+  ]
+}

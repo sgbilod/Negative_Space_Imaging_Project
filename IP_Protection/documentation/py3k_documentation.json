@@ -1,0 +1,62 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\compat\\py3k.py",
+  "classes": [
+    {
+      "name": "contextlib_nullcontext",
+      "docstring": "Context manager that does no additional processing.\n\nUsed as a stand-in for a normal context manager, when a particular\nblock of code is only sometimes used with a normal context manager:\n\ncm = optional_cm if condition else nullcontext()\nwith cm:\n    # Perform operation, using optional_cm if condition is True\n\n.. note::\n    Prefer using `contextlib.nullcontext` instead of this context manager.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "asunicode",
+      "docstring": null
+    },
+    {
+      "name": "asbytes",
+      "docstring": null
+    },
+    {
+      "name": "asstr",
+      "docstring": null
+    },
+    {
+      "name": "isfileobj",
+      "docstring": null
+    },
+    {
+      "name": "open_latin1",
+      "docstring": null
+    },
+    {
+      "name": "sixu",
+      "docstring": null
+    },
+    {
+      "name": "getexception",
+      "docstring": null
+    },
+    {
+      "name": "asbytes_nested",
+      "docstring": null
+    },
+    {
+      "name": "asunicode_nested",
+      "docstring": null
+    },
+    {
+      "name": "is_pathlib_path",
+      "docstring": "Check whether obj is a `pathlib.Path` object.\n\nPrefer using ``isinstance(obj, os.PathLike)`` instead of this function."
+    },
+    {
+      "name": "npy_load_module",
+      "docstring": "Load a module. Uses ``load_module`` which will be deprecated in python\n3.12. An alternative that uses ``exec_module`` is in\nnumpy.distutils.misc_util.exec_mod_from_location\n\nParameters\n----------\nname : str\n    Full module name.\nfn : str\n    Path to module file.\ninfo : tuple, optional\n    Only here for backward compatibility with Python 2.*.\n\nReturns\n-------\nmod : module"
+    }
+  ],
+  "innovations": []
+}

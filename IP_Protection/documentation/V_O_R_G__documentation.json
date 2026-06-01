@@ -1,0 +1,72 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\V_O_R_G_.py",
+  "classes": [
+    {
+      "name": "table_V_O_R_G_",
+      "docstring": "Vertical Origin table\n\nThe ``VORG`` table contains the vertical origin of each glyph\nin a `CFF` or `CFF2` font.\n\nThis table is structured so that you can treat it like a dictionary keyed by glyph name.\n\n``ttFont['VORG'][<glyphName>]`` will return the vertical origin for any glyph.\n\n``ttFont['VORG'][<glyphName>] = <value>`` will set the vertical origin for any glyph.\n\nSee also https://learn.microsoft.com/en-us/typography/opentype/spec/vorg",
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "VOriginRecord",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

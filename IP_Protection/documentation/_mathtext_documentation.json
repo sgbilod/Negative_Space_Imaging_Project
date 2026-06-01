@@ -1,0 +1,983 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\_mathtext.py",
+  "classes": [
+    {
+      "name": "VectorParse",
+      "docstring": "The namedtuple type returned by ``MathTextParser(\"path\").parse(...)``.\n\nAttributes\n----------\nwidth, height, depth : float\n    The global metrics.\nglyphs : list\n    The glyphs including their positions.\nrect : list\n    The list of rectangles.",
+      "methods": []
+    },
+    {
+      "name": "RasterParse",
+      "docstring": "The namedtuple type returned by ``MathTextParser(\"agg\").parse(...)``.\n\nAttributes\n----------\nox, oy : float\n    The offsets are always zero.\nwidth, height, depth : float\n    The global metrics.\nimage : FT2Image\n    A raster image.",
+      "methods": []
+    },
+    {
+      "name": "Output",
+      "docstring": "Result of `ship`\\ping a box: lists of positioned glyphs and rectangles.\n\nThis class is not exposed to end users, but converted to a `VectorParse` or\na `RasterParse` by `.MathTextParser.parse`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "to_vector",
+          "docstring": null
+        },
+        {
+          "name": "to_raster",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FontMetrics",
+      "docstring": "Metrics of a font.\n\nAttributes\n----------\nadvance : float\n    The advance distance (in points) of the glyph.\nheight : float\n    The height of the glyph in points.\nwidth : float\n    The width of the glyph in points.\nxmin, xmax, ymin, ymax : float\n    The ink rectangle of the glyph.\niceberg : float\n    The distance from the baseline to the top of the glyph. (This corresponds to\n    TeX's definition of \"height\".)\nslanted : bool\n    Whether the glyph should be considered as \"slanted\" (currently used for kerning\n    sub/superscripts).",
+      "methods": []
+    },
+    {
+      "name": "FontInfo",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Fonts",
+      "docstring": "An abstract base class for a system of fonts to use for mathtext.\n\nThe class must be able to take symbol keys and font file names and\nreturn the character metrics.  It also delegates to a backend class\nto do the actual drawing.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\ndefault_font_prop : `~.font_manager.FontProperties`\n    The default non-math font, or the base font for Unicode (generic)\n    font rendering.\nload_glyph_flags : `.ft2font.LoadFlags`\n    Flags passed to the glyph loader (e.g. ``FT_Load_Glyph`` and\n    ``FT_Load_Char`` for FreeType-based fonts)."
+        },
+        {
+          "name": "get_kern",
+          "docstring": "Get the kerning distance for font between *sym1* and *sym2*.\n\nSee `~.Fonts.get_metrics` for a detailed description of the parameters."
+        },
+        {
+          "name": "get_metrics",
+          "docstring": "Parameters\n----------\nfont : str\n    One of the TeX font names: \"tt\", \"it\", \"rm\", \"cal\", \"sf\", \"bf\",\n    \"default\", \"regular\", \"bb\", \"frak\", \"scr\".  \"default\" and \"regular\"\n    are synonyms and use the non-math font.\nfont_class : str\n    One of the TeX font names (as for *font*), but **not** \"bb\",\n    \"frak\", or \"scr\".  This is used to combine two font classes.  The\n    only supported combination currently is ``get_metrics(\"frak\", \"bf\",\n    ...)``.\nsym : str\n    A symbol in raw TeX form, e.g., \"1\", \"x\", or \"\\sigma\".\nfontsize : float\n    Font size in points.\ndpi : float\n    Rendering dots-per-inch.\n\nReturns\n-------\nFontMetrics"
+        },
+        {
+          "name": "render_glyph",
+          "docstring": "At position (*ox*, *oy*), draw the glyph specified by the remaining\nparameters (see `get_metrics` for their detailed description)."
+        },
+        {
+          "name": "render_rect_filled",
+          "docstring": "Draw a filled rectangle from (*x1*, *y1*) to (*x2*, *y2*)."
+        },
+        {
+          "name": "get_xheight",
+          "docstring": "Get the xheight for the given *font* and *fontsize*."
+        },
+        {
+          "name": "get_underline_thickness",
+          "docstring": "Get the line thickness that matches the given font.  Used as a\nbase unit for drawing lines such as in a fraction or radical."
+        },
+        {
+          "name": "get_sized_alternatives_for_symbol",
+          "docstring": "Override if your font provides multiple sizes of the same\nsymbol.  Should return a list of symbols matching *sym* in\nvarious sizes.  The expression renderer will select the most\nappropriate size for a given situation from this list."
+        }
+      ]
+    },
+    {
+      "name": "TruetypeFonts",
+      "docstring": "A generic base class for all font setups that use Truetype fonts\n(through FT2Font).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_xheight",
+          "docstring": null
+        },
+        {
+          "name": "get_underline_thickness",
+          "docstring": null
+        },
+        {
+          "name": "get_kern",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BakomaFonts",
+      "docstring": "Use the Bakoma TrueType fonts for rendering.\n\nSymbols are strewn about a number of font files, each of which has\nits own proprietary 8-bit encoding.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_sized_alternatives_for_symbol",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "UnicodeFonts",
+      "docstring": "An abstract base class for handling Unicode fonts.\n\nWhile some reasonably complete Unicode fonts (such as DejaVu) may\nwork in some situations, the only Unicode font I'm aware of with a\ncomplete set of math symbols is STIX.\n\nThis class will \"fallback\" on the Bakoma fonts when a required\nsymbol cannot be found in the font.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_sized_alternatives_for_symbol",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DejaVuFonts",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DejaVuSerifFonts",
+      "docstring": "A font handling class for the DejaVu Serif fonts\n\nIf a glyph is not found it will fallback to Stix Serif",
+      "methods": []
+    },
+    {
+      "name": "DejaVuSansFonts",
+      "docstring": "A font handling class for the DejaVu Sans fonts\n\nIf a glyph is not found it will fallback to Stix Sans",
+      "methods": []
+    },
+    {
+      "name": "StixFonts",
+      "docstring": "A font handling class for the STIX fonts.\n\nIn addition to what UnicodeFonts provides, this class:\n\n- supports \"virtual fonts\" which are complete alpha numeric\n  character sets with different font styles at special Unicode\n  code points, such as \"Blackboard\".\n\n- handles sized alternative characters for the STIXSizeX fonts.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_sized_alternatives_for_symbol",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "StixSansFonts",
+      "docstring": "A font handling class for the STIX fonts (that uses sans-serif\ncharacters by default).",
+      "methods": []
+    },
+    {
+      "name": "FontConstantsBase",
+      "docstring": "A set of constants that controls how certain things, such as sub-\nand superscripts are laid out.  These are all metrics that can't\nbe reliably retrieved from the font metrics in the font itself.",
+      "methods": []
+    },
+    {
+      "name": "ComputerModernFontConstants",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "STIXFontConstants",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "STIXSansFontConstants",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "DejaVuSerifFontConstants",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "DejaVuSansFontConstants",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Node",
+      "docstring": "A node in the TeX box model.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_kerning",
+          "docstring": null
+        },
+        {
+          "name": "shrink",
+          "docstring": "Shrinks one level smaller.  There are only three levels of\nsizes, after which things will no longer get smaller."
+        },
+        {
+          "name": "render",
+          "docstring": "Render this node."
+        }
+      ]
+    },
+    {
+      "name": "Box",
+      "docstring": "A node with a physical location.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "shrink",
+          "docstring": null
+        },
+        {
+          "name": "render",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Vbox",
+      "docstring": "A box with only height (zero width).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Hbox",
+      "docstring": "A box with only width (zero height and depth).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Char",
+      "docstring": "A single character.\n\nUnlike TeX, the font information and metrics are stored with each `Char`\nto make it easier to lookup the font metrics when needed.  Note that TeX\nboxes have a width, height, and depth, unlike Type1 and TrueType which use\na full bounding box and an advance in the x-direction.  The metrics must\nbe converted to the TeX model, and the advance (if different from width)\nmust be converted into a `Kern` node when the `Char` is added to its parent\n`Hlist`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "is_slanted",
+          "docstring": null
+        },
+        {
+          "name": "get_kerning",
+          "docstring": "Return the amount of kerning between this and the given character.\n\nThis method is called when characters are strung together into `Hlist`\nto create `Kern` nodes."
+        },
+        {
+          "name": "render",
+          "docstring": null
+        },
+        {
+          "name": "shrink",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Accent",
+      "docstring": "The font metrics need to be dealt with differently for accents,\nsince they are already offset correctly from the baseline in\nTrueType fonts.",
+      "methods": [
+        {
+          "name": "shrink",
+          "docstring": null
+        },
+        {
+          "name": "render",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "List",
+      "docstring": "A list of nodes (either horizontal or vertical).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "shrink",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Hlist",
+      "docstring": "A horizontal list of boxes.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "kern",
+          "docstring": "Insert `Kern` nodes between `Char` nodes to set kerning.\n\nThe `Char` nodes themselves determine the amount of kerning they need\n(in `~Char.get_kerning`), and this function just creates the correct\nlinked list."
+        },
+        {
+          "name": "hpack",
+          "docstring": "Compute the dimensions of the resulting boxes, and adjust the glue if\none of those dimensions is pre-specified.  The computed sizes normally\nenclose all of the material inside the new box; but some items may\nstick out if negative glue is used, if the box is overfull, or if a\n``\\vbox`` includes other boxes that have been shifted left.\n\nParameters\n----------\nw : float, default: 0\n    A width.\nm : {'exactly', 'additional'}, default: 'additional'\n    Whether to produce a box whose width is 'exactly' *w*; or a box\n    with the natural width of the contents, plus *w* ('additional').\n\nNotes\n-----\nThe defaults produce a box with the natural width of the contents."
+        }
+      ]
+    },
+    {
+      "name": "Vlist",
+      "docstring": "A vertical list of boxes.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "vpack",
+          "docstring": "Compute the dimensions of the resulting boxes, and to adjust the glue\nif one of those dimensions is pre-specified.\n\nParameters\n----------\nh : float, default: 0\n    A height.\nm : {'exactly', 'additional'}, default: 'additional'\n    Whether to produce a box whose height is 'exactly' *h*; or a box\n    with the natural height of the contents, plus *h* ('additional').\nl : float, default: np.inf\n    The maximum height.\n\nNotes\n-----\nThe defaults produce a box with the natural height of the contents."
+        }
+      ]
+    },
+    {
+      "name": "Rule",
+      "docstring": "A solid black rectangle.\n\nIt has *width*, *depth*, and *height* fields just as in an `Hlist`.\nHowever, if any of these dimensions is inf, the actual value will be\ndetermined by running the rule up to the boundary of the innermost\nenclosing box.  This is called a \"running dimension\".  The width is never\nrunning in an `Hlist`; the height and depth are never running in a `Vlist`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "render",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Hrule",
+      "docstring": "Convenience class to create a horizontal rule.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Vrule",
+      "docstring": "Convenience class to create a vertical rule.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_GlueSpec",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Glue",
+      "docstring": "Most of the information in this object is stored in the underlying\n``_GlueSpec`` class, which is shared between multiple glue objects.\n(This is a memory optimization which probably doesn't matter anymore, but\nit's easier to stick to what TeX does.)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "shrink",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HCentered",
+      "docstring": "A convenience class to create an `Hlist` whose contents are\ncentered within its enclosing box.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "VCentered",
+      "docstring": "A convenience class to create a `Vlist` whose contents are\ncentered within its enclosing box.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Kern",
+      "docstring": "A `Kern` node has a width field to specify a (normally\nnegative) amount of spacing. This spacing correction appears in\nhorizontal lists between letters like A and V when the font\ndesigner said that it looks better to move them closer together or\nfurther apart. A kern node can also appear in a vertical list,\nwhen its *width* denotes additional spacing in the vertical\ndirection.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "shrink",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AutoHeightChar",
+      "docstring": "A character as close to the given height and depth as possible.\n\nWhen using a font with multiple height versions of some characters (such as\nthe BaKoMa fonts), the correct glyph will be selected, otherwise this will\nalways just return a scaled version of the glyph.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AutoWidthChar",
+      "docstring": "A character as close to the given width as possible.\n\nWhen using a font with multiple width versions of some characters (such as\nthe BaKoMa fonts), the correct glyph will be selected, otherwise this will\nalways just return a scaled version of the glyph.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ParserState",
+      "docstring": "Parser state.\n\nStates are pushed and popped from a stack as necessary, and the \"current\"\nstate is always at the top of the stack.\n\nUpon entering and leaving a group { } or math/non-math, the stack is pushed\nand popped accordingly.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "copy",
+          "docstring": null
+        },
+        {
+          "name": "font",
+          "docstring": null
+        },
+        {
+          "name": "font",
+          "docstring": null
+        },
+        {
+          "name": "get_current_underline_thickness",
+          "docstring": "Return the underline thickness for this state."
+        }
+      ]
+    },
+    {
+      "name": "Parser",
+      "docstring": "A pyparsing-based parser for strings containing math expressions.\n\nRaw text may also appear outside of pairs of ``$``.\n\nThe grammar is based directly on that in TeX, though it cuts a few corners.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "parse",
+          "docstring": "Parse expression *s* using the given *fonts_object* for\noutput, at the given *fontsize* and *dpi*.\n\nReturns the parse tree of `Node` instances."
+        },
+        {
+          "name": "get_state",
+          "docstring": "Get the current `State` of the parser."
+        },
+        {
+          "name": "pop_state",
+          "docstring": "Pop a `State` off of the stack."
+        },
+        {
+          "name": "push_state",
+          "docstring": "Push a new `State` onto the stack, copying the current state."
+        },
+        {
+          "name": "main",
+          "docstring": null
+        },
+        {
+          "name": "math_string",
+          "docstring": null
+        },
+        {
+          "name": "math",
+          "docstring": null
+        },
+        {
+          "name": "non_math",
+          "docstring": null
+        },
+        {
+          "name": "text",
+          "docstring": null
+        },
+        {
+          "name": "space",
+          "docstring": null
+        },
+        {
+          "name": "customspace",
+          "docstring": null
+        },
+        {
+          "name": "symbol",
+          "docstring": null
+        },
+        {
+          "name": "unknown_symbol",
+          "docstring": null
+        },
+        {
+          "name": "accent",
+          "docstring": null
+        },
+        {
+          "name": "function",
+          "docstring": null
+        },
+        {
+          "name": "operatorname",
+          "docstring": null
+        },
+        {
+          "name": "start_group",
+          "docstring": null
+        },
+        {
+          "name": "group",
+          "docstring": null
+        },
+        {
+          "name": "required_group",
+          "docstring": null
+        },
+        {
+          "name": "end_group",
+          "docstring": null
+        },
+        {
+          "name": "unclosed_group",
+          "docstring": null
+        },
+        {
+          "name": "font",
+          "docstring": null
+        },
+        {
+          "name": "is_overunder",
+          "docstring": null
+        },
+        {
+          "name": "is_dropsub",
+          "docstring": null
+        },
+        {
+          "name": "is_slanted",
+          "docstring": null
+        },
+        {
+          "name": "subsuper",
+          "docstring": null
+        },
+        {
+          "name": "style_literal",
+          "docstring": null
+        },
+        {
+          "name": "genfrac",
+          "docstring": null
+        },
+        {
+          "name": "frac",
+          "docstring": null
+        },
+        {
+          "name": "dfrac",
+          "docstring": null
+        },
+        {
+          "name": "binom",
+          "docstring": null
+        },
+        {
+          "name": "sqrt",
+          "docstring": null
+        },
+        {
+          "name": "overline",
+          "docstring": null
+        },
+        {
+          "name": "auto_delim",
+          "docstring": null
+        },
+        {
+          "name": "boldsymbol",
+          "docstring": null
+        },
+        {
+          "name": "substack",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_MathStyle",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_unicode_index",
+      "docstring": "Return the integer index (from the Unicode table) of *symbol*.\n\nParameters\n----------\nsymbol : str\n    A single (Unicode) character, a TeX command (e.g. r'\\pi') or a Type1\n    symbol name (e.g. 'phi')."
+    },
+    {
+      "name": "ship",
+      "docstring": "Ship out *box* at offset *xy*, converting it to an `Output`.\n\nSince boxes can be inside of boxes inside of boxes, the main work of `ship`\nis done by two mutually recursive routines, `hlist_out` and `vlist_out`,\nwhich traverse the `Hlist` nodes and `Vlist` nodes inside of horizontal\nand vertical boxes.  The global variables used in TeX to store state as it\nprocesses have become local variables here."
+    },
+    {
+      "name": "Error",
+      "docstring": "Helper class to raise parser errors."
+    },
+    {
+      "name": "cmd",
+      "docstring": "Helper to define TeX commands.\n\n``cmd(\"\\cmd\", args)`` is equivalent to\n``\"\\cmd\" - (args | Error(\"Expected \\cmd{arg}{...}\"))`` where the names in\nthe error message are taken from element names in *args*.  If *expr*\nalready includes arguments (e.g. \"\\cmd{arg}{...}\"), then they are stripped\nwhen constructing the parse element, but kept (and *expr* is used as is) in\nthe error message."
+    },
+    {
+      "name": "to_vector",
+      "docstring": null
+    },
+    {
+      "name": "to_raster",
+      "docstring": null
+    },
+    {
+      "name": "get_kern",
+      "docstring": "Get the kerning distance for font between *sym1* and *sym2*.\n\nSee `~.Fonts.get_metrics` for a detailed description of the parameters."
+    },
+    {
+      "name": "get_metrics",
+      "docstring": "Parameters\n----------\nfont : str\n    One of the TeX font names: \"tt\", \"it\", \"rm\", \"cal\", \"sf\", \"bf\",\n    \"default\", \"regular\", \"bb\", \"frak\", \"scr\".  \"default\" and \"regular\"\n    are synonyms and use the non-math font.\nfont_class : str\n    One of the TeX font names (as for *font*), but **not** \"bb\",\n    \"frak\", or \"scr\".  This is used to combine two font classes.  The\n    only supported combination currently is ``get_metrics(\"frak\", \"bf\",\n    ...)``.\nsym : str\n    A symbol in raw TeX form, e.g., \"1\", \"x\", or \"\\sigma\".\nfontsize : float\n    Font size in points.\ndpi : float\n    Rendering dots-per-inch.\n\nReturns\n-------\nFontMetrics"
+    },
+    {
+      "name": "render_glyph",
+      "docstring": "At position (*ox*, *oy*), draw the glyph specified by the remaining\nparameters (see `get_metrics` for their detailed description)."
+    },
+    {
+      "name": "render_rect_filled",
+      "docstring": "Draw a filled rectangle from (*x1*, *y1*) to (*x2*, *y2*)."
+    },
+    {
+      "name": "get_xheight",
+      "docstring": "Get the xheight for the given *font* and *fontsize*."
+    },
+    {
+      "name": "get_underline_thickness",
+      "docstring": "Get the line thickness that matches the given font.  Used as a\nbase unit for drawing lines such as in a fraction or radical."
+    },
+    {
+      "name": "get_sized_alternatives_for_symbol",
+      "docstring": "Override if your font provides multiple sizes of the same\nsymbol.  Should return a list of symbols matching *sym* in\nvarious sizes.  The expression renderer will select the most\nappropriate size for a given situation from this list."
+    },
+    {
+      "name": "get_xheight",
+      "docstring": null
+    },
+    {
+      "name": "get_underline_thickness",
+      "docstring": null
+    },
+    {
+      "name": "get_kern",
+      "docstring": null
+    },
+    {
+      "name": "get_sized_alternatives_for_symbol",
+      "docstring": null
+    },
+    {
+      "name": "get_sized_alternatives_for_symbol",
+      "docstring": null
+    },
+    {
+      "name": "get_sized_alternatives_for_symbol",
+      "docstring": null
+    },
+    {
+      "name": "get_kerning",
+      "docstring": null
+    },
+    {
+      "name": "shrink",
+      "docstring": "Shrinks one level smaller.  There are only three levels of\nsizes, after which things will no longer get smaller."
+    },
+    {
+      "name": "render",
+      "docstring": "Render this node."
+    },
+    {
+      "name": "shrink",
+      "docstring": null
+    },
+    {
+      "name": "render",
+      "docstring": null
+    },
+    {
+      "name": "is_slanted",
+      "docstring": null
+    },
+    {
+      "name": "get_kerning",
+      "docstring": "Return the amount of kerning between this and the given character.\n\nThis method is called when characters are strung together into `Hlist`\nto create `Kern` nodes."
+    },
+    {
+      "name": "render",
+      "docstring": null
+    },
+    {
+      "name": "shrink",
+      "docstring": null
+    },
+    {
+      "name": "shrink",
+      "docstring": null
+    },
+    {
+      "name": "render",
+      "docstring": null
+    },
+    {
+      "name": "shrink",
+      "docstring": null
+    },
+    {
+      "name": "kern",
+      "docstring": "Insert `Kern` nodes between `Char` nodes to set kerning.\n\nThe `Char` nodes themselves determine the amount of kerning they need\n(in `~Char.get_kerning`), and this function just creates the correct\nlinked list."
+    },
+    {
+      "name": "hpack",
+      "docstring": "Compute the dimensions of the resulting boxes, and adjust the glue if\none of those dimensions is pre-specified.  The computed sizes normally\nenclose all of the material inside the new box; but some items may\nstick out if negative glue is used, if the box is overfull, or if a\n``\\vbox`` includes other boxes that have been shifted left.\n\nParameters\n----------\nw : float, default: 0\n    A width.\nm : {'exactly', 'additional'}, default: 'additional'\n    Whether to produce a box whose width is 'exactly' *w*; or a box\n    with the natural width of the contents, plus *w* ('additional').\n\nNotes\n-----\nThe defaults produce a box with the natural width of the contents."
+    },
+    {
+      "name": "vpack",
+      "docstring": "Compute the dimensions of the resulting boxes, and to adjust the glue\nif one of those dimensions is pre-specified.\n\nParameters\n----------\nh : float, default: 0\n    A height.\nm : {'exactly', 'additional'}, default: 'additional'\n    Whether to produce a box whose height is 'exactly' *h*; or a box\n    with the natural height of the contents, plus *h* ('additional').\nl : float, default: np.inf\n    The maximum height.\n\nNotes\n-----\nThe defaults produce a box with the natural height of the contents."
+    },
+    {
+      "name": "render",
+      "docstring": null
+    },
+    {
+      "name": "shrink",
+      "docstring": null
+    },
+    {
+      "name": "shrink",
+      "docstring": null
+    },
+    {
+      "name": "clamp",
+      "docstring": null
+    },
+    {
+      "name": "hlist_out",
+      "docstring": null
+    },
+    {
+      "name": "vlist_out",
+      "docstring": null
+    },
+    {
+      "name": "raise_error",
+      "docstring": null
+    },
+    {
+      "name": "copy",
+      "docstring": null
+    },
+    {
+      "name": "font",
+      "docstring": null
+    },
+    {
+      "name": "font",
+      "docstring": null
+    },
+    {
+      "name": "get_current_underline_thickness",
+      "docstring": "Return the underline thickness for this state."
+    },
+    {
+      "name": "names",
+      "docstring": null
+    },
+    {
+      "name": "parse",
+      "docstring": "Parse expression *s* using the given *fonts_object* for\noutput, at the given *fontsize* and *dpi*.\n\nReturns the parse tree of `Node` instances."
+    },
+    {
+      "name": "get_state",
+      "docstring": "Get the current `State` of the parser."
+    },
+    {
+      "name": "pop_state",
+      "docstring": "Pop a `State` off of the stack."
+    },
+    {
+      "name": "push_state",
+      "docstring": "Push a new `State` onto the stack, copying the current state."
+    },
+    {
+      "name": "main",
+      "docstring": null
+    },
+    {
+      "name": "math_string",
+      "docstring": null
+    },
+    {
+      "name": "math",
+      "docstring": null
+    },
+    {
+      "name": "non_math",
+      "docstring": null
+    },
+    {
+      "name": "text",
+      "docstring": null
+    },
+    {
+      "name": "space",
+      "docstring": null
+    },
+    {
+      "name": "customspace",
+      "docstring": null
+    },
+    {
+      "name": "symbol",
+      "docstring": null
+    },
+    {
+      "name": "unknown_symbol",
+      "docstring": null
+    },
+    {
+      "name": "accent",
+      "docstring": null
+    },
+    {
+      "name": "function",
+      "docstring": null
+    },
+    {
+      "name": "operatorname",
+      "docstring": null
+    },
+    {
+      "name": "start_group",
+      "docstring": null
+    },
+    {
+      "name": "group",
+      "docstring": null
+    },
+    {
+      "name": "required_group",
+      "docstring": null
+    },
+    {
+      "name": "end_group",
+      "docstring": null
+    },
+    {
+      "name": "unclosed_group",
+      "docstring": null
+    },
+    {
+      "name": "font",
+      "docstring": null
+    },
+    {
+      "name": "is_overunder",
+      "docstring": null
+    },
+    {
+      "name": "is_dropsub",
+      "docstring": null
+    },
+    {
+      "name": "is_slanted",
+      "docstring": null
+    },
+    {
+      "name": "subsuper",
+      "docstring": null
+    },
+    {
+      "name": "style_literal",
+      "docstring": null
+    },
+    {
+      "name": "genfrac",
+      "docstring": null
+    },
+    {
+      "name": "frac",
+      "docstring": null
+    },
+    {
+      "name": "dfrac",
+      "docstring": null
+    },
+    {
+      "name": "binom",
+      "docstring": null
+    },
+    {
+      "name": "sqrt",
+      "docstring": null
+    },
+    {
+      "name": "overline",
+      "docstring": null
+    },
+    {
+      "name": "auto_delim",
+      "docstring": null
+    },
+    {
+      "name": "boldsymbol",
+      "docstring": null
+    },
+    {
+      "name": "substack",
+      "docstring": null
+    },
+    {
+      "name": "set_names_and_parse_actions",
+      "docstring": null
+    },
+    {
+      "name": "csnames",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    \"\"\"\n    Most of the information in this object is stored in the underlying\n    ``_GlueSpec`` class, which is shared between multiple glue objects.\n    (This is a memory optimization which probably doesn't matter anymore, but\n    it's easier to stick to what TeX does.)\n    \"\"\"\n"
+    }
+  ]
+}

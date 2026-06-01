@@ -1,0 +1,318 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\_swf.py",
+  "classes": [
+    {
+      "name": "BitArray",
+      "docstring": "Dynamic array of bits that automatically resizes\nwith factors of two.\nAppend bits using .append() or +=\nYou can reverse bits using .reverse()",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "append",
+          "docstring": null
+        },
+        {
+          "name": "reverse",
+          "docstring": "In-place reverse."
+        },
+        {
+          "name": "tobytes",
+          "docstring": "Convert to bytes. If necessary,\nzeros are padded to the end (right side)."
+        }
+      ]
+    },
+    {
+      "name": "Tag",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "process_tag",
+          "docstring": "Implement this to create the tag."
+        },
+        {
+          "name": "get_tag",
+          "docstring": "Calls processTag and attaches the header."
+        },
+        {
+          "name": "make_rect_record",
+          "docstring": "Simply uses makeCompactArray to produce\na RECT Record."
+        },
+        {
+          "name": "make_matrix_record",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ControlTag",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FileAttributesTag",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "process_tag",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ShowFrameTag",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "process_tag",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SetBackgroundTag",
+      "docstring": "Set the color in 0-255, or 0-1 (if floats given).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "process_tag",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DoActionTag",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "append",
+          "docstring": null
+        },
+        {
+          "name": "process_tag",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DefinitionTag",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BitmapTag",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "process_tag",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PlaceObjectTag",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "process_tag",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ShapeTag",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "process_tag",
+          "docstring": "Returns a defineshape tag. with a bitmap fill"
+        },
+        {
+          "name": "make_style_change_record",
+          "docstring": null
+        },
+        {
+          "name": "make_straight_edge_record",
+          "docstring": null
+        },
+        {
+          "name": "make_end_shape_record",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "int2uint32",
+      "docstring": null
+    },
+    {
+      "name": "int2uint16",
+      "docstring": null
+    },
+    {
+      "name": "int2uint8",
+      "docstring": null
+    },
+    {
+      "name": "int2bits",
+      "docstring": "convert int to a string of bits (0's and 1's in a string),\npad to n elements. Convert back using int(ss,2)."
+    },
+    {
+      "name": "bits2int",
+      "docstring": null
+    },
+    {
+      "name": "get_type_and_len",
+      "docstring": "bb should be 6 bytes at least\nReturn (type, length, length_of_full_tag)"
+    },
+    {
+      "name": "signedint2bits",
+      "docstring": "convert signed int to a string of bits (0's and 1's in a string),\npad to n elements. Negative numbers are stored in 2's complement bit\npatterns, thus positive numbers always start with a 0."
+    },
+    {
+      "name": "twits2bits",
+      "docstring": "Given a few (signed) numbers, store them\nas compactly as possible in the wat specifief by the swf format.\nThe numbers are multiplied by 20, assuming they\nare twits.\nCan be used to make the RECT record."
+    },
+    {
+      "name": "floats2bits",
+      "docstring": "Given a few (signed) numbers, convert them to bits,\nstored as FB (float bit values). We always use 16.16.\nNegative numbers are not (yet) possible, because I don't\nknow how the're implemented (ambiguity)."
+    },
+    {
+      "name": "read_pixels",
+      "docstring": "With pf's seed after the recordheader, reads the pixeldata."
+    },
+    {
+      "name": "checkImages",
+      "docstring": "checkImages(images)\nCheck numpy images and correct intensity range etc.\nThe same for all movie formats."
+    },
+    {
+      "name": "build_file",
+      "docstring": "Give the given file (as bytes) a header."
+    },
+    {
+      "name": "write_swf",
+      "docstring": "Write an swf-file from the specified images. If repeat is False,\nthe movie is finished with a stop action. Duration may also\nbe a list with durations for each frame (note that the duration\nfor each frame is always an integer amount of the minimum duration.)\n\nImages should be a list consisting numpy arrays with values between\n0 and 255 for integer types, and between 0 and 1 for float types."
+    },
+    {
+      "name": "read_swf",
+      "docstring": "Read all images from an SWF (shockwave flash) file. Returns a list\nof numpy arrays.\n\nLimitation: only read the PNG encoded images (not the JPG encoded ones)."
+    },
+    {
+      "name": "append",
+      "docstring": null
+    },
+    {
+      "name": "reverse",
+      "docstring": "In-place reverse."
+    },
+    {
+      "name": "tobytes",
+      "docstring": "Convert to bytes. If necessary,\nzeros are padded to the end (right side)."
+    },
+    {
+      "name": "process_tag",
+      "docstring": "Implement this to create the tag."
+    },
+    {
+      "name": "get_tag",
+      "docstring": "Calls processTag and attaches the header."
+    },
+    {
+      "name": "make_rect_record",
+      "docstring": "Simply uses makeCompactArray to produce\na RECT Record."
+    },
+    {
+      "name": "make_matrix_record",
+      "docstring": null
+    },
+    {
+      "name": "process_tag",
+      "docstring": null
+    },
+    {
+      "name": "process_tag",
+      "docstring": null
+    },
+    {
+      "name": "process_tag",
+      "docstring": null
+    },
+    {
+      "name": "append",
+      "docstring": null
+    },
+    {
+      "name": "process_tag",
+      "docstring": null
+    },
+    {
+      "name": "process_tag",
+      "docstring": null
+    },
+    {
+      "name": "process_tag",
+      "docstring": null
+    },
+    {
+      "name": "process_tag",
+      "docstring": "Returns a defineshape tag. with a bitmap fill"
+    },
+    {
+      "name": "make_style_change_record",
+      "docstring": null
+    },
+    {
+      "name": "make_straight_edge_record",
+      "docstring": null
+    },
+    {
+      "name": "make_end_shape_record",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

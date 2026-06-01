@@ -1,0 +1,50 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\IP_Protection\\ip_protection_system.py",
+  "classes": [
+    {
+      "name": "IPProtectionSystem",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "scan_codebase",
+          "docstring": "Scan codebase and create inventory."
+        },
+        {
+          "name": "generate_ip_header",
+          "docstring": "Generate IP protection header for source files."
+        },
+        {
+          "name": "protect_source_file",
+          "docstring": "Add IP protection header to source file if not present."
+        },
+        {
+          "name": "create_audit_record",
+          "docstring": "Create audit record for file modifications."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "scan_codebase",
+      "docstring": "Scan codebase and create inventory."
+    },
+    {
+      "name": "generate_ip_header",
+      "docstring": "Generate IP protection header for source files."
+    },
+    {
+      "name": "protect_source_file",
+      "docstring": "Add IP protection header to source file if not present."
+    },
+    {
+      "name": "create_audit_record",
+      "docstring": "Create audit record for file modifications."
+    }
+  ],
+  "innovations": []
+}

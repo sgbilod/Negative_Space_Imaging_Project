@@ -1,0 +1,130 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\tests\\test_mixins.py",
+  "classes": [
+    {
+      "name": "ArrayLike",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNDArrayOperatorsMixin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_array_like_add",
+          "docstring": null
+        },
+        {
+          "name": "test_inplace",
+          "docstring": null
+        },
+        {
+          "name": "test_opt_out",
+          "docstring": null
+        },
+        {
+          "name": "test_subclass",
+          "docstring": null
+        },
+        {
+          "name": "test_object",
+          "docstring": null
+        },
+        {
+          "name": "test_unary_methods",
+          "docstring": null
+        },
+        {
+          "name": "test_forward_binary_methods",
+          "docstring": null
+        },
+        {
+          "name": "test_reflected_binary_methods",
+          "docstring": null
+        },
+        {
+          "name": "test_matmul",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_at",
+          "docstring": null
+        },
+        {
+          "name": "test_ufunc_two_outputs",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "OptOut",
+      "docstring": "Object that opts out of __array_ufunc__.",
+      "methods": []
+    },
+    {
+      "name": "SubArrayLike",
+      "docstring": "Should take precedence over ArrayLike.",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "wrap_array_like",
+      "docstring": null
+    },
+    {
+      "name": "test_array_like_add",
+      "docstring": null
+    },
+    {
+      "name": "test_inplace",
+      "docstring": null
+    },
+    {
+      "name": "test_opt_out",
+      "docstring": null
+    },
+    {
+      "name": "test_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_object",
+      "docstring": null
+    },
+    {
+      "name": "test_unary_methods",
+      "docstring": null
+    },
+    {
+      "name": "test_forward_binary_methods",
+      "docstring": null
+    },
+    {
+      "name": "test_reflected_binary_methods",
+      "docstring": null
+    },
+    {
+      "name": "test_matmul",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_at",
+      "docstring": null
+    },
+    {
+      "name": "test_ufunc_two_outputs",
+      "docstring": null
+    },
+    {
+      "name": "check",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

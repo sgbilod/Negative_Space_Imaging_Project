@@ -1,0 +1,348 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\polynomial\\tests\\test_laguerre.py",
+  "classes": [
+    {
+      "name": "TestConstants",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_lagdomain",
+          "docstring": null
+        },
+        {
+          "name": "test_lagzero",
+          "docstring": null
+        },
+        {
+          "name": "test_lagone",
+          "docstring": null
+        },
+        {
+          "name": "test_lagx",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestArithmetic",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_lagadd",
+          "docstring": null
+        },
+        {
+          "name": "test_lagsub",
+          "docstring": null
+        },
+        {
+          "name": "test_lagmulx",
+          "docstring": null
+        },
+        {
+          "name": "test_lagmul",
+          "docstring": null
+        },
+        {
+          "name": "test_lagdiv",
+          "docstring": null
+        },
+        {
+          "name": "test_lagpow",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEvaluation",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_lagval",
+          "docstring": null
+        },
+        {
+          "name": "test_lagval2d",
+          "docstring": null
+        },
+        {
+          "name": "test_lagval3d",
+          "docstring": null
+        },
+        {
+          "name": "test_laggrid2d",
+          "docstring": null
+        },
+        {
+          "name": "test_laggrid3d",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestIntegral",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_lagint",
+          "docstring": null
+        },
+        {
+          "name": "test_lagint_axis",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDerivative",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_lagder",
+          "docstring": null
+        },
+        {
+          "name": "test_lagder_axis",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestVander",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_lagvander",
+          "docstring": null
+        },
+        {
+          "name": "test_lagvander2d",
+          "docstring": null
+        },
+        {
+          "name": "test_lagvander3d",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFitting",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_lagfit",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCompanion",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_raises",
+          "docstring": null
+        },
+        {
+          "name": "test_dimensions",
+          "docstring": null
+        },
+        {
+          "name": "test_linear_root",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestGauss",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_100",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMisc",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_lagfromroots",
+          "docstring": null
+        },
+        {
+          "name": "test_lagroots",
+          "docstring": null
+        },
+        {
+          "name": "test_lagtrim",
+          "docstring": null
+        },
+        {
+          "name": "test_lagline",
+          "docstring": null
+        },
+        {
+          "name": "test_lag2poly",
+          "docstring": null
+        },
+        {
+          "name": "test_poly2lag",
+          "docstring": null
+        },
+        {
+          "name": "test_weight",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "trim",
+      "docstring": null
+    },
+    {
+      "name": "test_lagdomain",
+      "docstring": null
+    },
+    {
+      "name": "test_lagzero",
+      "docstring": null
+    },
+    {
+      "name": "test_lagone",
+      "docstring": null
+    },
+    {
+      "name": "test_lagx",
+      "docstring": null
+    },
+    {
+      "name": "test_lagadd",
+      "docstring": null
+    },
+    {
+      "name": "test_lagsub",
+      "docstring": null
+    },
+    {
+      "name": "test_lagmulx",
+      "docstring": null
+    },
+    {
+      "name": "test_lagmul",
+      "docstring": null
+    },
+    {
+      "name": "test_lagdiv",
+      "docstring": null
+    },
+    {
+      "name": "test_lagpow",
+      "docstring": null
+    },
+    {
+      "name": "test_lagval",
+      "docstring": null
+    },
+    {
+      "name": "test_lagval2d",
+      "docstring": null
+    },
+    {
+      "name": "test_lagval3d",
+      "docstring": null
+    },
+    {
+      "name": "test_laggrid2d",
+      "docstring": null
+    },
+    {
+      "name": "test_laggrid3d",
+      "docstring": null
+    },
+    {
+      "name": "test_lagint",
+      "docstring": null
+    },
+    {
+      "name": "test_lagint_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_lagder",
+      "docstring": null
+    },
+    {
+      "name": "test_lagder_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_lagvander",
+      "docstring": null
+    },
+    {
+      "name": "test_lagvander2d",
+      "docstring": null
+    },
+    {
+      "name": "test_lagvander3d",
+      "docstring": null
+    },
+    {
+      "name": "test_lagfit",
+      "docstring": null
+    },
+    {
+      "name": "test_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_dimensions",
+      "docstring": null
+    },
+    {
+      "name": "test_linear_root",
+      "docstring": null
+    },
+    {
+      "name": "test_100",
+      "docstring": null
+    },
+    {
+      "name": "test_lagfromroots",
+      "docstring": null
+    },
+    {
+      "name": "test_lagroots",
+      "docstring": null
+    },
+    {
+      "name": "test_lagtrim",
+      "docstring": null
+    },
+    {
+      "name": "test_lagline",
+      "docstring": null
+    },
+    {
+      "name": "test_lag2poly",
+      "docstring": null
+    },
+    {
+      "name": "test_poly2lag",
+      "docstring": null
+    },
+    {
+      "name": "test_weight",
+      "docstring": null
+    },
+    {
+      "name": "f",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

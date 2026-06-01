@@ -1,0 +1,11 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\svgLib\\path\\parser.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "parse_path",
+      "docstring": "Parse SVG path definition (i.e. \"d\" attribute of <path> elements)\nand call a 'pen' object's moveTo, lineTo, curveTo, qCurveTo and closePath\nmethods.\n\nIf 'current_pos' (2-float tuple) is provided, the initial moveTo will\nbe relative to that instead being absolute.\n\nIf the pen has an \"arcTo\" method, it is called with the original values\nof the elliptical arc curve commands:\n\n.. code-block::\n\n    pen.arcTo(rx, ry, rotation, arc_large, arc_sweep, (x, y))\n\nOtherwise, the arcs are approximated by series of cubic Bezier segments\n(\"curveTo\"), one every 90 degrees."
+    }
+  ],
+  "innovations": []
+}

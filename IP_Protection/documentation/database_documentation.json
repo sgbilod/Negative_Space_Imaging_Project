@@ -1,0 +1,426 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\distlib\\database.py",
+  "classes": [
+    {
+      "name": "_Cache",
+      "docstring": "A simple cache mapping names and .dist-info paths to distributions",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialise an instance. There is normally one for each DistributionPath."
+        },
+        {
+          "name": "clear",
+          "docstring": "Clear the cache, setting it to its initial state."
+        },
+        {
+          "name": "add",
+          "docstring": "Add a distribution to the cache.\n:param dist: The distribution to add."
+        }
+      ]
+    },
+    {
+      "name": "DistributionPath",
+      "docstring": "Represents a set of distributions installed on a path (typically sys.path).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create an instance from a path, optionally including legacy (distutils/\nsetuptools/distribute) distributions.\n:param path: The path to use, as a list of directories. If not specified,\n             sys.path is used.\n:param include_egg: If True, this instance will look for and return legacy\n                    distributions as well as those based on PEP 376."
+        },
+        {
+          "name": "clear_cache",
+          "docstring": "Clears the internal cache."
+        },
+        {
+          "name": "distinfo_dirname",
+          "docstring": "The *name* and *version* parameters are converted into their\nfilename-escaped form, i.e. any ``'-'`` characters are replaced\nwith ``'_'`` other than the one in ``'dist-info'`` and the one\nseparating the name from the version number.\n\n:parameter name: is converted to a standard distribution name by replacing\n                 any runs of non- alphanumeric characters with a single\n                 ``'-'``.\n:type name: string\n:parameter version: is converted to a standard version string. Spaces\n                    become dots, and all other non-alphanumeric characters\n                    (except dots) become dashes, with runs of multiple\n                    dashes condensed to a single dash.\n:type version: string\n:returns: directory name\n:rtype: string"
+        },
+        {
+          "name": "get_distributions",
+          "docstring": "Provides an iterator that looks for distributions and returns\n:class:`InstalledDistribution` or\n:class:`EggInfoDistribution` instances for each one of them.\n\n:rtype: iterator of :class:`InstalledDistribution` and\n        :class:`EggInfoDistribution` instances"
+        },
+        {
+          "name": "get_distribution",
+          "docstring": "Looks for a named distribution on the path.\n\nThis function only returns the first result found, as no more than one\nvalue is expected. If nothing is found, ``None`` is returned.\n\n:rtype: :class:`InstalledDistribution`, :class:`EggInfoDistribution`\n        or ``None``"
+        },
+        {
+          "name": "provides_distribution",
+          "docstring": "Iterates over all distributions to find which distributions provide *name*.\nIf a *version* is provided, it will be used to filter the results.\n\nThis function only returns the first result found, since no more than\none values are expected. If the directory is not found, returns ``None``.\n\n:parameter version: a version specifier that indicates the version\n                    required, conforming to the format in ``PEP-345``\n\n:type name: string\n:type version: string"
+        },
+        {
+          "name": "get_file_path",
+          "docstring": "Return the path to a resource file."
+        },
+        {
+          "name": "get_exported_entries",
+          "docstring": "Return all of the exported entries in a particular category.\n\n:param category: The category to search for entries.\n:param name: If specified, only entries with that name are returned."
+        }
+      ]
+    },
+    {
+      "name": "Distribution",
+      "docstring": "A base class for distributions, whether installed or from indexes.\nEither way, it must have some metadata, so that's all that's needed\nfor construction.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialise an instance.\n:param metadata: The instance of :class:`Metadata` describing this\ndistribution."
+        },
+        {
+          "name": "source_url",
+          "docstring": "The source archive download URL for this distribution."
+        },
+        {
+          "name": "name_and_version",
+          "docstring": "A utility property which displays the name and version in parentheses."
+        },
+        {
+          "name": "provides",
+          "docstring": "A set of distribution names and versions provided by this distribution.\n:return: A set of \"name (version)\" strings."
+        },
+        {
+          "name": "run_requires",
+          "docstring": null
+        },
+        {
+          "name": "meta_requires",
+          "docstring": null
+        },
+        {
+          "name": "build_requires",
+          "docstring": null
+        },
+        {
+          "name": "test_requires",
+          "docstring": null
+        },
+        {
+          "name": "dev_requires",
+          "docstring": null
+        },
+        {
+          "name": "matches_requirement",
+          "docstring": "Say if this instance matches (fulfills) a requirement.\n:param req: The requirement to match.\n:rtype req: str\n:return: True if it matches, else False."
+        }
+      ]
+    },
+    {
+      "name": "BaseInstalledDistribution",
+      "docstring": "This is the base class for installed distributions (whether PEP 376 or\nlegacy).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialise an instance.\n:param metadata: An instance of :class:`Metadata` which describes the\n                 distribution. This will normally have been initialised\n                 from a metadata file in the ``path``.\n:param path:     The path of the ``.dist-info`` or ``.egg-info``\n                 directory for the distribution.\n:param env:      This is normally the :class:`DistributionPath`\n                 instance where this distribution was found."
+        },
+        {
+          "name": "get_hash",
+          "docstring": "Get the hash of some data, using a particular hash algorithm, if\nspecified.\n\n:param data: The data to be hashed.\n:type data: bytes\n:param hasher: The name of a hash implementation, supported by hashlib,\n               or ``None``. Examples of valid values are ``'sha1'``,\n               ``'sha224'``, ``'sha384'``, '``sha256'``, ``'md5'`` and\n               ``'sha512'``. If no hasher is specified, the ``hasher``\n               attribute of the :class:`InstalledDistribution` instance\n               is used. If the hasher is determined to be ``None``, MD5\n               is used as the hashing algorithm.\n:returns: The hash of the data. If a hasher was explicitly specified,\n          the returned hash will be prefixed with the specified hasher\n          followed by '='.\n:rtype: str"
+        }
+      ]
+    },
+    {
+      "name": "InstalledDistribution",
+      "docstring": "Created with the *path* of the ``.dist-info`` directory provided to the\nconstructor. It reads the metadata contained in ``pydist.json`` when it is\ninstantiated., or uses a passed in Metadata instance (useful for when\ndry-run mode is being used).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "exports",
+          "docstring": "Return the information exported by this distribution.\n:return: A dictionary of exports, mapping an export category to a dict\n         of :class:`ExportEntry` instances describing the individual\n         export entries, and keyed by name."
+        },
+        {
+          "name": "read_exports",
+          "docstring": "Read exports data from a file in .ini format.\n\n:return: A dictionary of exports, mapping an export category to a list\n         of :class:`ExportEntry` instances describing the individual\n         export entries."
+        },
+        {
+          "name": "write_exports",
+          "docstring": "Write a dictionary of exports to a file in .ini format.\n:param exports: A dictionary of exports, mapping an export category to\n                a list of :class:`ExportEntry` instances describing the\n                individual export entries."
+        },
+        {
+          "name": "get_resource_path",
+          "docstring": "NOTE: This API may change in the future.\n\nReturn the absolute path to a resource file with the given relative\npath.\n\n:param relative_path: The path, relative to .dist-info, of the resource\n                      of interest.\n:return: The absolute path where the resource is to be found."
+        },
+        {
+          "name": "list_installed_files",
+          "docstring": "Iterates over the ``RECORD`` entries and returns a tuple\n``(path, hash, size)`` for each line.\n\n:returns: iterator of (path, hash, size)"
+        },
+        {
+          "name": "write_installed_files",
+          "docstring": "Writes the ``RECORD`` file, using the ``paths`` iterable passed in. Any\nexisting ``RECORD`` file is silently overwritten.\n\nprefix is used to determine when to write absolute paths."
+        },
+        {
+          "name": "check_installed_files",
+          "docstring": "Checks that the hashes and sizes of the files in ``RECORD`` are\nmatched by the files themselves. Returns a (possibly empty) list of\nmismatches. Each entry in the mismatch list will be a tuple consisting\nof the path, 'exists', 'size' or 'hash' according to what didn't match\n(existence is checked first, then size, then hash), the expected\nvalue and the actual value."
+        },
+        {
+          "name": "shared_locations",
+          "docstring": "A dictionary of shared locations whose keys are in the set 'prefix',\n'purelib', 'platlib', 'scripts', 'headers', 'data' and 'namespace'.\nThe corresponding value is the absolute path of that category for\nthis distribution, and takes into account any paths selected by the\nuser at installation time (e.g. via command-line arguments). In the\ncase of the 'namespace' key, this would be a list of absolute paths\nfor the roots of namespace packages in this distribution.\n\nThe first time this property is accessed, the relevant information is\nread from the SHARED file in the .dist-info directory."
+        },
+        {
+          "name": "write_shared_locations",
+          "docstring": "Write shared location information to the SHARED file in .dist-info.\n:param paths: A dictionary as described in the documentation for\n:meth:`shared_locations`.\n:param dry_run: If True, the action is logged but no file is actually\n                written.\n:return: The path of the file written to."
+        },
+        {
+          "name": "get_distinfo_resource",
+          "docstring": null
+        },
+        {
+          "name": "get_distinfo_file",
+          "docstring": "Returns a path located under the ``.dist-info`` directory. Returns a\nstring representing the path.\n\n:parameter path: a ``'/'``-separated path relative to the\n                 ``.dist-info`` directory or an absolute path;\n                 If *path* is an absolute path and doesn't start\n                 with the ``.dist-info`` directory path,\n                 a :class:`DistlibException` is raised\n:type path: str\n:rtype: str"
+        },
+        {
+          "name": "list_distinfo_files",
+          "docstring": "Iterates over the ``RECORD`` entries and returns paths for each line if\nthe path is pointing to a file located in the ``.dist-info`` directory\nor one of its subdirectories.\n\n:returns: iterator of paths"
+        }
+      ]
+    },
+    {
+      "name": "EggInfoDistribution",
+      "docstring": "Created with the *path* of the ``.egg-info`` directory or file provided\nto the constructor. It reads the metadata contained in the file itself, or\nif the given path happens to be a directory, the metadata is read from the\nfile ``PKG-INFO`` under that directory.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "check_installed_files",
+          "docstring": "Checks that the hashes and sizes of the files in ``RECORD`` are\nmatched by the files themselves. Returns a (possibly empty) list of\nmismatches. Each entry in the mismatch list will be a tuple consisting\nof the path, 'exists', 'size' or 'hash' according to what didn't match\n(existence is checked first, then size, then hash), the expected\nvalue and the actual value."
+        },
+        {
+          "name": "list_installed_files",
+          "docstring": "Iterates over the ``installed-files.txt`` entries and returns a tuple\n``(path, hash, size)`` for each line.\n\n:returns: a list of (path, hash, size)"
+        },
+        {
+          "name": "list_distinfo_files",
+          "docstring": "Iterates over the ``installed-files.txt`` entries and returns paths for\neach line if the path is pointing to a file located in the\n``.egg-info`` directory or one of its subdirectories.\n\n:parameter absolute: If *absolute* is ``True``, each returned path is\n                  transformed into a local absolute path. Otherwise the\n                  raw value from ``installed-files.txt`` is returned.\n:type absolute: boolean\n:returns: iterator of paths"
+        }
+      ]
+    },
+    {
+      "name": "DependencyGraph",
+      "docstring": "Represents a dependency graph between distributions.\n\nThe dependency relationships are stored in an ``adjacency_list`` that maps\ndistributions to a list of ``(other, label)`` tuples where  ``other``\nis a distribution and the edge is labeled with ``label`` (i.e. the version\nspecifier, if such was provided). Also, for more efficient traversal, for\nevery distribution ``x``, a list of predecessors is kept in\n``reverse_list[x]``. An edge from distribution ``a`` to\ndistribution ``b`` means that ``a`` depends on ``b``. If any missing\ndependencies are found, they are stored in ``missing``, which is a\ndictionary that maps distributions to a list of requirements that were not\nprovided by any other distributions.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "add_distribution",
+          "docstring": "Add the *distribution* to the graph.\n\n:type distribution: :class:`distutils2.database.InstalledDistribution`\n                    or :class:`distutils2.database.EggInfoDistribution`"
+        },
+        {
+          "name": "add_edge",
+          "docstring": "Add an edge from distribution *x* to distribution *y* with the given\n*label*.\n\n:type x: :class:`distutils2.database.InstalledDistribution` or\n         :class:`distutils2.database.EggInfoDistribution`\n:type y: :class:`distutils2.database.InstalledDistribution` or\n         :class:`distutils2.database.EggInfoDistribution`\n:type label: ``str`` or ``None``"
+        },
+        {
+          "name": "add_missing",
+          "docstring": "Add a missing *requirement* for the given *distribution*.\n\n:type distribution: :class:`distutils2.database.InstalledDistribution`\n                    or :class:`distutils2.database.EggInfoDistribution`\n:type requirement: ``str``"
+        },
+        {
+          "name": "repr_node",
+          "docstring": "Prints only a subgraph"
+        },
+        {
+          "name": "to_dot",
+          "docstring": "Writes a DOT output for the graph to the provided file *f*.\n\nIf *skip_disconnected* is set to ``True``, then all distributions\nthat are not dependent on any other distribution are skipped.\n\n:type f: has to support ``file``-like operations\n:type skip_disconnected: ``bool``"
+        },
+        {
+          "name": "topological_sort",
+          "docstring": "Perform a topological sort of the graph.\n:return: A tuple, the first element of which is a topologically sorted\n         list of distributions, and the second element of which is a\n         list of distributions that cannot be sorted because they have\n         circular dependencies and so form a cycle."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "make_graph",
+      "docstring": "Makes a dependency graph from the given distributions.\n\n:parameter dists: a list of distributions\n:type dists: list of :class:`distutils2.database.InstalledDistribution` and\n             :class:`distutils2.database.EggInfoDistribution` instances\n:rtype: a :class:`DependencyGraph` instance"
+    },
+    {
+      "name": "get_dependent_dists",
+      "docstring": "Recursively generate a list of distributions from *dists* that are\ndependent on *dist*.\n\n:param dists: a list of distributions\n:param dist: a distribution, member of *dists* for which we are interested"
+    },
+    {
+      "name": "get_required_dists",
+      "docstring": "Recursively generate a list of distributions from *dists* that are\nrequired by *dist*.\n\n:param dists: a list of distributions\n:param dist: a distribution, member of *dists* for which we are interested\n             in finding the dependencies."
+    },
+    {
+      "name": "make_dist",
+      "docstring": "A convenience method for making a dist given just a name and version."
+    },
+    {
+      "name": "clear",
+      "docstring": "Clear the cache, setting it to its initial state."
+    },
+    {
+      "name": "add",
+      "docstring": "Add a distribution to the cache.\n:param dist: The distribution to add."
+    },
+    {
+      "name": "clear_cache",
+      "docstring": "Clears the internal cache."
+    },
+    {
+      "name": "distinfo_dirname",
+      "docstring": "The *name* and *version* parameters are converted into their\nfilename-escaped form, i.e. any ``'-'`` characters are replaced\nwith ``'_'`` other than the one in ``'dist-info'`` and the one\nseparating the name from the version number.\n\n:parameter name: is converted to a standard distribution name by replacing\n                 any runs of non- alphanumeric characters with a single\n                 ``'-'``.\n:type name: string\n:parameter version: is converted to a standard version string. Spaces\n                    become dots, and all other non-alphanumeric characters\n                    (except dots) become dashes, with runs of multiple\n                    dashes condensed to a single dash.\n:type version: string\n:returns: directory name\n:rtype: string"
+    },
+    {
+      "name": "get_distributions",
+      "docstring": "Provides an iterator that looks for distributions and returns\n:class:`InstalledDistribution` or\n:class:`EggInfoDistribution` instances for each one of them.\n\n:rtype: iterator of :class:`InstalledDistribution` and\n        :class:`EggInfoDistribution` instances"
+    },
+    {
+      "name": "get_distribution",
+      "docstring": "Looks for a named distribution on the path.\n\nThis function only returns the first result found, as no more than one\nvalue is expected. If nothing is found, ``None`` is returned.\n\n:rtype: :class:`InstalledDistribution`, :class:`EggInfoDistribution`\n        or ``None``"
+    },
+    {
+      "name": "provides_distribution",
+      "docstring": "Iterates over all distributions to find which distributions provide *name*.\nIf a *version* is provided, it will be used to filter the results.\n\nThis function only returns the first result found, since no more than\none values are expected. If the directory is not found, returns ``None``.\n\n:parameter version: a version specifier that indicates the version\n                    required, conforming to the format in ``PEP-345``\n\n:type name: string\n:type version: string"
+    },
+    {
+      "name": "get_file_path",
+      "docstring": "Return the path to a resource file."
+    },
+    {
+      "name": "get_exported_entries",
+      "docstring": "Return all of the exported entries in a particular category.\n\n:param category: The category to search for entries.\n:param name: If specified, only entries with that name are returned."
+    },
+    {
+      "name": "source_url",
+      "docstring": "The source archive download URL for this distribution."
+    },
+    {
+      "name": "name_and_version",
+      "docstring": "A utility property which displays the name and version in parentheses."
+    },
+    {
+      "name": "provides",
+      "docstring": "A set of distribution names and versions provided by this distribution.\n:return: A set of \"name (version)\" strings."
+    },
+    {
+      "name": "run_requires",
+      "docstring": null
+    },
+    {
+      "name": "meta_requires",
+      "docstring": null
+    },
+    {
+      "name": "build_requires",
+      "docstring": null
+    },
+    {
+      "name": "test_requires",
+      "docstring": null
+    },
+    {
+      "name": "dev_requires",
+      "docstring": null
+    },
+    {
+      "name": "matches_requirement",
+      "docstring": "Say if this instance matches (fulfills) a requirement.\n:param req: The requirement to match.\n:rtype req: str\n:return: True if it matches, else False."
+    },
+    {
+      "name": "get_hash",
+      "docstring": "Get the hash of some data, using a particular hash algorithm, if\nspecified.\n\n:param data: The data to be hashed.\n:type data: bytes\n:param hasher: The name of a hash implementation, supported by hashlib,\n               or ``None``. Examples of valid values are ``'sha1'``,\n               ``'sha224'``, ``'sha384'``, '``sha256'``, ``'md5'`` and\n               ``'sha512'``. If no hasher is specified, the ``hasher``\n               attribute of the :class:`InstalledDistribution` instance\n               is used. If the hasher is determined to be ``None``, MD5\n               is used as the hashing algorithm.\n:returns: The hash of the data. If a hasher was explicitly specified,\n          the returned hash will be prefixed with the specified hasher\n          followed by '='.\n:rtype: str"
+    },
+    {
+      "name": "exports",
+      "docstring": "Return the information exported by this distribution.\n:return: A dictionary of exports, mapping an export category to a dict\n         of :class:`ExportEntry` instances describing the individual\n         export entries, and keyed by name."
+    },
+    {
+      "name": "read_exports",
+      "docstring": "Read exports data from a file in .ini format.\n\n:return: A dictionary of exports, mapping an export category to a list\n         of :class:`ExportEntry` instances describing the individual\n         export entries."
+    },
+    {
+      "name": "write_exports",
+      "docstring": "Write a dictionary of exports to a file in .ini format.\n:param exports: A dictionary of exports, mapping an export category to\n                a list of :class:`ExportEntry` instances describing the\n                individual export entries."
+    },
+    {
+      "name": "get_resource_path",
+      "docstring": "NOTE: This API may change in the future.\n\nReturn the absolute path to a resource file with the given relative\npath.\n\n:param relative_path: The path, relative to .dist-info, of the resource\n                      of interest.\n:return: The absolute path where the resource is to be found."
+    },
+    {
+      "name": "list_installed_files",
+      "docstring": "Iterates over the ``RECORD`` entries and returns a tuple\n``(path, hash, size)`` for each line.\n\n:returns: iterator of (path, hash, size)"
+    },
+    {
+      "name": "write_installed_files",
+      "docstring": "Writes the ``RECORD`` file, using the ``paths`` iterable passed in. Any\nexisting ``RECORD`` file is silently overwritten.\n\nprefix is used to determine when to write absolute paths."
+    },
+    {
+      "name": "check_installed_files",
+      "docstring": "Checks that the hashes and sizes of the files in ``RECORD`` are\nmatched by the files themselves. Returns a (possibly empty) list of\nmismatches. Each entry in the mismatch list will be a tuple consisting\nof the path, 'exists', 'size' or 'hash' according to what didn't match\n(existence is checked first, then size, then hash), the expected\nvalue and the actual value."
+    },
+    {
+      "name": "shared_locations",
+      "docstring": "A dictionary of shared locations whose keys are in the set 'prefix',\n'purelib', 'platlib', 'scripts', 'headers', 'data' and 'namespace'.\nThe corresponding value is the absolute path of that category for\nthis distribution, and takes into account any paths selected by the\nuser at installation time (e.g. via command-line arguments). In the\ncase of the 'namespace' key, this would be a list of absolute paths\nfor the roots of namespace packages in this distribution.\n\nThe first time this property is accessed, the relevant information is\nread from the SHARED file in the .dist-info directory."
+    },
+    {
+      "name": "write_shared_locations",
+      "docstring": "Write shared location information to the SHARED file in .dist-info.\n:param paths: A dictionary as described in the documentation for\n:meth:`shared_locations`.\n:param dry_run: If True, the action is logged but no file is actually\n                written.\n:return: The path of the file written to."
+    },
+    {
+      "name": "get_distinfo_resource",
+      "docstring": null
+    },
+    {
+      "name": "get_distinfo_file",
+      "docstring": "Returns a path located under the ``.dist-info`` directory. Returns a\nstring representing the path.\n\n:parameter path: a ``'/'``-separated path relative to the\n                 ``.dist-info`` directory or an absolute path;\n                 If *path* is an absolute path and doesn't start\n                 with the ``.dist-info`` directory path,\n                 a :class:`DistlibException` is raised\n:type path: str\n:rtype: str"
+    },
+    {
+      "name": "list_distinfo_files",
+      "docstring": "Iterates over the ``RECORD`` entries and returns paths for each line if\nthe path is pointing to a file located in the ``.dist-info`` directory\nor one of its subdirectories.\n\n:returns: iterator of paths"
+    },
+    {
+      "name": "check_installed_files",
+      "docstring": "Checks that the hashes and sizes of the files in ``RECORD`` are\nmatched by the files themselves. Returns a (possibly empty) list of\nmismatches. Each entry in the mismatch list will be a tuple consisting\nof the path, 'exists', 'size' or 'hash' according to what didn't match\n(existence is checked first, then size, then hash), the expected\nvalue and the actual value."
+    },
+    {
+      "name": "list_installed_files",
+      "docstring": "Iterates over the ``installed-files.txt`` entries and returns a tuple\n``(path, hash, size)`` for each line.\n\n:returns: a list of (path, hash, size)"
+    },
+    {
+      "name": "list_distinfo_files",
+      "docstring": "Iterates over the ``installed-files.txt`` entries and returns paths for\neach line if the path is pointing to a file located in the\n``.egg-info`` directory or one of its subdirectories.\n\n:parameter absolute: If *absolute* is ``True``, each returned path is\n                  transformed into a local absolute path. Otherwise the\n                  raw value from ``installed-files.txt`` is returned.\n:type absolute: boolean\n:returns: iterator of paths"
+    },
+    {
+      "name": "add_distribution",
+      "docstring": "Add the *distribution* to the graph.\n\n:type distribution: :class:`distutils2.database.InstalledDistribution`\n                    or :class:`distutils2.database.EggInfoDistribution`"
+    },
+    {
+      "name": "add_edge",
+      "docstring": "Add an edge from distribution *x* to distribution *y* with the given\n*label*.\n\n:type x: :class:`distutils2.database.InstalledDistribution` or\n         :class:`distutils2.database.EggInfoDistribution`\n:type y: :class:`distutils2.database.InstalledDistribution` or\n         :class:`distutils2.database.EggInfoDistribution`\n:type label: ``str`` or ``None``"
+    },
+    {
+      "name": "add_missing",
+      "docstring": "Add a missing *requirement* for the given *distribution*.\n\n:type distribution: :class:`distutils2.database.InstalledDistribution`\n                    or :class:`distutils2.database.EggInfoDistribution`\n:type requirement: ``str``"
+    },
+    {
+      "name": "repr_node",
+      "docstring": "Prints only a subgraph"
+    },
+    {
+      "name": "to_dot",
+      "docstring": "Writes a DOT output for the graph to the provided file *f*.\n\nIf *skip_disconnected* is set to ``True``, then all distributions\nthat are not dependent on any other distribution are skipped.\n\n:type f: has to support ``file``-like operations\n:type skip_disconnected: ``bool``"
+    },
+    {
+      "name": "topological_sort",
+      "docstring": "Perform a topological sort of the graph.\n:return: A tuple, the first element of which is a topologically sorted\n         list of distributions, and the second element of which is a\n         list of distributions that cannot be sorted because they have\n         circular dependencies and so form a cycle."
+    },
+    {
+      "name": "set_name_and_version",
+      "docstring": null
+    },
+    {
+      "name": "parse_requires_data",
+      "docstring": "Create a list of dependencies from a requires.txt file.\n\n*data*: the contents of a setuptools-produced requires.txt file."
+    },
+    {
+      "name": "parse_requires_path",
+      "docstring": "Create a list of dependencies from a requires.txt file.\n\n*req_path*: the path to a setuptools-produced requires.txt file."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,42 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\symfont.py",
+  "classes": [
+    {
+      "name": "_BezierFuncsLazy",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GreenPen",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "green",
+      "docstring": null
+    },
+    {
+      "name": "printGreenPen",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        greens = [f.subs(subs) for f in greens]  # Convert to p to x/y\n        defs, exprs = sp.cse(\n            greens,\n            optimizations=\"basic\",\n            symbols=(sp.Symbol(\"r%d\" % i) for i in count()),\n        )\n"
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\distlib\\resources.py",
+  "classes": [
+    {
+      "name": "ResourceCache",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "is_stale",
+          "docstring": "Is the cache stale for the given resource?\n\n:param resource: The :class:`Resource` being cached.\n:param path: The path of the resource in the cache.\n:return: True if the cache is stale."
+        },
+        {
+          "name": "get",
+          "docstring": "Get a resource into the cache,\n\n:param resource: A :class:`Resource` instance.\n:return: The pathname of the resource in the cache."
+        }
+      ]
+    },
+    {
+      "name": "ResourceBase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Resource",
+      "docstring": "A class representing an in-package resource, such as a data file. This is\nnot normally instantiated by user code, but rather by a\n:class:`ResourceFinder` which manages the resource.",
+      "methods": [
+        {
+          "name": "as_stream",
+          "docstring": "Get the resource as a stream.\n\nThis is not a property to make it obvious that it returns a new stream\neach time."
+        },
+        {
+          "name": "file_path",
+          "docstring": null
+        },
+        {
+          "name": "bytes",
+          "docstring": null
+        },
+        {
+          "name": "size",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ResourceContainer",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "resources",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ResourceFinder",
+      "docstring": "Resource finder for file system resources.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_cache_info",
+          "docstring": null
+        },
+        {
+          "name": "find",
+          "docstring": null
+        },
+        {
+          "name": "get_stream",
+          "docstring": null
+        },
+        {
+          "name": "get_bytes",
+          "docstring": null
+        },
+        {
+          "name": "get_size",
+          "docstring": null
+        },
+        {
+          "name": "get_resources",
+          "docstring": null
+        },
+        {
+          "name": "is_container",
+          "docstring": null
+        },
+        {
+          "name": "iterator",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ZipResourceFinder",
+      "docstring": "Resource finder for resources in .zip files.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_cache_info",
+          "docstring": null
+        },
+        {
+          "name": "get_bytes",
+          "docstring": null
+        },
+        {
+          "name": "get_stream",
+          "docstring": null
+        },
+        {
+          "name": "get_size",
+          "docstring": null
+        },
+        {
+          "name": "get_resources",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "register_finder",
+      "docstring": null
+    },
+    {
+      "name": "finder",
+      "docstring": "Return a resource finder for a package.\n:param package: The name of the package.\n:return: A :class:`ResourceFinder` instance for the package."
+    },
+    {
+      "name": "finder_for_path",
+      "docstring": "Return a resource finder for a path, which should represent a container.\n\n:param path: The path.\n:return: A :class:`ResourceFinder` instance for the path."
+    },
+    {
+      "name": "is_stale",
+      "docstring": "Is the cache stale for the given resource?\n\n:param resource: The :class:`Resource` being cached.\n:param path: The path of the resource in the cache.\n:return: True if the cache is stale."
+    },
+    {
+      "name": "get",
+      "docstring": "Get a resource into the cache,\n\n:param resource: A :class:`Resource` instance.\n:return: The pathname of the resource in the cache."
+    },
+    {
+      "name": "as_stream",
+      "docstring": "Get the resource as a stream.\n\nThis is not a property to make it obvious that it returns a new stream\neach time."
+    },
+    {
+      "name": "file_path",
+      "docstring": null
+    },
+    {
+      "name": "bytes",
+      "docstring": null
+    },
+    {
+      "name": "size",
+      "docstring": null
+    },
+    {
+      "name": "resources",
+      "docstring": null
+    },
+    {
+      "name": "get_cache_info",
+      "docstring": null
+    },
+    {
+      "name": "find",
+      "docstring": null
+    },
+    {
+      "name": "get_stream",
+      "docstring": null
+    },
+    {
+      "name": "get_bytes",
+      "docstring": null
+    },
+    {
+      "name": "get_size",
+      "docstring": null
+    },
+    {
+      "name": "get_resources",
+      "docstring": null
+    },
+    {
+      "name": "is_container",
+      "docstring": null
+    },
+    {
+      "name": "iterator",
+      "docstring": null
+    },
+    {
+      "name": "get_cache_info",
+      "docstring": null
+    },
+    {
+      "name": "get_bytes",
+      "docstring": null
+    },
+    {
+      "name": "get_stream",
+      "docstring": null
+    },
+    {
+      "name": "get_size",
+      "docstring": null
+    },
+    {
+      "name": "get_resources",
+      "docstring": null
+    },
+    {
+      "name": "allowed",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,87 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\BlpImagePlugin.py",
+  "classes": [
+    {
+      "name": "Format",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Encoding",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "AlphaEncoding",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "BLPFormatError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "BlpImageFile",
+      "docstring": "Blizzard Mipmap Format",
+      "methods": []
+    },
+    {
+      "name": "_BLPBaseDecoder",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decode",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BLP1Decoder",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "BLP2Decoder",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "BLPEncoder",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "encode",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "unpack_565",
+      "docstring": null
+    },
+    {
+      "name": "decode_dxt1",
+      "docstring": "input: one \"row\" of data (i.e. will produce 4*width pixels)"
+    },
+    {
+      "name": "decode_dxt3",
+      "docstring": "input: one \"row\" of data (i.e. will produce 4*width pixels)"
+    },
+    {
+      "name": "decode_dxt5",
+      "docstring": "input: one \"row\" of data (i.e. will produce 4 * width pixels)"
+    },
+    {
+      "name": "decode",
+      "docstring": null
+    },
+    {
+      "name": "encode",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

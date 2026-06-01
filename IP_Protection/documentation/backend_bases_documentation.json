@@ -1,0 +1,1276 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backend_bases.py",
+  "classes": [
+    {
+      "name": "RendererBase",
+      "docstring": "An abstract base class to handle drawing/rendering operations.\n\nThe following methods must be implemented in the backend for full\nfunctionality (though just implementing `draw_path` alone would give a\nhighly capable backend):\n\n* `draw_path`\n* `draw_image`\n* `draw_gouraud_triangles`\n\nThe following methods *should* be implemented in the backend for\noptimization reasons:\n\n* `draw_text`\n* `draw_markers`\n* `draw_path_collection`\n* `draw_quad_mesh`",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "open_group",
+          "docstring": "Open a grouping element with label *s* and *gid* (if set) as id.\n\nOnly used by the SVG renderer."
+        },
+        {
+          "name": "close_group",
+          "docstring": "Close a grouping element with label *s*.\n\nOnly used by the SVG renderer."
+        },
+        {
+          "name": "draw_path",
+          "docstring": "Draw a `~.path.Path` instance using the given affine transform."
+        },
+        {
+          "name": "draw_markers",
+          "docstring": "Draw a marker at each of *path*'s vertices (excluding control points).\n\nThe base (fallback) implementation makes multiple calls to `draw_path`.\nBackends may want to override this method in order to draw the marker\nonly once and reuse it multiple times.\n\nParameters\n----------\ngc : `.GraphicsContextBase`\n    The graphics context.\nmarker_path : `~matplotlib.path.Path`\n    The path for the marker.\nmarker_trans : `~matplotlib.transforms.Transform`\n    An affine transform applied to the marker.\npath : `~matplotlib.path.Path`\n    The locations to draw the markers.\ntrans : `~matplotlib.transforms.Transform`\n    An affine transform applied to the path.\nrgbFace : :mpltype:`color`, optional"
+        },
+        {
+          "name": "draw_path_collection",
+          "docstring": "Draw a collection of *paths*.\n\nEach path is first transformed by the corresponding entry\nin *all_transforms* (a list of (3, 3) matrices) and then by\n*master_transform*.  They are then translated by the corresponding\nentry in *offsets*, which has been first transformed by *offset_trans*.\n\n*facecolors*, *edgecolors*, *linewidths*, *linestyles*, and\n*antialiased* are lists that set the corresponding properties.\n\n*offset_position* is unused now, but the argument is kept for\nbackwards compatibility.\n\nThe base (fallback) implementation makes multiple calls to `draw_path`.\nBackends may want to override this in order to render each set of\npath data only once, and then reference that path multiple times with\nthe different offsets, colors, styles etc.  The generator methods\n`_iter_collection_raw_paths` and `_iter_collection` are provided to\nhelp with (and standardize) the implementation across backends.  It\nis highly recommended to use those generators, so that changes to the\nbehavior of `draw_path_collection` can be made globally."
+        },
+        {
+          "name": "draw_quad_mesh",
+          "docstring": "Draw a quadmesh.\n\nThe base (fallback) implementation converts the quadmesh to paths and\nthen calls `draw_path_collection`."
+        },
+        {
+          "name": "draw_gouraud_triangles",
+          "docstring": "Draw a series of Gouraud triangles.\n\nParameters\n----------\ngc : `.GraphicsContextBase`\n    The graphics context.\ntriangles_array : (N, 3, 2) array-like\n    Array of *N* (x, y) points for the triangles.\ncolors_array : (N, 3, 4) array-like\n    Array of *N* RGBA colors for each point of the triangles.\ntransform : `~matplotlib.transforms.Transform`\n    An affine transform to apply to the points."
+        },
+        {
+          "name": "get_image_magnification",
+          "docstring": "Get the factor by which to magnify images passed to `draw_image`.\nAllows a backend to have images at a different resolution to other\nartists."
+        },
+        {
+          "name": "draw_image",
+          "docstring": "Draw an RGBA image.\n\nParameters\n----------\ngc : `.GraphicsContextBase`\n    A graphics context with clipping information.\n\nx : float\n    The distance in physical units (i.e., dots or pixels) from the left\n    hand side of the canvas.\n\ny : float\n    The distance in physical units (i.e., dots or pixels) from the\n    bottom side of the canvas.\n\nim : (N, M, 4) array of `numpy.uint8`\n    An array of RGBA pixels.\n\ntransform : `~matplotlib.transforms.Affine2DBase`\n    If and only if the concrete backend is written such that\n    `option_scale_image` returns ``True``, an affine transformation\n    (i.e., an `.Affine2DBase`) *may* be passed to `draw_image`.  The\n    translation vector of the transformation is given in physical units\n    (i.e., dots or pixels). Note that the transformation does not\n    override *x* and *y*, and has to be applied *before* translating\n    the result by *x* and *y* (this can be accomplished by adding *x*\n    and *y* to the translation vector defined by *transform*)."
+        },
+        {
+          "name": "option_image_nocomposite",
+          "docstring": "Return whether image composition by Matplotlib should be skipped.\n\nRaster backends should usually return False (letting the C-level\nrasterizer take care of image composition); vector backends should\nusually return ``not rcParams[\"image.composite_image\"]``."
+        },
+        {
+          "name": "option_scale_image",
+          "docstring": "Return whether arbitrary affine transformations in `draw_image` are\nsupported (True for most vector backends)."
+        },
+        {
+          "name": "draw_tex",
+          "docstring": "Draw a TeX instance.\n\nParameters\n----------\ngc : `.GraphicsContextBase`\n    The graphics context.\nx : float\n    The x location of the text in display coords.\ny : float\n    The y location of the text baseline in display coords.\ns : str\n    The TeX text string.\nprop : `~matplotlib.font_manager.FontProperties`\n    The font properties.\nangle : float\n    The rotation angle in degrees anti-clockwise.\nmtext : `~matplotlib.text.Text`\n    The original text object to be rendered."
+        },
+        {
+          "name": "draw_text",
+          "docstring": "Draw a text instance.\n\nParameters\n----------\ngc : `.GraphicsContextBase`\n    The graphics context.\nx : float\n    The x location of the text in display coords.\ny : float\n    The y location of the text baseline in display coords.\ns : str\n    The text string.\nprop : `~matplotlib.font_manager.FontProperties`\n    The font properties.\nangle : float\n    The rotation angle in degrees anti-clockwise.\nismath : bool or \"TeX\"\n    If True, use mathtext parser.\nmtext : `~matplotlib.text.Text`\n    The original text object to be rendered.\n\nNotes\n-----\n**Notes for backend implementers:**\n\n`.RendererBase.draw_text` also supports passing \"TeX\" to the *ismath*\nparameter to use TeX rendering, but this is not required for actual\nrendering backends, and indeed many builtin backends do not support\nthis.  Rather, TeX rendering is provided by `~.RendererBase.draw_tex`."
+        },
+        {
+          "name": "get_text_width_height_descent",
+          "docstring": "Get the width, height, and descent (offset from the bottom to the baseline), in\ndisplay coords, of the string *s* with `.FontProperties` *prop*.\n\nWhitespace at the start and the end of *s* is included in the reported width."
+        },
+        {
+          "name": "flipy",
+          "docstring": "Return whether y values increase from top to bottom.\n\nNote that this only affects drawing of texts."
+        },
+        {
+          "name": "get_canvas_width_height",
+          "docstring": "Return the canvas width and height in display coords."
+        },
+        {
+          "name": "get_texmanager",
+          "docstring": "Return the `.TexManager` instance."
+        },
+        {
+          "name": "new_gc",
+          "docstring": "Return an instance of a `.GraphicsContextBase`."
+        },
+        {
+          "name": "points_to_pixels",
+          "docstring": "Convert points to display units.\n\nYou need to override this function (unless your backend\ndoesn't have a dpi, e.g., postscript or svg).  Some imaging\nsystems assume some value for pixels per inch::\n\n    points to pixels = points * pixels_per_inch/72 * dpi/72\n\nParameters\n----------\npoints : float or array-like\n\nReturns\n-------\nPoints converted to pixels"
+        },
+        {
+          "name": "start_rasterizing",
+          "docstring": "Switch to the raster renderer.\n\nUsed by `.MixedModeRenderer`."
+        },
+        {
+          "name": "stop_rasterizing",
+          "docstring": "Switch back to the vector renderer and draw the contents of the raster\nrenderer as an image on the vector renderer.\n\nUsed by `.MixedModeRenderer`."
+        },
+        {
+          "name": "start_filter",
+          "docstring": "Switch to a temporary renderer for image filtering effects.\n\nCurrently only supported by the agg renderer."
+        },
+        {
+          "name": "stop_filter",
+          "docstring": "Switch back to the original renderer.  The contents of the temporary\nrenderer is processed with the *filter_func* and is drawn on the\noriginal renderer as an image.\n\nCurrently only supported by the agg renderer."
+        }
+      ]
+    },
+    {
+      "name": "GraphicsContextBase",
+      "docstring": "An abstract base class that provides color, line styles, etc.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "copy_properties",
+          "docstring": "Copy properties from *gc* to self."
+        },
+        {
+          "name": "restore",
+          "docstring": "Restore the graphics context from the stack - needed only\nfor backends that save graphics contexts on a stack."
+        },
+        {
+          "name": "get_alpha",
+          "docstring": "Return the alpha value used for blending - not supported on all\nbackends."
+        },
+        {
+          "name": "get_antialiased",
+          "docstring": "Return whether the object should try to do antialiased rendering."
+        },
+        {
+          "name": "get_capstyle",
+          "docstring": "Return the `.CapStyle`."
+        },
+        {
+          "name": "get_clip_rectangle",
+          "docstring": "Return the clip rectangle as a `~matplotlib.transforms.Bbox` instance."
+        },
+        {
+          "name": "get_clip_path",
+          "docstring": "Return the clip path in the form (path, transform), where path\nis a `~.path.Path` instance, and transform is\nan affine transform to apply to the path before clipping."
+        },
+        {
+          "name": "get_dashes",
+          "docstring": "Return the dash style as an (offset, dash-list) pair.\n\nSee `.set_dashes` for details.\n\nDefault value is (None, None)."
+        },
+        {
+          "name": "get_forced_alpha",
+          "docstring": "Return whether the value given by get_alpha() should be used to\noverride any other alpha-channel values."
+        },
+        {
+          "name": "get_joinstyle",
+          "docstring": "Return the `.JoinStyle`."
+        },
+        {
+          "name": "get_linewidth",
+          "docstring": "Return the line width in points."
+        },
+        {
+          "name": "get_rgb",
+          "docstring": "Return a tuple of three or four floats from 0-1."
+        },
+        {
+          "name": "get_url",
+          "docstring": "Return a url if one is set, None otherwise."
+        },
+        {
+          "name": "get_gid",
+          "docstring": "Return the object identifier if one is set, None otherwise."
+        },
+        {
+          "name": "get_snap",
+          "docstring": "Return the snap setting, which can be:\n\n* True: snap vertices to the nearest pixel center\n* False: leave vertices as-is\n* None: (auto) If the path contains only rectilinear line segments,\n  round to the nearest pixel center"
+        },
+        {
+          "name": "set_alpha",
+          "docstring": "Set the alpha value used for blending - not supported on all backends.\n\nIf ``alpha=None`` (the default), the alpha components of the\nforeground and fill colors will be used to set their respective\ntransparencies (where applicable); otherwise, ``alpha`` will override\nthem."
+        },
+        {
+          "name": "set_antialiased",
+          "docstring": "Set whether object should be drawn with antialiased rendering."
+        },
+        {
+          "name": "set_capstyle",
+          "docstring": "Set how to draw endpoints of lines.\n\nParameters\n----------\ncs : `.CapStyle` or %(CapStyle)s"
+        },
+        {
+          "name": "set_clip_rectangle",
+          "docstring": "Set the clip rectangle to a `.Bbox` or None."
+        },
+        {
+          "name": "set_clip_path",
+          "docstring": "Set the clip path to a `.TransformedPath` or None."
+        },
+        {
+          "name": "set_dashes",
+          "docstring": "Set the dash style for the gc.\n\nParameters\n----------\ndash_offset : float\n    Distance, in points, into the dash pattern at which to\n    start the pattern. It is usually set to 0.\ndash_list : array-like or None\n    The on-off sequence as points.  None specifies a solid line. All\n    values must otherwise be non-negative (:math:`\\ge 0`).\n\nNotes\n-----\nSee p. 666 of the PostScript\n`Language Reference\n<https://www.adobe.com/jp/print/postscript/pdfs/PLRM.pdf>`_\nfor more info."
+        },
+        {
+          "name": "set_foreground",
+          "docstring": "Set the foreground color.\n\nParameters\n----------\nfg : :mpltype:`color`\nisRGBA : bool\n    If *fg* is known to be an ``(r, g, b, a)`` tuple, *isRGBA* can be\n    set to True to improve performance."
+        },
+        {
+          "name": "set_joinstyle",
+          "docstring": "Set how to draw connections between line segments.\n\nParameters\n----------\njs : `.JoinStyle` or %(JoinStyle)s"
+        },
+        {
+          "name": "set_linewidth",
+          "docstring": "Set the linewidth in points."
+        },
+        {
+          "name": "set_url",
+          "docstring": "Set the url for links in compatible backends."
+        },
+        {
+          "name": "set_gid",
+          "docstring": "Set the id."
+        },
+        {
+          "name": "set_snap",
+          "docstring": "Set the snap setting which may be:\n\n* True: snap vertices to the nearest pixel center\n* False: leave vertices as-is\n* None: (auto) If the path contains only rectilinear line segments,\n  round to the nearest pixel center"
+        },
+        {
+          "name": "set_hatch",
+          "docstring": "Set the hatch style (for fills)."
+        },
+        {
+          "name": "get_hatch",
+          "docstring": "Get the current hatch style."
+        },
+        {
+          "name": "get_hatch_path",
+          "docstring": "Return a `.Path` for the current hatch."
+        },
+        {
+          "name": "get_hatch_color",
+          "docstring": "Get the hatch color."
+        },
+        {
+          "name": "set_hatch_color",
+          "docstring": "Set the hatch color."
+        },
+        {
+          "name": "get_hatch_linewidth",
+          "docstring": "Get the hatch linewidth."
+        },
+        {
+          "name": "set_hatch_linewidth",
+          "docstring": "Set the hatch linewidth."
+        },
+        {
+          "name": "get_sketch_params",
+          "docstring": "Return the sketch parameters for the artist.\n\nReturns\n-------\ntuple or `None`\n\n    A 3-tuple with the following elements:\n\n    * ``scale``: The amplitude of the wiggle perpendicular to the\n      source line.\n    * ``length``: The length of the wiggle along the line.\n    * ``randomness``: The scale factor by which the length is\n      shrunken or expanded.\n\n    May return `None` if no sketch parameters were set."
+        },
+        {
+          "name": "set_sketch_params",
+          "docstring": "Set the sketch parameters.\n\nParameters\n----------\nscale : float, optional\n    The amplitude of the wiggle perpendicular to the source line, in\n    pixels.  If scale is `None`, or not provided, no sketch filter will\n    be provided.\nlength : float, default: 128\n    The length of the wiggle along the line, in pixels.\nrandomness : float, default: 16\n    The scale factor by which the length is shrunken or expanded."
+        }
+      ]
+    },
+    {
+      "name": "TimerBase",
+      "docstring": "A base class for providing timer events, useful for things animations.\nBackends need to implement a few specific methods in order to use their\nown timing mechanisms so that the timer events are integrated into their\nevent loops.\n\nSubclasses must override the following methods:\n\n- ``_timer_start``: Backend-specific code for starting the timer.\n- ``_timer_stop``: Backend-specific code for stopping the timer.\n\nSubclasses may additionally override the following methods:\n\n- ``_timer_set_single_shot``: Code for setting the timer to single shot\n  operating mode, if supported by the timer object.  If not, the `Timer`\n  class itself will store the flag and the ``_on_timer`` method should be\n  overridden to support such behavior.\n\n- ``_timer_set_interval``: Code for setting the interval on the timer, if\n  there is a method for doing so on the timer object.\n\n- ``_on_timer``: The internal function that any timer object should call,\n  which will handle the task of running all callbacks that have been set.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\ninterval : int, default: 1000ms\n    The time between timer events in milliseconds.  Will be stored as\n    ``timer.interval``.\ncallbacks : list[tuple[callable, tuple, dict]]\n    List of (func, args, kwargs) tuples that will be called upon timer\n    events.  This list is accessible as ``timer.callbacks`` and can be\n    manipulated directly, or the functions `~.TimerBase.add_callback`\n    and `~.TimerBase.remove_callback` can be used."
+        },
+        {
+          "name": "start",
+          "docstring": "Start the timer object.\n\nParameters\n----------\ninterval : int, optional\n    Timer interval in milliseconds; overrides a previously set interval\n    if provided."
+        },
+        {
+          "name": "stop",
+          "docstring": "Stop the timer."
+        },
+        {
+          "name": "interval",
+          "docstring": "The time between timer events, in milliseconds."
+        },
+        {
+          "name": "interval",
+          "docstring": null
+        },
+        {
+          "name": "single_shot",
+          "docstring": "Whether this timer should stop after a single run."
+        },
+        {
+          "name": "single_shot",
+          "docstring": null
+        },
+        {
+          "name": "add_callback",
+          "docstring": "Register *func* to be called by timer when the event fires. Any\nadditional arguments provided will be passed to *func*.\n\nThis function returns *func*, which makes it possible to use it as a\ndecorator."
+        },
+        {
+          "name": "remove_callback",
+          "docstring": "Remove *func* from list of callbacks.\n\n*args* and *kwargs* are optional and used to distinguish between copies\nof the same function registered to be called with different arguments.\nThis behavior is deprecated.  In the future, ``*args, **kwargs`` won't\nbe considered anymore; to keep a specific callback removable by itself,\npass it to `add_callback` as a `functools.partial` object."
+        }
+      ]
+    },
+    {
+      "name": "Event",
+      "docstring": "A Matplotlib event.\n\nThe following attributes are defined and shown with their default values.\nSubclasses may define additional attributes.\n\nAttributes\n----------\nname : str\n    The event name.\ncanvas : `FigureCanvasBase`\n    The backend-specific canvas instance generating the event.\nguiEvent\n    The GUI event that triggered the Matplotlib event.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DrawEvent",
+      "docstring": "An event triggered by a draw operation on the canvas.\n\nIn most backends, callbacks subscribed to this event will be fired after\nthe rendering is complete but before the screen is updated. Any extra\nartists drawn to the canvas's renderer will be reflected without an\nexplicit call to ``blit``.\n\n.. warning::\n\n   Calling ``canvas.draw`` and ``canvas.blit`` in these callbacks may\n   not be safe with all backends and may cause infinite recursion.\n\nA DrawEvent has a number of special attributes in addition to those defined\nby the parent `Event` class.\n\nAttributes\n----------\nrenderer : `RendererBase`\n    The renderer for the draw event.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ResizeEvent",
+      "docstring": "An event triggered by a canvas resize.\n\nA ResizeEvent has a number of special attributes in addition to those\ndefined by the parent `Event` class.\n\nAttributes\n----------\nwidth : int\n    Width of the canvas in pixels.\nheight : int\n    Height of the canvas in pixels.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CloseEvent",
+      "docstring": "An event triggered by a figure being closed.",
+      "methods": []
+    },
+    {
+      "name": "LocationEvent",
+      "docstring": "An event that has a screen location.\n\nA LocationEvent has a number of special attributes in addition to those\ndefined by the parent `Event` class.\n\nAttributes\n----------\nx, y : int or None\n    Event location in pixels from bottom left of canvas.\ninaxes : `~matplotlib.axes.Axes` or None\n    The `~.axes.Axes` instance over which the mouse is, if any.\nxdata, ydata : float or None\n    Data coordinates of the mouse within *inaxes*, or *None* if the mouse\n    is not over an Axes.\nmodifiers : frozenset\n    The keyboard modifiers currently being pressed (except for KeyEvent).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MouseButton",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MouseEvent",
+      "docstring": "A mouse event ('button_press_event', 'button_release_event', 'scroll_event', 'motion_notify_event').\n\nA MouseEvent has a number of special attributes in addition to those\ndefined by the parent `Event` and `LocationEvent` classes.\n\nAttributes\n----------\nbutton : None or `MouseButton` or {'up', 'down'}\n    The button pressed. 'up' and 'down' are used for scroll events.\n\n    Note that LEFT and RIGHT actually refer to the \"primary\" and\n    \"secondary\" buttons, i.e. if the user inverts their left and right\n    buttons (\"left-handed setting\") then the LEFT button will be the one\n    physically on the right.\n\n    If this is unset, *name* is \"scroll_event\", and *step* is nonzero, then\n    this will be set to \"up\" or \"down\" depending on the sign of *step*.\n\nbuttons : None or frozenset\n    For 'motion_notify_event', the mouse buttons currently being pressed\n    (a set of zero or more MouseButtons);\n    for other events, None.\n\n    .. note::\n       For 'motion_notify_event', this attribute is more accurate than\n       the ``button`` (singular) attribute, which is obtained from the last\n       'button_press_event' or 'button_release_event' that occurred within\n       the canvas (and thus 1. be wrong if the last change in mouse state\n       occurred when the canvas did not have focus, and 2. cannot report\n       when multiple buttons are pressed).\n\n       This attribute is not set for 'button_press_event' and\n       'button_release_event' because GUI toolkits are inconsistent as to\n       whether they report the button state *before* or *after* the\n       press/release occurred.\n\n    .. warning::\n       On macOS, the Tk backends only report a single button even if\n       multiple buttons are pressed.\n\nkey : None or str\n    The key pressed when the mouse event triggered, e.g. 'shift'.\n    See `KeyEvent`.\n\n    .. warning::\n       This key is currently obtained from the last 'key_press_event' or\n       'key_release_event' that occurred within the canvas.  Thus, if the\n       last change of keyboard state occurred while the canvas did not have\n       focus, this attribute will be wrong.  On the other hand, the\n       ``modifiers`` attribute should always be correct, but it can only\n       report on modifier keys.\n\nstep : float\n    The number of scroll steps (positive for 'up', negative for 'down').\n    This applies only to 'scroll_event' and defaults to 0 otherwise.\n\ndblclick : bool\n    Whether the event is a double-click. This applies only to\n    'button_press_event' and is False otherwise. In particular, it's\n    not used in 'button_release_event'.\n\nExamples\n--------\n::\n\n    def on_press(event):\n        print('you pressed', event.button, event.xdata, event.ydata)\n\n    cid = fig.canvas.mpl_connect('button_press_event', on_press)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PickEvent",
+      "docstring": "A pick event.\n\nThis event is fired when the user picks a location on the canvas\nsufficiently close to an artist that has been made pickable with\n`.Artist.set_picker`.\n\nA PickEvent has a number of special attributes in addition to those defined\nby the parent `Event` class.\n\nAttributes\n----------\nmouseevent : `MouseEvent`\n    The mouse event that generated the pick.\nartist : `~matplotlib.artist.Artist`\n    The picked artist.  Note that artists are not pickable by default\n    (see `.Artist.set_picker`).\nother\n    Additional attributes may be present depending on the type of the\n    picked object; e.g., a `.Line2D` pick may define different extra\n    attributes than a `.PatchCollection` pick.\n\nExamples\n--------\nBind a function ``on_pick()`` to pick events, that prints the coordinates\nof the picked data point::\n\n    ax.plot(np.rand(100), 'o', picker=5)  # 5 points tolerance\n\n    def on_pick(event):\n        line = event.artist\n        xdata, ydata = line.get_data()\n        ind = event.ind\n        print(f'on pick line: {xdata[ind]:.3f}, {ydata[ind]:.3f}')\n\n    cid = fig.canvas.mpl_connect('pick_event', on_pick)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "KeyEvent",
+      "docstring": "A key event (key press, key release).\n\nA KeyEvent has a number of special attributes in addition to those defined\nby the parent `Event` and `LocationEvent` classes.\n\nAttributes\n----------\nkey : None or str\n    The key(s) pressed. Could be *None*, a single case sensitive Unicode\n    character (\"g\", \"G\", \"#\", etc.), a special key (\"control\", \"shift\",\n    \"f1\", \"up\", etc.) or a combination of the above (e.g., \"ctrl+alt+g\",\n    \"ctrl+alt+G\").\n\nNotes\n-----\nModifier keys will be prefixed to the pressed key and will be in the order\n\"ctrl\", \"alt\", \"super\". The exception to this rule is when the pressed key\nis itself a modifier key, therefore \"ctrl+alt\" and \"alt+control\" can both\nbe valid key values.\n\nExamples\n--------\n::\n\n    def on_key(event):\n        print('you pressed', event.key, event.xdata, event.ydata)\n\n    cid = fig.canvas.mpl_connect('key_press_event', on_key)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FigureCanvasBase",
+      "docstring": "The canvas the figure renders into.\n\nAttributes\n----------\nfigure : `~matplotlib.figure.Figure`\n    A high-level figure instance.",
+      "methods": [
+        {
+          "name": "supports_blit",
+          "docstring": "If this Canvas sub-class supports blitting."
+        },
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "new_manager",
+          "docstring": "Create a new figure manager for *figure*, using this canvas class.\n\nNotes\n-----\nThis method should not be reimplemented in subclasses.  If\ncustom manager creation logic is needed, please reimplement\n``FigureManager.create_with_canvas``."
+        },
+        {
+          "name": "is_saving",
+          "docstring": "Return whether the renderer is in the process of saving\nto a file, rather than rendering for an on-screen buffer."
+        },
+        {
+          "name": "blit",
+          "docstring": "Blit the canvas in bbox (default entire canvas)."
+        },
+        {
+          "name": "inaxes",
+          "docstring": "Return the topmost visible `~.axes.Axes` containing the point *xy*.\n\nParameters\n----------\nxy : (float, float)\n    (x, y) pixel positions from left/bottom of the canvas.\n\nReturns\n-------\n`~matplotlib.axes.Axes` or None\n    The topmost visible Axes containing the point, or None if there\n    is no Axes at the point."
+        },
+        {
+          "name": "grab_mouse",
+          "docstring": "Set the child `~.axes.Axes` which is grabbing the mouse events.\n\nUsually called by the widgets themselves. It is an error to call this\nif the mouse is already grabbed by another Axes."
+        },
+        {
+          "name": "release_mouse",
+          "docstring": "Release the mouse grab held by the `~.axes.Axes` *ax*.\n\nUsually called by the widgets. It is ok to call this even if *ax*\ndoesn't have the mouse grab currently."
+        },
+        {
+          "name": "set_cursor",
+          "docstring": "Set the current cursor.\n\nThis may have no effect if the backend does not display anything.\n\nIf required by the backend, this method should trigger an update in\nthe backend event loop after the cursor is set, as this method may be\ncalled e.g. before a long-running task during which the GUI is not\nupdated.\n\nParameters\n----------\ncursor : `.Cursors`\n    The cursor to display over the canvas. Note: some backends may\n    change the cursor for the entire window."
+        },
+        {
+          "name": "draw",
+          "docstring": "Render the `.Figure`.\n\nThis method must walk the artist tree, even if no output is produced,\nbecause it triggers deferred work that users may want to access\nbefore saving output to disk. For example computing limits,\nauto-limits, and tick values."
+        },
+        {
+          "name": "draw_idle",
+          "docstring": "Request a widget redraw once control returns to the GUI event loop.\n\nEven if multiple calls to `draw_idle` occur before control returns\nto the GUI event loop, the figure will only be rendered once.\n\nNotes\n-----\nBackends may choose to override the method and implement their own\nstrategy to prevent multiple renderings."
+        },
+        {
+          "name": "device_pixel_ratio",
+          "docstring": "The ratio of physical to logical pixels used for the canvas on screen.\n\nBy default, this is 1, meaning physical and logical pixels are the same\nsize. Subclasses that support High DPI screens may set this property to\nindicate that said ratio is different. All Matplotlib interaction,\nunless working directly with the canvas, remains in logical pixels."
+        },
+        {
+          "name": "get_width_height",
+          "docstring": "Return the figure width and height in integral points or pixels.\n\nWhen the figure is used on High DPI screens (and the backend supports\nit), the truncation to integers occurs after scaling by the device\npixel ratio.\n\nParameters\n----------\nphysical : bool, default: False\n    Whether to return true physical pixels or logical pixels. Physical\n    pixels may be used by backends that support HiDPI, but still\n    configure the canvas using its actual size.\n\nReturns\n-------\nwidth, height : int\n    The size of the figure, in points or pixels, depending on the\n    backend."
+        },
+        {
+          "name": "get_supported_filetypes",
+          "docstring": "Return dict of savefig file formats supported by this backend."
+        },
+        {
+          "name": "get_supported_filetypes_grouped",
+          "docstring": "Return a dict of savefig file formats supported by this backend,\nwhere the keys are a file type name, such as 'Joint Photographic\nExperts Group', and the values are a list of filename extensions used\nfor that filetype, such as ['jpg', 'jpeg']."
+        },
+        {
+          "name": "print_figure",
+          "docstring": "Render the figure to hardcopy. Set the figure patch face and edge\ncolors.  This is useful because some of the GUIs have a gray figure\nface color background and you'll probably want to override this on\nhardcopy.\n\nParameters\n----------\nfilename : str or path-like or file-like\n    The file where the figure is saved.\n\ndpi : float, default: :rc:`savefig.dpi`\n    The dots per inch to save the figure in.\n\nfacecolor : :mpltype:`color` or 'auto', default: :rc:`savefig.facecolor`\n    The facecolor of the figure.  If 'auto', use the current figure\n    facecolor.\n\nedgecolor : :mpltype:`color` or 'auto', default: :rc:`savefig.edgecolor`\n    The edgecolor of the figure.  If 'auto', use the current figure\n    edgecolor.\n\norientation : {'landscape', 'portrait'}, default: 'portrait'\n    Only currently applies to PostScript printing.\n\nformat : str, optional\n    Force a specific file format. If not given, the format is inferred\n    from the *filename* extension, and if that fails from\n    :rc:`savefig.format`.\n\nbbox_inches : 'tight' or `.Bbox`, default: :rc:`savefig.bbox`\n    Bounding box in inches: only the given portion of the figure is\n    saved.  If 'tight', try to figure out the tight bbox of the figure.\n\npad_inches : float or 'layout', default: :rc:`savefig.pad_inches`\n    Amount of padding in inches around the figure when bbox_inches is\n    'tight'. If 'layout' use the padding from the constrained or\n    compressed layout engine; ignored if one of those engines is not in\n    use.\n\nbbox_extra_artists : list of `~matplotlib.artist.Artist`, optional\n    A list of extra artists that will be considered when the\n    tight bbox is calculated.\n\nbackend : str, optional\n    Use a non-default backend to render the file, e.g. to render a\n    png file with the \"cairo\" backend rather than the default \"agg\",\n    or a pdf file with the \"pgf\" backend rather than the default\n    \"pdf\".  Note that the default backend is normally sufficient.  See\n    :ref:`the-builtin-backends` for a list of valid backends for each\n    file format.  Custom backends can be referenced as \"module://...\"."
+        },
+        {
+          "name": "get_default_filetype",
+          "docstring": "Return the default savefig file format as specified in\n:rc:`savefig.format`.\n\nThe returned string does not include a period. This method is\noverridden in backends that only support a single file type."
+        },
+        {
+          "name": "get_default_filename",
+          "docstring": "Return a suitable default filename, including the extension."
+        },
+        {
+          "name": "mpl_connect",
+          "docstring": "Bind function *func* to event *s*.\n\nParameters\n----------\ns : str\n    One of the following events ids:\n\n    - 'button_press_event'\n    - 'button_release_event'\n    - 'draw_event'\n    - 'key_press_event'\n    - 'key_release_event'\n    - 'motion_notify_event'\n    - 'pick_event'\n    - 'resize_event'\n    - 'scroll_event'\n    - 'figure_enter_event',\n    - 'figure_leave_event',\n    - 'axes_enter_event',\n    - 'axes_leave_event'\n    - 'close_event'.\n\nfunc : callable\n    The callback function to be executed, which must have the\n    signature::\n\n        def func(event: Event) -> Any\n\n    For the location events (button and key press/release), if the\n    mouse is over the Axes, the ``inaxes`` attribute of the event will\n    be set to the `~matplotlib.axes.Axes` the event occurs is over, and\n    additionally, the variables ``xdata`` and ``ydata`` attributes will\n    be set to the mouse location in data coordinates.  See `.KeyEvent`\n    and `.MouseEvent` for more info.\n\n    .. note::\n\n        If func is a method, this only stores a weak reference to the\n        method. Thus, the figure does not influence the lifetime of\n        the associated object. Usually, you want to make sure that the\n        object is kept alive throughout the lifetime of the figure by\n        holding a reference to it.\n\nReturns\n-------\ncid\n    A connection id that can be used with\n    `.FigureCanvasBase.mpl_disconnect`.\n\nExamples\n--------\n::\n\n    def on_press(event):\n        print('you pressed', event.button, event.xdata, event.ydata)\n\n    cid = canvas.mpl_connect('button_press_event', on_press)"
+        },
+        {
+          "name": "mpl_disconnect",
+          "docstring": "Disconnect the callback with id *cid*.\n\nExamples\n--------\n::\n\n    cid = canvas.mpl_connect('button_press_event', on_press)\n    # ... later\n    canvas.mpl_disconnect(cid)"
+        },
+        {
+          "name": "new_timer",
+          "docstring": "Create a new backend-specific subclass of `.Timer`.\n\nThis is useful for getting periodic events through the backend's native\nevent loop.  Implemented only for backends with GUIs.\n\nParameters\n----------\ninterval : int\n    Timer interval in milliseconds.\n\ncallbacks : list[tuple[callable, tuple, dict]]\n    Sequence of (func, args, kwargs) where ``func(*args, **kwargs)``\n    will be executed by the timer every *interval*.\n\n    Callbacks which return ``False`` or ``0`` will be removed from the\n    timer.\n\nExamples\n--------\n>>> timer = fig.canvas.new_timer(callbacks=[(f1, (1,), {'a': 3})])"
+        },
+        {
+          "name": "flush_events",
+          "docstring": "Flush the GUI events for the figure.\n\nInteractive backends need to reimplement this method."
+        },
+        {
+          "name": "start_event_loop",
+          "docstring": "Start a blocking event loop.\n\nSuch an event loop is used by interactive functions, such as\n`~.Figure.ginput` and `~.Figure.waitforbuttonpress`, to wait for\nevents.\n\nThe event loop blocks until a callback function triggers\n`stop_event_loop`, or *timeout* is reached.\n\nIf *timeout* is 0 or negative, never timeout.\n\nOnly interactive backends need to reimplement this method and it relies\non `flush_events` being properly implemented.\n\nInteractive backends should implement this in a more native way."
+        },
+        {
+          "name": "stop_event_loop",
+          "docstring": "Stop the current blocking event loop.\n\nInteractive backends need to reimplement this to match\n`start_event_loop`"
+        }
+      ]
+    },
+    {
+      "name": "NonGuiException",
+      "docstring": "Raised when trying show a figure in a non-GUI backend.",
+      "methods": []
+    },
+    {
+      "name": "FigureManagerBase",
+      "docstring": "A backend-independent abstraction of a figure container and controller.\n\nThe figure manager is used by pyplot to interact with the window in a\nbackend-independent way. It's an adapter for the real (GUI) framework that\nrepresents the visual figure on screen.\n\nThe figure manager is connected to a specific canvas instance, which in turn\nis connected to a specific figure instance. To access a figure manager for\na given figure in user code, you typically use ``fig.canvas.manager``.\n\nGUI backends derive from this class to translate common operations such\nas *show* or *resize* to the GUI-specific code. Non-GUI backends do not\nsupport these operations and can just use the base class.\n\nThis following basic operations are accessible:\n\n**Window operations**\n\n- `~.FigureManagerBase.show`\n- `~.FigureManagerBase.destroy`\n- `~.FigureManagerBase.full_screen_toggle`\n- `~.FigureManagerBase.resize`\n- `~.FigureManagerBase.get_window_title`\n- `~.FigureManagerBase.set_window_title`\n\n**Key and mouse button press handling**\n\nThe figure manager sets up default key and mouse button press handling by\nhooking up the `.key_press_handler` to the matplotlib event system. This\nensures the same shortcuts and mouse actions across backends.\n\n**Other operations**\n\nSubclasses will have additional attributes and functions to access\nadditional functionality. This is of course backend-specific. For example,\nmost GUI backends have ``window`` and ``toolbar`` attributes that give\naccess to the native GUI widgets of the respective framework.\n\nAttributes\n----------\ncanvas : `FigureCanvasBase`\n    The backend-specific canvas instance.\n\nnum : int or str\n    The figure number.\n\nkey_press_handler_id : int\n    The default key handler cid, when using the toolmanager.\n    To disable the default key press handling use::\n\n        figure.canvas.mpl_disconnect(\n            figure.canvas.manager.key_press_handler_id)\n\nbutton_press_handler_id : int\n    The default mouse button handler cid, when using the toolmanager.\n    To disable the default button press handling use::\n\n        figure.canvas.mpl_disconnect(\n            figure.canvas.manager.button_press_handler_id)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "create_with_canvas",
+          "docstring": "Create a manager for a given *figure* using a specific *canvas_class*.\n\nBackends should override this method if they have specific needs for\nsetting up the canvas or the manager."
+        },
+        {
+          "name": "start_main_loop",
+          "docstring": "Start the main event loop.\n\nThis method is called by `.FigureManagerBase.pyplot_show`, which is the\nimplementation of `.pyplot.show`.  To customize the behavior of\n`.pyplot.show`, interactive backends should usually override\n`~.FigureManagerBase.start_main_loop`; if more customized logic is\nnecessary, `~.FigureManagerBase.pyplot_show` can also be overridden."
+        },
+        {
+          "name": "pyplot_show",
+          "docstring": "Show all figures.  This method is the implementation of `.pyplot.show`.\n\nTo customize the behavior of `.pyplot.show`, interactive backends\nshould usually override `~.FigureManagerBase.start_main_loop`; if more\ncustomized logic is necessary, `~.FigureManagerBase.pyplot_show` can\nalso be overridden.\n\nParameters\n----------\nblock : bool, optional\n    Whether to block by calling ``start_main_loop``.  The default,\n    None, means to block if we are neither in IPython's ``%pylab`` mode\n    nor in ``interactive`` mode."
+        },
+        {
+          "name": "show",
+          "docstring": "For GUI backends, show the figure window and redraw.\nFor non-GUI backends, raise an exception, unless running headless (i.e.\non Linux with an unset DISPLAY); this exception is converted to a\nwarning in `.Figure.show`."
+        },
+        {
+          "name": "destroy",
+          "docstring": null
+        },
+        {
+          "name": "full_screen_toggle",
+          "docstring": null
+        },
+        {
+          "name": "resize",
+          "docstring": "For GUI backends, resize the window (in physical pixels)."
+        },
+        {
+          "name": "get_window_title",
+          "docstring": "Return the title text of the window containing the figure."
+        },
+        {
+          "name": "set_window_title",
+          "docstring": "Set the title text of the window containing the figure.\n\nExamples\n--------\n>>> fig = plt.figure()\n>>> fig.canvas.manager.set_window_title('My figure')"
+        }
+      ]
+    },
+    {
+      "name": "_Mode",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "NavigationToolbar2",
+      "docstring": "Base class for the navigation cursor, version 2.\n\nBackends must implement a canvas that handles connections for\n'button_press_event' and 'button_release_event'.  See\n:meth:`FigureCanvasBase.mpl_connect` for more information.\n\nThey must also define\n\n:meth:`save_figure`\n    Save the current figure.\n\n:meth:`draw_rubberband` (optional)\n    Draw the zoom to rect \"rubberband\" rectangle.\n\n:meth:`set_message` (optional)\n    Display message.\n\n:meth:`set_history_buttons` (optional)\n    You can change the history back / forward buttons to indicate disabled / enabled\n    state.\n\nand override ``__init__`` to set up the toolbar -- without forgetting to\ncall the base-class init.  Typically, ``__init__`` needs to set up toolbar\nbuttons connected to the `home`, `back`, `forward`, `pan`, `zoom`, and\n`save_figure` methods and using standard icons in the \"images\" subdirectory\nof the data path.\n\nThat's it, we'll do the rest!",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_message",
+          "docstring": "Display a message on toolbar or in status bar."
+        },
+        {
+          "name": "draw_rubberband",
+          "docstring": "Draw a rectangle rubberband to indicate zoom limits.\n\nNote that it is not guaranteed that ``x0 <= x1`` and ``y0 <= y1``."
+        },
+        {
+          "name": "remove_rubberband",
+          "docstring": "Remove the rubberband."
+        },
+        {
+          "name": "home",
+          "docstring": "Restore the original view.\n\nFor convenience of being directly connected as a GUI callback, which\noften get passed additional parameters, this method accepts arbitrary\nparameters, but does not use them."
+        },
+        {
+          "name": "back",
+          "docstring": "Move back up the view lim stack.\n\nFor convenience of being directly connected as a GUI callback, which\noften get passed additional parameters, this method accepts arbitrary\nparameters, but does not use them."
+        },
+        {
+          "name": "forward",
+          "docstring": "Move forward in the view lim stack.\n\nFor convenience of being directly connected as a GUI callback, which\noften get passed additional parameters, this method accepts arbitrary\nparameters, but does not use them."
+        },
+        {
+          "name": "mouse_move",
+          "docstring": null
+        },
+        {
+          "name": "pan",
+          "docstring": "Toggle the pan/zoom tool.\n\nPan with left button, zoom with right."
+        },
+        {
+          "name": "press_pan",
+          "docstring": "Callback for mouse button press in pan/zoom mode."
+        },
+        {
+          "name": "drag_pan",
+          "docstring": "Callback for dragging in pan/zoom mode."
+        },
+        {
+          "name": "release_pan",
+          "docstring": "Callback for mouse button release in pan/zoom mode."
+        },
+        {
+          "name": "zoom",
+          "docstring": null
+        },
+        {
+          "name": "press_zoom",
+          "docstring": "Callback for mouse button press in zoom to rect mode."
+        },
+        {
+          "name": "drag_zoom",
+          "docstring": "Callback for dragging in zoom mode."
+        },
+        {
+          "name": "release_zoom",
+          "docstring": "Callback for mouse button release in zoom to rect mode."
+        },
+        {
+          "name": "push_current",
+          "docstring": "Push the current view limits and position onto the stack."
+        },
+        {
+          "name": "configure_subplots",
+          "docstring": null
+        },
+        {
+          "name": "save_figure",
+          "docstring": "Save the current figure.\n\nBackend implementations may choose to return\nthe absolute path of the saved file, if any, as\na string.\n\nIf no file is created then `None` is returned.\n\nIf the backend does not implement this functionality\nthen `NavigationToolbar2.UNKNOWN_SAVED_STATUS` is returned.\n\nReturns\n-------\nstr or `NavigationToolbar2.UNKNOWN_SAVED_STATUS` or `None`\n    The filepath of the saved figure.\n    Returns `None` if figure is not saved.\n    Returns `NavigationToolbar2.UNKNOWN_SAVED_STATUS` when\n    the backend does not provide the information."
+        },
+        {
+          "name": "update",
+          "docstring": "Reset the Axes stack."
+        },
+        {
+          "name": "set_history_buttons",
+          "docstring": "Enable or disable the back/forward button."
+        }
+      ]
+    },
+    {
+      "name": "ToolContainerBase",
+      "docstring": "Base class for all tool containers, e.g. toolbars.\n\nAttributes\n----------\ntoolmanager : `.ToolManager`\n    The tools with which this `ToolContainer` wants to communicate.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "add_tool",
+          "docstring": "Add a tool to this container.\n\nParameters\n----------\ntool : tool_like\n    The tool to add, see `.ToolManager.get_tool`.\ngroup : str\n    The name of the group to add this tool to.\nposition : int, default: -1\n    The position within the group to place this tool."
+        },
+        {
+          "name": "trigger_tool",
+          "docstring": "Trigger the tool.\n\nParameters\n----------\nname : str\n    Name (id) of the tool triggered from within the container."
+        },
+        {
+          "name": "add_toolitem",
+          "docstring": "A hook to add a toolitem to the container.\n\nThis hook must be implemented in each backend and contains the\nbackend-specific code to add an element to the toolbar.\n\n.. warning::\n    This is part of the backend implementation and should\n    not be called by end-users.  They should instead call\n    `.ToolContainerBase.add_tool`.\n\nThe callback associated with the button click event\nmust be *exactly* ``self.trigger_tool(name)``.\n\nParameters\n----------\nname : str\n    Name of the tool to add, this gets used as the tool's ID and as the\n    default label of the buttons.\ngroup : str\n    Name of the group that this tool belongs to.\nposition : int\n    Position of the tool within its group, if -1 it goes at the end.\nimage : str\n    Filename of the image for the button or `None`.\ndescription : str\n    Description of the tool, used for the tooltips.\ntoggle : bool\n    * `True` : The button is a toggle (change the pressed/unpressed\n      state between consecutive clicks).\n    * `False` : The button is a normal button (returns to unpressed\n      state after release)."
+        },
+        {
+          "name": "toggle_toolitem",
+          "docstring": "A hook to toggle a toolitem without firing an event.\n\nThis hook must be implemented in each backend and contains the\nbackend-specific code to silently toggle a toolbar element.\n\n.. warning::\n    This is part of the backend implementation and should\n    not be called by end-users.  They should instead call\n    `.ToolManager.trigger_tool` or `.ToolContainerBase.trigger_tool`\n    (which are equivalent).\n\nParameters\n----------\nname : str\n    Id of the tool to toggle.\ntoggled : bool\n    Whether to set this tool as toggled or not."
+        },
+        {
+          "name": "remove_toolitem",
+          "docstring": "A hook to remove a toolitem from the container.\n\nThis hook must be implemented in each backend and contains the\nbackend-specific code to remove an element from the toolbar; it is\ncalled when `.ToolManager` emits a ``tool_removed_event``.\n\nBecause some tools are present only on the `.ToolManager` but not on\nthe `ToolContainer`, this method must be a no-op when called on a tool\nabsent from the container.\n\n.. warning::\n    This is part of the backend implementation and should\n    not be called by end-users.  They should instead call\n    `.ToolManager.remove_tool`.\n\nParameters\n----------\nname : str\n    Name of the tool to remove."
+        },
+        {
+          "name": "set_message",
+          "docstring": "Display a message on the toolbar.\n\nParameters\n----------\ns : str\n    Message text."
+        }
+      ]
+    },
+    {
+      "name": "_Backend",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "new_figure_manager",
+          "docstring": "Create a new figure manager instance."
+        },
+        {
+          "name": "new_figure_manager_given_figure",
+          "docstring": "Create a new figure manager instance for the given figure."
+        },
+        {
+          "name": "draw_if_interactive",
+          "docstring": null
+        },
+        {
+          "name": "show",
+          "docstring": "Show all figures.\n\n`show` blocks by calling `mainloop` if *block* is ``True``, or if it is\n``None`` and we are not in `interactive` mode and if IPython's\n``%matplotlib`` integration has not been activated."
+        },
+        {
+          "name": "export",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ShowBase",
+      "docstring": "Simple base class to generate a ``show()`` function in backends.\n\nSubclass must override ``mainloop()`` method.",
+      "methods": []
+    },
+    {
+      "name": "Done",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Show",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "mainloop",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "register_backend",
+      "docstring": "Register a backend for saving to a given file format.\n\nParameters\n----------\nformat : str\n    File extension\nbackend : module string or canvas class\n    Backend for handling file output\ndescription : str, default: \"\"\n    Description of the file type."
+    },
+    {
+      "name": "get_registered_canvas_class",
+      "docstring": "Return the registered default canvas for given file format.\nHandles deferred import of required backend."
+    },
+    {
+      "name": "key_press_handler",
+      "docstring": "Implement the default Matplotlib key bindings for the canvas and toolbar\ndescribed at :ref:`key-event-handling`.\n\nParameters\n----------\nevent : `KeyEvent`\n    A key press/release event.\ncanvas : `FigureCanvasBase`, default: ``event.canvas``\n    The backend-specific canvas instance.  This parameter is kept for\n    back-compatibility, but, if set, should always be equal to\n    ``event.canvas``.\ntoolbar : `NavigationToolbar2`, default: ``event.canvas.toolbar``\n    The navigation cursor toolbar.  This parameter is kept for\n    back-compatibility, but, if set, should always be equal to\n    ``event.canvas.toolbar``."
+    },
+    {
+      "name": "button_press_handler",
+      "docstring": "The default Matplotlib button actions for extra mouse buttons.\n\nParameters are as for `key_press_handler`, except that *event* is a\n`MouseEvent`."
+    },
+    {
+      "name": "open_group",
+      "docstring": "Open a grouping element with label *s* and *gid* (if set) as id.\n\nOnly used by the SVG renderer."
+    },
+    {
+      "name": "close_group",
+      "docstring": "Close a grouping element with label *s*.\n\nOnly used by the SVG renderer."
+    },
+    {
+      "name": "draw_path",
+      "docstring": "Draw a `~.path.Path` instance using the given affine transform."
+    },
+    {
+      "name": "draw_markers",
+      "docstring": "Draw a marker at each of *path*'s vertices (excluding control points).\n\nThe base (fallback) implementation makes multiple calls to `draw_path`.\nBackends may want to override this method in order to draw the marker\nonly once and reuse it multiple times.\n\nParameters\n----------\ngc : `.GraphicsContextBase`\n    The graphics context.\nmarker_path : `~matplotlib.path.Path`\n    The path for the marker.\nmarker_trans : `~matplotlib.transforms.Transform`\n    An affine transform applied to the marker.\npath : `~matplotlib.path.Path`\n    The locations to draw the markers.\ntrans : `~matplotlib.transforms.Transform`\n    An affine transform applied to the path.\nrgbFace : :mpltype:`color`, optional"
+    },
+    {
+      "name": "draw_path_collection",
+      "docstring": "Draw a collection of *paths*.\n\nEach path is first transformed by the corresponding entry\nin *all_transforms* (a list of (3, 3) matrices) and then by\n*master_transform*.  They are then translated by the corresponding\nentry in *offsets*, which has been first transformed by *offset_trans*.\n\n*facecolors*, *edgecolors*, *linewidths*, *linestyles*, and\n*antialiased* are lists that set the corresponding properties.\n\n*offset_position* is unused now, but the argument is kept for\nbackwards compatibility.\n\nThe base (fallback) implementation makes multiple calls to `draw_path`.\nBackends may want to override this in order to render each set of\npath data only once, and then reference that path multiple times with\nthe different offsets, colors, styles etc.  The generator methods\n`_iter_collection_raw_paths` and `_iter_collection` are provided to\nhelp with (and standardize) the implementation across backends.  It\nis highly recommended to use those generators, so that changes to the\nbehavior of `draw_path_collection` can be made globally."
+    },
+    {
+      "name": "draw_quad_mesh",
+      "docstring": "Draw a quadmesh.\n\nThe base (fallback) implementation converts the quadmesh to paths and\nthen calls `draw_path_collection`."
+    },
+    {
+      "name": "draw_gouraud_triangles",
+      "docstring": "Draw a series of Gouraud triangles.\n\nParameters\n----------\ngc : `.GraphicsContextBase`\n    The graphics context.\ntriangles_array : (N, 3, 2) array-like\n    Array of *N* (x, y) points for the triangles.\ncolors_array : (N, 3, 4) array-like\n    Array of *N* RGBA colors for each point of the triangles.\ntransform : `~matplotlib.transforms.Transform`\n    An affine transform to apply to the points."
+    },
+    {
+      "name": "get_image_magnification",
+      "docstring": "Get the factor by which to magnify images passed to `draw_image`.\nAllows a backend to have images at a different resolution to other\nartists."
+    },
+    {
+      "name": "draw_image",
+      "docstring": "Draw an RGBA image.\n\nParameters\n----------\ngc : `.GraphicsContextBase`\n    A graphics context with clipping information.\n\nx : float\n    The distance in physical units (i.e., dots or pixels) from the left\n    hand side of the canvas.\n\ny : float\n    The distance in physical units (i.e., dots or pixels) from the\n    bottom side of the canvas.\n\nim : (N, M, 4) array of `numpy.uint8`\n    An array of RGBA pixels.\n\ntransform : `~matplotlib.transforms.Affine2DBase`\n    If and only if the concrete backend is written such that\n    `option_scale_image` returns ``True``, an affine transformation\n    (i.e., an `.Affine2DBase`) *may* be passed to `draw_image`.  The\n    translation vector of the transformation is given in physical units\n    (i.e., dots or pixels). Note that the transformation does not\n    override *x* and *y*, and has to be applied *before* translating\n    the result by *x* and *y* (this can be accomplished by adding *x*\n    and *y* to the translation vector defined by *transform*)."
+    },
+    {
+      "name": "option_image_nocomposite",
+      "docstring": "Return whether image composition by Matplotlib should be skipped.\n\nRaster backends should usually return False (letting the C-level\nrasterizer take care of image composition); vector backends should\nusually return ``not rcParams[\"image.composite_image\"]``."
+    },
+    {
+      "name": "option_scale_image",
+      "docstring": "Return whether arbitrary affine transformations in `draw_image` are\nsupported (True for most vector backends)."
+    },
+    {
+      "name": "draw_tex",
+      "docstring": "Draw a TeX instance.\n\nParameters\n----------\ngc : `.GraphicsContextBase`\n    The graphics context.\nx : float\n    The x location of the text in display coords.\ny : float\n    The y location of the text baseline in display coords.\ns : str\n    The TeX text string.\nprop : `~matplotlib.font_manager.FontProperties`\n    The font properties.\nangle : float\n    The rotation angle in degrees anti-clockwise.\nmtext : `~matplotlib.text.Text`\n    The original text object to be rendered."
+    },
+    {
+      "name": "draw_text",
+      "docstring": "Draw a text instance.\n\nParameters\n----------\ngc : `.GraphicsContextBase`\n    The graphics context.\nx : float\n    The x location of the text in display coords.\ny : float\n    The y location of the text baseline in display coords.\ns : str\n    The text string.\nprop : `~matplotlib.font_manager.FontProperties`\n    The font properties.\nangle : float\n    The rotation angle in degrees anti-clockwise.\nismath : bool or \"TeX\"\n    If True, use mathtext parser.\nmtext : `~matplotlib.text.Text`\n    The original text object to be rendered.\n\nNotes\n-----\n**Notes for backend implementers:**\n\n`.RendererBase.draw_text` also supports passing \"TeX\" to the *ismath*\nparameter to use TeX rendering, but this is not required for actual\nrendering backends, and indeed many builtin backends do not support\nthis.  Rather, TeX rendering is provided by `~.RendererBase.draw_tex`."
+    },
+    {
+      "name": "get_text_width_height_descent",
+      "docstring": "Get the width, height, and descent (offset from the bottom to the baseline), in\ndisplay coords, of the string *s* with `.FontProperties` *prop*.\n\nWhitespace at the start and the end of *s* is included in the reported width."
+    },
+    {
+      "name": "flipy",
+      "docstring": "Return whether y values increase from top to bottom.\n\nNote that this only affects drawing of texts."
+    },
+    {
+      "name": "get_canvas_width_height",
+      "docstring": "Return the canvas width and height in display coords."
+    },
+    {
+      "name": "get_texmanager",
+      "docstring": "Return the `.TexManager` instance."
+    },
+    {
+      "name": "new_gc",
+      "docstring": "Return an instance of a `.GraphicsContextBase`."
+    },
+    {
+      "name": "points_to_pixels",
+      "docstring": "Convert points to display units.\n\nYou need to override this function (unless your backend\ndoesn't have a dpi, e.g., postscript or svg).  Some imaging\nsystems assume some value for pixels per inch::\n\n    points to pixels = points * pixels_per_inch/72 * dpi/72\n\nParameters\n----------\npoints : float or array-like\n\nReturns\n-------\nPoints converted to pixels"
+    },
+    {
+      "name": "start_rasterizing",
+      "docstring": "Switch to the raster renderer.\n\nUsed by `.MixedModeRenderer`."
+    },
+    {
+      "name": "stop_rasterizing",
+      "docstring": "Switch back to the vector renderer and draw the contents of the raster\nrenderer as an image on the vector renderer.\n\nUsed by `.MixedModeRenderer`."
+    },
+    {
+      "name": "start_filter",
+      "docstring": "Switch to a temporary renderer for image filtering effects.\n\nCurrently only supported by the agg renderer."
+    },
+    {
+      "name": "stop_filter",
+      "docstring": "Switch back to the original renderer.  The contents of the temporary\nrenderer is processed with the *filter_func* and is drawn on the\noriginal renderer as an image.\n\nCurrently only supported by the agg renderer."
+    },
+    {
+      "name": "copy_properties",
+      "docstring": "Copy properties from *gc* to self."
+    },
+    {
+      "name": "restore",
+      "docstring": "Restore the graphics context from the stack - needed only\nfor backends that save graphics contexts on a stack."
+    },
+    {
+      "name": "get_alpha",
+      "docstring": "Return the alpha value used for blending - not supported on all\nbackends."
+    },
+    {
+      "name": "get_antialiased",
+      "docstring": "Return whether the object should try to do antialiased rendering."
+    },
+    {
+      "name": "get_capstyle",
+      "docstring": "Return the `.CapStyle`."
+    },
+    {
+      "name": "get_clip_rectangle",
+      "docstring": "Return the clip rectangle as a `~matplotlib.transforms.Bbox` instance."
+    },
+    {
+      "name": "get_clip_path",
+      "docstring": "Return the clip path in the form (path, transform), where path\nis a `~.path.Path` instance, and transform is\nan affine transform to apply to the path before clipping."
+    },
+    {
+      "name": "get_dashes",
+      "docstring": "Return the dash style as an (offset, dash-list) pair.\n\nSee `.set_dashes` for details.\n\nDefault value is (None, None)."
+    },
+    {
+      "name": "get_forced_alpha",
+      "docstring": "Return whether the value given by get_alpha() should be used to\noverride any other alpha-channel values."
+    },
+    {
+      "name": "get_joinstyle",
+      "docstring": "Return the `.JoinStyle`."
+    },
+    {
+      "name": "get_linewidth",
+      "docstring": "Return the line width in points."
+    },
+    {
+      "name": "get_rgb",
+      "docstring": "Return a tuple of three or four floats from 0-1."
+    },
+    {
+      "name": "get_url",
+      "docstring": "Return a url if one is set, None otherwise."
+    },
+    {
+      "name": "get_gid",
+      "docstring": "Return the object identifier if one is set, None otherwise."
+    },
+    {
+      "name": "get_snap",
+      "docstring": "Return the snap setting, which can be:\n\n* True: snap vertices to the nearest pixel center\n* False: leave vertices as-is\n* None: (auto) If the path contains only rectilinear line segments,\n  round to the nearest pixel center"
+    },
+    {
+      "name": "set_alpha",
+      "docstring": "Set the alpha value used for blending - not supported on all backends.\n\nIf ``alpha=None`` (the default), the alpha components of the\nforeground and fill colors will be used to set their respective\ntransparencies (where applicable); otherwise, ``alpha`` will override\nthem."
+    },
+    {
+      "name": "set_antialiased",
+      "docstring": "Set whether object should be drawn with antialiased rendering."
+    },
+    {
+      "name": "set_capstyle",
+      "docstring": "Set how to draw endpoints of lines.\n\nParameters\n----------\ncs : `.CapStyle` or %(CapStyle)s"
+    },
+    {
+      "name": "set_clip_rectangle",
+      "docstring": "Set the clip rectangle to a `.Bbox` or None."
+    },
+    {
+      "name": "set_clip_path",
+      "docstring": "Set the clip path to a `.TransformedPath` or None."
+    },
+    {
+      "name": "set_dashes",
+      "docstring": "Set the dash style for the gc.\n\nParameters\n----------\ndash_offset : float\n    Distance, in points, into the dash pattern at which to\n    start the pattern. It is usually set to 0.\ndash_list : array-like or None\n    The on-off sequence as points.  None specifies a solid line. All\n    values must otherwise be non-negative (:math:`\\ge 0`).\n\nNotes\n-----\nSee p. 666 of the PostScript\n`Language Reference\n<https://www.adobe.com/jp/print/postscript/pdfs/PLRM.pdf>`_\nfor more info."
+    },
+    {
+      "name": "set_foreground",
+      "docstring": "Set the foreground color.\n\nParameters\n----------\nfg : :mpltype:`color`\nisRGBA : bool\n    If *fg* is known to be an ``(r, g, b, a)`` tuple, *isRGBA* can be\n    set to True to improve performance."
+    },
+    {
+      "name": "set_joinstyle",
+      "docstring": "Set how to draw connections between line segments.\n\nParameters\n----------\njs : `.JoinStyle` or %(JoinStyle)s"
+    },
+    {
+      "name": "set_linewidth",
+      "docstring": "Set the linewidth in points."
+    },
+    {
+      "name": "set_url",
+      "docstring": "Set the url for links in compatible backends."
+    },
+    {
+      "name": "set_gid",
+      "docstring": "Set the id."
+    },
+    {
+      "name": "set_snap",
+      "docstring": "Set the snap setting which may be:\n\n* True: snap vertices to the nearest pixel center\n* False: leave vertices as-is\n* None: (auto) If the path contains only rectilinear line segments,\n  round to the nearest pixel center"
+    },
+    {
+      "name": "set_hatch",
+      "docstring": "Set the hatch style (for fills)."
+    },
+    {
+      "name": "get_hatch",
+      "docstring": "Get the current hatch style."
+    },
+    {
+      "name": "get_hatch_path",
+      "docstring": "Return a `.Path` for the current hatch."
+    },
+    {
+      "name": "get_hatch_color",
+      "docstring": "Get the hatch color."
+    },
+    {
+      "name": "set_hatch_color",
+      "docstring": "Set the hatch color."
+    },
+    {
+      "name": "get_hatch_linewidth",
+      "docstring": "Get the hatch linewidth."
+    },
+    {
+      "name": "set_hatch_linewidth",
+      "docstring": "Set the hatch linewidth."
+    },
+    {
+      "name": "get_sketch_params",
+      "docstring": "Return the sketch parameters for the artist.\n\nReturns\n-------\ntuple or `None`\n\n    A 3-tuple with the following elements:\n\n    * ``scale``: The amplitude of the wiggle perpendicular to the\n      source line.\n    * ``length``: The length of the wiggle along the line.\n    * ``randomness``: The scale factor by which the length is\n      shrunken or expanded.\n\n    May return `None` if no sketch parameters were set."
+    },
+    {
+      "name": "set_sketch_params",
+      "docstring": "Set the sketch parameters.\n\nParameters\n----------\nscale : float, optional\n    The amplitude of the wiggle perpendicular to the source line, in\n    pixels.  If scale is `None`, or not provided, no sketch filter will\n    be provided.\nlength : float, default: 128\n    The length of the wiggle along the line, in pixels.\nrandomness : float, default: 16\n    The scale factor by which the length is shrunken or expanded."
+    },
+    {
+      "name": "start",
+      "docstring": "Start the timer object.\n\nParameters\n----------\ninterval : int, optional\n    Timer interval in milliseconds; overrides a previously set interval\n    if provided."
+    },
+    {
+      "name": "stop",
+      "docstring": "Stop the timer."
+    },
+    {
+      "name": "interval",
+      "docstring": "The time between timer events, in milliseconds."
+    },
+    {
+      "name": "interval",
+      "docstring": null
+    },
+    {
+      "name": "single_shot",
+      "docstring": "Whether this timer should stop after a single run."
+    },
+    {
+      "name": "single_shot",
+      "docstring": null
+    },
+    {
+      "name": "add_callback",
+      "docstring": "Register *func* to be called by timer when the event fires. Any\nadditional arguments provided will be passed to *func*.\n\nThis function returns *func*, which makes it possible to use it as a\ndecorator."
+    },
+    {
+      "name": "remove_callback",
+      "docstring": "Remove *func* from list of callbacks.\n\n*args* and *kwargs* are optional and used to distinguish between copies\nof the same function registered to be called with different arguments.\nThis behavior is deprecated.  In the future, ``*args, **kwargs`` won't\nbe considered anymore; to keep a specific callback removable by itself,\npass it to `add_callback` as a `functools.partial` object."
+    },
+    {
+      "name": "save_args_and_handle_sigint",
+      "docstring": null
+    },
+    {
+      "name": "supports_blit",
+      "docstring": "If this Canvas sub-class supports blitting."
+    },
+    {
+      "name": "new_manager",
+      "docstring": "Create a new figure manager for *figure*, using this canvas class.\n\nNotes\n-----\nThis method should not be reimplemented in subclasses.  If\ncustom manager creation logic is needed, please reimplement\n``FigureManager.create_with_canvas``."
+    },
+    {
+      "name": "is_saving",
+      "docstring": "Return whether the renderer is in the process of saving\nto a file, rather than rendering for an on-screen buffer."
+    },
+    {
+      "name": "blit",
+      "docstring": "Blit the canvas in bbox (default entire canvas)."
+    },
+    {
+      "name": "inaxes",
+      "docstring": "Return the topmost visible `~.axes.Axes` containing the point *xy*.\n\nParameters\n----------\nxy : (float, float)\n    (x, y) pixel positions from left/bottom of the canvas.\n\nReturns\n-------\n`~matplotlib.axes.Axes` or None\n    The topmost visible Axes containing the point, or None if there\n    is no Axes at the point."
+    },
+    {
+      "name": "grab_mouse",
+      "docstring": "Set the child `~.axes.Axes` which is grabbing the mouse events.\n\nUsually called by the widgets themselves. It is an error to call this\nif the mouse is already grabbed by another Axes."
+    },
+    {
+      "name": "release_mouse",
+      "docstring": "Release the mouse grab held by the `~.axes.Axes` *ax*.\n\nUsually called by the widgets. It is ok to call this even if *ax*\ndoesn't have the mouse grab currently."
+    },
+    {
+      "name": "set_cursor",
+      "docstring": "Set the current cursor.\n\nThis may have no effect if the backend does not display anything.\n\nIf required by the backend, this method should trigger an update in\nthe backend event loop after the cursor is set, as this method may be\ncalled e.g. before a long-running task during which the GUI is not\nupdated.\n\nParameters\n----------\ncursor : `.Cursors`\n    The cursor to display over the canvas. Note: some backends may\n    change the cursor for the entire window."
+    },
+    {
+      "name": "draw",
+      "docstring": "Render the `.Figure`.\n\nThis method must walk the artist tree, even if no output is produced,\nbecause it triggers deferred work that users may want to access\nbefore saving output to disk. For example computing limits,\nauto-limits, and tick values."
+    },
+    {
+      "name": "draw_idle",
+      "docstring": "Request a widget redraw once control returns to the GUI event loop.\n\nEven if multiple calls to `draw_idle` occur before control returns\nto the GUI event loop, the figure will only be rendered once.\n\nNotes\n-----\nBackends may choose to override the method and implement their own\nstrategy to prevent multiple renderings."
+    },
+    {
+      "name": "device_pixel_ratio",
+      "docstring": "The ratio of physical to logical pixels used for the canvas on screen.\n\nBy default, this is 1, meaning physical and logical pixels are the same\nsize. Subclasses that support High DPI screens may set this property to\nindicate that said ratio is different. All Matplotlib interaction,\nunless working directly with the canvas, remains in logical pixels."
+    },
+    {
+      "name": "get_width_height",
+      "docstring": "Return the figure width and height in integral points or pixels.\n\nWhen the figure is used on High DPI screens (and the backend supports\nit), the truncation to integers occurs after scaling by the device\npixel ratio.\n\nParameters\n----------\nphysical : bool, default: False\n    Whether to return true physical pixels or logical pixels. Physical\n    pixels may be used by backends that support HiDPI, but still\n    configure the canvas using its actual size.\n\nReturns\n-------\nwidth, height : int\n    The size of the figure, in points or pixels, depending on the\n    backend."
+    },
+    {
+      "name": "get_supported_filetypes",
+      "docstring": "Return dict of savefig file formats supported by this backend."
+    },
+    {
+      "name": "get_supported_filetypes_grouped",
+      "docstring": "Return a dict of savefig file formats supported by this backend,\nwhere the keys are a file type name, such as 'Joint Photographic\nExperts Group', and the values are a list of filename extensions used\nfor that filetype, such as ['jpg', 'jpeg']."
+    },
+    {
+      "name": "print_figure",
+      "docstring": "Render the figure to hardcopy. Set the figure patch face and edge\ncolors.  This is useful because some of the GUIs have a gray figure\nface color background and you'll probably want to override this on\nhardcopy.\n\nParameters\n----------\nfilename : str or path-like or file-like\n    The file where the figure is saved.\n\ndpi : float, default: :rc:`savefig.dpi`\n    The dots per inch to save the figure in.\n\nfacecolor : :mpltype:`color` or 'auto', default: :rc:`savefig.facecolor`\n    The facecolor of the figure.  If 'auto', use the current figure\n    facecolor.\n\nedgecolor : :mpltype:`color` or 'auto', default: :rc:`savefig.edgecolor`\n    The edgecolor of the figure.  If 'auto', use the current figure\n    edgecolor.\n\norientation : {'landscape', 'portrait'}, default: 'portrait'\n    Only currently applies to PostScript printing.\n\nformat : str, optional\n    Force a specific file format. If not given, the format is inferred\n    from the *filename* extension, and if that fails from\n    :rc:`savefig.format`.\n\nbbox_inches : 'tight' or `.Bbox`, default: :rc:`savefig.bbox`\n    Bounding box in inches: only the given portion of the figure is\n    saved.  If 'tight', try to figure out the tight bbox of the figure.\n\npad_inches : float or 'layout', default: :rc:`savefig.pad_inches`\n    Amount of padding in inches around the figure when bbox_inches is\n    'tight'. If 'layout' use the padding from the constrained or\n    compressed layout engine; ignored if one of those engines is not in\n    use.\n\nbbox_extra_artists : list of `~matplotlib.artist.Artist`, optional\n    A list of extra artists that will be considered when the\n    tight bbox is calculated.\n\nbackend : str, optional\n    Use a non-default backend to render the file, e.g. to render a\n    png file with the \"cairo\" backend rather than the default \"agg\",\n    or a pdf file with the \"pgf\" backend rather than the default\n    \"pdf\".  Note that the default backend is normally sufficient.  See\n    :ref:`the-builtin-backends` for a list of valid backends for each\n    file format.  Custom backends can be referenced as \"module://...\"."
+    },
+    {
+      "name": "get_default_filetype",
+      "docstring": "Return the default savefig file format as specified in\n:rc:`savefig.format`.\n\nThe returned string does not include a period. This method is\noverridden in backends that only support a single file type."
+    },
+    {
+      "name": "get_default_filename",
+      "docstring": "Return a suitable default filename, including the extension."
+    },
+    {
+      "name": "mpl_connect",
+      "docstring": "Bind function *func* to event *s*.\n\nParameters\n----------\ns : str\n    One of the following events ids:\n\n    - 'button_press_event'\n    - 'button_release_event'\n    - 'draw_event'\n    - 'key_press_event'\n    - 'key_release_event'\n    - 'motion_notify_event'\n    - 'pick_event'\n    - 'resize_event'\n    - 'scroll_event'\n    - 'figure_enter_event',\n    - 'figure_leave_event',\n    - 'axes_enter_event',\n    - 'axes_leave_event'\n    - 'close_event'.\n\nfunc : callable\n    The callback function to be executed, which must have the\n    signature::\n\n        def func(event: Event) -> Any\n\n    For the location events (button and key press/release), if the\n    mouse is over the Axes, the ``inaxes`` attribute of the event will\n    be set to the `~matplotlib.axes.Axes` the event occurs is over, and\n    additionally, the variables ``xdata`` and ``ydata`` attributes will\n    be set to the mouse location in data coordinates.  See `.KeyEvent`\n    and `.MouseEvent` for more info.\n\n    .. note::\n\n        If func is a method, this only stores a weak reference to the\n        method. Thus, the figure does not influence the lifetime of\n        the associated object. Usually, you want to make sure that the\n        object is kept alive throughout the lifetime of the figure by\n        holding a reference to it.\n\nReturns\n-------\ncid\n    A connection id that can be used with\n    `.FigureCanvasBase.mpl_disconnect`.\n\nExamples\n--------\n::\n\n    def on_press(event):\n        print('you pressed', event.button, event.xdata, event.ydata)\n\n    cid = canvas.mpl_connect('button_press_event', on_press)"
+    },
+    {
+      "name": "mpl_disconnect",
+      "docstring": "Disconnect the callback with id *cid*.\n\nExamples\n--------\n::\n\n    cid = canvas.mpl_connect('button_press_event', on_press)\n    # ... later\n    canvas.mpl_disconnect(cid)"
+    },
+    {
+      "name": "new_timer",
+      "docstring": "Create a new backend-specific subclass of `.Timer`.\n\nThis is useful for getting periodic events through the backend's native\nevent loop.  Implemented only for backends with GUIs.\n\nParameters\n----------\ninterval : int\n    Timer interval in milliseconds.\n\ncallbacks : list[tuple[callable, tuple, dict]]\n    Sequence of (func, args, kwargs) where ``func(*args, **kwargs)``\n    will be executed by the timer every *interval*.\n\n    Callbacks which return ``False`` or ``0`` will be removed from the\n    timer.\n\nExamples\n--------\n>>> timer = fig.canvas.new_timer(callbacks=[(f1, (1,), {'a': 3})])"
+    },
+    {
+      "name": "flush_events",
+      "docstring": "Flush the GUI events for the figure.\n\nInteractive backends need to reimplement this method."
+    },
+    {
+      "name": "start_event_loop",
+      "docstring": "Start a blocking event loop.\n\nSuch an event loop is used by interactive functions, such as\n`~.Figure.ginput` and `~.Figure.waitforbuttonpress`, to wait for\nevents.\n\nThe event loop blocks until a callback function triggers\n`stop_event_loop`, or *timeout* is reached.\n\nIf *timeout* is 0 or negative, never timeout.\n\nOnly interactive backends need to reimplement this method and it relies\non `flush_events` being properly implemented.\n\nInteractive backends should implement this in a more native way."
+    },
+    {
+      "name": "stop_event_loop",
+      "docstring": "Stop the current blocking event loop.\n\nInteractive backends need to reimplement this to match\n`start_event_loop`"
+    },
+    {
+      "name": "create_with_canvas",
+      "docstring": "Create a manager for a given *figure* using a specific *canvas_class*.\n\nBackends should override this method if they have specific needs for\nsetting up the canvas or the manager."
+    },
+    {
+      "name": "start_main_loop",
+      "docstring": "Start the main event loop.\n\nThis method is called by `.FigureManagerBase.pyplot_show`, which is the\nimplementation of `.pyplot.show`.  To customize the behavior of\n`.pyplot.show`, interactive backends should usually override\n`~.FigureManagerBase.start_main_loop`; if more customized logic is\nnecessary, `~.FigureManagerBase.pyplot_show` can also be overridden."
+    },
+    {
+      "name": "pyplot_show",
+      "docstring": "Show all figures.  This method is the implementation of `.pyplot.show`.\n\nTo customize the behavior of `.pyplot.show`, interactive backends\nshould usually override `~.FigureManagerBase.start_main_loop`; if more\ncustomized logic is necessary, `~.FigureManagerBase.pyplot_show` can\nalso be overridden.\n\nParameters\n----------\nblock : bool, optional\n    Whether to block by calling ``start_main_loop``.  The default,\n    None, means to block if we are neither in IPython's ``%pylab`` mode\n    nor in ``interactive`` mode."
+    },
+    {
+      "name": "show",
+      "docstring": "For GUI backends, show the figure window and redraw.\nFor non-GUI backends, raise an exception, unless running headless (i.e.\non Linux with an unset DISPLAY); this exception is converted to a\nwarning in `.Figure.show`."
+    },
+    {
+      "name": "destroy",
+      "docstring": null
+    },
+    {
+      "name": "full_screen_toggle",
+      "docstring": null
+    },
+    {
+      "name": "resize",
+      "docstring": "For GUI backends, resize the window (in physical pixels)."
+    },
+    {
+      "name": "get_window_title",
+      "docstring": "Return the title text of the window containing the figure."
+    },
+    {
+      "name": "set_window_title",
+      "docstring": "Set the title text of the window containing the figure.\n\nExamples\n--------\n>>> fig = plt.figure()\n>>> fig.canvas.manager.set_window_title('My figure')"
+    },
+    {
+      "name": "set_message",
+      "docstring": "Display a message on toolbar or in status bar."
+    },
+    {
+      "name": "draw_rubberband",
+      "docstring": "Draw a rectangle rubberband to indicate zoom limits.\n\nNote that it is not guaranteed that ``x0 <= x1`` and ``y0 <= y1``."
+    },
+    {
+      "name": "remove_rubberband",
+      "docstring": "Remove the rubberband."
+    },
+    {
+      "name": "home",
+      "docstring": "Restore the original view.\n\nFor convenience of being directly connected as a GUI callback, which\noften get passed additional parameters, this method accepts arbitrary\nparameters, but does not use them."
+    },
+    {
+      "name": "back",
+      "docstring": "Move back up the view lim stack.\n\nFor convenience of being directly connected as a GUI callback, which\noften get passed additional parameters, this method accepts arbitrary\nparameters, but does not use them."
+    },
+    {
+      "name": "forward",
+      "docstring": "Move forward in the view lim stack.\n\nFor convenience of being directly connected as a GUI callback, which\noften get passed additional parameters, this method accepts arbitrary\nparameters, but does not use them."
+    },
+    {
+      "name": "mouse_move",
+      "docstring": null
+    },
+    {
+      "name": "pan",
+      "docstring": "Toggle the pan/zoom tool.\n\nPan with left button, zoom with right."
+    },
+    {
+      "name": "press_pan",
+      "docstring": "Callback for mouse button press in pan/zoom mode."
+    },
+    {
+      "name": "drag_pan",
+      "docstring": "Callback for dragging in pan/zoom mode."
+    },
+    {
+      "name": "release_pan",
+      "docstring": "Callback for mouse button release in pan/zoom mode."
+    },
+    {
+      "name": "zoom",
+      "docstring": null
+    },
+    {
+      "name": "press_zoom",
+      "docstring": "Callback for mouse button press in zoom to rect mode."
+    },
+    {
+      "name": "drag_zoom",
+      "docstring": "Callback for dragging in zoom mode."
+    },
+    {
+      "name": "release_zoom",
+      "docstring": "Callback for mouse button release in zoom to rect mode."
+    },
+    {
+      "name": "push_current",
+      "docstring": "Push the current view limits and position onto the stack."
+    },
+    {
+      "name": "configure_subplots",
+      "docstring": null
+    },
+    {
+      "name": "save_figure",
+      "docstring": "Save the current figure.\n\nBackend implementations may choose to return\nthe absolute path of the saved file, if any, as\na string.\n\nIf no file is created then `None` is returned.\n\nIf the backend does not implement this functionality\nthen `NavigationToolbar2.UNKNOWN_SAVED_STATUS` is returned.\n\nReturns\n-------\nstr or `NavigationToolbar2.UNKNOWN_SAVED_STATUS` or `None`\n    The filepath of the saved figure.\n    Returns `None` if figure is not saved.\n    Returns `NavigationToolbar2.UNKNOWN_SAVED_STATUS` when\n    the backend does not provide the information."
+    },
+    {
+      "name": "update",
+      "docstring": "Reset the Axes stack."
+    },
+    {
+      "name": "set_history_buttons",
+      "docstring": "Enable or disable the back/forward button."
+    },
+    {
+      "name": "add_tool",
+      "docstring": "Add a tool to this container.\n\nParameters\n----------\ntool : tool_like\n    The tool to add, see `.ToolManager.get_tool`.\ngroup : str\n    The name of the group to add this tool to.\nposition : int, default: -1\n    The position within the group to place this tool."
+    },
+    {
+      "name": "trigger_tool",
+      "docstring": "Trigger the tool.\n\nParameters\n----------\nname : str\n    Name (id) of the tool triggered from within the container."
+    },
+    {
+      "name": "add_toolitem",
+      "docstring": "A hook to add a toolitem to the container.\n\nThis hook must be implemented in each backend and contains the\nbackend-specific code to add an element to the toolbar.\n\n.. warning::\n    This is part of the backend implementation and should\n    not be called by end-users.  They should instead call\n    `.ToolContainerBase.add_tool`.\n\nThe callback associated with the button click event\nmust be *exactly* ``self.trigger_tool(name)``.\n\nParameters\n----------\nname : str\n    Name of the tool to add, this gets used as the tool's ID and as the\n    default label of the buttons.\ngroup : str\n    Name of the group that this tool belongs to.\nposition : int\n    Position of the tool within its group, if -1 it goes at the end.\nimage : str\n    Filename of the image for the button or `None`.\ndescription : str\n    Description of the tool, used for the tooltips.\ntoggle : bool\n    * `True` : The button is a toggle (change the pressed/unpressed\n      state between consecutive clicks).\n    * `False` : The button is a normal button (returns to unpressed\n      state after release)."
+    },
+    {
+      "name": "toggle_toolitem",
+      "docstring": "A hook to toggle a toolitem without firing an event.\n\nThis hook must be implemented in each backend and contains the\nbackend-specific code to silently toggle a toolbar element.\n\n.. warning::\n    This is part of the backend implementation and should\n    not be called by end-users.  They should instead call\n    `.ToolManager.trigger_tool` or `.ToolContainerBase.trigger_tool`\n    (which are equivalent).\n\nParameters\n----------\nname : str\n    Id of the tool to toggle.\ntoggled : bool\n    Whether to set this tool as toggled or not."
+    },
+    {
+      "name": "remove_toolitem",
+      "docstring": "A hook to remove a toolitem from the container.\n\nThis hook must be implemented in each backend and contains the\nbackend-specific code to remove an element from the toolbar; it is\ncalled when `.ToolManager` emits a ``tool_removed_event``.\n\nBecause some tools are present only on the `.ToolManager` but not on\nthe `ToolContainer`, this method must be a no-op when called on a tool\nabsent from the container.\n\n.. warning::\n    This is part of the backend implementation and should\n    not be called by end-users.  They should instead call\n    `.ToolManager.remove_tool`.\n\nParameters\n----------\nname : str\n    Name of the tool to remove."
+    },
+    {
+      "name": "set_message",
+      "docstring": "Display a message on the toolbar.\n\nParameters\n----------\ns : str\n    Message text."
+    },
+    {
+      "name": "new_figure_manager",
+      "docstring": "Create a new figure manager instance."
+    },
+    {
+      "name": "new_figure_manager_given_figure",
+      "docstring": "Create a new figure manager instance for the given figure."
+    },
+    {
+      "name": "draw_if_interactive",
+      "docstring": null
+    },
+    {
+      "name": "show",
+      "docstring": "Show all figures.\n\n`show` blocks by calling `mainloop` if *block* is ``True``, or if it is\n``None`` and we are not in `interactive` mode and if IPython's\n``%matplotlib`` integration has not been activated."
+    },
+    {
+      "name": "export",
+      "docstring": null
+    },
+    {
+      "name": "cycle_or_default",
+      "docstring": null
+    },
+    {
+      "name": "notify_axes_change",
+      "docstring": null
+    },
+    {
+      "name": "on_tool_fig_close",
+      "docstring": null
+    },
+    {
+      "name": "mainloop",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    * `draw_gouraud_triangles`\n\n    The following methods *should* be implemented in the backend for\n    optimization reasons:\n\n    * `draw_text`\n    * `draw_markers`"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\_arrayterator_impl.py",
+  "classes": [
+    {
+      "name": "Arrayterator",
+      "docstring": "Buffered iterator for big arrays.\n\n`Arrayterator` creates a buffered iterator for reading big arrays in small\ncontiguous blocks. The class is useful for objects stored in the\nfile system. It allows iteration over the object *without* reading\neverything in memory; instead, small blocks are read and iterated over.\n\n`Arrayterator` can be used with any object that supports multidimensional\nslices. This includes NumPy arrays, but also variables from\nScientific.IO.NetCDF or pynetcdf for example.\n\nParameters\n----------\nvar : array_like\n    The object to iterate over.\nbuf_size : int, optional\n    The buffer size. If `buf_size` is supplied, the maximum amount of\n    data that will be read into memory is `buf_size` elements.\n    Default is None, which will read as many element as possible\n    into memory.\n\nAttributes\n----------\nvar\nbuf_size\nstart\nstop\nstep\nshape\nflat\n\nSee Also\n--------\nnumpy.ndenumerate : Multidimensional array iterator.\nnumpy.flatiter : Flat array iterator.\nnumpy.memmap : Create a memory-map to an array stored\n               in a binary file on disk.\n\nNotes\n-----\nThe algorithm works by first finding a \"running dimension\", along which\nthe blocks will be extracted. Given an array of dimensions\n``(d1, d2, ..., dn)``, e.g. if `buf_size` is smaller than ``d1``, the\nfirst dimension will be used. If, on the other hand,\n``d1 < buf_size < d1*d2`` the second dimension will be used, and so on.\nBlocks are extracted along this dimension, and when the last block is\nreturned the process continues from the next dimension, until all\nelements have been read.\n\nExamples\n--------\n>>> import numpy as np\n>>> a = np.arange(3 * 4 * 5 * 6).reshape(3, 4, 5, 6)\n>>> a_itor = np.lib.Arrayterator(a, 2)\n>>> a_itor.shape\n(3, 4, 5, 6)\n\nNow we can iterate over ``a_itor``, and it will return arrays of size\ntwo. Since `buf_size` was smaller than any dimension, the first\ndimension will be iterated over first:\n\n>>> for subarr in a_itor:\n...     if not subarr.all():\n...         print(subarr, subarr.shape) # doctest: +SKIP\n>>> # [[[[0 1]]]] (1, 1, 1, 2)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "flat",
+          "docstring": "A 1-D flat iterator for Arrayterator objects.\n\nThis iterator returns elements of the array to be iterated over in\n`~lib.Arrayterator` one by one.\nIt is similar to `flatiter`.\n\nSee Also\n--------\nlib.Arrayterator\nflatiter\n\nExamples\n--------\n>>> a = np.arange(3 * 4 * 5 * 6).reshape(3, 4, 5, 6)\n>>> a_itor = np.lib.Arrayterator(a, 2)\n\n>>> for subarr in a_itor.flat:\n...     if not subarr:\n...         print(subarr, type(subarr))\n...\n0 <class 'numpy.int64'>"
+        },
+        {
+          "name": "shape",
+          "docstring": "The shape of the array to be iterated over.\n\nFor an example, see `Arrayterator`."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "flat",
+      "docstring": "A 1-D flat iterator for Arrayterator objects.\n\nThis iterator returns elements of the array to be iterated over in\n`~lib.Arrayterator` one by one.\nIt is similar to `flatiter`.\n\nSee Also\n--------\nlib.Arrayterator\nflatiter\n\nExamples\n--------\n>>> a = np.arange(3 * 4 * 5 * 6).reshape(3, 4, 5, 6)\n>>> a_itor = np.lib.Arrayterator(a, 2)\n\n>>> for subarr in a_itor.flat:\n...     if not subarr:\n...         print(subarr, type(subarr))\n...\n0 <class 'numpy.int64'>"
+    },
+    {
+      "name": "shape",
+      "docstring": "The shape of the array to be iterated over.\n\nFor an example, see `Arrayterator`."
+    }
+  ],
+  "innovations": []
+}

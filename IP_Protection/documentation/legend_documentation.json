@@ -1,0 +1,244 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\legend.py",
+  "classes": [
+    {
+      "name": "DraggableLegend",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Wrapper around a `.Legend` to support mouse dragging.\n\nParameters\n----------\nlegend : `.Legend`\n    The `.Legend` instance to wrap.\nuse_blit : bool, optional\n    Use blitting for faster image composition. For details see\n    :ref:`func-animation`.\nupdate : {'loc', 'bbox'}, optional\n    If \"loc\", update the *loc* parameter of the legend upon finalizing.\n    If \"bbox\", update the *bbox_to_anchor* parameter."
+        },
+        {
+          "name": "finalize_offset",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Legend",
+      "docstring": "Place a legend on the figure/axes.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nparent : `~matplotlib.axes.Axes` or `.Figure`\n    The artist that contains the legend.\n\nhandles : list of (`.Artist` or tuple of `.Artist`)\n    A list of Artists (lines, patches) to be added to the legend.\n\nlabels : list of str\n    A list of labels to show next to the artists. The length of handles\n    and labels should be the same. If they are not, they are truncated\n    to the length of the shorter list.\n\nOther Parameters\n----------------\n%(_legend_kw_doc)s\n\nAttributes\n----------\nlegend_handles\n    List of `.Artist` objects added as legend entries.\n\n    .. versionadded:: 3.7"
+        },
+        {
+          "name": "set_loc",
+          "docstring": "Set the location of the legend.\n\n.. versionadded:: 3.8\n\nParameters\n----------\n%(_legend_kw_set_loc_doc)s"
+        },
+        {
+          "name": "set_ncols",
+          "docstring": "Set the number of columns."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        },
+        {
+          "name": "get_default_handler_map",
+          "docstring": "Return the global default handler map, shared by all legends."
+        },
+        {
+          "name": "set_default_handler_map",
+          "docstring": "Set the global default handler map, shared by all legends."
+        },
+        {
+          "name": "update_default_handler_map",
+          "docstring": "Update the global default handler map, shared by all legends."
+        },
+        {
+          "name": "get_legend_handler_map",
+          "docstring": "Return this legend instance's handler map."
+        },
+        {
+          "name": "get_legend_handler",
+          "docstring": "Return a legend handler from *legend_handler_map* that\ncorresponds to *orig_handler*.\n\n*legend_handler_map* should be a dictionary object (that is\nreturned by the get_legend_handler_map method).\n\nIt first checks if the *orig_handle* itself is a key in the\n*legend_handler_map* and return the associated value.\nOtherwise, it checks for each of the classes in its\nmethod-resolution-order. If no matching key is found, it\nreturns ``None``."
+        },
+        {
+          "name": "get_children",
+          "docstring": null
+        },
+        {
+          "name": "get_frame",
+          "docstring": "Return the `~.patches.Rectangle` used to frame the legend."
+        },
+        {
+          "name": "get_lines",
+          "docstring": "Return the list of `~.lines.Line2D`\\s in the legend."
+        },
+        {
+          "name": "get_patches",
+          "docstring": "Return the list of `~.patches.Patch`\\s in the legend."
+        },
+        {
+          "name": "get_texts",
+          "docstring": "Return the list of `~.text.Text`\\s in the legend."
+        },
+        {
+          "name": "set_alignment",
+          "docstring": "Set the alignment of the legend title and the box of entries.\n\nThe entries are aligned as a single block, so that markers always\nlined up.\n\nParameters\n----------\nalignment : {'center', 'left', 'right'}."
+        },
+        {
+          "name": "get_alignment",
+          "docstring": "Get the alignment value of the legend box"
+        },
+        {
+          "name": "set_title",
+          "docstring": "Set legend title and title style.\n\nParameters\n----------\ntitle : str\n    The legend title.\n\nprop : `.font_manager.FontProperties` or `str` or `pathlib.Path`\n    The font properties of the legend title.\n    If a `str`, it is interpreted as a fontconfig pattern parsed by\n    `.FontProperties`.  If a `pathlib.Path`, it is interpreted as the\n    absolute path to a font file."
+        },
+        {
+          "name": "get_title",
+          "docstring": "Return the `.Text` instance for the legend title."
+        },
+        {
+          "name": "get_window_extent",
+          "docstring": null
+        },
+        {
+          "name": "get_tightbbox",
+          "docstring": null
+        },
+        {
+          "name": "get_frame_on",
+          "docstring": "Get whether the legend box patch is drawn."
+        },
+        {
+          "name": "set_frame_on",
+          "docstring": "Set whether the legend box patch is drawn.\n\nParameters\n----------\nb : bool"
+        },
+        {
+          "name": "get_bbox_to_anchor",
+          "docstring": "Return the bbox that the legend will be anchored to."
+        },
+        {
+          "name": "set_bbox_to_anchor",
+          "docstring": "Set the bbox that the legend will be anchored to.\n\nParameters\n----------\nbbox : `~matplotlib.transforms.BboxBase` or tuple\n    The bounding box can be specified in the following ways:\n\n    - A `.BboxBase` instance\n    - A tuple of ``(left, bottom, width, height)`` in the given\n      transform (normalized axes coordinate if None)\n    - A tuple of ``(left, bottom)`` where the width and height will be\n      assumed to be zero.\n    - *None*, to remove the bbox anchoring, and use the parent bbox.\n\ntransform : `~matplotlib.transforms.Transform`, optional\n    A transform to apply to the bounding box. If not specified, this\n    will use a transform to the bounding box of the parent."
+        },
+        {
+          "name": "contains",
+          "docstring": null
+        },
+        {
+          "name": "set_draggable",
+          "docstring": "Enable or disable mouse dragging support of the legend.\n\nParameters\n----------\nstate : bool\n    Whether mouse dragging is enabled.\nuse_blit : bool, optional\n    Use blitting for faster image composition. For details see\n    :ref:`func-animation`.\nupdate : {'loc', 'bbox'}, optional\n    The legend parameter to be changed when dragged:\n\n    - 'loc': update the *loc* parameter of the legend\n    - 'bbox': update the *bbox_to_anchor* parameter of the legend\n\nReturns\n-------\n`.DraggableLegend` or *None*\n    If *state* is ``True`` this returns the `.DraggableLegend` helper\n    instance. Otherwise this returns *None*."
+        },
+        {
+          "name": "get_draggable",
+          "docstring": "Return ``True`` if the legend is draggable, ``False`` otherwise."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "finalize_offset",
+      "docstring": null
+    },
+    {
+      "name": "set_loc",
+      "docstring": "Set the location of the legend.\n\n.. versionadded:: 3.8\n\nParameters\n----------\n%(_legend_kw_set_loc_doc)s"
+    },
+    {
+      "name": "set_ncols",
+      "docstring": "Set the number of columns."
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "get_default_handler_map",
+      "docstring": "Return the global default handler map, shared by all legends."
+    },
+    {
+      "name": "set_default_handler_map",
+      "docstring": "Set the global default handler map, shared by all legends."
+    },
+    {
+      "name": "update_default_handler_map",
+      "docstring": "Update the global default handler map, shared by all legends."
+    },
+    {
+      "name": "get_legend_handler_map",
+      "docstring": "Return this legend instance's handler map."
+    },
+    {
+      "name": "get_legend_handler",
+      "docstring": "Return a legend handler from *legend_handler_map* that\ncorresponds to *orig_handler*.\n\n*legend_handler_map* should be a dictionary object (that is\nreturned by the get_legend_handler_map method).\n\nIt first checks if the *orig_handle* itself is a key in the\n*legend_handler_map* and return the associated value.\nOtherwise, it checks for each of the classes in its\nmethod-resolution-order. If no matching key is found, it\nreturns ``None``."
+    },
+    {
+      "name": "get_children",
+      "docstring": null
+    },
+    {
+      "name": "get_frame",
+      "docstring": "Return the `~.patches.Rectangle` used to frame the legend."
+    },
+    {
+      "name": "get_lines",
+      "docstring": "Return the list of `~.lines.Line2D`\\s in the legend."
+    },
+    {
+      "name": "get_patches",
+      "docstring": "Return the list of `~.patches.Patch`\\s in the legend."
+    },
+    {
+      "name": "get_texts",
+      "docstring": "Return the list of `~.text.Text`\\s in the legend."
+    },
+    {
+      "name": "set_alignment",
+      "docstring": "Set the alignment of the legend title and the box of entries.\n\nThe entries are aligned as a single block, so that markers always\nlined up.\n\nParameters\n----------\nalignment : {'center', 'left', 'right'}."
+    },
+    {
+      "name": "get_alignment",
+      "docstring": "Get the alignment value of the legend box"
+    },
+    {
+      "name": "set_title",
+      "docstring": "Set legend title and title style.\n\nParameters\n----------\ntitle : str\n    The legend title.\n\nprop : `.font_manager.FontProperties` or `str` or `pathlib.Path`\n    The font properties of the legend title.\n    If a `str`, it is interpreted as a fontconfig pattern parsed by\n    `.FontProperties`.  If a `pathlib.Path`, it is interpreted as the\n    absolute path to a font file."
+    },
+    {
+      "name": "get_title",
+      "docstring": "Return the `.Text` instance for the legend title."
+    },
+    {
+      "name": "get_window_extent",
+      "docstring": null
+    },
+    {
+      "name": "get_tightbbox",
+      "docstring": null
+    },
+    {
+      "name": "get_frame_on",
+      "docstring": "Get whether the legend box patch is drawn."
+    },
+    {
+      "name": "set_frame_on",
+      "docstring": "Set whether the legend box patch is drawn.\n\nParameters\n----------\nb : bool"
+    },
+    {
+      "name": "get_bbox_to_anchor",
+      "docstring": "Return the bbox that the legend will be anchored to."
+    },
+    {
+      "name": "set_bbox_to_anchor",
+      "docstring": "Set the bbox that the legend will be anchored to.\n\nParameters\n----------\nbbox : `~matplotlib.transforms.BboxBase` or tuple\n    The bounding box can be specified in the following ways:\n\n    - A `.BboxBase` instance\n    - A tuple of ``(left, bottom, width, height)`` in the given\n      transform (normalized axes coordinate if None)\n    - A tuple of ``(left, bottom)`` where the width and height will be\n      assumed to be zero.\n    - *None*, to remove the bbox anchoring, and use the parent bbox.\n\ntransform : `~matplotlib.transforms.Transform`, optional\n    A transform to apply to the bounding box. If not specified, this\n    will use a transform to the bounding box of the parent."
+    },
+    {
+      "name": "contains",
+      "docstring": null
+    },
+    {
+      "name": "set_draggable",
+      "docstring": "Enable or disable mouse dragging support of the legend.\n\nParameters\n----------\nstate : bool\n    Whether mouse dragging is enabled.\nuse_blit : bool, optional\n    Use blitting for faster image composition. For details see\n    :ref:`func-animation`.\nupdate : {'loc', 'bbox'}, optional\n    The legend parameter to be changed when dragged:\n\n    - 'loc': update the *loc* parameter of the legend\n    - 'bbox': update the *bbox_to_anchor* parameter of the legend\n\nReturns\n-------\n`.DraggableLegend` or *None*\n    If *state* is ``True`` this returns the `.DraggableLegend` helper\n    instance. Otherwise this returns *None*."
+    },
+    {
+      "name": "get_draggable",
+      "docstring": "Return ``True`` if the legend is draggable, ``False`` otherwise."
+    }
+  ],
+  "innovations": []
+}

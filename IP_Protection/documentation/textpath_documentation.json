@@ -1,0 +1,100 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\textpath.py",
+  "classes": [
+    {
+      "name": "TextToPath",
+      "docstring": "A class that converts strings to paths.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_text_width_height_descent",
+          "docstring": null
+        },
+        {
+          "name": "get_text_path",
+          "docstring": "Convert text *s* to path (a tuple of vertices and codes for\nmatplotlib.path.Path).\n\nParameters\n----------\nprop : `~matplotlib.font_manager.FontProperties`\n    The font properties for the text.\ns : str\n    The text to be converted.\nismath : {False, True, \"TeX\"}\n    If True, use mathtext parser.  If \"TeX\", use tex for rendering.\n\nReturns\n-------\nverts : list\n    A list of arrays containing the (x, y) coordinates of the vertices.\ncodes : list\n    A list of path codes.\n\nExamples\n--------\nCreate a list of vertices and codes from a text, and create a `.Path`\nfrom those::\n\n    from matplotlib.path import Path\n    from matplotlib.text import TextToPath\n    from matplotlib.font_manager import FontProperties\n\n    fp = FontProperties(family=\"Comic Neue\", style=\"italic\")\n    verts, codes = TextToPath().get_text_path(fp, \"ABC\")\n    path = Path(verts, codes, closed=False)\n\nAlso see `TextPath` for a more direct way to create a path from a text."
+        },
+        {
+          "name": "get_glyphs_with_font",
+          "docstring": "Convert string *s* to vertices and codes using the provided ttf font."
+        },
+        {
+          "name": "get_glyphs_mathtext",
+          "docstring": "Parse mathtext string *s* and convert it to a (vertices, codes) pair."
+        },
+        {
+          "name": "get_glyphs_tex",
+          "docstring": "Convert the string *s* to vertices and codes using usetex mode."
+        }
+      ]
+    },
+    {
+      "name": "TextPath",
+      "docstring": "Create a path from the text.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a path from the text. Note that it simply is a path,\nnot an artist. You need to use the `.PathPatch` (or other artists)\nto draw this path onto the canvas.\n\nParameters\n----------\nxy : tuple or array of two float values\n    Position of the text. For no offset, use ``xy=(0, 0)``.\n\ns : str\n    The text to convert to a path.\n\nsize : float, optional\n    Font size in points. Defaults to the size specified via the font\n    properties *prop*.\n\nprop : `~matplotlib.font_manager.FontProperties`, optional\n    Font property. If not provided, will use a default\n    `.FontProperties` with parameters from the\n    :ref:`rcParams<customizing-with-dynamic-rc-settings>`.\n\n_interpolation_steps : int, optional\n    (Currently ignored)\n\nusetex : bool, default: False\n    Whether to use tex rendering.\n\nExamples\n--------\nThe following creates a path from the string \"ABC\" with Helvetica\nfont face; and another path from the latex fraction 1/2::\n\n    from matplotlib.text import TextPath\n    from matplotlib.font_manager import FontProperties\n\n    fp = FontProperties(family=\"Helvetica\", style=\"italic\")\n    path1 = TextPath((12, 12), \"ABC\", size=12, prop=fp)\n    path2 = TextPath((0, 0), r\"$\\frac{1}{2}$\", size=12, usetex=True)\n\nAlso see :doc:`/gallery/text_labels_and_annotations/demo_text_path`."
+        },
+        {
+          "name": "set_size",
+          "docstring": "Set the text size."
+        },
+        {
+          "name": "get_size",
+          "docstring": "Get the text size."
+        },
+        {
+          "name": "vertices",
+          "docstring": "Return the cached path after updating it if necessary."
+        },
+        {
+          "name": "codes",
+          "docstring": "Return the codes"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_text_width_height_descent",
+      "docstring": null
+    },
+    {
+      "name": "get_text_path",
+      "docstring": "Convert text *s* to path (a tuple of vertices and codes for\nmatplotlib.path.Path).\n\nParameters\n----------\nprop : `~matplotlib.font_manager.FontProperties`\n    The font properties for the text.\ns : str\n    The text to be converted.\nismath : {False, True, \"TeX\"}\n    If True, use mathtext parser.  If \"TeX\", use tex for rendering.\n\nReturns\n-------\nverts : list\n    A list of arrays containing the (x, y) coordinates of the vertices.\ncodes : list\n    A list of path codes.\n\nExamples\n--------\nCreate a list of vertices and codes from a text, and create a `.Path`\nfrom those::\n\n    from matplotlib.path import Path\n    from matplotlib.text import TextToPath\n    from matplotlib.font_manager import FontProperties\n\n    fp = FontProperties(family=\"Comic Neue\", style=\"italic\")\n    verts, codes = TextToPath().get_text_path(fp, \"ABC\")\n    path = Path(verts, codes, closed=False)\n\nAlso see `TextPath` for a more direct way to create a path from a text."
+    },
+    {
+      "name": "get_glyphs_with_font",
+      "docstring": "Convert string *s* to vertices and codes using the provided ttf font."
+    },
+    {
+      "name": "get_glyphs_mathtext",
+      "docstring": "Parse mathtext string *s* and convert it to a (vertices, codes) pair."
+    },
+    {
+      "name": "get_glyphs_tex",
+      "docstring": "Convert the string *s* to vertices and codes using usetex mode."
+    },
+    {
+      "name": "set_size",
+      "docstring": "Set the text size."
+    },
+    {
+      "name": "get_size",
+      "docstring": "Get the text size."
+    },
+    {
+      "name": "vertices",
+      "docstring": "Return the cached path after updating it if necessary."
+    },
+    {
+      "name": "codes",
+      "docstring": "Return the codes"
+    }
+  ],
+  "innovations": []
+}

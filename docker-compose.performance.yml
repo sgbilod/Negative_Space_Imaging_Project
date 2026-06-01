@@ -1,0 +1,162 @@
+version: '3.8'
+
+services:
+  # API server with performance monitoring
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - '5000:5000'
+    environment:
+      - FLASK_APP=sovereign.app
+      - FLASK_ENV=production
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/sovereign
+      - REDIS_URL=redis://redis:6379/0
+      - SECURITY_LEVEL=ENHANCED
+      - PERFORMANCE_LEVEL=ENHANCED
+      - ENABLE_PERFORMANCE_MONITORING=true
+      - ENABLE_MEMORY_TRACKING=true
+      - CACHE_SIZE=2000
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    depends_on:
+      - db
+      - redis
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:5000/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Frontend with performance dashboards
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=production
+      - API_URL=http://api:5000
+      - ENABLE_PERFORMANCE_DASHBOARDS=true
+    volumes:
+      - ./frontend/build:/app/build
+    depends_on:
+      - api
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD', 'wget', '-qO-', 'http://localhost:3000/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+  # Database with query monitoring
+  db:
+    image: postgres:14-alpine
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=sovereign
+      - POSTGRES_INITDB_ARGS=--data-checksums
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+    command: >
+      postgres
+        -c shared_buffers=256MB
+        -c effective_cache_size=768MB
+        -c work_mem=8MB
+        -c maintenance_work_mem=64MB
+        -c log_statement=all
+        -c log_min_duration_statement=100
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # Redis for caching and session management
+  redis:
+    image: redis:6-alpine
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # Performance monitoring system
+  monitoring:
+    build:
+      context: .
+      dockerfile: Dockerfile.monitoring
+    ports:
+      - '9090:9090' # Prometheus
+      - '3001:3000' # Grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - PROMETHEUS_STORAGE_LOCAL_TARGET_HEAP_SIZE=524288000
+    volumes:
+      - ./monitoring/prometheus:/etc/prometheus
+      - ./monitoring/grafana:/var/lib/grafana
+      - prometheus_data:/prometheus
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - api
+      - db
+      - redis
+    restart: unless-stopped
+
+  # Background task processor
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    environment:
+      - FLASK_APP=sovereign.app
+      - FLASK_ENV=production
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/sovereign
+      - REDIS_URL=redis://redis:6379/0
+      - SECURITY_LEVEL=ENHANCED
+      - PERFORMANCE_LEVEL=STANDARD
+      - ENABLE_MEMORY_TRACKING=true
+      - CACHE_SIZE=1000
+      - LOG_LEVEL=INFO
+      - WORKER_MODE=true
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    depends_on:
+      - db
+      - redis
+    restart: unless-stopped
+    entrypoint: ['python', '-m', 'sovereign.worker']
+    healthcheck:
+      test: ['CMD', 'python', '-m', 'sovereign.worker_health']
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+volumes:
+  postgres_data:
+  redis_data:
+  prometheus_data:
+  grafana_data:

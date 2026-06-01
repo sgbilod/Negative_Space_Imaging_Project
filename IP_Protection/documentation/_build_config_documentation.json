@@ -1,0 +1,17 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\contourpy\\util\\_build_config.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "build_config",
+      "docstring": "Return a dictionary containing build configuration settings.\n\nAll dictionary keys and values are strings, for example ``False`` is\nreturned as ``\"False\"``.\n\n    .. versionadded:: 1.1.0"
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        buildtype=\"release\",\n        cpp_std=\"c++17\",\n        debug=\"False\",\n        optimization=\"3\",\n        vsenv=\"True\",\n        b_ndebug=\"if-release\",\n        b_vscrt=\"mt\","
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\traceback.py",
+  "classes": [
+    {
+      "name": "Frame",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_SyntaxError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Stack",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Trace",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PathHighlighter",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Traceback",
+      "docstring": "A Console renderable that renders a traceback.\n\nArgs:\n    trace (Trace, optional): A `Trace` object produced from `extract`. Defaults to None, which uses\n        the last exception.\n    width (Optional[int], optional): Number of characters used to traceback. Defaults to 100.\n    code_width (Optional[int], optional): Number of code characters used to traceback. Defaults to 88.\n    extra_lines (int, optional): Additional lines of code to render. Defaults to 3.\n    theme (str, optional): Override pygments theme used in traceback.\n    word_wrap (bool, optional): Enable word wrapping of long lines. Defaults to False.\n    show_locals (bool, optional): Enable display of local variables. Defaults to False.\n    indent_guides (bool, optional): Enable indent guides in code and locals. Defaults to True.\n    locals_max_length (int, optional): Maximum length of containers before abbreviating, or None for no abbreviation.\n        Defaults to 10.\n    locals_max_string (int, optional): Maximum length of string before truncating, or None to disable. Defaults to 80.\n    locals_hide_dunder (bool, optional): Hide locals prefixed with double underscore. Defaults to True.\n    locals_hide_sunder (bool, optional): Hide locals prefixed with single underscore. Defaults to False.\n    suppress (Sequence[Union[str, ModuleType]]): Optional sequence of modules or paths to exclude from traceback.\n    max_frames (int): Maximum number of frames to show in a traceback, 0 for no maximum. Defaults to 100.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "from_exception",
+          "docstring": "Create a traceback from exception info\n\nArgs:\n    exc_type (Type[BaseException]): Exception type.\n    exc_value (BaseException): Exception value.\n    traceback (TracebackType): Python Traceback object.\n    width (Optional[int], optional): Number of characters used to traceback. Defaults to 100.\n    code_width (Optional[int], optional): Number of code characters used to traceback. Defaults to 88.\n    extra_lines (int, optional): Additional lines of code to render. Defaults to 3.\n    theme (str, optional): Override pygments theme used in traceback.\n    word_wrap (bool, optional): Enable word wrapping of long lines. Defaults to False.\n    show_locals (bool, optional): Enable display of local variables. Defaults to False.\n    indent_guides (bool, optional): Enable indent guides in code and locals. Defaults to True.\n    locals_max_length (int, optional): Maximum length of containers before abbreviating, or None for no abbreviation.\n        Defaults to 10.\n    locals_max_string (int, optional): Maximum length of string before truncating, or None to disable. Defaults to 80.\n    locals_hide_dunder (bool, optional): Hide locals prefixed with double underscore. Defaults to True.\n    locals_hide_sunder (bool, optional): Hide locals prefixed with single underscore. Defaults to False.\n    suppress (Iterable[Union[str, ModuleType]]): Optional sequence of modules or paths to exclude from traceback.\n    max_frames (int): Maximum number of frames to show in a traceback, 0 for no maximum. Defaults to 100.\n\nReturns:\n    Traceback: A Traceback instance that may be printed."
+        },
+        {
+          "name": "extract",
+          "docstring": "Extract traceback information.\n\nArgs:\n    exc_type (Type[BaseException]): Exception type.\n    exc_value (BaseException): Exception value.\n    traceback (TracebackType): Python Traceback object.\n    show_locals (bool, optional): Enable display of local variables. Defaults to False.\n    locals_max_length (int, optional): Maximum length of containers before abbreviating, or None for no abbreviation.\n        Defaults to 10.\n    locals_max_string (int, optional): Maximum length of string before truncating, or None to disable. Defaults to 80.\n    locals_hide_dunder (bool, optional): Hide locals prefixed with double underscore. Defaults to True.\n    locals_hide_sunder (bool, optional): Hide locals prefixed with single underscore. Defaults to False.\n\nReturns:\n    Trace: A Trace instance which you can use to construct a `Traceback`."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "install",
+      "docstring": "Install a rich traceback handler.\n\nOnce installed, any tracebacks will be printed with syntax highlighting and rich formatting.\n\n\nArgs:\n    console (Optional[Console], optional): Console to write exception to. Default uses internal Console instance.\n    width (Optional[int], optional): Width (in characters) of traceback. Defaults to 100.\n    code_width (Optional[int], optional): Code width (in characters) of traceback. Defaults to 88.\n    extra_lines (int, optional): Extra lines of code. Defaults to 3.\n    theme (Optional[str], optional): Pygments theme to use in traceback. Defaults to ``None`` which will pick\n        a theme appropriate for the platform.\n    word_wrap (bool, optional): Enable word wrapping of long lines. Defaults to False.\n    show_locals (bool, optional): Enable display of local variables. Defaults to False.\n    locals_max_length (int, optional): Maximum length of containers before abbreviating, or None for no abbreviation.\n        Defaults to 10.\n    locals_max_string (int, optional): Maximum length of string before truncating, or None to disable. Defaults to 80.\n    locals_hide_dunder (bool, optional): Hide locals prefixed with double underscore. Defaults to True.\n    locals_hide_sunder (bool, optional): Hide locals prefixed with single underscore. Defaults to False.\n    indent_guides (bool, optional): Enable indent guides in code and locals. Defaults to True.\n    suppress (Sequence[Union[str, ModuleType]]): Optional sequence of modules or paths to exclude from traceback.\n\nReturns:\n    Callable: The previous exception handler that was replaced."
+    },
+    {
+      "name": "excepthook",
+      "docstring": null
+    },
+    {
+      "name": "ipy_excepthook_closure",
+      "docstring": null
+    },
+    {
+      "name": "from_exception",
+      "docstring": "Create a traceback from exception info\n\nArgs:\n    exc_type (Type[BaseException]): Exception type.\n    exc_value (BaseException): Exception value.\n    traceback (TracebackType): Python Traceback object.\n    width (Optional[int], optional): Number of characters used to traceback. Defaults to 100.\n    code_width (Optional[int], optional): Number of code characters used to traceback. Defaults to 88.\n    extra_lines (int, optional): Additional lines of code to render. Defaults to 3.\n    theme (str, optional): Override pygments theme used in traceback.\n    word_wrap (bool, optional): Enable word wrapping of long lines. Defaults to False.\n    show_locals (bool, optional): Enable display of local variables. Defaults to False.\n    indent_guides (bool, optional): Enable indent guides in code and locals. Defaults to True.\n    locals_max_length (int, optional): Maximum length of containers before abbreviating, or None for no abbreviation.\n        Defaults to 10.\n    locals_max_string (int, optional): Maximum length of string before truncating, or None to disable. Defaults to 80.\n    locals_hide_dunder (bool, optional): Hide locals prefixed with double underscore. Defaults to True.\n    locals_hide_sunder (bool, optional): Hide locals prefixed with single underscore. Defaults to False.\n    suppress (Iterable[Union[str, ModuleType]]): Optional sequence of modules or paths to exclude from traceback.\n    max_frames (int): Maximum number of frames to show in a traceback, 0 for no maximum. Defaults to 100.\n\nReturns:\n    Traceback: A Traceback instance that may be printed."
+    },
+    {
+      "name": "extract",
+      "docstring": "Extract traceback information.\n\nArgs:\n    exc_type (Type[BaseException]): Exception type.\n    exc_value (BaseException): Exception value.\n    traceback (TracebackType): Python Traceback object.\n    show_locals (bool, optional): Enable display of local variables. Defaults to False.\n    locals_max_length (int, optional): Maximum length of containers before abbreviating, or None for no abbreviation.\n        Defaults to 10.\n    locals_max_string (int, optional): Maximum length of string before truncating, or None to disable. Defaults to 80.\n    locals_hide_dunder (bool, optional): Hide locals prefixed with double underscore. Defaults to True.\n    locals_hide_sunder (bool, optional): Hide locals prefixed with single underscore. Defaults to False.\n\nReturns:\n    Trace: A Trace instance which you can use to construct a `Traceback`."
+    },
+    {
+      "name": "bar",
+      "docstring": null
+    },
+    {
+      "name": "foo",
+      "docstring": null
+    },
+    {
+      "name": "error",
+      "docstring": null
+    },
+    {
+      "name": "ipy_show_traceback",
+      "docstring": "wrap the default ip.showtraceback to store info for ip._showtraceback"
+    },
+    {
+      "name": "ipy_display_traceback",
+      "docstring": "Internally called traceback from ip._showtraceback"
+    },
+    {
+      "name": "safe_str",
+      "docstring": "Don't allow exceptions from __str__ to propagate."
+    },
+    {
+      "name": "render_stack",
+      "docstring": null
+    },
+    {
+      "name": "render_locals",
+      "docstring": null
+    },
+    {
+      "name": "get_locals",
+      "docstring": "Extract locals from an iterator of key pairs."
+    }
+  ],
+  "innovations": []
+}

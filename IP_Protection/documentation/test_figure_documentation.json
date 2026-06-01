@@ -1,0 +1,517 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_figure.py",
+  "classes": [
+    {
+      "name": "TestSubplotMosaic",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_all_nested",
+          "docstring": null
+        },
+        {
+          "name": "test_nested",
+          "docstring": null
+        },
+        {
+          "name": "test_nested_tuple",
+          "docstring": null
+        },
+        {
+          "name": "test_nested_width_ratios",
+          "docstring": null
+        },
+        {
+          "name": "test_nested_height_ratios",
+          "docstring": null
+        },
+        {
+          "name": "test_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_fail_list_of_str",
+          "docstring": null
+        },
+        {
+          "name": "test_subplot_kw",
+          "docstring": null
+        },
+        {
+          "name": "test_per_subplot_kw",
+          "docstring": null
+        },
+        {
+          "name": "test_string_parser",
+          "docstring": null
+        },
+        {
+          "name": "test_per_subplot_kw_expander",
+          "docstring": null
+        },
+        {
+          "name": "test_extra_per_subplot_kw",
+          "docstring": null
+        },
+        {
+          "name": "test_single_str_input",
+          "docstring": null
+        },
+        {
+          "name": "test_fail",
+          "docstring": null
+        },
+        {
+          "name": "test_hashable_keys",
+          "docstring": null
+        },
+        {
+          "name": "test_user_order",
+          "docstring": null
+        },
+        {
+          "name": "test_nested_user_order",
+          "docstring": null
+        },
+        {
+          "name": "test_share_all",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyAxes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyClass",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_align_labels",
+      "docstring": null
+    },
+    {
+      "name": "test_align_titles",
+      "docstring": null
+    },
+    {
+      "name": "test_align_labels_stray_axes",
+      "docstring": null
+    },
+    {
+      "name": "test_figure_label",
+      "docstring": null
+    },
+    {
+      "name": "test_figure_label_replaced",
+      "docstring": null
+    },
+    {
+      "name": "test_figure_no_label",
+      "docstring": null
+    },
+    {
+      "name": "test_fignum_exists",
+      "docstring": null
+    },
+    {
+      "name": "test_clf_keyword",
+      "docstring": null
+    },
+    {
+      "name": "test_figure",
+      "docstring": null
+    },
+    {
+      "name": "test_figure_legend",
+      "docstring": null
+    },
+    {
+      "name": "test_gca",
+      "docstring": null
+    },
+    {
+      "name": "test_add_subplot_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_add_subplot_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_suptitle",
+      "docstring": null
+    },
+    {
+      "name": "test_suptitle_fontproperties",
+      "docstring": null
+    },
+    {
+      "name": "test_suptitle_subfigures",
+      "docstring": null
+    },
+    {
+      "name": "test_get_suptitle_supxlabel_supylabel",
+      "docstring": null
+    },
+    {
+      "name": "test_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_too_many_figures",
+      "docstring": null
+    },
+    {
+      "name": "test_iterability_axes_argument",
+      "docstring": null
+    },
+    {
+      "name": "test_set_fig_size",
+      "docstring": null
+    },
+    {
+      "name": "test_axes_remove",
+      "docstring": null
+    },
+    {
+      "name": "test_figaspect",
+      "docstring": null
+    },
+    {
+      "name": "test_autofmt_xdate",
+      "docstring": null
+    },
+    {
+      "name": "test_autofmt_xdate_colorbar_constrained",
+      "docstring": null
+    },
+    {
+      "name": "test_change_dpi",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_figure_size",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_figure_add_axes",
+      "docstring": null
+    },
+    {
+      "name": "test_subplots_shareax_loglabels",
+      "docstring": null
+    },
+    {
+      "name": "test_savefig",
+      "docstring": null
+    },
+    {
+      "name": "test_savefig_warns",
+      "docstring": null
+    },
+    {
+      "name": "test_savefig_backend",
+      "docstring": null
+    },
+    {
+      "name": "test_savefig_pixel_ratio",
+      "docstring": null
+    },
+    {
+      "name": "test_savefig_preserve_layout_engine",
+      "docstring": null
+    },
+    {
+      "name": "test_savefig_locate_colorbar",
+      "docstring": null
+    },
+    {
+      "name": "test_savefig_transparent",
+      "docstring": null
+    },
+    {
+      "name": "test_figure_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_valid_layouts",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_layouts",
+      "docstring": null
+    },
+    {
+      "name": "test_tightlayout_autolayout_deconflict",
+      "docstring": null
+    },
+    {
+      "name": "test_layout_change_warning",
+      "docstring": "Raise a warning when a previously assigned layout changes to tight using\nplt.tight_layout()."
+    },
+    {
+      "name": "test_repeated_tightlayout",
+      "docstring": null
+    },
+    {
+      "name": "test_add_artist",
+      "docstring": null
+    },
+    {
+      "name": "test_fspath",
+      "docstring": null
+    },
+    {
+      "name": "test_tightbbox",
+      "docstring": null
+    },
+    {
+      "name": "test_axes_removal",
+      "docstring": null
+    },
+    {
+      "name": "test_removed_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_figure_clear",
+      "docstring": null
+    },
+    {
+      "name": "test_clf_not_redefined",
+      "docstring": null
+    },
+    {
+      "name": "test_picking_does_not_stale",
+      "docstring": null
+    },
+    {
+      "name": "test_add_subplot_twotuple",
+      "docstring": null
+    },
+    {
+      "name": "test_tightbbox_box_aspect",
+      "docstring": null
+    },
+    {
+      "name": "test_animated_with_canvas_change",
+      "docstring": null
+    },
+    {
+      "name": "test_reused_gridspec",
+      "docstring": "Test that these all use the same gridspec"
+    },
+    {
+      "name": "test_subfigure",
+      "docstring": null
+    },
+    {
+      "name": "test_subfigure_tightbbox",
+      "docstring": null
+    },
+    {
+      "name": "test_subfigure_dpi",
+      "docstring": null
+    },
+    {
+      "name": "test_subfigure_ss",
+      "docstring": null
+    },
+    {
+      "name": "test_subfigure_double",
+      "docstring": null
+    },
+    {
+      "name": "test_subfigure_spanning",
+      "docstring": null
+    },
+    {
+      "name": "test_subfigure_ticks",
+      "docstring": null
+    },
+    {
+      "name": "test_subfigure_scatter_size",
+      "docstring": null
+    },
+    {
+      "name": "test_subfigure_pdf",
+      "docstring": null
+    },
+    {
+      "name": "test_subfigures_wspace_hspace",
+      "docstring": null
+    },
+    {
+      "name": "test_subfigure_remove",
+      "docstring": null
+    },
+    {
+      "name": "test_add_subplot_kwargs",
+      "docstring": null
+    },
+    {
+      "name": "test_add_axes_kwargs",
+      "docstring": null
+    },
+    {
+      "name": "test_ginput",
+      "docstring": null
+    },
+    {
+      "name": "test_waitforbuttonpress",
+      "docstring": null
+    },
+    {
+      "name": "test_kwargs_pass",
+      "docstring": null
+    },
+    {
+      "name": "test_rcparams",
+      "docstring": null
+    },
+    {
+      "name": "test_deepcopy",
+      "docstring": null
+    },
+    {
+      "name": "test_unpickle_with_device_pixel_ratio",
+      "docstring": null
+    },
+    {
+      "name": "test_gridspec_no_mutate_input",
+      "docstring": null
+    },
+    {
+      "name": "test_savefig_metadata",
+      "docstring": null
+    },
+    {
+      "name": "test_savefig_metadata_error",
+      "docstring": null
+    },
+    {
+      "name": "test_get_constrained_layout_pads",
+      "docstring": null
+    },
+    {
+      "name": "test_not_visible_figure",
+      "docstring": null
+    },
+    {
+      "name": "test_warn_colorbar_mismatch",
+      "docstring": null
+    },
+    {
+      "name": "test_set_figure",
+      "docstring": null
+    },
+    {
+      "name": "test_subfigure_row_order",
+      "docstring": null
+    },
+    {
+      "name": "test_subfigure_stale_propagation",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_all_nested",
+      "docstring": null
+    },
+    {
+      "name": "test_nested",
+      "docstring": null
+    },
+    {
+      "name": "test_nested_tuple",
+      "docstring": null
+    },
+    {
+      "name": "test_nested_width_ratios",
+      "docstring": null
+    },
+    {
+      "name": "test_nested_height_ratios",
+      "docstring": null
+    },
+    {
+      "name": "test_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_fail_list_of_str",
+      "docstring": null
+    },
+    {
+      "name": "test_subplot_kw",
+      "docstring": null
+    },
+    {
+      "name": "test_per_subplot_kw",
+      "docstring": null
+    },
+    {
+      "name": "test_string_parser",
+      "docstring": null
+    },
+    {
+      "name": "test_per_subplot_kw_expander",
+      "docstring": null
+    },
+    {
+      "name": "test_extra_per_subplot_kw",
+      "docstring": null
+    },
+    {
+      "name": "test_single_str_input",
+      "docstring": null
+    },
+    {
+      "name": "test_fail",
+      "docstring": null
+    },
+    {
+      "name": "test_hashable_keys",
+      "docstring": null
+    },
+    {
+      "name": "test_user_order",
+      "docstring": null
+    },
+    {
+      "name": "test_nested_user_order",
+      "docstring": null
+    },
+    {
+      "name": "test_share_all",
+      "docstring": null
+    },
+    {
+      "name": "single_press",
+      "docstring": null
+    },
+    {
+      "name": "multi_presses",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

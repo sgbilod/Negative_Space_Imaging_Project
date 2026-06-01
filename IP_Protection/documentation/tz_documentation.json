@@ -1,0 +1,370 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\dateutil\\tz\\tz.py",
+  "classes": [
+    {
+      "name": "tzutc",
+      "docstring": "This is a tzinfo object that represents the UTC time zone.\n\n**Examples:**\n\n.. doctest::\n\n    >>> from datetime import *\n    >>> from dateutil.tz import *\n\n    >>> datetime.now()\n    datetime.datetime(2003, 9, 27, 9, 40, 1, 521290)\n\n    >>> datetime.now(tzutc())\n    datetime.datetime(2003, 9, 27, 12, 40, 12, 156379, tzinfo=tzutc())\n\n    >>> datetime.now(tzutc()).tzname()\n    'UTC'\n\n.. versionchanged:: 2.7.0\n    ``tzutc()`` is now a singleton, so the result of ``tzutc()`` will\n    always return the same object.\n\n    .. doctest::\n\n        >>> from dateutil.tz import tzutc, UTC\n        >>> tzutc() is tzutc()\n        True\n        >>> tzutc() is UTC\n        True",
+      "methods": [
+        {
+          "name": "utcoffset",
+          "docstring": null
+        },
+        {
+          "name": "dst",
+          "docstring": null
+        },
+        {
+          "name": "tzname",
+          "docstring": null
+        },
+        {
+          "name": "is_ambiguous",
+          "docstring": "Whether or not the \"wall time\" of a given datetime is ambiguous in this\nzone.\n\n:param dt:\n    A :py:class:`datetime.datetime`, naive or time zone aware.\n\n\n:return:\n    Returns ``True`` if ambiguous, ``False`` otherwise.\n\n.. versionadded:: 2.6.0"
+        },
+        {
+          "name": "fromutc",
+          "docstring": "Fast track version of fromutc() returns the original ``dt`` object for\nany valid :py:class:`datetime.datetime` object."
+        }
+      ]
+    },
+    {
+      "name": "tzoffset",
+      "docstring": "A simple class for representing a fixed offset from UTC.\n\n:param name:\n    The timezone name, to be returned when ``tzname()`` is called.\n:param offset:\n    The time zone offset in seconds, or (since version 2.6.0, represented\n    as a :py:class:`datetime.timedelta` object).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "utcoffset",
+          "docstring": null
+        },
+        {
+          "name": "dst",
+          "docstring": null
+        },
+        {
+          "name": "tzname",
+          "docstring": null
+        },
+        {
+          "name": "fromutc",
+          "docstring": null
+        },
+        {
+          "name": "is_ambiguous",
+          "docstring": "Whether or not the \"wall time\" of a given datetime is ambiguous in this\nzone.\n\n:param dt:\n    A :py:class:`datetime.datetime`, naive or time zone aware.\n:return:\n    Returns ``True`` if ambiguous, ``False`` otherwise.\n\n.. versionadded:: 2.6.0"
+        }
+      ]
+    },
+    {
+      "name": "tzlocal",
+      "docstring": "A :class:`tzinfo` subclass built around the ``time`` timezone functions.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "utcoffset",
+          "docstring": null
+        },
+        {
+          "name": "dst",
+          "docstring": null
+        },
+        {
+          "name": "tzname",
+          "docstring": null
+        },
+        {
+          "name": "is_ambiguous",
+          "docstring": "Whether or not the \"wall time\" of a given datetime is ambiguous in this\nzone.\n\n:param dt:\n    A :py:class:`datetime.datetime`, naive or time zone aware.\n\n\n:return:\n    Returns ``True`` if ambiguous, ``False`` otherwise.\n\n.. versionadded:: 2.6.0"
+        }
+      ]
+    },
+    {
+      "name": "_ttinfo",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_tzfile",
+      "docstring": "Lightweight class for holding the relevant transition and time zone\ninformation read from binary tzfiles.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "tzfile",
+      "docstring": "This is a ``tzinfo`` subclass that allows one to use the ``tzfile(5)``\nformat timezone files to extract current and historical zone information.\n\n:param fileobj:\n    This can be an opened file stream or a file name that the time zone\n    information can be read from.\n\n:param filename:\n    This is an optional parameter specifying the source of the time zone\n    information in the event that ``fileobj`` is a file object. If omitted\n    and ``fileobj`` is a file stream, this parameter will be set either to\n    ``fileobj``'s ``name`` attribute or to ``repr(fileobj)``.\n\nSee `Sources for Time Zone and Daylight Saving Time Data\n<https://data.iana.org/time-zones/tz-link.html>`_ for more information.\nTime zone files can be compiled from the `IANA Time Zone database files\n<https://www.iana.org/time-zones>`_ with the `zic time zone compiler\n<https://www.freebsd.org/cgi/man.cgi?query=zic&sektion=8>`_\n\n.. note::\n\n    Only construct a ``tzfile`` directly if you have a specific timezone\n    file on disk that you want to read into a Python ``tzinfo`` object.\n    If you want to get a ``tzfile`` representing a specific IANA zone,\n    (e.g. ``'America/New_York'``), you should call\n    :func:`dateutil.tz.gettz` with the zone identifier.\n\n\n**Examples:**\n\nUsing the US Eastern time zone as an example, we can see that a ``tzfile``\nprovides time zone information for the standard Daylight Saving offsets:\n\n.. testsetup:: tzfile\n\n    from dateutil.tz import gettz\n    from datetime import datetime\n\n.. doctest:: tzfile\n\n    >>> NYC = gettz('America/New_York')\n    >>> NYC\n    tzfile('/usr/share/zoneinfo/America/New_York')\n\n    >>> print(datetime(2016, 1, 3, tzinfo=NYC))     # EST\n    2016-01-03 00:00:00-05:00\n\n    >>> print(datetime(2016, 7, 7, tzinfo=NYC))     # EDT\n    2016-07-07 00:00:00-04:00\n\n\nThe ``tzfile`` structure contains a fully history of the time zone,\nso historical dates will also have the right offsets. For example, before\nthe adoption of the UTC standards, New York used local solar  mean time:\n\n.. doctest:: tzfile\n\n   >>> print(datetime(1901, 4, 12, tzinfo=NYC))    # LMT\n   1901-04-12 00:00:00-04:56\n\nAnd during World War II, New York was on \"Eastern War Time\", which was a\nstate of permanent daylight saving time:\n\n.. doctest:: tzfile\n\n    >>> print(datetime(1944, 2, 7, tzinfo=NYC))    # EWT\n    1944-02-07 00:00:00-04:00",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "fromutc",
+          "docstring": "The ``tzfile`` implementation of :py:func:`datetime.tzinfo.fromutc`.\n\n:param dt:\n    A :py:class:`datetime.datetime` object.\n\n:raises TypeError:\n    Raised if ``dt`` is not a :py:class:`datetime.datetime` object.\n\n:raises ValueError:\n    Raised if this is called with a ``dt`` which does not have this\n    ``tzinfo`` attached.\n\n:return:\n    Returns a :py:class:`datetime.datetime` object representing the\n    wall time in ``self``'s time zone."
+        },
+        {
+          "name": "is_ambiguous",
+          "docstring": "Whether or not the \"wall time\" of a given datetime is ambiguous in this\nzone.\n\n:param dt:\n    A :py:class:`datetime.datetime`, naive or time zone aware.\n\n\n:return:\n    Returns ``True`` if ambiguous, ``False`` otherwise.\n\n.. versionadded:: 2.6.0"
+        },
+        {
+          "name": "utcoffset",
+          "docstring": null
+        },
+        {
+          "name": "dst",
+          "docstring": null
+        },
+        {
+          "name": "tzname",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "tzrange",
+      "docstring": "The ``tzrange`` object is a time zone specified by a set of offsets and\nabbreviations, equivalent to the way the ``TZ`` variable can be specified\nin POSIX-like systems, but using Python delta objects to specify DST\nstart, end and offsets.\n\n:param stdabbr:\n    The abbreviation for standard time (e.g. ``'EST'``).\n\n:param stdoffset:\n    An integer or :class:`datetime.timedelta` object or equivalent\n    specifying the base offset from UTC.\n\n    If unspecified, +00:00 is used.\n\n:param dstabbr:\n    The abbreviation for DST / \"Summer\" time (e.g. ``'EDT'``).\n\n    If specified, with no other DST information, DST is assumed to occur\n    and the default behavior or ``dstoffset``, ``start`` and ``end`` is\n    used. If unspecified and no other DST information is specified, it\n    is assumed that this zone has no DST.\n\n    If this is unspecified and other DST information is *is* specified,\n    DST occurs in the zone but the time zone abbreviation is left\n    unchanged.\n\n:param dstoffset:\n    A an integer or :class:`datetime.timedelta` object or equivalent\n    specifying the UTC offset during DST. If unspecified and any other DST\n    information is specified, it is assumed to be the STD offset +1 hour.\n\n:param start:\n    A :class:`relativedelta.relativedelta` object or equivalent specifying\n    the time and time of year that daylight savings time starts. To\n    specify, for example, that DST starts at 2AM on the 2nd Sunday in\n    March, pass:\n\n        ``relativedelta(hours=2, month=3, day=1, weekday=SU(+2))``\n\n    If unspecified and any other DST information is specified, the default\n    value is 2 AM on the first Sunday in April.\n\n:param end:\n    A :class:`relativedelta.relativedelta` object or equivalent\n    representing the time and time of year that daylight savings time\n    ends, with the same specification method as in ``start``. One note is\n    that this should point to the first time in the *standard* zone, so if\n    a transition occurs at 2AM in the DST zone and the clocks are set back\n    1 hour to 1AM, set the ``hours`` parameter to +1.\n\n\n**Examples:**\n\n.. testsetup:: tzrange\n\n    from dateutil.tz import tzrange, tzstr\n\n.. doctest:: tzrange\n\n    >>> tzstr('EST5EDT') == tzrange(\"EST\", -18000, \"EDT\")\n    True\n\n    >>> from dateutil.relativedelta import *\n    >>> range1 = tzrange(\"EST\", -18000, \"EDT\")\n    >>> range2 = tzrange(\"EST\", -18000, \"EDT\", -14400,\n    ...                  relativedelta(hours=+2, month=4, day=1,\n    ...                                weekday=SU(+1)),\n    ...                  relativedelta(hours=+1, month=10, day=31,\n    ...                                weekday=SU(-1)))\n    >>> tzstr('EST5EDT') == range1 == range2\n    True",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "transitions",
+          "docstring": "For a given year, get the DST on and off transition times, expressed\nalways on the standard time side. For zones with no transitions, this\nfunction returns ``None``.\n\n:param year:\n    The year whose transitions you would like to query.\n\n:return:\n    Returns a :class:`tuple` of :class:`datetime.datetime` objects,\n    ``(dston, dstoff)`` for zones with an annual DST transition, or\n    ``None`` for fixed offset zones."
+        }
+      ]
+    },
+    {
+      "name": "tzstr",
+      "docstring": "``tzstr`` objects are time zone objects specified by a time-zone string as\nit would be passed to a ``TZ`` variable on POSIX-style systems (see\nthe `GNU C Library: TZ Variable`_ for more details).\n\nThere is one notable exception, which is that POSIX-style time zones use an\ninverted offset format, so normally ``GMT+3`` would be parsed as an offset\n3 hours *behind* GMT. The ``tzstr`` time zone object will parse this as an\noffset 3 hours *ahead* of GMT. If you would like to maintain the POSIX\nbehavior, pass a ``True`` value to ``posix_offset``.\n\nThe :class:`tzrange` object provides the same functionality, but is\nspecified using :class:`relativedelta.relativedelta` objects. rather than\nstrings.\n\n:param s:\n    A time zone string in ``TZ`` variable format. This can be a\n    :class:`bytes` (2.x: :class:`str`), :class:`str` (2.x:\n    :class:`unicode`) or a stream emitting unicode characters\n    (e.g. :class:`StringIO`).\n\n:param posix_offset:\n    Optional. If set to ``True``, interpret strings such as ``GMT+3`` or\n    ``UTC+3`` as being 3 hours *behind* UTC rather than ahead, per the\n    POSIX standard.\n\n.. caution::\n\n    Prior to version 2.7.0, this function also supported time zones\n    in the format:\n\n        * ``EST5EDT,4,0,6,7200,10,0,26,7200,3600``\n        * ``EST5EDT,4,1,0,7200,10,-1,0,7200,3600``\n\n    This format is non-standard and has been deprecated; this function\n    will raise a :class:`DeprecatedTZFormatWarning` until\n    support is removed in a future version.\n\n.. _`GNU C Library: TZ Variable`:\n    https://www.gnu.org/software/libc/manual/html_node/TZ-Variable.html",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_tzicalvtzcomp",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_tzicalvtz",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "utcoffset",
+          "docstring": null
+        },
+        {
+          "name": "dst",
+          "docstring": null
+        },
+        {
+          "name": "tzname",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "tzical",
+      "docstring": "This object is designed to parse an iCalendar-style ``VTIMEZONE`` structure\nas set out in `RFC 5545`_ Section 4.6.5 into one or more `tzinfo` objects.\n\n:param `fileobj`:\n    A file or stream in iCalendar format, which should be UTF-8 encoded\n    with CRLF endings.\n\n.. _`RFC 5545`: https://tools.ietf.org/html/rfc5545",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "keys",
+          "docstring": "Retrieves the available time zones as a list."
+        },
+        {
+          "name": "get",
+          "docstring": "Retrieve a :py:class:`datetime.tzinfo` object by its ``tzid``.\n\n:param tzid:\n    If there is exactly one time zone available, omitting ``tzid``\n    or passing :py:const:`None` value returns it. Otherwise a valid\n    key (which can be retrieved from :func:`keys`) is required.\n\n:raises ValueError:\n    Raised if ``tzid`` is not specified but there are either more\n    or fewer than 1 zone defined.\n\n:returns:\n    Returns either a :py:class:`datetime.tzinfo` object representing\n    the relevant time zone or :py:const:`None` if the ``tzid`` was\n    not found."
+        }
+      ]
+    },
+    {
+      "name": "GettzFunc",
+      "docstring": "Retrieve a time zone object from a string representation\n\nThis function is intended to retrieve the :py:class:`tzinfo` subclass\nthat best represents the time zone that would be used if a POSIX\n`TZ variable`_ were set to the same value.\n\nIf no argument or an empty string is passed to ``gettz``, local time\nis returned:\n\n.. code-block:: python3\n\n    >>> gettz()\n    tzfile('/etc/localtime')\n\nThis function is also the preferred way to map IANA tz database keys\nto :class:`tzfile` objects:\n\n.. code-block:: python3\n\n    >>> gettz('Pacific/Kiritimati')\n    tzfile('/usr/share/zoneinfo/Pacific/Kiritimati')\n\nOn Windows, the standard is extended to include the Windows-specific\nzone names provided by the operating system:\n\n.. code-block:: python3\n\n    >>> gettz('Egypt Standard Time')\n    tzwin('Egypt Standard Time')\n\nPassing a GNU ``TZ`` style string time zone specification returns a\n:class:`tzstr` object:\n\n.. code-block:: python3\n\n    >>> gettz('AEST-10AEDT-11,M10.1.0/2,M4.1.0/3')\n    tzstr('AEST-10AEDT-11,M10.1.0/2,M4.1.0/3')\n\n:param name:\n    A time zone name (IANA, or, on Windows, Windows keys), location of\n    a ``tzfile(5)`` zoneinfo file or ``TZ`` variable style time zone\n    specifier. An empty string, no argument or ``None`` is interpreted\n    as local time.\n\n:return:\n    Returns an instance of one of ``dateutil``'s :py:class:`tzinfo`\n    subclasses.\n\n.. versionchanged:: 2.7.0\n\n    After version 2.7.0, any two calls to ``gettz`` using the same\n    input strings will return the same object:\n\n    .. code-block:: python3\n\n        >>> tz.gettz('America/Chicago') is tz.gettz('America/Chicago')\n        True\n\n    In addition to improving performance, this ensures that\n    `\"same zone\" semantics`_ are used for datetimes in the same zone.\n\n\n.. _`TZ variable`:\n    https://www.gnu.org/software/libc/manual/html_node/TZ-Variable.html\n\n.. _`\"same zone\" semantics`:\n    https://blog.ganssle.io/articles/2018/02/aware-datetime-arithmetic.html",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_cache_size",
+          "docstring": null
+        },
+        {
+          "name": "cache_clear",
+          "docstring": null
+        },
+        {
+          "name": "nocache",
+          "docstring": "A non-cached version of gettz"
+        }
+      ]
+    },
+    {
+      "name": "_nullcontext",
+      "docstring": "Class for wrapping contexts so that they are passed through in a\nwith statement.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "datetime_exists",
+      "docstring": "Given a datetime and a time zone, determine whether or not a given datetime\nwould fall in a gap.\n\n:param dt:\n    A :class:`datetime.datetime` (whose time zone will be ignored if ``tz``\n    is provided.)\n\n:param tz:\n    A :class:`datetime.tzinfo` with support for the ``fold`` attribute. If\n    ``None`` or not provided, the datetime's own time zone will be used.\n\n:return:\n    Returns a boolean value whether or not the \"wall time\" exists in\n    ``tz``.\n\n.. versionadded:: 2.7.0"
+    },
+    {
+      "name": "datetime_ambiguous",
+      "docstring": "Given a datetime and a time zone, determine whether or not a given datetime\nis ambiguous (i.e if there are two times differentiated only by their DST\nstatus).\n\n:param dt:\n    A :class:`datetime.datetime` (whose time zone will be ignored if ``tz``\n    is provided.)\n\n:param tz:\n    A :class:`datetime.tzinfo` with support for the ``fold`` attribute. If\n    ``None`` or not provided, the datetime's own time zone will be used.\n\n:return:\n    Returns a boolean value whether or not the \"wall time\" is ambiguous in\n    ``tz``.\n\n.. versionadded:: 2.6.0"
+    },
+    {
+      "name": "resolve_imaginary",
+      "docstring": "Given a datetime that may be imaginary, return an existing datetime.\n\nThis function assumes that an imaginary datetime represents what the\nwall time would be in a zone had the offset transition not occurred, so\nit will always fall forward by the transition's change in offset.\n\n.. doctest::\n\n    >>> from dateutil import tz\n    >>> from datetime import datetime\n    >>> NYC = tz.gettz('America/New_York')\n    >>> print(tz.resolve_imaginary(datetime(2017, 3, 12, 2, 30, tzinfo=NYC)))\n    2017-03-12 03:30:00-04:00\n\n    >>> KIR = tz.gettz('Pacific/Kiritimati')\n    >>> print(tz.resolve_imaginary(datetime(1995, 1, 1, 12, 30, tzinfo=KIR)))\n    1995-01-02 12:30:00+14:00\n\nAs a note, :func:`datetime.astimezone` is guaranteed to produce a valid,\nexisting datetime, so a round-trip to and from UTC is sufficient to get\nan extant datetime, however, this generally \"falls back\" to an earlier time\nrather than falling forward to the STD side (though no guarantees are made\nabout this behavior).\n\n:param dt:\n    A :class:`datetime.datetime` which may or may not exist.\n\n:return:\n    Returns an existing :class:`datetime.datetime`. If ``dt`` was not\n    imaginary, the datetime returned is guaranteed to be the same object\n    passed to the function.\n\n.. versionadded:: 2.7.0"
+    },
+    {
+      "name": "utcoffset",
+      "docstring": null
+    },
+    {
+      "name": "dst",
+      "docstring": null
+    },
+    {
+      "name": "tzname",
+      "docstring": null
+    },
+    {
+      "name": "is_ambiguous",
+      "docstring": "Whether or not the \"wall time\" of a given datetime is ambiguous in this\nzone.\n\n:param dt:\n    A :py:class:`datetime.datetime`, naive or time zone aware.\n\n\n:return:\n    Returns ``True`` if ambiguous, ``False`` otherwise.\n\n.. versionadded:: 2.6.0"
+    },
+    {
+      "name": "fromutc",
+      "docstring": "Fast track version of fromutc() returns the original ``dt`` object for\nany valid :py:class:`datetime.datetime` object."
+    },
+    {
+      "name": "utcoffset",
+      "docstring": null
+    },
+    {
+      "name": "dst",
+      "docstring": null
+    },
+    {
+      "name": "tzname",
+      "docstring": null
+    },
+    {
+      "name": "fromutc",
+      "docstring": null
+    },
+    {
+      "name": "is_ambiguous",
+      "docstring": "Whether or not the \"wall time\" of a given datetime is ambiguous in this\nzone.\n\n:param dt:\n    A :py:class:`datetime.datetime`, naive or time zone aware.\n:return:\n    Returns ``True`` if ambiguous, ``False`` otherwise.\n\n.. versionadded:: 2.6.0"
+    },
+    {
+      "name": "utcoffset",
+      "docstring": null
+    },
+    {
+      "name": "dst",
+      "docstring": null
+    },
+    {
+      "name": "tzname",
+      "docstring": null
+    },
+    {
+      "name": "is_ambiguous",
+      "docstring": "Whether or not the \"wall time\" of a given datetime is ambiguous in this\nzone.\n\n:param dt:\n    A :py:class:`datetime.datetime`, naive or time zone aware.\n\n\n:return:\n    Returns ``True`` if ambiguous, ``False`` otherwise.\n\n.. versionadded:: 2.6.0"
+    },
+    {
+      "name": "fromutc",
+      "docstring": "The ``tzfile`` implementation of :py:func:`datetime.tzinfo.fromutc`.\n\n:param dt:\n    A :py:class:`datetime.datetime` object.\n\n:raises TypeError:\n    Raised if ``dt`` is not a :py:class:`datetime.datetime` object.\n\n:raises ValueError:\n    Raised if this is called with a ``dt`` which does not have this\n    ``tzinfo`` attached.\n\n:return:\n    Returns a :py:class:`datetime.datetime` object representing the\n    wall time in ``self``'s time zone."
+    },
+    {
+      "name": "is_ambiguous",
+      "docstring": "Whether or not the \"wall time\" of a given datetime is ambiguous in this\nzone.\n\n:param dt:\n    A :py:class:`datetime.datetime`, naive or time zone aware.\n\n\n:return:\n    Returns ``True`` if ambiguous, ``False`` otherwise.\n\n.. versionadded:: 2.6.0"
+    },
+    {
+      "name": "utcoffset",
+      "docstring": null
+    },
+    {
+      "name": "dst",
+      "docstring": null
+    },
+    {
+      "name": "tzname",
+      "docstring": null
+    },
+    {
+      "name": "transitions",
+      "docstring": "For a given year, get the DST on and off transition times, expressed\nalways on the standard time side. For zones with no transitions, this\nfunction returns ``None``.\n\n:param year:\n    The year whose transitions you would like to query.\n\n:return:\n    Returns a :class:`tuple` of :class:`datetime.datetime` objects,\n    ``(dston, dstoff)`` for zones with an annual DST transition, or\n    ``None`` for fixed offset zones."
+    },
+    {
+      "name": "utcoffset",
+      "docstring": null
+    },
+    {
+      "name": "dst",
+      "docstring": null
+    },
+    {
+      "name": "tzname",
+      "docstring": null
+    },
+    {
+      "name": "keys",
+      "docstring": "Retrieves the available time zones as a list."
+    },
+    {
+      "name": "get",
+      "docstring": "Retrieve a :py:class:`datetime.tzinfo` object by its ``tzid``.\n\n:param tzid:\n    If there is exactly one time zone available, omitting ``tzid``\n    or passing :py:const:`None` value returns it. Otherwise a valid\n    key (which can be retrieved from :func:`keys`) is required.\n\n:raises ValueError:\n    Raised if ``tzid`` is not specified but there are either more\n    or fewer than 1 zone defined.\n\n:returns:\n    Returns either a :py:class:`datetime.tzinfo` object representing\n    the relevant time zone or :py:const:`None` if the ``tzid`` was\n    not found."
+    },
+    {
+      "name": "set_cache_size",
+      "docstring": null
+    },
+    {
+      "name": "cache_clear",
+      "docstring": null
+    },
+    {
+      "name": "nocache",
+      "docstring": "A non-cached version of gettz"
+    }
+  ],
+  "innovations": []
+}

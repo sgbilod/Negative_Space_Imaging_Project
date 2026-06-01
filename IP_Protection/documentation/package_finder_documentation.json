@@ -1,0 +1,281 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\index\\package_finder.py",
+  "classes": [
+    {
+      "name": "LinkType",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "LinkEvaluator",
+      "docstring": "Responsible for evaluating links for a particular project.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": ":param project_name: The user supplied package name.\n:param canonical_name: The canonical package name.\n:param formats: The formats allowed for this package. Should be a set\n    with 'binary' or 'source' or both in it.\n:param target_python: The target Python interpreter to use when\n    evaluating link compatibility. This is used, for example, to\n    check wheel compatibility, as well as when checking the Python\n    version, e.g. the Python version embedded in a link filename\n    (or egg fragment) and against an HTML link's optional PEP 503\n    \"data-requires-python\" attribute.\n:param allow_yanked: Whether files marked as yanked (in the sense\n    of PEP 592) are permitted to be candidates for install.\n:param ignore_requires_python: Whether to ignore incompatible\n    PEP 503 \"data-requires-python\" values in HTML links. Defaults\n    to False."
+        },
+        {
+          "name": "evaluate_link",
+          "docstring": "Determine whether a link is a candidate for installation.\n\n:return: A tuple (result, detail), where *result* is an enum\n    representing whether the evaluation found a candidate, or the reason\n    why one is not found. If a candidate is found, *detail* will be the\n    candidate's version string; if one is not found, it contains the\n    reason the link fails to qualify."
+        }
+      ]
+    },
+    {
+      "name": "CandidatePreferences",
+      "docstring": "Encapsulates some of the preferences for filtering and sorting\nInstallationCandidate objects.",
+      "methods": []
+    },
+    {
+      "name": "BestCandidateResult",
+      "docstring": "A collection of candidates, returned by `PackageFinder.find_best_candidate`.\n\nThis class is only intended to be instantiated by CandidateEvaluator's\n`compute_best_candidate()` method.\n\n:param all_candidates: A sequence of all available candidates found.\n:param applicable_candidates: The applicable candidates.\n:param best_candidate: The most preferred candidate found, or None\n    if no applicable candidates were found.",
+      "methods": []
+    },
+    {
+      "name": "CandidateEvaluator",
+      "docstring": "Responsible for filtering and sorting candidates for installation based\non what tags are valid.",
+      "methods": [
+        {
+          "name": "create",
+          "docstring": "Create a CandidateEvaluator object.\n\n:param target_python: The target Python interpreter to use when\n    checking compatibility. If None (the default), a TargetPython\n    object will be constructed from the running Python.\n:param specifier: An optional object implementing `filter`\n    (e.g. `packaging.specifiers.SpecifierSet`) to filter applicable\n    versions.\n:param hashes: An optional collection of allowed hashes."
+        },
+        {
+          "name": "__init__",
+          "docstring": ":param supported_tags: The PEP 425 tags supported by the target\n    Python in order of preference (most preferred first)."
+        },
+        {
+          "name": "get_applicable_candidates",
+          "docstring": "Return the applicable candidates from a list of candidates."
+        },
+        {
+          "name": "sort_best_candidate",
+          "docstring": "Return the best candidate per the instance's sort order, or None if\nno candidate is acceptable."
+        },
+        {
+          "name": "compute_best_candidate",
+          "docstring": "Compute and return a `BestCandidateResult` instance."
+        }
+      ]
+    },
+    {
+      "name": "PackageFinder",
+      "docstring": "This finds packages.\n\nThis is meant to match easy_install's technique for looking for\npackages, by reading pages and looking for appropriate links.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "This constructor is primarily meant to be used by the create() class\nmethod and from tests.\n\n:param format_control: A FormatControl object, used to control\n    the selection of source packages / binary packages when consulting\n    the index and links.\n:param candidate_prefs: Options to use when creating a\n    CandidateEvaluator object."
+        },
+        {
+          "name": "create",
+          "docstring": "Create a PackageFinder.\n\n:param selection_prefs: The candidate selection preferences, as a\n    SelectionPreferences object.\n:param target_python: The target Python interpreter to use when\n    checking compatibility. If None (the default), a TargetPython\n    object will be constructed from the running Python."
+        },
+        {
+          "name": "target_python",
+          "docstring": null
+        },
+        {
+          "name": "search_scope",
+          "docstring": null
+        },
+        {
+          "name": "search_scope",
+          "docstring": null
+        },
+        {
+          "name": "find_links",
+          "docstring": null
+        },
+        {
+          "name": "index_urls",
+          "docstring": null
+        },
+        {
+          "name": "proxy",
+          "docstring": null
+        },
+        {
+          "name": "trusted_hosts",
+          "docstring": null
+        },
+        {
+          "name": "custom_cert",
+          "docstring": null
+        },
+        {
+          "name": "client_cert",
+          "docstring": null
+        },
+        {
+          "name": "allow_all_prereleases",
+          "docstring": null
+        },
+        {
+          "name": "set_allow_all_prereleases",
+          "docstring": null
+        },
+        {
+          "name": "prefer_binary",
+          "docstring": null
+        },
+        {
+          "name": "set_prefer_binary",
+          "docstring": null
+        },
+        {
+          "name": "requires_python_skipped_reasons",
+          "docstring": null
+        },
+        {
+          "name": "make_link_evaluator",
+          "docstring": null
+        },
+        {
+          "name": "get_install_candidate",
+          "docstring": "If the link is a candidate for install, convert it to an\nInstallationCandidate and return it. Otherwise, return None."
+        },
+        {
+          "name": "evaluate_links",
+          "docstring": "Convert links that are candidates to InstallationCandidate objects."
+        },
+        {
+          "name": "process_project_url",
+          "docstring": null
+        },
+        {
+          "name": "find_all_candidates",
+          "docstring": "Find all available InstallationCandidate for project_name\n\nThis checks index_urls and find_links.\nAll versions found are returned as an InstallationCandidate list.\n\nSee LinkEvaluator.evaluate_link() for details on which files\nare accepted."
+        },
+        {
+          "name": "make_candidate_evaluator",
+          "docstring": "Create a CandidateEvaluator object to use."
+        },
+        {
+          "name": "find_best_candidate",
+          "docstring": "Find matches for the given project and specifier.\n\n:param specifier: An optional object implementing `filter`\n    (e.g. `packaging.specifiers.SpecifierSet`) to filter applicable\n    versions.\n\n:return: A `BestCandidateResult` instance."
+        },
+        {
+          "name": "find_requirement",
+          "docstring": "Try to find a Link matching req\n\nExpects req, an InstallRequirement and upgrade, a boolean\nReturns a InstallationCandidate if found,\nRaises DistributionNotFound or BestVersionAlreadyInstalled otherwise"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "filter_unallowed_hashes",
+      "docstring": "Filter out candidates whose hashes aren't allowed, and return a new\nlist of candidates.\n\nIf at least one candidate has an allowed hash, then all candidates with\neither an allowed hash or no hash specified are returned.  Otherwise,\nthe given candidates are returned.\n\nIncluding the candidates with no hash specified when there is a match\nallows a warning to be logged if there is a more preferred candidate\nwith no hash specified.  Returning all candidates in the case of no\nmatches lets pip report the hash of the candidate that would otherwise\nhave been installed (e.g. permitting the user to more easily update\ntheir requirements file with the desired hash)."
+    },
+    {
+      "name": "evaluate_link",
+      "docstring": "Determine whether a link is a candidate for installation.\n\n:return: A tuple (result, detail), where *result* is an enum\n    representing whether the evaluation found a candidate, or the reason\n    why one is not found. If a candidate is found, *detail* will be the\n    candidate's version string; if one is not found, it contains the\n    reason the link fails to qualify."
+    },
+    {
+      "name": "create",
+      "docstring": "Create a CandidateEvaluator object.\n\n:param target_python: The target Python interpreter to use when\n    checking compatibility. If None (the default), a TargetPython\n    object will be constructed from the running Python.\n:param specifier: An optional object implementing `filter`\n    (e.g. `packaging.specifiers.SpecifierSet`) to filter applicable\n    versions.\n:param hashes: An optional collection of allowed hashes."
+    },
+    {
+      "name": "get_applicable_candidates",
+      "docstring": "Return the applicable candidates from a list of candidates."
+    },
+    {
+      "name": "sort_best_candidate",
+      "docstring": "Return the best candidate per the instance's sort order, or None if\nno candidate is acceptable."
+    },
+    {
+      "name": "compute_best_candidate",
+      "docstring": "Compute and return a `BestCandidateResult` instance."
+    },
+    {
+      "name": "create",
+      "docstring": "Create a PackageFinder.\n\n:param selection_prefs: The candidate selection preferences, as a\n    SelectionPreferences object.\n:param target_python: The target Python interpreter to use when\n    checking compatibility. If None (the default), a TargetPython\n    object will be constructed from the running Python."
+    },
+    {
+      "name": "target_python",
+      "docstring": null
+    },
+    {
+      "name": "search_scope",
+      "docstring": null
+    },
+    {
+      "name": "search_scope",
+      "docstring": null
+    },
+    {
+      "name": "find_links",
+      "docstring": null
+    },
+    {
+      "name": "index_urls",
+      "docstring": null
+    },
+    {
+      "name": "proxy",
+      "docstring": null
+    },
+    {
+      "name": "trusted_hosts",
+      "docstring": null
+    },
+    {
+      "name": "custom_cert",
+      "docstring": null
+    },
+    {
+      "name": "client_cert",
+      "docstring": null
+    },
+    {
+      "name": "allow_all_prereleases",
+      "docstring": null
+    },
+    {
+      "name": "set_allow_all_prereleases",
+      "docstring": null
+    },
+    {
+      "name": "prefer_binary",
+      "docstring": null
+    },
+    {
+      "name": "set_prefer_binary",
+      "docstring": null
+    },
+    {
+      "name": "requires_python_skipped_reasons",
+      "docstring": null
+    },
+    {
+      "name": "make_link_evaluator",
+      "docstring": null
+    },
+    {
+      "name": "get_install_candidate",
+      "docstring": "If the link is a candidate for install, convert it to an\nInstallationCandidate and return it. Otherwise, return None."
+    },
+    {
+      "name": "evaluate_links",
+      "docstring": "Convert links that are candidates to InstallationCandidate objects."
+    },
+    {
+      "name": "process_project_url",
+      "docstring": null
+    },
+    {
+      "name": "find_all_candidates",
+      "docstring": "Find all available InstallationCandidate for project_name\n\nThis checks index_urls and find_links.\nAll versions found are returned as an InstallationCandidate list.\n\nSee LinkEvaluator.evaluate_link() for details on which files\nare accepted."
+    },
+    {
+      "name": "make_candidate_evaluator",
+      "docstring": "Create a CandidateEvaluator object to use."
+    },
+    {
+      "name": "find_best_candidate",
+      "docstring": "Find matches for the given project and specifier.\n\n:param specifier: An optional object implementing `filter`\n    (e.g. `packaging.specifiers.SpecifierSet`) to filter applicable\n    versions.\n\n:return: A `BestCandidateResult` instance."
+    },
+    {
+      "name": "find_requirement",
+      "docstring": "Try to find a Link matching req\n\nExpects req, an InstallRequirement and upgrade, a boolean\nReturns a InstallationCandidate if found,\nRaises DistributionNotFound or BestVersionAlreadyInstalled otherwise"
+    }
+  ],
+  "innovations": []
+}

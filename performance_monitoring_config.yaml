@@ -1,0 +1,142 @@
+# Performance Monitoring Configuration for Negative Space Imaging Project
+# This configuration file defines the settings for the performance monitoring system
+
+# General settings
+general:
+  enabled: true
+  log_level: INFO
+  metrics_retention_days: 14
+  sampling_interval_seconds: 5
+  environment: production
+
+# System resources monitoring
+system_resources:
+  enabled: true
+  cpu:
+    enabled: true
+    alert_threshold_percent: 85
+    warning_threshold_percent: 70
+  memory:
+    enabled: true
+    alert_threshold_percent: 90
+    warning_threshold_percent: 80
+  disk:
+    enabled: true
+    alert_threshold_percent: 90
+    warning_threshold_percent: 80
+  network:
+    enabled: true
+    collect_per_interface: true
+
+# Application performance monitoring
+application:
+  enabled: true
+  request_tracing:
+    enabled: true
+    trace_all_requests: false
+    sample_rate: 0.1
+    min_duration_ms: 500
+  database:
+    enabled: true
+    track_slow_queries: true
+    slow_query_threshold_ms: 1000
+    collect_query_stats: true
+  caching:
+    enabled: true
+    track_hit_rate: true
+    track_memory_usage: true
+  errors:
+    enabled: true
+    group_similar: true
+    alert_on_new: true
+
+# High Performance Computing monitoring
+hpc:
+  enabled: true
+  node_metrics:
+    enabled: true
+    collect_gpu_metrics: true
+    collect_mpi_stats: true
+  job_metrics:
+    enabled: true
+    track_completion_time: true
+    track_resource_efficiency: true
+  distributed_computing:
+    enabled: true
+    track_node_communication: true
+    track_load_balancing: true
+
+# Alerting configuration
+alerting:
+  enabled: true
+  channels:
+    email:
+      enabled: true
+      recipients:
+        - alerts@example.com
+    slack:
+      enabled: false
+      webhook_url: ""
+      channel: "#monitoring"
+    pagerduty:
+      enabled: false
+      service_key: ""
+  alert_rules:
+    high_cpu:
+      enabled: true
+      threshold_percent: 85
+      duration_seconds: 300
+      severity: warning
+    high_memory:
+      enabled: true
+      threshold_percent: 90
+      duration_seconds: 300
+      severity: warning
+    high_error_rate:
+      enabled: true
+      threshold_percent: 5
+      duration_seconds: 300
+      severity: critical
+    slow_endpoints:
+      enabled: true
+      threshold_ms: 2000
+      duration_seconds: 600
+      severity: warning
+
+# Dashboard configuration
+dashboards:
+  system:
+    enabled: true
+    title: "System Performance"
+    refresh_interval_seconds: 30
+    default_time_range: "6h"
+  application:
+    enabled: true
+    title: "Application Performance"
+    refresh_interval_seconds: 30
+    default_time_range: "6h"
+  hpc:
+    enabled: true
+    title: "HPC Performance"
+    refresh_interval_seconds: 60
+    default_time_range: "24h"
+  database:
+    enabled: true
+    title: "Database Performance"
+    refresh_interval_seconds: 60
+    default_time_range: "12h"
+
+# Export configuration
+export:
+  prometheus:
+    enabled: true
+    port: 9090
+  grafana:
+    enabled: true
+    port: 3000
+    admin_password: "admin"
+    allow_anonymous: false
+  csv:
+    enabled: true
+    export_interval_hours: 24
+    export_path: "/app/data/metrics"

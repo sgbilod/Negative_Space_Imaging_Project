@@ -1,0 +1,108 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\live.py",
+  "classes": [
+    {
+      "name": "_RefreshThread",
+      "docstring": "A thread that calls refresh() at regular intervals.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "stop",
+          "docstring": null
+        },
+        {
+          "name": "run",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Live",
+      "docstring": "Renders an auto-updating live display of any given renderable.\n\nArgs:\n    renderable (RenderableType, optional): The renderable to live display. Defaults to displaying nothing.\n    console (Console, optional): Optional Console instance. Defaults to an internal Console instance writing to stdout.\n    screen (bool, optional): Enable alternate screen mode. Defaults to False.\n    auto_refresh (bool, optional): Enable auto refresh. If disabled, you will need to call `refresh()` or `update()` with refresh flag. Defaults to True\n    refresh_per_second (float, optional): Number of times per second to refresh the live display. Defaults to 4.\n    transient (bool, optional): Clear the renderable on exit (has no effect when screen=True). Defaults to False.\n    redirect_stdout (bool, optional): Enable redirection of stdout, so ``print`` may be used. Defaults to True.\n    redirect_stderr (bool, optional): Enable redirection of stderr. Defaults to True.\n    vertical_overflow (VerticalOverflowMethod, optional): How to handle renderable when it is too tall for the console. Defaults to \"ellipsis\".\n    get_renderable (Callable[[], RenderableType], optional): Optional callable to get renderable. Defaults to None.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "is_started",
+          "docstring": "Check if live display has been started."
+        },
+        {
+          "name": "get_renderable",
+          "docstring": null
+        },
+        {
+          "name": "start",
+          "docstring": "Start live rendering display.\n\nArgs:\n    refresh (bool, optional): Also refresh. Defaults to False."
+        },
+        {
+          "name": "stop",
+          "docstring": "Stop live rendering display."
+        },
+        {
+          "name": "renderable",
+          "docstring": "Get the renderable that is being displayed\n\nReturns:\n    RenderableType: Displayed renderable."
+        },
+        {
+          "name": "update",
+          "docstring": "Update the renderable that is being displayed\n\nArgs:\n    renderable (RenderableType): New renderable to use.\n    refresh (bool, optional): Refresh the display. Defaults to False."
+        },
+        {
+          "name": "refresh",
+          "docstring": "Update the display of the Live Render."
+        },
+        {
+          "name": "process_renderables",
+          "docstring": "Process renderables to restore cursor and display progress."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "stop",
+      "docstring": null
+    },
+    {
+      "name": "run",
+      "docstring": null
+    },
+    {
+      "name": "is_started",
+      "docstring": "Check if live display has been started."
+    },
+    {
+      "name": "get_renderable",
+      "docstring": null
+    },
+    {
+      "name": "start",
+      "docstring": "Start live rendering display.\n\nArgs:\n    refresh (bool, optional): Also refresh. Defaults to False."
+    },
+    {
+      "name": "stop",
+      "docstring": "Stop live rendering display."
+    },
+    {
+      "name": "renderable",
+      "docstring": "Get the renderable that is being displayed\n\nReturns:\n    RenderableType: Displayed renderable."
+    },
+    {
+      "name": "update",
+      "docstring": "Update the renderable that is being displayed\n\nArgs:\n    renderable (RenderableType): New renderable to use.\n    refresh (bool, optional): Refresh the display. Defaults to False."
+    },
+    {
+      "name": "refresh",
+      "docstring": "Update the display of the Live Render."
+    },
+    {
+      "name": "process_renderables",
+      "docstring": "Process renderables to restore cursor and display progress."
+    }
+  ],
+  "innovations": []
+}

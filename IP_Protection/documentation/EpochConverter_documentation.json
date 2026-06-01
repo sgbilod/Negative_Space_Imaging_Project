@@ -1,0 +1,62 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\testing\\jpl_units\\EpochConverter.py",
+  "classes": [
+    {
+      "name": "EpochConverter",
+      "docstring": "Provides Matplotlib conversion functionality for Monte Epoch and Duration\nclasses.",
+      "methods": [
+        {
+          "name": "axisinfo",
+          "docstring": null
+        },
+        {
+          "name": "float2epoch",
+          "docstring": "Convert a Matplotlib floating-point date into an Epoch of the specified\nunits.\n\n= INPUT VARIABLES\n- value     The Matplotlib floating-point date.\n- unit      The unit system to use for the Epoch.\n\n= RETURN VALUE\n- Returns the value converted to an Epoch in the specified time system."
+        },
+        {
+          "name": "epoch2float",
+          "docstring": "Convert an Epoch value to a float suitable for plotting as a python\ndatetime object.\n\n= INPUT VARIABLES\n- value    An Epoch or list of Epochs that need to be converted.\n- unit     The units to use for an axis with Epoch data.\n\n= RETURN VALUE\n- Returns the value parameter converted to floats."
+        },
+        {
+          "name": "duration2float",
+          "docstring": "Convert a Duration value to a float suitable for plotting as a python\ndatetime object.\n\n= INPUT VARIABLES\n- value    A Duration or list of Durations that need to be converted.\n\n= RETURN VALUE\n- Returns the value parameter converted to floats."
+        },
+        {
+          "name": "convert",
+          "docstring": null
+        },
+        {
+          "name": "default_units",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "axisinfo",
+      "docstring": null
+    },
+    {
+      "name": "float2epoch",
+      "docstring": "Convert a Matplotlib floating-point date into an Epoch of the specified\nunits.\n\n= INPUT VARIABLES\n- value     The Matplotlib floating-point date.\n- unit      The unit system to use for the Epoch.\n\n= RETURN VALUE\n- Returns the value converted to an Epoch in the specified time system."
+    },
+    {
+      "name": "epoch2float",
+      "docstring": "Convert an Epoch value to a float suitable for plotting as a python\ndatetime object.\n\n= INPUT VARIABLES\n- value    An Epoch or list of Epochs that need to be converted.\n- unit     The units to use for an axis with Epoch data.\n\n= RETURN VALUE\n- Returns the value parameter converted to floats."
+    },
+    {
+      "name": "duration2float",
+      "docstring": "Convert a Duration value to a float suitable for plotting as a python\ndatetime object.\n\n= INPUT VARIABLES\n- value    A Duration or list of Durations that need to be converted.\n\n= RETURN VALUE\n- Returns the value parameter converted to floats."
+    },
+    {
+      "name": "convert",
+      "docstring": null
+    },
+    {
+      "name": "default_units",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

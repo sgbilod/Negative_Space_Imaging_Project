@@ -1,0 +1,15 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\varLib\\interpolate_layout.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "interpolate_layout",
+      "docstring": "Interpolate GPOS from a designspace file and location.\n\nIf master_finder is set, it should be a callable that takes master\nfilename as found in designspace file and map it to master font\nbinary as to be opened (eg. .ttf or .otf).\n\nIf mapped is False (default), then location is mapped using the\nmap element of the axes in designspace file.  If mapped is True,\nit is assumed that location is in designspace's internal space and\nno mapping is performed."
+    },
+    {
+      "name": "main",
+      "docstring": "Interpolate GDEF/GPOS/GSUB tables for a point on a designspace"
+    }
+  ],
+  "innovations": []
+}

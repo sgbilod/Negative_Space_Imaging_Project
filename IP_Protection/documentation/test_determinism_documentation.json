@@ -1,0 +1,42 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_determinism.py",
+  "classes": [
+    {
+      "name": "PathClippedImagePatch",
+      "docstring": "The given image is used to draw the face of the patch. Internally,\nit uses BboxImage whose clippath set to the path of the patch.\n\nFIXME : The result is currently dpi dependent.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_facecolor",
+          "docstring": "Simply ignore facecolor."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_determinism_check",
+      "docstring": "Output three times the same graphs and checks that the outputs are exactly\nthe same.\n\nParameters\n----------\nobjects : str\n    Objects to be included in the test document: 'm' for markers, 'h' for\n    hatch patterns, 'i' for images, and 'p' for paths.\nfmt : {\"pdf\", \"ps\", \"svg\"}\n    Output format."
+    },
+    {
+      "name": "test_determinism_source_date_epoch",
+      "docstring": "Test SOURCE_DATE_EPOCH support. Output a document with the environment\nvariable SOURCE_DATE_EPOCH set to 2000-01-01 00:00 UTC and check that the\ndocument contains the timestamp that corresponds to this date (given as an\nargument).\n\nParameters\n----------\nfmt : {\"pdf\", \"ps\", \"svg\"}\n    Output format.\nstring : bytes\n    Timestamp string for 2000-01-01 00:00 UTC."
+    },
+    {
+      "name": "set_facecolor",
+      "docstring": "Simply ignore facecolor."
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

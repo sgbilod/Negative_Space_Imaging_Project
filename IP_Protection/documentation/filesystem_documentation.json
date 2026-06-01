@@ -1,0 +1,39 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\utils\\filesystem.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "check_path_owner",
+      "docstring": null
+    },
+    {
+      "name": "adjacent_tmp_file",
+      "docstring": "Return a file-like object pointing to a tmp file next to path.\n\nThe file is created securely and is ensured to be written to disk\nafter the context reaches its end.\n\nkwargs will be passed to tempfile.NamedTemporaryFile to control\nthe way the temporary file will be opened."
+    },
+    {
+      "name": "test_writable_dir",
+      "docstring": "Check if a directory is writable.\n\nUses os.access() on POSIX, tries creating files on Windows."
+    },
+    {
+      "name": "find_files",
+      "docstring": "Returns a list of absolute paths of files beneath path, recursively,\nwith filenames which match the UNIX-style shell glob pattern."
+    },
+    {
+      "name": "file_size",
+      "docstring": null
+    },
+    {
+      "name": "format_file_size",
+      "docstring": null
+    },
+    {
+      "name": "directory_size",
+      "docstring": null
+    },
+    {
+      "name": "format_directory_size",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

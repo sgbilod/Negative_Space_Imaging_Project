@@ -1,0 +1,108 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\reconstruction\\interstitial_analyzer.py",
+  "classes": [
+    {
+      "name": "InterstitialRegion",
+      "docstring": "Represents a single interstitial region between objects.\n\nAn interstitial region is a void space between objects that has specific\ncharacteristics and relationships to the surrounding objects.\n\nAttributes:\n    id (int): Unique identifier for the region\n    center (np.ndarray): 3D coordinates of the region center\n    points (np.ndarray): Points belonging to this region\n    volume (float): Estimated volume of the region\n    surface_area (float): Estimated surface area of the region\n    adjacent_objects (List[int]): IDs of objects adjacent to this region\n    boundary_points (np.ndarray): Points on the boundary of this region\n    signature (np.ndarray): Spatial signature of this region",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize an interstitial region.\n\nArgs:\n    id: Unique identifier for the region\n    points: Points belonging to this region (Nx3 numpy array)"
+        },
+        {
+          "name": "compute_signature",
+          "docstring": "Compute a spatial signature for this interstitial region.\n\nThe signature is a fixed-length feature vector that characterizes\nthe shape and properties of the interstitial space.\n\nArgs:\n    num_features: Number of features in the signature vector\n    \nReturns:\n    Numpy array containing the signature vector"
+        },
+        {
+          "name": "compute_adjacency",
+          "docstring": "Compute which objects are adjacent to this interstitial region.\n\nArgs:\n    object_points: List of points for each object\n    threshold: Distance threshold for considering an object adjacent\n    \nReturns:\n    List of object IDs that are adjacent to this region"
+        },
+        {
+          "name": "visualize",
+          "docstring": "Generate a visualization of this interstitial region.\n\nReturns:\n    Open3D mesh representing the region"
+        }
+      ]
+    },
+    {
+      "name": "InterstitialAnalyzer",
+      "docstring": "Analyzes and characterizes interstitial spaces in a point cloud.\n\nThis class provides methods to identify, analyze, and characterize\nthe empty spaces between objects in a 3D scene, with a focus on\nnegative space analysis.\n\nAttributes:\n    regions (List[InterstitialRegion]): List of identified interstitial regions\n    object_points (List[np.ndarray]): Points belonging to each object\n    object_labels (np.ndarray): Object label for each point\n    void_points (np.ndarray): Points representing void space",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the interstitial analyzer"
+        },
+        {
+          "name": "set_object_points",
+          "docstring": "Set the object points and their labels.\n\nArgs:\n    points: Points in the scene (Nx3 numpy array)\n    labels: Object label for each point (N numpy array)"
+        },
+        {
+          "name": "set_void_points",
+          "docstring": "Set points representing void space.\n\nArgs:\n    points: Points representing void space (Nx3 numpy array)"
+        },
+        {
+          "name": "analyze",
+          "docstring": "Analyze interstitial spaces in the scene.\n\nArgs:\n    method: Method to use for analysis ('voronoi', 'dbscan', or 'kmeans')\n    min_points_per_region: Minimum number of points required for a valid region\n    min_region_volume: Minimum volume for a valid region\n    eps: Distance parameter for DBSCAN clustering\n    adjacency_threshold: Distance threshold for adjacency computation\n    \nReturns:\n    List of identified interstitial regions"
+        },
+        {
+          "name": "get_region_by_id",
+          "docstring": "Get an interstitial region by its ID.\n\nArgs:\n    id: ID of the region to retrieve\n    \nReturns:\n    InterstitialRegion or None if not found"
+        },
+        {
+          "name": "compute_global_signature",
+          "docstring": "Compute a global spatial signature for all interstitial spaces.\n\nArgs:\n    num_features: Number of features in the signature vector\n    \nReturns:\n    Numpy array containing the global signature vector"
+        },
+        {
+          "name": "visualize_all_regions",
+          "docstring": "Generate visualizations for all interstitial regions.\n\nReturns:\n    List of Open3D meshes representing each region"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "compute_voronoi_regions",
+      "docstring": "Compute Voronoi regions from a set of points.\n\nArgs:\n    points: Input points (Nx3 numpy array)\n    \nReturns:\n    Dictionary mapping region ID to an array of vertices"
+    },
+    {
+      "name": "identify_region_boundaries",
+      "docstring": "Identify boundaries between interstitial regions.\n\nArgs:\n    regions: List of interstitial regions\n    threshold: Distance threshold for considering points on a boundary\n    \nReturns:\n    Dictionary mapping region pairs to boundary points"
+    },
+    {
+      "name": "compute_signature",
+      "docstring": "Compute a spatial signature for this interstitial region.\n\nThe signature is a fixed-length feature vector that characterizes\nthe shape and properties of the interstitial space.\n\nArgs:\n    num_features: Number of features in the signature vector\n    \nReturns:\n    Numpy array containing the signature vector"
+    },
+    {
+      "name": "compute_adjacency",
+      "docstring": "Compute which objects are adjacent to this interstitial region.\n\nArgs:\n    object_points: List of points for each object\n    threshold: Distance threshold for considering an object adjacent\n    \nReturns:\n    List of object IDs that are adjacent to this region"
+    },
+    {
+      "name": "visualize",
+      "docstring": "Generate a visualization of this interstitial region.\n\nReturns:\n    Open3D mesh representing the region"
+    },
+    {
+      "name": "set_object_points",
+      "docstring": "Set the object points and their labels.\n\nArgs:\n    points: Points in the scene (Nx3 numpy array)\n    labels: Object label for each point (N numpy array)"
+    },
+    {
+      "name": "set_void_points",
+      "docstring": "Set points representing void space.\n\nArgs:\n    points: Points representing void space (Nx3 numpy array)"
+    },
+    {
+      "name": "analyze",
+      "docstring": "Analyze interstitial spaces in the scene.\n\nArgs:\n    method: Method to use for analysis ('voronoi', 'dbscan', or 'kmeans')\n    min_points_per_region: Minimum number of points required for a valid region\n    min_region_volume: Minimum volume for a valid region\n    eps: Distance parameter for DBSCAN clustering\n    adjacency_threshold: Distance threshold for adjacency computation\n    \nReturns:\n    List of identified interstitial regions"
+    },
+    {
+      "name": "get_region_by_id",
+      "docstring": "Get an interstitial region by its ID.\n\nArgs:\n    id: ID of the region to retrieve\n    \nReturns:\n    InterstitialRegion or None if not found"
+    },
+    {
+      "name": "compute_global_signature",
+      "docstring": "Compute a global spatial signature for all interstitial spaces.\n\nArgs:\n    num_features: Number of features in the signature vector\n    \nReturns:\n    Numpy array containing the global signature vector"
+    },
+    {
+      "name": "visualize_all_regions",
+      "docstring": "Generate visualizations for all interstitial regions.\n\nReturns:\n    List of Open3D meshes representing each region"
+    }
+  ],
+  "innovations": []
+}

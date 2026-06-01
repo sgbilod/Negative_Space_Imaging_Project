@@ -1,0 +1,713 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\progress.py",
+  "classes": [
+    {
+      "name": "_TrackThread",
+      "docstring": "A thread to periodically update progress.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "run",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_Reader",
+      "docstring": "A reader that tracks progress while it's being read from.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "closed",
+          "docstring": null
+        },
+        {
+          "name": "fileno",
+          "docstring": null
+        },
+        {
+          "name": "isatty",
+          "docstring": null
+        },
+        {
+          "name": "mode",
+          "docstring": null
+        },
+        {
+          "name": "name",
+          "docstring": null
+        },
+        {
+          "name": "readable",
+          "docstring": null
+        },
+        {
+          "name": "seekable",
+          "docstring": null
+        },
+        {
+          "name": "writable",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "readinto",
+          "docstring": null
+        },
+        {
+          "name": "readline",
+          "docstring": null
+        },
+        {
+          "name": "readlines",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "seek",
+          "docstring": null
+        },
+        {
+          "name": "tell",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "writelines",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_ReadContext",
+      "docstring": "A utility class to handle a context for both a reader and a progress.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ProgressColumn",
+      "docstring": "Base class for a widget to use in progress display.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_table_column",
+          "docstring": "Get a table column, used to build tasks table."
+        },
+        {
+          "name": "render",
+          "docstring": "Should return a renderable object."
+        }
+      ]
+    },
+    {
+      "name": "RenderableColumn",
+      "docstring": "A column to insert an arbitrary column.\n\nArgs:\n    renderable (RenderableType, optional): Any renderable. Defaults to empty string.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "render",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SpinnerColumn",
+      "docstring": "A column with a 'spinner' animation.\n\nArgs:\n    spinner_name (str, optional): Name of spinner animation. Defaults to \"dots\".\n    style (StyleType, optional): Style of spinner. Defaults to \"progress.spinner\".\n    speed (float, optional): Speed factor of spinner. Defaults to 1.0.\n    finished_text (TextType, optional): Text used when task is finished. Defaults to \" \".",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_spinner",
+          "docstring": "Set a new spinner.\n\nArgs:\n    spinner_name (str): Spinner name, see python -m rich.spinner.\n    spinner_style (Optional[StyleType], optional): Spinner style. Defaults to \"progress.spinner\".\n    speed (float, optional): Speed factor of spinner. Defaults to 1.0."
+        },
+        {
+          "name": "render",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TextColumn",
+      "docstring": "A column containing text.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "render",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BarColumn",
+      "docstring": "Renders a visual progress bar.\n\nArgs:\n    bar_width (Optional[int], optional): Width of bar or None for full width. Defaults to 40.\n    style (StyleType, optional): Style for the bar background. Defaults to \"bar.back\".\n    complete_style (StyleType, optional): Style for the completed bar. Defaults to \"bar.complete\".\n    finished_style (StyleType, optional): Style for a finished bar. Defaults to \"bar.finished\".\n    pulse_style (StyleType, optional): Style for pulsing bars. Defaults to \"bar.pulse\".",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "render",
+          "docstring": "Gets a progress bar widget for a task."
+        }
+      ]
+    },
+    {
+      "name": "TimeElapsedColumn",
+      "docstring": "Renders time elapsed.",
+      "methods": [
+        {
+          "name": "render",
+          "docstring": "Show time elapsed."
+        }
+      ]
+    },
+    {
+      "name": "TaskProgressColumn",
+      "docstring": "Show task progress as a percentage.\n\nArgs:\n    text_format (str, optional): Format for percentage display. Defaults to \"[progress.percentage]{task.percentage:>3.0f}%\".\n    text_format_no_percentage (str, optional): Format if percentage is unknown. Defaults to \"\".\n    style (StyleType, optional): Style of output. Defaults to \"none\".\n    justify (JustifyMethod, optional): Text justification. Defaults to \"left\".\n    markup (bool, optional): Enable markup. Defaults to True.\n    highlighter (Optional[Highlighter], optional): Highlighter to apply to output. Defaults to None.\n    table_column (Optional[Column], optional): Table Column to use. Defaults to None.\n    show_speed (bool, optional): Show speed if total is unknown. Defaults to False.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "render_speed",
+          "docstring": "Render the speed in iterations per second.\n\nArgs:\n    task (Task): A Task object.\n\nReturns:\n    Text: Text object containing the task speed."
+        },
+        {
+          "name": "render",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TimeRemainingColumn",
+      "docstring": "Renders estimated time remaining.\n\nArgs:\n    compact (bool, optional): Render MM:SS when time remaining is less than an hour. Defaults to False.\n    elapsed_when_finished (bool, optional): Render time elapsed when the task is finished. Defaults to False.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "render",
+          "docstring": "Show time remaining."
+        }
+      ]
+    },
+    {
+      "name": "FileSizeColumn",
+      "docstring": "Renders completed filesize.",
+      "methods": [
+        {
+          "name": "render",
+          "docstring": "Show data completed."
+        }
+      ]
+    },
+    {
+      "name": "TotalFileSizeColumn",
+      "docstring": "Renders total filesize.",
+      "methods": [
+        {
+          "name": "render",
+          "docstring": "Show data completed."
+        }
+      ]
+    },
+    {
+      "name": "MofNCompleteColumn",
+      "docstring": "Renders completed count/total, e.g. '  10/1000'.\n\nBest for bounded tasks with int quantities.\n\nSpace pads the completed count so that progress length does not change as task progresses\npast powers of 10.\n\nArgs:\n    separator (str, optional): Text to separate completed and total values. Defaults to \"/\".",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "render",
+          "docstring": "Show completed/total."
+        }
+      ]
+    },
+    {
+      "name": "DownloadColumn",
+      "docstring": "Renders file size downloaded and total, e.g. '0.5/2.3 GB'.\n\nArgs:\n    binary_units (bool, optional): Use binary units, KiB, MiB etc. Defaults to False.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "render",
+          "docstring": "Calculate common unit for completed and total."
+        }
+      ]
+    },
+    {
+      "name": "TransferSpeedColumn",
+      "docstring": "Renders human readable transfer speed.",
+      "methods": [
+        {
+          "name": "render",
+          "docstring": "Show data transfer speed."
+        }
+      ]
+    },
+    {
+      "name": "ProgressSample",
+      "docstring": "Sample of progress for a given time.",
+      "methods": []
+    },
+    {
+      "name": "Task",
+      "docstring": "Information regarding a progress task.\n\nThis object should be considered read-only outside of the :class:`~Progress` class.",
+      "methods": [
+        {
+          "name": "get_time",
+          "docstring": "float: Get the current time, in seconds."
+        },
+        {
+          "name": "started",
+          "docstring": "bool: Check if the task as started."
+        },
+        {
+          "name": "remaining",
+          "docstring": "Optional[float]: Get the number of steps remaining, if a non-None total was set."
+        },
+        {
+          "name": "elapsed",
+          "docstring": "Optional[float]: Time elapsed since task was started, or ``None`` if the task hasn't started."
+        },
+        {
+          "name": "finished",
+          "docstring": "Check if the task has finished."
+        },
+        {
+          "name": "percentage",
+          "docstring": "float: Get progress of task as a percentage. If a None total was set, returns 0"
+        },
+        {
+          "name": "speed",
+          "docstring": "Optional[float]: Get the estimated speed in steps per second."
+        },
+        {
+          "name": "time_remaining",
+          "docstring": "Optional[float]: Get estimated time to completion, or ``None`` if no data."
+        }
+      ]
+    },
+    {
+      "name": "Progress",
+      "docstring": "Renders an auto-updating progress bar(s).\n\nArgs:\n    console (Console, optional): Optional Console instance. Defaults to an internal Console instance writing to stdout.\n    auto_refresh (bool, optional): Enable auto refresh. If disabled, you will need to call `refresh()`.\n    refresh_per_second (Optional[float], optional): Number of times per second to refresh the progress information or None to use default (10). Defaults to None.\n    speed_estimate_period: (float, optional): Period (in seconds) used to calculate the speed estimate. Defaults to 30.\n    transient: (bool, optional): Clear the progress on exit. Defaults to False.\n    redirect_stdout: (bool, optional): Enable redirection of stdout, so ``print`` may be used. Defaults to True.\n    redirect_stderr: (bool, optional): Enable redirection of stderr. Defaults to True.\n    get_time: (Callable, optional): A callable that gets the current time, or None to use Console.get_time. Defaults to None.\n    disable (bool, optional): Disable progress display. Defaults to False\n    expand (bool, optional): Expand tasks table to fit width. Defaults to False.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_default_columns",
+          "docstring": "Get the default columns used for a new Progress instance:\n   - a text column for the description (TextColumn)\n   - the bar itself (BarColumn)\n   - a text column showing completion percentage (TextColumn)\n   - an estimated-time-remaining column (TimeRemainingColumn)\nIf the Progress instance is created without passing a columns argument,\nthe default columns defined here will be used.\n\nYou can also create a Progress instance using custom columns before\nand/or after the defaults, as in this example:\n\n    progress = Progress(\n        SpinnerColumn(),\n        *Progress.get_default_columns(),\n        \"Elapsed:\",\n        TimeElapsedColumn(),\n    )\n\nThis code shows the creation of a Progress display, containing\na spinner to the left, the default columns, and a labeled elapsed\ntime column."
+        },
+        {
+          "name": "console",
+          "docstring": null
+        },
+        {
+          "name": "tasks",
+          "docstring": "Get a list of Task instances."
+        },
+        {
+          "name": "task_ids",
+          "docstring": "A list of task IDs."
+        },
+        {
+          "name": "finished",
+          "docstring": "Check if all tasks have been completed."
+        },
+        {
+          "name": "start",
+          "docstring": "Start the progress display."
+        },
+        {
+          "name": "stop",
+          "docstring": "Stop the progress display."
+        },
+        {
+          "name": "track",
+          "docstring": "Track progress by iterating over a sequence.\n\nArgs:\n    sequence (Sequence[ProgressType]): A sequence of values you want to iterate over and track progress.\n    total: (float, optional): Total number of steps. Default is len(sequence).\n    completed (int, optional): Number of steps completed so far. Defaults to 0.\n    task_id: (TaskID): Task to track. Default is new task.\n    description: (str, optional): Description of task, if new task is created.\n    update_period (float, optional): Minimum time (in seconds) between calls to update(). Defaults to 0.1.\n\nReturns:\n    Iterable[ProgressType]: An iterable of values taken from the provided sequence."
+        },
+        {
+          "name": "wrap_file",
+          "docstring": "Track progress file reading from a binary file.\n\nArgs:\n    file (BinaryIO): A file-like object opened in binary mode.\n    total (int, optional): Total number of bytes to read. This must be provided unless a task with a total is also given.\n    task_id (TaskID): Task to track. Default is new task.\n    description (str, optional): Description of task, if new task is created.\n\nReturns:\n    BinaryIO: A readable file-like object in binary mode.\n\nRaises:\n    ValueError: When no total value can be extracted from the arguments or the task."
+        },
+        {
+          "name": "open",
+          "docstring": null
+        },
+        {
+          "name": "open",
+          "docstring": null
+        },
+        {
+          "name": "open",
+          "docstring": "Track progress while reading from a binary file.\n\nArgs:\n    path (Union[str, PathLike[str]]): The path to the file to read.\n    mode (str): The mode to use to open the file. Only supports \"r\", \"rb\" or \"rt\".\n    buffering (int): The buffering strategy to use, see :func:`io.open`.\n    encoding (str, optional): The encoding to use when reading in text mode, see :func:`io.open`.\n    errors (str, optional): The error handling strategy for decoding errors, see :func:`io.open`.\n    newline (str, optional): The strategy for handling newlines in text mode, see :func:`io.open`.\n    total (int, optional): Total number of bytes to read. If none given, os.stat(path).st_size is used.\n    task_id (TaskID): Task to track. Default is new task.\n    description (str, optional): Description of task, if new task is created.\n\nReturns:\n    BinaryIO: A readable file-like object in binary mode.\n\nRaises:\n    ValueError: When an invalid mode is given."
+        },
+        {
+          "name": "start_task",
+          "docstring": "Start a task.\n\nStarts a task (used when calculating elapsed time). You may need to call this manually,\nif you called ``add_task`` with ``start=False``.\n\nArgs:\n    task_id (TaskID): ID of task."
+        },
+        {
+          "name": "stop_task",
+          "docstring": "Stop a task.\n\nThis will freeze the elapsed time on the task.\n\nArgs:\n    task_id (TaskID): ID of task."
+        },
+        {
+          "name": "update",
+          "docstring": "Update information associated with a task.\n\nArgs:\n    task_id (TaskID): Task id (returned by add_task).\n    total (float, optional): Updates task.total if not None.\n    completed (float, optional): Updates task.completed if not None.\n    advance (float, optional): Add a value to task.completed if not None.\n    description (str, optional): Change task description if not None.\n    visible (bool, optional): Set visible flag if not None.\n    refresh (bool): Force a refresh of progress information. Default is False.\n    **fields (Any): Additional data fields required for rendering."
+        },
+        {
+          "name": "reset",
+          "docstring": "Reset a task so completed is 0 and the clock is reset.\n\nArgs:\n    task_id (TaskID): ID of task.\n    start (bool, optional): Start the task after reset. Defaults to True.\n    total (float, optional): New total steps in task, or None to use current total. Defaults to None.\n    completed (int, optional): Number of steps completed. Defaults to 0.\n    visible (bool, optional): Enable display of the task. Defaults to True.\n    description (str, optional): Change task description if not None. Defaults to None.\n    **fields (str): Additional data fields required for rendering."
+        },
+        {
+          "name": "advance",
+          "docstring": "Advance task by a number of steps.\n\nArgs:\n    task_id (TaskID): ID of task.\n    advance (float): Number of steps to advance. Default is 1."
+        },
+        {
+          "name": "refresh",
+          "docstring": "Refresh (render) the progress information."
+        },
+        {
+          "name": "get_renderable",
+          "docstring": "Get a renderable for the progress display."
+        },
+        {
+          "name": "get_renderables",
+          "docstring": "Get a number of renderables for the progress display."
+        },
+        {
+          "name": "make_tasks_table",
+          "docstring": "Get a table to render the Progress display.\n\nArgs:\n    tasks (Iterable[Task]): An iterable of Task instances, one per row of the table.\n\nReturns:\n    Table: A table instance."
+        },
+        {
+          "name": "add_task",
+          "docstring": "Add a new 'task' to the Progress display.\n\nArgs:\n    description (str): A description of the task.\n    start (bool, optional): Start the task immediately (to calculate elapsed time). If set to False,\n        you will need to call `start` manually. Defaults to True.\n    total (float, optional): Number of total steps in the progress if known.\n        Set to None to render a pulsing animation. Defaults to 100.\n    completed (int, optional): Number of steps completed so far. Defaults to 0.\n    visible (bool, optional): Enable display of the task. Defaults to True.\n    **fields (str): Additional data fields required for rendering.\n\nReturns:\n    TaskID: An ID you can use when calling `update`."
+        },
+        {
+          "name": "remove_task",
+          "docstring": "Delete a task if it exists.\n\nArgs:\n    task_id (TaskID): A task ID."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "track",
+      "docstring": "Track progress by iterating over a sequence.\n\nArgs:\n    sequence (Iterable[ProgressType]): A sequence (must support \"len\") you wish to iterate over.\n    description (str, optional): Description of task show next to progress bar. Defaults to \"Working\".\n    total: (float, optional): Total number of steps. Default is len(sequence).\n    completed (int, optional): Number of steps completed so far. Defaults to 0.\n    auto_refresh (bool, optional): Automatic refresh, disable to force a refresh after each iteration. Default is True.\n    transient: (bool, optional): Clear the progress on exit. Defaults to False.\n    console (Console, optional): Console to write to. Default creates internal Console instance.\n    refresh_per_second (float): Number of times per second to refresh the progress information. Defaults to 10.\n    style (StyleType, optional): Style for the bar background. Defaults to \"bar.back\".\n    complete_style (StyleType, optional): Style for the completed bar. Defaults to \"bar.complete\".\n    finished_style (StyleType, optional): Style for a finished bar. Defaults to \"bar.finished\".\n    pulse_style (StyleType, optional): Style for pulsing bars. Defaults to \"bar.pulse\".\n    update_period (float, optional): Minimum time (in seconds) between calls to update(). Defaults to 0.1.\n    disable (bool, optional): Disable display of progress.\n    show_speed (bool, optional): Show speed if total isn't known. Defaults to True.\nReturns:\n    Iterable[ProgressType]: An iterable of the values in the sequence."
+    },
+    {
+      "name": "wrap_file",
+      "docstring": "Read bytes from a file while tracking progress.\n\nArgs:\n    file (Union[str, PathLike[str], BinaryIO]): The path to the file to read, or a file-like object in binary mode.\n    total (int): Total number of bytes to read.\n    description (str, optional): Description of task show next to progress bar. Defaults to \"Reading\".\n    auto_refresh (bool, optional): Automatic refresh, disable to force a refresh after each iteration. Default is True.\n    transient: (bool, optional): Clear the progress on exit. Defaults to False.\n    console (Console, optional): Console to write to. Default creates internal Console instance.\n    refresh_per_second (float): Number of times per second to refresh the progress information. Defaults to 10.\n    style (StyleType, optional): Style for the bar background. Defaults to \"bar.back\".\n    complete_style (StyleType, optional): Style for the completed bar. Defaults to \"bar.complete\".\n    finished_style (StyleType, optional): Style for a finished bar. Defaults to \"bar.finished\".\n    pulse_style (StyleType, optional): Style for pulsing bars. Defaults to \"bar.pulse\".\n    disable (bool, optional): Disable display of progress.\nReturns:\n    ContextManager[BinaryIO]: A context manager yielding a progress reader."
+    },
+    {
+      "name": "open",
+      "docstring": null
+    },
+    {
+      "name": "open",
+      "docstring": null
+    },
+    {
+      "name": "open",
+      "docstring": "Read bytes from a file while tracking progress.\n\nArgs:\n    path (Union[str, PathLike[str], BinaryIO]): The path to the file to read, or a file-like object in binary mode.\n    mode (str): The mode to use to open the file. Only supports \"r\", \"rb\" or \"rt\".\n    buffering (int): The buffering strategy to use, see :func:`io.open`.\n    encoding (str, optional): The encoding to use when reading in text mode, see :func:`io.open`.\n    errors (str, optional): The error handling strategy for decoding errors, see :func:`io.open`.\n    newline (str, optional): The strategy for handling newlines in text mode, see :func:`io.open`\n    total: (int, optional): Total number of bytes to read. Must be provided if reading from a file handle. Default for a path is os.stat(file).st_size.\n    description (str, optional): Description of task show next to progress bar. Defaults to \"Reading\".\n    auto_refresh (bool, optional): Automatic refresh, disable to force a refresh after each iteration. Default is True.\n    transient: (bool, optional): Clear the progress on exit. Defaults to False.\n    console (Console, optional): Console to write to. Default creates internal Console instance.\n    refresh_per_second (float): Number of times per second to refresh the progress information. Defaults to 10.\n    style (StyleType, optional): Style for the bar background. Defaults to \"bar.back\".\n    complete_style (StyleType, optional): Style for the completed bar. Defaults to \"bar.complete\".\n    finished_style (StyleType, optional): Style for a finished bar. Defaults to \"bar.finished\".\n    pulse_style (StyleType, optional): Style for pulsing bars. Defaults to \"bar.pulse\".\n    disable (bool, optional): Disable display of progress.\n    encoding (str, optional): The encoding to use when reading in text mode.\n\nReturns:\n    ContextManager[BinaryIO]: A context manager yielding a progress reader."
+    },
+    {
+      "name": "run",
+      "docstring": null
+    },
+    {
+      "name": "closed",
+      "docstring": null
+    },
+    {
+      "name": "fileno",
+      "docstring": null
+    },
+    {
+      "name": "isatty",
+      "docstring": null
+    },
+    {
+      "name": "mode",
+      "docstring": null
+    },
+    {
+      "name": "name",
+      "docstring": null
+    },
+    {
+      "name": "readable",
+      "docstring": null
+    },
+    {
+      "name": "seekable",
+      "docstring": null
+    },
+    {
+      "name": "writable",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "readinto",
+      "docstring": null
+    },
+    {
+      "name": "readline",
+      "docstring": null
+    },
+    {
+      "name": "readlines",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "seek",
+      "docstring": null
+    },
+    {
+      "name": "tell",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "writelines",
+      "docstring": null
+    },
+    {
+      "name": "get_table_column",
+      "docstring": "Get a table column, used to build tasks table."
+    },
+    {
+      "name": "render",
+      "docstring": "Should return a renderable object."
+    },
+    {
+      "name": "render",
+      "docstring": null
+    },
+    {
+      "name": "set_spinner",
+      "docstring": "Set a new spinner.\n\nArgs:\n    spinner_name (str): Spinner name, see python -m rich.spinner.\n    spinner_style (Optional[StyleType], optional): Spinner style. Defaults to \"progress.spinner\".\n    speed (float, optional): Speed factor of spinner. Defaults to 1.0."
+    },
+    {
+      "name": "render",
+      "docstring": null
+    },
+    {
+      "name": "render",
+      "docstring": null
+    },
+    {
+      "name": "render",
+      "docstring": "Gets a progress bar widget for a task."
+    },
+    {
+      "name": "render",
+      "docstring": "Show time elapsed."
+    },
+    {
+      "name": "render_speed",
+      "docstring": "Render the speed in iterations per second.\n\nArgs:\n    task (Task): A Task object.\n\nReturns:\n    Text: Text object containing the task speed."
+    },
+    {
+      "name": "render",
+      "docstring": null
+    },
+    {
+      "name": "render",
+      "docstring": "Show time remaining."
+    },
+    {
+      "name": "render",
+      "docstring": "Show data completed."
+    },
+    {
+      "name": "render",
+      "docstring": "Show data completed."
+    },
+    {
+      "name": "render",
+      "docstring": "Show completed/total."
+    },
+    {
+      "name": "render",
+      "docstring": "Calculate common unit for completed and total."
+    },
+    {
+      "name": "render",
+      "docstring": "Show data transfer speed."
+    },
+    {
+      "name": "get_time",
+      "docstring": "float: Get the current time, in seconds."
+    },
+    {
+      "name": "started",
+      "docstring": "bool: Check if the task as started."
+    },
+    {
+      "name": "remaining",
+      "docstring": "Optional[float]: Get the number of steps remaining, if a non-None total was set."
+    },
+    {
+      "name": "elapsed",
+      "docstring": "Optional[float]: Time elapsed since task was started, or ``None`` if the task hasn't started."
+    },
+    {
+      "name": "finished",
+      "docstring": "Check if the task has finished."
+    },
+    {
+      "name": "percentage",
+      "docstring": "float: Get progress of task as a percentage. If a None total was set, returns 0"
+    },
+    {
+      "name": "speed",
+      "docstring": "Optional[float]: Get the estimated speed in steps per second."
+    },
+    {
+      "name": "time_remaining",
+      "docstring": "Optional[float]: Get estimated time to completion, or ``None`` if no data."
+    },
+    {
+      "name": "get_default_columns",
+      "docstring": "Get the default columns used for a new Progress instance:\n   - a text column for the description (TextColumn)\n   - the bar itself (BarColumn)\n   - a text column showing completion percentage (TextColumn)\n   - an estimated-time-remaining column (TimeRemainingColumn)\nIf the Progress instance is created without passing a columns argument,\nthe default columns defined here will be used.\n\nYou can also create a Progress instance using custom columns before\nand/or after the defaults, as in this example:\n\n    progress = Progress(\n        SpinnerColumn(),\n        *Progress.get_default_columns(),\n        \"Elapsed:\",\n        TimeElapsedColumn(),\n    )\n\nThis code shows the creation of a Progress display, containing\na spinner to the left, the default columns, and a labeled elapsed\ntime column."
+    },
+    {
+      "name": "console",
+      "docstring": null
+    },
+    {
+      "name": "tasks",
+      "docstring": "Get a list of Task instances."
+    },
+    {
+      "name": "task_ids",
+      "docstring": "A list of task IDs."
+    },
+    {
+      "name": "finished",
+      "docstring": "Check if all tasks have been completed."
+    },
+    {
+      "name": "start",
+      "docstring": "Start the progress display."
+    },
+    {
+      "name": "stop",
+      "docstring": "Stop the progress display."
+    },
+    {
+      "name": "track",
+      "docstring": "Track progress by iterating over a sequence.\n\nArgs:\n    sequence (Sequence[ProgressType]): A sequence of values you want to iterate over and track progress.\n    total: (float, optional): Total number of steps. Default is len(sequence).\n    completed (int, optional): Number of steps completed so far. Defaults to 0.\n    task_id: (TaskID): Task to track. Default is new task.\n    description: (str, optional): Description of task, if new task is created.\n    update_period (float, optional): Minimum time (in seconds) between calls to update(). Defaults to 0.1.\n\nReturns:\n    Iterable[ProgressType]: An iterable of values taken from the provided sequence."
+    },
+    {
+      "name": "wrap_file",
+      "docstring": "Track progress file reading from a binary file.\n\nArgs:\n    file (BinaryIO): A file-like object opened in binary mode.\n    total (int, optional): Total number of bytes to read. This must be provided unless a task with a total is also given.\n    task_id (TaskID): Task to track. Default is new task.\n    description (str, optional): Description of task, if new task is created.\n\nReturns:\n    BinaryIO: A readable file-like object in binary mode.\n\nRaises:\n    ValueError: When no total value can be extracted from the arguments or the task."
+    },
+    {
+      "name": "open",
+      "docstring": null
+    },
+    {
+      "name": "open",
+      "docstring": null
+    },
+    {
+      "name": "open",
+      "docstring": "Track progress while reading from a binary file.\n\nArgs:\n    path (Union[str, PathLike[str]]): The path to the file to read.\n    mode (str): The mode to use to open the file. Only supports \"r\", \"rb\" or \"rt\".\n    buffering (int): The buffering strategy to use, see :func:`io.open`.\n    encoding (str, optional): The encoding to use when reading in text mode, see :func:`io.open`.\n    errors (str, optional): The error handling strategy for decoding errors, see :func:`io.open`.\n    newline (str, optional): The strategy for handling newlines in text mode, see :func:`io.open`.\n    total (int, optional): Total number of bytes to read. If none given, os.stat(path).st_size is used.\n    task_id (TaskID): Task to track. Default is new task.\n    description (str, optional): Description of task, if new task is created.\n\nReturns:\n    BinaryIO: A readable file-like object in binary mode.\n\nRaises:\n    ValueError: When an invalid mode is given."
+    },
+    {
+      "name": "start_task",
+      "docstring": "Start a task.\n\nStarts a task (used when calculating elapsed time). You may need to call this manually,\nif you called ``add_task`` with ``start=False``.\n\nArgs:\n    task_id (TaskID): ID of task."
+    },
+    {
+      "name": "stop_task",
+      "docstring": "Stop a task.\n\nThis will freeze the elapsed time on the task.\n\nArgs:\n    task_id (TaskID): ID of task."
+    },
+    {
+      "name": "update",
+      "docstring": "Update information associated with a task.\n\nArgs:\n    task_id (TaskID): Task id (returned by add_task).\n    total (float, optional): Updates task.total if not None.\n    completed (float, optional): Updates task.completed if not None.\n    advance (float, optional): Add a value to task.completed if not None.\n    description (str, optional): Change task description if not None.\n    visible (bool, optional): Set visible flag if not None.\n    refresh (bool): Force a refresh of progress information. Default is False.\n    **fields (Any): Additional data fields required for rendering."
+    },
+    {
+      "name": "reset",
+      "docstring": "Reset a task so completed is 0 and the clock is reset.\n\nArgs:\n    task_id (TaskID): ID of task.\n    start (bool, optional): Start the task after reset. Defaults to True.\n    total (float, optional): New total steps in task, or None to use current total. Defaults to None.\n    completed (int, optional): Number of steps completed. Defaults to 0.\n    visible (bool, optional): Enable display of the task. Defaults to True.\n    description (str, optional): Change task description if not None. Defaults to None.\n    **fields (str): Additional data fields required for rendering."
+    },
+    {
+      "name": "advance",
+      "docstring": "Advance task by a number of steps.\n\nArgs:\n    task_id (TaskID): ID of task.\n    advance (float): Number of steps to advance. Default is 1."
+    },
+    {
+      "name": "refresh",
+      "docstring": "Refresh (render) the progress information."
+    },
+    {
+      "name": "get_renderable",
+      "docstring": "Get a renderable for the progress display."
+    },
+    {
+      "name": "get_renderables",
+      "docstring": "Get a number of renderables for the progress display."
+    },
+    {
+      "name": "make_tasks_table",
+      "docstring": "Get a table to render the Progress display.\n\nArgs:\n    tasks (Iterable[Task]): An iterable of Task instances, one per row of the table.\n\nReturns:\n    Table: A table instance."
+    },
+    {
+      "name": "add_task",
+      "docstring": "Add a new 'task' to the Progress display.\n\nArgs:\n    description (str): A description of the task.\n    start (bool, optional): Start the task immediately (to calculate elapsed time). If set to False,\n        you will need to call `start` manually. Defaults to True.\n    total (float, optional): Number of total steps in the progress if known.\n        Set to None to render a pulsing animation. Defaults to 100.\n    completed (int, optional): Number of steps completed so far. Defaults to 0.\n    visible (bool, optional): Enable display of the task. Defaults to True.\n    **fields (str): Additional data fields required for rendering.\n\nReturns:\n    TaskID: An ID you can use when calling `update`."
+    },
+    {
+      "name": "remove_task",
+      "docstring": "Delete a task if it exists.\n\nArgs:\n    task_id (TaskID): A task ID."
+    }
+  ],
+  "innovations": []
+}

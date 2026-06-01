@@ -1,0 +1,102 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\contourpy\\util\\renderer.py",
+  "classes": [
+    {
+      "name": "Renderer",
+      "docstring": "Abstract base class for renderers.",
+      "methods": [
+        {
+          "name": "filled",
+          "docstring": null
+        },
+        {
+          "name": "grid",
+          "docstring": null
+        },
+        {
+          "name": "lines",
+          "docstring": null
+        },
+        {
+          "name": "mask",
+          "docstring": null
+        },
+        {
+          "name": "multi_filled",
+          "docstring": "Plot multiple sets of filled contours on a single axes.\n\nArgs:\n    multi_filled (list of filled contour arrays): Multiple filled contour sets as returned\n        by :meth:`.ContourGenerator.multi_filled`.\n    fill_type (FillType or str): Type of filled data as returned by\n        :attr:`~.ContourGenerator.fill_type`, or string equivalent.\n    ax (int or Renderer-specific axes or figure object, optional): Which axes to plot on,\n        default ``0``.\n    color (str or None, optional): If a string color then this same color is used for all\n        filled contours. If ``None``, the default, then the filled contour sets use colors\n        from the ``tab10`` colormap in order, wrapping around to the beginning if more than\n        10 sets of filled contours are rendered.\n    kwargs: All other keyword argument are passed on to\n        :meth:`.Renderer.filled` unchanged.\n\n.. versionadded:: 1.3.0"
+        },
+        {
+          "name": "multi_lines",
+          "docstring": "Plot multiple sets of contour lines on a single axes.\n\nArgs:\n    multi_lines (list of contour line arrays): Multiple contour line sets as returned by\n        :meth:`.ContourGenerator.multi_lines`.\n    line_type (LineType or str): Type of line data as returned by\n        :attr:`~.ContourGenerator.line_type`, or string equivalent.\n    ax (int or Renderer-specific axes or figure object, optional): Which axes to plot on,\n        default ``0``.\n    color (str or None, optional): If a string color then this same color is used for all\n        lines. If ``None``, the default, then the line sets use colors from the ``tab10``\n        colormap in order, wrapping around to the beginning if more than 10 sets of lines\n        are rendered.\n    kwargs: All other keyword argument are passed on to\n        :meth:`Renderer.lines` unchanged.\n\n.. versionadded:: 1.3.0"
+        },
+        {
+          "name": "save",
+          "docstring": null
+        },
+        {
+          "name": "save_to_buffer",
+          "docstring": null
+        },
+        {
+          "name": "show",
+          "docstring": null
+        },
+        {
+          "name": "title",
+          "docstring": null
+        },
+        {
+          "name": "z_values",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "filled",
+      "docstring": null
+    },
+    {
+      "name": "grid",
+      "docstring": null
+    },
+    {
+      "name": "lines",
+      "docstring": null
+    },
+    {
+      "name": "mask",
+      "docstring": null
+    },
+    {
+      "name": "multi_filled",
+      "docstring": "Plot multiple sets of filled contours on a single axes.\n\nArgs:\n    multi_filled (list of filled contour arrays): Multiple filled contour sets as returned\n        by :meth:`.ContourGenerator.multi_filled`.\n    fill_type (FillType or str): Type of filled data as returned by\n        :attr:`~.ContourGenerator.fill_type`, or string equivalent.\n    ax (int or Renderer-specific axes or figure object, optional): Which axes to plot on,\n        default ``0``.\n    color (str or None, optional): If a string color then this same color is used for all\n        filled contours. If ``None``, the default, then the filled contour sets use colors\n        from the ``tab10`` colormap in order, wrapping around to the beginning if more than\n        10 sets of filled contours are rendered.\n    kwargs: All other keyword argument are passed on to\n        :meth:`.Renderer.filled` unchanged.\n\n.. versionadded:: 1.3.0"
+    },
+    {
+      "name": "multi_lines",
+      "docstring": "Plot multiple sets of contour lines on a single axes.\n\nArgs:\n    multi_lines (list of contour line arrays): Multiple contour line sets as returned by\n        :meth:`.ContourGenerator.multi_lines`.\n    line_type (LineType or str): Type of line data as returned by\n        :attr:`~.ContourGenerator.line_type`, or string equivalent.\n    ax (int or Renderer-specific axes or figure object, optional): Which axes to plot on,\n        default ``0``.\n    color (str or None, optional): If a string color then this same color is used for all\n        lines. If ``None``, the default, then the line sets use colors from the ``tab10``\n        colormap in order, wrapping around to the beginning if more than 10 sets of lines\n        are rendered.\n    kwargs: All other keyword argument are passed on to\n        :meth:`Renderer.lines` unchanged.\n\n.. versionadded:: 1.3.0"
+    },
+    {
+      "name": "save",
+      "docstring": null
+    },
+    {
+      "name": "save_to_buffer",
+      "docstring": null
+    },
+    {
+      "name": "show",
+      "docstring": null
+    },
+    {
+      "name": "title",
+      "docstring": null
+    },
+    {
+      "name": "z_values",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

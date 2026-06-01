@@ -1,0 +1,40 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\IP_Protection\\automation\\copyright_registrator.py",
+  "classes": [
+    {
+      "name": "CopyrightRegistrationAutomator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "prepare_registration",
+          "docstring": "Prepare all necessary materials for copyright registration"
+        },
+        {
+          "name": "generate_application_forms",
+          "docstring": "Generate pre-filled copyright application forms"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "prepare_registration",
+      "docstring": "Prepare all necessary materials for copyright registration"
+    },
+    {
+      "name": "generate_application_forms",
+      "docstring": "Generate pre-filled copyright application forms"
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "novel",
+      "context": "            'author': 'Negative Space Imaging Project Team',\n            'version': '1.0',\n            'registration_date': datetime.now().isoformat(),\n            'description': 'A novel system for analyzing and utilizing negative space in 3D reconstructions, including quantum ledger and blockchain integration.',\n            'bundles': {\n                'source_code': self._get_bundle_info('source_code_bundle.zip'),\n                'documentation': self._get_bundle_info('documentation_bundle.zip')"
+    }
+  ]
+}

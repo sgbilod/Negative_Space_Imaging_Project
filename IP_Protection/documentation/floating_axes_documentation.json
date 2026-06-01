@@ -1,0 +1,117 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\mpl_toolkits\\axisartist\\floating_axes.py",
+  "classes": [
+    {
+      "name": "FloatingAxisArtistHelper",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "FixedAxisArtistHelper",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "nth_coord = along which coordinate value varies.\n nth_coord = 0 ->  x axis, nth_coord = 1 -> y axis"
+        },
+        {
+          "name": "update_lim",
+          "docstring": null
+        },
+        {
+          "name": "get_tick_iterators",
+          "docstring": "tick_loc, tick_angle, tick_label, (optionally) tick_label"
+        },
+        {
+          "name": "get_line",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ExtremeFinderFixed",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "This subclass always returns the same bounding box.\n\nParameters\n----------\nextremes : (float, float, float, float)\n    The bounding box that this helper always returns."
+        }
+      ]
+    },
+    {
+      "name": "GridHelperCurveLinear",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "new_fixed_axis",
+          "docstring": null
+        },
+        {
+          "name": "get_gridlines",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FloatingAxesBase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "clear",
+          "docstring": null
+        },
+        {
+          "name": "adjust_axes_lim",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "update_lim",
+      "docstring": null
+    },
+    {
+      "name": "get_tick_iterators",
+      "docstring": "tick_loc, tick_angle, tick_label, (optionally) tick_label"
+    },
+    {
+      "name": "get_line",
+      "docstring": null
+    },
+    {
+      "name": "new_fixed_axis",
+      "docstring": null
+    },
+    {
+      "name": "get_gridlines",
+      "docstring": null
+    },
+    {
+      "name": "clear",
+      "docstring": null
+    },
+    {
+      "name": "adjust_axes_lim",
+      "docstring": null
+    },
+    {
+      "name": "trf_xy",
+      "docstring": null
+    },
+    {
+      "name": "f1",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

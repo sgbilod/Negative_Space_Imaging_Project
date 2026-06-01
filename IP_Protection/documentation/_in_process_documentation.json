@@ -1,0 +1,109 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process\\_in_process.py",
+  "classes": [
+    {
+      "name": "BackendUnavailable",
+      "docstring": "Raised if we cannot import the backend",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HookMissing",
+      "docstring": "Raised if a hook is missing and we are not executing the fallback",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BackendPathFinder",
+      "docstring": "Implements the MetaPathFinder interface to locate modules in ``backend-path``.\n\nSince the environment provided by the frontend can contain all sorts of\nMetaPathFinders, the only way to ensure the backend is loaded from the\nright place is to prepend our own.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "find_spec",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_DummyException",
+      "docstring": "Nothing should ever raise this exception",
+      "methods": []
+    },
+    {
+      "name": "GotUnsupportedOperation",
+      "docstring": "For internal use when backend raises UnsupportedOperation",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "write_json",
+      "docstring": null
+    },
+    {
+      "name": "read_json",
+      "docstring": null
+    },
+    {
+      "name": "get_requires_for_build_wheel",
+      "docstring": "Invoke the optional get_requires_for_build_wheel hook\n\nReturns [] if the hook is not defined."
+    },
+    {
+      "name": "get_requires_for_build_editable",
+      "docstring": "Invoke the optional get_requires_for_build_editable hook\n\nReturns [] if the hook is not defined."
+    },
+    {
+      "name": "prepare_metadata_for_build_wheel",
+      "docstring": "Invoke optional prepare_metadata_for_build_wheel\n\nImplements a fallback by building a wheel if the hook isn't defined,\nunless _allow_fallback is False in which case HookMissing is raised."
+    },
+    {
+      "name": "prepare_metadata_for_build_editable",
+      "docstring": "Invoke optional prepare_metadata_for_build_editable\n\nImplements a fallback by building an editable wheel if the hook isn't\ndefined, unless _allow_fallback is False in which case HookMissing is\nraised."
+    },
+    {
+      "name": "build_wheel",
+      "docstring": "Invoke the mandatory build_wheel hook.\n\nIf a wheel was already built in the\nprepare_metadata_for_build_wheel fallback, this\nwill copy it rather than rebuilding the wheel."
+    },
+    {
+      "name": "build_editable",
+      "docstring": "Invoke the optional build_editable hook.\n\nIf a wheel was already built in the\nprepare_metadata_for_build_editable fallback, this\nwill copy it rather than rebuilding the wheel."
+    },
+    {
+      "name": "get_requires_for_build_sdist",
+      "docstring": "Invoke the optional get_requires_for_build_wheel hook\n\nReturns [] if the hook is not defined."
+    },
+    {
+      "name": "build_sdist",
+      "docstring": "Invoke the mandatory build_sdist hook."
+    },
+    {
+      "name": "main",
+      "docstring": null
+    },
+    {
+      "name": "find_spec",
+      "docstring": null
+    },
+    {
+      "name": "find_distributions",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}
