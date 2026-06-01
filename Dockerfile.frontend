@@ -34,80 +34,81 @@ RUN npm run build
 FROM nginx:1.25-alpine
 
 LABEL maintainer="Negative Space Systems Team"
-LABEL description="Negative Space Imaging Frontend Server"
-LABEL version="1.0.0"
+LABEL description="Frontend server for React SPA"
 
-# Set environment variables
-ENV NGINX_HOST=localhost
-ENV NGINX_PORT=80
-
-WORKDIR /app
+WORKDIR /
 
 # Install runtime dependencies
-RUN apk add --no-cache \
-    curl \
-    ca-certificates \
-    tzdata
+RUN apk add --no-cache curl ca-certificates
 
-# Copy built application from builder
+# Copy built React application from builder stage
 COPY --from=builder /build/dist /usr/share/nginx/html
 
-# Create nginx configuration
-RUN rm -f /etc/nginx/conf.d/default.conf
+# Create non-root user for Nginx (runs as nginx:nginx)
+RUN addgroup -g 1000 appuser && \
+    adduser -D -u 1000 -G appuser appuser && \
+    chown -R appuser:appuser /usr/share/nginx/html /var/cache/nginx /var/log/nginx
 
-COPY <<EOF /etc/nginx/conf.d/default.conf
-# Nginx configuration for React SPA
-upstream api {
-    server api:3000;
+# Nginx configuration for SPA routing and reverse proxy
+RUN cat > /etc/nginx/conf.d/default.conf << 'EOF'
+server {
+listen 80;
+server_name _;
+client_max_body_size 50M;
+
+# Gzip compression
+gzip on;
+gzip_types text/plain text/css application/json application/javascript text/xml application/xml;
+gzip_min_length 1000;
+
+# SPA routing - serve index.html for all non-file requests
+location / {
+root /usr/share/nginx/html;
+try_files $uri $uri/ /index.html;
+
+# Cache control for HTML
+add_header Cache-Control "max-age=3600, must-revalidate";
+add_header X-Content-Type-Options "nosniff";
+add_header X-Frame-Options "SAMEORIGIN";
 }
 
-server {
-    listen 80;
-    server_name _;
-    client_max_body_size 100M;
-    gzip on;
-    gzip_types text/plain text/css text/xml text/javascript application/json application/x-javascript;
-    gzip_min_length 1000;
+# Static assets with long cache
+location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+root /usr/share/nginx/html;
+expires 1y;
+add_header Cache-Control "public, immutable";
+}
 
-    # Serve static files
-    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
-        root /usr/share/nginx/html;
-        expires 1y;
-        add_header Cache-Control "public, immutable";
-    }
+# Reverse proxy for API calls
+location /api/ {
+proxy_pass http://api:3000/;
+proxy_http_version 1.1;
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection 'upgrade';
+proxy_set_header Host $host;
+proxy_cache_bypass $http_upgrade;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header X-Forwarded-Proto $scheme;
+}
 
-    # API proxy
-    location /api/ {
-        proxy_pass http://api/;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade \$http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host \$host;
-        proxy_set_header X-Real-IP \$remote_addr;
-        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto \$scheme;
-        proxy_cache_bypass \$http_upgrade;
-    }
-
-    # SPA routing: redirect to index.html for React Router
-    location / {
-        root /usr/share/nginx/html;
-        try_files \$uri \$uri/ /index.html;
-        add_header Cache-Control "public, max-age=3600";
-    }
+# Health check endpoint
+location /health {
+access_log off;
+return 200 "healthy\n";
+add_header Content-Type text/plain;
+}
 }
 EOF
 
-# Create health check script
-RUN echo '#!/bin/sh\ncurl -f http://localhost/index.html || exit 1' > /healthcheck.sh && \
-    chmod +x /healthcheck.sh
+USER appuser
 
 # Expose port
 EXPOSE 80
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD /healthcheck.sh
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD curl -f http://localhost/health || exit 1
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]

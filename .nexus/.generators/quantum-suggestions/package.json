@@ -1,0 +1,74 @@
+{
+    "name": "hdr-quantum-suggestions",
+    "displayName": "HDR Quantum Suggestions",
+    "version": "1.0.0",
+    "publisher": "Stephen Bilodeau",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Machine Learning",
+        "Other"
+    ],
+    "activationEvents": [
+        "onLanguage:javascript",
+        "onLanguage:typescript",
+        "onLanguage:python",
+        "onCommand:hdr.quantum.suggest"
+    ],
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "npm run lint",
+        "test": "node ./test/runTests.js",
+        "test:quantum": "cross-env NODE_ENV=quantum-test node ./test/runTests.js",
+        "test:watch": "cross-env NODE_ENV=quantum-test nodemon --exec npm run test:quantum"
+    },
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "hdr.quantum.suggest",
+                "title": "HDR: Generate Quantum Suggestion"
+            },
+            {
+                "command": "hdr.quantum.optimize",
+                "title": "HDR: Optimize Quantum State"
+            },
+            {
+                "command": "hdr.quantum.collapse",
+                "title": "HDR: Collapse Quantum State"
+            }
+        ],
+        "configuration": {
+            "title": "HDR Quantum Suggestions",
+            "properties": {
+                "hdr.quantum.contextSize": {
+                    "type": "number",
+                    "default": 1000,
+                    "description": "Size of quantum context window"
+                },
+                "hdr.quantum.coherenceThreshold": {
+                    "type": "number",
+                    "default": 0.95,
+                    "description": "Minimum quantum coherence threshold"
+                },
+                "hdr.quantum.patternRecognition": {
+                    "type": "string",
+                    "enum": [
+                        "basic",
+                        "advanced",
+                        "quantum"
+                    ],
+                    "default": "quantum",
+                    "description": "Pattern recognition level"
+                }
+            }
+        }
+    },
+    "devDependencies": {
+        "@vscode/test-electron": "^2.5.2",
+        "cross-env": "^10.0.0",
+        "mocha": "^11.7.1"
+    }
+}

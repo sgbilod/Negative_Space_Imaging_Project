@@ -1,0 +1,587 @@
+{% extends "layout.html" %} {% block title %}Sovereign Security - Dashboard{% endblock %} {% block
+styles %}
+<style>
+  .security-dashboard {
+    padding: 20px;
+  }
+
+  .security-card {
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 100, 0.1);
+    background: linear-gradient(to bottom right, #1a2035, #1f2940);
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+  }
+
+  .security-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .security-card .card-header {
+    background-color: rgba(30, 40, 70, 0.5);
+    border-bottom: 1px solid #3d5170;
+    color: #3ea6ff;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .security-card .card-body {
+    padding: 20px;
+  }
+
+  .security-icon {
+    font-size: 36px;
+    color: #3ea6ff;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .security-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 10px;
+    background: rgba(30, 40, 70, 0.5);
+    border-radius: 5px;
+    flex: 1;
+    margin: 0 5px;
+  }
+
+  .stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3ea6ff;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: #a1a8c3;
+  }
+
+  .security-level {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .level-standard {
+    background-color: #ffc107;
+    color: #000;
+  }
+
+  .level-enhanced {
+    background-color: #17a2b8;
+    color: #fff;
+  }
+
+  .level-maximum {
+    background-color: #6f42c1;
+    color: #fff;
+  }
+
+  .level-quantum {
+    background-color: #20c997;
+    color: #fff;
+  }
+
+  .activity-item {
+    padding: 10px;
+    border-bottom: 1px solid #3d5170;
+  }
+
+  .activity-item:last-child {
+    border-bottom: none;
+  }
+
+  .activity-time {
+    font-size: 12px;
+    color: #a1a8c3;
+  }
+
+  .activity-desc {
+    margin-top: 5px;
+  }
+
+  .activity-type {
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  .type-auth {
+    background-color: #17a2b8;
+    color: #fff;
+  }
+
+  .type-alert {
+    background-color: #dc3545;
+    color: #fff;
+  }
+
+  .type-info {
+    background-color: #6c757d;
+    color: #fff;
+  }
+
+  .nav-tabs {
+    border-bottom: 1px solid #3d5170;
+  }
+
+  .nav-tabs .nav-link {
+    color: #a1a8c3;
+    border: none;
+  }
+
+  .nav-tabs .nav-link.active {
+    color: #3ea6ff;
+    background-color: transparent;
+    border-bottom: 2px solid #3ea6ff;
+  }
+
+  .nav-tabs .nav-link:hover {
+    border-color: transparent;
+    color: #3ea6ff;
+  }
+
+  .tab-content {
+    padding: 20px 0;
+  }
+</style>
+{% endblock %} {% block content %}
+<div class="container-fluid security-dashboard">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h2>Security Dashboard</h2>
+      <p class="text-muted">Welcome, {{ username }}!</p>
+    </div>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-md-6 col-xl-3">
+      <div class="card security-card">
+        <div class="card-header">System Status</div>
+        <div class="card-body">
+          <div class="security-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h5 class="text-center mb-3">Security Level</h5>
+          <div class="text-center mb-3">
+            <span class="security-level level-enhanced" id="security-level">Enhanced</span>
+          </div>
+          <div class="security-stats">
+            <div class="stat-item">
+              <div class="stat-value" id="integrity-score">100%</div>
+              <div class="stat-label">Integrity</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="encrypted-files">24</div>
+              <div class="stat-label">Encrypted Files</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="active-users">2</div>
+              <div class="stat-label">Active Users</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+      <div class="card security-card">
+        <div class="card-header">Threat Detection</div>
+        <div class="card-body">
+          <div class="security-icon">
+            <i class="fas fa-virus-slash"></i>
+          </div>
+          <h5 class="text-center mb-3">Threat Status</h5>
+          <div class="text-center mb-3">
+            <span class="badge bg-success" id="threat-status">No Threats Detected</span>
+          </div>
+          <div class="security-stats">
+            <div class="stat-item">
+              <div class="stat-value" id="blocked-attempts">0</div>
+              <div class="stat-label">Blocked Attempts</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="last-scan">2h</div>
+              <div class="stat-label">Last Scan</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="vulnerabilities">0</div>
+              <div class="stat-label">Vulnerabilities</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+      <div class="card security-card">
+        <div class="card-header">Authentication</div>
+        <div class="card-body">
+          <div class="security-icon">
+            <i class="fas fa-user-lock"></i>
+          </div>
+          <h5 class="text-center mb-3">Login Status</h5>
+          <div class="text-center mb-3">
+            <span class="badge bg-primary" id="auth-status">Secure</span>
+          </div>
+          <div class="security-stats">
+            <div class="stat-item">
+              <div class="stat-value" id="failed-logins">0</div>
+              <div class="stat-label">Failed Logins</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="password-expiry">30d</div>
+              <div class="stat-label">Password Expiry</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="mfa-status">On</div>
+              <div class="stat-label">MFA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+      <div class="card security-card">
+        <div class="card-header">Encryption</div>
+        <div class="card-body">
+          <div class="security-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h5 class="text-center mb-3">Encryption Status</h5>
+          <div class="text-center mb-3">
+            <span class="badge bg-primary" id="encryption-status">AES-256-GCM</span>
+          </div>
+          <div class="security-stats">
+            <div class="stat-item">
+              <div class="stat-value" id="key-rotation">30d</div>
+              <div class="stat-label">Key Rotation</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="encrypted-config">Yes</div>
+              <div class="stat-label">Config</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="encrypted-data">Yes</div>
+              <div class="stat-label">Data</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card security-card">
+        <div class="card-header">Security Activity</div>
+        <div class="card-body">
+          <ul class="nav nav-tabs" id="activityTabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab">
+                All Activity
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="auth-tab" data-toggle="tab" href="#auth" role="tab">
+                Authentication
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="alerts-tab" data-toggle="tab" href="#alerts" role="tab">
+                Alerts
+              </a>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="activityTabContent">
+            <div class="tab-pane fade show active" id="all" role="tabpanel">
+              <div id="all-activity">
+                <div class="activity-item">
+                  <div class="activity-time">Today, 10:45 AM</div>
+                  <div class="activity-desc">
+                    <span class="activity-type type-auth">AUTH</span>
+                    User admin logged in successfully
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-time">Today, 09:30 AM</div>
+                  <div class="activity-desc">
+                    <span class="activity-type type-info">INFO</span>
+                    System security scan completed
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-time">Yesterday, 05:15 PM</div>
+                  <div class="activity-desc">
+                    <span class="activity-type type-alert">ALERT</span>
+                    Failed login attempt for user "admin"
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="auth" role="tabpanel">
+              <div id="auth-activity">
+                <div class="activity-item">
+                  <div class="activity-time">Today, 10:45 AM</div>
+                  <div class="activity-desc">
+                    <span class="activity-type type-auth">AUTH</span>
+                    User admin logged in successfully
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-time">Yesterday, 05:15 PM</div>
+                  <div class="activity-desc">
+                    <span class="activity-type type-alert">ALERT</span>
+                    Failed login attempt for user "admin"
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="alerts" role="tabpanel">
+              <div id="alerts-activity">
+                <div class="activity-item">
+                  <div class="activity-time">Yesterday, 05:15 PM</div>
+                  <div class="activity-desc">
+                    <span class="activity-type type-alert">ALERT</span>
+                    Failed login attempt for user "admin"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card security-card">
+        <div class="card-header">Quick Actions</div>
+        <div class="card-body">
+          <div class="list-group">
+            <a
+              href="{{ url_for('security.users') }}"
+              class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+            >
+              <span> <i class="fas fa-users mr-2"></i> User Management </span>
+              <span class="badge bg-primary rounded-pill">2</span>
+            </a>
+            <a
+              href="{{ url_for('security.audit_logs') }}"
+              class="list-group-item list-group-item-action"
+            >
+              <i class="fas fa-clipboard-list mr-2"></i> Audit Logs
+            </a>
+            <a
+              href="{{ url_for('security.settings') }}"
+              class="list-group-item list-group-item-action"
+            >
+              <i class="fas fa-cogs mr-2"></i> Security Settings
+            </a>
+            <a
+              href="{{ url_for('security.file_security') }}"
+              class="list-group-item list-group-item-action"
+            >
+              <i class="fas fa-file-shield mr-2"></i> File Security
+            </a>
+            <button id="verify-integrity-btn" class="list-group-item list-group-item-action">
+              <i class="fas fa-check-circle mr-2"></i> Verify System Integrity
+            </button>
+            <button id="rotate-keys-btn" class="list-group-item list-group-item-action">
+              <i class="fas fa-key mr-2"></i> Rotate Encryption Keys
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card security-card mt-4">
+        <div class="card-header">Security Tips</div>
+        <div class="card-body">
+          <div id="security-tip" class="mb-3">
+            <p>
+              <strong>Tip:</strong> Regularly rotate your encryption keys to enhance security. We
+              recommend key rotation every 30 days.
+            </p>
+          </div>
+          <button id="next-tip-btn" class="btn btn-outline-primary btn-sm">Next Tip</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<script>
+  // Sample security tips
+  const securityTips = [
+    'Regularly rotate your encryption keys to enhance security. We recommend key rotation every 30 days.',
+    'Use multi-factor authentication whenever possible to add an extra layer of security.',
+    'Regularly audit your system logs to identify potential security threats.',
+    'Keep your software and dependencies up to date to protect against known vulnerabilities.',
+    'Use strong, unique passwords for all accounts and change them periodically.',
+    'Implement the principle of least privilege - only grant users the minimum access they need.',
+    'Regularly backup your encryption keys and store them securely offline.',
+    'Encrypt sensitive data both at rest and in transit for maximum protection.',
+  ];
+
+  // Function to display a random security tip
+  function displayRandomTip() {
+    const tipIndex = Math.floor(Math.random() * securityTips.length);
+    document.getElementById('security-tip').innerHTML =
+      `<p><strong>Tip:</strong> ${securityTips[tipIndex]}</p>`;
+  }
+
+  // Update security dashboard data
+  function updateDashboard() {
+    // This would typically fetch data from the server
+    // For demo purposes, we're just updating with random data
+
+    // Update security level
+    const levels = ['STANDARD', 'ENHANCED', 'MAXIMUM', 'QUANTUM'];
+    const levelClasses = ['level-standard', 'level-enhanced', 'level-maximum', 'level-quantum'];
+    const currentLevel = 1; // Enhanced
+
+    const levelElement = document.getElementById('security-level');
+    levelElement.textContent = levels[currentLevel];
+    levelElement.className = 'security-level ' + levelClasses[currentLevel];
+
+    // Fetch and update activity logs
+    fetchActivityLogs();
+  }
+
+  // Fetch activity logs
+  function fetchActivityLogs() {
+    fetch('/security/api/audit-logs?limit=10')
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.logs && data.logs.length > 0) {
+          updateActivityLogs(data.logs);
+        }
+      })
+      .catch((error) => console.error('Error fetching logs:', error));
+  }
+
+  // Update activity logs in the UI
+  function updateActivityLogs(logs) {
+    const allActivityContainer = document.getElementById('all-activity');
+    const authActivityContainer = document.getElementById('auth-activity');
+    const alertsActivityContainer = document.getElementById('alerts-activity');
+
+    // Clear existing logs
+    allActivityContainer.innerHTML = '';
+    authActivityContainer.innerHTML = '';
+    alertsActivityContainer.innerHTML = '';
+
+    // Add new logs
+    logs.forEach((log) => {
+      const timeStr = new Date(log.timestamp).toLocaleString();
+
+      // Determine log type
+      let typeClass = 'type-info';
+      let typeText = 'INFO';
+
+      if (log.event_type.includes('AUTHENTICATION') || log.event_type.includes('LOGIN')) {
+        typeClass = 'type-auth';
+        typeText = 'AUTH';
+      } else if (
+        log.event_type.includes('FAILED') ||
+        log.event_type.includes('ERROR') ||
+        log.event_type.includes('VIOLATION') ||
+        log.event_type.includes('ALERT')
+      ) {
+        typeClass = 'type-alert';
+        typeText = 'ALERT';
+      }
+
+      // Create log entry HTML
+      const logEntry = `
+                <div class="activity-item">
+                    <div class="activity-time">${timeStr}</div>
+                    <div class="activity-desc">
+                        <span class="activity-type ${typeClass}">${typeText}</span>
+                        ${log.event_type}: ${JSON.stringify(log.details)}
+                    </div>
+                </div>
+            `;
+
+      // Add to all activity
+      allActivityContainer.innerHTML += logEntry;
+
+      // Add to appropriate tab
+      if (typeClass === 'type-auth') {
+        authActivityContainer.innerHTML += logEntry;
+      } else if (typeClass === 'type-alert') {
+        alertsActivityContainer.innerHTML += logEntry;
+      }
+    });
+  }
+
+  // Handle verify integrity button
+  document.getElementById('verify-integrity-btn').addEventListener('click', function () {
+    fetch('/security/api/verify-file-integrity', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        paths: ['/sovereign'],
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert(
+          `Integrity verification complete!\nVerified: ${data.verified.length}\nFailed: ${data.failed.length}\nNot Found: ${data.not_found.length}`,
+        );
+      })
+      .catch((error) => console.error('Error verifying integrity:', error));
+  });
+
+  // Handle rotate keys button
+  document.getElementById('rotate-keys-btn').addEventListener('click', function () {
+    if (
+      confirm(
+        'Are you sure you want to rotate encryption keys? This operation is secure but may take a moment.',
+      )
+    ) {
+      fetch('/security/api/rotate-keys', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            alert('Encryption keys rotated successfully!');
+          } else {
+            alert('Error rotating encryption keys: ' + data.error);
+          }
+        })
+        .catch((error) => console.error('Error rotating keys:', error));
+    }
+  });
+
+  // Handle next tip button
+  document.getElementById('next-tip-btn').addEventListener('click', displayRandomTip);
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', function () {
+    updateDashboard();
+
+    // Refresh data periodically
+    setInterval(updateDashboard, 30000); // Every 30 seconds
+  });
+</script>
+{% endblock %}

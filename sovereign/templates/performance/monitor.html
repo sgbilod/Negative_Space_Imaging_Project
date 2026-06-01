@@ -1,0 +1,156 @@
+{% extends "base.html" %} {% block title %}Performance Monitor{% endblock %} {% block content %}
+<div class="container-fluid">
+  <h1 class="mt-4 mb-4">Performance Monitor</h1>
+
+  <div class="row">
+    <!-- CPU Usage Chart -->
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">CPU Usage History</h5>
+        </div>
+        <div class="card-body">
+          <canvas id="cpuChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Memory Usage Chart -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Memory Usage History</h5>
+        </div>
+        <div class="card-body">
+          <canvas id="memoryChart" width="400" height="250"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thread Count Chart -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Thread Count History</h5>
+        </div>
+        <div class="card-body">
+          <canvas id="threadChart" width="400" height="250"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Actions</h5>
+        </div>
+        <div class="card-body">
+          <a href="{{ url_for('performance.dashboard') }}" class="btn btn-primary">
+            <i class="fas fa-tachometer-alt"></i> Back to Dashboard
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // CPU usage chart
+  var cpuCtx = document.getElementById('cpuChart').getContext('2d');
+  var cpuChart = new Chart(cpuCtx, {
+      type: 'line',
+      data: {
+          labels: {{ cpu_labels|tojson }},
+          datasets: [{
+              label: 'CPU Usage (%)',
+              data: {{ cpu_data|tojson }},
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              borderColor: 'rgba(255, 99, 132, 1)',
+              borderWidth: 1,
+              tension: 0.4
+          }]
+      },
+      options: {
+          responsive: true,
+          scales: {
+              y: {
+                  beginAtZero: true,
+                  suggestedMax: 100,
+                  title: {
+                      display: true,
+                      text: 'CPU Usage (%)'
+                  }
+              }
+          }
+      }
+  });
+
+  // Memory usage chart
+  var memoryCtx = document.getElementById('memoryChart').getContext('2d');
+  var memoryChart = new Chart(memoryCtx, {
+      type: 'line',
+      data: {
+          labels: {{ memory_labels|tojson }},
+          datasets: [{
+              label: 'Memory Usage (MB)',
+              data: {{ memory_data|tojson }},
+              backgroundColor: 'rgba(54, 162, 235, 0.2)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1,
+              tension: 0.4
+          }]
+      },
+      options: {
+          responsive: true,
+          scales: {
+              y: {
+                  beginAtZero: true,
+                  title: {
+                      display: true,
+                      text: 'Memory (MB)'
+                  }
+              }
+          }
+      }
+  });
+
+  // Thread count chart
+  var threadCtx = document.getElementById('threadChart').getContext('2d');
+  var threadChart = new Chart(threadCtx, {
+      type: 'line',
+      data: {
+          labels: {{ thread_labels|tojson }},
+          datasets: [{
+              label: 'Thread Count',
+              data: {{ thread_data|tojson }},
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              borderWidth: 1,
+              tension: 0.4
+          }]
+      },
+      options: {
+          responsive: true,
+          scales: {
+              y: {
+                  beginAtZero: true,
+                  title: {
+                      display: true,
+                      text: 'Thread Count'
+                  }
+              }
+          }
+      }
+  });
+
+  // Auto-refresh monitor every 10 seconds
+  setTimeout(function() {
+      location.reload();
+  }, 10000);
+</script>
+{% endblock %}

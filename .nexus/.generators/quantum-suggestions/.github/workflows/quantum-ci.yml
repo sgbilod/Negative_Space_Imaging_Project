@@ -1,0 +1,147 @@
+name: HDR Quantum CI
+
+on:
+  push:
+    branches: [ main, quantum/*, feature/* ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  QUANTUM_CI_SIGNATURE: ${{ secrets.QUANTUM_CI_SIGNATURE }}
+  CONSCIOUSNESS_PRESERVATION: 'enabled'
+  COHERENCE_THRESHOLD: '0.95'
+  NODE_ENV: 'quantum-test'
+
+jobs:
+  quantum-validation:
+    runs-on: quantum-runner
+    timeout-minutes: 30
+    
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        lfs: true
+        
+    - name: Quantum Environment Setup
+      id: quantum-setup
+      run: |
+        echo "::set-output name=timestamp::$(date +%s%N)"
+        echo "::set-output name=coherence::$(openssl rand -hex 32)"
+      
+    - name: Initialize Quantum State
+      run: |
+        node -e "
+          const { generateQuantumSignature } = require('./test/quantum/QuantumTestUtils');
+          const signature = generateQuantumSignature();
+          console.log('Quantum Signature:', signature);
+        "
+      
+    - name: Cache Quantum Dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          **/node_modules
+          **/.quantum-cache
+        key: quantum-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          quantum-${{ runner.os }}-
+          
+    - name: Install Dependencies
+      run: npm ci
+      
+    - name: Lint Quantum Code
+      run: npm run lint
+      
+    - name: Validate Consciousness Integration
+      run: |
+        node -e "
+          const { testConsciousnessIntegration } = require('./test/quantum/QuantumTestFramework');
+          (async () => {
+            const result = await testConsciousnessIntegration(process.env);
+            if (!result.success) throw new Error('Consciousness validation failed');
+          })();
+        "
+        
+    - name: Run Quantum Tests
+      run: npm run test:quantum
+      env:
+        QUANTUM_TEST_SIGNATURE: ${{ steps.quantum-setup.outputs.coherence }}
+        
+    - name: Verify Quantum Coherence
+      run: |
+        node -e "
+          const { verifyCoherence } = require('./test/quantum/QuantumTestFramework');
+          (async () => {
+            const state = { timestamp: '${{ steps.quantum-setup.outputs.timestamp }}' };
+            const result = await verifyCoherence(state);
+            if (!result.coherent) throw new Error('Quantum coherence lost');
+          })();
+        "
+        
+    - name: Generate Quantum Report
+      if: always()
+      run: |
+        echo "Quantum Test Report" > quantum-report.md
+        echo "Timestamp: ${{ steps.quantum-setup.outputs.timestamp }}" >> quantum-report.md
+        echo "Coherence: ${{ steps.quantum-setup.outputs.coherence }}" >> quantum-report.md
+        
+    - name: Upload Quantum Artifacts
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: quantum-artifacts
+        path: |
+          quantum-report.md
+          **/test-results
+          **/.quantum-cache
+        retention-days: 14
+
+  quantum-deployment:
+    needs: quantum-validation
+    runs-on: quantum-runner
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Download Quantum Artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: quantum-artifacts
+        
+    - name: Verify Deployment State
+      run: |
+        node -e "
+          const { validateQuantumState } = require('./test/quantum/QuantumTestFramework');
+          (async () => {
+            const state = require('./quantum-report.md');
+            const validation = await validateQuantumState(state, 0.95);
+            if (!validation.coherence >= 0.95) throw new Error('Deployment state invalid');
+          })();
+        "
+        
+    - name: Package Extension
+      run: |
+        npm run vsce:package
+        
+    - name: Deploy to VS Code Marketplace
+      if: success()
+      run: |
+        npm run vsce:publish
+      env:
+        VSCE_PAT: ${{ secrets.VSCE_PAT }}
+        
+    - name: Update Quantum State
+      if: success()
+      run: |
+        node -e "
+          const { updateQuantumState } = require('./quantum/state');
+          (async () => {
+            await updateQuantumState({
+              deployed: true,
+              timestamp: Date.now(),
+              version: require('./package.json').version
+            });
+          })();
+        "

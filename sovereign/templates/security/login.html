@@ -1,0 +1,95 @@
+{% extends "layout.html" %} {% block title %}Sovereign Security - Login{% endblock %} {% block
+styles %}
+<style>
+  .login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 100, 0.2);
+    background: linear-gradient(to bottom right, #1a2035, #1f2940);
+  }
+
+  .login-header {
+    text-align: center;
+    color: #3ea6ff;
+    margin-bottom: 30px;
+  }
+
+  .login-form input {
+    background-color: rgba(30, 40, 70, 0.8);
+    border: 1px solid #3d5170;
+    color: #e9ecef;
+  }
+
+  .login-form input:focus {
+    background-color: rgba(30, 40, 70, 0.9);
+    border-color: #3ea6ff;
+    box-shadow: 0 0 0 0.2rem rgba(62, 166, 255, 0.25);
+    color: #e9ecef;
+  }
+
+  .login-btn {
+    background-color: #3ea6ff;
+    border-color: #3ea6ff;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .login-btn:hover {
+    background-color: #2a95ee;
+    border-color: #2a95ee;
+  }
+
+  .security-icon {
+    text-align: center;
+    font-size: 48px;
+    color: #3ea6ff;
+    margin-bottom: 20px;
+  }
+
+  .error-alert {
+    margin-top: 15px;
+  }
+</style>
+{% endblock %} {% block content %}
+<div class="container">
+  <div class="login-container">
+    <div class="security-icon">
+      <i class="fas fa-shield-alt"></i>
+    </div>
+
+    <div class="login-header">
+      <h2>Sovereign Security</h2>
+      <p class="text-muted">Authentication Required</p>
+    </div>
+
+    {% if error %}
+    <div class="alert alert-danger error-alert" role="alert">{{ error }}</div>
+    {% endif %} {% for category, message in get_flashed_messages(with_categories=true) %}
+    <div class="alert alert-{{ category }} error-alert" role="alert">{{ message }}</div>
+    {% endfor %}
+
+    <form class="login-form" method="POST" action="{{ url_for('security.login') }}">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" required autofocus />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required />
+      </div>
+
+      <button type="submit" class="btn btn-primary login-btn">Login</button>
+    </form>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<script>
+  // Focus on username field
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('username').focus();
+  });
+</script>
+{% endblock %}

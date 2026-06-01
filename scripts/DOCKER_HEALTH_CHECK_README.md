@@ -1,4 +1,6 @@
-# Docker Health Check & Initialization Scripts
+# Docker Health Check System
+
+Production-grade health monitoring solution for multi-service Docker applications.
 
 This directory contains comprehensive Docker health checking and initialization scripts for the Negative Space Imaging Project.
 

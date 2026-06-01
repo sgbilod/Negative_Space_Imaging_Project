@@ -1,146 +1,336 @@
-# Contributing to Negative Space Imaging System
-Copyright (c) 2025 Stephen Bilodeau. All rights reserved.
+# Contributing Guidelines
 
-Thank you for considering contributing to the Negative Space Imaging System! This document outlines our contribution guidelines and processes to help you get started.
+Thank you for your interest in contributing to the Negative Space Imaging Project!
 
 ## Code of Conduct
 
-By participating in this project, you agree to uphold our Code of Conduct. Please report unacceptable behavior to conduct@negativespacesystems.com.
+We are committed to providing a welcoming and inclusive environment. Please:
+- Be respectful and constructive
+- Welcome diverse perspectives
+- Focus on what's best for the project
+- Report unacceptable behavior to maintainers
 
-## How Can I Contribute?
+## Getting Started
+
+1. Fork the repository
+2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/Negative_Space_Imaging_Project.git`
+3. Create a feature branch: `git checkout -b feature/your-feature`
+4. Follow the setup instructions in `DEVELOPMENT.md`
+
+## Development Workflow
+
+### Before Starting
+
+- Check existing issues and PRs to avoid duplicate work
+- Discuss significant changes in an issue first
+- Follow the project's coding standards
+
+### Making Changes
+
+```bash
+# Create feature branch
+git checkout -b feature/your-feature
+
+# Make changes following code standards
+# Test your changes thoroughly
+npm run test
+
+# Ensure code quality
+npm run lint
+npm run format
+
+# Commit with clear messages
+git commit -m "fix: description of change
+
+Optional longer description explaining why and how."
+```
+
+### Commit Messages
+
+Follow conventional commits:
+
+```
+type(scope): subject
+
+body (optional)
+footer (optional, e.g. Fixes #123)
+```
+
+**Types:**
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation
+- `style`: Code style (formatting)
+- `refactor`: Code refactoring
+- `test`: Adding tests
+- `chore`: Maintenance
+
+**Examples:**
+```
+feat(auth): add JWT refresh token rotation
+fix(api): handle null image uploads
+docs(setup): clarify Docker installation
+test(analyzer): add negative space detection tests
+```
+
+## Pull Request Process
+
+### Before Submitting
+
+1. **Update your branch:** `git pull origin main`
+2. **Run tests:** `npm run test`
+3. **Check linting:** `npm run lint`
+4. **Test locally:** Verify all functionality works
+5. **Update docs:** If behavior changed, update documentation
+
+### Creating the PR
+
+1. Use the provided PR template
+2. Give a clear, descriptive title
+3. Explain the problem and solution
+4. Reference related issues: `Fixes #123`
+5. Include testing instructions
+6. Request reviewers
+
+### PR Title Format
+
+```
+[type] Brief description
+
+Examples:
+[feat] Add batch image processing
+[fix] Correct memory leak in analyzer
+[docs] Update deployment guide
+[test] Add integration tests for API
+```
+
+### During Review
+
+- Respond to feedback professionally
+- Make requested changes in new commits
+- Re-request review after updates
+- Be patient with the review process
+
+## Code Standards
+
+### TypeScript/Node.js
+
+```typescript
+// Use strict types
+function analyze(image: Buffer): Promise<AnalysisResult> {
+  // implementation
+}
+
+// Add error handling
+try {
+  const result = await process(data);
+} catch (error) {
+  logger.error('Processing failed:', error);
+  throw new ApiError('Processing failed', 500);
+}
+
+// Use const/let, not var
+const config = loadConfig();
+
+// Use arrow functions
+const map = (arr: number[]) => arr.map(x => x * 2);
+
+// Document complex functions
+/**
+ * Analyzes image for negative space patterns
+ * @param image - Image buffer to analyze
+ * @param options - Configuration options
+ * @returns Promise resolving to analysis results
+ */
+```
+
+### Python
+
+```python
+# Use type hints
+def analyze_image(image: np.ndarray) -> Dict[str, Any]:
+    """Analyze image for negative space patterns."""
+    # implementation
+    pass
+
+# Follow PEP 8
+class ImageAnalyzer:
+    """Main analyzer class."""
+    
+    def __init__(self, config: Dict) -> None:
+        self.config = config
+    
+    def process(self, image: np.ndarray) -> Dict:
+        """Process image and return results."""
+        pass
+
+# Use meaningful variable names
+negative_space_regions = detect_regions(image)
+
+# Add docstrings
+def detect_regions(image: np.ndarray) -> List[Region]:
+    """
+    Detect negative space regions in image.
+    
+    Args:
+        image: Input image array
+        
+    Returns:
+        List of detected regions
+        
+    Raises:
+        ValueError: If image format invalid
+    """
+```
+
+### React Components
+
+```typescript
+// Use functional components
+interface ImageViewerProps {
+  imageUrl: string;
+  onAnalyze?: (result: AnalysisResult) => void;
+}
+
+export const ImageViewer: React.FC<ImageViewerProps> = ({
+  imageUrl,
+  onAnalyze,
+}) => {
+  const [loading, setLoading] = useState(false);
+  
+  return (
+    <div className="image-viewer">
+      <img src={imageUrl} alt="Analysis target" />
+    </div>
+  );
+};
+
+// Use hooks for state
+function useImageAnalysis(imageId: string) {
+  const [result, setResult] = useState<AnalysisResult | null>(null);
+  const [error, setError] = useState<Error | null>(null);
+  
+  return { result, error };
+}
+```
+
+## Testing Requirements
+
+### Coverage Targets
+
+- Overall: 70%+
+- Critical paths: 90%+
+- New features: 80%+
+
+### Writing Tests
+
+```typescript
+describe('ImageAnalyzer', () => {
+  it('should detect negative space regions', async () => {
+    const analyzer = new ImageAnalyzer();
+    const result = await analyzer.analyze(testImage);
+    expect(result.regions).toHaveLength(3);
+  });
+  
+  it('should handle invalid images', async () => {
+    const analyzer = new ImageAnalyzer();
+    await expect(analyzer.analyze(invalidImage)).rejects.toThrow();
+  });
+});
+```
+
+## Documentation
+
+### What to Document
+
+- Complex algorithms and their logic
+- API endpoints with examples
+- Configuration options
+- Setup and deployment procedures
+- Major architectural decisions
+
+### Format
+
+- Use Markdown for docs
+- Include code examples
+- Add diagrams where helpful
+- Keep language clear and concise
+
+## Performance
+
+### Guidelines
+
+- Profile before optimizing
+- Focus on critical paths
+- Cache expensive operations
+- Use lazy loading where appropriate
+- Monitor bundle size
+
+### Tools
+
+```bash
+# Check bundle size
+npm run build
+npm run analyze
+
+# Profile performance
+npm run profile
+
+# Load testing
+npm run load-test
+```
+
+## Security
+
+### Best Practices
+
+- Never commit secrets or keys
+- Use environment variables
+- Validate all inputs
+- Use HTTPS in production
+- Keep dependencies updated
+- Run security audits regularly
+
+```bash
+# Check for vulnerabilities
+npm audit
+npm audit fix
+
+# Update dependencies
+npm outdated
+npm update
+```
+
+## Issue Management
 
 ### Reporting Bugs
 
-Before creating a bug report:
+Include:
+- Clear description of problem
+- Steps to reproduce
+- Expected vs actual behavior
+- Environment info (OS, Node version, etc.)
+- Screenshots/logs if applicable
 
-1. Check the [issue tracker](https://github.com/yourusername/negative-space-imaging/issues) to see if the issue has already been reported
-2. If you're unable to find an open issue addressing the problem, create a new one
+### Feature Requests
 
-When creating a bug report, include as much detail as possible:
-
-- A clear and descriptive title
-- Steps to reproduce the issue
-- Expected vs. actual behavior
-- Screenshots if applicable
-- Your environment (OS, browser, etc.)
-- Any additional context
-
-### Suggesting Enhancements
-
-Enhancement suggestions are tracked as GitHub issues. When creating an enhancement suggestion:
-
-1. Use a clear and descriptive title
-2. Provide a detailed description of the suggested enhancement
-3. Explain why this enhancement would be useful
-4. Include mockups or examples if applicable
-
-### Pull Requests
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Run tests and linting (`npm run lint && npm test`)
-5. Commit your changes (`git commit -m 'Add amazing feature'`)
-6. Push to the branch (`git push origin feature/amazing-feature`)
-7. Open a Pull Request
-
-## Development Process
-
-### Setting Up Development Environment
-
-1. Clone the repository
-   ```bash
-   git clone https://github.com/yourusername/negative-space-imaging.git
-   cd negative-space-imaging
-   ```
-
-2. Install dependencies
-   ```bash
-   npm install
-   ```
-
-3. Configure environment variables
-   ```bash
-   cp .env.example .env
-   # Edit .env with your settings
-   ```
-
-4. Start development server
-   ```bash
-   npm run dev
-   ```
-
-### Code Style
-
-- Follow the existing code style
-- Use TypeScript for type safety
-- Document your code with JSDoc comments
-- Write comprehensive tests
-
-We use ESLint and Prettier to enforce coding standards:
-
-```bash
-# Check code style
-npm run lint
-
-# Automatically fix style issues
-npm run lint:fix
-
-# Format code
-npm run format
-```
-
-### Testing
-
-Write tests for all new features and bug fixes:
-
-```bash
-# Run all tests
-npm test
-
-# Run tests with coverage
-npm run test:coverage
-```
-
-Aim for 100% test coverage for new code.
-
-### Commits
-
-We follow [Conventional Commits](https://www.conventionalcommits.org/) for our commit messages:
-
-- `feat`: A new feature
-- `fix`: A bug fix
-- `docs`: Documentation changes
-- `style`: Code style changes (formatting, etc.)
-- `refactor`: Code changes that neither fix bugs nor add features
-- `perf`: Performance improvements
-- `test`: Adding or correcting tests
-- `chore`: Changes to the build process or auxiliary tools
-
-### Branch Naming Convention
-
-- `feature/` - New features
-- `bugfix/` - Bug fixes
-- `hotfix/` - Critical fixes for production
-- `docs/` - Documentation updates
-- `refactor/` - Code refactoring
-- `test/` - Test additions or modifications
-
-## HIPAA Compliance
-
-When contributing to this project, be aware that it's designed to be HIPAA compliant for medical applications:
-
-- Never commit real patient data or PHI
-- Use synthetic data for testing
-- Be cautious with logging to avoid exposing sensitive information
-- Follow security best practices
-
-## Licensing
-
-By contributing to this project, you agree that your contributions will be licensed under the project's MIT License.
+Include:
+- Clear description of desired feature
+- Use case and benefits
+- Proposed solution (if any)
+- Any relevant context
 
 ## Questions?
 
-If you have questions about contributing, please open an issue or contact the maintainers at contributors@negativespacesystems.com.
+- Check existing issues and documentation
+- Ask in GitHub Discussions
+- Open an issue for clarification
+- Contact maintainers
 
-Thank you for contributing to the Negative Space Imaging System!
+---
+
+**Thank you for contributing!**
+
+Your efforts help make this project better for everyone.
+
+Last Updated: November 2025

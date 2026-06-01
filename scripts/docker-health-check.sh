@@ -1,31 +1,34 @@
 #!/bin/bash
 
 ################################################################################
-# DOCKER HEALTH CHECK SCRIPT FOR NEGATIVE SPACE IMAGING PROJECT
+# Docker Health Check System - Bash Implementation
+# Production-grade health monitoring for multi-service Docker environments
+# Monitors: PostgreSQL, Redis, Node.js, Python, React
 #
-# Purpose:
-#   Comprehensive health check for all Docker containers and services
-#   Validates Docker daemon, container status, service connectivity, and logs
+# Features:
+#   - Multi-service health verification
+#   - Port connectivity checks
+#   - API endpoint validation
+#   - Resource usage monitoring (CPU, memory, disk)
+#   - Container restart detection
+#   - Automated alerting
+#   - JSON and HTML report generation
+#   - Graceful error handling
 #
 # Usage:
 #   ./docker-health-check.sh [OPTIONS]
 #
 # Options:
-#   -v, --verbose         Enable verbose output with detailed debug info
-#   -l, --log-file FILE   Custom log file path (default: logs/docker-health-{timestamp}.log)
-#   -q, --quiet           Suppress console output (logs only)
-#   -r, --repair          Attempt automatic repair of failed services
-#   -h, --help            Display this help message
+#   -v, --verbose         Enable verbose output
+#   -q, --quiet           Suppress console output
+#   -r, --repair          Attempt automatic repair
+#   -j, --json-only       Output JSON only
+#   -h, --help            Display help message
 #
 # Exit Codes:
 #   0 - All services healthy
-#   1 - One or more services degraded/failed
-#   2 - Docker daemon not running
-#   3 - Script execution error
-#
-# Author: DevOps Team
-# Date: 2025-10-17
-# Version: 1.0.0
+#   1 - One or more services failed
+#   2 - Configuration error
 #
 ################################################################################
 

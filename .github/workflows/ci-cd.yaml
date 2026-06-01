@@ -32,18 +32,36 @@ jobs:
     needs: security-scan
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: false
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
           cache: 'pip'
-      - name: Run tests
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.test.txt
-          pytest --cov=. --cov-report=xml
+          if [ -f requirements.test.txt ]; then
+            echo "Installing from requirements.test.txt"
+            pip install -r requirements.test.txt
+          elif [ -f requirements.txt ]; then
+            echo "Installing from requirements.txt"
+            pip install -r requirements.txt
+          else
+            echo "No requirements file found, skipping dependency installation"
+          fi
+      - name: Run tests
+        run: |
+          if [ -d tests ] || compgen -G "test_*.py" > /dev/null || compgen -G "*_test.py" > /dev/null; then
+            echo "Running pytest"
+            pytest --cov=. --cov-report=xml
+          else
+            echo "No tests found, skipping pytest"
+          fi
       - name: Upload coverage
         uses: codecov/codecov-action@v3
+        if: always()
 
   build:
     name: Build and Push

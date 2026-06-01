@@ -1,52 +1,126 @@
-# Git
+# ============================================================================
+# .dockerignore - Optimize Docker build context
+# ============================================================================
+# Exclude unnecessary files and directories from Docker builds
+
+# Version control
 .git
 .gitignore
 .gitattributes
+.github
 
-# Node
+# Dependencies (built during Docker build)
 node_modules
 npm-debug.log
+npm-error.log
 yarn-error.log
-package-lock.json
-yarn.lock
-.npm
-
-# Python
 __pycache__
 *.pyc
 *.pyo
 *.pyd
 .Python
-env/
-venv/
-.venv
-pip-log.txt
-pip-delete-this-directory.txt
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
+*.egg-info
+dist
+build
 
-# IDE
+# Environment and configuration
+.env
+.env.local
+.env.*.local
+.env.prod
 .vscode
 .idea
+.DS_Store
 *.swp
 *.swo
 *~
-.DS_Store
-.project
-.classpath
-*.log
+.editorconfig
 
-# Build
-dist
-build
-*.egg-info
+# Documentation and tests (not needed in production)
+*.md
+!README.md
+README*.md
+CONTRIBUTING.md
+DEVELOPMENT.md
+DEPLOYMENT.md
+*.txt
+docs/
+.gitkeep
+
+# Testing and coverage
+__tests__
+*.test.ts
+*.test.js
+*.spec.ts
+*.spec.js
+.jest
 .pytest_cache
+coverage/
+htmlcov/
+.nyc_output
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+.classpath
+.c9/
+*.cer
+*.csr
+*.jks
+.env.*.swp
+.vscode/extensions
+
+# Development tools
+docker-compose.dev.yml
+docker-compose.performance.yml
+Dockerfile.*
+docker-compose*.yml
+.dockerignore
+scripts/
+.husky/
+
+# Logs and temporary files
+logs/
+*.log
+tmp/
+temp/
+.turbo/
+
+# OS specific
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Build artifacts
+dist/
+build/
+.next/
+out/
+
+# Package managers
+pnpm-lock.yaml
+yarn.lock
+
+# CI/CD
+.gitlab-ci.yml
+.circleci/
+.travis.yml
+Jenkinsfile
+
+# Misc
+CNAME
+LICENSE
+AUTHORS
+.npmignore
+.prettierignore
+.eslintignore
+tslint.json
 
 # Docker
 .dockerignore

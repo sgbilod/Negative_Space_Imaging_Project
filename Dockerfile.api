@@ -44,45 +44,45 @@ RUN npm prune --production
 FROM node:20-alpine
 
 LABEL maintainer="Negative Space Systems Team"
-LABEL description="Negative Space Imaging API Server"
-LABEL version="1.0.0"
+LABEL description="Runtime stage for Express API service"
+
+# Install runtime dependencies
+RUN apk add --no-cache \
+    curl \
+    dumb-init
 
 # Set environment variables
-ENV NODE_ENV=production
-ENV PORT=3000
-ENV LOG_LEVEL=info
-ENV NODE_OPTIONS="--max-old-space-size=512"
+ENV NODE_ENV=production \
+    NODE_OPTIONS="--max-old-space-size=512" \
+    PORT=3000
 
 WORKDIR /app
 
-# Install runtime dependencies only
-RUN apk add --no-cache \
-    dumb-init \
-    curl \
-    ca-certificates \
-    tzdata
+# Copy built application and dependencies
+COPY --from=builder /build/node_modules ./node_modules
+COPY --from=builder /build/dist ./dist
+COPY --from=builder /build/package*.json ./
 
-# Copy built application from builder stage
-COPY --from=builder --chown=node:node /build/dist ./dist
-COPY --from=builder --chown=node:node /build/node_modules ./node_modules
-COPY --from=builder --chown=node:node /build/package*.json ./
+# Copy migration and seed scripts
+COPY --from=builder /build/src/migrations ./dist/migrations
+COPY --from=builder /build/src/seeds ./dist/seeds
 
-# Create necessary directories
-RUN mkdir -p uploads logs && \
-    chown -R node:node /app
+# Create non-root user
+RUN addgroup -g 1000 appuser && \
+    adduser -D -u 1000 -G appuser appuser && \
+    chown -R appuser:appuser /app
 
-# Switch to non-root user for security
-USER node
+USER appuser
 
 # Expose port
-EXPOSE ${PORT}
+EXPOSE 3000
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:${PORT}/health || exit 1
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD curl -f http://localhost:3000/health || exit 1
 
 # Use dumb-init to handle signals properly
-ENTRYPOINT ["/usr/sbin/dumb-init", "--"]
+ENTRYPOINT ["/sbin/dumb-init", "--"]
 
-# Start application
+# Default command
 CMD ["node", "dist/index.js"]
