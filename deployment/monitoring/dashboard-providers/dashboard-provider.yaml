@@ -1,0 +1,11 @@
+apiVersion: 1
+
+providers:
+  - name: 'Negative Space Imaging'
+    orgId: 1
+    folder: 'Negative Space Imaging'
+    type: file
+    disableDeletion: false
+    editable: true
+    options:
+      path: /etc/grafana/dashboards

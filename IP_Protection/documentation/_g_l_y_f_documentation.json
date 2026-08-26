@@ -1,0 +1,530 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\_g_l_y_f.py",
+  "classes": [
+    {
+      "name": "table__g_l_y_f",
+      "docstring": "Glyph Data table\n\nThis class represents the `glyf <https://docs.microsoft.com/en-us/typography/opentype/spec/glyf>`_\ntable, which contains outlines for glyphs in TrueType format. In many cases,\nit is easier to access and manipulate glyph outlines through the ``GlyphSet``\nobject returned from :py:meth:`fontTools.ttLib.ttFont.getGlyphSet`::\n\n                >> from fontTools.pens.boundsPen import BoundsPen\n                >> glyphset = font.getGlyphSet()\n                >> bp = BoundsPen(glyphset)\n                >> glyphset[\"A\"].draw(bp)\n                >> bp.bounds\n                (19, 0, 633, 716)\n\nHowever, this class can be used for low-level access to the ``glyf`` table data.\nObjects of this class support dictionary-like access, mapping glyph names to\n:py:class:`Glyph` objects::\n\n                >> glyf = font[\"glyf\"]\n                >> len(glyf[\"Aacute\"].components)\n                2\n\nNote that when adding glyphs to the font via low-level access to the ``glyf``\ntable, the new glyphs must also be added to the ``hmtx``/``vmtx`` table::\n\n                >> font[\"glyf\"][\"divisionslash\"] = Glyph()\n                >> font[\"hmtx\"][\"divisionslash\"] = (640, 0)",
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "ensureDecompiled",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "setGlyphOrder",
+          "docstring": "Sets the glyph order\n\nArgs:\n        glyphOrder ([str]): List of glyph names in order."
+        },
+        {
+          "name": "getGlyphName",
+          "docstring": "Returns the name for the glyph with the given ID.\n\nRaises a ``KeyError`` if the glyph name is not found in the font."
+        },
+        {
+          "name": "getGlyphID",
+          "docstring": "Returns the ID of the glyph with the given name.\n\nRaises a ``ValueError`` if the glyph is not found in the font."
+        },
+        {
+          "name": "removeHinting",
+          "docstring": "Removes TrueType hints from all glyphs in the glyphset.\n\nSee :py:meth:`Glyph.removeHinting`."
+        },
+        {
+          "name": "keys",
+          "docstring": null
+        },
+        {
+          "name": "has_key",
+          "docstring": null
+        },
+        {
+          "name": "get",
+          "docstring": null
+        },
+        {
+          "name": "getPhantomPoints",
+          "docstring": "Old public name for self._getPhantomPoints().\nSee: https://github.com/fonttools/fonttools/pull/2266"
+        },
+        {
+          "name": "getCoordinatesAndControls",
+          "docstring": "Old public name for self._getCoordinatesAndControls().\nSee: https://github.com/fonttools/fonttools/pull/2266"
+        },
+        {
+          "name": "setCoordinates",
+          "docstring": "Old public name for self._setCoordinates().\nSee: https://github.com/fonttools/fonttools/pull/2266"
+        }
+      ]
+    },
+    {
+      "name": "Glyph",
+      "docstring": "This class represents an individual TrueType glyph.\n\nTrueType glyph objects come in two flavours: simple and composite. Simple\nglyph objects contain contours, represented via the ``.coordinates``,\n``.flags``, ``.numberOfContours``, and ``.endPtsOfContours`` attributes;\ncomposite glyphs contain components, available through the ``.components``\nattributes.\n\nBecause the ``.coordinates`` attribute (and other simple glyph attributes mentioned\nabove) is only set on simple glyphs and the ``.components`` attribute is only\nset on composite glyphs, it is necessary to use the :py:meth:`isComposite`\nmethod to test whether a glyph is simple or composite before attempting to\naccess its data.\n\nFor a composite glyph, the components can also be accessed via array-like access::\n\n        >> assert(font[\"glyf\"][\"Aacute\"].isComposite())\n        >> font[\"glyf\"][\"Aacute\"][0]\n        <fontTools.ttLib.tables._g_l_y_f.GlyphComponent at 0x1027b2ee0>",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "compact",
+          "docstring": null
+        },
+        {
+          "name": "expand",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "getCompositeMaxpValues",
+          "docstring": null
+        },
+        {
+          "name": "getMaxpValues",
+          "docstring": null
+        },
+        {
+          "name": "decompileComponents",
+          "docstring": null
+        },
+        {
+          "name": "decompileCoordinates",
+          "docstring": null
+        },
+        {
+          "name": "decompileCoordinatesRaw",
+          "docstring": null
+        },
+        {
+          "name": "compileComponents",
+          "docstring": null
+        },
+        {
+          "name": "compileCoordinates",
+          "docstring": null
+        },
+        {
+          "name": "compileDeltasGreedy",
+          "docstring": null
+        },
+        {
+          "name": "compileDeltasOptimal",
+          "docstring": null
+        },
+        {
+          "name": "compileDeltasForSpeed",
+          "docstring": null
+        },
+        {
+          "name": "recalcBounds",
+          "docstring": "Recalculates the bounds of the glyph.\n\nEach glyph object stores its bounding box in the\n``xMin``/``yMin``/``xMax``/``yMax`` attributes. These bounds must be\nrecomputed when the ``coordinates`` change. The ``table__g_l_y_f`` bounds\nmust be provided to resolve component bounds."
+        },
+        {
+          "name": "tryRecalcBoundsComposite",
+          "docstring": "Try recalculating the bounds of a composite glyph that has\ncertain constrained properties. Namely, none of the components\nhave a transform other than an integer translate, and none\nuses the anchor points.\n\nEach glyph object stores its bounding box in the\n``xMin``/``yMin``/``xMax``/``yMax`` attributes. These bounds must be\nrecomputed when the ``coordinates`` change. The ``table__g_l_y_f`` bounds\nmust be provided to resolve component bounds.\n\nReturn True if bounds were calculated, False otherwise."
+        },
+        {
+          "name": "isComposite",
+          "docstring": "Test whether a glyph has components"
+        },
+        {
+          "name": "getCoordinates",
+          "docstring": "Return the coordinates, end points and flags\n\nThis method returns three values: A :py:class:`GlyphCoordinates` object,\na list of the indexes of the final points of each contour (allowing you\nto split up the coordinates list into contours) and a list of flags.\n\nOn simple glyphs, this method returns information from the glyph's own\ncontours; on composite glyphs, it \"flattens\" all components recursively\nto return a list of coordinates representing all the components involved\nin the glyph.\n\nTo interpret the flags for each point, see the \"Simple Glyph Flags\"\nsection of the `glyf table specification <https://docs.microsoft.com/en-us/typography/opentype/spec/glyf#simple-glyph-description>`."
+        },
+        {
+          "name": "getComponentNames",
+          "docstring": "Returns a list of names of component glyphs used in this glyph\n\nThis method can be used on simple glyphs (in which case it returns an\nempty list) or composite glyphs."
+        },
+        {
+          "name": "trim",
+          "docstring": "Remove padding and, if requested, hinting, from a glyph.\nThis works on both expanded and compacted glyphs, without\nexpanding it."
+        },
+        {
+          "name": "removeHinting",
+          "docstring": "Removes TrueType hinting instructions from the glyph."
+        },
+        {
+          "name": "draw",
+          "docstring": "Draws the glyph using the supplied pen object.\n\nArguments:\n        pen: An object conforming to the pen protocol.\n        glyfTable: A :py:class:`table__g_l_y_f` object, to resolve components.\n        offset (int): A horizontal offset. If provided, all coordinates are\n                translated by this offset."
+        },
+        {
+          "name": "drawPoints",
+          "docstring": "Draw the glyph using the supplied pointPen. As opposed to Glyph.draw(),\nthis will not change the point indices."
+        }
+      ]
+    },
+    {
+      "name": "GlyphComponent",
+      "docstring": "Represents a component within a composite glyph.\n\nThe component is represented internally with four attributes: ``glyphName``,\n``x``, ``y`` and ``transform``. If there is no \"two-by-two\" matrix (i.e\nno scaling, reflection, or rotation; only translation), the ``transform``\nattribute is not present.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "getComponentInfo",
+          "docstring": "Return information about the component\n\nThis method returns a tuple of two values: the glyph name of the component's\nbase glyph, and a transformation matrix. As opposed to accessing the attributes\ndirectly, ``getComponentInfo`` always returns a six-element tuple of the\ncomponent's transformation matrix, even when the two-by-two ``.transform``\nmatrix is not present."
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GlyphCoordinates",
+      "docstring": "A list of glyph coordinates.\n\nUnlike an ordinary list, this is a numpy-like matrix object which supports\nmatrix addition, scalar multiplication and other operations described below.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "array",
+          "docstring": "Returns the underlying array of coordinates"
+        },
+        {
+          "name": "zeros",
+          "docstring": "Creates a new ``GlyphCoordinates`` object with all coordinates set to (0,0)"
+        },
+        {
+          "name": "copy",
+          "docstring": "Creates a new ``GlyphCoordinates`` object which is a copy of the current one."
+        },
+        {
+          "name": "append",
+          "docstring": null
+        },
+        {
+          "name": "extend",
+          "docstring": null
+        },
+        {
+          "name": "toInt",
+          "docstring": null
+        },
+        {
+          "name": "calcBounds",
+          "docstring": null
+        },
+        {
+          "name": "calcIntBounds",
+          "docstring": null
+        },
+        {
+          "name": "relativeToAbsolute",
+          "docstring": null
+        },
+        {
+          "name": "absoluteToRelative",
+          "docstring": null
+        },
+        {
+          "name": "translate",
+          "docstring": ">>> GlyphCoordinates([(1,2)]).translate((.5,0))"
+        },
+        {
+          "name": "scale",
+          "docstring": ">>> GlyphCoordinates([(1,2)]).scale((.5,0))"
+        },
+        {
+          "name": "transform",
+          "docstring": ">>> GlyphCoordinates([(1,2)]).transform(((.5,0),(.2,.5)))"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "flagBest",
+      "docstring": "For a given x,y delta pair, returns the flag that packs this pair\nmost efficiently, as well as the number of byte cost of such flag."
+    },
+    {
+      "name": "flagFits",
+      "docstring": null
+    },
+    {
+      "name": "flagSupports",
+      "docstring": null
+    },
+    {
+      "name": "flagEncodeCoord",
+      "docstring": null
+    },
+    {
+      "name": "flagEncodeCoords",
+      "docstring": null
+    },
+    {
+      "name": "dropImpliedOnCurvePoints",
+      "docstring": "Drop impliable on-curve points from the (simple) glyph or glyphs.\n\nIn TrueType glyf outlines, on-curve points can be implied when they are located at\nthe midpoint of the line connecting two consecutive off-curve points.\n\nIf more than one glyphs are passed, these are assumed to be interpolatable masters\nof the same glyph impliable, and thus only the on-curve points that are impliable\nfor all of them will actually be implied.\nComposite glyphs or empty glyphs are skipped, only simple glyphs with 1 or more\ncontours are considered.\nThe input glyph(s) is/are modified in-place.\n\nArgs:\n    interpolatable_glyphs: The glyph or glyphs to modify in-place.\n\nReturns:\n    The set of point indices that were dropped if any.\n\nRaises:\n    ValueError if simple glyphs are not in fact interpolatable because they have\n    different point flags or number of contours.\n\nReference:\nhttps://developer.apple.com/fonts/TrueType-Reference-Manual/RM01/Chap1.html"
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "ensureDecompiled",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "setGlyphOrder",
+      "docstring": "Sets the glyph order\n\nArgs:\n        glyphOrder ([str]): List of glyph names in order."
+    },
+    {
+      "name": "getGlyphName",
+      "docstring": "Returns the name for the glyph with the given ID.\n\nRaises a ``KeyError`` if the glyph name is not found in the font."
+    },
+    {
+      "name": "getGlyphID",
+      "docstring": "Returns the ID of the glyph with the given name.\n\nRaises a ``ValueError`` if the glyph is not found in the font."
+    },
+    {
+      "name": "removeHinting",
+      "docstring": "Removes TrueType hints from all glyphs in the glyphset.\n\nSee :py:meth:`Glyph.removeHinting`."
+    },
+    {
+      "name": "keys",
+      "docstring": null
+    },
+    {
+      "name": "has_key",
+      "docstring": null
+    },
+    {
+      "name": "get",
+      "docstring": null
+    },
+    {
+      "name": "getPhantomPoints",
+      "docstring": "Old public name for self._getPhantomPoints().\nSee: https://github.com/fonttools/fonttools/pull/2266"
+    },
+    {
+      "name": "getCoordinatesAndControls",
+      "docstring": "Old public name for self._getCoordinatesAndControls().\nSee: https://github.com/fonttools/fonttools/pull/2266"
+    },
+    {
+      "name": "setCoordinates",
+      "docstring": "Old public name for self._setCoordinates().\nSee: https://github.com/fonttools/fonttools/pull/2266"
+    },
+    {
+      "name": "compact",
+      "docstring": null
+    },
+    {
+      "name": "expand",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "getCompositeMaxpValues",
+      "docstring": null
+    },
+    {
+      "name": "getMaxpValues",
+      "docstring": null
+    },
+    {
+      "name": "decompileComponents",
+      "docstring": null
+    },
+    {
+      "name": "decompileCoordinates",
+      "docstring": null
+    },
+    {
+      "name": "decompileCoordinatesRaw",
+      "docstring": null
+    },
+    {
+      "name": "compileComponents",
+      "docstring": null
+    },
+    {
+      "name": "compileCoordinates",
+      "docstring": null
+    },
+    {
+      "name": "compileDeltasGreedy",
+      "docstring": null
+    },
+    {
+      "name": "compileDeltasOptimal",
+      "docstring": null
+    },
+    {
+      "name": "compileDeltasForSpeed",
+      "docstring": null
+    },
+    {
+      "name": "recalcBounds",
+      "docstring": "Recalculates the bounds of the glyph.\n\nEach glyph object stores its bounding box in the\n``xMin``/``yMin``/``xMax``/``yMax`` attributes. These bounds must be\nrecomputed when the ``coordinates`` change. The ``table__g_l_y_f`` bounds\nmust be provided to resolve component bounds."
+    },
+    {
+      "name": "tryRecalcBoundsComposite",
+      "docstring": "Try recalculating the bounds of a composite glyph that has\ncertain constrained properties. Namely, none of the components\nhave a transform other than an integer translate, and none\nuses the anchor points.\n\nEach glyph object stores its bounding box in the\n``xMin``/``yMin``/``xMax``/``yMax`` attributes. These bounds must be\nrecomputed when the ``coordinates`` change. The ``table__g_l_y_f`` bounds\nmust be provided to resolve component bounds.\n\nReturn True if bounds were calculated, False otherwise."
+    },
+    {
+      "name": "isComposite",
+      "docstring": "Test whether a glyph has components"
+    },
+    {
+      "name": "getCoordinates",
+      "docstring": "Return the coordinates, end points and flags\n\nThis method returns three values: A :py:class:`GlyphCoordinates` object,\na list of the indexes of the final points of each contour (allowing you\nto split up the coordinates list into contours) and a list of flags.\n\nOn simple glyphs, this method returns information from the glyph's own\ncontours; on composite glyphs, it \"flattens\" all components recursively\nto return a list of coordinates representing all the components involved\nin the glyph.\n\nTo interpret the flags for each point, see the \"Simple Glyph Flags\"\nsection of the `glyf table specification <https://docs.microsoft.com/en-us/typography/opentype/spec/glyf#simple-glyph-description>`."
+    },
+    {
+      "name": "getComponentNames",
+      "docstring": "Returns a list of names of component glyphs used in this glyph\n\nThis method can be used on simple glyphs (in which case it returns an\nempty list) or composite glyphs."
+    },
+    {
+      "name": "trim",
+      "docstring": "Remove padding and, if requested, hinting, from a glyph.\nThis works on both expanded and compacted glyphs, without\nexpanding it."
+    },
+    {
+      "name": "removeHinting",
+      "docstring": "Removes TrueType hinting instructions from the glyph."
+    },
+    {
+      "name": "draw",
+      "docstring": "Draws the glyph using the supplied pen object.\n\nArguments:\n        pen: An object conforming to the pen protocol.\n        glyfTable: A :py:class:`table__g_l_y_f` object, to resolve components.\n        offset (int): A horizontal offset. If provided, all coordinates are\n                translated by this offset."
+    },
+    {
+      "name": "drawPoints",
+      "docstring": "Draw the glyph using the supplied pointPen. As opposed to Glyph.draw(),\nthis will not change the point indices."
+    },
+    {
+      "name": "getComponentInfo",
+      "docstring": "Return information about the component\n\nThis method returns a tuple of two values: the glyph name of the component's\nbase glyph, and a transformation matrix. As opposed to accessing the attributes\ndirectly, ``getComponentInfo`` always returns a six-element tuple of the\ncomponent's transformation matrix, even when the two-by-two ``.transform``\nmatrix is not present."
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "array",
+      "docstring": "Returns the underlying array of coordinates"
+    },
+    {
+      "name": "zeros",
+      "docstring": "Creates a new ``GlyphCoordinates`` object with all coordinates set to (0,0)"
+    },
+    {
+      "name": "copy",
+      "docstring": "Creates a new ``GlyphCoordinates`` object which is a copy of the current one."
+    },
+    {
+      "name": "append",
+      "docstring": null
+    },
+    {
+      "name": "extend",
+      "docstring": null
+    },
+    {
+      "name": "toInt",
+      "docstring": null
+    },
+    {
+      "name": "calcBounds",
+      "docstring": null
+    },
+    {
+      "name": "calcIntBounds",
+      "docstring": null
+    },
+    {
+      "name": "relativeToAbsolute",
+      "docstring": null
+    },
+    {
+      "name": "absoluteToRelative",
+      "docstring": null
+    },
+    {
+      "name": "translate",
+      "docstring": ">>> GlyphCoordinates([(1,2)]).translate((.5,0))"
+    },
+    {
+      "name": "scale",
+      "docstring": ">>> GlyphCoordinates([(1,2)]).scale((.5,0))"
+    },
+    {
+      "name": "transform",
+      "docstring": ">>> GlyphCoordinates([(1,2)]).transform(((.5,0),(.2,.5)))"
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "                - numberOfContours: -1 for composite glyphs.\n                - endPts: list of indices of end points for each contour in simple\n                glyphs, or component indices in composite glyphs (used for IUP\n                optimization).\n                - flags: array of contour point flags for simple glyphs (None for\n                composite glyphs).\n                - components: list of base glyph names (str) for each component in"
+    }
+  ]
+}

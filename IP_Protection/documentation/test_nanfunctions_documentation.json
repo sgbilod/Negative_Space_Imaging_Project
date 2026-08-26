@@ -1,0 +1,771 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\tests\\test_nanfunctions.py",
+  "classes": [
+    {
+      "name": "TestSignatureMatch",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "get_signature",
+          "docstring": "Construct a signature and replace all default parameter-values."
+        },
+        {
+          "name": "test_signature_match",
+          "docstring": null
+        },
+        {
+          "name": "test_exhaustiveness",
+          "docstring": "Validate that all nan functions are actually tested."
+        }
+      ]
+    },
+    {
+      "name": "TestNanFunctions_MinMax",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_mutation",
+          "docstring": null
+        },
+        {
+          "name": "test_keepdims",
+          "docstring": null
+        },
+        {
+          "name": "test_out",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_from_input",
+          "docstring": null
+        },
+        {
+          "name": "test_result_values",
+          "docstring": null
+        },
+        {
+          "name": "test_allnans",
+          "docstring": null
+        },
+        {
+          "name": "test_masked",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_subclass",
+          "docstring": null
+        },
+        {
+          "name": "test_object_array",
+          "docstring": null
+        },
+        {
+          "name": "test_initial",
+          "docstring": null
+        },
+        {
+          "name": "test_where",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNanFunctions_ArgminArgmax",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_mutation",
+          "docstring": null
+        },
+        {
+          "name": "test_result_values",
+          "docstring": null
+        },
+        {
+          "name": "test_allnans",
+          "docstring": null
+        },
+        {
+          "name": "test_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_subclass",
+          "docstring": null
+        },
+        {
+          "name": "test_keepdims",
+          "docstring": null
+        },
+        {
+          "name": "test_out",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNanFunctions_NumberTypes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_nanfunc",
+          "docstring": null
+        },
+        {
+          "name": "test_nanfunc_q",
+          "docstring": null
+        },
+        {
+          "name": "test_nanfunc_ddof",
+          "docstring": null
+        },
+        {
+          "name": "test_nanfunc_correction",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SharedNanFunctionsTestsMixin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_mutation",
+          "docstring": null
+        },
+        {
+          "name": "test_keepdims",
+          "docstring": null
+        },
+        {
+          "name": "test_out",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_from_dtype",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_from_char",
+          "docstring": null
+        },
+        {
+          "name": "test_dtype_from_input",
+          "docstring": null
+        },
+        {
+          "name": "test_result_values",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_subclass",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNanFunctions_SumProd",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_allnans",
+          "docstring": null
+        },
+        {
+          "name": "test_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_initial",
+          "docstring": null
+        },
+        {
+          "name": "test_where",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNanFunctions_CumSumProd",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_allnans",
+          "docstring": null
+        },
+        {
+          "name": "test_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_keepdims",
+          "docstring": null
+        },
+        {
+          "name": "test_result_values",
+          "docstring": null
+        },
+        {
+          "name": "test_out",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNanFunctions_MeanVarStd",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_dtype_error",
+          "docstring": null
+        },
+        {
+          "name": "test_out_dtype_error",
+          "docstring": null
+        },
+        {
+          "name": "test_ddof",
+          "docstring": null
+        },
+        {
+          "name": "test_ddof_too_big",
+          "docstring": null
+        },
+        {
+          "name": "test_allnans",
+          "docstring": null
+        },
+        {
+          "name": "test_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_where",
+          "docstring": null
+        },
+        {
+          "name": "test_nanstd_with_mean_keyword",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNanFunctions_Median",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_mutation",
+          "docstring": null
+        },
+        {
+          "name": "test_keepdims",
+          "docstring": null
+        },
+        {
+          "name": "test_keepdims_out",
+          "docstring": null
+        },
+        {
+          "name": "test_out",
+          "docstring": null
+        },
+        {
+          "name": "test_small_large",
+          "docstring": null
+        },
+        {
+          "name": "test_result_values",
+          "docstring": null
+        },
+        {
+          "name": "test_allnans",
+          "docstring": null
+        },
+        {
+          "name": "test_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_extended_axis_invalid",
+          "docstring": null
+        },
+        {
+          "name": "test_float_special",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNanFunctions_Percentile",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_mutation",
+          "docstring": null
+        },
+        {
+          "name": "test_keepdims",
+          "docstring": null
+        },
+        {
+          "name": "test_keepdims_out",
+          "docstring": null
+        },
+        {
+          "name": "test_out",
+          "docstring": null
+        },
+        {
+          "name": "test_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_result_values",
+          "docstring": null
+        },
+        {
+          "name": "test_allnans",
+          "docstring": null
+        },
+        {
+          "name": "test_empty",
+          "docstring": null
+        },
+        {
+          "name": "test_scalar",
+          "docstring": null
+        },
+        {
+          "name": "test_extended_axis_invalid",
+          "docstring": null
+        },
+        {
+          "name": "test_multiple_percentiles",
+          "docstring": null
+        },
+        {
+          "name": "test_nan_value_with_weight",
+          "docstring": null
+        },
+        {
+          "name": "test_nan_value_with_weight_ndim",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNanFunctions_Quantile",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_regression",
+          "docstring": null
+        },
+        {
+          "name": "test_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_no_p_overwrite",
+          "docstring": null
+        },
+        {
+          "name": "test_allnans",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyNDArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MyNDArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MyNDArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MyNDArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MyNDArray",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "test__nan_mask",
+      "docstring": null
+    },
+    {
+      "name": "test__replace_nan",
+      "docstring": "Test that _replace_nan returns the original array if there are no\nNaNs, not a copy."
+    },
+    {
+      "name": "get_signature",
+      "docstring": "Construct a signature and replace all default parameter-values."
+    },
+    {
+      "name": "test_signature_match",
+      "docstring": null
+    },
+    {
+      "name": "test_exhaustiveness",
+      "docstring": "Validate that all nan functions are actually tested."
+    },
+    {
+      "name": "test_mutation",
+      "docstring": null
+    },
+    {
+      "name": "test_keepdims",
+      "docstring": null
+    },
+    {
+      "name": "test_out",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_from_input",
+      "docstring": null
+    },
+    {
+      "name": "test_result_values",
+      "docstring": null
+    },
+    {
+      "name": "test_allnans",
+      "docstring": null
+    },
+    {
+      "name": "test_masked",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_object_array",
+      "docstring": null
+    },
+    {
+      "name": "test_initial",
+      "docstring": null
+    },
+    {
+      "name": "test_where",
+      "docstring": null
+    },
+    {
+      "name": "test_mutation",
+      "docstring": null
+    },
+    {
+      "name": "test_result_values",
+      "docstring": null
+    },
+    {
+      "name": "test_allnans",
+      "docstring": null
+    },
+    {
+      "name": "test_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_keepdims",
+      "docstring": null
+    },
+    {
+      "name": "test_out",
+      "docstring": null
+    },
+    {
+      "name": "test_nanfunc",
+      "docstring": null
+    },
+    {
+      "name": "test_nanfunc_q",
+      "docstring": null
+    },
+    {
+      "name": "test_nanfunc_ddof",
+      "docstring": null
+    },
+    {
+      "name": "test_nanfunc_correction",
+      "docstring": null
+    },
+    {
+      "name": "test_mutation",
+      "docstring": null
+    },
+    {
+      "name": "test_keepdims",
+      "docstring": null
+    },
+    {
+      "name": "test_out",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_from_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_from_char",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_from_input",
+      "docstring": null
+    },
+    {
+      "name": "test_result_values",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_allnans",
+      "docstring": null
+    },
+    {
+      "name": "test_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_initial",
+      "docstring": null
+    },
+    {
+      "name": "test_where",
+      "docstring": null
+    },
+    {
+      "name": "test_allnans",
+      "docstring": null
+    },
+    {
+      "name": "test_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_keepdims",
+      "docstring": null
+    },
+    {
+      "name": "test_result_values",
+      "docstring": null
+    },
+    {
+      "name": "test_out",
+      "docstring": null
+    },
+    {
+      "name": "test_dtype_error",
+      "docstring": null
+    },
+    {
+      "name": "test_out_dtype_error",
+      "docstring": null
+    },
+    {
+      "name": "test_ddof",
+      "docstring": null
+    },
+    {
+      "name": "test_ddof_too_big",
+      "docstring": null
+    },
+    {
+      "name": "test_allnans",
+      "docstring": null
+    },
+    {
+      "name": "test_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_where",
+      "docstring": null
+    },
+    {
+      "name": "test_nanstd_with_mean_keyword",
+      "docstring": null
+    },
+    {
+      "name": "test_mutation",
+      "docstring": null
+    },
+    {
+      "name": "test_keepdims",
+      "docstring": null
+    },
+    {
+      "name": "test_keepdims_out",
+      "docstring": null
+    },
+    {
+      "name": "test_out",
+      "docstring": null
+    },
+    {
+      "name": "test_small_large",
+      "docstring": null
+    },
+    {
+      "name": "test_result_values",
+      "docstring": null
+    },
+    {
+      "name": "test_allnans",
+      "docstring": null
+    },
+    {
+      "name": "test_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_extended_axis_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_float_special",
+      "docstring": null
+    },
+    {
+      "name": "test_mutation",
+      "docstring": null
+    },
+    {
+      "name": "test_keepdims",
+      "docstring": null
+    },
+    {
+      "name": "test_keepdims_out",
+      "docstring": null
+    },
+    {
+      "name": "test_out",
+      "docstring": null
+    },
+    {
+      "name": "test_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_result_values",
+      "docstring": null
+    },
+    {
+      "name": "test_allnans",
+      "docstring": null
+    },
+    {
+      "name": "test_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_scalar",
+      "docstring": null
+    },
+    {
+      "name": "test_extended_axis_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_multiple_percentiles",
+      "docstring": null
+    },
+    {
+      "name": "test_nan_value_with_weight",
+      "docstring": null
+    },
+    {
+      "name": "test_nan_value_with_weight_ndim",
+      "docstring": null
+    },
+    {
+      "name": "test_regression",
+      "docstring": null
+    },
+    {
+      "name": "test_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_no_p_overwrite",
+      "docstring": null
+    },
+    {
+      "name": "test_allnans",
+      "docstring": null
+    },
+    {
+      "name": "gen_weights",
+      "docstring": null
+    },
+    {
+      "name": "gen_weights",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

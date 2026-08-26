@@ -1,0 +1,145 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\_impl.py",
+  "classes": [
+    {
+      "name": "BackendUnavailable",
+      "docstring": "Will be raised if the backend cannot be imported in the hook process.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HookMissing",
+      "docstring": "Will be raised on missing hooks (if a fallback can't be used).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "UnsupportedOperation",
+      "docstring": "May be raised by build_sdist if the backend indicates that it can't.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BuildBackendHookCaller",
+      "docstring": "A wrapper to call the build backend hooks for a source directory.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": ":param source_dir: The source directory to invoke the build backend for\n:param build_backend: The build backend spec\n:param backend_path: Additional path entries for the build backend spec\n:param runner: The :ref:`subprocess runner <Subprocess Runners>` to use\n:param python_executable:\n    The Python executable used to invoke the build backend"
+        },
+        {
+          "name": "subprocess_runner",
+          "docstring": "A context manager for temporarily overriding the default\n:ref:`subprocess runner <Subprocess Runners>`.\n\n:param runner: The new subprocess runner to use within the context.\n\n.. code-block:: python\n\n    hook_caller = BuildBackendHookCaller(...)\n    with hook_caller.subprocess_runner(quiet_subprocess_runner):\n        ..."
+        },
+        {
+          "name": "get_requires_for_build_wheel",
+          "docstring": "Get additional dependencies required for building a wheel.\n\n:param config_settings: The configuration settings for the build backend\n:returns: A list of :pep:`dependency specifiers <508>`.\n\n.. admonition:: Fallback\n\n    If the build backend does not defined a hook with this name, an\n    empty list will be returned."
+        },
+        {
+          "name": "prepare_metadata_for_build_wheel",
+          "docstring": "Prepare a ``*.dist-info`` folder with metadata for this project.\n\n:param metadata_directory: The directory to write the metadata to\n:param config_settings: The configuration settings for the build backend\n:param _allow_fallback:\n    Whether to allow the fallback to building a wheel and extracting\n    the metadata from it. Should be passed as a keyword argument only.\n\n:returns: Name of the newly created subfolder within\n          ``metadata_directory``, containing the metadata.\n\n.. admonition:: Fallback\n\n    If the build backend does not define a hook with this name and\n    ``_allow_fallback`` is truthy, the backend will be asked to build a\n    wheel via the ``build_wheel`` hook and the dist-info extracted from\n    that will be returned."
+        },
+        {
+          "name": "build_wheel",
+          "docstring": "Build a wheel from this project.\n\n:param wheel_directory: The directory to write the wheel to\n:param config_settings: The configuration settings for the build backend\n:param metadata_directory: The directory to reuse existing metadata from\n:returns:\n    The name of the newly created wheel within ``wheel_directory``.\n\n.. admonition:: Interaction with fallback\n\n    If the ``build_wheel`` hook was called in the fallback for\n    :meth:`prepare_metadata_for_build_wheel`, the build backend would\n    not be invoked. Instead, the previously built wheel will be copied\n    to ``wheel_directory`` and the name of that file will be returned."
+        },
+        {
+          "name": "get_requires_for_build_editable",
+          "docstring": "Get additional dependencies required for building an editable wheel.\n\n:param config_settings: The configuration settings for the build backend\n:returns: A list of :pep:`dependency specifiers <508>`.\n\n.. admonition:: Fallback\n\n    If the build backend does not defined a hook with this name, an\n    empty list will be returned."
+        },
+        {
+          "name": "prepare_metadata_for_build_editable",
+          "docstring": "Prepare a ``*.dist-info`` folder with metadata for this project.\n\n:param metadata_directory: The directory to write the metadata to\n:param config_settings: The configuration settings for the build backend\n:param _allow_fallback:\n    Whether to allow the fallback to building a wheel and extracting\n    the metadata from it. Should be passed as a keyword argument only.\n:returns: Name of the newly created subfolder within\n          ``metadata_directory``, containing the metadata.\n\n.. admonition:: Fallback\n\n    If the build backend does not define a hook with this name and\n    ``_allow_fallback`` is truthy, the backend will be asked to build a\n    wheel via the ``build_editable`` hook and the dist-info\n    extracted from that will be returned."
+        },
+        {
+          "name": "build_editable",
+          "docstring": "Build an editable wheel from this project.\n\n:param wheel_directory: The directory to write the wheel to\n:param config_settings: The configuration settings for the build backend\n:param metadata_directory: The directory to reuse existing metadata from\n:returns:\n    The name of the newly created wheel within ``wheel_directory``.\n\n.. admonition:: Interaction with fallback\n\n    If the ``build_editable`` hook was called in the fallback for\n    :meth:`prepare_metadata_for_build_editable`, the build backend\n    would not be invoked. Instead, the previously built wheel will be\n    copied to ``wheel_directory`` and the name of that file will be\n    returned."
+        },
+        {
+          "name": "get_requires_for_build_sdist",
+          "docstring": "Get additional dependencies required for building an sdist.\n\n:returns: A list of :pep:`dependency specifiers <508>`."
+        },
+        {
+          "name": "build_sdist",
+          "docstring": "Build an sdist from this project.\n\n:returns:\n    The name of the newly created sdist within ``wheel_directory``."
+        }
+      ]
+    },
+    {
+      "name": "SubprocessRunner",
+      "docstring": "A protocol for the subprocess runner.",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "write_json",
+      "docstring": null
+    },
+    {
+      "name": "read_json",
+      "docstring": null
+    },
+    {
+      "name": "default_subprocess_runner",
+      "docstring": "The default method of calling the wrapper subprocess.\n\nThis uses :func:`subprocess.check_call` under the hood."
+    },
+    {
+      "name": "quiet_subprocess_runner",
+      "docstring": "Call the subprocess while suppressing output.\n\nThis uses :func:`subprocess.check_output` under the hood."
+    },
+    {
+      "name": "norm_and_check",
+      "docstring": "Normalise and check a backend path.\n\nEnsure that the requested backend path is specified as a relative path,\nand resolves to a location under the given source tree.\n\nReturn an absolute version of the requested path."
+    },
+    {
+      "name": "subprocess_runner",
+      "docstring": "A context manager for temporarily overriding the default\n:ref:`subprocess runner <Subprocess Runners>`.\n\n:param runner: The new subprocess runner to use within the context.\n\n.. code-block:: python\n\n    hook_caller = BuildBackendHookCaller(...)\n    with hook_caller.subprocess_runner(quiet_subprocess_runner):\n        ..."
+    },
+    {
+      "name": "get_requires_for_build_wheel",
+      "docstring": "Get additional dependencies required for building a wheel.\n\n:param config_settings: The configuration settings for the build backend\n:returns: A list of :pep:`dependency specifiers <508>`.\n\n.. admonition:: Fallback\n\n    If the build backend does not defined a hook with this name, an\n    empty list will be returned."
+    },
+    {
+      "name": "prepare_metadata_for_build_wheel",
+      "docstring": "Prepare a ``*.dist-info`` folder with metadata for this project.\n\n:param metadata_directory: The directory to write the metadata to\n:param config_settings: The configuration settings for the build backend\n:param _allow_fallback:\n    Whether to allow the fallback to building a wheel and extracting\n    the metadata from it. Should be passed as a keyword argument only.\n\n:returns: Name of the newly created subfolder within\n          ``metadata_directory``, containing the metadata.\n\n.. admonition:: Fallback\n\n    If the build backend does not define a hook with this name and\n    ``_allow_fallback`` is truthy, the backend will be asked to build a\n    wheel via the ``build_wheel`` hook and the dist-info extracted from\n    that will be returned."
+    },
+    {
+      "name": "build_wheel",
+      "docstring": "Build a wheel from this project.\n\n:param wheel_directory: The directory to write the wheel to\n:param config_settings: The configuration settings for the build backend\n:param metadata_directory: The directory to reuse existing metadata from\n:returns:\n    The name of the newly created wheel within ``wheel_directory``.\n\n.. admonition:: Interaction with fallback\n\n    If the ``build_wheel`` hook was called in the fallback for\n    :meth:`prepare_metadata_for_build_wheel`, the build backend would\n    not be invoked. Instead, the previously built wheel will be copied\n    to ``wheel_directory`` and the name of that file will be returned."
+    },
+    {
+      "name": "get_requires_for_build_editable",
+      "docstring": "Get additional dependencies required for building an editable wheel.\n\n:param config_settings: The configuration settings for the build backend\n:returns: A list of :pep:`dependency specifiers <508>`.\n\n.. admonition:: Fallback\n\n    If the build backend does not defined a hook with this name, an\n    empty list will be returned."
+    },
+    {
+      "name": "prepare_metadata_for_build_editable",
+      "docstring": "Prepare a ``*.dist-info`` folder with metadata for this project.\n\n:param metadata_directory: The directory to write the metadata to\n:param config_settings: The configuration settings for the build backend\n:param _allow_fallback:\n    Whether to allow the fallback to building a wheel and extracting\n    the metadata from it. Should be passed as a keyword argument only.\n:returns: Name of the newly created subfolder within\n          ``metadata_directory``, containing the metadata.\n\n.. admonition:: Fallback\n\n    If the build backend does not define a hook with this name and\n    ``_allow_fallback`` is truthy, the backend will be asked to build a\n    wheel via the ``build_editable`` hook and the dist-info\n    extracted from that will be returned."
+    },
+    {
+      "name": "build_editable",
+      "docstring": "Build an editable wheel from this project.\n\n:param wheel_directory: The directory to write the wheel to\n:param config_settings: The configuration settings for the build backend\n:param metadata_directory: The directory to reuse existing metadata from\n:returns:\n    The name of the newly created wheel within ``wheel_directory``.\n\n.. admonition:: Interaction with fallback\n\n    If the ``build_editable`` hook was called in the fallback for\n    :meth:`prepare_metadata_for_build_editable`, the build backend\n    would not be invoked. Instead, the previously built wheel will be\n    copied to ``wheel_directory`` and the name of that file will be\n    returned."
+    },
+    {
+      "name": "get_requires_for_build_sdist",
+      "docstring": "Get additional dependencies required for building an sdist.\n\n:returns: A list of :pep:`dependency specifiers <508>`."
+    },
+    {
+      "name": "build_sdist",
+      "docstring": "Build an sdist from this project.\n\n:returns:\n    The name of the newly created sdist within ``wheel_directory``."
+    }
+  ],
+  "innovations": []
+}

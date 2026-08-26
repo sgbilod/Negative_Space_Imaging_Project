@@ -1,0 +1,866 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\otBase.py",
+  "classes": [
+    {
+      "name": "OverflowErrorRecord",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "OTLOffsetOverflowError",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RepackerState",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "BaseTTXConverter",
+      "docstring": "Generic base class for TTX table converters. It functions as an\nadapter between the TTX (ttLib actually) table model and the model\nwe use for OpenType tables, which is necessarily subtly different.",
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": "Create an object from the binary data. Called automatically on access."
+        },
+        {
+          "name": "compile",
+          "docstring": "Compiles the table into binary. Called automatically on save."
+        },
+        {
+          "name": "tryPackingHarfbuzz",
+          "docstring": null
+        },
+        {
+          "name": "tryPackingFontTools",
+          "docstring": null
+        },
+        {
+          "name": "tryResolveOverflow",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "ensureDecompiled",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "OTTableReader",
+      "docstring": "Helper class to retrieve data from an OpenType table.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "advance",
+          "docstring": null
+        },
+        {
+          "name": "seek",
+          "docstring": null
+        },
+        {
+          "name": "copy",
+          "docstring": null
+        },
+        {
+          "name": "getSubReader",
+          "docstring": null
+        },
+        {
+          "name": "readValue",
+          "docstring": null
+        },
+        {
+          "name": "readArray",
+          "docstring": null
+        },
+        {
+          "name": "readInt8",
+          "docstring": null
+        },
+        {
+          "name": "readInt8Array",
+          "docstring": null
+        },
+        {
+          "name": "readShort",
+          "docstring": null
+        },
+        {
+          "name": "readShortArray",
+          "docstring": null
+        },
+        {
+          "name": "readLong",
+          "docstring": null
+        },
+        {
+          "name": "readLongArray",
+          "docstring": null
+        },
+        {
+          "name": "readUInt8",
+          "docstring": null
+        },
+        {
+          "name": "readUInt8Array",
+          "docstring": null
+        },
+        {
+          "name": "readUShort",
+          "docstring": null
+        },
+        {
+          "name": "readUShortArray",
+          "docstring": null
+        },
+        {
+          "name": "readULong",
+          "docstring": null
+        },
+        {
+          "name": "readULongArray",
+          "docstring": null
+        },
+        {
+          "name": "readUInt24",
+          "docstring": null
+        },
+        {
+          "name": "readUInt24Array",
+          "docstring": null
+        },
+        {
+          "name": "readTag",
+          "docstring": null
+        },
+        {
+          "name": "readData",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "OffsetToWriter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "OTTableWriter",
+      "docstring": "Helper class to gather and assemble data for OpenType tables.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "getDataLength",
+          "docstring": "Return the length of this table in bytes, without subtables."
+        },
+        {
+          "name": "getData",
+          "docstring": "Assemble the data for this writer/table, without subtables."
+        },
+        {
+          "name": "getDataForHarfbuzz",
+          "docstring": "Assemble the data for this writer/table with all offset field set to 0"
+        },
+        {
+          "name": "getAllDataUsingHarfbuzz",
+          "docstring": "The Whole table is represented as a Graph.\nAssemble graph data and call Harfbuzz repacker to pack the table.\nHarfbuzz repacker is faster and retain as much sub-table sharing as possible, see also:\nhttps://github.com/harfbuzz/harfbuzz/blob/main/docs/repacker.md\nThe input format for hb.repack() method is explained here:\nhttps://github.com/harfbuzz/uharfbuzz/blob/main/src/uharfbuzz/_harfbuzz.pyx#L1149"
+        },
+        {
+          "name": "getAllData",
+          "docstring": "Assemble all data, including all subtables."
+        },
+        {
+          "name": "getSubWriter",
+          "docstring": null
+        },
+        {
+          "name": "writeValue",
+          "docstring": null
+        },
+        {
+          "name": "writeArray",
+          "docstring": null
+        },
+        {
+          "name": "writeInt8",
+          "docstring": null
+        },
+        {
+          "name": "writeInt8Array",
+          "docstring": null
+        },
+        {
+          "name": "writeShort",
+          "docstring": null
+        },
+        {
+          "name": "writeShortArray",
+          "docstring": null
+        },
+        {
+          "name": "writeLong",
+          "docstring": null
+        },
+        {
+          "name": "writeLongArray",
+          "docstring": null
+        },
+        {
+          "name": "writeUInt8",
+          "docstring": null
+        },
+        {
+          "name": "writeUInt8Array",
+          "docstring": null
+        },
+        {
+          "name": "writeUShort",
+          "docstring": null
+        },
+        {
+          "name": "writeUShortArray",
+          "docstring": null
+        },
+        {
+          "name": "writeULong",
+          "docstring": null
+        },
+        {
+          "name": "writeULongArray",
+          "docstring": null
+        },
+        {
+          "name": "writeUInt24",
+          "docstring": null
+        },
+        {
+          "name": "writeUInt24Array",
+          "docstring": null
+        },
+        {
+          "name": "writeTag",
+          "docstring": null
+        },
+        {
+          "name": "writeSubTable",
+          "docstring": null
+        },
+        {
+          "name": "writeCountReference",
+          "docstring": null
+        },
+        {
+          "name": "writeStruct",
+          "docstring": null
+        },
+        {
+          "name": "writeData",
+          "docstring": null
+        },
+        {
+          "name": "getOverflowErrorRecord",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CountReference",
+      "docstring": "A reference to a Count value, not a count of references.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "setValue",
+          "docstring": null
+        },
+        {
+          "name": "getValue",
+          "docstring": null
+        },
+        {
+          "name": "getCountData",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BaseTable",
+      "docstring": "Generic base class for all OpenType (sub)tables.",
+      "methods": [
+        {
+          "name": "ensureDecompiled",
+          "docstring": null
+        },
+        {
+          "name": "getRecordSize",
+          "docstring": null
+        },
+        {
+          "name": "getConverters",
+          "docstring": null
+        },
+        {
+          "name": "getConverterByName",
+          "docstring": null
+        },
+        {
+          "name": "populateDefaults",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "readFormat",
+          "docstring": null
+        },
+        {
+          "name": "writeFormat",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "toXML2",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "iterSubTables",
+          "docstring": "Yield (name, value, index) namedtuples for all subtables of current table.\n\nA sub-table is an instance of BaseTable (or subclass thereof) that is a child\nof self, the current parent table.\nThe tuples also contain the attribute name (str) of the of parent table to get\na subtable, and optionally, for lists of subtables (i.e. attributes associated\nwith a converter that has a 'repeat'), an index into the list containing the\ngiven subtable value.\nThis method can be useful to traverse trees of otTables."
+        },
+        {
+          "name": "getVariableAttrs",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FormatSwitchingBaseTable",
+      "docstring": "Minor specialization of BaseTable, for tables that have multiple\nformats, eg. CoverageFormat1 vs. CoverageFormat2.",
+      "methods": [
+        {
+          "name": "getRecordSize",
+          "docstring": null
+        },
+        {
+          "name": "getConverters",
+          "docstring": null
+        },
+        {
+          "name": "getConverterByName",
+          "docstring": null
+        },
+        {
+          "name": "readFormat",
+          "docstring": null
+        },
+        {
+          "name": "writeFormat",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "getVariableAttrs",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "UInt8FormatSwitchingBaseTable",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "readFormat",
+          "docstring": null
+        },
+        {
+          "name": "writeFormat",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ValueRecordFactory",
+      "docstring": "Given a format code, this object convert ValueRecords.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "readValueRecord",
+          "docstring": null
+        },
+        {
+          "name": "writeValueRecord",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ValueRecord",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "getFormat",
+          "docstring": null
+        },
+        {
+          "name": "getEffectiveFormat",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SubTableEntry",
+      "docstring": "See BaseTable.iterSubTables()",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "packUInt8",
+      "docstring": null
+    },
+    {
+      "name": "packUShort",
+      "docstring": null
+    },
+    {
+      "name": "packULong",
+      "docstring": null
+    },
+    {
+      "name": "packUInt24",
+      "docstring": null
+    },
+    {
+      "name": "getFormatSwitchingBaseTableClass",
+      "docstring": null
+    },
+    {
+      "name": "getVariableAttrs",
+      "docstring": "Return sequence of variable table field names (can be empty).\n\nAttributes are deemed \"variable\" when their otData.py's description contain\n'VarIndexBase + {offset}', e.g. COLRv1 PaintVar* tables."
+    },
+    {
+      "name": "decompile",
+      "docstring": "Create an object from the binary data. Called automatically on access."
+    },
+    {
+      "name": "compile",
+      "docstring": "Compiles the table into binary. Called automatically on save."
+    },
+    {
+      "name": "tryPackingHarfbuzz",
+      "docstring": null
+    },
+    {
+      "name": "tryPackingFontTools",
+      "docstring": null
+    },
+    {
+      "name": "tryResolveOverflow",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "ensureDecompiled",
+      "docstring": null
+    },
+    {
+      "name": "advance",
+      "docstring": null
+    },
+    {
+      "name": "seek",
+      "docstring": null
+    },
+    {
+      "name": "copy",
+      "docstring": null
+    },
+    {
+      "name": "getSubReader",
+      "docstring": null
+    },
+    {
+      "name": "readValue",
+      "docstring": null
+    },
+    {
+      "name": "readArray",
+      "docstring": null
+    },
+    {
+      "name": "readInt8",
+      "docstring": null
+    },
+    {
+      "name": "readInt8Array",
+      "docstring": null
+    },
+    {
+      "name": "readShort",
+      "docstring": null
+    },
+    {
+      "name": "readShortArray",
+      "docstring": null
+    },
+    {
+      "name": "readLong",
+      "docstring": null
+    },
+    {
+      "name": "readLongArray",
+      "docstring": null
+    },
+    {
+      "name": "readUInt8",
+      "docstring": null
+    },
+    {
+      "name": "readUInt8Array",
+      "docstring": null
+    },
+    {
+      "name": "readUShort",
+      "docstring": null
+    },
+    {
+      "name": "readUShortArray",
+      "docstring": null
+    },
+    {
+      "name": "readULong",
+      "docstring": null
+    },
+    {
+      "name": "readULongArray",
+      "docstring": null
+    },
+    {
+      "name": "readUInt24",
+      "docstring": null
+    },
+    {
+      "name": "readUInt24Array",
+      "docstring": null
+    },
+    {
+      "name": "readTag",
+      "docstring": null
+    },
+    {
+      "name": "readData",
+      "docstring": null
+    },
+    {
+      "name": "getDataLength",
+      "docstring": "Return the length of this table in bytes, without subtables."
+    },
+    {
+      "name": "getData",
+      "docstring": "Assemble the data for this writer/table, without subtables."
+    },
+    {
+      "name": "getDataForHarfbuzz",
+      "docstring": "Assemble the data for this writer/table with all offset field set to 0"
+    },
+    {
+      "name": "getAllDataUsingHarfbuzz",
+      "docstring": "The Whole table is represented as a Graph.\nAssemble graph data and call Harfbuzz repacker to pack the table.\nHarfbuzz repacker is faster and retain as much sub-table sharing as possible, see also:\nhttps://github.com/harfbuzz/harfbuzz/blob/main/docs/repacker.md\nThe input format for hb.repack() method is explained here:\nhttps://github.com/harfbuzz/uharfbuzz/blob/main/src/uharfbuzz/_harfbuzz.pyx#L1149"
+    },
+    {
+      "name": "getAllData",
+      "docstring": "Assemble all data, including all subtables."
+    },
+    {
+      "name": "getSubWriter",
+      "docstring": null
+    },
+    {
+      "name": "writeValue",
+      "docstring": null
+    },
+    {
+      "name": "writeArray",
+      "docstring": null
+    },
+    {
+      "name": "writeInt8",
+      "docstring": null
+    },
+    {
+      "name": "writeInt8Array",
+      "docstring": null
+    },
+    {
+      "name": "writeShort",
+      "docstring": null
+    },
+    {
+      "name": "writeShortArray",
+      "docstring": null
+    },
+    {
+      "name": "writeLong",
+      "docstring": null
+    },
+    {
+      "name": "writeLongArray",
+      "docstring": null
+    },
+    {
+      "name": "writeUInt8",
+      "docstring": null
+    },
+    {
+      "name": "writeUInt8Array",
+      "docstring": null
+    },
+    {
+      "name": "writeUShort",
+      "docstring": null
+    },
+    {
+      "name": "writeUShortArray",
+      "docstring": null
+    },
+    {
+      "name": "writeULong",
+      "docstring": null
+    },
+    {
+      "name": "writeULongArray",
+      "docstring": null
+    },
+    {
+      "name": "writeUInt24",
+      "docstring": null
+    },
+    {
+      "name": "writeUInt24Array",
+      "docstring": null
+    },
+    {
+      "name": "writeTag",
+      "docstring": null
+    },
+    {
+      "name": "writeSubTable",
+      "docstring": null
+    },
+    {
+      "name": "writeCountReference",
+      "docstring": null
+    },
+    {
+      "name": "writeStruct",
+      "docstring": null
+    },
+    {
+      "name": "writeData",
+      "docstring": null
+    },
+    {
+      "name": "getOverflowErrorRecord",
+      "docstring": null
+    },
+    {
+      "name": "setValue",
+      "docstring": null
+    },
+    {
+      "name": "getValue",
+      "docstring": null
+    },
+    {
+      "name": "getCountData",
+      "docstring": null
+    },
+    {
+      "name": "ensureDecompiled",
+      "docstring": null
+    },
+    {
+      "name": "getRecordSize",
+      "docstring": null
+    },
+    {
+      "name": "getConverters",
+      "docstring": null
+    },
+    {
+      "name": "getConverterByName",
+      "docstring": null
+    },
+    {
+      "name": "populateDefaults",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "readFormat",
+      "docstring": null
+    },
+    {
+      "name": "writeFormat",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "toXML2",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "iterSubTables",
+      "docstring": "Yield (name, value, index) namedtuples for all subtables of current table.\n\nA sub-table is an instance of BaseTable (or subclass thereof) that is a child\nof self, the current parent table.\nThe tuples also contain the attribute name (str) of the of parent table to get\na subtable, and optionally, for lists of subtables (i.e. attributes associated\nwith a converter that has a 'repeat'), an index into the list containing the\ngiven subtable value.\nThis method can be useful to traverse trees of otTables."
+    },
+    {
+      "name": "getVariableAttrs",
+      "docstring": null
+    },
+    {
+      "name": "getRecordSize",
+      "docstring": null
+    },
+    {
+      "name": "getConverters",
+      "docstring": null
+    },
+    {
+      "name": "getConverterByName",
+      "docstring": null
+    },
+    {
+      "name": "readFormat",
+      "docstring": null
+    },
+    {
+      "name": "writeFormat",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "getVariableAttrs",
+      "docstring": null
+    },
+    {
+      "name": "readFormat",
+      "docstring": null
+    },
+    {
+      "name": "writeFormat",
+      "docstring": null
+    },
+    {
+      "name": "readValueRecord",
+      "docstring": null
+    },
+    {
+      "name": "writeValueRecord",
+      "docstring": null
+    },
+    {
+      "name": "getFormat",
+      "docstring": null
+    },
+    {
+      "name": "getEffectiveFormat",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

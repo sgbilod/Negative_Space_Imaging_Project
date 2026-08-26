@@ -1,0 +1,139 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\reconstruction\\model_assembler.py",
+  "classes": [
+    {
+      "name": "ComponentType",
+      "docstring": "Enum for component types",
+      "methods": []
+    },
+    {
+      "name": "ModelComponent",
+      "docstring": "Represents a single component of the assembled model.\n\nAttributes:\n    id (int): Unique identifier for the component\n    type (ComponentType): Type of the component\n    mesh (o3d.geometry.TriangleMesh): Mesh representation of the component\n    points (np.ndarray): Original points used to create the component\n    color (np.ndarray): Color of the component (RGB)\n    name (str): Name of the component\n    metadata (Dict): Additional metadata for the component",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a model component.\n\nArgs:\n    id: Unique identifier for the component\n    type: Type of the component\n    points: Points belonging to this component (Nx3 numpy array)\n    color: Color of the component (RGB)\n    name: Name of the component"
+        },
+        {
+          "name": "create_mesh",
+          "docstring": "Create a mesh representation of the component.\n\nArgs:\n    method: Method to use for mesh creation (\"alpha_shape\", \"ball_pivoting\", or \"poisson\")\n    alpha: Alpha value for alpha shape reconstruction\n    depth: Depth parameter for Poisson reconstruction\n    scale: Scale parameter for Poisson reconstruction\n    \nReturns:\n    Open3D mesh"
+        },
+        {
+          "name": "optimize_mesh",
+          "docstring": "Optimize the mesh for visualization and analysis.\n\nArgs:\n    target_reduction: Target reduction ratio (0-1)\n    preserve_boundaries: Whether to preserve mesh boundaries\n    \nReturns:\n    Optimized mesh"
+        },
+        {
+          "name": "save",
+          "docstring": "Save the component to disk.\n\nArgs:\n    output_dir: Directory to save the component"
+        }
+      ]
+    },
+    {
+      "name": "NegativeSpaceComponent",
+      "docstring": "Specialized component for negative space regions.\n\nThis class extends ModelComponent with additional functionality\nspecific to negative space analysis.\n\nAttributes:\n    adjacent_objects (List[int]): IDs of adjacent object components\n    volume (float): Volume of the negative space\n    signature (np.ndarray): Spatial signature of the negative space",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a negative space component.\n\nArgs:\n    id: Unique identifier for the component\n    points: Points belonging to this component (Nx3 numpy array)\n    color: Color of the component (RGB)\n    name: Name of the component"
+        },
+        {
+          "name": "compute_volume",
+          "docstring": "Compute the volume of the negative space.\n\nReturns:\n    Volume of the negative space"
+        },
+        {
+          "name": "compute_signature",
+          "docstring": "Compute a spatial signature for this negative space component.\n\nArgs:\n    num_features: Number of features in the signature\n    \nReturns:\n    Signature vector"
+        }
+      ]
+    },
+    {
+      "name": "ModelAssembler",
+      "docstring": "Main class for assembling complete models from components.\n\nThis class takes point clouds and other data generated in previous\nsteps and creates a cohesive 3D model that includes both physical\nobjects and negative spaces.\n\nAttributes:\n    components (List[ModelComponent]): List of model components\n    negative_space_components (List[NegativeSpaceComponent]): List of negative space components\n    global_signature (np.ndarray): Global signature of the assembled model",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the model assembler"
+        },
+        {
+          "name": "add_component",
+          "docstring": "Add a component to the model.\n\nArgs:\n    component: Component to add"
+        },
+        {
+          "name": "create_component_from_points",
+          "docstring": "Create and add a new component from points.\n\nArgs:\n    id: Unique identifier for the component\n    type: Type of the component\n    points: Points belonging to this component (Nx3 numpy array)\n    color: Color of the component (RGB)\n    name: Name of the component\n    create_mesh: Whether to create a mesh for the component\n    mesh_method: Method to use for mesh creation\n    \nReturns:\n    Created component"
+        },
+        {
+          "name": "assemble",
+          "docstring": "Assemble the complete model from components.\n\nArgs:\n    optimize: Whether to optimize the model\n    \nReturns:\n    Self for method chaining"
+        },
+        {
+          "name": "compute_global_signature",
+          "docstring": "Compute a global signature for the assembled model.\n\nArgs:\n    num_features: Number of features in the signature\n    \nReturns:\n    Global signature vector"
+        },
+        {
+          "name": "save",
+          "docstring": "Save the assembled model to disk.\n\nArgs:\n    output_dir: Directory to save the model\n    save_components: Whether to save individual components"
+        },
+        {
+          "name": "visualize",
+          "docstring": "Visualize the assembled model.\n\nArgs:\n    show_negative_space: Whether to show negative space components\n    negative_space_opacity: Opacity for negative space components (0-1)\n    \nReturns:\n    Open3D visualizer"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "create_mesh_from_point_cloud",
+      "docstring": "Create a mesh from a point cloud.\n\nArgs:\n    points: Input points (Nx3 numpy array)\n    colors: Input colors (Nx3 numpy array)\n    method: Method to use for mesh creation (\"alpha_shape\", \"ball_pivoting\", or \"poisson\")\n    alpha: Alpha value for alpha shape reconstruction\n    depth: Depth parameter for Poisson reconstruction\n    scale: Scale parameter for Poisson reconstruction\n    \nReturns:\n    Open3D mesh"
+    },
+    {
+      "name": "optimize_mesh",
+      "docstring": "Optimize a mesh for visualization and analysis.\n\nArgs:\n    mesh: Input mesh\n    target_reduction: Target reduction ratio (0-1)\n    preserve_boundaries: Whether to preserve mesh boundaries\n    \nReturns:\n    Optimized mesh"
+    },
+    {
+      "name": "create_mesh",
+      "docstring": "Create a mesh representation of the component.\n\nArgs:\n    method: Method to use for mesh creation (\"alpha_shape\", \"ball_pivoting\", or \"poisson\")\n    alpha: Alpha value for alpha shape reconstruction\n    depth: Depth parameter for Poisson reconstruction\n    scale: Scale parameter for Poisson reconstruction\n    \nReturns:\n    Open3D mesh"
+    },
+    {
+      "name": "optimize_mesh",
+      "docstring": "Optimize the mesh for visualization and analysis.\n\nArgs:\n    target_reduction: Target reduction ratio (0-1)\n    preserve_boundaries: Whether to preserve mesh boundaries\n    \nReturns:\n    Optimized mesh"
+    },
+    {
+      "name": "save",
+      "docstring": "Save the component to disk.\n\nArgs:\n    output_dir: Directory to save the component"
+    },
+    {
+      "name": "compute_volume",
+      "docstring": "Compute the volume of the negative space.\n\nReturns:\n    Volume of the negative space"
+    },
+    {
+      "name": "compute_signature",
+      "docstring": "Compute a spatial signature for this negative space component.\n\nArgs:\n    num_features: Number of features in the signature\n    \nReturns:\n    Signature vector"
+    },
+    {
+      "name": "add_component",
+      "docstring": "Add a component to the model.\n\nArgs:\n    component: Component to add"
+    },
+    {
+      "name": "create_component_from_points",
+      "docstring": "Create and add a new component from points.\n\nArgs:\n    id: Unique identifier for the component\n    type: Type of the component\n    points: Points belonging to this component (Nx3 numpy array)\n    color: Color of the component (RGB)\n    name: Name of the component\n    create_mesh: Whether to create a mesh for the component\n    mesh_method: Method to use for mesh creation\n    \nReturns:\n    Created component"
+    },
+    {
+      "name": "assemble",
+      "docstring": "Assemble the complete model from components.\n\nArgs:\n    optimize: Whether to optimize the model\n    \nReturns:\n    Self for method chaining"
+    },
+    {
+      "name": "compute_global_signature",
+      "docstring": "Compute a global signature for the assembled model.\n\nArgs:\n    num_features: Number of features in the signature\n    \nReturns:\n    Global signature vector"
+    },
+    {
+      "name": "save",
+      "docstring": "Save the assembled model to disk.\n\nArgs:\n    output_dir: Directory to save the model\n    save_components: Whether to save individual components"
+    },
+    {
+      "name": "visualize",
+      "docstring": "Visualize the assembled model.\n\nArgs:\n    show_negative_space: Whether to show negative space components\n    negative_space_opacity: Opacity for negative space components (0-1)\n    \nReturns:\n    Open3D visualizer"
+    }
+  ],
+  "innovations": []
+}

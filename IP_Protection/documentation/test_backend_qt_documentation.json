@@ -1,0 +1,102 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_backend_qt.py",
+  "classes": [
+    {
+      "name": "_Event",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "isAutoRepeat",
+          "docstring": null
+        },
+        {
+          "name": "key",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "qt_core",
+      "docstring": null
+    },
+    {
+      "name": "test_fig_close",
+      "docstring": null
+    },
+    {
+      "name": "test_correct_key",
+      "docstring": "Make a figure.\nSend a key_press_event event (using non-public, qtX backend specific api).\nCatch the event.\nAssert sent and caught keys are the same."
+    },
+    {
+      "name": "test_device_pixel_ratio_change",
+      "docstring": "Make sure that if the pixel ratio changes, the figure dpi changes but the\nwidget remains the same logical size."
+    },
+    {
+      "name": "test_subplottool",
+      "docstring": null
+    },
+    {
+      "name": "test_figureoptions",
+      "docstring": null
+    },
+    {
+      "name": "test_save_figure_return",
+      "docstring": null
+    },
+    {
+      "name": "test_figureoptions_with_datetime_axes",
+      "docstring": null
+    },
+    {
+      "name": "test_double_resize",
+      "docstring": null
+    },
+    {
+      "name": "test_canvas_reinit",
+      "docstring": null
+    },
+    {
+      "name": "test_form_widget_get_with_datetime_and_date_fields",
+      "docstring": null
+    },
+    {
+      "name": "test_fig_sigint_override",
+      "docstring": null
+    },
+    {
+      "name": "test_ipython",
+      "docstring": null
+    },
+    {
+      "name": "on_key_press",
+      "docstring": null
+    },
+    {
+      "name": "crashing_callback",
+      "docstring": null
+    },
+    {
+      "name": "fire_signal_and_quit",
+      "docstring": null
+    },
+    {
+      "name": "custom_handler",
+      "docstring": null
+    },
+    {
+      "name": "isAutoRepeat",
+      "docstring": null
+    },
+    {
+      "name": "key",
+      "docstring": null
+    },
+    {
+      "name": "set_device_pixel_ratio",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

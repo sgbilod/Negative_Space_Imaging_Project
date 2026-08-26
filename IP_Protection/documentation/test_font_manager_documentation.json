@@ -1,0 +1,113 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_font_manager.py",
+  "classes": [
+    {
+      "name": "SomeObject",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_font_priority",
+      "docstring": null
+    },
+    {
+      "name": "test_score_weight",
+      "docstring": null
+    },
+    {
+      "name": "test_json_serialization",
+      "docstring": null
+    },
+    {
+      "name": "test_otf",
+      "docstring": null
+    },
+    {
+      "name": "test_get_fontconfig_fonts",
+      "docstring": null
+    },
+    {
+      "name": "test_hinting_factor",
+      "docstring": null
+    },
+    {
+      "name": "test_utf16m_sfnt",
+      "docstring": null
+    },
+    {
+      "name": "test_find_ttc",
+      "docstring": null
+    },
+    {
+      "name": "test_find_noto",
+      "docstring": null
+    },
+    {
+      "name": "test_find_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_user_fonts_linux",
+      "docstring": null
+    },
+    {
+      "name": "test_addfont_as_path",
+      "docstring": "Smoke test that addfont() accepts pathlib.Path."
+    },
+    {
+      "name": "test_user_fonts_win32",
+      "docstring": null
+    },
+    {
+      "name": "test_fork",
+      "docstring": null
+    },
+    {
+      "name": "test_missing_family",
+      "docstring": null
+    },
+    {
+      "name": "test_fontcache_thread_safe",
+      "docstring": null
+    },
+    {
+      "name": "test_lockfilefailure",
+      "docstring": null
+    },
+    {
+      "name": "test_fontentry_dataclass",
+      "docstring": null
+    },
+    {
+      "name": "test_fontentry_dataclass_invalid_path",
+      "docstring": null
+    },
+    {
+      "name": "test_get_font_names",
+      "docstring": null
+    },
+    {
+      "name": "test_donot_cache_tracebacks",
+      "docstring": null
+    },
+    {
+      "name": "test_fontproperties_init_deprecation",
+      "docstring": "Test the deprecated API of FontProperties.__init__.\n\nThe deprecation does not change behavior, it only adds a deprecation warning\nvia a decorator. Therefore, the purpose of this test is limited to check\nwhich calls do and do not issue deprecation warnings. Behavior is still\ntested via the existing regular tests."
+    },
+    {
+      "name": "loud_excepthook",
+      "docstring": null
+    },
+    {
+      "name": "bad_idea",
+      "docstring": null
+    },
+    {
+      "name": "inner",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

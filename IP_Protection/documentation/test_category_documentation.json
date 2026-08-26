@@ -1,0 +1,280 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_category.py",
+  "classes": [
+    {
+      "name": "TestUnitData",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_unit",
+          "docstring": null
+        },
+        {
+          "name": "test_update",
+          "docstring": null
+        },
+        {
+          "name": "test_non_string_fails",
+          "docstring": null
+        },
+        {
+          "name": "test_non_string_update_fails",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FakeAxis",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestStrCategoryConverter",
+      "docstring": "Based on the pandas conversion and factorization tests:\n\nref: /pandas/tseries/tests/test_converter.py\n     /pandas/tests/test_algos.py:TestFactorize",
+      "methods": [
+        {
+          "name": "mock_axis",
+          "docstring": null
+        },
+        {
+          "name": "test_convert",
+          "docstring": null
+        },
+        {
+          "name": "test_convert_one_string",
+          "docstring": null
+        },
+        {
+          "name": "test_convert_fail",
+          "docstring": null
+        },
+        {
+          "name": "test_axisinfo",
+          "docstring": null
+        },
+        {
+          "name": "test_default_units",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestStrCategoryLocator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_StrCategoryLocator",
+          "docstring": null
+        },
+        {
+          "name": "test_StrCategoryLocatorPlot",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestStrCategoryFormatter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_StrCategoryFormatter",
+          "docstring": null
+        },
+        {
+          "name": "test_StrCategoryFormatterPlot",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPlotBytes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_plot_bytes",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPlotNumlike",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_plot_numlike",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPlotTypes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_plot_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_data",
+          "docstring": null
+        },
+        {
+          "name": "test_plot_xaxis",
+          "docstring": null
+        },
+        {
+          "name": "test_plot_yaxis",
+          "docstring": null
+        },
+        {
+          "name": "test_plot_xyaxis",
+          "docstring": null
+        },
+        {
+          "name": "test_update_plot",
+          "docstring": null
+        },
+        {
+          "name": "test_update_plot_heterogenous_plotter",
+          "docstring": null
+        },
+        {
+          "name": "test_mixed_type_exception",
+          "docstring": null
+        },
+        {
+          "name": "test_mixed_type_update_exception",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "axis_test",
+      "docstring": null
+    },
+    {
+      "name": "test_overriding_units_in_plot",
+      "docstring": null
+    },
+    {
+      "name": "test_no_deprecation_on_empty_data",
+      "docstring": "Smoke test to check that no deprecation warning is emitted. See #22640."
+    },
+    {
+      "name": "test_hist",
+      "docstring": null
+    },
+    {
+      "name": "test_set_lim",
+      "docstring": null
+    },
+    {
+      "name": "test_unit",
+      "docstring": null
+    },
+    {
+      "name": "test_update",
+      "docstring": null
+    },
+    {
+      "name": "test_non_string_fails",
+      "docstring": null
+    },
+    {
+      "name": "test_non_string_update_fails",
+      "docstring": null
+    },
+    {
+      "name": "mock_axis",
+      "docstring": null
+    },
+    {
+      "name": "test_convert",
+      "docstring": null
+    },
+    {
+      "name": "test_convert_one_string",
+      "docstring": null
+    },
+    {
+      "name": "test_convert_fail",
+      "docstring": null
+    },
+    {
+      "name": "test_axisinfo",
+      "docstring": null
+    },
+    {
+      "name": "test_default_units",
+      "docstring": null
+    },
+    {
+      "name": "test_StrCategoryLocator",
+      "docstring": null
+    },
+    {
+      "name": "test_StrCategoryLocatorPlot",
+      "docstring": null
+    },
+    {
+      "name": "test_StrCategoryFormatter",
+      "docstring": null
+    },
+    {
+      "name": "test_StrCategoryFormatterPlot",
+      "docstring": null
+    },
+    {
+      "name": "test_plot_bytes",
+      "docstring": null
+    },
+    {
+      "name": "test_plot_numlike",
+      "docstring": null
+    },
+    {
+      "name": "test_plot_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_data",
+      "docstring": null
+    },
+    {
+      "name": "test_plot_xaxis",
+      "docstring": null
+    },
+    {
+      "name": "test_plot_yaxis",
+      "docstring": null
+    },
+    {
+      "name": "test_plot_xyaxis",
+      "docstring": null
+    },
+    {
+      "name": "test_update_plot",
+      "docstring": null
+    },
+    {
+      "name": "test_update_plot_heterogenous_plotter",
+      "docstring": null
+    },
+    {
+      "name": "test_mixed_type_exception",
+      "docstring": null
+    },
+    {
+      "name": "test_mixed_type_update_exception",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

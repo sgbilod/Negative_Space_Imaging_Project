@@ -1,0 +1,81 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\_tokenizer.py",
+  "classes": [
+    {
+      "name": "Token",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ParserSyntaxError",
+      "docstring": "The provided source text could not be parsed correctly.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Tokenizer",
+      "docstring": "Context-sensitive token parsing.\n\nProvides methods to examine the input stream to check whether the next token\nmatches.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "consume",
+          "docstring": "Move beyond provided token name, if at current position."
+        },
+        {
+          "name": "check",
+          "docstring": "Check whether the next token has the provided name.\n\nBy default, if the check succeeds, the token *must* be read before\nanother check. If `peek` is set to `True`, the token is not loaded and\nwould need to be checked again."
+        },
+        {
+          "name": "expect",
+          "docstring": "Expect a certain token name next, failing with a syntax error otherwise.\n\nThe token is *not* read."
+        },
+        {
+          "name": "read",
+          "docstring": "Consume the next token and return it."
+        },
+        {
+          "name": "raise_syntax_error",
+          "docstring": "Raise ParserSyntaxError at the given position."
+        },
+        {
+          "name": "enclosing_tokens",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "consume",
+      "docstring": "Move beyond provided token name, if at current position."
+    },
+    {
+      "name": "check",
+      "docstring": "Check whether the next token has the provided name.\n\nBy default, if the check succeeds, the token *must* be read before\nanother check. If `peek` is set to `True`, the token is not loaded and\nwould need to be checked again."
+    },
+    {
+      "name": "expect",
+      "docstring": "Expect a certain token name next, failing with a syntax error otherwise.\n\nThe token is *not* read."
+    },
+    {
+      "name": "read",
+      "docstring": "Consume the next token and return it."
+    },
+    {
+      "name": "raise_syntax_error",
+      "docstring": "Raise ParserSyntaxError at the given position."
+    },
+    {
+      "name": "enclosing_tokens",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

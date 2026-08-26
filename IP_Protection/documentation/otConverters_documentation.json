@@ -1,0 +1,1660 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\otConverters.py",
+  "classes": [
+    {
+      "name": "BaseConverter",
+      "docstring": "Base class for converter objects. Apart from the constructor, this\nis an abstract class.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "readArray",
+          "docstring": "Read an array of values from the reader."
+        },
+        {
+          "name": "getRecordSize",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": "Read a value from the reader."
+        },
+        {
+          "name": "writeArray",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": "Write a value to the writer."
+        },
+        {
+          "name": "xmlRead",
+          "docstring": "Read a value from XML."
+        },
+        {
+          "name": "xmlWrite",
+          "docstring": "Write a value to XML."
+        },
+        {
+          "name": "getVarIndexOffset",
+          "docstring": "If description has `VarIndexBase + {offset}`, return the offset else None."
+        }
+      ]
+    },
+    {
+      "name": "SimpleValue",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "toString",
+          "docstring": null
+        },
+        {
+          "name": "fromString",
+          "docstring": null
+        },
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        },
+        {
+          "name": "xmlRead",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "OptionalValue",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        },
+        {
+          "name": "xmlRead",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "IntValue",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "fromString",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Long",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "readArray",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "writeArray",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ULong",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "readArray",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "writeArray",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Flags32",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "toString",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "VarIndex",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Short",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "readArray",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "writeArray",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "UShort",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "readArray",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "writeArray",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Int8",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "readArray",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "writeArray",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "UInt8",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "readArray",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "writeArray",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "UInt24",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ComputedInt",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ComputedUInt8",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ComputedUShort",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ComputedULong",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Tag",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GlyphID",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "readArray",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "writeArray",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GlyphID32",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "NameID",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "STATFlags",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FloatValue",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "fromString",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DeciPoints",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BaseFixedValue",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "fromInt",
+          "docstring": null
+        },
+        {
+          "name": "toInt",
+          "docstring": null
+        },
+        {
+          "name": "fromString",
+          "docstring": null
+        },
+        {
+          "name": "toString",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Fixed",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "F2Dot14",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Angle",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "fromInt",
+          "docstring": null
+        },
+        {
+          "name": "toInt",
+          "docstring": null
+        },
+        {
+          "name": "fromString",
+          "docstring": null
+        },
+        {
+          "name": "toString",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BiasedAngle",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Version",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "fromString",
+          "docstring": null
+        },
+        {
+          "name": "toString",
+          "docstring": null
+        },
+        {
+          "name": "fromFloat",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Char64",
+      "docstring": "An ASCII string with up to 64 characters.\n\nUnused character positions are filled with 0x00 bytes.\nUsed in Apple AAT fonts in the `gcid` table.",
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Struct",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "getRecordSize",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        },
+        {
+          "name": "xmlRead",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "StructWithLength",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Table",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "readOffset",
+          "docstring": null
+        },
+        {
+          "name": "writeNullOffset",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LTable",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "readOffset",
+          "docstring": null
+        },
+        {
+          "name": "writeNullOffset",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Table24",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "readOffset",
+          "docstring": null
+        },
+        {
+          "name": "writeNullOffset",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SubStruct",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "getConverter",
+          "docstring": null
+        },
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SubTable",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "getConverter",
+          "docstring": null
+        },
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ExtSubTable",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "write",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FeatureParams",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "getConverter",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ValueFormat",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ValueRecord",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "getRecordSize",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        },
+        {
+          "name": "xmlRead",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AATLookup",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "writeBinSearchHeader",
+          "docstring": null
+        },
+        {
+          "name": "buildFormat0",
+          "docstring": null
+        },
+        {
+          "name": "writeFormat0",
+          "docstring": null
+        },
+        {
+          "name": "buildFormat2",
+          "docstring": null
+        },
+        {
+          "name": "writeFormat2",
+          "docstring": null
+        },
+        {
+          "name": "buildFormat6",
+          "docstring": null
+        },
+        {
+          "name": "writeFormat6",
+          "docstring": null
+        },
+        {
+          "name": "buildFormat8",
+          "docstring": null
+        },
+        {
+          "name": "writeFormat8",
+          "docstring": null
+        },
+        {
+          "name": "readFormat0",
+          "docstring": null
+        },
+        {
+          "name": "readFormat2",
+          "docstring": null
+        },
+        {
+          "name": "readFormat4",
+          "docstring": null
+        },
+        {
+          "name": "readFormat6",
+          "docstring": null
+        },
+        {
+          "name": "readFormat8",
+          "docstring": null
+        },
+        {
+          "name": "xmlRead",
+          "docstring": null
+        },
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AATLookupWithDataOffset",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "xmlRead",
+          "docstring": null
+        },
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MorxSubtableConverter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        },
+        {
+          "name": "xmlRead",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "STXHeader",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        },
+        {
+          "name": "xmlRead",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CIDGlyphMap",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "xmlRead",
+          "docstring": null
+        },
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GlyphCIDMap",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "xmlRead",
+          "docstring": null
+        },
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DeltaValue",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        },
+        {
+          "name": "xmlRead",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "VarIdxMapValue",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "VarDataValue",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        },
+        {
+          "name": "xmlRead",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TupleValues",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "xmlRead",
+          "docstring": null
+        },
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CFF2Index",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        },
+        {
+          "name": "xmlRead",
+          "docstring": null
+        },
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LookupFlag",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "xmlWrite",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_UInt8Enum",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "read",
+          "docstring": null
+        },
+        {
+          "name": "fromString",
+          "docstring": null
+        },
+        {
+          "name": "toString",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ExtendMode",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "CompositeMode",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "buildConverters",
+      "docstring": "Given a table spec from otData.py, build a converter object for each\nfield of the table. This is called for each table in otData.py, and\nthe results are assigned to the corresponding class in otTables.py."
+    },
+    {
+      "name": "readArray",
+      "docstring": "Read an array of values from the reader."
+    },
+    {
+      "name": "getRecordSize",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": "Read a value from the reader."
+    },
+    {
+      "name": "writeArray",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": "Write a value to the writer."
+    },
+    {
+      "name": "xmlRead",
+      "docstring": "Read a value from XML."
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": "Write a value to XML."
+    },
+    {
+      "name": "getVarIndexOffset",
+      "docstring": "If description has `VarIndexBase + {offset}`, return the offset else None."
+    },
+    {
+      "name": "toString",
+      "docstring": null
+    },
+    {
+      "name": "fromString",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "xmlRead",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "xmlRead",
+      "docstring": null
+    },
+    {
+      "name": "fromString",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "readArray",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "writeArray",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "readArray",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "writeArray",
+      "docstring": null
+    },
+    {
+      "name": "toString",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "readArray",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "writeArray",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "readArray",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "writeArray",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "readArray",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "writeArray",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "readArray",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "writeArray",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "readArray",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "writeArray",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "fromString",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "fromInt",
+      "docstring": null
+    },
+    {
+      "name": "toInt",
+      "docstring": null
+    },
+    {
+      "name": "fromString",
+      "docstring": null
+    },
+    {
+      "name": "toString",
+      "docstring": null
+    },
+    {
+      "name": "fromInt",
+      "docstring": null
+    },
+    {
+      "name": "toInt",
+      "docstring": null
+    },
+    {
+      "name": "fromString",
+      "docstring": null
+    },
+    {
+      "name": "toString",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "fromString",
+      "docstring": null
+    },
+    {
+      "name": "toString",
+      "docstring": null
+    },
+    {
+      "name": "fromFloat",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "getRecordSize",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "xmlRead",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "readOffset",
+      "docstring": null
+    },
+    {
+      "name": "writeNullOffset",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "readOffset",
+      "docstring": null
+    },
+    {
+      "name": "writeNullOffset",
+      "docstring": null
+    },
+    {
+      "name": "readOffset",
+      "docstring": null
+    },
+    {
+      "name": "writeNullOffset",
+      "docstring": null
+    },
+    {
+      "name": "getConverter",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "getConverter",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "getConverter",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "getRecordSize",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "xmlRead",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "writeBinSearchHeader",
+      "docstring": null
+    },
+    {
+      "name": "buildFormat0",
+      "docstring": null
+    },
+    {
+      "name": "writeFormat0",
+      "docstring": null
+    },
+    {
+      "name": "buildFormat2",
+      "docstring": null
+    },
+    {
+      "name": "writeFormat2",
+      "docstring": null
+    },
+    {
+      "name": "buildFormat6",
+      "docstring": null
+    },
+    {
+      "name": "writeFormat6",
+      "docstring": null
+    },
+    {
+      "name": "buildFormat8",
+      "docstring": null
+    },
+    {
+      "name": "writeFormat8",
+      "docstring": null
+    },
+    {
+      "name": "readFormat0",
+      "docstring": null
+    },
+    {
+      "name": "readFormat2",
+      "docstring": null
+    },
+    {
+      "name": "readFormat4",
+      "docstring": null
+    },
+    {
+      "name": "readFormat6",
+      "docstring": null
+    },
+    {
+      "name": "readFormat8",
+      "docstring": null
+    },
+    {
+      "name": "xmlRead",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "xmlRead",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "xmlRead",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "xmlRead",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "xmlRead",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "xmlRead",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "xmlRead",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "xmlRead",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "xmlRead",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "xmlRead",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "xmlWrite",
+      "docstring": null
+    },
+    {
+      "name": "read",
+      "docstring": null
+    },
+    {
+      "name": "fromString",
+      "docstring": null
+    },
+    {
+      "name": "toString",
+      "docstring": null
+    },
+    {
+      "name": "getReadArray",
+      "docstring": null
+    },
+    {
+      "name": "get_read_item",
+      "docstring": null
+    },
+    {
+      "name": "get_read_item",
+      "docstring": null
+    },
+    {
+      "name": "read_item",
+      "docstring": null
+    },
+    {
+      "name": "read_item",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

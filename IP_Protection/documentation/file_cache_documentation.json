@@ -1,0 +1,90 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\caches\\file_cache.py",
+  "classes": [
+    {
+      "name": "_FileCacheMixin",
+      "docstring": "Shared implementation for both FileCache variants.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "encode",
+          "docstring": null
+        },
+        {
+          "name": "get",
+          "docstring": null
+        },
+        {
+          "name": "set",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FileCache",
+      "docstring": "Traditional FileCache: body is stored in memory, so not suitable for large\ndownloads.",
+      "methods": [
+        {
+          "name": "delete",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SeparateBodyFileCache",
+      "docstring": "Memory-efficient FileCache: body is stored in a separate file, reducing\npeak memory usage.",
+      "methods": [
+        {
+          "name": "get_body",
+          "docstring": null
+        },
+        {
+          "name": "set_body",
+          "docstring": null
+        },
+        {
+          "name": "delete",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "url_to_file_path",
+      "docstring": "Return the file cache path based on the URL.\n\nThis does not ensure the file exists!"
+    },
+    {
+      "name": "encode",
+      "docstring": null
+    },
+    {
+      "name": "get",
+      "docstring": null
+    },
+    {
+      "name": "set",
+      "docstring": null
+    },
+    {
+      "name": "delete",
+      "docstring": null
+    },
+    {
+      "name": "get_body",
+      "docstring": null
+    },
+    {
+      "name": "set_body",
+      "docstring": null
+    },
+    {
+      "name": "delete",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

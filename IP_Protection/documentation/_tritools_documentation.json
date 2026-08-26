@@ -1,0 +1,42 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tri\\_tritools.py",
+  "classes": [
+    {
+      "name": "TriAnalyzer",
+      "docstring": "Define basic tools for triangular mesh analysis and improvement.\n\nA TriAnalyzer encapsulates a `.Triangulation` object and provides basic\ntools for mesh analysis and mesh improvement.\n\nAttributes\n----------\nscale_factors\n\nParameters\n----------\ntriangulation : `~matplotlib.tri.Triangulation`\n    The encapsulated triangulation to analyze.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "scale_factors",
+          "docstring": "Factors to rescale the triangulation into a unit square.\n\nReturns\n-------\n(float, float)\n    Scaling factors (kx, ky) so that the triangulation\n    ``[triangulation.x * kx, triangulation.y * ky]``\n    fits exactly inside a unit square."
+        },
+        {
+          "name": "circle_ratios",
+          "docstring": "Return a measure of the triangulation triangles flatness.\n\nThe ratio of the incircle radius over the circumcircle radius is a\nwidely used indicator of a triangle flatness.\nIt is always ``<= 0.5`` and ``== 0.5`` only for equilateral\ntriangles. Circle ratios below 0.01 denote very flat triangles.\n\nTo avoid unduly low values due to a difference of scale between the 2\naxis, the triangular mesh can first be rescaled to fit inside a unit\nsquare with `scale_factors` (Only if *rescale* is True, which is\nits default value).\n\nParameters\n----------\nrescale : bool, default: True\n    If True, internally rescale (based on `scale_factors`), so that the\n    (unmasked) triangles fit exactly inside a unit square mesh.\n\nReturns\n-------\nmasked array\n    Ratio of the incircle radius over the circumcircle radius, for\n    each 'rescaled' triangle of the encapsulated triangulation.\n    Values corresponding to masked triangles are masked out."
+        },
+        {
+          "name": "get_flat_tri_mask",
+          "docstring": "Eliminate excessively flat border triangles from the triangulation.\n\nReturns a mask *new_mask* which allows to clean the encapsulated\ntriangulation from its border-located flat triangles\n(according to their :meth:`circle_ratios`).\nThis mask is meant to be subsequently applied to the triangulation\nusing `.Triangulation.set_mask`.\n*new_mask* is an extension of the initial triangulation mask\nin the sense that an initially masked triangle will remain masked.\n\nThe *new_mask* array is computed recursively; at each step flat\ntriangles are removed only if they share a side with the current mesh\nborder. Thus, no new holes in the triangulated domain will be created.\n\nParameters\n----------\nmin_circle_ratio : float, default: 0.01\n    Border triangles with incircle/circumcircle radii ratio r/R will\n    be removed if r/R < *min_circle_ratio*.\nrescale : bool, default: True\n    If True, first, internally rescale (based on `scale_factors`) so\n    that the (unmasked) triangles fit exactly inside a unit square\n    mesh.  This rescaling accounts for the difference of scale which\n    might exist between the 2 axis.\n\nReturns\n-------\narray of bool\n    Mask to apply to encapsulated triangulation.\n    All the initially masked triangles remain masked in the\n    *new_mask*.\n\nNotes\n-----\nThe rationale behind this function is that a Delaunay\ntriangulation - of an unstructured set of points - sometimes contains\nalmost flat triangles at its border, leading to artifacts in plots\n(especially for high-resolution contouring).\nMasked with computed *new_mask*, the encapsulated\ntriangulation would contain no more unmasked border triangles\nwith a circle ratio below *min_circle_ratio*, thus improving the\nmesh quality for subsequent plots or interpolation."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "scale_factors",
+      "docstring": "Factors to rescale the triangulation into a unit square.\n\nReturns\n-------\n(float, float)\n    Scaling factors (kx, ky) so that the triangulation\n    ``[triangulation.x * kx, triangulation.y * ky]``\n    fits exactly inside a unit square."
+    },
+    {
+      "name": "circle_ratios",
+      "docstring": "Return a measure of the triangulation triangles flatness.\n\nThe ratio of the incircle radius over the circumcircle radius is a\nwidely used indicator of a triangle flatness.\nIt is always ``<= 0.5`` and ``== 0.5`` only for equilateral\ntriangles. Circle ratios below 0.01 denote very flat triangles.\n\nTo avoid unduly low values due to a difference of scale between the 2\naxis, the triangular mesh can first be rescaled to fit inside a unit\nsquare with `scale_factors` (Only if *rescale* is True, which is\nits default value).\n\nParameters\n----------\nrescale : bool, default: True\n    If True, internally rescale (based on `scale_factors`), so that the\n    (unmasked) triangles fit exactly inside a unit square mesh.\n\nReturns\n-------\nmasked array\n    Ratio of the incircle radius over the circumcircle radius, for\n    each 'rescaled' triangle of the encapsulated triangulation.\n    Values corresponding to masked triangles are masked out."
+    },
+    {
+      "name": "get_flat_tri_mask",
+      "docstring": "Eliminate excessively flat border triangles from the triangulation.\n\nReturns a mask *new_mask* which allows to clean the encapsulated\ntriangulation from its border-located flat triangles\n(according to their :meth:`circle_ratios`).\nThis mask is meant to be subsequently applied to the triangulation\nusing `.Triangulation.set_mask`.\n*new_mask* is an extension of the initial triangulation mask\nin the sense that an initially masked triangle will remain masked.\n\nThe *new_mask* array is computed recursively; at each step flat\ntriangles are removed only if they share a side with the current mesh\nborder. Thus, no new holes in the triangulated domain will be created.\n\nParameters\n----------\nmin_circle_ratio : float, default: 0.01\n    Border triangles with incircle/circumcircle radii ratio r/R will\n    be removed if r/R < *min_circle_ratio*.\nrescale : bool, default: True\n    If True, first, internally rescale (based on `scale_factors`) so\n    that the (unmasked) triangles fit exactly inside a unit square\n    mesh.  This rescaling accounts for the difference of scale which\n    might exist between the 2 axis.\n\nReturns\n-------\narray of bool\n    Mask to apply to encapsulated triangulation.\n    All the initially masked triangles remain masked in the\n    *new_mask*.\n\nNotes\n-----\nThe rationale behind this function is that a Delaunay\ntriangulation - of an unstructured set of points - sometimes contains\nalmost flat triangles at its border, leading to artifacts in plots\n(especially for high-resolution contouring).\nMasked with computed *new_mask*, the encapsulated\ntriangulation would contain no more unmasked border triangles\nwith a circle ratio below *min_circle_ratio*, thus improving the\nmesh quality for subsequent plots or interpolation."
+    }
+  ],
+  "innovations": []
+}

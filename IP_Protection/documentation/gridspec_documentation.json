@@ -1,0 +1,290 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\gridspec.py",
+  "classes": [
+    {
+      "name": "GridSpecBase",
+      "docstring": "A base class of GridSpec that specifies the geometry of the grid\nthat a subplot will be placed.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nnrows, ncols : int\n    The number of rows and columns of the grid.\nwidth_ratios : array-like of length *ncols*, optional\n    Defines the relative widths of the columns. Each column gets a\n    relative width of ``width_ratios[i] / sum(width_ratios)``.\n    If not given, all columns will have the same width.\nheight_ratios : array-like of length *nrows*, optional\n    Defines the relative heights of the rows. Each row gets a\n    relative height of ``height_ratios[i] / sum(height_ratios)``.\n    If not given, all rows will have the same height."
+        },
+        {
+          "name": "get_geometry",
+          "docstring": "Return a tuple containing the number of rows and columns in the grid."
+        },
+        {
+          "name": "get_subplot_params",
+          "docstring": null
+        },
+        {
+          "name": "new_subplotspec",
+          "docstring": "Create and return a `.SubplotSpec` instance.\n\nParameters\n----------\nloc : (int, int)\n    The position of the subplot in the grid as\n    ``(row_index, column_index)``.\nrowspan, colspan : int, default: 1\n    The number of rows and columns the subplot should span in the grid."
+        },
+        {
+          "name": "set_width_ratios",
+          "docstring": "Set the relative widths of the columns.\n\n*width_ratios* must be of length *ncols*. Each column gets a relative\nwidth of ``width_ratios[i] / sum(width_ratios)``."
+        },
+        {
+          "name": "get_width_ratios",
+          "docstring": "Return the width ratios.\n\nThis is *None* if no width ratios have been set explicitly."
+        },
+        {
+          "name": "set_height_ratios",
+          "docstring": "Set the relative heights of the rows.\n\n*height_ratios* must be of length *nrows*. Each row gets a relative\nheight of ``height_ratios[i] / sum(height_ratios)``."
+        },
+        {
+          "name": "get_height_ratios",
+          "docstring": "Return the height ratios.\n\nThis is *None* if no height ratios have been set explicitly."
+        },
+        {
+          "name": "get_grid_positions",
+          "docstring": "Return the positions of the grid cells in figure coordinates.\n\nParameters\n----------\nfig : `~matplotlib.figure.Figure`\n    The figure the grid should be applied to. The subplot parameters\n    (margins and spacing between subplots) are taken from *fig*.\n\nReturns\n-------\nbottoms, tops, lefts, rights : array\n    The bottom, top, left, right positions of the grid cells in\n    figure coordinates."
+        },
+        {
+          "name": "subplots",
+          "docstring": "Add all subplots specified by this `GridSpec` to its parent figure.\n\nSee `.Figure.subplots` for detailed documentation."
+        }
+      ]
+    },
+    {
+      "name": "GridSpec",
+      "docstring": "A grid layout to place subplots within a figure.\n\nThe location of the grid cells is determined in a similar way to\n`.SubplotParams` using *left*, *right*, *top*, *bottom*, *wspace*\nand *hspace*.\n\nIndexing a GridSpec instance returns a `.SubplotSpec`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nnrows, ncols : int\n    The number of rows and columns of the grid.\n\nfigure : `.Figure`, optional\n    Only used for constrained layout to create a proper layoutgrid.\n\nleft, right, top, bottom : float, optional\n    Extent of the subplots as a fraction of figure width or height.\n    Left cannot be larger than right, and bottom cannot be larger than\n    top. If not given, the values will be inferred from a figure or\n    rcParams at draw time. See also `GridSpec.get_subplot_params`.\n\nwspace : float, optional\n    The amount of width reserved for space between subplots,\n    expressed as a fraction of the average axis width.\n    If not given, the values will be inferred from a figure or\n    rcParams when necessary. See also `GridSpec.get_subplot_params`.\n\nhspace : float, optional\n    The amount of height reserved for space between subplots,\n    expressed as a fraction of the average axis height.\n    If not given, the values will be inferred from a figure or\n    rcParams when necessary. See also `GridSpec.get_subplot_params`.\n\nwidth_ratios : array-like of length *ncols*, optional\n    Defines the relative widths of the columns. Each column gets a\n    relative width of ``width_ratios[i] / sum(width_ratios)``.\n    If not given, all columns will have the same width.\n\nheight_ratios : array-like of length *nrows*, optional\n    Defines the relative heights of the rows. Each row gets a\n    relative height of ``height_ratios[i] / sum(height_ratios)``.\n    If not given, all rows will have the same height."
+        },
+        {
+          "name": "update",
+          "docstring": "Update the subplot parameters of the grid.\n\nParameters that are not explicitly given are not changed. Setting a\nparameter to *None* resets it to :rc:`figure.subplot.*`.\n\nParameters\n----------\nleft, right, top, bottom : float or None, optional\n    Extent of the subplots as a fraction of figure width or height.\nwspace, hspace : float, optional\n    Spacing between the subplots as a fraction of the average subplot\n    width / height."
+        },
+        {
+          "name": "get_subplot_params",
+          "docstring": "Return the `.SubplotParams` for the GridSpec.\n\nIn order of precedence the values are taken from\n\n- non-*None* attributes of the GridSpec\n- the provided *figure*\n- :rc:`figure.subplot.*`\n\nNote that the ``figure`` attribute of the GridSpec is always ignored."
+        },
+        {
+          "name": "locally_modified_subplot_params",
+          "docstring": "Return a list of the names of the subplot parameters explicitly set\nin the GridSpec.\n\nThis is a subset of the attributes of `.SubplotParams`."
+        },
+        {
+          "name": "tight_layout",
+          "docstring": "Adjust subplot parameters to give specified padding.\n\nParameters\n----------\nfigure : `.Figure`\n    The figure.\nrenderer :  `.RendererBase` subclass, optional\n    The renderer to be used.\npad : float\n    Padding between the figure edge and the edges of subplots, as a\n    fraction of the font-size.\nh_pad, w_pad : float, optional\n    Padding (height/width) between edges of adjacent subplots.\n    Defaults to *pad*.\nrect : tuple (left, bottom, right, top), default: None\n    (left, bottom, right, top) rectangle in normalized figure\n    coordinates that the whole subplots area (including labels) will\n    fit into. Default (None) is the whole figure."
+        }
+      ]
+    },
+    {
+      "name": "GridSpecFromSubplotSpec",
+      "docstring": "GridSpec whose subplot layout parameters are inherited from the\nlocation specified by a given SubplotSpec.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nnrows, ncols : int\n    Number of rows and number of columns of the grid.\nsubplot_spec : SubplotSpec\n    Spec from which the layout parameters are inherited.\nwspace, hspace : float, optional\n    See `GridSpec` for more details. If not specified default values\n    (from the figure or rcParams) are used.\nheight_ratios : array-like of length *nrows*, optional\n    See `GridSpecBase` for details.\nwidth_ratios : array-like of length *ncols*, optional\n    See `GridSpecBase` for details."
+        },
+        {
+          "name": "get_subplot_params",
+          "docstring": "Return a dictionary of subplot layout parameters."
+        },
+        {
+          "name": "get_topmost_subplotspec",
+          "docstring": "Return the topmost `.SubplotSpec` instance associated with the subplot."
+        }
+      ]
+    },
+    {
+      "name": "SubplotSpec",
+      "docstring": "The location of a subplot in a `GridSpec`.\n\n.. note::\n\n    Likely, you will never instantiate a `SubplotSpec` yourself. Instead,\n    you will typically obtain one from a `GridSpec` using item-access.\n\nParameters\n----------\ngridspec : `~matplotlib.gridspec.GridSpec`\n    The GridSpec, which the subplot is referencing.\nnum1, num2 : int\n    The subplot will occupy the *num1*-th cell of the given\n    *gridspec*.  If *num2* is provided, the subplot will span between\n    *num1*-th cell and *num2*-th cell **inclusive**.\n\n    The index starts from 0.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "num2",
+          "docstring": null
+        },
+        {
+          "name": "num2",
+          "docstring": null
+        },
+        {
+          "name": "get_gridspec",
+          "docstring": null
+        },
+        {
+          "name": "get_geometry",
+          "docstring": "Return the subplot geometry as tuple ``(n_rows, n_cols, start, stop)``.\n\nThe indices *start* and *stop* define the range of the subplot within\nthe `GridSpec`. *stop* is inclusive (i.e. for a single cell\n``start == stop``)."
+        },
+        {
+          "name": "rowspan",
+          "docstring": "The rows spanned by this subplot, as a `range` object."
+        },
+        {
+          "name": "colspan",
+          "docstring": "The columns spanned by this subplot, as a `range` object."
+        },
+        {
+          "name": "is_first_row",
+          "docstring": null
+        },
+        {
+          "name": "is_last_row",
+          "docstring": null
+        },
+        {
+          "name": "is_first_col",
+          "docstring": null
+        },
+        {
+          "name": "is_last_col",
+          "docstring": null
+        },
+        {
+          "name": "get_position",
+          "docstring": "Update the subplot position from ``figure.subplotpars``."
+        },
+        {
+          "name": "get_topmost_subplotspec",
+          "docstring": "Return the topmost `SubplotSpec` instance associated with the subplot."
+        },
+        {
+          "name": "subgridspec",
+          "docstring": "Create a GridSpec within this subplot.\n\nThe created `.GridSpecFromSubplotSpec` will have this `SubplotSpec` as\na parent.\n\nParameters\n----------\nnrows : int\n    Number of rows in grid.\n\nncols : int\n    Number of columns in grid.\n\nReturns\n-------\n`.GridSpecFromSubplotSpec`\n\nOther Parameters\n----------------\n**kwargs\n    All other parameters are passed to `.GridSpecFromSubplotSpec`.\n\nSee Also\n--------\nmatplotlib.pyplot.subplots\n\nExamples\n--------\nAdding three subplots in the space occupied by a single subplot::\n\n    fig = plt.figure()\n    gs0 = fig.add_gridspec(3, 1)\n    ax1 = fig.add_subplot(gs0[0])\n    ax2 = fig.add_subplot(gs0[1])\n    gssub = gs0[2].subgridspec(1, 3)\n    for i in range(3):\n        fig.add_subplot(gssub[0, i])"
+        }
+      ]
+    },
+    {
+      "name": "SubplotParams",
+      "docstring": "Parameters defining the positioning of a subplots grid in a figure.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Defaults are given by :rc:`figure.subplot.[name]`.\n\nParameters\n----------\nleft : float\n    The position of the left edge of the subplots,\n    as a fraction of the figure width.\nright : float\n    The position of the right edge of the subplots,\n    as a fraction of the figure width.\nbottom : float\n    The position of the bottom edge of the subplots,\n    as a fraction of the figure height.\ntop : float\n    The position of the top edge of the subplots,\n    as a fraction of the figure height.\nwspace : float\n    The width of the padding between subplots,\n    as a fraction of the average Axes width.\nhspace : float\n    The height of the padding between subplots,\n    as a fraction of the average Axes height."
+        },
+        {
+          "name": "update",
+          "docstring": "Update the dimensions of the passed parameters. *None* means unchanged."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_geometry",
+      "docstring": "Return a tuple containing the number of rows and columns in the grid."
+    },
+    {
+      "name": "get_subplot_params",
+      "docstring": null
+    },
+    {
+      "name": "new_subplotspec",
+      "docstring": "Create and return a `.SubplotSpec` instance.\n\nParameters\n----------\nloc : (int, int)\n    The position of the subplot in the grid as\n    ``(row_index, column_index)``.\nrowspan, colspan : int, default: 1\n    The number of rows and columns the subplot should span in the grid."
+    },
+    {
+      "name": "set_width_ratios",
+      "docstring": "Set the relative widths of the columns.\n\n*width_ratios* must be of length *ncols*. Each column gets a relative\nwidth of ``width_ratios[i] / sum(width_ratios)``."
+    },
+    {
+      "name": "get_width_ratios",
+      "docstring": "Return the width ratios.\n\nThis is *None* if no width ratios have been set explicitly."
+    },
+    {
+      "name": "set_height_ratios",
+      "docstring": "Set the relative heights of the rows.\n\n*height_ratios* must be of length *nrows*. Each row gets a relative\nheight of ``height_ratios[i] / sum(height_ratios)``."
+    },
+    {
+      "name": "get_height_ratios",
+      "docstring": "Return the height ratios.\n\nThis is *None* if no height ratios have been set explicitly."
+    },
+    {
+      "name": "get_grid_positions",
+      "docstring": "Return the positions of the grid cells in figure coordinates.\n\nParameters\n----------\nfig : `~matplotlib.figure.Figure`\n    The figure the grid should be applied to. The subplot parameters\n    (margins and spacing between subplots) are taken from *fig*.\n\nReturns\n-------\nbottoms, tops, lefts, rights : array\n    The bottom, top, left, right positions of the grid cells in\n    figure coordinates."
+    },
+    {
+      "name": "subplots",
+      "docstring": "Add all subplots specified by this `GridSpec` to its parent figure.\n\nSee `.Figure.subplots` for detailed documentation."
+    },
+    {
+      "name": "update",
+      "docstring": "Update the subplot parameters of the grid.\n\nParameters that are not explicitly given are not changed. Setting a\nparameter to *None* resets it to :rc:`figure.subplot.*`.\n\nParameters\n----------\nleft, right, top, bottom : float or None, optional\n    Extent of the subplots as a fraction of figure width or height.\nwspace, hspace : float, optional\n    Spacing between the subplots as a fraction of the average subplot\n    width / height."
+    },
+    {
+      "name": "get_subplot_params",
+      "docstring": "Return the `.SubplotParams` for the GridSpec.\n\nIn order of precedence the values are taken from\n\n- non-*None* attributes of the GridSpec\n- the provided *figure*\n- :rc:`figure.subplot.*`\n\nNote that the ``figure`` attribute of the GridSpec is always ignored."
+    },
+    {
+      "name": "locally_modified_subplot_params",
+      "docstring": "Return a list of the names of the subplot parameters explicitly set\nin the GridSpec.\n\nThis is a subset of the attributes of `.SubplotParams`."
+    },
+    {
+      "name": "tight_layout",
+      "docstring": "Adjust subplot parameters to give specified padding.\n\nParameters\n----------\nfigure : `.Figure`\n    The figure.\nrenderer :  `.RendererBase` subclass, optional\n    The renderer to be used.\npad : float\n    Padding between the figure edge and the edges of subplots, as a\n    fraction of the font-size.\nh_pad, w_pad : float, optional\n    Padding (height/width) between edges of adjacent subplots.\n    Defaults to *pad*.\nrect : tuple (left, bottom, right, top), default: None\n    (left, bottom, right, top) rectangle in normalized figure\n    coordinates that the whole subplots area (including labels) will\n    fit into. Default (None) is the whole figure."
+    },
+    {
+      "name": "get_subplot_params",
+      "docstring": "Return a dictionary of subplot layout parameters."
+    },
+    {
+      "name": "get_topmost_subplotspec",
+      "docstring": "Return the topmost `.SubplotSpec` instance associated with the subplot."
+    },
+    {
+      "name": "num2",
+      "docstring": null
+    },
+    {
+      "name": "num2",
+      "docstring": null
+    },
+    {
+      "name": "get_gridspec",
+      "docstring": null
+    },
+    {
+      "name": "get_geometry",
+      "docstring": "Return the subplot geometry as tuple ``(n_rows, n_cols, start, stop)``.\n\nThe indices *start* and *stop* define the range of the subplot within\nthe `GridSpec`. *stop* is inclusive (i.e. for a single cell\n``start == stop``)."
+    },
+    {
+      "name": "rowspan",
+      "docstring": "The rows spanned by this subplot, as a `range` object."
+    },
+    {
+      "name": "colspan",
+      "docstring": "The columns spanned by this subplot, as a `range` object."
+    },
+    {
+      "name": "is_first_row",
+      "docstring": null
+    },
+    {
+      "name": "is_last_row",
+      "docstring": null
+    },
+    {
+      "name": "is_first_col",
+      "docstring": null
+    },
+    {
+      "name": "is_last_col",
+      "docstring": null
+    },
+    {
+      "name": "get_position",
+      "docstring": "Update the subplot position from ``figure.subplotpars``."
+    },
+    {
+      "name": "get_topmost_subplotspec",
+      "docstring": "Return the topmost `SubplotSpec` instance associated with the subplot."
+    },
+    {
+      "name": "subgridspec",
+      "docstring": "Create a GridSpec within this subplot.\n\nThe created `.GridSpecFromSubplotSpec` will have this `SubplotSpec` as\na parent.\n\nParameters\n----------\nnrows : int\n    Number of rows in grid.\n\nncols : int\n    Number of columns in grid.\n\nReturns\n-------\n`.GridSpecFromSubplotSpec`\n\nOther Parameters\n----------------\n**kwargs\n    All other parameters are passed to `.GridSpecFromSubplotSpec`.\n\nSee Also\n--------\nmatplotlib.pyplot.subplots\n\nExamples\n--------\nAdding three subplots in the space occupied by a single subplot::\n\n    fig = plt.figure()\n    gs0 = fig.add_gridspec(3, 1)\n    ax1 = fig.add_subplot(gs0[0])\n    ax2 = fig.add_subplot(gs0[1])\n    gssub = gs0[2].subgridspec(1, 3)\n    for i in range(3):\n        fig.add_subplot(gssub[0, i])"
+    },
+    {
+      "name": "update",
+      "docstring": "Update the dimensions of the passed parameters. *None* means unchanged."
+    }
+  ],
+  "innovations": []
+}

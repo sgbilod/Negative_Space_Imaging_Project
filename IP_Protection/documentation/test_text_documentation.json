@@ -1,0 +1,303 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_text.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "test_font_styles",
+      "docstring": null
+    },
+    {
+      "name": "test_multiline",
+      "docstring": null
+    },
+    {
+      "name": "test_multiline2",
+      "docstring": null
+    },
+    {
+      "name": "test_antialiasing",
+      "docstring": null
+    },
+    {
+      "name": "test_afm_kerning",
+      "docstring": null
+    },
+    {
+      "name": "test_contains",
+      "docstring": null
+    },
+    {
+      "name": "test_annotation_contains",
+      "docstring": null
+    },
+    {
+      "name": "test_annotate_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_titles",
+      "docstring": null
+    },
+    {
+      "name": "test_alignment",
+      "docstring": null
+    },
+    {
+      "name": "test_axes_titles",
+      "docstring": null
+    },
+    {
+      "name": "test_set_position",
+      "docstring": null
+    },
+    {
+      "name": "test_char_index_at",
+      "docstring": null
+    },
+    {
+      "name": "test_non_default_dpi",
+      "docstring": null
+    },
+    {
+      "name": "test_get_rotation_string",
+      "docstring": null
+    },
+    {
+      "name": "test_get_rotation_float",
+      "docstring": null
+    },
+    {
+      "name": "test_get_rotation_int",
+      "docstring": null
+    },
+    {
+      "name": "test_get_rotation_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_get_rotation_none",
+      "docstring": null
+    },
+    {
+      "name": "test_get_rotation_mod360",
+      "docstring": null
+    },
+    {
+      "name": "test_null_rotation_with_rotation_mode",
+      "docstring": null
+    },
+    {
+      "name": "test_bbox_clipping",
+      "docstring": null
+    },
+    {
+      "name": "test_annotation_negative_ax_coords",
+      "docstring": null
+    },
+    {
+      "name": "test_annotation_negative_fig_coords",
+      "docstring": null
+    },
+    {
+      "name": "test_text_stale",
+      "docstring": null
+    },
+    {
+      "name": "test_agg_text_clip",
+      "docstring": null
+    },
+    {
+      "name": "test_text_size_binding",
+      "docstring": null
+    },
+    {
+      "name": "test_font_scaling",
+      "docstring": null
+    },
+    {
+      "name": "test_two_2line_texts",
+      "docstring": null
+    },
+    {
+      "name": "test_validate_linespacing",
+      "docstring": null
+    },
+    {
+      "name": "test_nonfinite_pos",
+      "docstring": null
+    },
+    {
+      "name": "test_hinting_factor_backends",
+      "docstring": null
+    },
+    {
+      "name": "test_usetex_is_copied",
+      "docstring": null
+    },
+    {
+      "name": "test_single_artist_usetex",
+      "docstring": null
+    },
+    {
+      "name": "test_single_artist_usenotex",
+      "docstring": null
+    },
+    {
+      "name": "test_text_as_path_opacity",
+      "docstring": null
+    },
+    {
+      "name": "test_text_as_text_opacity",
+      "docstring": null
+    },
+    {
+      "name": "test_text_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_annotation_update",
+      "docstring": null
+    },
+    {
+      "name": "test_annotation_units",
+      "docstring": null
+    },
+    {
+      "name": "test_large_subscript_title",
+      "docstring": null
+    },
+    {
+      "name": "test_wrap",
+      "docstring": null
+    },
+    {
+      "name": "test_mathwrap",
+      "docstring": null
+    },
+    {
+      "name": "test_get_window_extent_wrapped",
+      "docstring": null
+    },
+    {
+      "name": "test_long_word_wrap",
+      "docstring": null
+    },
+    {
+      "name": "test_wrap_no_wrap",
+      "docstring": null
+    },
+    {
+      "name": "test_buffer_size",
+      "docstring": null
+    },
+    {
+      "name": "test_fontproperties_kwarg_precedence",
+      "docstring": "Test that kwargs take precedence over fontproperties defaults."
+    },
+    {
+      "name": "test_transform_rotates_text",
+      "docstring": null
+    },
+    {
+      "name": "test_update_mutate_input",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_rotation_values",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_color",
+      "docstring": null
+    },
+    {
+      "name": "test_pdf_kerning",
+      "docstring": null
+    },
+    {
+      "name": "test_unsupported_script",
+      "docstring": null
+    },
+    {
+      "name": "test_parse_math",
+      "docstring": null
+    },
+    {
+      "name": "test_parse_math_rcparams",
+      "docstring": null
+    },
+    {
+      "name": "test_pdf_font42_kerning",
+      "docstring": null
+    },
+    {
+      "name": "test_pdf_chars_beyond_bmp",
+      "docstring": null
+    },
+    {
+      "name": "test_metrics_cache",
+      "docstring": null
+    },
+    {
+      "name": "test_annotate_offset_fontsize",
+      "docstring": null
+    },
+    {
+      "name": "test_get_set_antialiased",
+      "docstring": null
+    },
+    {
+      "name": "test_annotation_antialiased",
+      "docstring": null
+    },
+    {
+      "name": "test_annotate_and_offsetfrom_copy_input",
+      "docstring": null
+    },
+    {
+      "name": "test_text_antialiased_off_default_vs_manual",
+      "docstring": null
+    },
+    {
+      "name": "test_text_antialiased_on_default_vs_manual",
+      "docstring": null
+    },
+    {
+      "name": "test_text_annotation_get_window_extent",
+      "docstring": null
+    },
+    {
+      "name": "test_text_with_arrow_annotation_get_window_extent",
+      "docstring": null
+    },
+    {
+      "name": "test_arrow_annotation_get_window_extent",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_annotation_get_window_extent",
+      "docstring": null
+    },
+    {
+      "name": "test_basic_wrap",
+      "docstring": null
+    },
+    {
+      "name": "test_font_wrap",
+      "docstring": null
+    },
+    {
+      "name": "find_matplotlib_font",
+      "docstring": null
+    },
+    {
+      "name": "draw_box",
+      "docstring": null
+    },
+    {
+      "name": "call",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

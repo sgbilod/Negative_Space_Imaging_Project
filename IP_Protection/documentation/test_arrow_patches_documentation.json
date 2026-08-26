@@ -1,0 +1,43 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_arrow_patches.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "draw_arrow",
+      "docstring": null
+    },
+    {
+      "name": "test_fancyarrow",
+      "docstring": null
+    },
+    {
+      "name": "test_boxarrow",
+      "docstring": null
+    },
+    {
+      "name": "test_fancyarrow_dpi_cor_100dpi",
+      "docstring": "Check the export of a FancyArrowPatch @ 100 DPI. FancyArrowPatch is\ninstantiated through a dedicated function because another similar test\nchecks a similar export but with a different DPI value.\n\nRemark: test only a rasterized format."
+    },
+    {
+      "name": "test_fancyarrow_dpi_cor_200dpi",
+      "docstring": "As test_fancyarrow_dpi_cor_100dpi, but exports @ 200 DPI. The relative size\nof the arrow head should be the same."
+    },
+    {
+      "name": "test_fancyarrow_dash",
+      "docstring": null
+    },
+    {
+      "name": "test_arrow_styles",
+      "docstring": null
+    },
+    {
+      "name": "test_connection_styles",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_intersection",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

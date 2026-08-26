@@ -1,0 +1,50 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\_utils_impl.py",
+  "classes": [
+    {
+      "name": "_Deprecate",
+      "docstring": "Decorator class to deprecate old functions.\n\nRefer to `deprecate` for details.\n\nSee Also\n--------\ndeprecate",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "show_runtime",
+      "docstring": "Print information about various resources in the system\nincluding available intrinsic support and BLAS/LAPACK library\nin use\n\n.. versionadded:: 1.24.0\n\nSee Also\n--------\nshow_config : Show libraries in the system on which NumPy was built.\n\nNotes\n-----\n1. Information is derived with the help of `threadpoolctl <https://pypi.org/project/threadpoolctl/>`_\n   library if available.\n2. SIMD related information is derived from ``__cpu_features__``,\n   ``__cpu_baseline__`` and ``__cpu_dispatch__``"
+    },
+    {
+      "name": "get_include",
+      "docstring": "Return the directory that contains the NumPy \\*.h header files.\n\nExtension modules that need to compile against NumPy may need to use this\nfunction to locate the appropriate include directory.\n\nNotes\n-----\nWhen using ``setuptools``, for example in ``setup.py``::\n\n    import numpy as np\n    ...\n    Extension('extension_name', ...\n              include_dirs=[np.get_include()])\n    ...\n\nNote that a CLI tool ``numpy-config`` was introduced in NumPy 2.0, using\nthat is likely preferred for build systems other than ``setuptools``::\n\n    $ numpy-config --cflags\n    -I/path/to/site-packages/numpy/_core/include\n\n    # Or rely on pkg-config:\n    $ export PKG_CONFIG_PATH=$(numpy-config --pkgconfigdir)\n    $ pkg-config --cflags\n    -I/path/to/site-packages/numpy/_core/include\n\nExamples\n--------\n>>> np.get_include()\n'.../site-packages/numpy/core/include'  # may vary"
+    },
+    {
+      "name": "deprecate",
+      "docstring": "Issues a DeprecationWarning, adds warning to `old_name`'s\ndocstring, rebinds ``old_name.__name__`` and returns the new\nfunction object.\n\nThis function may also be used as a decorator.\n\n.. deprecated:: 2.0\n    Use `~warnings.warn` with :exc:`DeprecationWarning` instead.\n\nParameters\n----------\nfunc : function\n    The function to be deprecated.\nold_name : str, optional\n    The name of the function to be deprecated. Default is None, in\n    which case the name of `func` is used.\nnew_name : str, optional\n    The new name for the function. Default is None, in which case the\n    deprecation message is that `old_name` is deprecated. If given, the\n    deprecation message is that `old_name` is deprecated and `new_name`\n    should be used instead.\nmessage : str, optional\n    Additional explanation of the deprecation.  Displayed in the\n    docstring after the warning.\n\nReturns\n-------\nold_func : function\n    The deprecated function.\n\nExamples\n--------\nNote that ``olduint`` returns a value after printing Deprecation\nWarning:\n\n>>> olduint = np.lib.utils.deprecate(np.uint)\nDeprecationWarning: `uint64` is deprecated! # may vary\n>>> olduint(6)\n6"
+    },
+    {
+      "name": "deprecate_with_doc",
+      "docstring": "Deprecates a function and includes the deprecation in its docstring.\n\n.. deprecated:: 2.0\n    Use `~warnings.warn` with :exc:`DeprecationWarning` instead.\n\nThis function is used as a decorator. It returns an object that can be\nused to issue a DeprecationWarning, by passing the to-be decorated\nfunction as argument, this adds warning to the to-be decorated function's\ndocstring and returns the new function object.\n\nSee Also\n--------\ndeprecate : Decorate a function such that it issues a\n            :exc:`DeprecationWarning`\n\nParameters\n----------\nmsg : str\n    Additional explanation of the deprecation. Displayed in the\n    docstring after the warning.\n\nReturns\n-------\nobj : object"
+    },
+    {
+      "name": "info",
+      "docstring": "Get help information for an array, function, class, or module.\n\nParameters\n----------\nobject : object or str, optional\n    Input object or name to get information about. If `object` is\n    an `ndarray` instance, information about the array is printed.\n    If `object` is a numpy object, its docstring is given. If it is\n    a string, available modules are searched for matching objects.\n    If None, information about `info` itself is returned.\nmaxwidth : int, optional\n    Printing width.\noutput : file like object, optional\n    File like object that the output is written to, default is\n    ``None``, in which case ``sys.stdout`` will be used.\n    The object has to be opened in 'w' or 'a' mode.\ntoplevel : str, optional\n    Start search at this level.\n\nNotes\n-----\nWhen used interactively with an object, ``np.info(obj)`` is equivalent\nto ``help(obj)`` on the Python prompt or ``obj?`` on the IPython\nprompt.\n\nExamples\n--------\n>>> np.info(np.polyval) # doctest: +SKIP\n   polyval(p, x)\n     Evaluate the polynomial p at x.\n     ...\n\nWhen using a string for `object` it is possible to get multiple results.\n\n>>> np.info('fft') # doctest: +SKIP\n     *** Found in numpy ***\nCore FFT routines\n...\n     *** Found in numpy.fft ***\n fft(a, n=None, axis=-1)\n...\n     *** Repeat reference found in numpy.fft.fftpack ***\n     *** Total of 3 references found. ***\n\nWhen the argument is an array, information about the array is printed.\n\n>>> a = np.array([[1 + 2j, 3, -4], [-5j, 6, 0]], dtype=np.complex64)\n>>> np.info(a)\nclass:  ndarray\nshape:  (2, 3)\nstrides:  (24, 8)\nitemsize:  8\naligned:  True\ncontiguous:  True\nfortran:  False\ndata pointer: 0x562b6e0d2860  # may vary\nbyteorder:  little\nbyteswap:  False\ntype: complex64"
+    },
+    {
+      "name": "safe_eval",
+      "docstring": "Protected string evaluation.\n\n.. deprecated:: 2.0\n    Use `ast.literal_eval` instead.\n\nEvaluate a string containing a Python literal expression without\nallowing the execution of arbitrary non-literal code.\n\n.. warning::\n\n    This function is identical to :py:meth:`ast.literal_eval` and\n    has the same security implications.  It may not always be safe\n    to evaluate large input strings.\n\nParameters\n----------\nsource : str\n    The string to evaluate.\n\nReturns\n-------\nobj : object\n   The result of evaluating `source`.\n\nRaises\n------\nSyntaxError\n    If the code has invalid Python syntax, or if it contains\n    non-literal code.\n\nExamples\n--------\n>>> np.safe_eval('1')\n1\n>>> np.safe_eval('[1, 2, 3]')\n[1, 2, 3]\n>>> np.safe_eval('{\"foo\": (\"bar\", 10.0)}')\n{'foo': ('bar', 10.0)}\n\n>>> np.safe_eval('import os')\nTraceback (most recent call last):\n  ...\nSyntaxError: invalid syntax\n\n>>> np.safe_eval('open(\"/home/user/.ssh/id_dsa\").read()')\nTraceback (most recent call last):\n  ...\nValueError: malformed node or string: <_ast.Call object at 0x...>"
+    },
+    {
+      "name": "drop_metadata",
+      "docstring": "Returns the dtype unchanged if it contained no metadata or a copy of the\ndtype if it (or any of its structure dtypes) contained metadata.\n\nThis utility is used by `np.save` and `np.savez` to drop metadata before\nsaving.\n\n.. note::\n\n    Due to its limitation this function may move to a more appropriate\n    home or change in the future and is considered semi-public API only.\n\n.. warning::\n\n    This function does not preserve more strange things like record dtypes\n    and user dtypes may simply return the wrong thing.  If you need to be\n    sure about the latter, check the result with:\n    ``np.can_cast(new_dtype, dtype, casting=\"no\")``."
+    },
+    {
+      "name": "newfunc",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

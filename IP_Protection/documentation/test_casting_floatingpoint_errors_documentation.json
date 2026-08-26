@@ -1,0 +1,67 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_casting_floatingpoint_errors.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "values_and_dtypes",
+      "docstring": "Generate value+dtype pairs that generate floating point errors during\ncasts.  The invalid casts to integers will generate \"invalid\" value\nwarnings, the float casts all generate \"overflow\".\n\n(The Python int/float paths don't need to get tested in all the same\nsituations, but it does not hurt.)"
+    },
+    {
+      "name": "check_operations",
+      "docstring": "There are many dedicated paths in NumPy which cast and should check for\nfloating point errors which occurred during those casts."
+    },
+    {
+      "name": "test_floatingpoint_errors_casting",
+      "docstring": null
+    },
+    {
+      "name": "copyto_scalar",
+      "docstring": null
+    },
+    {
+      "name": "copyto",
+      "docstring": null
+    },
+    {
+      "name": "copyto_scalar_masked",
+      "docstring": null
+    },
+    {
+      "name": "copyto_masked",
+      "docstring": null
+    },
+    {
+      "name": "direct_cast",
+      "docstring": null
+    },
+    {
+      "name": "direct_cast_nd_strided",
+      "docstring": null
+    },
+    {
+      "name": "boolean_array_assignment",
+      "docstring": null
+    },
+    {
+      "name": "integer_array_assignment",
+      "docstring": null
+    },
+    {
+      "name": "integer_array_assignment_with_subspace",
+      "docstring": null
+    },
+    {
+      "name": "flat_assignment",
+      "docstring": null
+    },
+    {
+      "name": "assignment",
+      "docstring": null
+    },
+    {
+      "name": "fill",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

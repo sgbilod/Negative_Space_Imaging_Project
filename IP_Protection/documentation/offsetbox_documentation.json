@@ -1,0 +1,808 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\offsetbox.py",
+  "classes": [
+    {
+      "name": "OffsetBox",
+      "docstring": "A simple container artist.\n\nThe child artists are meant to be drawn at a relative position to its\nparent.\n\nBeing an artist itself, all parameters are passed on to `.Artist`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_figure",
+          "docstring": "Set the `.Figure` for the `.OffsetBox` and all its children.\n\nParameters\n----------\nfig : `~matplotlib.figure.Figure`"
+        },
+        {
+          "name": "axes",
+          "docstring": null
+        },
+        {
+          "name": "contains",
+          "docstring": "Delegate the mouse event contains-check to the children.\n\nAs a container, the `.OffsetBox` does not respond itself to\nmouseevents.\n\nParameters\n----------\nmouseevent : `~matplotlib.backend_bases.MouseEvent`\n\nReturns\n-------\ncontains : bool\n    Whether any values are within the radius.\ndetails : dict\n    An artist-specific dictionary of details of the event context,\n    such as which points are contained in the pick radius. See the\n    individual Artist subclasses for details.\n\nSee Also\n--------\n.Artist.contains"
+        },
+        {
+          "name": "set_offset",
+          "docstring": "Set the offset.\n\nParameters\n----------\nxy : (float, float) or callable\n    The (x, y) coordinates of the offset in display units. These can\n    either be given explicitly as a tuple (x, y), or by providing a\n    function that converts the extent into the offset. This function\n    must have the signature::\n\n        def offset(width, height, xdescent, ydescent, renderer) -> (float, float)"
+        },
+        {
+          "name": "get_offset",
+          "docstring": "Return the offset as a tuple (x, y).\n\nThe extent parameters have to be provided to handle the case where the\noffset is dynamically determined by a callable (see\n`~.OffsetBox.set_offset`).\n\nParameters\n----------\nbbox : `.Bbox`\nrenderer : `.RendererBase` subclass"
+        },
+        {
+          "name": "set_width",
+          "docstring": "Set the width of the box.\n\nParameters\n----------\nwidth : float"
+        },
+        {
+          "name": "set_height",
+          "docstring": "Set the height of the box.\n\nParameters\n----------\nheight : float"
+        },
+        {
+          "name": "get_visible_children",
+          "docstring": "Return a list of the visible child `.Artist`\\s."
+        },
+        {
+          "name": "get_children",
+          "docstring": "Return a list of the child `.Artist`\\s."
+        },
+        {
+          "name": "get_bbox",
+          "docstring": "Return the bbox of the offsetbox, ignoring parent offsets."
+        },
+        {
+          "name": "get_window_extent",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": "Update the location of children if necessary and draw them\nto the given *renderer*."
+        }
+      ]
+    },
+    {
+      "name": "PackerBase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\npad : float, default: 0.0\n    The boundary padding in points.\n\nsep : float, default: 0.0\n    The spacing between items in points.\n\nwidth, height : float, optional\n    Width and height of the container box in pixels, calculated if\n    *None*.\n\nalign : {'top', 'bottom', 'left', 'right', 'center', 'baseline'}, default: 'baseline'\n    Alignment of boxes.\n\nmode : {'fixed', 'expand', 'equal'}, default: 'fixed'\n    The packing mode.\n\n    - 'fixed' packs the given `.Artist`\\s tight with *sep* spacing.\n    - 'expand' uses the maximal available space to distribute the\n      artists with equal spacing in between.\n    - 'equal': Each artist an equal fraction of the available space\n      and is left-aligned (or top-aligned) therein.\n\nchildren : list of `.Artist`\n    The artists to pack.\n\nNotes\n-----\n*pad* and *sep* are in points and will be scaled with the renderer\ndpi, while *width* and *height* are in pixels."
+        }
+      ]
+    },
+    {
+      "name": "VPacker",
+      "docstring": "VPacker packs its children vertically, automatically adjusting their\nrelative positions at draw time.\n\n.. code-block:: none\n\n   +---------+\n   | Child 1 |\n   | Child 2 |\n   | Child 3 |\n   +---------+",
+      "methods": []
+    },
+    {
+      "name": "HPacker",
+      "docstring": "HPacker packs its children horizontally, automatically adjusting their\nrelative positions at draw time.\n\n.. code-block:: none\n\n   +-------------------------------+\n   | Child 1    Child 2    Child 3 |\n   +-------------------------------+",
+      "methods": []
+    },
+    {
+      "name": "PaddedBox",
+      "docstring": "A container to add a padding around an `.Artist`.\n\nThe `.PaddedBox` contains a `.FancyBboxPatch` that is used to visualize\nit when rendering.\n\n.. code-block:: none\n\n   +----------------------------+\n   |                            |\n   |                            |\n   |                            |\n   | <--pad--> Artist           |\n   |             ^              |\n   |            pad             |\n   |             v              |\n   +----------------------------+\n\nAttributes\n----------\npad : float\n    The padding in points.\npatch : `.FancyBboxPatch`\n    When *draw_frame* is True, this `.FancyBboxPatch` is made visible and\n    creates a border around the box.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nchild : `~matplotlib.artist.Artist`\n    The contained `.Artist`.\npad : float, default: 0.0\n    The padding in points. This will be scaled with the renderer dpi.\n    In contrast, *width* and *height* are in *pixels* and thus not\n    scaled.\ndraw_frame : bool\n    Whether to draw the contained `.FancyBboxPatch`.\npatch_attrs : dict or None\n    Additional parameters passed to the contained `.FancyBboxPatch`."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        },
+        {
+          "name": "update_frame",
+          "docstring": null
+        },
+        {
+          "name": "draw_frame",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DrawingArea",
+      "docstring": "The DrawingArea can contain any Artist as a child. The DrawingArea\nhas a fixed width and height. The position of children relative to\nthe parent is fixed. The children can be clipped at the\nboundaries of the parent.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nwidth, height : float\n    Width and height of the container box.\nxdescent, ydescent : float\n    Descent of the box in x- and y-direction.\nclip : bool\n    Whether to clip the children to the box."
+        },
+        {
+          "name": "clip_children",
+          "docstring": "If the children of this DrawingArea should be clipped\nby DrawingArea bounding box."
+        },
+        {
+          "name": "clip_children",
+          "docstring": null
+        },
+        {
+          "name": "get_transform",
+          "docstring": "Return the `~matplotlib.transforms.Transform` applied to the children."
+        },
+        {
+          "name": "set_transform",
+          "docstring": "set_transform is ignored."
+        },
+        {
+          "name": "set_offset",
+          "docstring": "Set the offset of the container.\n\nParameters\n----------\nxy : (float, float)\n    The (x, y) coordinates of the offset in display units."
+        },
+        {
+          "name": "get_offset",
+          "docstring": "Return offset of the container."
+        },
+        {
+          "name": "get_bbox",
+          "docstring": null
+        },
+        {
+          "name": "add_artist",
+          "docstring": "Add an `.Artist` to the container box."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TextArea",
+      "docstring": "The TextArea is a container artist for a single Text instance.\n\nThe text is placed at (0, 0) with baseline+left alignment, by default. The\nwidth and height of the TextArea instance is the width and height of its\nchild text.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\ns : str\n    The text to be displayed.\ntextprops : dict, default: {}\n    Dictionary of keyword parameters to be passed to the `.Text`\n    instance in the TextArea.\nmultilinebaseline : bool, default: False\n    Whether the baseline for multiline text is adjusted so that it\n    is (approximately) center-aligned with single-line text."
+        },
+        {
+          "name": "set_text",
+          "docstring": "Set the text of this area as a string."
+        },
+        {
+          "name": "get_text",
+          "docstring": "Return the string representation of this area's text."
+        },
+        {
+          "name": "set_multilinebaseline",
+          "docstring": "Set multilinebaseline.\n\nIf True, the baseline for multiline text is adjusted so that it is\n(approximately) center-aligned with single-line text.  This is used\ne.g. by the legend implementation so that single-line labels are\nbaseline-aligned, but multiline labels are \"center\"-aligned with them."
+        },
+        {
+          "name": "get_multilinebaseline",
+          "docstring": "Get multilinebaseline."
+        },
+        {
+          "name": "set_transform",
+          "docstring": "set_transform is ignored."
+        },
+        {
+          "name": "set_offset",
+          "docstring": "Set the offset of the container.\n\nParameters\n----------\nxy : (float, float)\n    The (x, y) coordinates of the offset in display units."
+        },
+        {
+          "name": "get_offset",
+          "docstring": "Return offset of the container."
+        },
+        {
+          "name": "get_bbox",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AuxTransformBox",
+      "docstring": "An OffsetBox with an auxiliary transform.\n\nAll child artists are first transformed with *aux_transform*, then\ntranslated with an offset (the same for all children) so the bounding\nbox of the children matches the drawn box.  (In other words, adding an\narbitrary translation to *aux_transform* has no effect as it will be\ncancelled out by the later offsetting.)\n\n`AuxTransformBox` is similar to `.DrawingArea`, except that the extent of\nthe box is not predetermined but calculated from the window extent of its\nchildren, and the extent of the children will be calculated in the\ntransformed coordinate.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "add_artist",
+          "docstring": "Add an `.Artist` to the container box."
+        },
+        {
+          "name": "get_transform",
+          "docstring": "Return the `.Transform` applied to the children."
+        },
+        {
+          "name": "set_transform",
+          "docstring": "set_transform is ignored."
+        },
+        {
+          "name": "set_offset",
+          "docstring": "Set the offset of the container.\n\nParameters\n----------\nxy : (float, float)\n    The (x, y) coordinates of the offset in display units."
+        },
+        {
+          "name": "get_offset",
+          "docstring": "Return offset of the container."
+        },
+        {
+          "name": "get_bbox",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AnchoredOffsetbox",
+      "docstring": "An OffsetBox placed according to location *loc*.\n\nAnchoredOffsetbox has a single child.  When multiple children are needed,\nuse an extra OffsetBox to enclose them.  By default, the offset box is\nanchored against its parent Axes. You may explicitly specify the\n*bbox_to_anchor*.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nloc : str\n    The box location.  Valid locations are\n    'upper left', 'upper center', 'upper right',\n    'center left', 'center', 'center right',\n    'lower left', 'lower center', 'lower right'.\n    For backward compatibility, numeric values are accepted as well.\n    See the parameter *loc* of `.Legend` for details.\npad : float, default: 0.4\n    Padding around the child as fraction of the fontsize.\nborderpad : float, default: 0.5\n    Padding between the offsetbox frame and the *bbox_to_anchor*.\nchild : `.OffsetBox`\n    The box that will be anchored.\nprop : `.FontProperties`\n    This is only used as a reference for paddings. If not given,\n    :rc:`legend.fontsize` is used.\nframeon : bool\n    Whether to draw a frame around the box.\nbbox_to_anchor : `.BboxBase`, 2-tuple, or 4-tuple of floats\n    Box that is used to position the legend in conjunction with *loc*.\nbbox_transform : None or :class:`matplotlib.transforms.Transform`\n    The transform for the bounding box (*bbox_to_anchor*).\n**kwargs\n    All other parameters are passed on to `.OffsetBox`.\n\nNotes\n-----\nSee `.Legend` for a detailed description of the anchoring mechanism."
+        },
+        {
+          "name": "set_child",
+          "docstring": "Set the child to be anchored."
+        },
+        {
+          "name": "get_child",
+          "docstring": "Return the child."
+        },
+        {
+          "name": "get_children",
+          "docstring": "Return the list of children."
+        },
+        {
+          "name": "get_bbox",
+          "docstring": null
+        },
+        {
+          "name": "get_bbox_to_anchor",
+          "docstring": "Return the bbox that the box is anchored to."
+        },
+        {
+          "name": "set_bbox_to_anchor",
+          "docstring": "Set the bbox that the box is anchored to.\n\n*bbox* can be a Bbox instance, a list of [left, bottom, width,\nheight], or a list of [left, bottom] where the width and\nheight will be assumed to be zero. The bbox will be\ntransformed to display coordinate by the given transform."
+        },
+        {
+          "name": "get_offset",
+          "docstring": null
+        },
+        {
+          "name": "update_frame",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AnchoredText",
+      "docstring": "AnchoredOffsetbox with Text.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\ns : str\n    Text.\n\nloc : str\n    Location code. See `AnchoredOffsetbox`.\n\npad : float, default: 0.4\n    Padding around the text as fraction of the fontsize.\n\nborderpad : float, default: 0.5\n    Spacing between the offsetbox frame and the *bbox_to_anchor*.\n\nprop : dict, optional\n    Dictionary of keyword parameters to be passed to the\n    `~matplotlib.text.Text` instance contained inside AnchoredText.\n\n**kwargs\n    All other parameters are passed to `AnchoredOffsetbox`."
+        }
+      ]
+    },
+    {
+      "name": "OffsetImage",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_data",
+          "docstring": null
+        },
+        {
+          "name": "get_data",
+          "docstring": null
+        },
+        {
+          "name": "set_zoom",
+          "docstring": null
+        },
+        {
+          "name": "get_zoom",
+          "docstring": null
+        },
+        {
+          "name": "get_offset",
+          "docstring": "Return offset of the container."
+        },
+        {
+          "name": "get_children",
+          "docstring": null
+        },
+        {
+          "name": "get_bbox",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AnnotationBbox",
+      "docstring": "Container for an `OffsetBox` referring to a specific position *xy*.\n\nOptionally an arrow pointing from the offsetbox to *xy* can be drawn.\n\nThis is like `.Annotation`, but with `OffsetBox` instead of `.Text`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\noffsetbox : `OffsetBox`\n\nxy : (float, float)\n    The point *(x, y)* to annotate. The coordinate system is determined\n    by *xycoords*.\n\nxybox : (float, float), default: *xy*\n    The position *(x, y)* to place the text at. The coordinate system\n    is determined by *boxcoords*.\n\nxycoords : single or two-tuple of str or `.Artist` or `.Transform` or callable, default: 'data'\n    The coordinate system that *xy* is given in. See the parameter\n    *xycoords* in `.Annotation` for a detailed description.\n\nboxcoords : single or two-tuple of str or `.Artist` or `.Transform` or callable, default: value of *xycoords*\n    The coordinate system that *xybox* is given in. See the parameter\n    *textcoords* in `.Annotation` for a detailed description.\n\nframeon : bool, default: True\n    By default, the text is surrounded by a white `.FancyBboxPatch`\n    (accessible as the ``patch`` attribute of the `.AnnotationBbox`).\n    If *frameon* is set to False, this patch is made invisible.\n\nannotation_clip: bool or None, default: None\n    Whether to clip (i.e. not draw) the annotation when the annotation\n    point *xy* is outside the Axes area.\n\n    - If *True*, the annotation will be clipped when *xy* is outside\n      the Axes.\n    - If *False*, the annotation will always be drawn.\n    - If *None*, the annotation will be clipped when *xy* is outside\n      the Axes and *xycoords* is 'data'.\n\npad : float, default: 0.4\n    Padding around the offsetbox.\n\nbox_alignment : (float, float)\n    A tuple of two floats for a vertical and horizontal alignment of\n    the offset box w.r.t. the *boxcoords*.\n    The lower-left corner is (0, 0) and upper-right corner is (1, 1).\n\nbboxprops : dict, optional\n    A dictionary of properties to set for the annotation bounding box,\n    for example *boxstyle* and *alpha*.  See `.FancyBboxPatch` for\n    details.\n\narrowprops: dict, optional\n    Arrow properties, see `.Annotation` for description.\n\nfontsize: float or str, optional\n    Translated to points and passed as *mutation_scale* into\n    `.FancyBboxPatch` to scale attributes of the box style (e.g. pad\n    or rounding_size).  The name is chosen in analogy to `.Text` where\n    *fontsize* defines the mutation scale as well.  If not given,\n    :rc:`legend.fontsize` is used.  See `.Text.set_fontsize` for valid\n    values.\n\n**kwargs\n    Other `AnnotationBbox` properties.  See `.AnnotationBbox.set` for\n    a list."
+        },
+        {
+          "name": "xyann",
+          "docstring": null
+        },
+        {
+          "name": "xyann",
+          "docstring": null
+        },
+        {
+          "name": "anncoords",
+          "docstring": null
+        },
+        {
+          "name": "anncoords",
+          "docstring": null
+        },
+        {
+          "name": "contains",
+          "docstring": null
+        },
+        {
+          "name": "get_children",
+          "docstring": null
+        },
+        {
+          "name": "set_figure",
+          "docstring": null
+        },
+        {
+          "name": "set_fontsize",
+          "docstring": "Set the fontsize in points.\n\nIf *s* is not given, reset to :rc:`legend.fontsize`."
+        },
+        {
+          "name": "get_fontsize",
+          "docstring": "Return the fontsize in points."
+        },
+        {
+          "name": "get_window_extent",
+          "docstring": null
+        },
+        {
+          "name": "get_tightbbox",
+          "docstring": null
+        },
+        {
+          "name": "update_positions",
+          "docstring": "Update pixel positions for the annotated point, the text, and the arrow."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DraggableBase",
+      "docstring": "Helper base class for a draggable artist (legend, offsetbox).\n\nDerived classes must override the following methods::\n\n    def save_offset(self):\n        '''\n        Called when the object is picked for dragging; should save the\n        reference position of the artist.\n        '''\n\n    def update_offset(self, dx, dy):\n        '''\n        Called during the dragging; (*dx*, *dy*) is the pixel offset from\n        the point where the mouse drag started.\n        '''\n\nOptionally, you may override the following method::\n\n    def finalize_offset(self):\n        '''Called when the mouse is released.'''\n\nIn the current implementation of `.DraggableLegend` and\n`DraggableAnnotation`, `update_offset` places the artists in display\ncoordinates, and `finalize_offset` recalculates their position in axes\ncoordinate and set a relevant attribute.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "on_motion",
+          "docstring": null
+        },
+        {
+          "name": "on_pick",
+          "docstring": null
+        },
+        {
+          "name": "on_release",
+          "docstring": null
+        },
+        {
+          "name": "disconnect",
+          "docstring": "Disconnect the callbacks."
+        },
+        {
+          "name": "save_offset",
+          "docstring": null
+        },
+        {
+          "name": "update_offset",
+          "docstring": null
+        },
+        {
+          "name": "finalize_offset",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DraggableOffsetBox",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "save_offset",
+          "docstring": null
+        },
+        {
+          "name": "update_offset",
+          "docstring": null
+        },
+        {
+          "name": "get_loc_in_canvas",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DraggableAnnotation",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "save_offset",
+          "docstring": null
+        },
+        {
+          "name": "update_offset",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_offset",
+      "docstring": null
+    },
+    {
+      "name": "set_figure",
+      "docstring": "Set the `.Figure` for the `.OffsetBox` and all its children.\n\nParameters\n----------\nfig : `~matplotlib.figure.Figure`"
+    },
+    {
+      "name": "axes",
+      "docstring": null
+    },
+    {
+      "name": "contains",
+      "docstring": "Delegate the mouse event contains-check to the children.\n\nAs a container, the `.OffsetBox` does not respond itself to\nmouseevents.\n\nParameters\n----------\nmouseevent : `~matplotlib.backend_bases.MouseEvent`\n\nReturns\n-------\ncontains : bool\n    Whether any values are within the radius.\ndetails : dict\n    An artist-specific dictionary of details of the event context,\n    such as which points are contained in the pick radius. See the\n    individual Artist subclasses for details.\n\nSee Also\n--------\n.Artist.contains"
+    },
+    {
+      "name": "set_offset",
+      "docstring": "Set the offset.\n\nParameters\n----------\nxy : (float, float) or callable\n    The (x, y) coordinates of the offset in display units. These can\n    either be given explicitly as a tuple (x, y), or by providing a\n    function that converts the extent into the offset. This function\n    must have the signature::\n\n        def offset(width, height, xdescent, ydescent, renderer) -> (float, float)"
+    },
+    {
+      "name": "get_offset",
+      "docstring": "Return the offset as a tuple (x, y).\n\nThe extent parameters have to be provided to handle the case where the\noffset is dynamically determined by a callable (see\n`~.OffsetBox.set_offset`).\n\nParameters\n----------\nbbox : `.Bbox`\nrenderer : `.RendererBase` subclass"
+    },
+    {
+      "name": "set_width",
+      "docstring": "Set the width of the box.\n\nParameters\n----------\nwidth : float"
+    },
+    {
+      "name": "set_height",
+      "docstring": "Set the height of the box.\n\nParameters\n----------\nheight : float"
+    },
+    {
+      "name": "get_visible_children",
+      "docstring": "Return a list of the visible child `.Artist`\\s."
+    },
+    {
+      "name": "get_children",
+      "docstring": "Return a list of the child `.Artist`\\s."
+    },
+    {
+      "name": "get_bbox",
+      "docstring": "Return the bbox of the offsetbox, ignoring parent offsets."
+    },
+    {
+      "name": "get_window_extent",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": "Update the location of children if necessary and draw them\nto the given *renderer*."
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "update_frame",
+      "docstring": null
+    },
+    {
+      "name": "draw_frame",
+      "docstring": null
+    },
+    {
+      "name": "clip_children",
+      "docstring": "If the children of this DrawingArea should be clipped\nby DrawingArea bounding box."
+    },
+    {
+      "name": "clip_children",
+      "docstring": null
+    },
+    {
+      "name": "get_transform",
+      "docstring": "Return the `~matplotlib.transforms.Transform` applied to the children."
+    },
+    {
+      "name": "set_transform",
+      "docstring": "set_transform is ignored."
+    },
+    {
+      "name": "set_offset",
+      "docstring": "Set the offset of the container.\n\nParameters\n----------\nxy : (float, float)\n    The (x, y) coordinates of the offset in display units."
+    },
+    {
+      "name": "get_offset",
+      "docstring": "Return offset of the container."
+    },
+    {
+      "name": "get_bbox",
+      "docstring": null
+    },
+    {
+      "name": "add_artist",
+      "docstring": "Add an `.Artist` to the container box."
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "set_text",
+      "docstring": "Set the text of this area as a string."
+    },
+    {
+      "name": "get_text",
+      "docstring": "Return the string representation of this area's text."
+    },
+    {
+      "name": "set_multilinebaseline",
+      "docstring": "Set multilinebaseline.\n\nIf True, the baseline for multiline text is adjusted so that it is\n(approximately) center-aligned with single-line text.  This is used\ne.g. by the legend implementation so that single-line labels are\nbaseline-aligned, but multiline labels are \"center\"-aligned with them."
+    },
+    {
+      "name": "get_multilinebaseline",
+      "docstring": "Get multilinebaseline."
+    },
+    {
+      "name": "set_transform",
+      "docstring": "set_transform is ignored."
+    },
+    {
+      "name": "set_offset",
+      "docstring": "Set the offset of the container.\n\nParameters\n----------\nxy : (float, float)\n    The (x, y) coordinates of the offset in display units."
+    },
+    {
+      "name": "get_offset",
+      "docstring": "Return offset of the container."
+    },
+    {
+      "name": "get_bbox",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "add_artist",
+      "docstring": "Add an `.Artist` to the container box."
+    },
+    {
+      "name": "get_transform",
+      "docstring": "Return the `.Transform` applied to the children."
+    },
+    {
+      "name": "set_transform",
+      "docstring": "set_transform is ignored."
+    },
+    {
+      "name": "set_offset",
+      "docstring": "Set the offset of the container.\n\nParameters\n----------\nxy : (float, float)\n    The (x, y) coordinates of the offset in display units."
+    },
+    {
+      "name": "get_offset",
+      "docstring": "Return offset of the container."
+    },
+    {
+      "name": "get_bbox",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "set_child",
+      "docstring": "Set the child to be anchored."
+    },
+    {
+      "name": "get_child",
+      "docstring": "Return the child."
+    },
+    {
+      "name": "get_children",
+      "docstring": "Return the list of children."
+    },
+    {
+      "name": "get_bbox",
+      "docstring": null
+    },
+    {
+      "name": "get_bbox_to_anchor",
+      "docstring": "Return the bbox that the box is anchored to."
+    },
+    {
+      "name": "set_bbox_to_anchor",
+      "docstring": "Set the bbox that the box is anchored to.\n\n*bbox* can be a Bbox instance, a list of [left, bottom, width,\nheight], or a list of [left, bottom] where the width and\nheight will be assumed to be zero. The bbox will be\ntransformed to display coordinate by the given transform."
+    },
+    {
+      "name": "get_offset",
+      "docstring": null
+    },
+    {
+      "name": "update_frame",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "set_data",
+      "docstring": null
+    },
+    {
+      "name": "get_data",
+      "docstring": null
+    },
+    {
+      "name": "set_zoom",
+      "docstring": null
+    },
+    {
+      "name": "get_zoom",
+      "docstring": null
+    },
+    {
+      "name": "get_offset",
+      "docstring": "Return offset of the container."
+    },
+    {
+      "name": "get_children",
+      "docstring": null
+    },
+    {
+      "name": "get_bbox",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "xyann",
+      "docstring": null
+    },
+    {
+      "name": "xyann",
+      "docstring": null
+    },
+    {
+      "name": "anncoords",
+      "docstring": null
+    },
+    {
+      "name": "anncoords",
+      "docstring": null
+    },
+    {
+      "name": "contains",
+      "docstring": null
+    },
+    {
+      "name": "get_children",
+      "docstring": null
+    },
+    {
+      "name": "set_figure",
+      "docstring": null
+    },
+    {
+      "name": "set_fontsize",
+      "docstring": "Set the fontsize in points.\n\nIf *s* is not given, reset to :rc:`legend.fontsize`."
+    },
+    {
+      "name": "get_fontsize",
+      "docstring": "Return the fontsize in points."
+    },
+    {
+      "name": "get_window_extent",
+      "docstring": null
+    },
+    {
+      "name": "get_tightbbox",
+      "docstring": null
+    },
+    {
+      "name": "update_positions",
+      "docstring": "Update pixel positions for the annotated point, the text, and the arrow."
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "on_motion",
+      "docstring": null
+    },
+    {
+      "name": "on_pick",
+      "docstring": null
+    },
+    {
+      "name": "on_release",
+      "docstring": null
+    },
+    {
+      "name": "disconnect",
+      "docstring": "Disconnect the callbacks."
+    },
+    {
+      "name": "save_offset",
+      "docstring": null
+    },
+    {
+      "name": "update_offset",
+      "docstring": null
+    },
+    {
+      "name": "finalize_offset",
+      "docstring": null
+    },
+    {
+      "name": "save_offset",
+      "docstring": null
+    },
+    {
+      "name": "update_offset",
+      "docstring": null
+    },
+    {
+      "name": "get_loc_in_canvas",
+      "docstring": null
+    },
+    {
+      "name": "save_offset",
+      "docstring": null
+    },
+    {
+      "name": "update_offset",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,261 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\realtime\\real_time_tracker.py",
+  "classes": [
+    {
+      "name": "AnalysisMode",
+      "docstring": "Analysis modes for real-time tracking",
+      "methods": []
+    },
+    {
+      "name": "PerformanceMetrics",
+      "docstring": "Performance metrics for real-time processing",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize performance metrics"
+        },
+        {
+          "name": "record_frame_processed",
+          "docstring": "Record metrics for a processed frame\n\nArgs:\n    processing_time: Time taken to process the frame in seconds"
+        },
+        {
+          "name": "record_frame_skipped",
+          "docstring": "Record a skipped frame"
+        },
+        {
+          "name": "get_average_frame_rate",
+          "docstring": "Get the average frame rate\n\nReturns:\n    float: Average frame rate in frames per second"
+        },
+        {
+          "name": "get_average_processing_time",
+          "docstring": "Get the average processing time\n\nReturns:\n    float: Average processing time in seconds"
+        },
+        {
+          "name": "get_total_runtime",
+          "docstring": "Get the total runtime\n\nReturns:\n    float: Total runtime in seconds"
+        },
+        {
+          "name": "summarize",
+          "docstring": "Summarize performance metrics\n\nReturns:\n    Dict[str, float]: Summary of performance metrics"
+        }
+      ]
+    },
+    {
+      "name": "FrameBuffer",
+      "docstring": "Buffer for storing and accessing frames for analysis",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a frame buffer\n\nArgs:\n    max_size: Maximum number of frames to store"
+        },
+        {
+          "name": "add_frame",
+          "docstring": "Add a frame to the buffer\n\nArgs:\n    frame: The frame to add"
+        },
+        {
+          "name": "get_frame",
+          "docstring": "Get a frame from the buffer\n\nArgs:\n    index: Index of the frame to get (-1 for latest)\n    \nReturns:\n    The frame at the specified index, or None if index is invalid"
+        },
+        {
+          "name": "get_frames",
+          "docstring": "Get a range of frames from the buffer\n\nArgs:\n    start_index: Start index (inclusive)\n    end_index: End index (exclusive), or None for all frames from start_index\n    \nReturns:\n    List of frames in the specified range"
+        },
+        {
+          "name": "clear",
+          "docstring": "Clear the buffer"
+        },
+        {
+          "name": "get_buffer_size",
+          "docstring": "Get the current size of the buffer\n\nReturns:\n    int: Number of frames in the buffer"
+        }
+      ]
+    },
+    {
+      "name": "StreamProcessor",
+      "docstring": "Processes streams of point clouds in real-time",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a stream processor\n\nArgs:\n    buffer_size: Size of the frame buffer\n    mode: Analysis mode"
+        },
+        {
+          "name": "start",
+          "docstring": "Start the stream processor"
+        },
+        {
+          "name": "stop",
+          "docstring": "Stop the stream processor"
+        },
+        {
+          "name": "add_frame",
+          "docstring": "Add a frame to the processor\n\nArgs:\n    frame: The frame to add"
+        },
+        {
+          "name": "add_alert_callback",
+          "docstring": "Add a callback function to be called when an alert is triggered\n\nArgs:\n    callback: Function to call when an alert is triggered"
+        },
+        {
+          "name": "set_mode",
+          "docstring": "Set the analysis mode\n\nArgs:\n    mode: The analysis mode to set\n    **kwargs: Additional parameters for the mode"
+        },
+        {
+          "name": "add_trigger",
+          "docstring": "Add a trigger function for TRIGGER mode\n\nArgs:\n    trigger_func: Function that takes a frame and returns True if processing should be triggered"
+        },
+        {
+          "name": "get_performance_summary",
+          "docstring": "Get a summary of performance metrics\n\nReturns:\n    Dict[str, float]: Summary of performance metrics"
+        }
+      ]
+    },
+    {
+      "name": "RealTimeTracker",
+      "docstring": "Tracks negative spaces in real-time",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a real-time tracker\n\nArgs:\n    target_fps: Target frames per second\n    mode: Analysis mode"
+        },
+        {
+          "name": "start",
+          "docstring": "Start the real-time tracker"
+        },
+        {
+          "name": "stop",
+          "docstring": "Stop the real-time tracker"
+        },
+        {
+          "name": "process_frame",
+          "docstring": "Process a single frame\n\nArgs:\n    frame: The frame to process"
+        },
+        {
+          "name": "start_camera_capture",
+          "docstring": "Start capturing frames from a camera\n\nArgs:\n    camera_id: Camera ID to capture from"
+        },
+        {
+          "name": "set_alert_callback",
+          "docstring": "Set a callback function for alerts\n\nArgs:\n    callback: Function to call when an alert is triggered"
+        },
+        {
+          "name": "get_performance_metrics",
+          "docstring": "Get performance metrics\n\nReturns:\n    Dict[str, float]: Performance metrics"
+        },
+        {
+          "name": "get_latest_results",
+          "docstring": "Get the latest results\n\nReturns:\n    Dict: Latest results"
+        },
+        {
+          "name": "set_mode",
+          "docstring": "Set the analysis mode\n\nArgs:\n    mode: The analysis mode to set\n    **kwargs: Additional parameters for the mode"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "record_frame_processed",
+      "docstring": "Record metrics for a processed frame\n\nArgs:\n    processing_time: Time taken to process the frame in seconds"
+    },
+    {
+      "name": "record_frame_skipped",
+      "docstring": "Record a skipped frame"
+    },
+    {
+      "name": "get_average_frame_rate",
+      "docstring": "Get the average frame rate\n\nReturns:\n    float: Average frame rate in frames per second"
+    },
+    {
+      "name": "get_average_processing_time",
+      "docstring": "Get the average processing time\n\nReturns:\n    float: Average processing time in seconds"
+    },
+    {
+      "name": "get_total_runtime",
+      "docstring": "Get the total runtime\n\nReturns:\n    float: Total runtime in seconds"
+    },
+    {
+      "name": "summarize",
+      "docstring": "Summarize performance metrics\n\nReturns:\n    Dict[str, float]: Summary of performance metrics"
+    },
+    {
+      "name": "add_frame",
+      "docstring": "Add a frame to the buffer\n\nArgs:\n    frame: The frame to add"
+    },
+    {
+      "name": "get_frame",
+      "docstring": "Get a frame from the buffer\n\nArgs:\n    index: Index of the frame to get (-1 for latest)\n    \nReturns:\n    The frame at the specified index, or None if index is invalid"
+    },
+    {
+      "name": "get_frames",
+      "docstring": "Get a range of frames from the buffer\n\nArgs:\n    start_index: Start index (inclusive)\n    end_index: End index (exclusive), or None for all frames from start_index\n    \nReturns:\n    List of frames in the specified range"
+    },
+    {
+      "name": "clear",
+      "docstring": "Clear the buffer"
+    },
+    {
+      "name": "get_buffer_size",
+      "docstring": "Get the current size of the buffer\n\nReturns:\n    int: Number of frames in the buffer"
+    },
+    {
+      "name": "start",
+      "docstring": "Start the stream processor"
+    },
+    {
+      "name": "stop",
+      "docstring": "Stop the stream processor"
+    },
+    {
+      "name": "add_frame",
+      "docstring": "Add a frame to the processor\n\nArgs:\n    frame: The frame to add"
+    },
+    {
+      "name": "add_alert_callback",
+      "docstring": "Add a callback function to be called when an alert is triggered\n\nArgs:\n    callback: Function to call when an alert is triggered"
+    },
+    {
+      "name": "set_mode",
+      "docstring": "Set the analysis mode\n\nArgs:\n    mode: The analysis mode to set\n    **kwargs: Additional parameters for the mode"
+    },
+    {
+      "name": "add_trigger",
+      "docstring": "Add a trigger function for TRIGGER mode\n\nArgs:\n    trigger_func: Function that takes a frame and returns True if processing should be triggered"
+    },
+    {
+      "name": "get_performance_summary",
+      "docstring": "Get a summary of performance metrics\n\nReturns:\n    Dict[str, float]: Summary of performance metrics"
+    },
+    {
+      "name": "start",
+      "docstring": "Start the real-time tracker"
+    },
+    {
+      "name": "stop",
+      "docstring": "Stop the real-time tracker"
+    },
+    {
+      "name": "process_frame",
+      "docstring": "Process a single frame\n\nArgs:\n    frame: The frame to process"
+    },
+    {
+      "name": "start_camera_capture",
+      "docstring": "Start capturing frames from a camera\n\nArgs:\n    camera_id: Camera ID to capture from"
+    },
+    {
+      "name": "set_alert_callback",
+      "docstring": "Set a callback function for alerts\n\nArgs:\n    callback: Function to call when an alert is triggered"
+    },
+    {
+      "name": "get_performance_metrics",
+      "docstring": "Get performance metrics\n\nReturns:\n    Dict[str, float]: Performance metrics"
+    },
+    {
+      "name": "get_latest_results",
+      "docstring": "Get the latest results\n\nReturns:\n    Dict: Latest results"
+    },
+    {
+      "name": "set_mode",
+      "docstring": "Set the analysis mode\n\nArgs:\n    mode: The analysis mode to set\n    **kwargs: Additional parameters for the mode"
+    }
+  ],
+  "innovations": []
+}

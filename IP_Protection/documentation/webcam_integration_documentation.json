@@ -1,0 +1,123 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\realtime\\webcam_integration.py",
+  "classes": [
+    {
+      "name": "CameraResolution",
+      "docstring": "Standard camera resolutions",
+      "methods": []
+    },
+    {
+      "name": "CameraSource",
+      "docstring": "Interface to camera hardware for capturing video frames",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a camera source\n\nArgs:\n    camera_id: ID of the camera to use\n    resolution: Resolution to capture at"
+        },
+        {
+          "name": "start",
+          "docstring": "Start capturing frames from the camera"
+        },
+        {
+          "name": "stop",
+          "docstring": "Stop capturing frames from the camera"
+        },
+        {
+          "name": "get_frame",
+          "docstring": "Get the latest frame from the camera\n\nReturns:\n    The latest frame, or None if no frames are available"
+        },
+        {
+          "name": "get_camera_properties",
+          "docstring": "Get properties of the camera\n\nReturns:\n    Dict of camera properties"
+        },
+        {
+          "name": "set_camera_property",
+          "docstring": "Set a camera property\n\nArgs:\n    property_id: OpenCV property ID\n    value: Value to set\n    \nReturns:\n    True if successful, False otherwise"
+        },
+        {
+          "name": "get_available_cameras",
+          "docstring": "Get a list of available cameras\n\nReturns:\n    List of camera IDs"
+        }
+      ]
+    },
+    {
+      "name": "DepthEstimator",
+      "docstring": "Estimates depth from 2D images",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a depth estimator\n\nArgs:\n    method: Method to use for depth estimation (\"stereo\", \"mono\", or \"structured_light\")"
+        },
+        {
+          "name": "estimate_depth",
+          "docstring": "Estimate depth from images\n\nArgs:\n    left_frame: Left camera frame (or single frame for mono)\n    right_frame: Right camera frame (only for stereo)\n    \nReturns:\n    Depth map, or None if depth estimation failed"
+        },
+        {
+          "name": "visualize_depth",
+          "docstring": "Visualize a depth map\n\nArgs:\n    depth_map: Depth map to visualize\n    \nReturns:\n    Visualization of the depth map, or None if visualization failed"
+        }
+      ]
+    },
+    {
+      "name": "PointCloudGenerator",
+      "docstring": "Converts video frames to point clouds",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a point cloud generator\n\nArgs:\n    depth_estimator: Depth estimator to use\n    downsample_factor: Factor to downsample frames by"
+        },
+        {
+          "name": "generate_point_cloud",
+          "docstring": "Generate a point cloud from a frame and optional depth map\n\nArgs:\n    frame: Frame to generate point cloud from\n    depth_map: Optional depth map (will be estimated if not provided)\n    \nReturns:\n    Point cloud object, or None if generation failed"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "start",
+      "docstring": "Start capturing frames from the camera"
+    },
+    {
+      "name": "stop",
+      "docstring": "Stop capturing frames from the camera"
+    },
+    {
+      "name": "get_frame",
+      "docstring": "Get the latest frame from the camera\n\nReturns:\n    The latest frame, or None if no frames are available"
+    },
+    {
+      "name": "get_camera_properties",
+      "docstring": "Get properties of the camera\n\nReturns:\n    Dict of camera properties"
+    },
+    {
+      "name": "set_camera_property",
+      "docstring": "Set a camera property\n\nArgs:\n    property_id: OpenCV property ID\n    value: Value to set\n    \nReturns:\n    True if successful, False otherwise"
+    },
+    {
+      "name": "get_available_cameras",
+      "docstring": "Get a list of available cameras\n\nReturns:\n    List of camera IDs"
+    },
+    {
+      "name": "estimate_depth",
+      "docstring": "Estimate depth from images\n\nArgs:\n    left_frame: Left camera frame (or single frame for mono)\n    right_frame: Right camera frame (only for stereo)\n    \nReturns:\n    Depth map, or None if depth estimation failed"
+    },
+    {
+      "name": "visualize_depth",
+      "docstring": "Visualize a depth map\n\nArgs:\n    depth_map: Depth map to visualize\n    \nReturns:\n    Visualization of the depth map, or None if visualization failed"
+    },
+    {
+      "name": "generate_point_cloud",
+      "docstring": "Generate a point cloud from a frame and optional depth map\n\nArgs:\n    frame: Frame to generate point cloud from\n    depth_map: Optional depth map (will be estimated if not provided)\n    \nReturns:\n    Point cloud object, or None if generation failed"
+    },
+    {
+      "name": "convert_to_open3d",
+      "docstring": "Convert a SimplePointCloud to an Open3D point cloud\n\nArgs:\n    point_cloud: SimplePointCloud object\n    \nReturns:\n    Open3D point cloud"
+    },
+    {
+      "name": "convert_to_open3d",
+      "docstring": "Dummy converter when Open3D is not available\n\nArgs:\n    point_cloud: SimplePointCloud object\n    \nReturns:\n    None"
+    }
+  ],
+  "innovations": []
+}

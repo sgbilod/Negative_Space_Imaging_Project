@@ -1,0 +1,310 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_collections.py",
+  "classes": [
+    {
+      "name": "SquareCollection",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_transform",
+          "docstring": "Return transform scaling circle areas to data space."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "pcfunc",
+      "docstring": null
+    },
+    {
+      "name": "generate_EventCollection_plot",
+      "docstring": "Generate the initial collection and plot it."
+    },
+    {
+      "name": "test__EventCollection__get_props",
+      "docstring": null
+    },
+    {
+      "name": "test__EventCollection__set_positions",
+      "docstring": null
+    },
+    {
+      "name": "test__EventCollection__add_positions",
+      "docstring": null
+    },
+    {
+      "name": "test__EventCollection__append_positions",
+      "docstring": null
+    },
+    {
+      "name": "test__EventCollection__extend_positions",
+      "docstring": null
+    },
+    {
+      "name": "test__EventCollection__switch_orientation",
+      "docstring": null
+    },
+    {
+      "name": "test__EventCollection__switch_orientation_2x",
+      "docstring": "Check that calling switch_orientation twice sets the orientation back to\nthe default."
+    },
+    {
+      "name": "test__EventCollection__set_orientation",
+      "docstring": null
+    },
+    {
+      "name": "test__EventCollection__set_linelength",
+      "docstring": null
+    },
+    {
+      "name": "test__EventCollection__set_lineoffset",
+      "docstring": null
+    },
+    {
+      "name": "test__EventCollection__set_prop",
+      "docstring": null
+    },
+    {
+      "name": "test__EventCollection__set_color",
+      "docstring": null
+    },
+    {
+      "name": "check_segments",
+      "docstring": "Test helper checking that all values in the segment are correct, given a\nparticular set of inputs."
+    },
+    {
+      "name": "test_collection_norm_autoscale",
+      "docstring": null
+    },
+    {
+      "name": "test_null_collection_datalim",
+      "docstring": null
+    },
+    {
+      "name": "test_no_offsets_datalim",
+      "docstring": null
+    },
+    {
+      "name": "test_add_collection",
+      "docstring": null
+    },
+    {
+      "name": "test_collection_log_datalim",
+      "docstring": null
+    },
+    {
+      "name": "test_quiver_limits",
+      "docstring": null
+    },
+    {
+      "name": "test_barb_limits",
+      "docstring": null
+    },
+    {
+      "name": "test_EllipseCollection",
+      "docstring": null
+    },
+    {
+      "name": "test_EllipseCollection_setter_getter",
+      "docstring": null
+    },
+    {
+      "name": "test_polycollection_close",
+      "docstring": null
+    },
+    {
+      "name": "test_regularpolycollection_rotate",
+      "docstring": null
+    },
+    {
+      "name": "test_regularpolycollection_scale",
+      "docstring": null
+    },
+    {
+      "name": "test_picking",
+      "docstring": null
+    },
+    {
+      "name": "test_quadmesh_contains",
+      "docstring": null
+    },
+    {
+      "name": "test_quadmesh_contains_concave",
+      "docstring": null
+    },
+    {
+      "name": "test_quadmesh_cursor_data",
+      "docstring": null
+    },
+    {
+      "name": "test_quadmesh_cursor_data_multiple_points",
+      "docstring": null
+    },
+    {
+      "name": "test_linestyle_single_dashes",
+      "docstring": null
+    },
+    {
+      "name": "test_size_in_xy",
+      "docstring": null
+    },
+    {
+      "name": "test_pandas_indexing",
+      "docstring": null
+    },
+    {
+      "name": "test_lslw_bcast",
+      "docstring": null
+    },
+    {
+      "name": "test_set_wrong_linestyle",
+      "docstring": null
+    },
+    {
+      "name": "test_capstyle",
+      "docstring": null
+    },
+    {
+      "name": "test_joinstyle",
+      "docstring": null
+    },
+    {
+      "name": "test_cap_and_joinstyle_image",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_post_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_scatter_alpha_array",
+      "docstring": null
+    },
+    {
+      "name": "test_pathcollection_legend_elements",
+      "docstring": null
+    },
+    {
+      "name": "test_EventCollection_nosort",
+      "docstring": null
+    },
+    {
+      "name": "test_collection_set_verts_array",
+      "docstring": null
+    },
+    {
+      "name": "test_fill_between_poly_collection_set_data",
+      "docstring": null
+    },
+    {
+      "name": "test_fill_between_poly_collection_raise",
+      "docstring": null
+    },
+    {
+      "name": "test_collection_set_array",
+      "docstring": null
+    },
+    {
+      "name": "test_blended_collection_autolim",
+      "docstring": null
+    },
+    {
+      "name": "test_singleton_autolim",
+      "docstring": null
+    },
+    {
+      "name": "test_autolim_with_zeros",
+      "docstring": null
+    },
+    {
+      "name": "test_quadmesh_set_array_validation",
+      "docstring": null
+    },
+    {
+      "name": "test_polyquadmesh_masked_vertices_array",
+      "docstring": null
+    },
+    {
+      "name": "test_quadmesh_get_coordinates",
+      "docstring": null
+    },
+    {
+      "name": "test_quadmesh_set_array",
+      "docstring": null
+    },
+    {
+      "name": "test_quadmesh_vmin_vmax",
+      "docstring": null
+    },
+    {
+      "name": "test_quadmesh_alpha_array",
+      "docstring": null
+    },
+    {
+      "name": "test_alpha_validation",
+      "docstring": null
+    },
+    {
+      "name": "test_legend_inverse_size_label_relationship",
+      "docstring": "Ensure legend markers scale appropriately when label and size are\ninversely related.\nHere label = 5 / size"
+    },
+    {
+      "name": "test_color_logic",
+      "docstring": null
+    },
+    {
+      "name": "test_LineCollection_args",
+      "docstring": null
+    },
+    {
+      "name": "test_array_dimensions",
+      "docstring": null
+    },
+    {
+      "name": "test_get_segments",
+      "docstring": null
+    },
+    {
+      "name": "test_set_offsets_late",
+      "docstring": null
+    },
+    {
+      "name": "test_set_offset_transform",
+      "docstring": null
+    },
+    {
+      "name": "test_set_offset_units",
+      "docstring": null
+    },
+    {
+      "name": "test_check_masked_offsets",
+      "docstring": null
+    },
+    {
+      "name": "test_masked_set_offsets",
+      "docstring": null
+    },
+    {
+      "name": "test_check_offsets_dtype",
+      "docstring": null
+    },
+    {
+      "name": "test_striped_lines",
+      "docstring": null
+    },
+    {
+      "name": "test_hatch_linewidth",
+      "docstring": null
+    },
+    {
+      "name": "get_transform",
+      "docstring": "Return transform scaling circle areas to data space."
+    }
+  ],
+  "innovations": []
+}

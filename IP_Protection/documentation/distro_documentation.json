@@ -1,0 +1,282 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\distro\\distro.py",
+  "classes": [
+    {
+      "name": "VersionDict",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "InfoDict",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "LinuxDistribution",
+      "docstring": "Provides information about a OS distribution.\n\nThis package creates a private module-global instance of this class with\ndefault initialization arguments, that is used by the\n`consolidated accessor functions`_ and `single source accessor functions`_.\nBy using default initialization arguments, that module-global instance\nreturns data about the current OS distribution (i.e. the distro this\npackage runs on).\n\nNormally, it is not necessary to create additional instances of this class.\nHowever, in situations where control is needed over the exact data sources\nthat are used, instances of this class can be created with a specific\ndistro release file, or a specific os-release file, or without invoking the\nlsb_release command.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "The initialization method of this class gathers information from the\navailable data sources, and stores that in private instance attributes.\nSubsequent access to the information items uses these private instance\nattributes, so that the data sources are read only once.\n\nParameters:\n\n* ``include_lsb`` (bool): Controls whether the\n  `lsb_release command output`_ is included as a data source.\n\n  If the lsb_release command is not available in the program execution\n  path, the data source for the lsb_release command will be empty.\n\n* ``os_release_file`` (string): The path name of the\n  `os-release file`_ that is to be used as a data source.\n\n  An empty string (the default) will cause the default path name to\n  be used (see `os-release file`_ for details).\n\n  If the specified or defaulted os-release file does not exist, the\n  data source for the os-release file will be empty.\n\n* ``distro_release_file`` (string): The path name of the\n  `distro release file`_ that is to be used as a data source.\n\n  An empty string (the default) will cause a default search algorithm\n  to be used (see `distro release file`_ for details).\n\n  If the specified distro release file does not exist, or if no default\n  distro release file can be found, the data source for the distro\n  release file will be empty.\n\n* ``include_uname`` (bool): Controls whether uname command output is\n  included as a data source. If the uname command is not available in\n  the program execution path the data source for the uname command will\n  be empty.\n\n* ``root_dir`` (string): The absolute path to the root directory to use\n  to find distro-related information files. Note that ``include_*``\n  parameters must not be enabled in combination with ``root_dir``.\n\n* ``include_oslevel`` (bool): Controls whether (AIX) oslevel command\n  output is included as a data source. If the oslevel command is not\n  available in the program execution path the data source will be\n  empty.\n\nPublic instance attributes:\n\n* ``os_release_file`` (string): The path name of the\n  `os-release file`_ that is actually used as a data source. The\n  empty string if no distro release file is used as a data source.\n\n* ``distro_release_file`` (string): The path name of the\n  `distro release file`_ that is actually used as a data source. The\n  empty string if no distro release file is used as a data source.\n\n* ``include_lsb`` (bool): The result of the ``include_lsb`` parameter.\n  This controls whether the lsb information will be loaded.\n\n* ``include_uname`` (bool): The result of the ``include_uname``\n  parameter. This controls whether the uname information will\n  be loaded.\n\n* ``include_oslevel`` (bool): The result of the ``include_oslevel``\n  parameter. This controls whether (AIX) oslevel information will be\n  loaded.\n\n* ``root_dir`` (string): The result of the ``root_dir`` parameter.\n  The absolute path to the root directory to use to find distro-related\n  information files.\n\nRaises:\n\n* :py:exc:`ValueError`: Initialization parameters combination is not\n   supported.\n\n* :py:exc:`OSError`: Some I/O issue with an os-release file or distro\n  release file.\n\n* :py:exc:`UnicodeError`: A data source has unexpected characters or\n  uses an unexpected encoding."
+        },
+        {
+          "name": "linux_distribution",
+          "docstring": "Return information about the OS distribution that is compatible\nwith Python's :func:`platform.linux_distribution`, supporting a subset\nof its parameters.\n\nFor details, see :func:`distro.linux_distribution`."
+        },
+        {
+          "name": "id",
+          "docstring": "Return the distro ID of the OS distribution, as a string.\n\nFor details, see :func:`distro.id`."
+        },
+        {
+          "name": "name",
+          "docstring": "Return the name of the OS distribution, as a string.\n\nFor details, see :func:`distro.name`."
+        },
+        {
+          "name": "version",
+          "docstring": "Return the version of the OS distribution, as a string.\n\nFor details, see :func:`distro.version`."
+        },
+        {
+          "name": "version_parts",
+          "docstring": "Return the version of the OS distribution, as a tuple of version\nnumbers.\n\nFor details, see :func:`distro.version_parts`."
+        },
+        {
+          "name": "major_version",
+          "docstring": "Return the major version number of the current distribution.\n\nFor details, see :func:`distro.major_version`."
+        },
+        {
+          "name": "minor_version",
+          "docstring": "Return the minor version number of the current distribution.\n\nFor details, see :func:`distro.minor_version`."
+        },
+        {
+          "name": "build_number",
+          "docstring": "Return the build number of the current distribution.\n\nFor details, see :func:`distro.build_number`."
+        },
+        {
+          "name": "like",
+          "docstring": "Return the IDs of distributions that are like the OS distribution.\n\nFor details, see :func:`distro.like`."
+        },
+        {
+          "name": "codename",
+          "docstring": "Return the codename of the OS distribution.\n\nFor details, see :func:`distro.codename`."
+        },
+        {
+          "name": "info",
+          "docstring": "Return certain machine-readable information about the OS\ndistribution.\n\nFor details, see :func:`distro.info`."
+        },
+        {
+          "name": "os_release_info",
+          "docstring": "Return a dictionary containing key-value pairs for the information\nitems from the os-release file data source of the OS distribution.\n\nFor details, see :func:`distro.os_release_info`."
+        },
+        {
+          "name": "lsb_release_info",
+          "docstring": "Return a dictionary containing key-value pairs for the information\nitems from the lsb_release command data source of the OS\ndistribution.\n\nFor details, see :func:`distro.lsb_release_info`."
+        },
+        {
+          "name": "distro_release_info",
+          "docstring": "Return a dictionary containing key-value pairs for the information\nitems from the distro release file data source of the OS\ndistribution.\n\nFor details, see :func:`distro.distro_release_info`."
+        },
+        {
+          "name": "uname_info",
+          "docstring": "Return a dictionary containing key-value pairs for the information\nitems from the uname command data source of the OS distribution.\n\nFor details, see :func:`distro.uname_info`."
+        },
+        {
+          "name": "oslevel_info",
+          "docstring": "Return AIX' oslevel command output."
+        },
+        {
+          "name": "os_release_attr",
+          "docstring": "Return a single named information item from the os-release file data\nsource of the OS distribution.\n\nFor details, see :func:`distro.os_release_attr`."
+        },
+        {
+          "name": "lsb_release_attr",
+          "docstring": "Return a single named information item from the lsb_release command\noutput data source of the OS distribution.\n\nFor details, see :func:`distro.lsb_release_attr`."
+        },
+        {
+          "name": "distro_release_attr",
+          "docstring": "Return a single named information item from the distro release file\ndata source of the OS distribution.\n\nFor details, see :func:`distro.distro_release_attr`."
+        },
+        {
+          "name": "uname_attr",
+          "docstring": "Return a single named information item from the uname command\noutput data source of the OS distribution.\n\nFor details, see :func:`distro.uname_attr`."
+        }
+      ]
+    },
+    {
+      "name": "cached_property",
+      "docstring": "A version of @property which caches the value.  On access, it calls the\nunderlying function and sets the value in `__dict__` so future accesses\nwill not re-call the property.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "linux_distribution",
+      "docstring": ".. deprecated:: 1.6.0\n\n    :func:`distro.linux_distribution()` is deprecated. It should only be\n    used as a compatibility shim with Python's\n    :py:func:`platform.linux_distribution()`. Please use :func:`distro.id`,\n    :func:`distro.version` and :func:`distro.name` instead.\n\nReturn information about the current OS distribution as a tuple\n``(id_name, version, codename)`` with items as follows:\n\n* ``id_name``:  If *full_distribution_name* is false, the result of\n  :func:`distro.id`. Otherwise, the result of :func:`distro.name`.\n\n* ``version``:  The result of :func:`distro.version`.\n\n* ``codename``:  The extra item (usually in parentheses) after the\n  os-release version number, or the result of :func:`distro.codename`.\n\nThe interface of this function is compatible with the original\n:py:func:`platform.linux_distribution` function, supporting a subset of\nits parameters.\n\nThe data it returns may not exactly be the same, because it uses more data\nsources than the original function, and that may lead to different data if\nthe OS distribution is not consistent across multiple data sources it\nprovides (there are indeed such distributions ...).\n\nAnother reason for differences is the fact that the :func:`distro.id`\nmethod normalizes the distro ID string to a reliable machine-readable value\nfor a number of popular OS distributions."
+    },
+    {
+      "name": "id",
+      "docstring": "Return the distro ID of the current distribution, as a\nmachine-readable string.\n\nFor a number of OS distributions, the returned distro ID value is\n*reliable*, in the sense that it is documented and that it does not change\nacross releases of the distribution.\n\nThis package maintains the following reliable distro ID values:\n\n==============  =========================================\nDistro ID       Distribution\n==============  =========================================\n\"ubuntu\"        Ubuntu\n\"debian\"        Debian\n\"rhel\"          RedHat Enterprise Linux\n\"centos\"        CentOS\n\"fedora\"        Fedora\n\"sles\"          SUSE Linux Enterprise Server\n\"opensuse\"      openSUSE\n\"amzn\"          Amazon Linux\n\"arch\"          Arch Linux\n\"buildroot\"     Buildroot\n\"cloudlinux\"    CloudLinux OS\n\"exherbo\"       Exherbo Linux\n\"gentoo\"        GenToo Linux\n\"ibm_powerkvm\"  IBM PowerKVM\n\"kvmibm\"        KVM for IBM z Systems\n\"linuxmint\"     Linux Mint\n\"mageia\"        Mageia\n\"mandriva\"      Mandriva Linux\n\"parallels\"     Parallels\n\"pidora\"        Pidora\n\"raspbian\"      Raspbian\n\"oracle\"        Oracle Linux (and Oracle Enterprise Linux)\n\"scientific\"    Scientific Linux\n\"slackware\"     Slackware\n\"xenserver\"     XenServer\n\"openbsd\"       OpenBSD\n\"netbsd\"        NetBSD\n\"freebsd\"       FreeBSD\n\"midnightbsd\"   MidnightBSD\n\"rocky\"         Rocky Linux\n\"aix\"           AIX\n\"guix\"          Guix System\n\"altlinux\"      ALT Linux\n==============  =========================================\n\nIf you have a need to get distros for reliable IDs added into this set,\nor if you find that the :func:`distro.id` function returns a different\ndistro ID for one of the listed distros, please create an issue in the\n`distro issue tracker`_.\n\n**Lookup hierarchy and transformations:**\n\nFirst, the ID is obtained from the following sources, in the specified\norder. The first available and non-empty value is used:\n\n* the value of the \"ID\" attribute of the os-release file,\n\n* the value of the \"Distributor ID\" attribute returned by the lsb_release\n  command,\n\n* the first part of the file name of the distro release file,\n\nThe so determined ID value then passes the following transformations,\nbefore it is returned by this method:\n\n* it is translated to lower case,\n\n* blanks (which should not be there anyway) are translated to underscores,\n\n* a normalization of the ID is performed, based upon\n  `normalization tables`_. The purpose of this normalization is to ensure\n  that the ID is as reliable as possible, even across incompatible changes\n  in the OS distributions. A common reason for an incompatible change is\n  the addition of an os-release file, or the addition of the lsb_release\n  command, with ID values that differ from what was previously determined\n  from the distro release file name."
+    },
+    {
+      "name": "name",
+      "docstring": "Return the name of the current OS distribution, as a human-readable\nstring.\n\nIf *pretty* is false, the name is returned without version or codename.\n(e.g. \"CentOS Linux\")\n\nIf *pretty* is true, the version and codename are appended.\n(e.g. \"CentOS Linux 7.1.1503 (Core)\")\n\n**Lookup hierarchy:**\n\nThe name is obtained from the following sources, in the specified order.\nThe first available and non-empty value is used:\n\n* If *pretty* is false:\n\n  - the value of the \"NAME\" attribute of the os-release file,\n\n  - the value of the \"Distributor ID\" attribute returned by the lsb_release\n    command,\n\n  - the value of the \"<name>\" field of the distro release file.\n\n* If *pretty* is true:\n\n  - the value of the \"PRETTY_NAME\" attribute of the os-release file,\n\n  - the value of the \"Description\" attribute returned by the lsb_release\n    command,\n\n  - the value of the \"<name>\" field of the distro release file, appended\n    with the value of the pretty version (\"<version_id>\" and \"<codename>\"\n    fields) of the distro release file, if available."
+    },
+    {
+      "name": "version",
+      "docstring": "Return the version of the current OS distribution, as a human-readable\nstring.\n\nIf *pretty* is false, the version is returned without codename (e.g.\n\"7.0\").\n\nIf *pretty* is true, the codename in parenthesis is appended, if the\ncodename is non-empty (e.g. \"7.0 (Maipo)\").\n\nSome distributions provide version numbers with different precisions in\nthe different sources of distribution information. Examining the different\nsources in a fixed priority order does not always yield the most precise\nversion (e.g. for Debian 8.2, or CentOS 7.1).\n\nSome other distributions may not provide this kind of information. In these\ncases, an empty string would be returned. This behavior can be observed\nwith rolling releases distributions (e.g. Arch Linux).\n\nThe *best* parameter can be used to control the approach for the returned\nversion:\n\nIf *best* is false, the first non-empty version number in priority order of\nthe examined sources is returned.\n\nIf *best* is true, the most precise version number out of all examined\nsources is returned.\n\n**Lookup hierarchy:**\n\nIn all cases, the version number is obtained from the following sources.\nIf *best* is false, this order represents the priority order:\n\n* the value of the \"VERSION_ID\" attribute of the os-release file,\n* the value of the \"Release\" attribute returned by the lsb_release\n  command,\n* the version number parsed from the \"<version_id>\" field of the first line\n  of the distro release file,\n* the version number parsed from the \"PRETTY_NAME\" attribute of the\n  os-release file, if it follows the format of the distro release files.\n* the version number parsed from the \"Description\" attribute returned by\n  the lsb_release command, if it follows the format of the distro release\n  files."
+    },
+    {
+      "name": "version_parts",
+      "docstring": "Return the version of the current OS distribution as a tuple\n``(major, minor, build_number)`` with items as follows:\n\n* ``major``:  The result of :func:`distro.major_version`.\n\n* ``minor``:  The result of :func:`distro.minor_version`.\n\n* ``build_number``:  The result of :func:`distro.build_number`.\n\nFor a description of the *best* parameter, see the :func:`distro.version`\nmethod."
+    },
+    {
+      "name": "major_version",
+      "docstring": "Return the major version of the current OS distribution, as a string,\nif provided.\nOtherwise, the empty string is returned. The major version is the first\npart of the dot-separated version string.\n\nFor a description of the *best* parameter, see the :func:`distro.version`\nmethod."
+    },
+    {
+      "name": "minor_version",
+      "docstring": "Return the minor version of the current OS distribution, as a string,\nif provided.\nOtherwise, the empty string is returned. The minor version is the second\npart of the dot-separated version string.\n\nFor a description of the *best* parameter, see the :func:`distro.version`\nmethod."
+    },
+    {
+      "name": "build_number",
+      "docstring": "Return the build number of the current OS distribution, as a string,\nif provided.\nOtherwise, the empty string is returned. The build number is the third part\nof the dot-separated version string.\n\nFor a description of the *best* parameter, see the :func:`distro.version`\nmethod."
+    },
+    {
+      "name": "like",
+      "docstring": "Return a space-separated list of distro IDs of distributions that are\nclosely related to the current OS distribution in regards to packaging\nand programming interfaces, for example distributions the current\ndistribution is a derivative from.\n\n**Lookup hierarchy:**\n\nThis information item is only provided by the os-release file.\nFor details, see the description of the \"ID_LIKE\" attribute in the\n`os-release man page\n<http://www.freedesktop.org/software/systemd/man/os-release.html>`_."
+    },
+    {
+      "name": "codename",
+      "docstring": "Return the codename for the release of the current OS distribution,\nas a string.\n\nIf the distribution does not have a codename, an empty string is returned.\n\nNote that the returned codename is not always really a codename. For\nexample, openSUSE returns \"x86_64\". This function does not handle such\ncases in any special way and just returns the string it finds, if any.\n\n**Lookup hierarchy:**\n\n* the codename within the \"VERSION\" attribute of the os-release file, if\n  provided,\n\n* the value of the \"Codename\" attribute returned by the lsb_release\n  command,\n\n* the value of the \"<codename>\" field of the distro release file."
+    },
+    {
+      "name": "info",
+      "docstring": "Return certain machine-readable information items about the current OS\ndistribution in a dictionary, as shown in the following example:\n\n.. sourcecode:: python\n\n    {\n        'id': 'rhel',\n        'version': '7.0',\n        'version_parts': {\n            'major': '7',\n            'minor': '0',\n            'build_number': ''\n        },\n        'like': 'fedora',\n        'codename': 'Maipo'\n    }\n\nThe dictionary structure and keys are always the same, regardless of which\ninformation items are available in the underlying data sources. The values\nfor the various keys are as follows:\n\n* ``id``:  The result of :func:`distro.id`.\n\n* ``version``:  The result of :func:`distro.version`.\n\n* ``version_parts -> major``:  The result of :func:`distro.major_version`.\n\n* ``version_parts -> minor``:  The result of :func:`distro.minor_version`.\n\n* ``version_parts -> build_number``:  The result of\n  :func:`distro.build_number`.\n\n* ``like``:  The result of :func:`distro.like`.\n\n* ``codename``:  The result of :func:`distro.codename`.\n\nFor a description of the *pretty* and *best* parameters, see the\n:func:`distro.version` method."
+    },
+    {
+      "name": "os_release_info",
+      "docstring": "Return a dictionary containing key-value pairs for the information items\nfrom the os-release file data source of the current OS distribution.\n\nSee `os-release file`_ for details about these information items."
+    },
+    {
+      "name": "lsb_release_info",
+      "docstring": "Return a dictionary containing key-value pairs for the information items\nfrom the lsb_release command data source of the current OS distribution.\n\nSee `lsb_release command output`_ for details about these information\nitems."
+    },
+    {
+      "name": "distro_release_info",
+      "docstring": "Return a dictionary containing key-value pairs for the information items\nfrom the distro release file data source of the current OS distribution.\n\nSee `distro release file`_ for details about these information items."
+    },
+    {
+      "name": "uname_info",
+      "docstring": "Return a dictionary containing key-value pairs for the information items\nfrom the distro release file data source of the current OS distribution."
+    },
+    {
+      "name": "os_release_attr",
+      "docstring": "Return a single named information item from the os-release file data source\nof the current OS distribution.\n\nParameters:\n\n* ``attribute`` (string): Key of the information item.\n\nReturns:\n\n* (string): Value of the information item, if the item exists.\n  The empty string, if the item does not exist.\n\nSee `os-release file`_ for details about these information items."
+    },
+    {
+      "name": "lsb_release_attr",
+      "docstring": "Return a single named information item from the lsb_release command output\ndata source of the current OS distribution.\n\nParameters:\n\n* ``attribute`` (string): Key of the information item.\n\nReturns:\n\n* (string): Value of the information item, if the item exists.\n  The empty string, if the item does not exist.\n\nSee `lsb_release command output`_ for details about these information\nitems."
+    },
+    {
+      "name": "distro_release_attr",
+      "docstring": "Return a single named information item from the distro release file\ndata source of the current OS distribution.\n\nParameters:\n\n* ``attribute`` (string): Key of the information item.\n\nReturns:\n\n* (string): Value of the information item, if the item exists.\n  The empty string, if the item does not exist.\n\nSee `distro release file`_ for details about these information items."
+    },
+    {
+      "name": "uname_attr",
+      "docstring": "Return a single named information item from the distro release file\ndata source of the current OS distribution.\n\nParameters:\n\n* ``attribute`` (string): Key of the information item.\n\nReturns:\n\n* (string): Value of the information item, if the item exists.\n            The empty string, if the item does not exist."
+    },
+    {
+      "name": "main",
+      "docstring": null
+    },
+    {
+      "name": "linux_distribution",
+      "docstring": "Return information about the OS distribution that is compatible\nwith Python's :func:`platform.linux_distribution`, supporting a subset\nof its parameters.\n\nFor details, see :func:`distro.linux_distribution`."
+    },
+    {
+      "name": "id",
+      "docstring": "Return the distro ID of the OS distribution, as a string.\n\nFor details, see :func:`distro.id`."
+    },
+    {
+      "name": "name",
+      "docstring": "Return the name of the OS distribution, as a string.\n\nFor details, see :func:`distro.name`."
+    },
+    {
+      "name": "version",
+      "docstring": "Return the version of the OS distribution, as a string.\n\nFor details, see :func:`distro.version`."
+    },
+    {
+      "name": "version_parts",
+      "docstring": "Return the version of the OS distribution, as a tuple of version\nnumbers.\n\nFor details, see :func:`distro.version_parts`."
+    },
+    {
+      "name": "major_version",
+      "docstring": "Return the major version number of the current distribution.\n\nFor details, see :func:`distro.major_version`."
+    },
+    {
+      "name": "minor_version",
+      "docstring": "Return the minor version number of the current distribution.\n\nFor details, see :func:`distro.minor_version`."
+    },
+    {
+      "name": "build_number",
+      "docstring": "Return the build number of the current distribution.\n\nFor details, see :func:`distro.build_number`."
+    },
+    {
+      "name": "like",
+      "docstring": "Return the IDs of distributions that are like the OS distribution.\n\nFor details, see :func:`distro.like`."
+    },
+    {
+      "name": "codename",
+      "docstring": "Return the codename of the OS distribution.\n\nFor details, see :func:`distro.codename`."
+    },
+    {
+      "name": "info",
+      "docstring": "Return certain machine-readable information about the OS\ndistribution.\n\nFor details, see :func:`distro.info`."
+    },
+    {
+      "name": "os_release_info",
+      "docstring": "Return a dictionary containing key-value pairs for the information\nitems from the os-release file data source of the OS distribution.\n\nFor details, see :func:`distro.os_release_info`."
+    },
+    {
+      "name": "lsb_release_info",
+      "docstring": "Return a dictionary containing key-value pairs for the information\nitems from the lsb_release command data source of the OS\ndistribution.\n\nFor details, see :func:`distro.lsb_release_info`."
+    },
+    {
+      "name": "distro_release_info",
+      "docstring": "Return a dictionary containing key-value pairs for the information\nitems from the distro release file data source of the OS\ndistribution.\n\nFor details, see :func:`distro.distro_release_info`."
+    },
+    {
+      "name": "uname_info",
+      "docstring": "Return a dictionary containing key-value pairs for the information\nitems from the uname command data source of the OS distribution.\n\nFor details, see :func:`distro.uname_info`."
+    },
+    {
+      "name": "oslevel_info",
+      "docstring": "Return AIX' oslevel command output."
+    },
+    {
+      "name": "os_release_attr",
+      "docstring": "Return a single named information item from the os-release file data\nsource of the OS distribution.\n\nFor details, see :func:`distro.os_release_attr`."
+    },
+    {
+      "name": "lsb_release_attr",
+      "docstring": "Return a single named information item from the lsb_release command\noutput data source of the OS distribution.\n\nFor details, see :func:`distro.lsb_release_attr`."
+    },
+    {
+      "name": "distro_release_attr",
+      "docstring": "Return a single named information item from the distro release file\ndata source of the OS distribution.\n\nFor details, see :func:`distro.distro_release_attr`."
+    },
+    {
+      "name": "uname_attr",
+      "docstring": "Return a single named information item from the uname command\noutput data source of the OS distribution.\n\nFor details, see :func:`distro.uname_attr`."
+    },
+    {
+      "name": "normalize",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

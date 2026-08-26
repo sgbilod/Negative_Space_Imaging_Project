@@ -1,0 +1,129 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\_collections.py",
+  "classes": [
+    {
+      "name": "RecentlyUsedContainer",
+      "docstring": "Provides a thread-safe dict-like container which maintains up to\n``maxsize`` keys while throwing away the least-recently-used keys beyond\n``maxsize``.\n\n:param maxsize:\n    Maximum number of recent elements to retain.\n\n:param dispose_func:\n    Every time an item is evicted from the container,\n    ``dispose_func(value)`` is called.  Callback which will get called",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "clear",
+          "docstring": null
+        },
+        {
+          "name": "keys",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HTTPHeaderDict",
+      "docstring": ":param headers:\n    An iterable of field-value pairs. Must not contain multiple field names\n    when compared case-insensitively.\n\n:param kwargs:\n    Additional field-value pairs to pass in to ``dict.update``.\n\nA ``dict`` like container for storing HTTP Headers.\n\nField names are stored and compared case-insensitively in compliance with\nRFC 7230. Iteration provides the first case-sensitive key seen for each\ncase-insensitive pair.\n\nUsing ``__setitem__`` syntax overwrites fields that compare equal\ncase-insensitively in order to maintain ``dict``'s api. For fields that\ncompare equal, instead create a new ``HTTPHeaderDict`` and use ``.add``\nin a loop.\n\nIf multiple fields that are equal case-insensitively are passed to the\nconstructor or ``.update``, the behavior is undefined and some will be\nlost.\n\n>>> headers = HTTPHeaderDict()\n>>> headers.add('Set-Cookie', 'foo=bar')\n>>> headers.add('set-cookie', 'baz=quxx')\n>>> headers['content-length'] = '7'\n>>> headers['SET-cookie']\n'foo=bar, baz=quxx'\n>>> headers['Content-Length']\n'7'",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "pop",
+          "docstring": "D.pop(k[,d]) -> v, remove specified key and return the corresponding value.\nIf key is not found, d is returned if given, otherwise KeyError is raised."
+        },
+        {
+          "name": "discard",
+          "docstring": null
+        },
+        {
+          "name": "add",
+          "docstring": "Adds a (name, value) pair, doesn't overwrite the value if it already\nexists.\n\n>>> headers = HTTPHeaderDict(foo='bar')\n>>> headers.add('Foo', 'baz')\n>>> headers['foo']\n'bar, baz'"
+        },
+        {
+          "name": "extend",
+          "docstring": "Generic import function for any type of header-like object.\nAdapted version of MutableMapping.update in order to insert items\nwith self.add instead of self.__setitem__"
+        },
+        {
+          "name": "getlist",
+          "docstring": "Returns a list of all the values for the named field. Returns an\nempty list if the key doesn't exist."
+        },
+        {
+          "name": "copy",
+          "docstring": null
+        },
+        {
+          "name": "iteritems",
+          "docstring": "Iterate over all header lines, including duplicate ones."
+        },
+        {
+          "name": "itermerged",
+          "docstring": "Iterate over all headers, merging duplicate ones together."
+        },
+        {
+          "name": "items",
+          "docstring": null
+        },
+        {
+          "name": "from_httplib",
+          "docstring": "Read headers from a Python 2 httplib message object."
+        }
+      ]
+    },
+    {
+      "name": "RLock",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "clear",
+      "docstring": null
+    },
+    {
+      "name": "keys",
+      "docstring": null
+    },
+    {
+      "name": "pop",
+      "docstring": "D.pop(k[,d]) -> v, remove specified key and return the corresponding value.\nIf key is not found, d is returned if given, otherwise KeyError is raised."
+    },
+    {
+      "name": "discard",
+      "docstring": null
+    },
+    {
+      "name": "add",
+      "docstring": "Adds a (name, value) pair, doesn't overwrite the value if it already\nexists.\n\n>>> headers = HTTPHeaderDict(foo='bar')\n>>> headers.add('Foo', 'baz')\n>>> headers['foo']\n'bar, baz'"
+    },
+    {
+      "name": "extend",
+      "docstring": "Generic import function for any type of header-like object.\nAdapted version of MutableMapping.update in order to insert items\nwith self.add instead of self.__setitem__"
+    },
+    {
+      "name": "getlist",
+      "docstring": "Returns a list of all the values for the named field. Returns an\nempty list if the key doesn't exist."
+    },
+    {
+      "name": "copy",
+      "docstring": null
+    },
+    {
+      "name": "iteritems",
+      "docstring": "Iterate over all header lines, including duplicate ones."
+    },
+    {
+      "name": "itermerged",
+      "docstring": "Iterate over all headers, merging duplicate ones together."
+    },
+    {
+      "name": "items",
+      "docstring": null
+    },
+    {
+      "name": "from_httplib",
+      "docstring": "Read headers from a Python 2 httplib message object."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,30 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\utils\\_log.py",
+  "classes": [
+    {
+      "name": "VerboseLogger",
+      "docstring": "Custom Logger, defining a verbose log-level\n\nVERBOSE is between INFO and DEBUG.",
+      "methods": [
+        {
+          "name": "verbose",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "getLogger",
+      "docstring": "logging.getLogger, but ensures our VerboseLogger class is returned"
+    },
+    {
+      "name": "init_logging",
+      "docstring": "Register our VerboseLogger and VERBOSE log level.\n\nShould be called before any calls to getLogger(),\ni.e. in pip._internal.__init__"
+    },
+    {
+      "name": "verbose",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

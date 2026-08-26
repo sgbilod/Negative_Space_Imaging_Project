@@ -1,0 +1,131 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\varLib\\interpolatableHelpers.py",
+  "classes": [
+    {
+      "name": "InterpolatableProblem",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PerContourPen",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PerContourOrComponentPen",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "addComponent",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SimpleRecordingPointPen",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "beginPath",
+          "docstring": null
+        },
+        {
+          "name": "endPath",
+          "docstring": null
+        },
+        {
+          "name": "addPoint",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "sort_problems",
+      "docstring": "Sort problems by severity, then by glyph name, then by problem message."
+    },
+    {
+      "name": "rot_list",
+      "docstring": "Rotate list by k items forward.  Ie. item at position 0 will be\nat position k in returned list.  Negative k is allowed."
+    },
+    {
+      "name": "vdiff_hypot2",
+      "docstring": null
+    },
+    {
+      "name": "vdiff_hypot2_complex",
+      "docstring": null
+    },
+    {
+      "name": "matching_cost",
+      "docstring": null
+    },
+    {
+      "name": "min_cost_perfect_bipartite_matching_scipy",
+      "docstring": null
+    },
+    {
+      "name": "min_cost_perfect_bipartite_matching_munkres",
+      "docstring": null
+    },
+    {
+      "name": "min_cost_perfect_bipartite_matching_bruteforce",
+      "docstring": null
+    },
+    {
+      "name": "contour_vector_from_stats",
+      "docstring": null
+    },
+    {
+      "name": "matching_for_vectors",
+      "docstring": null
+    },
+    {
+      "name": "points_characteristic_bits",
+      "docstring": null
+    },
+    {
+      "name": "points_complex_vector",
+      "docstring": null
+    },
+    {
+      "name": "add_isomorphisms",
+      "docstring": null
+    },
+    {
+      "name": "find_parents_and_order",
+      "docstring": null
+    },
+    {
+      "name": "transform_from_stats",
+      "docstring": null
+    },
+    {
+      "name": "addComponent",
+      "docstring": null
+    },
+    {
+      "name": "beginPath",
+      "docstring": null
+    },
+    {
+      "name": "endPath",
+      "docstring": null
+    },
+    {
+      "name": "addPoint",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

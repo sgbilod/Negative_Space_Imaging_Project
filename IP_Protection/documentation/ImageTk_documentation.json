@@ -1,0 +1,72 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\ImageTk.py",
+  "classes": [
+    {
+      "name": "PhotoImage",
+      "docstring": "A Tkinter-compatible photo image.  This can be used\neverywhere Tkinter expects an image object.  If the image is an RGBA\nimage, pixels having alpha 0 are treated as transparent.\n\nThe constructor takes either a PIL image, or a mode and a size.\nAlternatively, you can use the ``file`` or ``data`` options to initialize\nthe photo image object.\n\n:param image: Either a PIL image, or a mode string.  If a mode string is\n              used, a size must also be given.\n:param size: If the first argument is a mode string, this defines the size\n             of the image.\n:keyword file: A filename to load the image from (using\n               ``Image.open(file)``).\n:keyword data: An 8-bit string containing image data (as loaded from an\n               image file).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "width",
+          "docstring": "Get the width of the image.\n\n:return: The width, in pixels."
+        },
+        {
+          "name": "height",
+          "docstring": "Get the height of the image.\n\n:return: The height, in pixels."
+        },
+        {
+          "name": "paste",
+          "docstring": "Paste a PIL image into the photo image.  Note that this can\nbe very slow if the photo image is displayed.\n\n:param im: A PIL image. The size must match the target region.  If the\n           mode does not match, the image is converted to the mode of\n           the bitmap image."
+        }
+      ]
+    },
+    {
+      "name": "BitmapImage",
+      "docstring": "A Tkinter-compatible bitmap image.  This can be used everywhere Tkinter\nexpects an image object.\n\nThe given image must have mode \"1\".  Pixels having value 0 are treated as\ntransparent.  Options, if any, are passed on to Tkinter.  The most commonly\nused option is ``foreground``, which is used to specify the color for the\nnon-transparent parts.  See the Tkinter documentation for information on\nhow to specify colours.\n\n:param image: A PIL image.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "width",
+          "docstring": "Get the width of the image.\n\n:return: The width, in pixels."
+        },
+        {
+          "name": "height",
+          "docstring": "Get the height of the image.\n\n:return: The height, in pixels."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "getimage",
+      "docstring": "Copies the contents of a PhotoImage to a PIL image memory."
+    },
+    {
+      "name": "width",
+      "docstring": "Get the width of the image.\n\n:return: The width, in pixels."
+    },
+    {
+      "name": "height",
+      "docstring": "Get the height of the image.\n\n:return: The height, in pixels."
+    },
+    {
+      "name": "paste",
+      "docstring": "Paste a PIL image into the photo image.  Note that this can\nbe very slow if the photo image is displayed.\n\n:param im: A PIL image. The size must match the target region.  If the\n           mode does not match, the image is converted to the mode of\n           the bitmap image."
+    },
+    {
+      "name": "width",
+      "docstring": "Get the width of the image.\n\n:return: The width, in pixels."
+    },
+    {
+      "name": "height",
+      "docstring": "Get the height of the image.\n\n:return: The height, in pixels."
+    }
+  ],
+  "innovations": []
+}

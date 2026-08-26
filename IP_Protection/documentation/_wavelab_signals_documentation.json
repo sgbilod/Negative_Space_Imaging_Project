@@ -1,0 +1,11 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pywt\\data\\_wavelab_signals.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "demo_signal",
+      "docstring": "Simple 1D wavelet test functions.\n\nThis function can generate a number of common 1D test signals used in\npapers by David Donoho and colleagues (e.g. [1]_) as well as the wavelet\nbook by St\u00e9phane Mallat [2]_.\n\nParameters\n----------\nname : {'Blocks', 'Bumps', 'HeaviSine', 'Doppler', ...}\n    The type of test signal to generate (`name` is case-insensitive). If\n    `name` is set to `'list'`, a list of the available test functions is\n    returned.\nn : int or None\n    The length of the test signal. This should be provided for all test\n    signals except `'Gabor'` and `'sineoneoverx'` which have a fixed\n    length.\n\nReturns\n-------\nf : np.ndarray\n    Array of length ``n`` corresponding to the specified test signal type.\n\nReferences\n----------\n.. [1] D.L. Donoho and I.M. Johnstone.  Ideal spatial adaptation by\n       wavelet shrinkage. Biometrika, vol. 81, pp. 425\u2013455, 1994.\n.. [2] S. Mallat. A Wavelet Tour of Signal Processing: The Sparse Way.\n       Academic Press. 2009.\n\nNotes\n-----\nThis function is a partial reimplementation of the `MakeSignal` function\nfrom the [Wavelab](https://statweb.stanford.edu/~wavelab/) toolbox. These\ntest signals are provided with permission of Dr. Donoho to encourage\nreproducible research.\n\nExamples\n--------\n>>> import pywt\n>>> camera = pywt.data.camera()\n>>> doppler = pywt.data.demo_signal('doppler', 1024)\n>>> available_signals = pywt.data.demo_signal('list')\n>>> print(available_signals)\n['Blocks', 'Bumps', 'HeaviSine', 'Doppler', 'Ramp', 'HiSine', 'LoSine', 'LinChirp',\n 'TwoChirp', 'QuadChirp', 'MishMash', 'WernerSorrows', 'HypChirps', 'LinChirps',\n 'Chirps', 'Gabor', 'sineoneoverx', 'Piece-Regular', 'Piece-Polynomial', 'Riemann']"
+    }
+  ],
+  "innovations": []
+}

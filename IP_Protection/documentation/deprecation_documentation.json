@@ -1,0 +1,105 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\_api\\deprecation.py",
+  "classes": [
+    {
+      "name": "MatplotlibDeprecationWarning",
+      "docstring": "A class for issuing deprecation warnings for Matplotlib users.",
+      "methods": []
+    },
+    {
+      "name": "deprecate_privatize_attribute",
+      "docstring": "Helper to deprecate public access to an attribute (or method).\n\nThis helper should only be used at class scope, as follows::\n\n    class Foo:\n        attr = _deprecate_privatize_attribute(*args, **kwargs)\n\nwhere *all* parameters are forwarded to `deprecated`.  This form makes\n``attr`` a property which forwards read and write access to ``self._attr``\n(same name but with a leading underscore), with a deprecation warning.\nNote that the attribute name is derived from *the name this helper is\nassigned to*.  This helper also works for deprecating methods.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_deprecated_parameter_class",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_deprecated_property",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "warn_deprecated",
+      "docstring": "Display a standardized deprecation.\n\nParameters\n----------\nsince : str\n    The release at which this API became deprecated.\nmessage : str, optional\n    Override the default deprecation message.  The ``%(since)s``,\n    ``%(name)s``, ``%(alternative)s``, ``%(obj_type)s``, ``%(addendum)s``,\n    and ``%(removal)s`` format specifiers will be replaced by the values\n    of the respective arguments passed to this function.\nname : str, optional\n    The name of the deprecated object.\nalternative : str, optional\n    An alternative API that the user may use in place of the deprecated\n    API.  The deprecation warning will tell the user about this alternative\n    if provided.\npending : bool, optional\n    If True, uses a PendingDeprecationWarning instead of a\n    DeprecationWarning.  Cannot be used together with *removal*.\nobj_type : str, optional\n    The object type being deprecated.\naddendum : str, optional\n    Additional text appended directly to the final message.\nremoval : str, optional\n    The expected removal version.  With the default (an empty string), a\n    removal version is automatically computed from *since*.  Set to other\n    Falsy values to not schedule a removal date.  Cannot be used together\n    with *pending*.\n\nExamples\n--------\n::\n\n    # To warn of the deprecation of \"matplotlib.name_of_module\"\n    warn_deprecated('1.4.0', name='matplotlib.name_of_module',\n                    obj_type='module')"
+    },
+    {
+      "name": "deprecated",
+      "docstring": "Decorator to mark a function, a class, or a property as deprecated.\n\nWhen deprecating a classmethod, a staticmethod, or a property, the\n``@deprecated`` decorator should go *under* ``@classmethod`` and\n``@staticmethod`` (i.e., `deprecated` should directly decorate the\nunderlying callable), but *over* ``@property``.\n\nWhen deprecating a class ``C`` intended to be used as a base class in a\nmultiple inheritance hierarchy, ``C`` *must* define an ``__init__`` method\n(if ``C`` instead inherited its ``__init__`` from its own base class, then\n``@deprecated`` would mess up ``__init__`` inheritance when installing its\nown (deprecation-emitting) ``C.__init__``).\n\nParameters are the same as for `warn_deprecated`, except that *obj_type*\ndefaults to 'class' if decorating a class, 'attribute' if decorating a\nproperty, and 'function' otherwise.\n\nExamples\n--------\n::\n\n    @deprecated('1.4.0')\n    def the_function_to_deprecate():\n        pass"
+    },
+    {
+      "name": "rename_parameter",
+      "docstring": "Decorator indicating that parameter *old* of *func* is renamed to *new*.\n\nThe actual implementation of *func* should use *new*, not *old*.  If *old*\nis passed to *func*, a DeprecationWarning is emitted, and its value is\nused, even if *new* is also passed by keyword (this is to simplify pyplot\nwrapper functions, which always pass *new* explicitly to the Axes method).\nIf *new* is also passed but positionally, a TypeError will be raised by the\nunderlying function during argument binding.\n\nExamples\n--------\n::\n\n    @_api.rename_parameter(\"3.1\", \"bad_name\", \"good_name\")\n    def func(good_name): ..."
+    },
+    {
+      "name": "delete_parameter",
+      "docstring": "Decorator indicating that parameter *name* of *func* is being deprecated.\n\nThe actual implementation of *func* should keep the *name* parameter in its\nsignature, or accept a ``**kwargs`` argument (through which *name* would be\npassed).\n\nParameters that come after the deprecated parameter effectively become\nkeyword-only (as they cannot be passed positionally without triggering the\nDeprecationWarning on the deprecated parameter), and should be marked as\nsuch after the deprecation period has passed and the deprecated parameter\nis removed.\n\nParameters other than *since*, *name*, and *func* are keyword-only and\nforwarded to `.warn_deprecated`.\n\nExamples\n--------\n::\n\n    @_api.delete_parameter(\"3.1\", \"unused\")\n    def func(used_arg, other_arg, unused, more_args): ..."
+    },
+    {
+      "name": "make_keyword_only",
+      "docstring": "Decorator indicating that passing parameter *name* (or any of the following\nones) positionally to *func* is being deprecated.\n\nWhen used on a method that has a pyplot wrapper, this should be the\noutermost decorator, so that :file:`boilerplate.py` can access the original\nsignature."
+    },
+    {
+      "name": "deprecate_method_override",
+      "docstring": "Return ``obj.method`` with a deprecation if it was overridden, else None.\n\nParameters\n----------\nmethod\n    An unbound method, i.e. an expression of the form\n    ``Class.method_name``.  Remember that within the body of a method, one\n    can always use ``__class__`` to refer to the class that is currently\n    being defined.\nobj\n    Either an object of the class where *method* is defined, or a subclass\n    of that class.\nallow_empty : bool, default: False\n    Whether to allow overrides by \"empty\" methods without emitting a\n    warning.\n**kwargs\n    Additional parameters passed to `warn_deprecated` to generate the\n    deprecation warning; must at least include the \"since\" key."
+    },
+    {
+      "name": "suppress_matplotlib_deprecation_warning",
+      "docstring": null
+    },
+    {
+      "name": "deprecate",
+      "docstring": null
+    },
+    {
+      "name": "wrapper",
+      "docstring": null
+    },
+    {
+      "name": "wrapper",
+      "docstring": null
+    },
+    {
+      "name": "wrapper",
+      "docstring": null
+    },
+    {
+      "name": "empty",
+      "docstring": null
+    },
+    {
+      "name": "empty_with_docstring",
+      "docstring": "doc"
+    },
+    {
+      "name": "emit_warning",
+      "docstring": null
+    },
+    {
+      "name": "wrapper",
+      "docstring": null
+    },
+    {
+      "name": "finalize",
+      "docstring": null
+    },
+    {
+      "name": "finalize",
+      "docstring": null
+    },
+    {
+      "name": "finalize",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

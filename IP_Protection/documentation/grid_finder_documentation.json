@@ -1,0 +1,142 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\mpl_toolkits\\axisartist\\grid_finder.py",
+  "classes": [
+    {
+      "name": "ExtremeFinderSimple",
+      "docstring": "A helper class to figure out the range of grid lines that need to be drawn.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nnx, ny : int\n    The number of samples in each direction."
+        }
+      ]
+    },
+    {
+      "name": "_User2DTransform",
+      "docstring": "A transform defined by two user-set functions.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nforward, backward : callable\n    The forward and backward transforms, taking ``x`` and ``y`` as\n    separate arguments and returning ``(tr_x, tr_y)``."
+        },
+        {
+          "name": "transform_non_affine",
+          "docstring": null
+        },
+        {
+          "name": "inverted",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GridFinder",
+      "docstring": "Internal helper for `~.grid_helper_curvelinear.GridHelperCurveLinear`, with\nthe same constructor parameters; should not be directly instantiated.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_grid_info",
+          "docstring": "lon_values, lat_values : list of grid values. if integer is given,\n                   rough number of grids in each direction."
+        },
+        {
+          "name": "set_transform",
+          "docstring": null
+        },
+        {
+          "name": "get_transform",
+          "docstring": null
+        },
+        {
+          "name": "transform_xy",
+          "docstring": null
+        },
+        {
+          "name": "inv_transform_xy",
+          "docstring": null
+        },
+        {
+          "name": "update",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MaxNLocator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FixedLocator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FormatterPrettyPrint",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DictFormatter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "format_dict : dictionary for format strings to be used.\nformatter : fall-back formatter"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "transform_non_affine",
+      "docstring": null
+    },
+    {
+      "name": "inverted",
+      "docstring": null
+    },
+    {
+      "name": "get_grid_info",
+      "docstring": "lon_values, lat_values : list of grid values. if integer is given,\n                   rough number of grids in each direction."
+    },
+    {
+      "name": "set_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_transform",
+      "docstring": null
+    },
+    {
+      "name": "transform_xy",
+      "docstring": null
+    },
+    {
+      "name": "inv_transform_xy",
+      "docstring": null
+    },
+    {
+      "name": "update",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,17 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\ssl_match_hostname.py",
+  "classes": [
+    {
+      "name": "CertificateError",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "match_hostname",
+      "docstring": "Verify that *cert* (in decoded format as returned by\nSSLSocket.getpeercert()) matches the *hostname*.  RFC 2818 and RFC 6125\nrules are followed, but IP addresses are not accepted for *hostname*.\n\nCertificateError is raised on failure. On success, the function\nreturns nothing."
+    }
+  ],
+  "innovations": []
+}

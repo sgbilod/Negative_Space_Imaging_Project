@@ -1,0 +1,15 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\filesize.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "pick_unit_and_suffix",
+      "docstring": "Pick a suffix and base for the given size."
+    },
+    {
+      "name": "decimal",
+      "docstring": "Convert a filesize in to a string (powers of 1000, SI prefixes).\n\nIn this convention, ``1000 B = 1 kB``.\n\nThis is typically the format used to advertise the storage\ncapacity of USB flash drives and the like (*256 MB* meaning\nactually a storage capacity of more than *256 000 000 B*),\nor used by **Mac OS X** since v10.6 to report file sizes.\n\nArguments:\n    int (size): A file size.\n    int (precision): The number of decimal places to include (default = 1).\n    str (separator): The string to separate the value from the units (default = \" \").\n\nReturns:\n    `str`: A string containing a abbreviated file size and units.\n\nExample:\n    >>> filesize.decimal(30000)\n    '30.0 kB'\n    >>> filesize.decimal(30000, precision=2, separator=\"\")\n    '30.00kB'"
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,38 @@
+# Database Configuration for Negative Space Imaging Project
+# deployment/config/database.yaml
+
+database:
+  # Connection settings
+  host: localhost
+  port: 5432
+  dbname: negative_space_imaging
+  user: postgres
+  password: postgres
+  timeout: 30
+
+  # Pool settings
+  min_connections: 1
+  max_connections: 10
+
+  # Schema settings
+  schema_file: "deployment/database/01-init-schema.sql"
+  data_file: "deployment/database/02-init-data.sql"
+  migrations_dir: "deployment/database/migrations"
+
+  # Backup settings
+  backup_dir: "deployment/database/backups"
+  backup_retention_days: 30
+  backup_schedule: "0 0 * * *"  # Daily at midnight (cron format)
+
+  # Security settings
+  ssl_mode: "prefer"
+  verify_ca: false
+  client_cert: ""
+  client_key: ""
+  ca_cert: ""
+
+  # Monitoring settings
+  enable_monitoring: true
+  log_slow_queries: true
+  slow_query_threshold_ms: 1000
+  log_all_queries: false

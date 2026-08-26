@@ -1,0 +1,50 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\revenue\\mnemonic_architecture\\visual_explorer.py",
+  "classes": [
+    {
+      "name": "MnemonicVisualExplorer",
+      "docstring": "A class for visualizing the Mnemonic Data Architecture in 3D space.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the visual explorer.\n\nArgs:\n    mda: MnemonicDataArchitecture instance"
+        },
+        {
+          "name": "visualize",
+          "docstring": "Visualize the current state of the mnemonic data architecture."
+        },
+        {
+          "name": "visualize_path",
+          "docstring": "Visualize a specific path through the data.\n\nArgs:\n    path_id: ID of the path to visualize"
+        },
+        {
+          "name": "interactive_explorer",
+          "docstring": "Launch an interactive explorer for the Mnemonic Data Architecture.\nThis provides a more interactive experience with the ability to\nselect nodes, view details, and navigate paths."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "main",
+      "docstring": "Main function to demonstrate the visual explorer."
+    },
+    {
+      "name": "visualize",
+      "docstring": "Visualize the current state of the mnemonic data architecture."
+    },
+    {
+      "name": "visualize_path",
+      "docstring": "Visualize a specific path through the data.\n\nArgs:\n    path_id: ID of the path to visualize"
+    },
+    {
+      "name": "interactive_explorer",
+      "docstring": "Launch an interactive explorer for the Mnemonic Data Architecture.\nThis provides a more interactive experience with the ability to\nselect nodes, view details, and navigate paths."
+    },
+    {
+      "name": "node_clicked",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

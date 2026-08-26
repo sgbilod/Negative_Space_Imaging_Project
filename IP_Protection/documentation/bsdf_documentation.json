@@ -1,0 +1,126 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\bsdf.py",
+  "classes": [
+    {
+      "name": "Image",
+      "docstring": "Class in which we wrap the array and meta data. By using an extension\nwe can make BSDF trigger on these classes and thus encode the images.\nas actual images.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_array",
+          "docstring": null
+        },
+        {
+          "name": "get_meta",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Image2D",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Image3D",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "BsdfFormat",
+      "docstring": "The BSDF format enables reading and writing of image data in the\nBSDF serialization format. This format allows storage of images, volumes,\nand series thereof. Data can be of any numeric data type, and can\noptionally be compressed. Each image/volume can have associated\nmeta data, which can consist of any data type supported by BSDF.\n\nBy default, image data is lazily loaded; the actual image data is\nnot read until it is requested. This allows storing multiple images\nin a single file and still have fast access to individual images.\nAlternatively, a series of images can be read in streaming mode, reading\nimages as they are read (e.g. from http).\n\nBSDF is a simple generic binary format. It is easy to extend and there\nare standard extension definitions for 2D and 3D image data.\nRead more at http://bsdf.io.\n\nParameters for reading\n----------------------\nrandom_access : bool\n    Whether individual images in the file can be read in random order.\n    Defaults to True for normal files, and to False when reading from HTTP.\n    If False, the file is read in \"streaming mode\", allowing reading\n    files as they are read, but without support for \"rewinding\".\n    Note that setting this to True when reading from HTTP, the whole file\n    is read upon opening it (since lazy loading is not possible over HTTP).\n\nParameters for saving\n---------------------\ncompression : {0, 1, 2}\n    Use ``0`` or \"no\" for no compression, ``1`` or \"zlib\" for Zlib\n    compression (same as zip files and PNG), and ``2`` or \"bz2\" for Bz2\n    compression (more compact but slower). Default 1 (zlib).\n    Note that some BSDF implementations may not support compression\n    (e.g. JavaScript).",
+      "methods": []
+    },
+    {
+      "name": "NDArrayExtension",
+      "docstring": "Copy of BSDF's NDArrayExtension but deal with lazy blobs.",
+      "methods": [
+        {
+          "name": "encode",
+          "docstring": null
+        },
+        {
+          "name": "decode",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ImageExtension",
+      "docstring": "We implement two extensions that trigger on the Image classes.",
+      "methods": [
+        {
+          "name": "encode",
+          "docstring": null
+        },
+        {
+          "name": "decode",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Image2DExtension",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Image3DExtension",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "set_meta_data",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_bsdf_serializer",
+      "docstring": null
+    },
+    {
+      "name": "get_array",
+      "docstring": null
+    },
+    {
+      "name": "get_meta",
+      "docstring": null
+    },
+    {
+      "name": "encode",
+      "docstring": null
+    },
+    {
+      "name": "decode",
+      "docstring": null
+    },
+    {
+      "name": "encode",
+      "docstring": null
+    },
+    {
+      "name": "decode",
+      "docstring": null
+    },
+    {
+      "name": "set_meta_data",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

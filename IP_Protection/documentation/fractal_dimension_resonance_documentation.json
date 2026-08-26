@@ -1,0 +1,104 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\negative-space-project\\src\\negative_mapping\\fractal_dimension_resonance.py",
+  "classes": [
+    {
+      "name": "FractalDimensionCalculator",
+      "docstring": "Calculates various fractal dimensions for spatial data.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the fractal dimension calculator.\n\nArgs:\n    method: Method to use for fractal dimension calculation\n           Options: \"box_counting\", \"correlation\", \"information\", \"hausdorff\""
+        },
+        {
+          "name": "calculate",
+          "docstring": "Calculate the fractal dimension of the provided coordinates.\n\nArgs:\n    coordinates: Array of coordinates in any dimension\n    \nReturns:\n    Fractal dimension value"
+        }
+      ]
+    },
+    {
+      "name": "MultifractalSpectrumAnalyzer",
+      "docstring": "Analyzes the multifractal spectrum of spatial data.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the multifractal spectrum analyzer.\n\nArgs:\n    q_values: Range of q values for multifractal analysis (default: -5 to 5)\n    scales: Scales at which to compute the analysis (default: logspace from 0.001 to 1)"
+        },
+        {
+          "name": "analyze",
+          "docstring": "Compute the multifractal spectrum of the provided coordinates.\n\nArgs:\n    coordinates: Array of coordinates in any dimension\n    \nReturns:\n    Dictionary containing multifractal spectrum information:\n        - alpha: Singularity strengths\n        - f_alpha: Multifractal spectrum\n        - q: Moment orders\n        - tau: Mass exponents\n        - D_q: Generalized dimensions"
+        }
+      ]
+    },
+    {
+      "name": "DimensionalResonanceDetector",
+      "docstring": "Detects resonance patterns in fractal dimensions across different spatial configurations.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the dimensional resonance detector.\n\nArgs:\n    resonance_threshold: Maximum difference to consider dimensions as resonating\n    cluster_eps: DBSCAN clustering parameter\n    min_cluster_size: Minimum points to form a cluster"
+        },
+        {
+          "name": "detect_resonances",
+          "docstring": "Detect dimensional resonances across multiple spatial configurations.\n\nArgs:\n    configurations: List of coordinate arrays representing different spatial configs\n    \nReturns:\n    Dictionary containing resonance information:\n        - resonance_clusters: Groups of configurations with similar fractal properties\n        - resonance_strength: Measure of resonance intensity\n        - resonance_patterns: Specific dimensional patterns detected\n        - resonance_graph: NetworkX graph of resonance relationships"
+        },
+        {
+          "name": "generate_resonance_fingerprint",
+          "docstring": "Generate a unique fractal fingerprint for a spatial configuration.\n\nArgs:\n    config: Coordinate array representing a spatial configuration\n    \nReturns:\n    Hexadecimal fingerprint string"
+        }
+      ]
+    },
+    {
+      "name": "FractalDimensionResonanceMapping",
+      "docstring": "Main class for Fractal Dimension Resonance Mapping (FDRM).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the FDRM system."
+        },
+        {
+          "name": "analyze_negative_space",
+          "docstring": "Analyze the fractal properties of a negative space configuration.\n\nArgs:\n    coordinates: Array of coordinates representing the negative space\n    \nReturns:\n    Dictionary of fractal analysis results"
+        },
+        {
+          "name": "detect_resonances",
+          "docstring": "Detect dimensional resonances across multiple spatial configurations.\n\nArgs:\n    configurations: List of coordinate arrays\n    \nReturns:\n    Resonance detection results"
+        },
+        {
+          "name": "compress_negative_space",
+          "docstring": "Compress negative space data using fractal properties.\n\nArgs:\n    coordinates: Array of coordinates representing the negative space\n    \nReturns:\n    Dictionary with compressed representation and metadata"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "calculate",
+      "docstring": "Calculate the fractal dimension of the provided coordinates.\n\nArgs:\n    coordinates: Array of coordinates in any dimension\n    \nReturns:\n    Fractal dimension value"
+    },
+    {
+      "name": "analyze",
+      "docstring": "Compute the multifractal spectrum of the provided coordinates.\n\nArgs:\n    coordinates: Array of coordinates in any dimension\n    \nReturns:\n    Dictionary containing multifractal spectrum information:\n        - alpha: Singularity strengths\n        - f_alpha: Multifractal spectrum\n        - q: Moment orders\n        - tau: Mass exponents\n        - D_q: Generalized dimensions"
+    },
+    {
+      "name": "detect_resonances",
+      "docstring": "Detect dimensional resonances across multiple spatial configurations.\n\nArgs:\n    configurations: List of coordinate arrays representing different spatial configs\n    \nReturns:\n    Dictionary containing resonance information:\n        - resonance_clusters: Groups of configurations with similar fractal properties\n        - resonance_strength: Measure of resonance intensity\n        - resonance_patterns: Specific dimensional patterns detected\n        - resonance_graph: NetworkX graph of resonance relationships"
+    },
+    {
+      "name": "generate_resonance_fingerprint",
+      "docstring": "Generate a unique fractal fingerprint for a spatial configuration.\n\nArgs:\n    config: Coordinate array representing a spatial configuration\n    \nReturns:\n    Hexadecimal fingerprint string"
+    },
+    {
+      "name": "analyze_negative_space",
+      "docstring": "Analyze the fractal properties of a negative space configuration.\n\nArgs:\n    coordinates: Array of coordinates representing the negative space\n    \nReturns:\n    Dictionary of fractal analysis results"
+    },
+    {
+      "name": "detect_resonances",
+      "docstring": "Detect dimensional resonances across multiple spatial configurations.\n\nArgs:\n    configurations: List of coordinate arrays\n    \nReturns:\n    Resonance detection results"
+    },
+    {
+      "name": "compress_negative_space",
+      "docstring": "Compress negative space data using fractal properties.\n\nArgs:\n    coordinates: Array of coordinates representing the negative space\n    \nReturns:\n    Dictionary with compressed representation and metadata"
+    }
+  ],
+  "innovations": []
+}

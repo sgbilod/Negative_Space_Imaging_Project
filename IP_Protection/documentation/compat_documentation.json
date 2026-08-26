@@ -1,0 +1,19 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\utils\\compat.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "has_tls",
+      "docstring": null
+    },
+    {
+      "name": "get_path_uid",
+      "docstring": "Return path's uid.\n\nDoes not follow symlinks:\n    https://github.com/pypa/pip/pull/935#discussion_r5307003\n\nPlaced this function in compat due to differences on AIX and\nJython, that should eventually go away.\n\n:raises OSError: When path is a symlink or can't be read."
+    },
+    {
+      "name": "open_text_resource",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

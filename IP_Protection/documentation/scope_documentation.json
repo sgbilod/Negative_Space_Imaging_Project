@@ -1,0 +1,19 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\scope.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "render_scope",
+      "docstring": "Render python variables in a given scope.\n\nArgs:\n    scope (Mapping): A mapping containing variable names and values.\n    title (str, optional): Optional title. Defaults to None.\n    sort_keys (bool, optional): Enable sorting of items. Defaults to True.\n    indent_guides (bool, optional): Enable indentation guides. Defaults to False.\n    max_length (int, optional): Maximum length of containers before abbreviating, or None for no abbreviation.\n        Defaults to None.\n    max_string (int, optional): Maximum length of string before truncating, or None to disable. Defaults to None.\n\nReturns:\n    ConsoleRenderable: A renderable object."
+    },
+    {
+      "name": "sort_items",
+      "docstring": "Sort special variables first, then alphabetically."
+    },
+    {
+      "name": "test",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

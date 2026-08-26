@@ -1,0 +1,116 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\mpl_toolkits\\axisartist\\axisline_style.py",
+  "classes": [
+    {
+      "name": "_FancyAxislineStyle",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "AxislineStyle",
+      "docstring": "A container class which defines style classes for AxisArtists.\n\nAn instance of any axisline style class is a callable object,\nwhose call signature is ::\n\n   __call__(self, axis_artist, path, transform)\n\nWhen called, this should return an `.Artist` with the following methods::\n\n  def set_path(self, path):\n      # set the path for axisline.\n\n  def set_line_mutation_scale(self, scale):\n      # set the scale\n\n  def draw(self, renderer):\n      # draw",
+      "methods": []
+    },
+    {
+      "name": "SimpleArrow",
+      "docstring": "The artist class that will be returned for SimpleArrow style.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_line_mutation_scale",
+          "docstring": null
+        },
+        {
+          "name": "set_path",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": "Draw the axis line.\n 1) Transform the path to the display coordinate.\n 2) Extend the path to make a room for arrow.\n 3) Update the path of the FancyArrowPatch.\n 4) Draw."
+        },
+        {
+          "name": "get_window_extent",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FilledArrow",
+      "docstring": "The artist class that will be returned for FilledArrow style.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_Base",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "initialization."
+        }
+      ]
+    },
+    {
+      "name": "SimpleArrow",
+      "docstring": "A simple arrow.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nsize : float\n    Size of the arrow as a fraction of the ticklabel size."
+        },
+        {
+          "name": "new_line",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FilledArrow",
+      "docstring": "An arrow with a filled head.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nsize : float\n    Size of the arrow as a fraction of the ticklabel size.\nfacecolor : :mpltype:`color`, default: :rc:`axes.edgecolor`\n    Fill color.\n\n    .. versionadded:: 3.7"
+        },
+        {
+          "name": "new_line",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "set_line_mutation_scale",
+      "docstring": null
+    },
+    {
+      "name": "set_path",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": "Draw the axis line.\n 1) Transform the path to the display coordinate.\n 2) Extend the path to make a room for arrow.\n 3) Update the path of the FancyArrowPatch.\n 4) Draw."
+    },
+    {
+      "name": "get_window_extent",
+      "docstring": null
+    },
+    {
+      "name": "new_line",
+      "docstring": null
+    },
+    {
+      "name": "new_line",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

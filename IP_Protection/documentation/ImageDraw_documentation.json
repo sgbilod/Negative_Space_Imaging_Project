@@ -1,0 +1,198 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\ImageDraw.py",
+  "classes": [
+    {
+      "name": "ImageDraw",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a drawing instance.\n\n:param im: The image to draw in.\n:param mode: Optional mode to use for color values.  For RGB\n   images, this argument can be RGB or RGBA (to blend the\n   drawing into the image).  For all other modes, this argument\n   must be the same as the image mode.  If omitted, the mode\n   defaults to the mode of the image."
+        },
+        {
+          "name": "getfont",
+          "docstring": "Get the current default font.\n\nTo set the default font for this ImageDraw instance::\n\n    from PIL import ImageDraw, ImageFont\n    draw.font = ImageFont.truetype(\"Tests/fonts/FreeMono.ttf\")\n\nTo set the default font for all future ImageDraw instances::\n\n    from PIL import ImageDraw, ImageFont\n    ImageDraw.ImageDraw.font = ImageFont.truetype(\"Tests/fonts/FreeMono.ttf\")\n\nIf the current default font is ``None``,\nit is initialized with ``ImageFont.load_default()``.\n\n:returns: An image font."
+        },
+        {
+          "name": "arc",
+          "docstring": "Draw an arc."
+        },
+        {
+          "name": "bitmap",
+          "docstring": "Draw a bitmap."
+        },
+        {
+          "name": "chord",
+          "docstring": "Draw a chord."
+        },
+        {
+          "name": "ellipse",
+          "docstring": "Draw an ellipse."
+        },
+        {
+          "name": "circle",
+          "docstring": "Draw a circle given center coordinates and a radius."
+        },
+        {
+          "name": "line",
+          "docstring": "Draw a line, or a connected sequence of line segments."
+        },
+        {
+          "name": "shape",
+          "docstring": "(Experimental) Draw a shape."
+        },
+        {
+          "name": "pieslice",
+          "docstring": "Draw a pieslice."
+        },
+        {
+          "name": "point",
+          "docstring": "Draw one or more individual pixels."
+        },
+        {
+          "name": "polygon",
+          "docstring": "Draw a polygon."
+        },
+        {
+          "name": "regular_polygon",
+          "docstring": "Draw a regular polygon."
+        },
+        {
+          "name": "rectangle",
+          "docstring": "Draw a rectangle."
+        },
+        {
+          "name": "rounded_rectangle",
+          "docstring": "Draw a rounded rectangle."
+        },
+        {
+          "name": "text",
+          "docstring": "Draw text."
+        },
+        {
+          "name": "multiline_text",
+          "docstring": null
+        },
+        {
+          "name": "textlength",
+          "docstring": "Get the length of a given string, in pixels with 1/64 precision."
+        },
+        {
+          "name": "textbbox",
+          "docstring": "Get the bounding box of a given string, in pixels."
+        },
+        {
+          "name": "multiline_textbbox",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "Draw",
+      "docstring": "A simple 2D drawing interface for PIL images.\n\n:param im: The image to draw in.\n:param mode: Optional mode to use for color values.  For RGB\n   images, this argument can be RGB or RGBA (to blend the\n   drawing into the image).  For all other modes, this argument\n   must be the same as the image mode.  If omitted, the mode\n   defaults to the mode of the image."
+    },
+    {
+      "name": "getdraw",
+      "docstring": ":param im: The image to draw in.\n:param hints: An optional list of hints. Deprecated.\n:returns: A (drawing context, drawing resource factory) tuple."
+    },
+    {
+      "name": "floodfill",
+      "docstring": ".. warning:: This method is experimental.\n\nFills a bounded region with a given color.\n\n:param image: Target image.\n:param xy: Seed position (a 2-item coordinate tuple). See\n    :ref:`coordinate-system`.\n:param value: Fill color.\n:param border: Optional border value.  If given, the region consists of\n    pixels with a color different from the border color.  If not given,\n    the region consists of pixels having the same color as the seed\n    pixel.\n:param thresh: Optional threshold value which specifies a maximum\n    tolerable difference of a pixel value from the 'background' in\n    order for it to be replaced. Useful for filling regions of\n    non-homogeneous, but similar, colors."
+    },
+    {
+      "name": "getfont",
+      "docstring": "Get the current default font.\n\nTo set the default font for this ImageDraw instance::\n\n    from PIL import ImageDraw, ImageFont\n    draw.font = ImageFont.truetype(\"Tests/fonts/FreeMono.ttf\")\n\nTo set the default font for all future ImageDraw instances::\n\n    from PIL import ImageDraw, ImageFont\n    ImageDraw.ImageDraw.font = ImageFont.truetype(\"Tests/fonts/FreeMono.ttf\")\n\nIf the current default font is ``None``,\nit is initialized with ``ImageFont.load_default()``.\n\n:returns: An image font."
+    },
+    {
+      "name": "arc",
+      "docstring": "Draw an arc."
+    },
+    {
+      "name": "bitmap",
+      "docstring": "Draw a bitmap."
+    },
+    {
+      "name": "chord",
+      "docstring": "Draw a chord."
+    },
+    {
+      "name": "ellipse",
+      "docstring": "Draw an ellipse."
+    },
+    {
+      "name": "circle",
+      "docstring": "Draw a circle given center coordinates and a radius."
+    },
+    {
+      "name": "line",
+      "docstring": "Draw a line, or a connected sequence of line segments."
+    },
+    {
+      "name": "shape",
+      "docstring": "(Experimental) Draw a shape."
+    },
+    {
+      "name": "pieslice",
+      "docstring": "Draw a pieslice."
+    },
+    {
+      "name": "point",
+      "docstring": "Draw one or more individual pixels."
+    },
+    {
+      "name": "polygon",
+      "docstring": "Draw a polygon."
+    },
+    {
+      "name": "regular_polygon",
+      "docstring": "Draw a regular polygon."
+    },
+    {
+      "name": "rectangle",
+      "docstring": "Draw a rectangle."
+    },
+    {
+      "name": "rounded_rectangle",
+      "docstring": "Draw a rounded rectangle."
+    },
+    {
+      "name": "text",
+      "docstring": "Draw text."
+    },
+    {
+      "name": "multiline_text",
+      "docstring": null
+    },
+    {
+      "name": "textlength",
+      "docstring": "Get the length of a given string, in pixels with 1/64 precision."
+    },
+    {
+      "name": "textbbox",
+      "docstring": "Get the bounding box of a given string, in pixels."
+    },
+    {
+      "name": "multiline_textbbox",
+      "docstring": null
+    },
+    {
+      "name": "draw_corners",
+      "docstring": null
+    },
+    {
+      "name": "getink",
+      "docstring": null
+    },
+    {
+      "name": "draw_text",
+      "docstring": null
+    },
+    {
+      "name": "coord_at_angle",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

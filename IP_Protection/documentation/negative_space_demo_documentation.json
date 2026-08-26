@@ -1,0 +1,54 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\negative_space_demo.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "parse_arguments",
+      "docstring": "Parse command line arguments"
+    },
+    {
+      "name": "ensure_directory",
+      "docstring": "Ensure a directory exists"
+    },
+    {
+      "name": "generate_test_scene",
+      "docstring": "Generate a test scene with multiple objects and interesting negative space.\n\nArgs:\n    num_points: Number of points to generate\n    \nReturns:\n    NegativeSpacePointCloud object"
+    },
+    {
+      "name": "run_basic_demo",
+      "docstring": "Run the basic negative space demo"
+    },
+    {
+      "name": "run_interstitial_demo",
+      "docstring": "Run the interstitial space analysis demo"
+    },
+    {
+      "name": "run_signature_demo",
+      "docstring": "Run the spatial signature generation demo"
+    },
+    {
+      "name": "run_void_mesh_demo",
+      "docstring": "Run the void mesh generation demo"
+    },
+    {
+      "name": "compare_signatures",
+      "docstring": "Compare spatial signatures from different configurations"
+    },
+    {
+      "name": "main",
+      "docstring": "Main function"
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "innovative",
+      "context": "\"\"\"\nNegative Space Analyzer Demo\n\nThis advanced demo showcases the innovative negative space analysis capabilities\nof the project, including:\n1. Point cloud generation with focus on negative space\n2. Interstitial space analysis between objects"
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    \"\"\"Run the basic negative space demo\"\"\"\n    print(\"\\n=== Running Basic Negative Space Demo ===\")\n    \n    # Create a point cloud generator with negative space optimization\n    generator = PointCloudGenerator(\n        cloud_type=PointCloudType.NEGATIVE_SPACE_OPTIMIZED,\n        params=PointCloudParams("
+    }
+  ]
+}

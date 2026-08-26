@@ -1,0 +1,459 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\_backend_tk.py",
+  "classes": [
+    {
+      "name": "TimerTk",
+      "docstring": "Subclass of `backend_bases.TimerBase` using Tk timer events.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FigureCanvasTk",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "resize",
+          "docstring": null
+        },
+        {
+          "name": "draw_idle",
+          "docstring": null
+        },
+        {
+          "name": "get_tk_widget",
+          "docstring": "Return the Tk widget used to implement FigureCanvasTkAgg.\n\nAlthough the initial implementation uses a Tk canvas,  this routine\nis intended to hide that fact."
+        },
+        {
+          "name": "motion_notify_event",
+          "docstring": null
+        },
+        {
+          "name": "enter_notify_event",
+          "docstring": null
+        },
+        {
+          "name": "leave_notify_event",
+          "docstring": null
+        },
+        {
+          "name": "button_press_event",
+          "docstring": null
+        },
+        {
+          "name": "button_dblclick_event",
+          "docstring": null
+        },
+        {
+          "name": "button_release_event",
+          "docstring": null
+        },
+        {
+          "name": "scroll_event",
+          "docstring": null
+        },
+        {
+          "name": "scroll_event_windows",
+          "docstring": "MouseWheel event processor"
+        },
+        {
+          "name": "key_press",
+          "docstring": null
+        },
+        {
+          "name": "key_release",
+          "docstring": null
+        },
+        {
+          "name": "new_timer",
+          "docstring": null
+        },
+        {
+          "name": "flush_events",
+          "docstring": null
+        },
+        {
+          "name": "start_event_loop",
+          "docstring": null
+        },
+        {
+          "name": "stop_event_loop",
+          "docstring": null
+        },
+        {
+          "name": "set_cursor",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FigureManagerTk",
+      "docstring": "Attributes\n----------\ncanvas : `FigureCanvas`\n    The FigureCanvas instance\nnum : int or str\n    The Figure number\ntoolbar : tk.Toolbar\n    The tk.Toolbar\nwindow : tk.Window\n    The tk.Window",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "create_with_canvas",
+          "docstring": null
+        },
+        {
+          "name": "start_main_loop",
+          "docstring": null
+        },
+        {
+          "name": "resize",
+          "docstring": null
+        },
+        {
+          "name": "show",
+          "docstring": null
+        },
+        {
+          "name": "destroy",
+          "docstring": null
+        },
+        {
+          "name": "get_window_title",
+          "docstring": null
+        },
+        {
+          "name": "set_window_title",
+          "docstring": null
+        },
+        {
+          "name": "full_screen_toggle",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "NavigationToolbar2Tk",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\ncanvas : `FigureCanvas`\n    The figure canvas on which to operate.\nwindow : tk.Window\n    The tk.Window which owns this toolbar.\npack_toolbar : bool, default: True\n    If True, add the toolbar to the parent's pack manager's packing\n    list during initialization with ``side=\"bottom\"`` and ``fill=\"x\"``.\n    If you want to use the toolbar with a different layout manager, use\n    ``pack_toolbar=False``."
+        },
+        {
+          "name": "pan",
+          "docstring": null
+        },
+        {
+          "name": "zoom",
+          "docstring": null
+        },
+        {
+          "name": "set_message",
+          "docstring": null
+        },
+        {
+          "name": "draw_rubberband",
+          "docstring": null
+        },
+        {
+          "name": "remove_rubberband",
+          "docstring": null
+        },
+        {
+          "name": "save_figure",
+          "docstring": null
+        },
+        {
+          "name": "set_history_buttons",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RubberbandTk",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "draw_rubberband",
+          "docstring": null
+        },
+        {
+          "name": "remove_rubberband",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ToolbarTk",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "add_toolitem",
+          "docstring": null
+        },
+        {
+          "name": "toggle_toolitem",
+          "docstring": null
+        },
+        {
+          "name": "remove_toolitem",
+          "docstring": null
+        },
+        {
+          "name": "set_message",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SaveFigureTk",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ConfigureSubplotsTk",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "HelpTk",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "trigger",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BackendTk",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "blit",
+      "docstring": "Blit *aggimage* to *photoimage*.\n\n*offsets* is a tuple describing how to fill the ``offset`` field of the\n``Tk_PhotoImageBlock`` struct: it should be (0, 1, 2, 3) for RGBA8888 data,\n(2, 1, 0, 3) for little-endian ARBG32 (i.e. GBRA8888) data and (1, 2, 3, 0)\nfor big-endian ARGB32 (i.e. ARGB8888) data.\n\nIf *bbox* is passed, it defines the region that gets blitted. That region\nwill be composed with the previous data according to the alpha channel.\nBlitting will be clipped to pixels inside the canvas, including silently\ndoing nothing if the *bbox* region is entirely outside the canvas.\n\nTcl events must be dispatched to trigger a blit from a non-Tcl thread."
+    },
+    {
+      "name": "add_tooltip",
+      "docstring": null
+    },
+    {
+      "name": "resize",
+      "docstring": null
+    },
+    {
+      "name": "draw_idle",
+      "docstring": null
+    },
+    {
+      "name": "get_tk_widget",
+      "docstring": "Return the Tk widget used to implement FigureCanvasTkAgg.\n\nAlthough the initial implementation uses a Tk canvas,  this routine\nis intended to hide that fact."
+    },
+    {
+      "name": "motion_notify_event",
+      "docstring": null
+    },
+    {
+      "name": "enter_notify_event",
+      "docstring": null
+    },
+    {
+      "name": "leave_notify_event",
+      "docstring": null
+    },
+    {
+      "name": "button_press_event",
+      "docstring": null
+    },
+    {
+      "name": "button_dblclick_event",
+      "docstring": null
+    },
+    {
+      "name": "button_release_event",
+      "docstring": null
+    },
+    {
+      "name": "scroll_event",
+      "docstring": null
+    },
+    {
+      "name": "scroll_event_windows",
+      "docstring": "MouseWheel event processor"
+    },
+    {
+      "name": "key_press",
+      "docstring": null
+    },
+    {
+      "name": "key_release",
+      "docstring": null
+    },
+    {
+      "name": "new_timer",
+      "docstring": null
+    },
+    {
+      "name": "flush_events",
+      "docstring": null
+    },
+    {
+      "name": "start_event_loop",
+      "docstring": null
+    },
+    {
+      "name": "stop_event_loop",
+      "docstring": null
+    },
+    {
+      "name": "set_cursor",
+      "docstring": null
+    },
+    {
+      "name": "create_with_canvas",
+      "docstring": null
+    },
+    {
+      "name": "start_main_loop",
+      "docstring": null
+    },
+    {
+      "name": "resize",
+      "docstring": null
+    },
+    {
+      "name": "show",
+      "docstring": null
+    },
+    {
+      "name": "destroy",
+      "docstring": null
+    },
+    {
+      "name": "get_window_title",
+      "docstring": null
+    },
+    {
+      "name": "set_window_title",
+      "docstring": null
+    },
+    {
+      "name": "full_screen_toggle",
+      "docstring": null
+    },
+    {
+      "name": "pan",
+      "docstring": null
+    },
+    {
+      "name": "zoom",
+      "docstring": null
+    },
+    {
+      "name": "set_message",
+      "docstring": null
+    },
+    {
+      "name": "draw_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "remove_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "save_figure",
+      "docstring": null
+    },
+    {
+      "name": "set_history_buttons",
+      "docstring": null
+    },
+    {
+      "name": "showtip",
+      "docstring": "Display text in tooltip window."
+    },
+    {
+      "name": "hidetip",
+      "docstring": null
+    },
+    {
+      "name": "draw_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "remove_rubberband",
+      "docstring": null
+    },
+    {
+      "name": "add_toolitem",
+      "docstring": null
+    },
+    {
+      "name": "toggle_toolitem",
+      "docstring": null
+    },
+    {
+      "name": "remove_toolitem",
+      "docstring": null
+    },
+    {
+      "name": "set_message",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "trigger",
+      "docstring": null
+    },
+    {
+      "name": "scroll_event_windows",
+      "docstring": null
+    },
+    {
+      "name": "filter_destroy",
+      "docstring": null
+    },
+    {
+      "name": "idle_draw",
+      "docstring": null
+    },
+    {
+      "name": "delayed_destroy",
+      "docstring": null
+    },
+    {
+      "name": "destroy",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

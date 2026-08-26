@@ -1,0 +1,70 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\vector.py",
+  "classes": [
+    {
+      "name": "Vector",
+      "docstring": "A math-like vector.\n\nRepresents an n-dimensional numeric vector. ``Vector`` objects support\nvector addition and subtraction, scalar multiplication and division,\nnegation, rounding, and comparison tests.",
+      "methods": [
+        {
+          "name": "length",
+          "docstring": "Return the length of the vector. Equivalent to abs(vector)."
+        },
+        {
+          "name": "normalized",
+          "docstring": "Return the normalized vector of the vector."
+        },
+        {
+          "name": "dot",
+          "docstring": "Performs vector dot product, returning the sum of\n``a[0] * b[0], a[1] * b[1], ...``"
+        },
+        {
+          "name": "toInt",
+          "docstring": null
+        },
+        {
+          "name": "values",
+          "docstring": null
+        },
+        {
+          "name": "values",
+          "docstring": null
+        },
+        {
+          "name": "isclose",
+          "docstring": "Return True if the vector is close to another Vector."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "length",
+      "docstring": "Return the length of the vector. Equivalent to abs(vector)."
+    },
+    {
+      "name": "normalized",
+      "docstring": "Return the normalized vector of the vector."
+    },
+    {
+      "name": "dot",
+      "docstring": "Performs vector dot product, returning the sum of\n``a[0] * b[0], a[1] * b[1], ...``"
+    },
+    {
+      "name": "toInt",
+      "docstring": null
+    },
+    {
+      "name": "values",
+      "docstring": null
+    },
+    {
+      "name": "values",
+      "docstring": null
+    },
+    {
+      "name": "isclose",
+      "docstring": "Return True if the vector is close to another Vector."
+    }
+  ],
+  "innovations": []
+}

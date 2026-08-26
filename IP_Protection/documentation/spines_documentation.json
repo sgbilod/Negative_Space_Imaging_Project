@@ -1,0 +1,194 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\spines.py",
+  "classes": [
+    {
+      "name": "Spine",
+      "docstring": "An axis spine -- the line noting the data area boundaries.\n\nSpines are the lines connecting the axis tick marks and noting the\nboundaries of the data area. They can be placed at arbitrary\npositions. See `~.Spine.set_position` for more information.\n\nThe default position is ``('outward', 0)``.\n\nSpines are subclasses of `.Patch`, and inherit much of their behavior.\n\nSpines draw a line, a circle, or an arc depending on if\n`~.Spine.set_patch_line`, `~.Spine.set_patch_circle`, or\n`~.Spine.set_patch_arc` has been called. Line-like is the default.\n\nFor examples see :ref:`spines_examples`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\naxes : `~matplotlib.axes.Axes`\n    The `~.axes.Axes` instance containing the spine.\nspine_type : str\n    The spine type.\npath : `~matplotlib.path.Path`\n    The `.Path` instance used to draw the spine.\n\nOther Parameters\n----------------\n**kwargs\n    Valid keyword arguments are:\n\n    %(Patch:kwdoc)s"
+        },
+        {
+          "name": "set_patch_arc",
+          "docstring": "Set the spine to be arc-like."
+        },
+        {
+          "name": "set_patch_circle",
+          "docstring": "Set the spine to be circular."
+        },
+        {
+          "name": "set_patch_line",
+          "docstring": "Set the spine to be linear."
+        },
+        {
+          "name": "get_patch_transform",
+          "docstring": null
+        },
+        {
+          "name": "get_window_extent",
+          "docstring": "Return the window extent of the spines in display space, including\npadding for ticks (but not their labels)\n\nSee Also\n--------\nmatplotlib.axes.Axes.get_tightbbox\nmatplotlib.axes.Axes.get_window_extent"
+        },
+        {
+          "name": "get_path",
+          "docstring": null
+        },
+        {
+          "name": "register_axis",
+          "docstring": "Register an axis.\n\nAn axis should be registered with its corresponding spine from\nthe Axes instance. This allows the spine to clear any axis\nproperties when needed."
+        },
+        {
+          "name": "clear",
+          "docstring": "Clear the current spine."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        },
+        {
+          "name": "set_position",
+          "docstring": "Set the position of the spine.\n\nSpine position is specified by a 2 tuple of (position type,\namount). The position types are:\n\n* 'outward': place the spine out from the data area by the specified\n  number of points. (Negative values place the spine inwards.)\n* 'axes': place the spine at the specified Axes coordinate (0 to 1).\n* 'data': place the spine at the specified data coordinate.\n\nAdditionally, shorthand notations define a special positions:\n\n* 'center' -> ``('axes', 0.5)``\n* 'zero' -> ``('data', 0.0)``\n\nExamples\n--------\n:doc:`/gallery/spines/spine_placement_demo`"
+        },
+        {
+          "name": "get_position",
+          "docstring": "Return the spine position."
+        },
+        {
+          "name": "get_spine_transform",
+          "docstring": "Return the spine transform."
+        },
+        {
+          "name": "set_bounds",
+          "docstring": "Set the spine bounds.\n\nParameters\n----------\nlow : float or None, optional\n    The lower spine bound. Passing *None* leaves the limit unchanged.\n\n    The bounds may also be passed as the tuple (*low*, *high*) as the\n    first positional argument.\n\n    .. ACCEPTS: (low: float, high: float)\n\nhigh : float or None, optional\n    The higher spine bound. Passing *None* leaves the limit unchanged."
+        },
+        {
+          "name": "get_bounds",
+          "docstring": "Get the bounds of the spine."
+        },
+        {
+          "name": "linear_spine",
+          "docstring": "Create and return a linear `Spine`."
+        },
+        {
+          "name": "arc_spine",
+          "docstring": "Create and return an arc `Spine`."
+        },
+        {
+          "name": "circular_spine",
+          "docstring": "Create and return a circular `Spine`."
+        },
+        {
+          "name": "set_color",
+          "docstring": "Set the edgecolor.\n\nParameters\n----------\nc : :mpltype:`color`\n\nNotes\n-----\nThis method does not modify the facecolor (which defaults to \"none\"),\nunlike the `.Patch.set_color` method defined in the parent class.  Use\n`.Patch.set_facecolor` to set the facecolor."
+        }
+      ]
+    },
+    {
+      "name": "SpinesProxy",
+      "docstring": "A proxy to broadcast ``set_*()`` and ``set()`` method calls to contained `.Spines`.\n\nThe proxy cannot be used for any other operations on its members.\n\nThe supported methods are determined dynamically based on the contained\nspines. If not all spines support a given method, it's executed only on\nthe subset of spines that support it.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Spines",
+      "docstring": "The container of all `.Spine`\\s in an Axes.\n\nThe interface is dict-like mapping names (e.g. 'left') to `.Spine` objects.\nAdditionally, it implements some pandas.Series-like features like accessing\nelements by attribute::\n\n    spines['top'].set_visible(False)\n    spines.top.set_visible(False)\n\nMultiple spines can be addressed simultaneously by passing a list::\n\n    spines[['top', 'right']].set_visible(False)\n\nUse an open slice to address all spines::\n\n    spines[:].set_visible(False)\n\nThe latter two indexing methods will return a `SpinesProxy` that broadcasts all\n``set_*()`` and ``set()`` calls to its members, but cannot be used for any other\noperation.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "from_dict",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "set_patch_arc",
+      "docstring": "Set the spine to be arc-like."
+    },
+    {
+      "name": "set_patch_circle",
+      "docstring": "Set the spine to be circular."
+    },
+    {
+      "name": "set_patch_line",
+      "docstring": "Set the spine to be linear."
+    },
+    {
+      "name": "get_patch_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_window_extent",
+      "docstring": "Return the window extent of the spines in display space, including\npadding for ticks (but not their labels)\n\nSee Also\n--------\nmatplotlib.axes.Axes.get_tightbbox\nmatplotlib.axes.Axes.get_window_extent"
+    },
+    {
+      "name": "get_path",
+      "docstring": null
+    },
+    {
+      "name": "register_axis",
+      "docstring": "Register an axis.\n\nAn axis should be registered with its corresponding spine from\nthe Axes instance. This allows the spine to clear any axis\nproperties when needed."
+    },
+    {
+      "name": "clear",
+      "docstring": "Clear the current spine."
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "set_position",
+      "docstring": "Set the position of the spine.\n\nSpine position is specified by a 2 tuple of (position type,\namount). The position types are:\n\n* 'outward': place the spine out from the data area by the specified\n  number of points. (Negative values place the spine inwards.)\n* 'axes': place the spine at the specified Axes coordinate (0 to 1).\n* 'data': place the spine at the specified data coordinate.\n\nAdditionally, shorthand notations define a special positions:\n\n* 'center' -> ``('axes', 0.5)``\n* 'zero' -> ``('data', 0.0)``\n\nExamples\n--------\n:doc:`/gallery/spines/spine_placement_demo`"
+    },
+    {
+      "name": "get_position",
+      "docstring": "Return the spine position."
+    },
+    {
+      "name": "get_spine_transform",
+      "docstring": "Return the spine transform."
+    },
+    {
+      "name": "set_bounds",
+      "docstring": "Set the spine bounds.\n\nParameters\n----------\nlow : float or None, optional\n    The lower spine bound. Passing *None* leaves the limit unchanged.\n\n    The bounds may also be passed as the tuple (*low*, *high*) as the\n    first positional argument.\n\n    .. ACCEPTS: (low: float, high: float)\n\nhigh : float or None, optional\n    The higher spine bound. Passing *None* leaves the limit unchanged."
+    },
+    {
+      "name": "get_bounds",
+      "docstring": "Get the bounds of the spine."
+    },
+    {
+      "name": "linear_spine",
+      "docstring": "Create and return a linear `Spine`."
+    },
+    {
+      "name": "arc_spine",
+      "docstring": "Create and return an arc `Spine`."
+    },
+    {
+      "name": "circular_spine",
+      "docstring": "Create and return a circular `Spine`."
+    },
+    {
+      "name": "set_color",
+      "docstring": "Set the edgecolor.\n\nParameters\n----------\nc : :mpltype:`color`\n\nNotes\n-----\nThis method does not modify the facecolor (which defaults to \"none\"),\nunlike the `.Patch.set_color` method defined in the parent class.  Use\n`.Patch.set_facecolor` to set the facecolor."
+    },
+    {
+      "name": "from_dict",
+      "docstring": null
+    },
+    {
+      "name": "x",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

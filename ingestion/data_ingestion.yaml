@@ -1,0 +1,67 @@
+# Data Ingestion Configuration
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+version: '1.0'
+
+ingestion:
+  mode: "streaming"
+  batch_size: 10000
+  parallel_streams: 32
+  buffer_size: "64Gi"
+  compression: "lz4"
+
+sources:
+  - type: "kafka"
+    brokers: ["kafka-1:9092", "kafka-2:9092", "kafka-3:9092"]
+    topics: ["quantum-data-raw"]
+    consumer_group: "quantum-processor"
+    security:
+      ssl: true
+      sasl: true
+      protocol: "SASL_SSL"
+
+  - type: "s3"
+    bucket: "negative-space-data"
+    prefix: "raw/"
+    max_concurrent_requests: 100
+
+  - type: "telescope"
+    interface: "high_bandwidth"
+    protocol: "photon_counting"
+    sampling_rate: "10GHz"
+
+preprocessing:
+  validation:
+    schema_validation: true
+    quantum_state_verification: true
+    error_detection: true
+
+  transformation:
+    quantum_encoding: true
+    noise_reduction: true
+    feature_extraction: true
+
+  optimization:
+    parallel_processing: true
+    gpu_acceleration: true
+    memory_mapping: true
+
+output:
+  format: "quantum_compatible"
+  destination: "quantum-processor"
+  metadata_enrichment: true
+  error_handling:
+    retry_attempts: 3
+    dead_letter_queue: true
+
+monitoring:
+  metrics:
+    throughput: true
+    latency: true
+    error_rate: true
+    quantum_fidelity: true
+
+  alerts:
+    latency_threshold: "100ms"
+    error_threshold: 0.001
+    fidelity_threshold: 0.99

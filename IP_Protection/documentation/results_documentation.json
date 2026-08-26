@@ -1,0 +1,189 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pyparsing\\results.py",
+  "classes": [
+    {
+      "name": "_ParseResultsWithOffset",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ParseResults",
+      "docstring": "Structured parse results, to provide multiple means of access to\nthe parsed data:\n\n- as a list (``len(results)``)\n- by list index (``results[0], results[1]``, etc.)\n- by attribute (``results.<results_name>`` - see :class:`ParserElement.set_results_name`)\n\nExample::\n\n    integer = Word(nums)\n    date_str = (integer.set_results_name(\"year\") + '/'\n                + integer.set_results_name(\"month\") + '/'\n                + integer.set_results_name(\"day\"))\n    # equivalent form:\n    # date_str = (integer(\"year\") + '/'\n    #             + integer(\"month\") + '/'\n    #             + integer(\"day\"))\n\n    # parse_string returns a ParseResults object\n    result = date_str.parse_string(\"1999/12/31\")\n\n    def test(s, fn=repr):\n        print(f\"{s} -> {fn(eval(s))}\")\n    test(\"list(result)\")\n    test(\"result[0]\")\n    test(\"result['month']\")\n    test(\"result.day\")\n    test(\"'month' in result\")\n    test(\"'minutes' in result\")\n    test(\"result.dump()\", str)\n\nprints::\n\n    list(result) -> ['1999', '/', '12', '/', '31']\n    result[0] -> '1999'\n    result['month'] -> '12'\n    result.day -> '31'\n    'month' in result -> True\n    'minutes' in result -> False\n    result.dump() -> ['1999', '/', '12', '/', '31']\n    - day: '31'\n    - month: '12'\n    - year: '1999'",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "keys",
+          "docstring": null
+        },
+        {
+          "name": "values",
+          "docstring": null
+        },
+        {
+          "name": "items",
+          "docstring": null
+        },
+        {
+          "name": "haskeys",
+          "docstring": "Since ``keys()`` returns an iterator, this method is helpful in bypassing\ncode that looks for the existence of any defined results names."
+        },
+        {
+          "name": "pop",
+          "docstring": "Removes and returns item at specified index (default= ``last``).\nSupports both ``list`` and ``dict`` semantics for ``pop()``. If\npassed no argument or an integer argument, it will use ``list``\nsemantics and pop tokens from the list of parsed tokens. If passed\na non-integer argument (most likely a string), it will use ``dict``\nsemantics and pop the corresponding value from any defined results\nnames. A second default return value argument is supported, just as in\n``dict.pop()``.\n\nExample::\n\n    numlist = Word(nums)[...]\n    print(numlist.parse_string(\"0 123 321\")) # -> ['0', '123', '321']\n\n    def remove_first(tokens):\n        tokens.pop(0)\n    numlist.add_parse_action(remove_first)\n    print(numlist.parse_string(\"0 123 321\")) # -> ['123', '321']\n\n    label = Word(alphas)\n    patt = label(\"LABEL\") + Word(nums)[1, ...]\n    print(patt.parse_string(\"AAB 123 321\").dump())\n\n    # Use pop() in a parse action to remove named result (note that corresponding value is not\n    # removed from list form of results)\n    def remove_LABEL(tokens):\n        tokens.pop(\"LABEL\")\n        return tokens\n    patt.add_parse_action(remove_LABEL)\n    print(patt.parse_string(\"AAB 123 321\").dump())\n\nprints::\n\n    ['AAB', '123', '321']\n    - LABEL: 'AAB'\n\n    ['AAB', '123', '321']"
+        },
+        {
+          "name": "get",
+          "docstring": "Returns named result matching the given key, or if there is no\nsuch name, then returns the given ``default_value`` or ``None`` if no\n``default_value`` is specified.\n\nSimilar to ``dict.get()``.\n\nExample::\n\n    integer = Word(nums)\n    date_str = integer(\"year\") + '/' + integer(\"month\") + '/' + integer(\"day\")\n\n    result = date_str.parse_string(\"1999/12/31\")\n    print(result.get(\"year\")) # -> '1999'\n    print(result.get(\"hour\", \"not specified\")) # -> 'not specified'\n    print(result.get(\"hour\")) # -> None"
+        },
+        {
+          "name": "insert",
+          "docstring": "Inserts new element at location index in the list of parsed tokens.\n\nSimilar to ``list.insert()``.\n\nExample::\n\n    numlist = Word(nums)[...]\n    print(numlist.parse_string(\"0 123 321\")) # -> ['0', '123', '321']\n\n    # use a parse action to insert the parse location in the front of the parsed results\n    def insert_locn(locn, tokens):\n        tokens.insert(0, locn)\n    numlist.add_parse_action(insert_locn)\n    print(numlist.parse_string(\"0 123 321\")) # -> [0, '0', '123', '321']"
+        },
+        {
+          "name": "append",
+          "docstring": "Add single element to end of ``ParseResults`` list of elements.\n\nExample::\n\n    numlist = Word(nums)[...]\n    print(numlist.parse_string(\"0 123 321\")) # -> ['0', '123', '321']\n\n    # use a parse action to compute the sum of the parsed integers, and add it to the end\n    def append_sum(tokens):\n        tokens.append(sum(map(int, tokens)))\n    numlist.add_parse_action(append_sum)\n    print(numlist.parse_string(\"0 123 321\")) # -> ['0', '123', '321', 444]"
+        },
+        {
+          "name": "extend",
+          "docstring": "Add sequence of elements to end of ``ParseResults`` list of elements.\n\nExample::\n\n    patt = Word(alphas)[1, ...]\n\n    # use a parse action to append the reverse of the matched strings, to make a palindrome\n    def make_palindrome(tokens):\n        tokens.extend(reversed([t[::-1] for t in tokens]))\n        return ''.join(tokens)\n    patt.add_parse_action(make_palindrome)\n    print(patt.parse_string(\"lskdj sdlkjf lksd\")) # -> 'lskdjsdlkjflksddsklfjkldsjdksl'"
+        },
+        {
+          "name": "clear",
+          "docstring": "Clear all elements and results names."
+        },
+        {
+          "name": "as_list",
+          "docstring": "Returns the parse results as a nested list of matching tokens, all converted to strings.\nIf flatten is True, all the nesting levels in the returned list are collapsed.\n\nExample::\n\n    patt = Word(alphas)[1, ...]\n    result = patt.parse_string(\"sldkj lsdkj sldkj\")\n    # even though the result prints in string-like form, it is actually a pyparsing ParseResults\n    print(type(result), result) # -> <class 'pyparsing.ParseResults'> ['sldkj', 'lsdkj', 'sldkj']\n\n    # Use as_list() to create an actual list\n    result_list = result.as_list()\n    print(type(result_list), result_list) # -> <class 'list'> ['sldkj', 'lsdkj', 'sldkj']"
+        },
+        {
+          "name": "as_dict",
+          "docstring": "Returns the named parse results as a nested dictionary.\n\nExample::\n\n    integer = Word(nums)\n    date_str = integer(\"year\") + '/' + integer(\"month\") + '/' + integer(\"day\")\n\n    result = date_str.parse_string('12/31/1999')\n    print(type(result), repr(result)) # -> <class 'pyparsing.ParseResults'> (['12', '/', '31', '/', '1999'], {'day': [('1999', 4)], 'year': [('12', 0)], 'month': [('31', 2)]})\n\n    result_dict = result.as_dict()\n    print(type(result_dict), repr(result_dict)) # -> <class 'dict'> {'day': '1999', 'year': '12', 'month': '31'}\n\n    # even though a ParseResults supports dict-like access, sometime you just need to have a dict\n    import json\n    print(json.dumps(result)) # -> Exception: TypeError: ... is not JSON serializable\n    print(json.dumps(result.as_dict())) # -> {\"month\": \"31\", \"day\": \"1999\", \"year\": \"12\"}"
+        },
+        {
+          "name": "copy",
+          "docstring": "Returns a new shallow copy of a :class:`ParseResults` object. `ParseResults`\nitems contained within the source are shared with the copy. Use\n:class:`ParseResults.deepcopy()` to create a copy with its own separate\ncontent values."
+        },
+        {
+          "name": "deepcopy",
+          "docstring": "Returns a new deep copy of a :class:`ParseResults` object."
+        },
+        {
+          "name": "get_name",
+          "docstring": "Returns the results name for this token expression. Useful when several\ndifferent expressions might match at a particular location.\n\nExample::\n\n    integer = Word(nums)\n    ssn_expr = Regex(r\"\\d\\d\\d-\\d\\d-\\d\\d\\d\\d\")\n    house_number_expr = Suppress('#') + Word(nums, alphanums)\n    user_data = (Group(house_number_expr)(\"house_number\")\n                | Group(ssn_expr)(\"ssn\")\n                | Group(integer)(\"age\"))\n    user_info = user_data[1, ...]\n\n    result = user_info.parse_string(\"22 111-22-3333 #221B\")\n    for item in result:\n        print(item.get_name(), ':', item[0])\n\nprints::\n\n    age : 22\n    ssn : 111-22-3333\n    house_number : 221B"
+        },
+        {
+          "name": "dump",
+          "docstring": "Diagnostic method for listing out the contents of\na :class:`ParseResults`. Accepts an optional ``indent`` argument so\nthat this string can be embedded in a nested display of other data.\n\nExample::\n\n    integer = Word(nums)\n    date_str = integer(\"year\") + '/' + integer(\"month\") + '/' + integer(\"day\")\n\n    result = date_str.parse_string('1999/12/31')\n    print(result.dump())\n\nprints::\n\n    ['1999', '/', '12', '/', '31']\n    - day: '31'\n    - month: '12'\n    - year: '1999'"
+        },
+        {
+          "name": "pprint",
+          "docstring": "Pretty-printer for parsed results as a list, using the\n`pprint <https://docs.python.org/3/library/pprint.html>`_ module.\nAccepts additional positional or keyword args as defined for\n`pprint.pprint <https://docs.python.org/3/library/pprint.html#pprint.pprint>`_ .\n\nExample::\n\n    ident = Word(alphas, alphanums)\n    num = Word(nums)\n    func = Forward()\n    term = ident | num | Group('(' + func + ')')\n    func <<= ident + Group(Optional(DelimitedList(term)))\n    result = func.parse_string(\"fna a,b,(fnb c,d,200),100\")\n    result.pprint(width=40)\n\nprints::\n\n    ['fna',\n     ['a',\n      'b',\n      ['(', 'fnb', ['c', 'd', '200'], ')'],\n      '100']]"
+        },
+        {
+          "name": "from_dict",
+          "docstring": "Helper classmethod to construct a ``ParseResults`` from a ``dict``, preserving the\nname-value relations as results names. If an optional ``name`` argument is\ngiven, a nested ``ParseResults`` will be returned."
+        }
+      ]
+    },
+    {
+      "name": "List",
+      "docstring": "Simple wrapper class to distinguish parsed list results that should be preserved\nas actual Python lists, instead of being converted to :class:`ParseResults`::\n\n    LBRACK, RBRACK = map(pp.Suppress, \"[]\")\n    element = pp.Forward()\n    item = ppc.integer\n    element_list = LBRACK + pp.DelimitedList(element) + RBRACK\n\n    # add parse actions to convert from ParseResults to actual Python collection types\n    def as_python_list(t):\n        return pp.ParseResults.List(t.as_list())\n    element_list.add_parse_action(as_python_list)\n\n    element <<= item | element_list\n\n    element.run_tests('''\n        100\n        [2,3,4]\n        [[2, 1],3,4]\n        [(2, 1),3,4]\n        (2,3,4)\n        ''', post_parse=lambda s, r: (r[0], type(r[0])))\n\nprints::\n\n    100\n    (100, <class 'int'>)\n\n    [2,3,4]\n    ([2, 3, 4], <class 'list'>)\n\n    [[2, 1],3,4]\n    ([[2, 1], 3, 4], <class 'list'>)\n\n(Used internally by :class:`Group` when `aslist=True`.)",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "keys",
+      "docstring": null
+    },
+    {
+      "name": "values",
+      "docstring": null
+    },
+    {
+      "name": "items",
+      "docstring": null
+    },
+    {
+      "name": "haskeys",
+      "docstring": "Since ``keys()`` returns an iterator, this method is helpful in bypassing\ncode that looks for the existence of any defined results names."
+    },
+    {
+      "name": "pop",
+      "docstring": "Removes and returns item at specified index (default= ``last``).\nSupports both ``list`` and ``dict`` semantics for ``pop()``. If\npassed no argument or an integer argument, it will use ``list``\nsemantics and pop tokens from the list of parsed tokens. If passed\na non-integer argument (most likely a string), it will use ``dict``\nsemantics and pop the corresponding value from any defined results\nnames. A second default return value argument is supported, just as in\n``dict.pop()``.\n\nExample::\n\n    numlist = Word(nums)[...]\n    print(numlist.parse_string(\"0 123 321\")) # -> ['0', '123', '321']\n\n    def remove_first(tokens):\n        tokens.pop(0)\n    numlist.add_parse_action(remove_first)\n    print(numlist.parse_string(\"0 123 321\")) # -> ['123', '321']\n\n    label = Word(alphas)\n    patt = label(\"LABEL\") + Word(nums)[1, ...]\n    print(patt.parse_string(\"AAB 123 321\").dump())\n\n    # Use pop() in a parse action to remove named result (note that corresponding value is not\n    # removed from list form of results)\n    def remove_LABEL(tokens):\n        tokens.pop(\"LABEL\")\n        return tokens\n    patt.add_parse_action(remove_LABEL)\n    print(patt.parse_string(\"AAB 123 321\").dump())\n\nprints::\n\n    ['AAB', '123', '321']\n    - LABEL: 'AAB'\n\n    ['AAB', '123', '321']"
+    },
+    {
+      "name": "get",
+      "docstring": "Returns named result matching the given key, or if there is no\nsuch name, then returns the given ``default_value`` or ``None`` if no\n``default_value`` is specified.\n\nSimilar to ``dict.get()``.\n\nExample::\n\n    integer = Word(nums)\n    date_str = integer(\"year\") + '/' + integer(\"month\") + '/' + integer(\"day\")\n\n    result = date_str.parse_string(\"1999/12/31\")\n    print(result.get(\"year\")) # -> '1999'\n    print(result.get(\"hour\", \"not specified\")) # -> 'not specified'\n    print(result.get(\"hour\")) # -> None"
+    },
+    {
+      "name": "insert",
+      "docstring": "Inserts new element at location index in the list of parsed tokens.\n\nSimilar to ``list.insert()``.\n\nExample::\n\n    numlist = Word(nums)[...]\n    print(numlist.parse_string(\"0 123 321\")) # -> ['0', '123', '321']\n\n    # use a parse action to insert the parse location in the front of the parsed results\n    def insert_locn(locn, tokens):\n        tokens.insert(0, locn)\n    numlist.add_parse_action(insert_locn)\n    print(numlist.parse_string(\"0 123 321\")) # -> [0, '0', '123', '321']"
+    },
+    {
+      "name": "append",
+      "docstring": "Add single element to end of ``ParseResults`` list of elements.\n\nExample::\n\n    numlist = Word(nums)[...]\n    print(numlist.parse_string(\"0 123 321\")) # -> ['0', '123', '321']\n\n    # use a parse action to compute the sum of the parsed integers, and add it to the end\n    def append_sum(tokens):\n        tokens.append(sum(map(int, tokens)))\n    numlist.add_parse_action(append_sum)\n    print(numlist.parse_string(\"0 123 321\")) # -> ['0', '123', '321', 444]"
+    },
+    {
+      "name": "extend",
+      "docstring": "Add sequence of elements to end of ``ParseResults`` list of elements.\n\nExample::\n\n    patt = Word(alphas)[1, ...]\n\n    # use a parse action to append the reverse of the matched strings, to make a palindrome\n    def make_palindrome(tokens):\n        tokens.extend(reversed([t[::-1] for t in tokens]))\n        return ''.join(tokens)\n    patt.add_parse_action(make_palindrome)\n    print(patt.parse_string(\"lskdj sdlkjf lksd\")) # -> 'lskdjsdlkjflksddsklfjkldsjdksl'"
+    },
+    {
+      "name": "clear",
+      "docstring": "Clear all elements and results names."
+    },
+    {
+      "name": "as_list",
+      "docstring": "Returns the parse results as a nested list of matching tokens, all converted to strings.\nIf flatten is True, all the nesting levels in the returned list are collapsed.\n\nExample::\n\n    patt = Word(alphas)[1, ...]\n    result = patt.parse_string(\"sldkj lsdkj sldkj\")\n    # even though the result prints in string-like form, it is actually a pyparsing ParseResults\n    print(type(result), result) # -> <class 'pyparsing.ParseResults'> ['sldkj', 'lsdkj', 'sldkj']\n\n    # Use as_list() to create an actual list\n    result_list = result.as_list()\n    print(type(result_list), result_list) # -> <class 'list'> ['sldkj', 'lsdkj', 'sldkj']"
+    },
+    {
+      "name": "as_dict",
+      "docstring": "Returns the named parse results as a nested dictionary.\n\nExample::\n\n    integer = Word(nums)\n    date_str = integer(\"year\") + '/' + integer(\"month\") + '/' + integer(\"day\")\n\n    result = date_str.parse_string('12/31/1999')\n    print(type(result), repr(result)) # -> <class 'pyparsing.ParseResults'> (['12', '/', '31', '/', '1999'], {'day': [('1999', 4)], 'year': [('12', 0)], 'month': [('31', 2)]})\n\n    result_dict = result.as_dict()\n    print(type(result_dict), repr(result_dict)) # -> <class 'dict'> {'day': '1999', 'year': '12', 'month': '31'}\n\n    # even though a ParseResults supports dict-like access, sometime you just need to have a dict\n    import json\n    print(json.dumps(result)) # -> Exception: TypeError: ... is not JSON serializable\n    print(json.dumps(result.as_dict())) # -> {\"month\": \"31\", \"day\": \"1999\", \"year\": \"12\"}"
+    },
+    {
+      "name": "copy",
+      "docstring": "Returns a new shallow copy of a :class:`ParseResults` object. `ParseResults`\nitems contained within the source are shared with the copy. Use\n:class:`ParseResults.deepcopy()` to create a copy with its own separate\ncontent values."
+    },
+    {
+      "name": "deepcopy",
+      "docstring": "Returns a new deep copy of a :class:`ParseResults` object."
+    },
+    {
+      "name": "get_name",
+      "docstring": "Returns the results name for this token expression. Useful when several\ndifferent expressions might match at a particular location.\n\nExample::\n\n    integer = Word(nums)\n    ssn_expr = Regex(r\"\\d\\d\\d-\\d\\d-\\d\\d\\d\\d\")\n    house_number_expr = Suppress('#') + Word(nums, alphanums)\n    user_data = (Group(house_number_expr)(\"house_number\")\n                | Group(ssn_expr)(\"ssn\")\n                | Group(integer)(\"age\"))\n    user_info = user_data[1, ...]\n\n    result = user_info.parse_string(\"22 111-22-3333 #221B\")\n    for item in result:\n        print(item.get_name(), ':', item[0])\n\nprints::\n\n    age : 22\n    ssn : 111-22-3333\n    house_number : 221B"
+    },
+    {
+      "name": "dump",
+      "docstring": "Diagnostic method for listing out the contents of\na :class:`ParseResults`. Accepts an optional ``indent`` argument so\nthat this string can be embedded in a nested display of other data.\n\nExample::\n\n    integer = Word(nums)\n    date_str = integer(\"year\") + '/' + integer(\"month\") + '/' + integer(\"day\")\n\n    result = date_str.parse_string('1999/12/31')\n    print(result.dump())\n\nprints::\n\n    ['1999', '/', '12', '/', '31']\n    - day: '31'\n    - month: '12'\n    - year: '1999'"
+    },
+    {
+      "name": "pprint",
+      "docstring": "Pretty-printer for parsed results as a list, using the\n`pprint <https://docs.python.org/3/library/pprint.html>`_ module.\nAccepts additional positional or keyword args as defined for\n`pprint.pprint <https://docs.python.org/3/library/pprint.html#pprint.pprint>`_ .\n\nExample::\n\n    ident = Word(alphas, alphanums)\n    num = Word(nums)\n    func = Forward()\n    term = ident | num | Group('(' + func + ')')\n    func <<= ident + Group(Optional(DelimitedList(term)))\n    result = func.parse_string(\"fna a,b,(fnb c,d,200),100\")\n    result.pprint(width=40)\n\nprints::\n\n    ['fna',\n     ['a',\n      'b',\n      ['(', 'fnb', ['c', 'd', '200'], ')'],\n      '100']]"
+    },
+    {
+      "name": "from_dict",
+      "docstring": "Helper classmethod to construct a ``ParseResults`` from a ``dict``, preserving the\nname-value relations as results names. If an optional ``name`` argument is\ngiven, a nested ``ParseResults`` will be returned."
+    },
+    {
+      "name": "flattened",
+      "docstring": null
+    },
+    {
+      "name": "to_item",
+      "docstring": null
+    },
+    {
+      "name": "is_iterable",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

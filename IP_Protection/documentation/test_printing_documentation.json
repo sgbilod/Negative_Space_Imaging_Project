@@ -1,0 +1,422 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\polynomial\\tests\\test_printing.py",
+  "classes": [
+    {
+      "name": "TestStrUnicodeSuperSubscripts",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "use_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_polynomial_str",
+          "docstring": null
+        },
+        {
+          "name": "test_chebyshev_str",
+          "docstring": null
+        },
+        {
+          "name": "test_legendre_str",
+          "docstring": null
+        },
+        {
+          "name": "test_hermite_str",
+          "docstring": null
+        },
+        {
+          "name": "test_hermiteE_str",
+          "docstring": null
+        },
+        {
+          "name": "test_laguerre_str",
+          "docstring": null
+        },
+        {
+          "name": "test_polynomial_str_domains",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestStrAscii",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "use_ascii",
+          "docstring": null
+        },
+        {
+          "name": "test_polynomial_str",
+          "docstring": null
+        },
+        {
+          "name": "test_chebyshev_str",
+          "docstring": null
+        },
+        {
+          "name": "test_legendre_str",
+          "docstring": null
+        },
+        {
+          "name": "test_hermite_str",
+          "docstring": null
+        },
+        {
+          "name": "test_hermiteE_str",
+          "docstring": null
+        },
+        {
+          "name": "test_laguerre_str",
+          "docstring": null
+        },
+        {
+          "name": "test_polynomial_str_domains",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLinebreaking",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "use_ascii",
+          "docstring": null
+        },
+        {
+          "name": "test_single_line_one_less",
+          "docstring": null
+        },
+        {
+          "name": "test_num_chars_is_linewidth",
+          "docstring": null
+        },
+        {
+          "name": "test_first_linebreak_multiline_one_less_than_linewidth",
+          "docstring": null
+        },
+        {
+          "name": "test_first_linebreak_multiline_on_linewidth",
+          "docstring": null
+        },
+        {
+          "name": "test_linewidth_printoption",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestFormat",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_format_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_format_ascii",
+          "docstring": null
+        },
+        {
+          "name": "test_empty_formatstr",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_formatstr",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestRepr",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_polynomial_repr",
+          "docstring": null
+        },
+        {
+          "name": "test_chebyshev_repr",
+          "docstring": null
+        },
+        {
+          "name": "test_legendre_repr",
+          "docstring": null
+        },
+        {
+          "name": "test_hermite_repr",
+          "docstring": null
+        },
+        {
+          "name": "test_hermiteE_repr",
+          "docstring": null
+        },
+        {
+          "name": "test_laguerre_repr",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestLatexRepr",
+      "docstring": "Test the latex repr used by Jupyter",
+      "methods": [
+        {
+          "name": "as_latex",
+          "docstring": null
+        },
+        {
+          "name": "test_simple_polynomial",
+          "docstring": null
+        },
+        {
+          "name": "test_basis_func",
+          "docstring": null
+        },
+        {
+          "name": "test_multichar_basis_func",
+          "docstring": null
+        },
+        {
+          "name": "test_symbol_basic",
+          "docstring": null
+        },
+        {
+          "name": "test_numeric_object_coefficients",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestPrintOptions",
+      "docstring": "Test the output is properly configured via printoptions.\nThe exponential notation is enabled automatically when the values\nare too small or too large.",
+      "methods": [
+        {
+          "name": "use_ascii",
+          "docstring": null
+        },
+        {
+          "name": "test_str",
+          "docstring": null
+        },
+        {
+          "name": "test_latex",
+          "docstring": null
+        },
+        {
+          "name": "test_fixed",
+          "docstring": null
+        },
+        {
+          "name": "test_switch_to_exp",
+          "docstring": null
+        },
+        {
+          "name": "test_non_finite",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_set_default_printoptions",
+      "docstring": null
+    },
+    {
+      "name": "test_complex_coefficients",
+      "docstring": "Test both numpy and built-in complex."
+    },
+    {
+      "name": "test_numeric_object_coefficients",
+      "docstring": null
+    },
+    {
+      "name": "test_nonnumeric_object_coefficients",
+      "docstring": "Test coef fallback for object arrays of non-numeric coefficients."
+    },
+    {
+      "name": "test_symbol",
+      "docstring": null
+    },
+    {
+      "name": "use_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_polynomial_str",
+      "docstring": null
+    },
+    {
+      "name": "test_chebyshev_str",
+      "docstring": null
+    },
+    {
+      "name": "test_legendre_str",
+      "docstring": null
+    },
+    {
+      "name": "test_hermite_str",
+      "docstring": null
+    },
+    {
+      "name": "test_hermiteE_str",
+      "docstring": null
+    },
+    {
+      "name": "test_laguerre_str",
+      "docstring": null
+    },
+    {
+      "name": "test_polynomial_str_domains",
+      "docstring": null
+    },
+    {
+      "name": "use_ascii",
+      "docstring": null
+    },
+    {
+      "name": "test_polynomial_str",
+      "docstring": null
+    },
+    {
+      "name": "test_chebyshev_str",
+      "docstring": null
+    },
+    {
+      "name": "test_legendre_str",
+      "docstring": null
+    },
+    {
+      "name": "test_hermite_str",
+      "docstring": null
+    },
+    {
+      "name": "test_hermiteE_str",
+      "docstring": null
+    },
+    {
+      "name": "test_laguerre_str",
+      "docstring": null
+    },
+    {
+      "name": "test_polynomial_str_domains",
+      "docstring": null
+    },
+    {
+      "name": "use_ascii",
+      "docstring": null
+    },
+    {
+      "name": "test_single_line_one_less",
+      "docstring": null
+    },
+    {
+      "name": "test_num_chars_is_linewidth",
+      "docstring": null
+    },
+    {
+      "name": "test_first_linebreak_multiline_one_less_than_linewidth",
+      "docstring": null
+    },
+    {
+      "name": "test_first_linebreak_multiline_on_linewidth",
+      "docstring": null
+    },
+    {
+      "name": "test_linewidth_printoption",
+      "docstring": null
+    },
+    {
+      "name": "test_format_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_format_ascii",
+      "docstring": null
+    },
+    {
+      "name": "test_empty_formatstr",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_formatstr",
+      "docstring": null
+    },
+    {
+      "name": "test_polynomial_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_chebyshev_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_legendre_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_hermite_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_hermiteE_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_laguerre_repr",
+      "docstring": null
+    },
+    {
+      "name": "as_latex",
+      "docstring": null
+    },
+    {
+      "name": "test_simple_polynomial",
+      "docstring": null
+    },
+    {
+      "name": "test_basis_func",
+      "docstring": null
+    },
+    {
+      "name": "test_multichar_basis_func",
+      "docstring": null
+    },
+    {
+      "name": "test_symbol_basic",
+      "docstring": null
+    },
+    {
+      "name": "test_numeric_object_coefficients",
+      "docstring": null
+    },
+    {
+      "name": "use_ascii",
+      "docstring": null
+    },
+    {
+      "name": "test_str",
+      "docstring": null
+    },
+    {
+      "name": "test_latex",
+      "docstring": null
+    },
+    {
+      "name": "test_fixed",
+      "docstring": null
+    },
+    {
+      "name": "test_switch_to_exp",
+      "docstring": null
+    },
+    {
+      "name": "test_non_finite",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

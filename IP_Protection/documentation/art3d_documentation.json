@@ -1,0 +1,532 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\mpl_toolkits\\mplot3d\\art3d.py",
+  "classes": [
+    {
+      "name": "Text3D",
+      "docstring": "Text object with 3D position and direction.\n\nParameters\n----------\nx, y, z : float\n    The position of the text.\ntext : str\n    The text string to display.\nzdir : {'x', 'y', 'z', None, 3-tuple}\n    The direction of the text. See `.get_dir_vector` for a description of\n    the values.\naxlim_clip : bool, default: False\n    Whether to hide text outside the axes view limits.\n\nOther Parameters\n----------------\n**kwargs\n     All other parameters are passed on to `~matplotlib.text.Text`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_position_3d",
+          "docstring": "Return the (x, y, z) position of the text."
+        },
+        {
+          "name": "set_position_3d",
+          "docstring": "Set the (*x*, *y*, *z*) position of the text.\n\nParameters\n----------\nxyz : (float, float, float)\n    The position in 3D space.\nzdir : {'x', 'y', 'z', None, 3-tuple}\n    The direction of the text. If unspecified, the *zdir* will not be\n    changed. See `.get_dir_vector` for a description of the values."
+        },
+        {
+          "name": "set_z",
+          "docstring": "Set the *z* position of the text.\n\nParameters\n----------\nz : float"
+        },
+        {
+          "name": "set_3d_properties",
+          "docstring": "Set the *z* position and direction of the text.\n\nParameters\n----------\nz : float\n    The z-position in 3D space.\nzdir : {'x', 'y', 'z', 3-tuple}\n    The direction of the text. Default: 'z'.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide text outside the axes view limits."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        },
+        {
+          "name": "get_tightbbox",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Line3D",
+      "docstring": "3D line object.\n\n.. note:: Use `get_data_3d` to obtain the data associated with the line.\n        `~.Line2D.get_data`, `~.Line2D.get_xdata`, and `~.Line2D.get_ydata` return\n        the x- and y-coordinates of the projected 2D-line, not the x- and y-data of\n        the 3D-line. Similarly, use `set_data_3d` to set the data, not\n        `~.Line2D.set_data`, `~.Line2D.set_xdata`, and `~.Line2D.set_ydata`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nxs : array-like\n    The x-data to be plotted.\nys : array-like\n    The y-data to be plotted.\nzs : array-like\n    The z-data to be plotted.\n*args, **kwargs\n    Additional arguments are passed to `~matplotlib.lines.Line2D`."
+        },
+        {
+          "name": "set_3d_properties",
+          "docstring": "Set the *z* position and direction of the line.\n\nParameters\n----------\nzs : float or array of floats\n    The location along the *zdir* axis in 3D space to position the\n    line.\nzdir : {'x', 'y', 'z'}\n    Plane to plot line orthogonal to. Default: 'z'.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide lines with an endpoint outside the axes view limits."
+        },
+        {
+          "name": "set_data_3d",
+          "docstring": "Set the x, y and z data\n\nParameters\n----------\nx : array-like\n    The x-data to be plotted.\ny : array-like\n    The y-data to be plotted.\nz : array-like\n    The z-data to be plotted.\n\nNotes\n-----\nAccepts x, y, z arguments or a single array-like (x, y, z)"
+        },
+        {
+          "name": "get_data_3d",
+          "docstring": "Get the current data\n\nReturns\n-------\nverts3d : length-3 tuple or array-like\n    The current data as a tuple or array-like."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Collection3D",
+      "docstring": "A collection of 3D paths.",
+      "methods": [
+        {
+          "name": "do_3d_projection",
+          "docstring": "Project the points according to renderer matrix."
+        }
+      ]
+    },
+    {
+      "name": "Line3DCollection",
+      "docstring": "A collection of 3D lines.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_sort_zpos",
+          "docstring": "Set the position to use for z-sorting."
+        },
+        {
+          "name": "set_segments",
+          "docstring": "Set 3D segments."
+        },
+        {
+          "name": "do_3d_projection",
+          "docstring": "Project the points according to renderer matrix."
+        }
+      ]
+    },
+    {
+      "name": "Patch3D",
+      "docstring": "3D patch object.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nverts :\nzs : float\n    The location along the *zdir* axis in 3D space to position the\n    patch.\nzdir : {'x', 'y', 'z'}\n    Plane to plot patch orthogonal to. Default: 'z'.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide patches with a vertex outside the axes view limits."
+        },
+        {
+          "name": "set_3d_properties",
+          "docstring": "Set the *z* position and direction of the patch.\n\nParameters\n----------\nverts :\nzs : float\n    The location along the *zdir* axis in 3D space to position the\n    patch.\nzdir : {'x', 'y', 'z'}\n    Plane to plot patch orthogonal to. Default: 'z'.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide patches with a vertex outside the axes view limits."
+        },
+        {
+          "name": "get_path",
+          "docstring": null
+        },
+        {
+          "name": "do_3d_projection",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PathPatch3D",
+      "docstring": "3D PathPatch object.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\npath :\nzs : float\n    The location along the *zdir* axis in 3D space to position the\n    path patch.\nzdir : {'x', 'y', 'z', 3-tuple}\n    Plane to plot path patch orthogonal to. Default: 'z'.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide path patches with a point outside the axes view limits."
+        },
+        {
+          "name": "set_3d_properties",
+          "docstring": "Set the *z* position and direction of the path patch.\n\nParameters\n----------\npath :\nzs : float\n    The location along the *zdir* axis in 3D space to position the\n    path patch.\nzdir : {'x', 'y', 'z', 3-tuple}\n    Plane to plot path patch orthogonal to. Default: 'z'.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide path patches with a point outside the axes view limits."
+        },
+        {
+          "name": "do_3d_projection",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Patch3DCollection",
+      "docstring": "A collection of 3D patches.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a collection of flat 3D patches with its normal vector\npointed in *zdir* direction, and located at *zs* on the *zdir*\naxis. 'zs' can be a scalar or an array-like of the same length as\nthe number of patches in the collection.\n\nConstructor arguments are the same as for\n:class:`~matplotlib.collections.PatchCollection`. In addition,\nkeywords *zs=0* and *zdir='z'* are available.\n\nAlso, the keyword argument *depthshade* is available to indicate\nwhether to shade the patches in order to give the appearance of depth\n(default is *True*). This is typically desired in scatter plots."
+        },
+        {
+          "name": "get_depthshade",
+          "docstring": null
+        },
+        {
+          "name": "set_depthshade",
+          "docstring": "Set whether depth shading is performed on collection members.\n\nParameters\n----------\ndepthshade : bool\n    Whether to shade the patches in order to give the appearance of\n    depth."
+        },
+        {
+          "name": "set_sort_zpos",
+          "docstring": "Set the position to use for z-sorting."
+        },
+        {
+          "name": "set_3d_properties",
+          "docstring": "Set the *z* positions and direction of the patches.\n\nParameters\n----------\nzs : float or array of floats\n    The location or locations to place the patches in the collection\n    along the *zdir* axis.\nzdir : {'x', 'y', 'z'}\n    Plane to plot patches orthogonal to.\n    All patches must have the same direction.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide patches with a vertex outside the axes view limits."
+        },
+        {
+          "name": "do_3d_projection",
+          "docstring": null
+        },
+        {
+          "name": "get_facecolor",
+          "docstring": null
+        },
+        {
+          "name": "get_edgecolor",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Path3DCollection",
+      "docstring": "A collection of 3D paths.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Create a collection of flat 3D paths with its normal vector\npointed in *zdir* direction, and located at *zs* on the *zdir*\naxis. 'zs' can be a scalar or an array-like of the same length as\nthe number of paths in the collection.\n\nConstructor arguments are the same as for\n:class:`~matplotlib.collections.PathCollection`. In addition,\nkeywords *zs=0* and *zdir='z'* are available.\n\nAlso, the keyword argument *depthshade* is available to indicate\nwhether to shade the patches in order to give the appearance of depth\n(default is *True*). This is typically desired in scatter plots."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        },
+        {
+          "name": "set_sort_zpos",
+          "docstring": "Set the position to use for z-sorting."
+        },
+        {
+          "name": "set_3d_properties",
+          "docstring": "Set the *z* positions and direction of the paths.\n\nParameters\n----------\nzs : float or array of floats\n    The location or locations to place the paths in the collection\n    along the *zdir* axis.\nzdir : {'x', 'y', 'z'}\n    Plane to plot paths orthogonal to.\n    All paths must have the same direction.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide paths with a vertex outside the axes view limits."
+        },
+        {
+          "name": "set_sizes",
+          "docstring": null
+        },
+        {
+          "name": "set_linewidth",
+          "docstring": null
+        },
+        {
+          "name": "get_depthshade",
+          "docstring": null
+        },
+        {
+          "name": "set_depthshade",
+          "docstring": "Set whether depth shading is performed on collection members.\n\nParameters\n----------\ndepthshade : bool\n    Whether to shade the patches in order to give the appearance of\n    depth."
+        },
+        {
+          "name": "do_3d_projection",
+          "docstring": null
+        },
+        {
+          "name": "get_facecolor",
+          "docstring": null
+        },
+        {
+          "name": "get_edgecolor",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Poly3DCollection",
+      "docstring": "A collection of 3D polygons.\n\n.. note::\n    **Filling of 3D polygons**\n\n    There is no simple definition of the enclosed surface of a 3D polygon\n    unless the polygon is planar.\n\n    In practice, Matplotlib fills the 2D projection of the polygon. This\n    gives a correct filling appearance only for planar polygons. For all\n    other polygons, you'll find orientations in which the edges of the\n    polygon intersect in the projection. This will lead to an incorrect\n    visualization of the 3D area.\n\n    If you need filled areas, it is recommended to create them via\n    `~mpl_toolkits.mplot3d.axes3d.Axes3D.plot_trisurf`, which creates a\n    triangulation and thus generates consistent surfaces.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nverts : list of (N, 3) array-like\n    The sequence of polygons [*verts0*, *verts1*, ...] where each\n    element *verts_i* defines the vertices of polygon *i* as a 2D\n    array-like of shape (N, 3).\nzsort : {'average', 'min', 'max'}, default: 'average'\n    The calculation method for the z-order.\n    See `~.Poly3DCollection.set_zsort` for details.\nshade : bool, default: False\n    Whether to shade *facecolors* and *edgecolors*. When activating\n    *shade*, *facecolors* and/or *edgecolors* must be provided.\n\n    .. versionadded:: 3.7\n\nlightsource : `~matplotlib.colors.LightSource`, optional\n    The lightsource to use when *shade* is True.\n\n    .. versionadded:: 3.7\n\naxlim_clip : bool, default: False\n    Whether to hide polygons with a vertex outside the view limits.\n\n*args, **kwargs\n    All other parameters are forwarded to `.PolyCollection`.\n\nNotes\n-----\nNote that this class does a bit of magic with the _facecolors\nand _edgecolors properties."
+        },
+        {
+          "name": "set_zsort",
+          "docstring": "Set the calculation method for the z-order.\n\nParameters\n----------\nzsort : {'average', 'min', 'max'}\n    The function applied on the z-coordinates of the vertices in the\n    viewer's coordinate system, to determine the z-order."
+        },
+        {
+          "name": "get_vector",
+          "docstring": null
+        },
+        {
+          "name": "set_verts",
+          "docstring": "Set 3D vertices.\n\nParameters\n----------\nverts : list of (N, 3) array-like\n    The sequence of polygons [*verts0*, *verts1*, ...] where each\n    element *verts_i* defines the vertices of polygon *i* as a 2D\n    array-like of shape (N, 3).\nclosed : bool, default: True\n    Whether the polygon should be closed by adding a CLOSEPOLY\n    connection at the end."
+        },
+        {
+          "name": "set_verts_and_codes",
+          "docstring": "Set 3D vertices with path codes."
+        },
+        {
+          "name": "set_3d_properties",
+          "docstring": null
+        },
+        {
+          "name": "set_sort_zpos",
+          "docstring": "Set the position to use for z-sorting."
+        },
+        {
+          "name": "do_3d_projection",
+          "docstring": "Perform the 3D projection for this object."
+        },
+        {
+          "name": "set_facecolor",
+          "docstring": null
+        },
+        {
+          "name": "set_edgecolor",
+          "docstring": null
+        },
+        {
+          "name": "set_alpha",
+          "docstring": null
+        },
+        {
+          "name": "get_facecolor",
+          "docstring": null
+        },
+        {
+          "name": "get_edgecolor",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_dir_vector",
+      "docstring": "Return a direction vector.\n\nParameters\n----------\nzdir : {'x', 'y', 'z', None, 3-tuple}\n    The direction. Possible values are:\n\n    - 'x': equivalent to (1, 0, 0)\n    - 'y': equivalent to (0, 1, 0)\n    - 'z': equivalent to (0, 0, 1)\n    - *None*: equivalent to (0, 0, 0)\n    - an iterable (x, y, z) is converted to an array\n\nReturns\n-------\nx, y, z : array\n    The direction vector."
+    },
+    {
+      "name": "text_2d_to_3d",
+      "docstring": "Convert a `.Text` to a `.Text3D` object.\n\nParameters\n----------\nz : float\n    The z-position in 3D space.\nzdir : {'x', 'y', 'z', 3-tuple}\n    The direction of the text. Default: 'z'.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide text outside the axes view limits."
+    },
+    {
+      "name": "line_2d_to_3d",
+      "docstring": "Convert a `.Line2D` to a `.Line3D` object.\n\nParameters\n----------\nzs : float\n    The location along the *zdir* axis in 3D space to position the line.\nzdir : {'x', 'y', 'z'}\n    Plane to plot line orthogonal to. Default: 'z'.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide lines with an endpoint outside the axes view limits."
+    },
+    {
+      "name": "collection_2d_to_3d",
+      "docstring": "Convert a `.Collection` to a `.Collection3D` object."
+    },
+    {
+      "name": "line_collection_2d_to_3d",
+      "docstring": "Convert a `.LineCollection` to a `.Line3DCollection` object."
+    },
+    {
+      "name": "patch_2d_to_3d",
+      "docstring": "Convert a `.Patch` to a `.Patch3D` object."
+    },
+    {
+      "name": "pathpatch_2d_to_3d",
+      "docstring": "Convert a `.PathPatch` to a `.PathPatch3D` object."
+    },
+    {
+      "name": "patch_collection_2d_to_3d",
+      "docstring": "Convert a `.PatchCollection` into a `.Patch3DCollection` object\n(or a `.PathCollection` into a `.Path3DCollection` object).\n\nParameters\n----------\ncol : `~matplotlib.collections.PatchCollection` or `~matplotlib.collections.PathCollection`\n    The collection to convert.\nzs : float or array of floats\n    The location or locations to place the patches in the collection along\n    the *zdir* axis. Default: 0.\nzdir : {'x', 'y', 'z'}\n    The axis in which to place the patches. Default: \"z\".\n    See `.get_dir_vector` for a description of the values.\ndepthshade : bool, default: True\n    Whether to shade the patches to give a sense of depth.\naxlim_clip : bool, default: False\n    Whether to hide patches with a vertex outside the axes view limits."
+    },
+    {
+      "name": "poly_collection_2d_to_3d",
+      "docstring": "Convert a `.PolyCollection` into a `.Poly3DCollection` object.\n\nParameters\n----------\ncol : `~matplotlib.collections.PolyCollection`\n    The collection to convert.\nzs : float or array of floats\n    The location or locations to place the polygons in the collection along\n    the *zdir* axis. Default: 0.\nzdir : {'x', 'y', 'z'}\n    The axis in which to place the patches. Default: 'z'.\n    See `.get_dir_vector` for a description of the values."
+    },
+    {
+      "name": "juggle_axes",
+      "docstring": "Reorder coordinates so that 2D *xs*, *ys* can be plotted in the plane\northogonal to *zdir*. *zdir* is normally 'x', 'y' or 'z'. However, if\n*zdir* starts with a '-' it is interpreted as a compensation for\n`rotate_axes`."
+    },
+    {
+      "name": "rotate_axes",
+      "docstring": "Reorder coordinates so that the axes are rotated with *zdir* along\nthe original z axis. Prepending the axis with a '-' does the\ninverse transform, so *zdir* can be 'x', '-x', 'y', '-y', 'z' or '-z'."
+    },
+    {
+      "name": "get_position_3d",
+      "docstring": "Return the (x, y, z) position of the text."
+    },
+    {
+      "name": "set_position_3d",
+      "docstring": "Set the (*x*, *y*, *z*) position of the text.\n\nParameters\n----------\nxyz : (float, float, float)\n    The position in 3D space.\nzdir : {'x', 'y', 'z', None, 3-tuple}\n    The direction of the text. If unspecified, the *zdir* will not be\n    changed. See `.get_dir_vector` for a description of the values."
+    },
+    {
+      "name": "set_z",
+      "docstring": "Set the *z* position of the text.\n\nParameters\n----------\nz : float"
+    },
+    {
+      "name": "set_3d_properties",
+      "docstring": "Set the *z* position and direction of the text.\n\nParameters\n----------\nz : float\n    The z-position in 3D space.\nzdir : {'x', 'y', 'z', 3-tuple}\n    The direction of the text. Default: 'z'.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide text outside the axes view limits."
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "get_tightbbox",
+      "docstring": null
+    },
+    {
+      "name": "set_3d_properties",
+      "docstring": "Set the *z* position and direction of the line.\n\nParameters\n----------\nzs : float or array of floats\n    The location along the *zdir* axis in 3D space to position the\n    line.\nzdir : {'x', 'y', 'z'}\n    Plane to plot line orthogonal to. Default: 'z'.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide lines with an endpoint outside the axes view limits."
+    },
+    {
+      "name": "set_data_3d",
+      "docstring": "Set the x, y and z data\n\nParameters\n----------\nx : array-like\n    The x-data to be plotted.\ny : array-like\n    The y-data to be plotted.\nz : array-like\n    The z-data to be plotted.\n\nNotes\n-----\nAccepts x, y, z arguments or a single array-like (x, y, z)"
+    },
+    {
+      "name": "get_data_3d",
+      "docstring": "Get the current data\n\nReturns\n-------\nverts3d : length-3 tuple or array-like\n    The current data as a tuple or array-like."
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "do_3d_projection",
+      "docstring": "Project the points according to renderer matrix."
+    },
+    {
+      "name": "set_sort_zpos",
+      "docstring": "Set the position to use for z-sorting."
+    },
+    {
+      "name": "set_segments",
+      "docstring": "Set 3D segments."
+    },
+    {
+      "name": "do_3d_projection",
+      "docstring": "Project the points according to renderer matrix."
+    },
+    {
+      "name": "set_3d_properties",
+      "docstring": "Set the *z* position and direction of the patch.\n\nParameters\n----------\nverts :\nzs : float\n    The location along the *zdir* axis in 3D space to position the\n    patch.\nzdir : {'x', 'y', 'z'}\n    Plane to plot patch orthogonal to. Default: 'z'.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide patches with a vertex outside the axes view limits."
+    },
+    {
+      "name": "get_path",
+      "docstring": null
+    },
+    {
+      "name": "do_3d_projection",
+      "docstring": null
+    },
+    {
+      "name": "set_3d_properties",
+      "docstring": "Set the *z* position and direction of the path patch.\n\nParameters\n----------\npath :\nzs : float\n    The location along the *zdir* axis in 3D space to position the\n    path patch.\nzdir : {'x', 'y', 'z', 3-tuple}\n    Plane to plot path patch orthogonal to. Default: 'z'.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide path patches with a point outside the axes view limits."
+    },
+    {
+      "name": "do_3d_projection",
+      "docstring": null
+    },
+    {
+      "name": "get_depthshade",
+      "docstring": null
+    },
+    {
+      "name": "set_depthshade",
+      "docstring": "Set whether depth shading is performed on collection members.\n\nParameters\n----------\ndepthshade : bool\n    Whether to shade the patches in order to give the appearance of\n    depth."
+    },
+    {
+      "name": "set_sort_zpos",
+      "docstring": "Set the position to use for z-sorting."
+    },
+    {
+      "name": "set_3d_properties",
+      "docstring": "Set the *z* positions and direction of the patches.\n\nParameters\n----------\nzs : float or array of floats\n    The location or locations to place the patches in the collection\n    along the *zdir* axis.\nzdir : {'x', 'y', 'z'}\n    Plane to plot patches orthogonal to.\n    All patches must have the same direction.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide patches with a vertex outside the axes view limits."
+    },
+    {
+      "name": "do_3d_projection",
+      "docstring": null
+    },
+    {
+      "name": "get_facecolor",
+      "docstring": null
+    },
+    {
+      "name": "get_edgecolor",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "set_sort_zpos",
+      "docstring": "Set the position to use for z-sorting."
+    },
+    {
+      "name": "set_3d_properties",
+      "docstring": "Set the *z* positions and direction of the paths.\n\nParameters\n----------\nzs : float or array of floats\n    The location or locations to place the paths in the collection\n    along the *zdir* axis.\nzdir : {'x', 'y', 'z'}\n    Plane to plot paths orthogonal to.\n    All paths must have the same direction.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide paths with a vertex outside the axes view limits."
+    },
+    {
+      "name": "set_sizes",
+      "docstring": null
+    },
+    {
+      "name": "set_linewidth",
+      "docstring": null
+    },
+    {
+      "name": "get_depthshade",
+      "docstring": null
+    },
+    {
+      "name": "set_depthshade",
+      "docstring": "Set whether depth shading is performed on collection members.\n\nParameters\n----------\ndepthshade : bool\n    Whether to shade the patches in order to give the appearance of\n    depth."
+    },
+    {
+      "name": "do_3d_projection",
+      "docstring": null
+    },
+    {
+      "name": "get_facecolor",
+      "docstring": null
+    },
+    {
+      "name": "get_edgecolor",
+      "docstring": null
+    },
+    {
+      "name": "set_zsort",
+      "docstring": "Set the calculation method for the z-order.\n\nParameters\n----------\nzsort : {'average', 'min', 'max'}\n    The function applied on the z-coordinates of the vertices in the\n    viewer's coordinate system, to determine the z-order."
+    },
+    {
+      "name": "get_vector",
+      "docstring": null
+    },
+    {
+      "name": "set_verts",
+      "docstring": "Set 3D vertices.\n\nParameters\n----------\nverts : list of (N, 3) array-like\n    The sequence of polygons [*verts0*, *verts1*, ...] where each\n    element *verts_i* defines the vertices of polygon *i* as a 2D\n    array-like of shape (N, 3).\nclosed : bool, default: True\n    Whether the polygon should be closed by adding a CLOSEPOLY\n    connection at the end."
+    },
+    {
+      "name": "set_verts_and_codes",
+      "docstring": "Set 3D vertices with path codes."
+    },
+    {
+      "name": "set_3d_properties",
+      "docstring": null
+    },
+    {
+      "name": "set_sort_zpos",
+      "docstring": "Set the position to use for z-sorting."
+    },
+    {
+      "name": "do_3d_projection",
+      "docstring": "Perform the 3D projection for this object."
+    },
+    {
+      "name": "set_facecolor",
+      "docstring": null
+    },
+    {
+      "name": "set_edgecolor",
+      "docstring": null
+    },
+    {
+      "name": "set_alpha",
+      "docstring": null
+    },
+    {
+      "name": "get_facecolor",
+      "docstring": null
+    },
+    {
+      "name": "get_edgecolor",
+      "docstring": null
+    },
+    {
+      "name": "norm",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        xs, ys, zs = self._offsets3d\n\n        # Sort the points based on z coordinates\n        # Performance optimization: Create a sorted index array and reorder\n        # points and point properties according to the index array\n        self._z_markers_idx = slice(-1)\n        self._vzs = None"
+    }
+  ]
+}

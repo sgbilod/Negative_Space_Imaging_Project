@@ -1,0 +1,87 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\utils\\temp_dir.py",
+  "classes": [
+    {
+      "name": "TempDirectoryTypeRegistry",
+      "docstring": "Manages temp directory behavior",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_delete",
+          "docstring": "Indicate whether a TempDirectory of the given kind should be\nauto-deleted."
+        },
+        {
+          "name": "get_delete",
+          "docstring": "Get configured auto-delete flag for a given TempDirectory type,\ndefault True."
+        }
+      ]
+    },
+    {
+      "name": "_Default",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "TempDirectory",
+      "docstring": "Helper class that owns and cleans up a temporary directory.\n\nThis class can be used as a context manager or as an OO representation of a\ntemporary directory.\n\nAttributes:\n    path\n        Location to the created temporary directory\n    delete\n        Whether the directory should be deleted when exiting\n        (when used as a contextmanager)\n\nMethods:\n    cleanup()\n        Deletes the temporary directory\n\nWhen used as a context manager, if the delete attribute is True, on\nexiting the context the temporary directory is deleted.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "path",
+          "docstring": null
+        },
+        {
+          "name": "cleanup",
+          "docstring": "Remove the temporary directory created and reset state"
+        }
+      ]
+    },
+    {
+      "name": "AdjacentTempDirectory",
+      "docstring": "Helper class that creates a temporary directory adjacent to a real one.\n\nAttributes:\n    original\n        The original directory to create a temp directory for.\n    path\n        After calling create() or entering, contains the full\n        path to the temporary directory.\n    delete\n        Whether the directory should be deleted when exiting\n        (when used as a contextmanager)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "global_tempdir_manager",
+      "docstring": null
+    },
+    {
+      "name": "tempdir_registry",
+      "docstring": "Provides a scoped global tempdir registry that can be used to dictate\nwhether directories should be deleted."
+    },
+    {
+      "name": "set_delete",
+      "docstring": "Indicate whether a TempDirectory of the given kind should be\nauto-deleted."
+    },
+    {
+      "name": "get_delete",
+      "docstring": "Get configured auto-delete flag for a given TempDirectory type,\ndefault True."
+    },
+    {
+      "name": "path",
+      "docstring": null
+    },
+    {
+      "name": "cleanup",
+      "docstring": "Remove the temporary directory created and reset state"
+    },
+    {
+      "name": "onerror",
+      "docstring": "Log a warning for a `rmtree` error and continue"
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,52 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\negative-space-project\\tests\\integration_tests\\test_rsmi_integration.py",
+  "classes": [
+    {
+      "name": "TestRSMIIntegration",
+      "docstring": "Test RSMI integration with other system components.",
+      "methods": [
+        {
+          "name": "setUp",
+          "docstring": "Set up test environment."
+        },
+        {
+          "name": "test_preprocessing_optimization",
+          "docstring": "Test RSMI optimization of preprocessing parameters."
+        },
+        {
+          "name": "test_point_cloud_optimization",
+          "docstring": "Test RSMI optimization of point cloud generation."
+        },
+        {
+          "name": "test_complete_pipeline_optimization",
+          "docstring": "Test RSMI optimization of the complete processing pipeline."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "setUp",
+      "docstring": "Set up test environment."
+    },
+    {
+      "name": "test_preprocessing_optimization",
+      "docstring": "Test RSMI optimization of preprocessing parameters."
+    },
+    {
+      "name": "test_point_cloud_optimization",
+      "docstring": "Test RSMI optimization of point cloud generation."
+    },
+    {
+      "name": "test_complete_pipeline_optimization",
+      "docstring": "Test RSMI optimization of the complete processing pipeline."
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        self.point_cloud = NegativeSpacePointCloud()\n        self.model_assembler = ModelAssembler()\n        \n    def test_preprocessing_optimization(self):\n        \"\"\"Test RSMI optimization of preprocessing parameters.\"\"\"\n        # Create test image\n        test_image = np.random.rand(100, 100, 3).astype(np.float32)"
+    }
+  ]
+}

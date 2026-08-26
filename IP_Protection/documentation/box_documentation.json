@@ -1,0 +1,58 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\box.py",
+  "classes": [
+    {
+      "name": "Box",
+      "docstring": "Defines characters to render boxes.\n\n\u250c\u2500\u252c\u2510 top\n\u2502 \u2502\u2502 head\n\u251c\u2500\u253c\u2524 head_row\n\u2502 \u2502\u2502 mid\n\u251c\u2500\u253c\u2524 row\n\u251c\u2500\u253c\u2524 foot_row\n\u2502 \u2502\u2502 foot\n\u2514\u2500\u2534\u2518 bottom\n\nArgs:\n    box (str): Characters making up box.\n    ascii (bool, optional): True if this box uses ascii characters only. Default is False.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "substitute",
+          "docstring": "Substitute this box for another if it won't render due to platform issues.\n\nArgs:\n    options (ConsoleOptions): Console options used in rendering.\n    safe (bool, optional): Substitute this for another Box if there are known problems\n        displaying on the platform (currently only relevant on Windows). Default is True.\n\nReturns:\n    Box: A different Box or the same Box."
+        },
+        {
+          "name": "get_plain_headed_box",
+          "docstring": "If this box uses special characters for the borders of the header, then\nreturn the equivalent box that does not.\n\nReturns:\n    Box: The most similar Box that doesn't use header-specific box characters.\n        If the current Box already satisfies this criterion, then it's returned."
+        },
+        {
+          "name": "get_top",
+          "docstring": "Get the top of a simple box.\n\nArgs:\n    widths (List[int]): Widths of columns.\n\nReturns:\n    str: A string of box characters."
+        },
+        {
+          "name": "get_row",
+          "docstring": "Get the top of a simple box.\n\nArgs:\n    width (List[int]): Widths of columns.\n\nReturns:\n    str: A string of box characters."
+        },
+        {
+          "name": "get_bottom",
+          "docstring": "Get the bottom of a simple box.\n\nArgs:\n    widths (List[int]): Widths of columns.\n\nReturns:\n    str: A string of box characters."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "substitute",
+      "docstring": "Substitute this box for another if it won't render due to platform issues.\n\nArgs:\n    options (ConsoleOptions): Console options used in rendering.\n    safe (bool, optional): Substitute this for another Box if there are known problems\n        displaying on the platform (currently only relevant on Windows). Default is True.\n\nReturns:\n    Box: A different Box or the same Box."
+    },
+    {
+      "name": "get_plain_headed_box",
+      "docstring": "If this box uses special characters for the borders of the header, then\nreturn the equivalent box that does not.\n\nReturns:\n    Box: The most similar Box that doesn't use header-specific box characters.\n        If the current Box already satisfies this criterion, then it's returned."
+    },
+    {
+      "name": "get_top",
+      "docstring": "Get the top of a simple box.\n\nArgs:\n    widths (List[int]): Widths of columns.\n\nReturns:\n    str: A string of box characters."
+    },
+    {
+      "name": "get_row",
+      "docstring": "Get the top of a simple box.\n\nArgs:\n    width (List[int]): Widths of columns.\n\nReturns:\n    str: A string of box characters."
+    },
+    {
+      "name": "get_bottom",
+      "docstring": "Get the bottom of a simple box.\n\nArgs:\n    widths (List[int]): Widths of columns.\n\nReturns:\n    str: A string of box characters."
+    }
+  ],
+  "innovations": []
+}

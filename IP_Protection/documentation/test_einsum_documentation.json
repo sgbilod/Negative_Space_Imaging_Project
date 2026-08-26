@@ -1,0 +1,474 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_einsum.py",
+  "classes": [
+    {
+      "name": "TestEinsum",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_einsum_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_specific_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_object_errors",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_views",
+          "docstring": null
+        },
+        {
+          "name": "check_einsum_sums",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_sums_int8",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_sums_uint8",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_sums_int16",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_sums_uint16",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_sums_int32",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_sums_uint32",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_sums_int64",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_sums_uint64",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_sums_float16",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_sums_float32",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_sums_float64",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_sums_longdouble",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_sums_cfloat64",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_sums_cfloat128",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_sums_clongdouble",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_sums_object",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_misc",
+          "docstring": null
+        },
+        {
+          "name": "test_object_loop",
+          "docstring": null
+        },
+        {
+          "name": "test_subscript_range",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_broadcast",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_fixedstridebug",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_fixed_collapsingbug",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_failed_on_p9_and_s390x",
+          "docstring": null
+        },
+        {
+          "name": "test_einsum_all_contig_non_contig_output",
+          "docstring": null
+        },
+        {
+          "name": "test_different_paths",
+          "docstring": null
+        },
+        {
+          "name": "test_small_boolean_arrays",
+          "docstring": null
+        },
+        {
+          "name": "test_out_is_res",
+          "docstring": null
+        },
+        {
+          "name": "optimize_compare",
+          "docstring": null
+        },
+        {
+          "name": "test_hadamard_like_products",
+          "docstring": null
+        },
+        {
+          "name": "test_index_transformations",
+          "docstring": null
+        },
+        {
+          "name": "test_complex",
+          "docstring": null
+        },
+        {
+          "name": "test_collapse",
+          "docstring": null
+        },
+        {
+          "name": "test_expand",
+          "docstring": null
+        },
+        {
+          "name": "test_edge_cases",
+          "docstring": null
+        },
+        {
+          "name": "test_inner_product",
+          "docstring": null
+        },
+        {
+          "name": "test_random_cases",
+          "docstring": null
+        },
+        {
+          "name": "test_combined_views_mapping",
+          "docstring": null
+        },
+        {
+          "name": "test_broadcasting_dot_cases",
+          "docstring": null
+        },
+        {
+          "name": "test_output_order",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestEinsumPath",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "build_operands",
+          "docstring": null
+        },
+        {
+          "name": "assert_path_equal",
+          "docstring": null
+        },
+        {
+          "name": "test_memory_contraints",
+          "docstring": null
+        },
+        {
+          "name": "test_long_paths",
+          "docstring": null
+        },
+        {
+          "name": "test_edge_paths",
+          "docstring": null
+        },
+        {
+          "name": "test_path_type_input",
+          "docstring": null
+        },
+        {
+          "name": "test_path_type_input_internal_trace",
+          "docstring": null
+        },
+        {
+          "name": "test_path_type_input_invalid",
+          "docstring": null
+        },
+        {
+          "name": "test_spaces",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "CustomException",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "DestructoBox",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Mult",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_overlap",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_specific_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_object_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_views",
+      "docstring": null
+    },
+    {
+      "name": "check_einsum_sums",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_sums_int8",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_sums_uint8",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_sums_int16",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_sums_uint16",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_sums_int32",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_sums_uint32",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_sums_int64",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_sums_uint64",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_sums_float16",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_sums_float32",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_sums_float64",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_sums_longdouble",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_sums_cfloat64",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_sums_cfloat128",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_sums_clongdouble",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_sums_object",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_misc",
+      "docstring": null
+    },
+    {
+      "name": "test_object_loop",
+      "docstring": null
+    },
+    {
+      "name": "test_subscript_range",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_broadcast",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_fixedstridebug",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_fixed_collapsingbug",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_failed_on_p9_and_s390x",
+      "docstring": null
+    },
+    {
+      "name": "test_einsum_all_contig_non_contig_output",
+      "docstring": null
+    },
+    {
+      "name": "test_different_paths",
+      "docstring": null
+    },
+    {
+      "name": "test_small_boolean_arrays",
+      "docstring": null
+    },
+    {
+      "name": "test_out_is_res",
+      "docstring": null
+    },
+    {
+      "name": "optimize_compare",
+      "docstring": null
+    },
+    {
+      "name": "test_hadamard_like_products",
+      "docstring": null
+    },
+    {
+      "name": "test_index_transformations",
+      "docstring": null
+    },
+    {
+      "name": "test_complex",
+      "docstring": null
+    },
+    {
+      "name": "test_collapse",
+      "docstring": null
+    },
+    {
+      "name": "test_expand",
+      "docstring": null
+    },
+    {
+      "name": "test_edge_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_inner_product",
+      "docstring": null
+    },
+    {
+      "name": "test_random_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_combined_views_mapping",
+      "docstring": null
+    },
+    {
+      "name": "test_broadcasting_dot_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_output_order",
+      "docstring": null
+    },
+    {
+      "name": "build_operands",
+      "docstring": null
+    },
+    {
+      "name": "assert_path_equal",
+      "docstring": null
+    },
+    {
+      "name": "test_memory_contraints",
+      "docstring": null
+    },
+    {
+      "name": "test_long_paths",
+      "docstring": null
+    },
+    {
+      "name": "test_edge_paths",
+      "docstring": null
+    },
+    {
+      "name": "test_path_type_input",
+      "docstring": null
+    },
+    {
+      "name": "test_path_type_input_internal_trace",
+      "docstring": null
+    },
+    {
+      "name": "test_path_type_input_invalid",
+      "docstring": null
+    },
+    {
+      "name": "test_spaces",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        assert res is a\n\n    def optimize_compare(self, subscripts, operands=None):\n        # Tests all paths of the optimization function against\n        # conventional einsum\n        if operands is None:\n            args = [subscripts]"
+    }
+  ]
+}

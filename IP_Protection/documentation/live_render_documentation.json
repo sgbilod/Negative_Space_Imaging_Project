@@ -1,0 +1,42 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\live_render.py",
+  "classes": [
+    {
+      "name": "LiveRender",
+      "docstring": "Creates a renderable that may be updated.\n\nArgs:\n    renderable (RenderableType): Any renderable object.\n    style (StyleType, optional): An optional style to apply to the renderable. Defaults to \"\".",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_renderable",
+          "docstring": "Set a new renderable.\n\nArgs:\n    renderable (RenderableType): Any renderable object, including str."
+        },
+        {
+          "name": "position_cursor",
+          "docstring": "Get control codes to move cursor to beginning of live render.\n\nReturns:\n    Control: A control instance that may be printed."
+        },
+        {
+          "name": "restore_cursor",
+          "docstring": "Get control codes to clear the render and restore the cursor to its previous position.\n\nReturns:\n    Control: A Control instance that may be printed."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "set_renderable",
+      "docstring": "Set a new renderable.\n\nArgs:\n    renderable (RenderableType): Any renderable object, including str."
+    },
+    {
+      "name": "position_cursor",
+      "docstring": "Get control codes to move cursor to beginning of live render.\n\nReturns:\n    Control: A control instance that may be printed."
+    },
+    {
+      "name": "restore_cursor",
+      "docstring": "Get control codes to clear the render and restore the cursor to its previous position.\n\nReturns:\n    Control: A Control instance that may be printed."
+    }
+  ],
+  "innovations": []
+}

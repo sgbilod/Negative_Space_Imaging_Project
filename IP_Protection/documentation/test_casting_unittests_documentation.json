@@ -1,0 +1,209 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_casting_unittests.py",
+  "classes": [
+    {
+      "name": "Casting",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "TestChanges",
+      "docstring": "These test cases exercise some behaviour changes",
+      "methods": [
+        {
+          "name": "test_float_to_string",
+          "docstring": null
+        },
+        {
+          "name": "test_to_void",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCasting",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "get_data",
+          "docstring": null
+        },
+        {
+          "name": "get_data_variation",
+          "docstring": "Returns a copy of arr1 that may be non-contiguous or unaligned, and a\nmatching array for arr2 (although not a copy)."
+        },
+        {
+          "name": "test_simple_cancast",
+          "docstring": null
+        },
+        {
+          "name": "test_simple_direct_casts",
+          "docstring": "This test checks numeric direct casts for dtypes supported also by the\nstruct module (plus complex).  It tries to be test a wide range of\ninputs, but skips over possibly undefined behaviour (e.g. int rollover).\nLongdouble and CLongdouble are tested, but only using double precision.\n\nIf this test creates issues, it should possibly just be simplified\nor even removed (checking whether unaligned/non-contiguous casts give\nthe same results is useful, though)."
+        },
+        {
+          "name": "test_numeric_to_times",
+          "docstring": null
+        },
+        {
+          "name": "test_time_to_time",
+          "docstring": null
+        },
+        {
+          "name": "string_with_modified_length",
+          "docstring": null
+        },
+        {
+          "name": "test_string_cancast",
+          "docstring": null
+        },
+        {
+          "name": "test_simple_string_casts_roundtrip",
+          "docstring": "Tests casts from and to string by checking the roundtripping property.\n\nThe test also covers some string to string casts (but not all).\n\nIf this test creates issues, it should possibly just be simplified\nor even removed (checking whether unaligned/non-contiguous casts give\nthe same results is useful, though)."
+        },
+        {
+          "name": "test_string_to_string_cancast",
+          "docstring": null
+        },
+        {
+          "name": "test_unicode_byteswapped_cast",
+          "docstring": null
+        },
+        {
+          "name": "test_void_to_string_special_case",
+          "docstring": null
+        },
+        {
+          "name": "test_object_to_parametric_internal_error",
+          "docstring": null
+        },
+        {
+          "name": "test_object_and_simple_resolution",
+          "docstring": null
+        },
+        {
+          "name": "test_simple_to_object_resolution",
+          "docstring": null
+        },
+        {
+          "name": "test_void_and_structured_with_subarray",
+          "docstring": null
+        },
+        {
+          "name": "test_structured_field_offsets",
+          "docstring": null
+        },
+        {
+          "name": "test_structured_view_offsets_parametric",
+          "docstring": null
+        },
+        {
+          "name": "test_object_casts_NULL_None_equivalence",
+          "docstring": null
+        },
+        {
+          "name": "test_nonstandard_bool_to_other",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "simple_dtype_instances",
+      "docstring": null
+    },
+    {
+      "name": "get_expected_stringlength",
+      "docstring": "Returns the string length when casting the basic dtypes to strings.\n    "
+    },
+    {
+      "name": "test_float_to_string",
+      "docstring": null
+    },
+    {
+      "name": "test_to_void",
+      "docstring": null
+    },
+    {
+      "name": "get_data",
+      "docstring": null
+    },
+    {
+      "name": "get_data_variation",
+      "docstring": "Returns a copy of arr1 that may be non-contiguous or unaligned, and a\nmatching array for arr2 (although not a copy)."
+    },
+    {
+      "name": "test_simple_cancast",
+      "docstring": null
+    },
+    {
+      "name": "test_simple_direct_casts",
+      "docstring": "This test checks numeric direct casts for dtypes supported also by the\nstruct module (plus complex).  It tries to be test a wide range of\ninputs, but skips over possibly undefined behaviour (e.g. int rollover).\nLongdouble and CLongdouble are tested, but only using double precision.\n\nIf this test creates issues, it should possibly just be simplified\nor even removed (checking whether unaligned/non-contiguous casts give\nthe same results is useful, though)."
+    },
+    {
+      "name": "test_numeric_to_times",
+      "docstring": null
+    },
+    {
+      "name": "test_time_to_time",
+      "docstring": null
+    },
+    {
+      "name": "string_with_modified_length",
+      "docstring": null
+    },
+    {
+      "name": "test_string_cancast",
+      "docstring": null
+    },
+    {
+      "name": "test_simple_string_casts_roundtrip",
+      "docstring": "Tests casts from and to string by checking the roundtripping property.\n\nThe test also covers some string to string casts (but not all).\n\nIf this test creates issues, it should possibly just be simplified\nor even removed (checking whether unaligned/non-contiguous casts give\nthe same results is useful, though)."
+    },
+    {
+      "name": "test_string_to_string_cancast",
+      "docstring": null
+    },
+    {
+      "name": "test_unicode_byteswapped_cast",
+      "docstring": null
+    },
+    {
+      "name": "test_void_to_string_special_case",
+      "docstring": null
+    },
+    {
+      "name": "test_object_to_parametric_internal_error",
+      "docstring": null
+    },
+    {
+      "name": "test_object_and_simple_resolution",
+      "docstring": null
+    },
+    {
+      "name": "test_simple_to_object_resolution",
+      "docstring": null
+    },
+    {
+      "name": "test_void_and_structured_with_subarray",
+      "docstring": null
+    },
+    {
+      "name": "test_structured_field_offsets",
+      "docstring": null
+    },
+    {
+      "name": "test_structured_view_offsets_parametric",
+      "docstring": null
+    },
+    {
+      "name": "test_object_casts_NULL_None_equivalence",
+      "docstring": null
+    },
+    {
+      "name": "test_nonstandard_bool_to_other",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

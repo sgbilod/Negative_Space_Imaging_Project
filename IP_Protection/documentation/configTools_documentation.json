@@ -1,0 +1,151 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\configTools.py",
+  "classes": [
+    {
+      "name": "ConfigError",
+      "docstring": "Base exception for the config module.",
+      "methods": []
+    },
+    {
+      "name": "ConfigAlreadyRegisteredError",
+      "docstring": "Raised when a module tries to register a configuration option that\nalready exists.\n\nShould not be raised too much really, only when developing new fontTools\nmodules.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ConfigValueParsingError",
+      "docstring": "Raised when a configuration value cannot be parsed.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ConfigValueValidationError",
+      "docstring": "Raised when a configuration value cannot be validated.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ConfigUnknownOptionError",
+      "docstring": "Raised when a configuration option is unknown.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Option",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "parse_optional_bool",
+          "docstring": null
+        },
+        {
+          "name": "validate_optional_bool",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Options",
+      "docstring": "Registry of available options for a given config system.\n\nDefine new options using the :meth:`register()` method.\n\nAccess existing options using the Mapping interface.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "register",
+          "docstring": "Create and register a new option."
+        },
+        {
+          "name": "register_option",
+          "docstring": "Register a new option."
+        },
+        {
+          "name": "is_registered",
+          "docstring": "Return True if the same option object is already registered."
+        }
+      ]
+    },
+    {
+      "name": "AbstractConfig",
+      "docstring": "Create a set of config values, optionally pre-filled with values from\nthe given dictionary or pre-existing config object.\n\nThe class implements the MutableMapping protocol keyed by option name (`str`).\nFor convenience its methods accept either Option or str as the key parameter.\n\n.. seealso:: :meth:`set()`\n\nThis config class is abstract because it needs its ``options`` class\nvar to be set to an instance of :class:`Options` before it can be\ninstanciated and used.\n\n.. code:: python\n\n    class MyConfig(AbstractConfig):\n        options = Options()\n\n    MyConfig.register_option( \"test:option_name\", \"This is an option\", 0, int, lambda v: isinstance(v, int))\n\n    cfg = MyConfig({\"test:option_name\": 10})",
+      "methods": [
+        {
+          "name": "register_option",
+          "docstring": "Register an available option in this config system."
+        },
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set",
+          "docstring": "Set the value of an option.\n\nArgs:\n    * `option_or_name`: an `Option` object or its name (`str`).\n    * `value`: the value to be assigned to given option.\n    * `parse_values`: parse the configuration value from a string into\n        its proper type, as per its `Option` object. The default\n        behavior is to raise `ConfigValueValidationError` when the value\n        is not of the right type. Useful when reading options from a\n        file type that doesn't support as many types as Python.\n    * `skip_unknown`: skip unknown configuration options. The default\n        behaviour is to raise `ConfigUnknownOptionError`. Useful when\n        reading options from a configuration file that has extra entries\n        (e.g. for a later version of fontTools)"
+        },
+        {
+          "name": "get",
+          "docstring": "Get the value of an option. The value which is returned is the first\nprovided among:\n\n1. a user-provided value in the options's ``self._values`` dict\n2. a caller-provided default value to this method call\n3. the global default for the option provided in ``fontTools.config``\n\nThis is to provide the ability to migrate progressively from config\noptions passed as arguments to fontTools APIs to config options read\nfrom the current TTFont, e.g.\n\n.. code:: python\n\n    def fontToolsAPI(font, some_option):\n        value = font.cfg.get(\"someLib.module:SOME_OPTION\", some_option)\n        # use value\n\nThat way, the function will work the same for users of the API that\nstill pass the option to the function call, but will favour the new\nconfig mechanism if the given font specifies a value for that option."
+        },
+        {
+          "name": "copy",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "parse_optional_bool",
+      "docstring": null
+    },
+    {
+      "name": "validate_optional_bool",
+      "docstring": null
+    },
+    {
+      "name": "register",
+      "docstring": "Create and register a new option."
+    },
+    {
+      "name": "register_option",
+      "docstring": "Register a new option."
+    },
+    {
+      "name": "is_registered",
+      "docstring": "Return True if the same option object is already registered."
+    },
+    {
+      "name": "register_option",
+      "docstring": "Register an available option in this config system."
+    },
+    {
+      "name": "set",
+      "docstring": "Set the value of an option.\n\nArgs:\n    * `option_or_name`: an `Option` object or its name (`str`).\n    * `value`: the value to be assigned to given option.\n    * `parse_values`: parse the configuration value from a string into\n        its proper type, as per its `Option` object. The default\n        behavior is to raise `ConfigValueValidationError` when the value\n        is not of the right type. Useful when reading options from a\n        file type that doesn't support as many types as Python.\n    * `skip_unknown`: skip unknown configuration options. The default\n        behaviour is to raise `ConfigUnknownOptionError`. Useful when\n        reading options from a configuration file that has extra entries\n        (e.g. for a later version of fontTools)"
+    },
+    {
+      "name": "get",
+      "docstring": "Get the value of an option. The value which is returned is the first\nprovided among:\n\n1. a user-provided value in the options's ``self._values`` dict\n2. a caller-provided default value to this method call\n3. the global default for the option provided in ``fontTools.config``\n\nThis is to provide the ability to migrate progressively from config\noptions passed as arguments to fontTools APIs to config options read\nfrom the current TTFont, e.g.\n\n.. code:: python\n\n    def fontToolsAPI(font, some_option):\n        value = font.cfg.get(\"someLib.module:SOME_OPTION\", some_option)\n        # use value\n\nThat way, the function will work the same for users of the API that\nstill pass the option to the function call, but will favour the new\nconfig mechanism if the given font specifies a value for that option."
+    },
+    {
+      "name": "copy",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

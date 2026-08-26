@@ -1,0 +1,345 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\vcs\\versioncontrol.py",
+  "classes": [
+    {
+      "name": "RemoteNotFoundError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "RemoteNotValidError",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "RevOptions",
+      "docstring": "Encapsulates a VCS-specific revision to install, along with any VCS\ninstall options.\n\nArgs:\n    vc_class: a VersionControl subclass.\n    rev: the name of the revision to install.\n    extra_args: a list of extra options.",
+      "methods": [
+        {
+          "name": "arg_rev",
+          "docstring": null
+        },
+        {
+          "name": "to_args",
+          "docstring": "Return the VCS-specific command arguments."
+        },
+        {
+          "name": "to_display",
+          "docstring": null
+        },
+        {
+          "name": "make_new",
+          "docstring": "Make a copy of the current instance, but with a new rev.\n\nArgs:\n  rev: the name of the revision for the new object."
+        }
+      ]
+    },
+    {
+      "name": "VcsSupport",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "backends",
+          "docstring": null
+        },
+        {
+          "name": "dirnames",
+          "docstring": null
+        },
+        {
+          "name": "all_schemes",
+          "docstring": null
+        },
+        {
+          "name": "register",
+          "docstring": null
+        },
+        {
+          "name": "unregister",
+          "docstring": null
+        },
+        {
+          "name": "get_backend_for_dir",
+          "docstring": "Return a VersionControl object if a repository of that type is found\nat the given directory."
+        },
+        {
+          "name": "get_backend_for_scheme",
+          "docstring": "Return a VersionControl object or None."
+        },
+        {
+          "name": "get_backend",
+          "docstring": "Return a VersionControl object or None."
+        }
+      ]
+    },
+    {
+      "name": "VersionControl",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "should_add_vcs_url_prefix",
+          "docstring": "Return whether the vcs prefix (e.g. \"git+\") should be added to a\nrepository's remote url when used in a requirement."
+        },
+        {
+          "name": "get_subdirectory",
+          "docstring": "Return the path to Python project root, relative to the repo root.\nReturn None if the project root is in the repo root."
+        },
+        {
+          "name": "get_requirement_revision",
+          "docstring": "Return the revision string that should be used in a requirement."
+        },
+        {
+          "name": "get_src_requirement",
+          "docstring": "Return the requirement string to use to redownload the files\ncurrently at the given repository directory.\n\nArgs:\n  project_name: the (unescaped) project name.\n\nThe return value has a form similar to the following:\n\n    {repository_url}@{revision}#egg={project_name}"
+        },
+        {
+          "name": "get_base_rev_args",
+          "docstring": "Return the base revision arguments for a vcs command.\n\nArgs:\n  rev: the name of a revision to install.  Cannot be None."
+        },
+        {
+          "name": "is_immutable_rev_checkout",
+          "docstring": "Return true if the commit hash checked out at dest matches\nthe revision in url.\n\nAlways return False, if the VCS does not support immutable commit\nhashes.\n\nThis method does not check if there are local uncommitted changes\nin dest after checkout, as pip currently has no use case for that."
+        },
+        {
+          "name": "make_rev_options",
+          "docstring": "Return a RevOptions object.\n\nArgs:\n  rev: the name of a revision to install.\n  extra_args: a list of extra options."
+        },
+        {
+          "name": "get_netloc_and_auth",
+          "docstring": "Parse the repository URL's netloc, and return the new netloc to use\nalong with auth information.\n\nArgs:\n  netloc: the original repository URL netloc.\n  scheme: the repository URL's scheme without the vcs prefix.\n\nThis is mainly for the Subversion class to override, so that auth\ninformation can be provided via the --username and --password options\ninstead of through the URL.  For other subclasses like Git without\nsuch an option, auth information must stay in the URL.\n\nReturns: (netloc, (username, password))."
+        },
+        {
+          "name": "get_url_rev_and_auth",
+          "docstring": "Parse the repository URL to use, and return the URL, revision,\nand auth info to use.\n\nReturns: (url, rev, (username, password))."
+        },
+        {
+          "name": "make_rev_args",
+          "docstring": "Return the RevOptions \"extra arguments\" to use in obtain()."
+        },
+        {
+          "name": "get_url_rev_options",
+          "docstring": "Return the URL and RevOptions object to use in obtain(),\nas a tuple (url, rev_options)."
+        },
+        {
+          "name": "normalize_url",
+          "docstring": "Normalize a URL for comparison by unquoting it and removing any\ntrailing slash."
+        },
+        {
+          "name": "compare_urls",
+          "docstring": "Compare two repo URLs for identity, ignoring incidental differences."
+        },
+        {
+          "name": "fetch_new",
+          "docstring": "Fetch a revision from a repository, in the case that this is the\nfirst fetch from the repository.\n\nArgs:\n  dest: the directory to fetch the repository to.\n  rev_options: a RevOptions object.\n  verbosity: verbosity level."
+        },
+        {
+          "name": "switch",
+          "docstring": "Switch the repo at ``dest`` to point to ``URL``.\n\nArgs:\n  rev_options: a RevOptions object."
+        },
+        {
+          "name": "update",
+          "docstring": "Update an already-existing repo to the given ``rev_options``.\n\nArgs:\n  rev_options: a RevOptions object."
+        },
+        {
+          "name": "is_commit_id_equal",
+          "docstring": "Return whether the id of the current commit equals the given name.\n\nArgs:\n  dest: the repository directory.\n  name: a string name."
+        },
+        {
+          "name": "obtain",
+          "docstring": "Install or update in editable mode the package represented by this\nVersionControl object.\n\n:param dest: the repository directory in which to install or update.\n:param url: the repository URL starting with a vcs prefix.\n:param verbosity: verbosity level."
+        },
+        {
+          "name": "unpack",
+          "docstring": "Clean up current location and download the url repository\n(and vcs infos) into location\n\n:param url: the repository URL starting with a vcs prefix.\n:param verbosity: verbosity level."
+        },
+        {
+          "name": "get_remote_url",
+          "docstring": "Return the url used at location\n\nRaises RemoteNotFoundError if the repository does not have a remote\nurl configured."
+        },
+        {
+          "name": "get_revision",
+          "docstring": "Return the current commit id of the files at the given location."
+        },
+        {
+          "name": "run_command",
+          "docstring": "Run a VCS subcommand\nThis is simply a wrapper around call_subprocess that adds the VCS\ncommand name, and checks that the VCS is available"
+        },
+        {
+          "name": "is_repository_directory",
+          "docstring": "Return whether a directory path is a repository directory."
+        },
+        {
+          "name": "get_repository_root",
+          "docstring": "Return the \"root\" (top-level) directory controlled by the vcs,\nor `None` if the directory is not in any.\n\nIt is meant to be overridden to implement smarter detection\nmechanisms for specific vcs.\n\nThis can do more than is_repository_directory() alone. For\nexample, the Git override checks that Git is actually available."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "is_url",
+      "docstring": "Return true if the name looks like a URL."
+    },
+    {
+      "name": "make_vcs_requirement_url",
+      "docstring": "Return the URL for a VCS requirement.\n\nArgs:\n  repo_url: the remote VCS url, with any needed VCS prefix (e.g. \"git+\").\n  project_name: the (unescaped) project name."
+    },
+    {
+      "name": "find_path_to_project_root_from_repo_root",
+      "docstring": "Find the the Python project's root by searching up the filesystem from\n`location`. Return the path to project root relative to `repo_root`.\nReturn None if the project root is `repo_root`, or cannot be found."
+    },
+    {
+      "name": "arg_rev",
+      "docstring": null
+    },
+    {
+      "name": "to_args",
+      "docstring": "Return the VCS-specific command arguments."
+    },
+    {
+      "name": "to_display",
+      "docstring": null
+    },
+    {
+      "name": "make_new",
+      "docstring": "Make a copy of the current instance, but with a new rev.\n\nArgs:\n  rev: the name of the revision for the new object."
+    },
+    {
+      "name": "backends",
+      "docstring": null
+    },
+    {
+      "name": "dirnames",
+      "docstring": null
+    },
+    {
+      "name": "all_schemes",
+      "docstring": null
+    },
+    {
+      "name": "register",
+      "docstring": null
+    },
+    {
+      "name": "unregister",
+      "docstring": null
+    },
+    {
+      "name": "get_backend_for_dir",
+      "docstring": "Return a VersionControl object if a repository of that type is found\nat the given directory."
+    },
+    {
+      "name": "get_backend_for_scheme",
+      "docstring": "Return a VersionControl object or None."
+    },
+    {
+      "name": "get_backend",
+      "docstring": "Return a VersionControl object or None."
+    },
+    {
+      "name": "should_add_vcs_url_prefix",
+      "docstring": "Return whether the vcs prefix (e.g. \"git+\") should be added to a\nrepository's remote url when used in a requirement."
+    },
+    {
+      "name": "get_subdirectory",
+      "docstring": "Return the path to Python project root, relative to the repo root.\nReturn None if the project root is in the repo root."
+    },
+    {
+      "name": "get_requirement_revision",
+      "docstring": "Return the revision string that should be used in a requirement."
+    },
+    {
+      "name": "get_src_requirement",
+      "docstring": "Return the requirement string to use to redownload the files\ncurrently at the given repository directory.\n\nArgs:\n  project_name: the (unescaped) project name.\n\nThe return value has a form similar to the following:\n\n    {repository_url}@{revision}#egg={project_name}"
+    },
+    {
+      "name": "get_base_rev_args",
+      "docstring": "Return the base revision arguments for a vcs command.\n\nArgs:\n  rev: the name of a revision to install.  Cannot be None."
+    },
+    {
+      "name": "is_immutable_rev_checkout",
+      "docstring": "Return true if the commit hash checked out at dest matches\nthe revision in url.\n\nAlways return False, if the VCS does not support immutable commit\nhashes.\n\nThis method does not check if there are local uncommitted changes\nin dest after checkout, as pip currently has no use case for that."
+    },
+    {
+      "name": "make_rev_options",
+      "docstring": "Return a RevOptions object.\n\nArgs:\n  rev: the name of a revision to install.\n  extra_args: a list of extra options."
+    },
+    {
+      "name": "get_netloc_and_auth",
+      "docstring": "Parse the repository URL's netloc, and return the new netloc to use\nalong with auth information.\n\nArgs:\n  netloc: the original repository URL netloc.\n  scheme: the repository URL's scheme without the vcs prefix.\n\nThis is mainly for the Subversion class to override, so that auth\ninformation can be provided via the --username and --password options\ninstead of through the URL.  For other subclasses like Git without\nsuch an option, auth information must stay in the URL.\n\nReturns: (netloc, (username, password))."
+    },
+    {
+      "name": "get_url_rev_and_auth",
+      "docstring": "Parse the repository URL to use, and return the URL, revision,\nand auth info to use.\n\nReturns: (url, rev, (username, password))."
+    },
+    {
+      "name": "make_rev_args",
+      "docstring": "Return the RevOptions \"extra arguments\" to use in obtain()."
+    },
+    {
+      "name": "get_url_rev_options",
+      "docstring": "Return the URL and RevOptions object to use in obtain(),\nas a tuple (url, rev_options)."
+    },
+    {
+      "name": "normalize_url",
+      "docstring": "Normalize a URL for comparison by unquoting it and removing any\ntrailing slash."
+    },
+    {
+      "name": "compare_urls",
+      "docstring": "Compare two repo URLs for identity, ignoring incidental differences."
+    },
+    {
+      "name": "fetch_new",
+      "docstring": "Fetch a revision from a repository, in the case that this is the\nfirst fetch from the repository.\n\nArgs:\n  dest: the directory to fetch the repository to.\n  rev_options: a RevOptions object.\n  verbosity: verbosity level."
+    },
+    {
+      "name": "switch",
+      "docstring": "Switch the repo at ``dest`` to point to ``URL``.\n\nArgs:\n  rev_options: a RevOptions object."
+    },
+    {
+      "name": "update",
+      "docstring": "Update an already-existing repo to the given ``rev_options``.\n\nArgs:\n  rev_options: a RevOptions object."
+    },
+    {
+      "name": "is_commit_id_equal",
+      "docstring": "Return whether the id of the current commit equals the given name.\n\nArgs:\n  dest: the repository directory.\n  name: a string name."
+    },
+    {
+      "name": "obtain",
+      "docstring": "Install or update in editable mode the package represented by this\nVersionControl object.\n\n:param dest: the repository directory in which to install or update.\n:param url: the repository URL starting with a vcs prefix.\n:param verbosity: verbosity level."
+    },
+    {
+      "name": "unpack",
+      "docstring": "Clean up current location and download the url repository\n(and vcs infos) into location\n\n:param url: the repository URL starting with a vcs prefix.\n:param verbosity: verbosity level."
+    },
+    {
+      "name": "get_remote_url",
+      "docstring": "Return the url used at location\n\nRaises RemoteNotFoundError if the repository does not have a remote\nurl configured."
+    },
+    {
+      "name": "get_revision",
+      "docstring": "Return the current commit id of the files at the given location."
+    },
+    {
+      "name": "run_command",
+      "docstring": "Run a VCS subcommand\nThis is simply a wrapper around call_subprocess that adds the VCS\ncommand name, and checks that the VCS is available"
+    },
+    {
+      "name": "is_repository_directory",
+      "docstring": "Return whether a directory path is a repository directory."
+    },
+    {
+      "name": "get_repository_root",
+      "docstring": "Return the \"root\" (top-level) directory controlled by the vcs,\nor `None` if the directory is not in any.\n\nIt is meant to be overridden to implement smarter detection\nmechanisms for specific vcs.\n\nThis can do more than is_repository_directory() alone. For\nexample, the Git override checks that Git is actually available."
+    }
+  ],
+  "innovations": []
+}

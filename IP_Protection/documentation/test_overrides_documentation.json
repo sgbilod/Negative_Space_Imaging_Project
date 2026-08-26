@@ -1,0 +1,612 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_overrides.py",
+  "classes": [
+    {
+      "name": "TestGetImplementingArgs",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_ndarray",
+          "docstring": null
+        },
+        {
+          "name": "test_ndarray_subclasses",
+          "docstring": null
+        },
+        {
+          "name": "test_ndarray_and_duck_array",
+          "docstring": null
+        },
+        {
+          "name": "test_ndarray_subclass_and_duck_array",
+          "docstring": null
+        },
+        {
+          "name": "test_many_duck_arrays",
+          "docstring": null
+        },
+        {
+          "name": "test_too_many_duck_arrays",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNDArrayArrayFunction",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_method",
+          "docstring": null
+        },
+        {
+          "name": "test_no_wrapper",
+          "docstring": null
+        },
+        {
+          "name": "test_wrong_arguments",
+          "docstring": null
+        },
+        {
+          "name": "test_wrong_arguments",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestArrayFunctionDispatch",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_pickle",
+          "docstring": null
+        },
+        {
+          "name": "test_name_and_docstring",
+          "docstring": null
+        },
+        {
+          "name": "test_interface",
+          "docstring": null
+        },
+        {
+          "name": "test_not_implemented",
+          "docstring": null
+        },
+        {
+          "name": "test_where_dispatch",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestVerifyMatchingSignatures",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_verify_matching_signatures",
+          "docstring": null
+        },
+        {
+          "name": "test_array_function_dispatch",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestArrayFunctionImplementation",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_one_arg",
+          "docstring": null
+        },
+        {
+          "name": "test_optional_args",
+          "docstring": null
+        },
+        {
+          "name": "test_not_implemented",
+          "docstring": null
+        },
+        {
+          "name": "test_signature_error_message_simple",
+          "docstring": null
+        },
+        {
+          "name": "test_signature_error_message",
+          "docstring": null
+        },
+        {
+          "name": "test_dispatcher_error",
+          "docstring": null
+        },
+        {
+          "name": "test_properties",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_like_sig",
+          "docstring": null
+        },
+        {
+          "name": "test_bad_like_passing",
+          "docstring": null
+        },
+        {
+          "name": "test_too_many_args",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNDArrayMethods",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_repr",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNumPyFunctions",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_set_module",
+          "docstring": null
+        },
+        {
+          "name": "test_inspect_sum",
+          "docstring": null
+        },
+        {
+          "name": "test_override_sum",
+          "docstring": null
+        },
+        {
+          "name": "test_sum_on_mock_array",
+          "docstring": null
+        },
+        {
+          "name": "test_sum_forwarding_implementation",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestArrayLike",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "add_method",
+          "docstring": null
+        },
+        {
+          "name": "func_args",
+          "docstring": null
+        },
+        {
+          "name": "test_array_like_not_implemented",
+          "docstring": null
+        },
+        {
+          "name": "test_nep35_functions_as_array_functions",
+          "docstring": null
+        },
+        {
+          "name": "test_array_like",
+          "docstring": null
+        },
+        {
+          "name": "test_no_array_function_like",
+          "docstring": null
+        },
+        {
+          "name": "test_subclass",
+          "docstring": null
+        },
+        {
+          "name": "test_array_like_fromfile",
+          "docstring": null
+        },
+        {
+          "name": "test_exception_handling",
+          "docstring": null
+        },
+        {
+          "name": "test_like_as_none",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MyClass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "OverrideSub",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "NoOverrideSub",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Other",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "OverrideSub",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Other",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "A",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "B",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "C",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "D",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Other",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "NoOverrideSub",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "OverrideSub",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MyArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MyArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "DuckArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MyArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "ArrayProxy",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyArray",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "sum",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyArray",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyNoArrayFunctionArray",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MySubclass",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "MyArr",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "dispatched_one_arg",
+      "docstring": "Docstring."
+    },
+    {
+      "name": "dispatched_two_arg",
+      "docstring": "Docstring."
+    },
+    {
+      "name": "test_function_like",
+      "docstring": null
+    },
+    {
+      "name": "test_ndarray",
+      "docstring": null
+    },
+    {
+      "name": "test_ndarray_subclasses",
+      "docstring": null
+    },
+    {
+      "name": "test_ndarray_and_duck_array",
+      "docstring": null
+    },
+    {
+      "name": "test_ndarray_subclass_and_duck_array",
+      "docstring": null
+    },
+    {
+      "name": "test_many_duck_arrays",
+      "docstring": null
+    },
+    {
+      "name": "test_too_many_duck_arrays",
+      "docstring": null
+    },
+    {
+      "name": "test_method",
+      "docstring": null
+    },
+    {
+      "name": "test_no_wrapper",
+      "docstring": null
+    },
+    {
+      "name": "test_wrong_arguments",
+      "docstring": null
+    },
+    {
+      "name": "test_wrong_arguments",
+      "docstring": null
+    },
+    {
+      "name": "test_pickle",
+      "docstring": null
+    },
+    {
+      "name": "test_name_and_docstring",
+      "docstring": null
+    },
+    {
+      "name": "test_interface",
+      "docstring": null
+    },
+    {
+      "name": "test_not_implemented",
+      "docstring": null
+    },
+    {
+      "name": "test_where_dispatch",
+      "docstring": null
+    },
+    {
+      "name": "test_verify_matching_signatures",
+      "docstring": null
+    },
+    {
+      "name": "test_array_function_dispatch",
+      "docstring": null
+    },
+    {
+      "name": "implements",
+      "docstring": "Register an __array_function__ implementations."
+    },
+    {
+      "name": "test_one_arg",
+      "docstring": null
+    },
+    {
+      "name": "test_optional_args",
+      "docstring": null
+    },
+    {
+      "name": "test_not_implemented",
+      "docstring": null
+    },
+    {
+      "name": "test_signature_error_message_simple",
+      "docstring": null
+    },
+    {
+      "name": "test_signature_error_message",
+      "docstring": null
+    },
+    {
+      "name": "test_dispatcher_error",
+      "docstring": null
+    },
+    {
+      "name": "test_properties",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_like_sig",
+      "docstring": null
+    },
+    {
+      "name": "test_bad_like_passing",
+      "docstring": null
+    },
+    {
+      "name": "test_too_many_args",
+      "docstring": null
+    },
+    {
+      "name": "test_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_set_module",
+      "docstring": null
+    },
+    {
+      "name": "test_inspect_sum",
+      "docstring": null
+    },
+    {
+      "name": "test_override_sum",
+      "docstring": null
+    },
+    {
+      "name": "test_sum_on_mock_array",
+      "docstring": null
+    },
+    {
+      "name": "test_sum_forwarding_implementation",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "add_method",
+      "docstring": null
+    },
+    {
+      "name": "func_args",
+      "docstring": null
+    },
+    {
+      "name": "test_array_like_not_implemented",
+      "docstring": null
+    },
+    {
+      "name": "test_nep35_functions_as_array_functions",
+      "docstring": null
+    },
+    {
+      "name": "test_array_like",
+      "docstring": null
+    },
+    {
+      "name": "test_no_array_function_like",
+      "docstring": null
+    },
+    {
+      "name": "test_subclass",
+      "docstring": null
+    },
+    {
+      "name": "test_array_like_fromfile",
+      "docstring": null
+    },
+    {
+      "name": "test_exception_handling",
+      "docstring": null
+    },
+    {
+      "name": "test_like_as_none",
+      "docstring": null
+    },
+    {
+      "name": "f",
+      "docstring": null
+    },
+    {
+      "name": "decorator",
+      "docstring": null
+    },
+    {
+      "name": "func_with_option",
+      "docstring": null
+    },
+    {
+      "name": "my_array_func_with_option",
+      "docstring": null
+    },
+    {
+      "name": "func",
+      "docstring": null
+    },
+    {
+      "name": "func",
+      "docstring": null
+    },
+    {
+      "name": "dispatcher",
+      "docstring": null
+    },
+    {
+      "name": "func",
+      "docstring": null
+    },
+    {
+      "name": "func",
+      "docstring": null
+    },
+    {
+      "name": "func",
+      "docstring": null
+    },
+    {
+      "name": "f",
+      "docstring": null
+    },
+    {
+      "name": "sum",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

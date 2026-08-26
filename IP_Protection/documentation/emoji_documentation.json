@@ -1,0 +1,31 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\emoji.py",
+  "classes": [
+    {
+      "name": "NoEmoji",
+      "docstring": "No emoji by that name.",
+      "methods": []
+    },
+    {
+      "name": "Emoji",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "A single emoji character.\n\nArgs:\n    name (str): Name of emoji.\n    style (Union[str, Style], optional): Optional style. Defaults to None.\n\nRaises:\n    NoEmoji: If the emoji doesn't exist."
+        },
+        {
+          "name": "replace",
+          "docstring": "Replace emoji markup with corresponding unicode characters.\n\nArgs:\n    text (str): A string with emojis codes, e.g. \"Hello :smiley:!\"\n\nReturns:\n    str: A string with emoji codes replaces with actual emoji."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "replace",
+      "docstring": "Replace emoji markup with corresponding unicode characters.\n\nArgs:\n    text (str): A string with emojis codes, e.g. \"Hello :smiley:!\"\n\nReturns:\n    str: A string with emoji codes replaces with actual emoji."
+    }
+  ],
+  "innovations": []
+}

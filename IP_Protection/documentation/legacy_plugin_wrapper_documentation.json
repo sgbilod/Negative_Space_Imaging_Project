@@ -1,0 +1,82 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\core\\legacy_plugin_wrapper.py",
+  "classes": [
+    {
+      "name": "LegacyPlugin",
+      "docstring": "A plugin to  make old (v2.9) plugins compatible with v3.0\n\n.. depreciated:: 2.9\n    `legacy_get_reader` will be removed in a future version of imageio.\n    `legacy_get_writer` will be removed in a future version of imageio.\n\nThis plugin is a wrapper around the old FormatManager class and exposes\nall the old plugins via the new API. On top of this it has\n``legacy_get_reader`` and ``legacy_get_writer`` methods to allow using\nit with the v2.9 API.\n\nMethods\n-------\nread(index=None, **kwargs)\n    Read the image at position ``index``.\nwrite(image, **kwargs)\n    Write image to the URI.\niter(**kwargs)\n    Iteratively yield images from the given URI.\nget_meta(index=None)\n    Return the metadata for the image at position ``index``.\nlegacy_get_reader(**kwargs)\n    Returns the v2.9 image reader. (depreciated)\nlegacy_get_writer(**kwargs)\n    Returns the v2.9 image writer. (depreciated)\n\nExamples\n--------\n\n>>> import imageio.v3 as iio\n>>> with iio.imopen(\"/path/to/image.tiff\", \"r\", legacy_mode=True) as file:\n>>>     reader = file.legacy_get_reader()  # depreciated\n>>>     for im in file.iter():\n>>>         print(im.shape)",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Instantiate a new Legacy Plugin\n\nParameters\n----------\nuri : {str, pathlib.Path, bytes, file}\n    The resource to load the image from, e.g. a filename, pathlib.Path,\n    http address or file object, see the docs for more info.\nlegacy_plugin : Format\n    The (legacy) format to use to interface with the URI."
+        },
+        {
+          "name": "legacy_get_reader",
+          "docstring": "legacy_get_reader(**kwargs)\n\na utility method to provide support vor the V2.9 API\n\nParameters\n----------\nkwargs : ...\n    Further keyword arguments are passed to the reader. See :func:`.help`\n    to see what arguments are available for a particular format."
+        },
+        {
+          "name": "read",
+          "docstring": "Parses the given URI and creates a ndarray from it.\n\nParameters\n----------\nindex : {integer, None}\n    If the URI contains a list of ndimages return the index-th\n    image. If None, stack all images into an ndimage along the\n    0-th dimension (equivalent to np.stack(imgs, axis=0)).\nkwargs : ...\n    Further keyword arguments are passed to the reader. See\n    :func:`.help` to see what arguments are available for a particular\n    format.\n\nReturns\n-------\nndimage : np.ndarray\n    A numpy array containing the decoded image data."
+        },
+        {
+          "name": "legacy_get_writer",
+          "docstring": "legacy_get_writer(**kwargs)\n\nReturns a :class:`.Writer` object which can be used to write data\nand meta data to the specified file.\n\nParameters\n----------\nkwargs : ...\n    Further keyword arguments are passed to the writer. See :func:`.help`\n    to see what arguments are available for a particular format."
+        },
+        {
+          "name": "write",
+          "docstring": "Write an ndimage to the URI specified in path.\n\nIf the URI points to a file on the current host and the file does not\nyet exist it will be created. If the file exists already, it will be\nappended if possible; otherwise, it will be replaced.\n\nParameters\n----------\nndimage : numpy.ndarray\n    The ndimage or list of ndimages to write.\nis_batch : bool\n    If True, treat the supplied ndimage as a batch of images. If False,\n    treat the supplied ndimage as a single image. If None, try to\n    determine ``is_batch`` from the ndimage's shape and ndim.\nmetadata : dict\n    The metadata passed to write alongside the image.\nkwargs : ...\n    Further keyword arguments are passed to the writer. See\n    :func:`.help` to see what arguments are available for a\n    particular format.\n\n\nReturns\n-------\nbuffer : bytes\n    When writing to the special target \"<bytes>\", this function will\n    return the encoded image data as a bytes string. Otherwise it\n    returns None.\n\nNotes\n-----\nAutomatically determining ``is_batch`` may fail for some images due to\nshape aliasing. For example, it may classify a channel-first color image\nas a batch of gray images. In most cases this automatic deduction works\nfine (it has for almost a decade), but if you do have one of those edge\ncases (or are worried that you might) consider explicitly setting\n``is_batch``."
+        },
+        {
+          "name": "iter",
+          "docstring": "Iterate over a list of ndimages given by the URI\n\nParameters\n----------\nkwargs : ...\n    Further keyword arguments are passed to the reader. See\n    :func:`.help` to see what arguments are available for a particular\n    format."
+        },
+        {
+          "name": "properties",
+          "docstring": "Standardized ndimage metadata.\n\nParameters\n----------\nindex : int\n    The index of the ndimage for which to return properties. If the\n    index is out of bounds a ``ValueError`` is raised. If ``None``,\n    return the properties for the ndimage stack. If this is impossible,\n    e.g., due to shape mismatch, an exception will be raised.\n\nReturns\n-------\nproperties : ImageProperties\n    A dataclass filled with standardized image metadata."
+        },
+        {
+          "name": "get_meta",
+          "docstring": "Read ndimage metadata from the URI\n\nParameters\n----------\nindex : {integer, None}\n    If the URI contains a list of ndimages return the metadata\n    corresponding to the index-th image. If None, behavior depends on\n    the used api\n\n    Legacy-style API: return metadata of the first element (index=0)\n    New-style API: Behavior depends on the used Plugin.\n\nReturns\n-------\nmetadata : dict\n    A dictionary of metadata."
+        },
+        {
+          "name": "metadata",
+          "docstring": "Format-Specific ndimage metadata.\n\nParameters\n----------\nindex : int\n    The index of the ndimage to read. If the index is out of bounds a\n    ``ValueError`` is raised. If ``None``, global metadata is returned.\nexclude_applied : bool\n    This parameter exists for compatibility and has no effect. Legacy\n    plugins always report all metadata they find.\n\nReturns\n-------\nmetadata : dict\n    A dictionary filled with format-specific metadata fields and their\n    values."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "legacy_get_reader",
+      "docstring": "legacy_get_reader(**kwargs)\n\na utility method to provide support vor the V2.9 API\n\nParameters\n----------\nkwargs : ...\n    Further keyword arguments are passed to the reader. See :func:`.help`\n    to see what arguments are available for a particular format."
+    },
+    {
+      "name": "read",
+      "docstring": "Parses the given URI and creates a ndarray from it.\n\nParameters\n----------\nindex : {integer, None}\n    If the URI contains a list of ndimages return the index-th\n    image. If None, stack all images into an ndimage along the\n    0-th dimension (equivalent to np.stack(imgs, axis=0)).\nkwargs : ...\n    Further keyword arguments are passed to the reader. See\n    :func:`.help` to see what arguments are available for a particular\n    format.\n\nReturns\n-------\nndimage : np.ndarray\n    A numpy array containing the decoded image data."
+    },
+    {
+      "name": "legacy_get_writer",
+      "docstring": "legacy_get_writer(**kwargs)\n\nReturns a :class:`.Writer` object which can be used to write data\nand meta data to the specified file.\n\nParameters\n----------\nkwargs : ...\n    Further keyword arguments are passed to the writer. See :func:`.help`\n    to see what arguments are available for a particular format."
+    },
+    {
+      "name": "write",
+      "docstring": "Write an ndimage to the URI specified in path.\n\nIf the URI points to a file on the current host and the file does not\nyet exist it will be created. If the file exists already, it will be\nappended if possible; otherwise, it will be replaced.\n\nParameters\n----------\nndimage : numpy.ndarray\n    The ndimage or list of ndimages to write.\nis_batch : bool\n    If True, treat the supplied ndimage as a batch of images. If False,\n    treat the supplied ndimage as a single image. If None, try to\n    determine ``is_batch`` from the ndimage's shape and ndim.\nmetadata : dict\n    The metadata passed to write alongside the image.\nkwargs : ...\n    Further keyword arguments are passed to the writer. See\n    :func:`.help` to see what arguments are available for a\n    particular format.\n\n\nReturns\n-------\nbuffer : bytes\n    When writing to the special target \"<bytes>\", this function will\n    return the encoded image data as a bytes string. Otherwise it\n    returns None.\n\nNotes\n-----\nAutomatically determining ``is_batch`` may fail for some images due to\nshape aliasing. For example, it may classify a channel-first color image\nas a batch of gray images. In most cases this automatic deduction works\nfine (it has for almost a decade), but if you do have one of those edge\ncases (or are worried that you might) consider explicitly setting\n``is_batch``."
+    },
+    {
+      "name": "iter",
+      "docstring": "Iterate over a list of ndimages given by the URI\n\nParameters\n----------\nkwargs : ...\n    Further keyword arguments are passed to the reader. See\n    :func:`.help` to see what arguments are available for a particular\n    format."
+    },
+    {
+      "name": "properties",
+      "docstring": "Standardized ndimage metadata.\n\nParameters\n----------\nindex : int\n    The index of the ndimage for which to return properties. If the\n    index is out of bounds a ``ValueError`` is raised. If ``None``,\n    return the properties for the ndimage stack. If this is impossible,\n    e.g., due to shape mismatch, an exception will be raised.\n\nReturns\n-------\nproperties : ImageProperties\n    A dataclass filled with standardized image metadata."
+    },
+    {
+      "name": "get_meta",
+      "docstring": "Read ndimage metadata from the URI\n\nParameters\n----------\nindex : {integer, None}\n    If the URI contains a list of ndimages return the metadata\n    corresponding to the index-th image. If None, behavior depends on\n    the used api\n\n    Legacy-style API: return metadata of the first element (index=0)\n    New-style API: Behavior depends on the used Plugin.\n\nReturns\n-------\nmetadata : dict\n    A dictionary of metadata."
+    },
+    {
+      "name": "metadata",
+      "docstring": "Format-Specific ndimage metadata.\n\nParameters\n----------\nindex : int\n    The index of the ndimage to read. If the index is out of bounds a\n    ``ValueError`` is raised. If ``None``, global metadata is returned.\nexclude_applied : bool\n    This parameter exists for compatibility and has no effect. Legacy\n    plugins always report all metadata they find.\n\nReturns\n-------\nmetadata : dict\n    A dictionary filled with format-specific metadata fields and their\n    values."
+    }
+  ],
+  "innovations": []
+}

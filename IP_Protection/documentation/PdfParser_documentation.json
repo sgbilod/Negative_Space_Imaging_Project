@@ -1,0 +1,336 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\PdfParser.py",
+  "classes": [
+    {
+      "name": "PdfFormatError",
+      "docstring": "An error that probably indicates a syntactic or semantic error in the\nPDF file structure",
+      "methods": []
+    },
+    {
+      "name": "IndirectReferenceTuple",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "IndirectReference",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "IndirectObjectDef",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "XrefTable",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "keys",
+          "docstring": null
+        },
+        {
+          "name": "write",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PdfName",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "name_as_str",
+          "docstring": null
+        },
+        {
+          "name": "from_pdf_stream",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PdfArray",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PdfDict",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "PdfBinary",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PdfStream",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "decode",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PdfParser",
+      "docstring": "Based on\nhttps://www.adobe.com/content/dam/acom/en/devnet/acrobat/pdfs/PDF32000_2008.pdf\nSupports PDF up to 1.4",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "start_writing",
+          "docstring": null
+        },
+        {
+          "name": "close_buf",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "seek_end",
+          "docstring": null
+        },
+        {
+          "name": "write_header",
+          "docstring": null
+        },
+        {
+          "name": "write_comment",
+          "docstring": null
+        },
+        {
+          "name": "write_catalog",
+          "docstring": null
+        },
+        {
+          "name": "rewrite_pages",
+          "docstring": null
+        },
+        {
+          "name": "write_xref_and_trailer",
+          "docstring": null
+        },
+        {
+          "name": "write_page",
+          "docstring": null
+        },
+        {
+          "name": "write_obj",
+          "docstring": null
+        },
+        {
+          "name": "del_root",
+          "docstring": null
+        },
+        {
+          "name": "get_buf_from_file",
+          "docstring": null
+        },
+        {
+          "name": "read_pdf_info",
+          "docstring": null
+        },
+        {
+          "name": "next_object_id",
+          "docstring": null
+        },
+        {
+          "name": "read_trailer",
+          "docstring": null
+        },
+        {
+          "name": "read_prev_trailer",
+          "docstring": null
+        },
+        {
+          "name": "interpret_trailer",
+          "docstring": null
+        },
+        {
+          "name": "interpret_name",
+          "docstring": null
+        },
+        {
+          "name": "get_value",
+          "docstring": null
+        },
+        {
+          "name": "get_literal_string",
+          "docstring": null
+        },
+        {
+          "name": "read_xref_table",
+          "docstring": null
+        },
+        {
+          "name": "read_indirect",
+          "docstring": null
+        },
+        {
+          "name": "linearize_page_tree",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "encode_text",
+      "docstring": null
+    },
+    {
+      "name": "decode_text",
+      "docstring": null
+    },
+    {
+      "name": "check_format_condition",
+      "docstring": null
+    },
+    {
+      "name": "pdf_repr",
+      "docstring": null
+    },
+    {
+      "name": "keys",
+      "docstring": null
+    },
+    {
+      "name": "write",
+      "docstring": null
+    },
+    {
+      "name": "name_as_str",
+      "docstring": null
+    },
+    {
+      "name": "from_pdf_stream",
+      "docstring": null
+    },
+    {
+      "name": "decode",
+      "docstring": null
+    },
+    {
+      "name": "start_writing",
+      "docstring": null
+    },
+    {
+      "name": "close_buf",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "seek_end",
+      "docstring": null
+    },
+    {
+      "name": "write_header",
+      "docstring": null
+    },
+    {
+      "name": "write_comment",
+      "docstring": null
+    },
+    {
+      "name": "write_catalog",
+      "docstring": null
+    },
+    {
+      "name": "rewrite_pages",
+      "docstring": null
+    },
+    {
+      "name": "write_xref_and_trailer",
+      "docstring": null
+    },
+    {
+      "name": "write_page",
+      "docstring": null
+    },
+    {
+      "name": "write_obj",
+      "docstring": null
+    },
+    {
+      "name": "del_root",
+      "docstring": null
+    },
+    {
+      "name": "get_buf_from_file",
+      "docstring": null
+    },
+    {
+      "name": "read_pdf_info",
+      "docstring": null
+    },
+    {
+      "name": "next_object_id",
+      "docstring": null
+    },
+    {
+      "name": "read_trailer",
+      "docstring": null
+    },
+    {
+      "name": "read_prev_trailer",
+      "docstring": null
+    },
+    {
+      "name": "interpret_trailer",
+      "docstring": null
+    },
+    {
+      "name": "interpret_name",
+      "docstring": null
+    },
+    {
+      "name": "get_value",
+      "docstring": null
+    },
+    {
+      "name": "get_literal_string",
+      "docstring": null
+    },
+    {
+      "name": "read_xref_table",
+      "docstring": null
+    },
+    {
+      "name": "read_indirect",
+      "docstring": null
+    },
+    {
+      "name": "linearize_page_tree",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

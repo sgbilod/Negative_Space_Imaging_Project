@@ -1,0 +1,42 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\adapter.py",
+  "classes": [
+    {
+      "name": "CacheControlAdapter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "send",
+          "docstring": "Send a request. Use the request information to see if it\nexists in the cache and cache the response if we need to and can."
+        },
+        {
+          "name": "build_response",
+          "docstring": "Build a response by making a request or using the cache.\n\nThis will end up calling send and returning a potentially\ncached response"
+        },
+        {
+          "name": "close",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "send",
+      "docstring": "Send a request. Use the request information to see if it\nexists in the cache and cache the response if we need to and can."
+    },
+    {
+      "name": "build_response",
+      "docstring": "Build a response by making a request or using the cache.\n\nThis will end up calling send and returning a potentially\ncached response"
+    },
+    {
+      "name": "close",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

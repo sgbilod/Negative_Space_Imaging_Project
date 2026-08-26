@@ -1,0 +1,26 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\charset_normalizer\\cli\\__main__.py",
+  "classes": [
+    {
+      "name": "FileType",
+      "docstring": "Factory for creating file object types\n\nInstances of FileType are typically passed as type= arguments to the\nArgumentParser add_argument() method.\n\nKeyword Arguments:\n    - mode -- A string indicating how the file is to be opened. Accepts the\n        same values as the builtin open() function.\n    - bufsize -- The file's desired buffer size. Accepts the same values as\n        the builtin open() function.\n    - encoding -- The file's encoding. Accepts the same values as the\n        builtin open() function.\n    - errors -- A string indicating how encoding and decoding errors are to\n        be handled. Accepts the same value as the builtin open() function.\n\nBackported from CPython 3.12",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "query_yes_no",
+      "docstring": "Ask a yes/no question via input() and return their answer.\n\n\"question\" is a string that is presented to the user.\n\"default\" is the presumed answer if the user just hits <Enter>.\n    It must be \"yes\" (the default), \"no\" or None (meaning\n    an answer is required of the user).\n\nThe \"answer\" return value is True for \"yes\" or False for \"no\".\n\nCredit goes to (c) https://stackoverflow.com/questions/3041986/apt-command-line-interface-like-yes-no-input"
+    },
+    {
+      "name": "cli_detect",
+      "docstring": "CLI assistant using ARGV and ArgumentParser\n:param argv:\n:return: 0 if everything is fine, anything else equal trouble"
+    }
+  ],
+  "innovations": []
+}

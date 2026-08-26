@@ -1,0 +1,102 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pyparsing\\testing.py",
+  "classes": [
+    {
+      "name": "pyparsing_test",
+      "docstring": "namespace class for classes useful in writing unit tests",
+      "methods": [
+        {
+          "name": "with_line_numbers",
+          "docstring": "Helpful method for debugging a parser - prints a string with line and column numbers.\n(Line and column numbers are 1-based by default - if debugging a parse action,\npass base_1=False, to correspond to the loc value passed to the parse action.)\n\n:param s: tuple(bool, str - string to be printed with line and column numbers\n:param start_line: int - (optional) starting line number in s to print (default=1)\n:param end_line: int - (optional) ending line number in s to print (default=len(s))\n:param expand_tabs: bool - (optional) expand tabs to spaces, to match the pyparsing default\n:param eol_mark: str - (optional) string to mark the end of lines, helps visualize trailing spaces (default=\"|\")\n:param mark_spaces: str - (optional) special character to display in place of spaces\n:param mark_control: str - (optional) convert non-printing control characters to a placeholding\n                         character; valid values:\n                         - \"unicode\" - replaces control chars with Unicode symbols, such as \"\u240d\" and \"\u240a\"\n                         - any single character string - replace control characters with given string\n                         - None (default) - string is displayed as-is\n:param indent: str | int - (optional) string to indent with line and column numbers; if an int\n                           is passed, converted to \" \" * indent\n:param base_1: bool - (optional) whether to label string using base 1; if False, string will be\n                      labeled based at 0 (default=True)\n\n:return: str - input string with leading line numbers and column number headers"
+        }
+      ]
+    },
+    {
+      "name": "reset_pyparsing_context",
+      "docstring": "Context manager to be used when writing unit tests that modify pyparsing config values:\n- packrat parsing\n- bounded recursion parsing\n- default whitespace characters.\n- default keyword characters\n- literal string auto-conversion class\n- __diag__ settings\n\nExample::\n\n    with reset_pyparsing_context():\n        # test that literals used to construct a grammar are automatically suppressed\n        ParserElement.inlineLiteralsUsing(Suppress)\n\n        term = Word(alphas) | Word(nums)\n        group = Group('(' + term[...] + ')')\n\n        # assert that the '()' characters are not included in the parsed tokens\n        self.assertParseAndCheckList(group, \"(abc 123 def)\", ['abc', '123', 'def'])\n\n    # after exiting context manager, literals are converted to Literal expressions again",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "save",
+          "docstring": null
+        },
+        {
+          "name": "restore",
+          "docstring": null
+        },
+        {
+          "name": "copy",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestParseResultsAsserts",
+      "docstring": "A mixin class to add parse results assertion methods to normal unittest.TestCase classes.",
+      "methods": [
+        {
+          "name": "assertParseResultsEquals",
+          "docstring": "Unit test assertion to compare a :class:`ParseResults` object with an optional ``expected_list``,\nand compare any defined results names with an optional ``expected_dict``."
+        },
+        {
+          "name": "assertParseAndCheckList",
+          "docstring": "Convenience wrapper assert to test a parser element and input string, and assert that\nthe resulting ``ParseResults.asList()`` is equal to the ``expected_list``."
+        },
+        {
+          "name": "assertParseAndCheckDict",
+          "docstring": "Convenience wrapper assert to test a parser element and input string, and assert that\nthe resulting ``ParseResults.asDict()`` is equal to the ``expected_dict``."
+        },
+        {
+          "name": "assertRunTestResults",
+          "docstring": "Unit test assertion to evaluate output of ``ParserElement.runTests()``. If a list of\nlist-dict tuples is given as the ``expected_parse_results`` argument, then these are zipped\nwith the report tuples returned by ``runTests`` and evaluated using ``assertParseResultsEquals``.\nFinally, asserts that the overall ``runTests()`` success value is ``True``.\n\n:param run_tests_report: tuple(bool, [tuple(str, ParseResults or Exception)]) returned from runTests\n:param expected_parse_results (optional): [tuple(str, list, dict, Exception)]"
+        },
+        {
+          "name": "assertRaisesParseException",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "with_line_numbers",
+      "docstring": "Helpful method for debugging a parser - prints a string with line and column numbers.\n(Line and column numbers are 1-based by default - if debugging a parse action,\npass base_1=False, to correspond to the loc value passed to the parse action.)\n\n:param s: tuple(bool, str - string to be printed with line and column numbers\n:param start_line: int - (optional) starting line number in s to print (default=1)\n:param end_line: int - (optional) ending line number in s to print (default=len(s))\n:param expand_tabs: bool - (optional) expand tabs to spaces, to match the pyparsing default\n:param eol_mark: str - (optional) string to mark the end of lines, helps visualize trailing spaces (default=\"|\")\n:param mark_spaces: str - (optional) special character to display in place of spaces\n:param mark_control: str - (optional) convert non-printing control characters to a placeholding\n                         character; valid values:\n                         - \"unicode\" - replaces control chars with Unicode symbols, such as \"\u240d\" and \"\u240a\"\n                         - any single character string - replace control characters with given string\n                         - None (default) - string is displayed as-is\n:param indent: str | int - (optional) string to indent with line and column numbers; if an int\n                           is passed, converted to \" \" * indent\n:param base_1: bool - (optional) whether to label string using base 1; if False, string will be\n                      labeled based at 0 (default=True)\n\n:return: str - input string with leading line numbers and column number headers"
+    },
+    {
+      "name": "save",
+      "docstring": null
+    },
+    {
+      "name": "restore",
+      "docstring": null
+    },
+    {
+      "name": "copy",
+      "docstring": null
+    },
+    {
+      "name": "assertParseResultsEquals",
+      "docstring": "Unit test assertion to compare a :class:`ParseResults` object with an optional ``expected_list``,\nand compare any defined results names with an optional ``expected_dict``."
+    },
+    {
+      "name": "assertParseAndCheckList",
+      "docstring": "Convenience wrapper assert to test a parser element and input string, and assert that\nthe resulting ``ParseResults.asList()`` is equal to the ``expected_list``."
+    },
+    {
+      "name": "assertParseAndCheckDict",
+      "docstring": "Convenience wrapper assert to test a parser element and input string, and assert that\nthe resulting ``ParseResults.asDict()`` is equal to the ``expected_dict``."
+    },
+    {
+      "name": "assertRunTestResults",
+      "docstring": "Unit test assertion to evaluate output of ``ParserElement.runTests()``. If a list of\nlist-dict tuples is given as the ``expected_parse_results`` argument, then these are zipped\nwith the report tuples returned by ``runTests`` and evaluated using ``assertParseResultsEquals``.\nFinally, asserts that the overall ``runTests()`` success value is ``True``.\n\n:param run_tests_report: tuple(bool, [tuple(str, ParseResults or Exception)]) returned from runTests\n:param expected_parse_results (optional): [tuple(str, list, dict, Exception)]"
+    },
+    {
+      "name": "assertRaisesParseException",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

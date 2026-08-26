@@ -1,0 +1,27 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\varLib\\mutator.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "interpolate_cff2_PrivateDict",
+      "docstring": null
+    },
+    {
+      "name": "interpolate_cff2_charstrings",
+      "docstring": null
+    },
+    {
+      "name": "interpolate_cff2_metrics",
+      "docstring": "Unlike TrueType glyphs, neither advance width nor bounding box\ninfo is stored in a CFF2 charstring. The width data exists only in\nthe hmtx and HVAR tables. Since LSB data cannot be interpolated\nreliably from the master LSB values in the hmtx table, we traverse\nthe charstring to determine the actual bound box."
+    },
+    {
+      "name": "instantiateVariableFont",
+      "docstring": "Generate a static instance from a variable TTFont and a dictionary\ndefining the desired location along the variable font's axes.\nThe location values must be specified as user-space coordinates, e.g.:\n\n.. code-block::\n\n    {'wght': 400, 'wdth': 100}\n\nBy default, a new TTFont object is returned. If ``inplace`` is True, the\ninput varfont is modified and reduced to a static font.\n\nWhen the overlap parameter is defined as True,\nOVERLAP_SIMPLE and OVERLAP_COMPOUND bits are set to 1.  See\nhttps://docs.microsoft.com/en-us/typography/opentype/spec/glyf"
+    },
+    {
+      "name": "main",
+      "docstring": "Instantiate a variation font"
+    }
+  ],
+  "innovations": []
+}

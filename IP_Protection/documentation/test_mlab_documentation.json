@@ -1,0 +1,474 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_mlab.py",
+  "classes": [
+    {
+      "name": "TestDetrend",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "allclose",
+          "docstring": null
+        },
+        {
+          "name": "test_detrend_none",
+          "docstring": null
+        },
+        {
+          "name": "test_detrend_mean",
+          "docstring": null
+        },
+        {
+          "name": "test_detrend_mean_1d_base_slope_off_list_andor_axis0",
+          "docstring": null
+        },
+        {
+          "name": "test_detrend_mean_2d",
+          "docstring": null
+        },
+        {
+          "name": "test_detrend_ValueError",
+          "docstring": null
+        },
+        {
+          "name": "test_detrend_mean_ValueError",
+          "docstring": null
+        },
+        {
+          "name": "test_detrend_linear",
+          "docstring": null
+        },
+        {
+          "name": "test_detrend_str_linear_1d",
+          "docstring": null
+        },
+        {
+          "name": "test_detrend_linear_2d",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestSpectral",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "stim",
+          "docstring": null
+        },
+        {
+          "name": "check_freqs",
+          "docstring": null
+        },
+        {
+          "name": "check_maxfreq",
+          "docstring": null
+        },
+        {
+          "name": "test_spectral_helper_raises",
+          "docstring": null
+        },
+        {
+          "name": "test_single_spectrum_helper_unsupported_modes",
+          "docstring": null
+        },
+        {
+          "name": "test_spectral_helper_psd",
+          "docstring": null
+        },
+        {
+          "name": "test_csd",
+          "docstring": null
+        },
+        {
+          "name": "test_csd_padding",
+          "docstring": "Test zero padding of csd()."
+        },
+        {
+          "name": "test_psd",
+          "docstring": null
+        },
+        {
+          "name": "test_psd_detrend",
+          "docstring": null
+        },
+        {
+          "name": "test_psd_window_hanning",
+          "docstring": null
+        },
+        {
+          "name": "test_psd_window_hanning_detrend_linear",
+          "docstring": null
+        },
+        {
+          "name": "test_psd_window_flattop",
+          "docstring": null
+        },
+        {
+          "name": "test_psd_windowarray",
+          "docstring": null
+        },
+        {
+          "name": "test_psd_windowarray_scale_by_freq",
+          "docstring": null
+        },
+        {
+          "name": "test_spectrum",
+          "docstring": null
+        },
+        {
+          "name": "test_specgram",
+          "docstring": null
+        },
+        {
+          "name": "test_specgram_warn_only1seg",
+          "docstring": "Warning should be raised if len(x) <= NFFT."
+        },
+        {
+          "name": "test_psd_csd_equal",
+          "docstring": null
+        },
+        {
+          "name": "test_specgram_auto_default_psd_equal",
+          "docstring": "Test that mlab.specgram without mode and with mode 'default' and 'psd'\nare all the same."
+        },
+        {
+          "name": "test_specgram_complex_equivalent",
+          "docstring": null
+        },
+        {
+          "name": "test_psd_windowarray_equal",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestGaussianKDE",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_kde_integer_input",
+          "docstring": "Regression test for #1181."
+        },
+        {
+          "name": "test_gaussian_kde_covariance_caching",
+          "docstring": null
+        },
+        {
+          "name": "test_kde_bandwidth_method",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestGaussianKDECustom",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_no_data",
+          "docstring": "Pass no data into the GaussianKDE class."
+        },
+        {
+          "name": "test_single_dataset_element",
+          "docstring": "Pass a single dataset element into the GaussianKDE class."
+        },
+        {
+          "name": "test_silverman_multidim_dataset",
+          "docstring": "Test silverman's for a multi-dimensional array."
+        },
+        {
+          "name": "test_silverman_singledim_dataset",
+          "docstring": "Test silverman's output for a single dimension list."
+        },
+        {
+          "name": "test_scott_multidim_dataset",
+          "docstring": "Test scott's output for a multi-dimensional array."
+        },
+        {
+          "name": "test_scott_singledim_dataset",
+          "docstring": "Test scott's output a single-dimensional array."
+        },
+        {
+          "name": "test_scalar_empty_dataset",
+          "docstring": "Test the scalar's cov factor for an empty array."
+        },
+        {
+          "name": "test_scalar_covariance_dataset",
+          "docstring": "Test a scalar's cov factor."
+        },
+        {
+          "name": "test_callable_covariance_dataset",
+          "docstring": "Test the callable's cov factor for a multi-dimensional array."
+        },
+        {
+          "name": "test_callable_singledim_dataset",
+          "docstring": "Test the callable's cov factor for a single-dimensional array."
+        },
+        {
+          "name": "test_wrong_bw_method",
+          "docstring": "Test the error message that should be called when bw is invalid."
+        }
+      ]
+    },
+    {
+      "name": "TestGaussianKDEEvaluate",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_evaluate_diff_dim",
+          "docstring": "Test the evaluate method when the dim's of dataset and points have\ndifferent dimensions."
+        },
+        {
+          "name": "test_evaluate_inv_dim",
+          "docstring": "Invert the dimensions; i.e., for a dataset of dimension 1 [3, 2, 4],\nthe points should have a dimension of 3 [[3], [2], [4]]."
+        },
+        {
+          "name": "test_evaluate_dim_and_num",
+          "docstring": "Tests if evaluated against a one by one array"
+        },
+        {
+          "name": "test_evaluate_point_dim_not_one",
+          "docstring": null
+        },
+        {
+          "name": "test_evaluate_equal_dim_and_num_lt",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_window",
+      "docstring": null
+    },
+    {
+      "name": "test_cohere",
+      "docstring": null
+    },
+    {
+      "name": "test_psd_onesided_norm",
+      "docstring": null
+    },
+    {
+      "name": "test_psd_oversampling",
+      "docstring": "Test the case len(x) < NFFT for psd()."
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "allclose",
+      "docstring": null
+    },
+    {
+      "name": "test_detrend_none",
+      "docstring": null
+    },
+    {
+      "name": "test_detrend_mean",
+      "docstring": null
+    },
+    {
+      "name": "test_detrend_mean_1d_base_slope_off_list_andor_axis0",
+      "docstring": null
+    },
+    {
+      "name": "test_detrend_mean_2d",
+      "docstring": null
+    },
+    {
+      "name": "test_detrend_ValueError",
+      "docstring": null
+    },
+    {
+      "name": "test_detrend_mean_ValueError",
+      "docstring": null
+    },
+    {
+      "name": "test_detrend_linear",
+      "docstring": null
+    },
+    {
+      "name": "test_detrend_str_linear_1d",
+      "docstring": null
+    },
+    {
+      "name": "test_detrend_linear_2d",
+      "docstring": null
+    },
+    {
+      "name": "stim",
+      "docstring": null
+    },
+    {
+      "name": "check_freqs",
+      "docstring": null
+    },
+    {
+      "name": "check_maxfreq",
+      "docstring": null
+    },
+    {
+      "name": "test_spectral_helper_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_single_spectrum_helper_unsupported_modes",
+      "docstring": null
+    },
+    {
+      "name": "test_spectral_helper_psd",
+      "docstring": null
+    },
+    {
+      "name": "test_csd",
+      "docstring": null
+    },
+    {
+      "name": "test_csd_padding",
+      "docstring": "Test zero padding of csd()."
+    },
+    {
+      "name": "test_psd",
+      "docstring": null
+    },
+    {
+      "name": "test_psd_detrend",
+      "docstring": null
+    },
+    {
+      "name": "test_psd_window_hanning",
+      "docstring": null
+    },
+    {
+      "name": "test_psd_window_hanning_detrend_linear",
+      "docstring": null
+    },
+    {
+      "name": "test_psd_window_flattop",
+      "docstring": null
+    },
+    {
+      "name": "test_psd_windowarray",
+      "docstring": null
+    },
+    {
+      "name": "test_psd_windowarray_scale_by_freq",
+      "docstring": null
+    },
+    {
+      "name": "test_spectrum",
+      "docstring": null
+    },
+    {
+      "name": "test_specgram",
+      "docstring": null
+    },
+    {
+      "name": "test_specgram_warn_only1seg",
+      "docstring": "Warning should be raised if len(x) <= NFFT."
+    },
+    {
+      "name": "test_psd_csd_equal",
+      "docstring": null
+    },
+    {
+      "name": "test_specgram_auto_default_psd_equal",
+      "docstring": "Test that mlab.specgram without mode and with mode 'default' and 'psd'\nare all the same."
+    },
+    {
+      "name": "test_specgram_complex_equivalent",
+      "docstring": null
+    },
+    {
+      "name": "test_psd_windowarray_equal",
+      "docstring": null
+    },
+    {
+      "name": "test_kde_integer_input",
+      "docstring": "Regression test for #1181."
+    },
+    {
+      "name": "test_gaussian_kde_covariance_caching",
+      "docstring": null
+    },
+    {
+      "name": "test_kde_bandwidth_method",
+      "docstring": null
+    },
+    {
+      "name": "test_no_data",
+      "docstring": "Pass no data into the GaussianKDE class."
+    },
+    {
+      "name": "test_single_dataset_element",
+      "docstring": "Pass a single dataset element into the GaussianKDE class."
+    },
+    {
+      "name": "test_silverman_multidim_dataset",
+      "docstring": "Test silverman's for a multi-dimensional array."
+    },
+    {
+      "name": "test_silverman_singledim_dataset",
+      "docstring": "Test silverman's output for a single dimension list."
+    },
+    {
+      "name": "test_scott_multidim_dataset",
+      "docstring": "Test scott's output for a multi-dimensional array."
+    },
+    {
+      "name": "test_scott_singledim_dataset",
+      "docstring": "Test scott's output a single-dimensional array."
+    },
+    {
+      "name": "test_scalar_empty_dataset",
+      "docstring": "Test the scalar's cov factor for an empty array."
+    },
+    {
+      "name": "test_scalar_covariance_dataset",
+      "docstring": "Test a scalar's cov factor."
+    },
+    {
+      "name": "test_callable_covariance_dataset",
+      "docstring": "Test the callable's cov factor for a multi-dimensional array."
+    },
+    {
+      "name": "test_callable_singledim_dataset",
+      "docstring": "Test the callable's cov factor for a single-dimensional array."
+    },
+    {
+      "name": "test_wrong_bw_method",
+      "docstring": "Test the error message that should be called when bw is invalid."
+    },
+    {
+      "name": "test_evaluate_diff_dim",
+      "docstring": "Test the evaluate method when the dim's of dataset and points have\ndifferent dimensions."
+    },
+    {
+      "name": "test_evaluate_inv_dim",
+      "docstring": "Invert the dimensions; i.e., for a dataset of dimension 1 [3, 2, 4],\nthe points should have a dimension of 3 [[3], [2], [4]]."
+    },
+    {
+      "name": "test_evaluate_dim_and_num",
+      "docstring": "Tests if evaluated against a one by one array"
+    },
+    {
+      "name": "test_evaluate_point_dim_not_one",
+      "docstring": null
+    },
+    {
+      "name": "test_evaluate_equal_dim_and_num_lt",
+      "docstring": null
+    },
+    {
+      "name": "callable_fun",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

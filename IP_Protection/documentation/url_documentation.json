@@ -1,0 +1,62 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\url.py",
+  "classes": [
+    {
+      "name": "Url",
+      "docstring": "Data structure for representing an HTTP URL. Used as a return value for\n:func:`parse_url`. Both the scheme and host are normalized as they are\nboth case-insensitive according to RFC 3986.",
+      "methods": [
+        {
+          "name": "hostname",
+          "docstring": "For backwards-compatibility with urlparse. We're nice like that."
+        },
+        {
+          "name": "request_uri",
+          "docstring": "Absolute path including the query string."
+        },
+        {
+          "name": "netloc",
+          "docstring": "Network location including host and port"
+        },
+        {
+          "name": "url",
+          "docstring": "Convert self into a url\n\nThis function should more or less round-trip with :func:`.parse_url`. The\nreturned url may not be exactly the same as the url inputted to\n:func:`.parse_url`, but it should be equivalent by the RFC (e.g., urls\nwith a blank port will have : removed).\n\nExample: ::\n\n    >>> U = parse_url('http://google.com/mail/')\n    >>> U.url\n    'http://google.com/mail/'\n    >>> Url('http', 'username:password', 'host.com', 80,\n    ... '/path', 'query', 'fragment').url\n    'http://username:password@host.com:80/path?query#fragment'"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "split_first",
+      "docstring": ".. deprecated:: 1.25\n\nGiven a string and an iterable of delimiters, split on the first found\ndelimiter. Return two split parts and the matched delimiter.\n\nIf not found, then the first part is the full input string.\n\nExample::\n\n    >>> split_first('foo/bar?baz', '?/=')\n    ('foo', 'bar?baz', '/')\n    >>> split_first('foo/bar?baz', '123')\n    ('foo/bar?baz', '', None)\n\nScales linearly with number of delims. Not ideal for large number of delims."
+    },
+    {
+      "name": "parse_url",
+      "docstring": "Given a url, return a parsed :class:`.Url` namedtuple. Best-effort is\nperformed to parse incomplete urls. Fields not provided will be None.\nThis parser is RFC 3986 and RFC 6874 compliant.\n\nThe parser logic and helper functions are based heavily on\nwork done in the ``rfc3986`` module.\n\n:param str url: URL to parse into a :class:`.Url` namedtuple.\n\nPartly backwards-compatible with :mod:`urlparse`.\n\nExample::\n\n    >>> parse_url('http://google.com/mail/')\n    Url(scheme='http', host='google.com', port=None, path='/mail/', ...)\n    >>> parse_url('google.com:80')\n    Url(scheme=None, host='google.com', port=80, path=None, ...)\n    >>> parse_url('/foo?bar')\n    Url(scheme=None, host=None, port=None, path='/foo', query='bar', ...)"
+    },
+    {
+      "name": "get_host",
+      "docstring": "Deprecated. Use :func:`parse_url` instead."
+    },
+    {
+      "name": "hostname",
+      "docstring": "For backwards-compatibility with urlparse. We're nice like that."
+    },
+    {
+      "name": "request_uri",
+      "docstring": "Absolute path including the query string."
+    },
+    {
+      "name": "netloc",
+      "docstring": "Network location including host and port"
+    },
+    {
+      "name": "url",
+      "docstring": "Convert self into a url\n\nThis function should more or less round-trip with :func:`.parse_url`. The\nreturned url may not be exactly the same as the url inputted to\n:func:`.parse_url`, but it should be equivalent by the RFC (e.g., urls\nwith a blank port will have : removed).\n\nExample: ::\n\n    >>> U = parse_url('http://google.com/mail/')\n    >>> U.url\n    'http://google.com/mail/'\n    >>> Url('http', 'username:password', 'host.com', 80,\n    ... '/path', 'query', 'fragment').url\n    'http://username:password@host.com:80/path?query#fragment'"
+    },
+    {
+      "name": "ensure_type",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

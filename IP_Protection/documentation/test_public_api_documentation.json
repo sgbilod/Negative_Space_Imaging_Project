@@ -1,0 +1,83 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\tests\\test_public_api.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "check_dir",
+      "docstring": "Returns a mapping of all objects with the wrong __module__ attribute."
+    },
+    {
+      "name": "test_numpy_namespace",
+      "docstring": null
+    },
+    {
+      "name": "test_import_lazy_import",
+      "docstring": "Make sure we can actually use the modules we lazy load.\n\nWhile not exported as part of the public API, it was accessible.  With the\nuse of __getattr__ and __dir__, this isn't always true It can happen that\nan infinite recursion may happen.\n\nThis is the only way I found that would force the failure to appear on the\nbadly implemented code.\n\nWe also test for the presence of the lazily imported modules in dir"
+    },
+    {
+      "name": "test_dir_testing",
+      "docstring": "Assert that output of dir has only one \"testing/tester\"\nattribute without duplicate"
+    },
+    {
+      "name": "test_numpy_linalg",
+      "docstring": null
+    },
+    {
+      "name": "test_numpy_fft",
+      "docstring": null
+    },
+    {
+      "name": "test_NPY_NO_EXPORT",
+      "docstring": null
+    },
+    {
+      "name": "is_unexpected",
+      "docstring": "Check if this needs to be considered."
+    },
+    {
+      "name": "test_all_modules_are_expected",
+      "docstring": "Test that we don't add anything that looks like a new public module by\naccident.  Check is based on filenames."
+    },
+    {
+      "name": "test_all_modules_are_expected_2",
+      "docstring": "Method checking all objects. The pkgutil-based method in\n`test_all_modules_are_expected` does not catch imports into a namespace,\nonly filenames.  So this test is more thorough, and checks this like:\n\n    import .lib.scimath as emath\n\nTo check if something in a module is (effectively) public, one can check if\nthere's anything in that namespace that's a public function/object but is\nnot exposed in a higher-level namespace.  For example for a `numpy.lib`\nsubmodule::\n\n    mod = np.lib.mixins\n    for obj in mod.__all__:\n        if obj in np.__all__:\n            continue\n        elif obj in np.lib.__all__:\n            continue\n\n        else:\n            print(obj)"
+    },
+    {
+      "name": "test_api_importable",
+      "docstring": "Check that all submodules listed higher up in this file can be imported\n\nNote that if a PRIVATE_BUT_PRESENT_MODULES entry goes missing, it may\nsimply need to be removed from the list (deprecation may or may not be\nneeded - apply common sense)."
+    },
+    {
+      "name": "test_array_api_entry_point",
+      "docstring": "Entry point for Array API implementation can be found with importlib and\nreturns the main numpy namespace."
+    },
+    {
+      "name": "test_main_namespace_all_dir_coherence",
+      "docstring": "Checks if `dir(np)` and `np.__all__` are consistent and return\nthe same content, excluding exceptions and private members."
+    },
+    {
+      "name": "test_core_shims_coherence",
+      "docstring": "Check that all \"semi-public\" members of `numpy._core` are also accessible\nfrom `numpy.core` shims."
+    },
+    {
+      "name": "test_functions_single_location",
+      "docstring": "Check that each public function is available from one location only.\n\nTest performs BFS search traversing NumPy's public API. It flags\nany function-like object that is accessible from more that one place."
+    },
+    {
+      "name": "test___module___attribute",
+      "docstring": null
+    },
+    {
+      "name": "test___qualname___attribute",
+      "docstring": null
+    },
+    {
+      "name": "find_unexpected_members",
+      "docstring": null
+    },
+    {
+      "name": "check_importable",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

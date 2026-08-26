@@ -1,0 +1,182 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\tests\\test_agg.py",
+  "classes": [
+    {
+      "name": "BaseFilter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "get_pad",
+          "docstring": null
+        },
+        {
+          "name": "process_image",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "OffsetFilter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_pad",
+          "docstring": null
+        },
+        {
+          "name": "process_image",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GaussianFilter",
+      "docstring": "Simple Gaussian filter.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_pad",
+          "docstring": null
+        },
+        {
+          "name": "process_image",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DropShadowFilter",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_pad",
+          "docstring": null
+        },
+        {
+          "name": "process_image",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_repeated_save_with_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_large_single_path_collection",
+      "docstring": null
+    },
+    {
+      "name": "test_marker_with_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_long_path",
+      "docstring": null
+    },
+    {
+      "name": "test_agg_filter",
+      "docstring": null
+    },
+    {
+      "name": "test_too_large_image",
+      "docstring": null
+    },
+    {
+      "name": "test_chunksize",
+      "docstring": null
+    },
+    {
+      "name": "test_jpeg_dpi",
+      "docstring": null
+    },
+    {
+      "name": "test_pil_kwargs_png",
+      "docstring": null
+    },
+    {
+      "name": "test_pil_kwargs_tiff",
+      "docstring": null
+    },
+    {
+      "name": "test_pil_kwargs_webp",
+      "docstring": null
+    },
+    {
+      "name": "test_webp_alpha",
+      "docstring": null
+    },
+    {
+      "name": "test_draw_path_collection_error_handling",
+      "docstring": null
+    },
+    {
+      "name": "test_chunksize_fails",
+      "docstring": null
+    },
+    {
+      "name": "test_non_tuple_rgbaface",
+      "docstring": null
+    },
+    {
+      "name": "smooth1d",
+      "docstring": null
+    },
+    {
+      "name": "smooth2d",
+      "docstring": null
+    },
+    {
+      "name": "get_pad",
+      "docstring": null
+    },
+    {
+      "name": "process_image",
+      "docstring": null
+    },
+    {
+      "name": "get_pad",
+      "docstring": null
+    },
+    {
+      "name": "process_image",
+      "docstring": null
+    },
+    {
+      "name": "get_pad",
+      "docstring": null
+    },
+    {
+      "name": "process_image",
+      "docstring": null
+    },
+    {
+      "name": "get_pad",
+      "docstring": null
+    },
+    {
+      "name": "process_image",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    buff = io.BytesIO()\n\n    # Generates a too-large single path in a path collection that\n    # would cause a segfault if the draw_markers optimization is\n    # applied.\n    f, ax = plt.subplots()\n    collection = collections.PathCollection("
+    }
+  ]
+}

@@ -1,0 +1,607 @@
+{% extends "base.html" %} {% block title %}Database Optimization{% endblock %} {% block content %}
+<div class="container-fluid">
+  <h1 class="mt-4 mb-4">Database Optimization</h1>
+
+  <div class="row">
+    <!-- Database Performance Summary -->
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="card-title mb-0">Database Performance Summary</h5>
+          <div>
+            <button
+              class="btn btn-sm btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#runOptimizationModal"
+            >
+              <i class="fas fa-rocket"></i> Run Optimization
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3 text-center">
+              <h5>Average Query Time</h5>
+              <div class="display-4 text-{{ db_stats.avg_query_time_color }}">
+                {{ db_stats.avg_query_time|round(2) }}
+                <small>ms</small>
+              </div>
+            </div>
+            <div class="col-md-3 text-center">
+              <h5>Query Cache Hit Rate</h5>
+              <div class="display-4 text-{{ db_stats.cache_hit_rate_color }}">
+                {{ db_stats.cache_hit_rate|round(2) }}%
+              </div>
+            </div>
+            <div class="col-md-3 text-center">
+              <h5>Connection Pool</h5>
+              <div class="display-4">
+                {{ db_stats.active_connections }}/{{ db_stats.max_connections }}
+              </div>
+            </div>
+            <div class="col-md-3 text-center">
+              <h5>Index Coverage</h5>
+              <div class="display-4 text-{{ db_stats.index_coverage_color }}">
+                {{ db_stats.index_coverage|round(2) }}%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Slow Queries Table -->
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Slow Queries Analysis</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Query</th>
+                  <th>Avg Time (ms)</th>
+                  <th>Calls</th>
+                  <th>Total Time (ms)</th>
+                  <th>Missing Index</th>
+                  <th>Recommendation</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for query in db_stats.slow_queries %}
+                <tr>
+                  <td><code>{{ query.sql }}</code></td>
+                  <td>{{ query.avg_time|round(2) }}</td>
+                  <td>{{ query.calls }}</td>
+                  <td>{{ query.total_time|round(2) }}</td>
+                  <td>{{ query.missing_index }}</td>
+                  <td>{{ query.recommendation }}</td>
+                  <td>
+                    <button
+                      class="btn btn-sm btn-info"
+                      data-bs-toggle="modal"
+                      data-bs-target="#optimizeQueryModal"
+                      data-query-id="{{ query.id }}"
+                      data-query="{{ query.sql }}"
+                      data-recommendation="{{ query.recommendation }}"
+                    >
+                      Optimize
+                    </button>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          {% if not db_stats.slow_queries %}
+          <div class="alert alert-success">
+            <i class="fas fa-check-circle"></i> No slow queries detected.
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Missing Indexes Table -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Missing Indexes</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th>Table</th>
+                  <th>Columns</th>
+                  <th>Impact</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for index in db_stats.missing_indexes %}
+                <tr>
+                  <td>{{ index.table }}</td>
+                  <td>{{ index.columns }}</td>
+                  <td>
+                    <div class="progress">
+                      <div
+                        class="progress-bar bg-{{ index.impact_color }}"
+                        role="progressbar"
+                        style="width: {{ index.impact_score }}%"
+                        aria-valuenow="{{ index.impact_score }}"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      >
+                        {{ index.impact_score }}%
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <button
+                      class="btn btn-sm btn-success"
+                      data-bs-toggle="modal"
+                      data-bs-target="#createIndexModal"
+                      data-table="{{ index.table }}"
+                      data-columns="{{ index.columns }}"
+                    >
+                      Create
+                    </button>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          {% if not db_stats.missing_indexes %}
+          <div class="alert alert-success">
+            <i class="fas fa-check-circle"></i> No missing indexes detected.
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Query Cache Stats -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="card-title mb-0">Query Cache Statistics</h5>
+          <form
+            method="post"
+            action="{{ url_for('performance.database_cache_clear') }}"
+            class="d-inline"
+          >
+            <button type="submit" class="btn btn-sm btn-warning">Clear Cache</button>
+          </form>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <canvas id="cacheChart" width="100%" height="200"></canvas>
+            </div>
+            <div class="col-md-6">
+              <div class="table-responsive">
+                <table class="table table-sm">
+                  <tbody>
+                    <tr>
+                      <th>Cache Size</th>
+                      <td>{{ db_stats.cache_size }} MB</td>
+                    </tr>
+                    <tr>
+                      <th>Cache Entries</th>
+                      <td>{{ db_stats.cache_entries }}</td>
+                    </tr>
+                    <tr>
+                      <th>Hits</th>
+                      <td>{{ db_stats.cache_hits }}</td>
+                    </tr>
+                    <tr>
+                      <th>Misses</th>
+                      <td>{{ db_stats.cache_misses }}</td>
+                    </tr>
+                    <tr>
+                      <th>Hit Rate</th>
+                      <td>{{ db_stats.cache_hit_rate|round(2) }}%</td>
+                    </tr>
+                    <tr>
+                      <th>Memory Usage</th>
+                      <td>{{ db_stats.cache_memory_usage }} MB</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Connection Pool Chart -->
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Connection Pool</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-8">
+              <canvas id="connectionChart" width="100%" height="250"></canvas>
+            </div>
+            <div class="col-md-4">
+              <form
+                method="post"
+                action="{{ url_for('performance.database_pool_update') }}"
+                class="mt-3"
+              >
+                <div class="mb-3">
+                  <label for="poolSize" class="form-label">Pool Size</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="poolSize"
+                    name="pool_size"
+                    value="{{ db_stats.max_connections }}"
+                    min="1"
+                    max="100"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="poolTimeout" class="form-label">Connection Timeout (sec)</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="poolTimeout"
+                    name="pool_timeout"
+                    value="{{ db_stats.connection_timeout }}"
+                    min="1"
+                    max="60"
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">Update Pool Settings</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Performance Options -->
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Performance Options</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3 text-center mb-3">
+              <a href="{{ url_for('performance.dashboard') }}" class="btn btn-primary btn-lg w-100">
+                <i class="fas fa-chart-line mb-2"></i><br />
+                Dashboard
+              </a>
+            </div>
+            <div class="col-md-3 text-center mb-3">
+              <a href="{{ url_for('performance.details') }}" class="btn btn-info btn-lg w-100">
+                <i class="fas fa-tachometer-alt mb-2"></i><br />
+                Performance Details
+              </a>
+            </div>
+            <div class="col-md-3 text-center mb-3">
+              <a href="{{ url_for('performance.memory') }}" class="btn btn-success btn-lg w-100">
+                <i class="fas fa-memory mb-2"></i><br />
+                Memory Optimization
+              </a>
+            </div>
+            <div class="col-md-3 text-center mb-3">
+              <a href="{{ url_for('performance.settings') }}" class="btn btn-warning btn-lg w-100">
+                <i class="fas fa-cogs mb-2"></i><br />
+                Optimization Settings
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Run Optimization Modal -->
+<div
+  class="modal fade"
+  id="runOptimizationModal"
+  tabindex="-1"
+  aria-labelledby="runOptimizationModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="runOptimizationModalLabel">Database Optimization</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="{{ url_for('performance.database_optimize') }}">
+          <div class="mb-3">
+            <label for="optimizationLevel" class="form-label">Optimization Level</label>
+            <select class="form-select" id="optimizationLevel" name="level">
+              <option value="BASIC">Basic - Only quick optimizations</option>
+              <option value="STANDARD" selected>
+                Standard - Balance performance and resource usage
+              </option>
+              <option value="AGGRESSIVE">
+                Aggressive - Maximum performance, higher resource usage
+              </option>
+            </select>
+          </div>
+          <div class="form-check mb-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="1"
+              id="optimizeIndexes"
+              name="optimize_indexes"
+              checked
+            />
+            <label class="form-check-label" for="optimizeIndexes"> Optimize Indexes </label>
+          </div>
+          <div class="form-check mb-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="1"
+              id="analyzeStatistics"
+              name="analyze_statistics"
+              checked
+            />
+            <label class="form-check-label" for="analyzeStatistics"> Update Statistics </label>
+          </div>
+          <div class="form-check mb-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="1"
+              id="vacuumTables"
+              name="vacuum_tables"
+              checked
+            />
+            <label class="form-check-label" for="vacuumTables"> Vacuum Tables </label>
+          </div>
+          <div class="alert alert-warning">
+            <i class="fas fa-exclamation-triangle"></i> Database optimization may temporarily slow
+            down the system. Best performed during low-traffic periods.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Run Optimization</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Optimize Query Modal -->
+<div
+  class="modal fade"
+  id="optimizeQueryModal"
+  tabindex="-1"
+  aria-labelledby="optimizeQueryModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="optimizeQueryModalLabel">Optimize Query</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="{{ url_for('performance.database_optimize_query') }}">
+          <input type="hidden" id="queryId" name="query_id" />
+          <div class="mb-3">
+            <label for="originalQuery" class="form-label">Original Query</label>
+            <textarea class="form-control" id="originalQuery" rows="3" readonly></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="recommendationText" class="form-label">Recommendation</label>
+            <textarea class="form-control" id="recommendationText" rows="2" readonly></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="optimizedQuery" class="form-label">Optimized Query</label>
+            <textarea
+              class="form-control"
+              id="optimizedQuery"
+              name="optimized_query"
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Apply Optimization</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Create Index Modal -->
+<div
+  class="modal fade"
+  id="createIndexModal"
+  tabindex="-1"
+  aria-labelledby="createIndexModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createIndexModalLabel">Create Index</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="{{ url_for('performance.database_create_index') }}">
+          <div class="mb-3">
+            <label for="indexTable" class="form-label">Table</label>
+            <input type="text" class="form-control" id="indexTable" name="table" readonly />
+          </div>
+          <div class="mb-3">
+            <label for="indexColumns" class="form-label">Columns</label>
+            <input type="text" class="form-control" id="indexColumns" name="columns" readonly />
+          </div>
+          <div class="mb-3">
+            <label for="indexName" class="form-label">Index Name</label>
+            <input type="text" class="form-control" id="indexName" name="index_name" />
+          </div>
+          <div class="form-check mb-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="1"
+              id="uniqueIndex"
+              name="unique"
+            />
+            <label class="form-check-label" for="uniqueIndex"> Unique Index </label>
+          </div>
+          <div class="form-check mb-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="1"
+              id="concurrentlyIndex"
+              name="concurrently"
+              checked
+            />
+            <label class="form-check-label" for="concurrentlyIndex">
+              Create Concurrently (less locking)
+            </label>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Create Index</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Cache Chart
+  var cacheCtx = document.getElementById('cacheChart').getContext('2d');
+  var cacheChart = new Chart(cacheCtx, {
+      type: 'doughnut',
+      data: {
+          labels: ['Hits', 'Misses'],
+          datasets: [{
+              data: [{{ db_stats.cache_hits }}, {{ db_stats.cache_misses }}],
+              backgroundColor: [
+                  'rgba(75, 192, 192, 0.7)',
+                  'rgba(255, 99, 132, 0.7)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          responsive: true,
+          plugins: {
+              legend: {
+                  position: 'bottom'
+              },
+              title: {
+                  display: true,
+                  text: 'Query Cache Hit/Miss Ratio'
+              }
+          }
+      }
+  });
+
+  // Connection Pool Chart
+  var connectionCtx = document.getElementById('connectionChart').getContext('2d');
+  var connectionChart = new Chart(connectionCtx, {
+      type: 'line',
+      data: {
+          labels: {{ connection_labels|tojson }},
+          datasets: [{
+              label: 'Active Connections',
+              data: {{ connection_data|tojson }},
+              backgroundColor: 'rgba(54, 162, 235, 0.2)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1,
+              tension: 0.4
+          }]
+      },
+      options: {
+          responsive: true,
+          scales: {
+              y: {
+                  beginAtZero: true,
+                  suggestedMax: {{ db_stats.max_connections }},
+                  title: {
+                      display: true,
+                      text: 'Number of Connections'
+                  }
+              },
+              x: {
+                  title: {
+                      display: true,
+                      text: 'Time'
+                  }
+              }
+          }
+      }
+  });
+
+  // Handle Optimize Query Modal
+  var optimizeQueryModal = document.getElementById('optimizeQueryModal')
+  optimizeQueryModal.addEventListener('show.bs.modal', function (event) {
+      var button = event.relatedTarget
+      var queryId = button.getAttribute('data-query-id')
+      var query = button.getAttribute('data-query')
+      var recommendation = button.getAttribute('data-recommendation')
+
+      var queryIdInput = document.getElementById('queryId')
+      var originalQueryInput = document.getElementById('originalQuery')
+      var recommendationTextInput = document.getElementById('recommendationText')
+      var optimizedQueryInput = document.getElementById('optimizedQuery')
+
+      queryIdInput.value = queryId
+      originalQueryInput.value = query
+      recommendationTextInput.value = recommendation
+      optimizedQueryInput.value = query  // Start with the original query
+  });
+
+  // Handle Create Index Modal
+  var createIndexModal = document.getElementById('createIndexModal')
+  createIndexModal.addEventListener('show.bs.modal', function (event) {
+      var button = event.relatedTarget
+      var table = button.getAttribute('data-table')
+      var columns = button.getAttribute('data-columns')
+
+      var tableInput = document.getElementById('indexTable')
+      var columnsInput = document.getElementById('indexColumns')
+      var indexNameInput = document.getElementById('indexName')
+
+      tableInput.value = table
+      columnsInput.value = columns
+      indexNameInput.value = 'idx_' + table + '_' + columns.replace(/,/g, '_').replace(/\s/g, '')
+  });
+
+  // Auto-refresh every 2 minutes
+  setTimeout(function() {
+      location.reload();
+  }, 120000);
+</script>
+{% endblock %}

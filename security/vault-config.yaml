@@ -1,0 +1,98 @@
+# Vault Configuration for Quantum Key Management
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+apiVersion: vault.banzaicloud.com/v1alpha1
+kind: Vault
+metadata:
+  name: vault
+  namespace: negative-space-system
+spec:
+  size: 3
+  image: vault:1.13.3
+  bankVaultsImage: ghcr.io/banzaicloud/bank-vaults:latest
+
+  serviceMonitorEnabled: true
+
+  serviceAccount: vault
+
+  serviceRegistrationEnabled: true
+
+  externalConfig:
+    policies:
+      - name: quantum-keys
+        rules: |
+          path "quantum/*" {
+            capabilities = ["create", "read", "update", "delete", "list"]
+          }
+
+    auth:
+      - type: kubernetes
+        roles:
+          - name: negative-space
+            bound_service_account_names: ["negative-space-sa"]
+            bound_service_account_namespaces: ["negative-space-system"]
+            policies: ["quantum-keys"]
+            ttl: 1h
+
+    secrets:
+      - path: quantum
+        type: kv-v2
+        description: "Quantum-resistant encryption keys"
+        config:
+          max_versions: 5
+
+    plugins:
+      - plugin_name: "quantum-vault"
+        command: "vault-plugin-quantum"
+        sha256: "${PLUGIN_SHA256}"
+        type: "secret"
+
+  volumeMounts:
+    - name: vault-plugin
+      mountPath: /usr/local/libexec/vault
+      readOnly: true
+
+  volumes:
+    - name: vault-plugin
+      secret:
+        secretName: vault-plugin-quantum
+
+  vaultEnvsConfig:
+    - name: VAULT_LOG_LEVEL
+      value: debug
+    - name: VAULT_SEAL_TYPE
+      value: awskms
+
+  credentialsConfig:
+    env:
+      - name: AWS_REGION
+        value: us-east-1
+
+  unsealConfig:
+    aws:
+      kmsKeyId: "${AWS_KMS_KEY_ID}"
+      kmsRegion: us-east-1
+
+  serviceType: ClusterIP
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/cluster-issuer: quantum-resistant-issuer
+    spec:
+      rules:
+        - host: vault.negative-space.io
+          http:
+            paths:
+              - path: /
+                pathType: Prefix
+                backend:
+                  service:
+                    name: vault
+                    port:
+                      number: 8200
+      tls:
+        - hosts:
+            - vault.negative-space.io
+          secretName: vault-tls

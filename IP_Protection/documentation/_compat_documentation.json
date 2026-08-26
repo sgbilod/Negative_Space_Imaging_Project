@@ -1,0 +1,52 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\metadata\\importlib\\_compat.py",
+  "classes": [
+    {
+      "name": "BadMetadata",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BasePath",
+      "docstring": "A protocol that various path objects conform.\n\nThis exists because importlib.metadata uses both ``pathlib.Path`` and\n``zipfile.Path``, and we need a common base for type hints (Union does not\nwork well since ``zipfile.Path`` is too new for our linter setup).\n\nThis does not mean to be exhaustive, but only contains things that present\nin both classes *that we need*.",
+      "methods": [
+        {
+          "name": "name",
+          "docstring": null
+        },
+        {
+          "name": "parent",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_info_location",
+      "docstring": "Find the path to the distribution's metadata directory.\n\nHACK: This relies on importlib.metadata's private ``_path`` attribute. Not\nall distributions exist on disk, so importlib.metadata is correct to not\nexpose the attribute as public. But pip's code base is old and not as clean,\nso we do this to avoid having to rewrite too many things. Hopefully we can\neliminate this some day."
+    },
+    {
+      "name": "parse_name_and_version_from_info_directory",
+      "docstring": "Get a name and version from the metadata directory name.\n\nThis is much faster than reading distribution metadata."
+    },
+    {
+      "name": "get_dist_canonical_name",
+      "docstring": "Get the distribution's normalized name.\n\nThe ``name`` attribute is only available in Python 3.10 or later. We are\ntargeting exactly that, but Mypy does not know this."
+    },
+    {
+      "name": "name",
+      "docstring": null
+    },
+    {
+      "name": "parent",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

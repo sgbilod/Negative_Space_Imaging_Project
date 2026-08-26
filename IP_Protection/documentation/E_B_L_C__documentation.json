@@ -1,0 +1,330 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\E_B_L_C_.py",
+  "classes": [
+    {
+      "name": "table_E_B_L_C_",
+      "docstring": "Embedded Bitmap Location table\n\nThe ``EBLC`` table contains the locations of monochrome or grayscale\nbitmaps for glyphs. It must be used in concert with the ``EBDT`` table.\n\nSee also https://learn.microsoft.com/en-us/typography/opentype/spec/eblc",
+      "methods": [
+        {
+          "name": "getIndexFormatClass",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Strike",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "BitmapSizeTable",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "SbitLineMetrics",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "EblcIndexSubTable",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "ensureDecompiled",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "writeMetrics",
+          "docstring": null
+        },
+        {
+          "name": "readMetrics",
+          "docstring": null
+        },
+        {
+          "name": "padBitmapData",
+          "docstring": null
+        },
+        {
+          "name": "removeSkipGlyphs",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FixedSizeIndexSubTableMixin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "writeMetrics",
+          "docstring": null
+        },
+        {
+          "name": "readMetrics",
+          "docstring": null
+        },
+        {
+          "name": "padBitmapData",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "eblc_index_sub_table_1",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "eblc_index_sub_table_2",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "eblc_index_sub_table_3",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "eblc_index_sub_table_4",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "eblc_index_sub_table_5",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "OffsetArrayIndexSubTableMixin",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "getIndexFormatClass",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "ensureDecompiled",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "writeMetrics",
+      "docstring": null
+    },
+    {
+      "name": "readMetrics",
+      "docstring": null
+    },
+    {
+      "name": "padBitmapData",
+      "docstring": null
+    },
+    {
+      "name": "removeSkipGlyphs",
+      "docstring": null
+    },
+    {
+      "name": "writeMetrics",
+      "docstring": null
+    },
+    {
+      "name": "readMetrics",
+      "docstring": null
+    },
+    {
+      "name": "padBitmapData",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "isValidLocation",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

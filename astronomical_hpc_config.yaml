@@ -1,0 +1,256 @@
+# ============================================================================
+# Astronomical HPC Configuration
+# Negative Space Imaging Project
+# Copyright (c) 2025 Stephen Bilodeau. All rights reserved.
+# ============================================================================
+# Configuration for high-performance computing in astronomical image processing
+# ============================================================================
+
+# Cluster settings for telescope data processing
+cluster:
+  name: "nsi-astronomical-cluster"
+  environment: "production"
+  backend: "slurm"  # Options: slurm, pbs, lsf, local
+  
+  # Master node configuration
+  master:
+    hostname: "astro-master"
+    cpus: 32
+    memory_gb: 128
+    role: "scheduler"
+  
+  # Worker node pool
+  workers:
+    min_nodes: 4
+    max_nodes: 64
+    auto_scaling: true
+    scale_up_threshold: 0.8  # CPU utilization
+    scale_down_threshold: 0.2
+    scale_cooldown_seconds: 300
+
+# GPU allocation for large-scale sky surveys
+gpu:
+  enabled: true
+  allocation_strategy: "exclusive"  # exclusive, shared, fractional
+  
+  gpu_types:
+    - name: "nvidia-a100"
+      count: 8
+      memory_gb: 80
+      preferred_for:
+        - "deep_learning"
+        - "image_stacking"
+        - "deconvolution"
+    
+    - name: "nvidia-v100"
+      count: 16
+      memory_gb: 32
+      preferred_for:
+        - "preprocessing"
+        - "calibration"
+        - "photometry"
+  
+  cuda:
+    version: "12.0"
+    compute_capability: "8.0"
+    mixed_precision: true
+    tensor_cores: true
+  
+  memory_management:
+    pre_allocation: true
+    memory_pool_size_gb: 64
+    spill_to_host: true
+
+# Memory and storage configurations
+memory:
+  per_node_gb: 256
+  per_task_gb: 32
+  huge_pages: true
+  numa_aware: true
+  memory_mapping: true
+
+storage:
+  # High-speed scratch storage
+  scratch:
+    path: "/scratch/astronomical"
+    type: "nvme"
+    capacity_tb: 100
+    iops: 1000000
+    bandwidth_gbps: 25
+  
+  # Long-term project storage
+  project:
+    path: "/project/nsi-astro"
+    type: "parallel_fs"  # lustre, gpfs, beegfs
+    capacity_tb: 500
+    redundancy: "raid6"
+  
+  # Archive storage for raw data
+  archive:
+    path: "/archive/telescope-data"
+    type: "tape"
+    capacity_pb: 10
+    
+  # Cache configuration
+  cache:
+    enabled: true
+    type: "redis-cluster"
+    size_gb: 128
+    eviction_policy: "lru"
+
+# Job scheduling configuration
+scheduling:
+  default_queue: "astronomical"
+  default_wall_time: "48:00:00"
+  default_cpus: 16
+  default_memory_gb: 64
+  max_jobs_per_user: 100
+  fair_share: true
+  
+  queues:
+    - name: "survey"
+      priority: 100
+      max_wall_time: "168:00:00"  # 1 week
+      max_nodes: 32
+      preemptible: false
+      description: "Long-running sky survey processing"
+    
+    - name: "analysis"
+      priority: 80
+      max_wall_time: "24:00:00"
+      max_nodes: 16
+      preemptible: false
+      description: "Standard astronomical analysis"
+    
+    - name: "interactive"
+      priority: 60
+      max_wall_time: "04:00:00"
+      max_nodes: 4
+      preemptible: true
+      description: "Interactive exploration and debugging"
+    
+    - name: "calibration"
+      priority: 90
+      max_wall_time: "12:00:00"
+      max_nodes: 8
+      preemptible: false
+      description: "Calibration frame processing"
+
+# Network configuration
+network:
+  interconnect: "infiniband"
+  bandwidth_gbps: 200
+  latency_us: 0.5
+  rdma_enabled: true
+  mpi:
+    implementation: "openmpi"
+    version: "4.1"
+    fabric: "ucx"
+
+# Astronomical-specific processing settings
+astronomical_processing:
+  # FITS file handling
+  fits:
+    default_compression: "rice"
+    checksum_verify: true
+    header_validation: true
+    wcs_validation: true
+  
+  # Image stacking
+  stacking:
+    algorithm: "sigma_clip_median"
+    sigma_low: 3.0
+    sigma_high: 3.0
+    max_iterations: 10
+    drizzle_enabled: true
+    drizzle_scale: 0.5
+  
+  # Astrometry
+  astrometry:
+    solver: "astrometry.net"
+    index_path: "/data/astrometry-indexes"
+    search_radius_deg: 1.0
+    max_sources: 200
+  
+  # Photometry
+  photometry:
+    aperture_radii: [3, 5, 7, 10]
+    background_annulus: [15, 25]
+    detection_threshold: 5.0
+    catalog_matching: true
+    catalogs: ["gaia_dr3", "ps1", "2mass"]
+  
+  # Spectroscopy
+  spectroscopy:
+    wavelength_calibration: true
+    flux_calibration: true
+    sky_subtraction: true
+    cosmic_ray_removal: true
+
+# Monitoring and logging
+monitoring:
+  enabled: true
+  metrics_interval_seconds: 30
+  
+  prometheus:
+    enabled: true
+    port: 9090
+    retention_days: 90
+  
+  grafana:
+    enabled: true
+    port: 3000
+    dashboards:
+      - "cluster_overview"
+      - "gpu_utilization"
+      - "storage_io"
+      - "job_statistics"
+  
+  alerting:
+    enabled: true
+    channels:
+      - type: "email"
+        recipients: ["admin@observatory.org"]
+      - type: "slack"
+        webhook_url: "${SLACK_WEBHOOK_URL}"
+    
+    rules:
+      - name: "high_gpu_memory"
+        condition: "gpu_memory_used_percent > 95"
+        severity: "warning"
+      - name: "storage_low"
+        condition: "scratch_free_percent < 10"
+        severity: "critical"
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "structured"
+  output:
+    console: true
+    file:
+      path: "/var/log/nsi-astro"
+      rotation: "daily"
+      retention_days: 30
+    syslog:
+      enabled: true
+      facility: "local0"
+
+# Security settings
+security:
+  authentication:
+    method: "kerberos"
+    realm: "OBSERVATORY.ORG"
+  
+  authorization:
+    enabled: true
+    rbac: true
+  
+  encryption:
+    in_transit: true
+    at_rest: true
+    algorithm: "AES-256-GCM"
+  
+  audit:
+    enabled: true
+    log_path: "/var/log/nsi-astro/audit.log"

@@ -1,0 +1,34 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\_locales.py",
+  "classes": [
+    {
+      "name": "CommaDecimalPointLocale",
+      "docstring": "Sets LC_NUMERIC to a locale with comma as decimal point.\n\nClasses derived from this class have setup and teardown methods that run\ntests with locale.LC_NUMERIC set to a locale where commas (',') are used as\nthe decimal point instead of periods ('.'). On exit the locale is restored\nto the initial locale. It also serves as context manager with the same\neffect. If no such locale is available, the test is skipped.",
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "teardown_method",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "find_comma_decimal_point_locale",
+      "docstring": "See if platform has a decimal point as comma locale.\n\nFind a locale that uses a comma instead of a period as the\ndecimal point.\n\nReturns\n-------\nold_locale: str\n    Locale when the function was called.\nnew_locale: {str, None)\n    First French locale found, None if none found."
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "teardown_method",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

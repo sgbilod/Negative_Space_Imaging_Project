@@ -1,0 +1,81 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\units.py",
+  "classes": [
+    {
+      "name": "ConversionError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "AxisInfo",
+      "docstring": "Information to support default axis labeling, tick labeling, and limits.\n\nAn instance of this class must be returned by\n`ConversionInterface.axisinfo`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nmajloc, minloc : Locator, optional\n    Tick locators for the major and minor ticks.\nmajfmt, minfmt : Formatter, optional\n    Tick formatters for the major and minor ticks.\nlabel : str, optional\n    The default axis label.\ndefault_limits : optional\n    The default min and max limits of the axis if no data has\n    been plotted.\n\nNotes\n-----\nIf any of the above are ``None``, the axis will simply use the\ndefault value."
+        }
+      ]
+    },
+    {
+      "name": "ConversionInterface",
+      "docstring": "The minimal interface for a converter to take custom data types (or\nsequences) and convert them to values Matplotlib can use.",
+      "methods": [
+        {
+          "name": "axisinfo",
+          "docstring": "Return an `.AxisInfo` for the axis with the specified units."
+        },
+        {
+          "name": "default_units",
+          "docstring": "Return the default unit for *x* or ``None`` for the given axis."
+        },
+        {
+          "name": "convert",
+          "docstring": "Convert *obj* using *unit* for the specified *axis*.\n\nIf *obj* is a sequence, return the converted sequence.  The output must\nbe a sequence of scalars that can be used by the numpy array layer."
+        }
+      ]
+    },
+    {
+      "name": "DecimalConverter",
+      "docstring": "Converter for decimal.Decimal data to float.",
+      "methods": [
+        {
+          "name": "convert",
+          "docstring": "Convert Decimals to floats.\n\nThe *unit* and *axis* arguments are not used.\n\nParameters\n----------\nvalue : decimal.Decimal or iterable\n    Decimal or list of Decimal need to be converted"
+        }
+      ]
+    },
+    {
+      "name": "Registry",
+      "docstring": "Register types with conversion interface.",
+      "methods": [
+        {
+          "name": "get_converter",
+          "docstring": "Get the converter interface instance for *x*, or None."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "axisinfo",
+      "docstring": "Return an `.AxisInfo` for the axis with the specified units."
+    },
+    {
+      "name": "default_units",
+      "docstring": "Return the default unit for *x* or ``None`` for the given axis."
+    },
+    {
+      "name": "convert",
+      "docstring": "Convert *obj* using *unit* for the specified *axis*.\n\nIf *obj* is a sequence, return the converted sequence.  The output must\nbe a sequence of scalars that can be used by the numpy array layer."
+    },
+    {
+      "name": "convert",
+      "docstring": "Convert Decimals to floats.\n\nThe *unit* and *axis* arguments are not used.\n\nParameters\n----------\nvalue : decimal.Decimal or iterable\n    Decimal or list of Decimal need to be converted"
+    },
+    {
+      "name": "get_converter",
+      "docstring": "Get the converter interface instance for *x*, or None."
+    }
+  ],
+  "innovations": []
+}

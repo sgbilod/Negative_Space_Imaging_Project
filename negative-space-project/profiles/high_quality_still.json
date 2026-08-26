@@ -1,0 +1,28 @@
+{
+  "name": "High Quality Still",
+  "description": "Profile for high-quality still images",
+  "camera_settings": {
+    "exposure": "auto",
+    "focus": "auto",
+    "resolution": "highest"
+  },
+  "preprocessing_settings": {
+    "resize": null,
+    "denoise": true,
+    "denoise_params": {
+      "h": 5,
+      "hColor": 5
+    },
+    "normalize": true,
+    "sharpen": true
+  },
+  "format_settings": {
+    "output_format": "png",
+    "compression": "none"
+  },
+  "storage_settings": {
+    "buffer_size": 5,
+    "storage_mode": "file",
+    "naming_pattern": "hq_%timestamp%"
+  }
+}

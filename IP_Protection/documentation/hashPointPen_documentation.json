@@ -1,0 +1,58 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\pens\\hashPointPen.py",
+  "classes": [
+    {
+      "name": "HashPointPen",
+      "docstring": "This pen can be used to check if a glyph's contents (outlines plus\ncomponents) have changed.\n\nComponents are added as the original outline plus each composite's\ntransformation.\n\nExample: You have some TrueType hinting code for a glyph which you want to\ncompile. The hinting code specifies a hash value computed with HashPointPen\nthat was valid for the glyph's outlines at the time the hinting code was\nwritten. Now you can calculate the hash for the glyph's current outlines to\ncheck if the outlines have changed, which would probably make the hinting\ncode invalid.\n\n> glyph = ufo[name]\n> hash_pen = HashPointPen(glyph.width, ufo)\n> glyph.drawPoints(hash_pen)\n> ttdata = glyph.lib.get(\"public.truetype.instructions\", None)\n> stored_hash = ttdata.get(\"id\", None)  # The hash is stored in the \"id\" key\n> if stored_hash is None or stored_hash != hash_pen.hash:\n>    logger.error(f\"Glyph hash mismatch, glyph '{name}' will have no instructions in font.\")\n> else:\n>    # The hash values are identical, the outline has not changed.\n>    # Compile the hinting code ...\n>    pass\n\nIf you want to compare a glyph from a source format which supports floating point\ncoordinates and transformations against a glyph from a format which has restrictions\non the precision of floats, e.g. UFO vs. TTF, you must use an appropriate rounding\nfunction to make the values comparable. For TTF fonts with composites, this\nconstruct can be used to make the transform values conform to F2Dot14:\n\n> ttf_hash_pen = HashPointPen(ttf_glyph_width, ttFont.getGlyphSet())\n> ttf_round_pen = RoundingPointPen(ttf_hash_pen, transformRoundFunc=partial(floatToFixedToFloat, precisionBits=14))\n> ufo_hash_pen = HashPointPen(ufo_glyph.width, ufo)\n> ttf_glyph.drawPoints(ttf_round_pen, ttFont[\"glyf\"])\n> ufo_round_pen = RoundingPointPen(ufo_hash_pen, transformRoundFunc=partial(floatToFixedToFloat, precisionBits=14))\n> ufo_glyph.drawPoints(ufo_round_pen)\n> assert ttf_hash_pen.hash == ufo_hash_pen.hash",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "hash",
+          "docstring": null
+        },
+        {
+          "name": "beginPath",
+          "docstring": null
+        },
+        {
+          "name": "endPath",
+          "docstring": null
+        },
+        {
+          "name": "addPoint",
+          "docstring": null
+        },
+        {
+          "name": "addComponent",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "hash",
+      "docstring": null
+    },
+    {
+      "name": "beginPath",
+      "docstring": null
+    },
+    {
+      "name": "endPath",
+      "docstring": null
+    },
+    {
+      "name": "addPoint",
+      "docstring": null
+    },
+    {
+      "name": "addComponent",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

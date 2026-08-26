@@ -1,0 +1,178 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\revenue\\decentralized_notary\\notary_network.py",
+  "classes": [
+    {
+      "name": "LandmarkRegistry",
+      "docstring": "Registry of public landmarks that can be used for Proof-of-View validation.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the landmark registry."
+        },
+        {
+          "name": "register_landmark",
+          "docstring": "Register a new public landmark.\n\nArgs:\n    name: Name of the landmark\n    description: Description of the landmark\n    location: Dictionary with latitude and longitude\n    spatial_signature: Spatial signature or raw coordinates\n    metadata: Additional metadata\n    \nReturns:\n    Landmark registration data"
+        },
+        {
+          "name": "get_landmark",
+          "docstring": "Get a landmark by ID.\n\nArgs:\n    landmark_id: ID of the landmark\n    \nReturns:\n    Landmark data or None if not found"
+        },
+        {
+          "name": "get_landmarks_near",
+          "docstring": "Get landmarks near a location.\n\nArgs:\n    latitude: Current latitude\n    longitude: Current longitude\n    radius_km: Search radius in kilometers\n    \nReturns:\n    List of landmarks within the radius"
+        }
+      ]
+    },
+    {
+      "name": "ProofOfViewValidator",
+      "docstring": "Validates Proof-of-View submissions against registered landmarks.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the validator.\n\nArgs:\n    match_threshold: Threshold for considering a proof valid (0.0-1.0)\n    time_validity_hours: How long a proof is valid for"
+        },
+        {
+          "name": "validate_proof",
+          "docstring": "Validate a Proof-of-View submission.\n\nArgs:\n    landmark: Landmark data\n    proof_signature: Submitted signature or raw coordinates\n    \nReturns:\n    Validation result"
+        }
+      ]
+    },
+    {
+      "name": "NotaryNode",
+      "docstring": "A node in the decentralized notary network that can notarize documents.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a notary node.\n\nArgs:\n    node_id: Unique identifier for this node\n    owner_id: ID of the node operator\n    landmark_registry: Registry of landmarks\n    pov_validator: Validator for Proof-of-View submissions"
+        },
+        {
+          "name": "submit_proof_of_view",
+          "docstring": "Submit a Proof-of-View to increase node reputation.\n\nArgs:\n    landmark_id: ID of the landmark being verified\n    proof_signature: Spatial signature or raw coordinates\n    \nReturns:\n    Submission result"
+        },
+        {
+          "name": "notarize_document",
+          "docstring": "Notarize a document.\n\nArgs:\n    document_hash: Hash of the document to notarize\n    metadata: Additional metadata\n    \nReturns:\n    Notarization result"
+        }
+      ]
+    },
+    {
+      "name": "NotaryNetwork",
+      "docstring": "The decentralized notary network that manages nodes and notarization requests.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the notary network."
+        },
+        {
+          "name": "register_node",
+          "docstring": "Register a new notary node.\n\nArgs:\n    owner_id: ID of the node operator\n    owner_data: Additional data about the operator\n    \nReturns:\n    Node registration data"
+        },
+        {
+          "name": "submit_proof_of_view",
+          "docstring": "Submit a Proof-of-View for a node.\n\nArgs:\n    node_id: ID of the node\n    landmark_id: ID of the landmark being verified\n    proof_signature: Spatial signature or raw coordinates\n    \nReturns:\n    Submission result"
+        },
+        {
+          "name": "notarize_document",
+          "docstring": "Notarize a document using multiple nodes for consensus.\n\nArgs:\n    document_hash: Hash of the document to notarize\n    metadata: Additional metadata\n    min_nodes: Minimum number of nodes required for consensus\n    \nReturns:\n    Notarization result"
+        },
+        {
+          "name": "verify_notarization",
+          "docstring": "Verify a document notarization.\n\nArgs:\n    notarization_id: ID of the notarization to verify\n    \nReturns:\n    Verification result"
+        }
+      ]
+    },
+    {
+      "name": "NotaryAPI",
+      "docstring": "API for the Decentralized Notary Network.\nThis is a skeleton implementation for Phase 1.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the Notary API."
+        },
+        {
+          "name": "register_landmark",
+          "docstring": "Register a new landmark.\n\nArgs:\n    request_data: Dictionary containing landmark data\n    \nReturns:\n    Landmark registration data"
+        },
+        {
+          "name": "register_node",
+          "docstring": "Register a new notary node.\n\nArgs:\n    request_data: Dictionary containing node registration data\n    \nReturns:\n    Node registration data"
+        },
+        {
+          "name": "submit_proof_of_view",
+          "docstring": "Submit a Proof-of-View.\n\nArgs:\n    request_data: Dictionary containing proof submission data\n    \nReturns:\n    Submission result"
+        },
+        {
+          "name": "notarize_document",
+          "docstring": "Notarize a document.\n\nArgs:\n    request_data: Dictionary containing notarization data\n    \nReturns:\n    Notarization result"
+        },
+        {
+          "name": "verify_notarization",
+          "docstring": "Verify a document notarization.\n\nArgs:\n    request_data: Dictionary containing verification data\n    \nReturns:\n    Verification result"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "register_landmark",
+      "docstring": "Register a new public landmark.\n\nArgs:\n    name: Name of the landmark\n    description: Description of the landmark\n    location: Dictionary with latitude and longitude\n    spatial_signature: Spatial signature or raw coordinates\n    metadata: Additional metadata\n    \nReturns:\n    Landmark registration data"
+    },
+    {
+      "name": "get_landmark",
+      "docstring": "Get a landmark by ID.\n\nArgs:\n    landmark_id: ID of the landmark\n    \nReturns:\n    Landmark data or None if not found"
+    },
+    {
+      "name": "get_landmarks_near",
+      "docstring": "Get landmarks near a location.\n\nArgs:\n    latitude: Current latitude\n    longitude: Current longitude\n    radius_km: Search radius in kilometers\n    \nReturns:\n    List of landmarks within the radius"
+    },
+    {
+      "name": "validate_proof",
+      "docstring": "Validate a Proof-of-View submission.\n\nArgs:\n    landmark: Landmark data\n    proof_signature: Submitted signature or raw coordinates\n    \nReturns:\n    Validation result"
+    },
+    {
+      "name": "submit_proof_of_view",
+      "docstring": "Submit a Proof-of-View to increase node reputation.\n\nArgs:\n    landmark_id: ID of the landmark being verified\n    proof_signature: Spatial signature or raw coordinates\n    \nReturns:\n    Submission result"
+    },
+    {
+      "name": "notarize_document",
+      "docstring": "Notarize a document.\n\nArgs:\n    document_hash: Hash of the document to notarize\n    metadata: Additional metadata\n    \nReturns:\n    Notarization result"
+    },
+    {
+      "name": "register_node",
+      "docstring": "Register a new notary node.\n\nArgs:\n    owner_id: ID of the node operator\n    owner_data: Additional data about the operator\n    \nReturns:\n    Node registration data"
+    },
+    {
+      "name": "submit_proof_of_view",
+      "docstring": "Submit a Proof-of-View for a node.\n\nArgs:\n    node_id: ID of the node\n    landmark_id: ID of the landmark being verified\n    proof_signature: Spatial signature or raw coordinates\n    \nReturns:\n    Submission result"
+    },
+    {
+      "name": "notarize_document",
+      "docstring": "Notarize a document using multiple nodes for consensus.\n\nArgs:\n    document_hash: Hash of the document to notarize\n    metadata: Additional metadata\n    min_nodes: Minimum number of nodes required for consensus\n    \nReturns:\n    Notarization result"
+    },
+    {
+      "name": "verify_notarization",
+      "docstring": "Verify a document notarization.\n\nArgs:\n    notarization_id: ID of the notarization to verify\n    \nReturns:\n    Verification result"
+    },
+    {
+      "name": "register_landmark",
+      "docstring": "Register a new landmark.\n\nArgs:\n    request_data: Dictionary containing landmark data\n    \nReturns:\n    Landmark registration data"
+    },
+    {
+      "name": "register_node",
+      "docstring": "Register a new notary node.\n\nArgs:\n    request_data: Dictionary containing node registration data\n    \nReturns:\n    Node registration data"
+    },
+    {
+      "name": "submit_proof_of_view",
+      "docstring": "Submit a Proof-of-View.\n\nArgs:\n    request_data: Dictionary containing proof submission data\n    \nReturns:\n    Submission result"
+    },
+    {
+      "name": "notarize_document",
+      "docstring": "Notarize a document.\n\nArgs:\n    request_data: Dictionary containing notarization data\n    \nReturns:\n    Notarization result"
+    },
+    {
+      "name": "verify_notarization",
+      "docstring": "Verify a document notarization.\n\nArgs:\n    request_data: Dictionary containing verification data\n    \nReturns:\n    Verification result"
+    }
+  ],
+  "innovations": []
+}

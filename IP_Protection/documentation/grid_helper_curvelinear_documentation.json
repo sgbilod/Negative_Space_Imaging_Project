@@ -1,0 +1,182 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\mpl_toolkits\\axisartist\\grid_helper_curvelinear.py",
+  "classes": [
+    {
+      "name": "FixedAxisArtistHelper",
+      "docstring": "Helper class for a fixed axis.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "nth_coord = along which coordinate value varies.\n nth_coord = 0 ->  x axis, nth_coord = 1 -> y axis"
+        },
+        {
+          "name": "update_lim",
+          "docstring": null
+        },
+        {
+          "name": "get_tick_transform",
+          "docstring": null
+        },
+        {
+          "name": "get_tick_iterators",
+          "docstring": "tick_loc, tick_angle, tick_label"
+        }
+      ]
+    },
+    {
+      "name": "FloatingAxisArtistHelper",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "nth_coord = along which coordinate value varies.\n nth_coord = 0 ->  x axis, nth_coord = 1 -> y axis"
+        },
+        {
+          "name": "set_extremes",
+          "docstring": null
+        },
+        {
+          "name": "update_lim",
+          "docstring": null
+        },
+        {
+          "name": "get_axislabel_transform",
+          "docstring": null
+        },
+        {
+          "name": "get_axislabel_pos_angle",
+          "docstring": null
+        },
+        {
+          "name": "get_tick_transform",
+          "docstring": null
+        },
+        {
+          "name": "get_tick_iterators",
+          "docstring": "tick_loc, tick_angle, tick_label, (optionally) tick_label"
+        },
+        {
+          "name": "get_line_transform",
+          "docstring": null
+        },
+        {
+          "name": "get_line",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GridHelperCurveLinear",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\naux_trans : `.Transform` or tuple[Callable, Callable]\n    The transform from curved coordinates to rectilinear coordinate:\n    either a `.Transform` instance (which provides also its inverse),\n    or a pair of callables ``(trans, inv_trans)`` that define the\n    transform and its inverse.  The callables should have signature::\n\n        x_rect, y_rect = trans(x_curved, y_curved)\n        x_curved, y_curved = inv_trans(x_rect, y_rect)\n\nextreme_finder\n\ngrid_locator1, grid_locator2\n    Grid locators for each axis.\n\ntick_formatter1, tick_formatter2\n    Tick formatters for each axis."
+        },
+        {
+          "name": "update_grid_finder",
+          "docstring": null
+        },
+        {
+          "name": "new_fixed_axis",
+          "docstring": null
+        },
+        {
+          "name": "new_floating_axis",
+          "docstring": null
+        },
+        {
+          "name": "get_gridlines",
+          "docstring": null
+        },
+        {
+          "name": "get_tick_iterator",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "update_lim",
+      "docstring": null
+    },
+    {
+      "name": "get_tick_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_tick_iterators",
+      "docstring": "tick_loc, tick_angle, tick_label"
+    },
+    {
+      "name": "set_extremes",
+      "docstring": null
+    },
+    {
+      "name": "update_lim",
+      "docstring": null
+    },
+    {
+      "name": "get_axislabel_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_axislabel_pos_angle",
+      "docstring": null
+    },
+    {
+      "name": "get_tick_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_tick_iterators",
+      "docstring": "tick_loc, tick_angle, tick_label, (optionally) tick_label"
+    },
+    {
+      "name": "get_line_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_line",
+      "docstring": null
+    },
+    {
+      "name": "update_grid_finder",
+      "docstring": null
+    },
+    {
+      "name": "new_fixed_axis",
+      "docstring": null
+    },
+    {
+      "name": "new_floating_axis",
+      "docstring": null
+    },
+    {
+      "name": "get_gridlines",
+      "docstring": null
+    },
+    {
+      "name": "get_tick_iterator",
+      "docstring": null
+    },
+    {
+      "name": "iter_major",
+      "docstring": null
+    },
+    {
+      "name": "trf_xy",
+      "docstring": null
+    },
+    {
+      "name": "trf_xy",
+      "docstring": null
+    },
+    {
+      "name": "iter_major",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

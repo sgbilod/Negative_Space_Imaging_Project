@@ -1,0 +1,35 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\qu2cu\\qu2cu.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "cubic_farthest_fit_inside",
+      "docstring": "Check if a cubic Bezier lies within a given distance of the origin.\n\n\"Origin\" means *the* origin (0,0), not the start of the curve. Note that no\nchecks are made on the start and end positions of the curve; this function\nonly checks the inside of the curve.\n\nArgs:\n    p0 (complex): Start point of curve.\n    p1 (complex): First handle of curve.\n    p2 (complex): Second handle of curve.\n    p3 (complex): End point of curve.\n    tolerance (double): Distance from origin.\n\nReturns:\n    bool: True if the cubic Bezier ``p`` entirely lies within a distance\n    ``tolerance`` of the origin, False otherwise."
+    },
+    {
+      "name": "elevate_quadratic",
+      "docstring": "Given a quadratic bezier curve, return its degree-elevated cubic."
+    },
+    {
+      "name": "merge_curves",
+      "docstring": "Give a cubic-Bezier spline, reconstruct one cubic-Bezier\nthat has the same endpoints and tangents and approxmates\nthe spline."
+    },
+    {
+      "name": "add_implicit_on_curves",
+      "docstring": null
+    },
+    {
+      "name": "quadratic_to_curves",
+      "docstring": "Converts a connecting list of quadratic splines to a list of quadratic\nand cubic curves.\n\nA quadratic spline is specified as a list of points.  Either each point is\na 2-tuple of X,Y coordinates, or each point is a complex number with\nreal/imaginary components representing X,Y coordinates.\n\nThe first and last points are on-curve points and the rest are off-curve\npoints, with an implied on-curve point in the middle between every two\nconsequtive off-curve points.\n\nReturns:\n    The output is a list of tuples of points. Points are represented\n    in the same format as the input, either as 2-tuples or complex numbers.\n\n    Each tuple is either of length three, for a quadratic curve, or four,\n    for a cubic curve.  Each curve's last point is the same as the next\n    curve's first point.\n\nArgs:\n    quads: quadratic splines\n\n    max_err: absolute error tolerance; defaults to 0.5\n\n    all_cubic: if True, only cubic curves are generated; defaults to False"
+    },
+    {
+      "name": "spline_to_curves",
+      "docstring": "q: quadratic spline with alternating on-curve / off-curve points.\n\ncosts: cumulative list of encoding cost of q in terms of number of\n  points that need to be encoded.  Implied on-curve points do not\n  contribute to the cost. If all points need to be encoded, then\n  costs will be range(1, len(q)+1)."
+    },
+    {
+      "name": "main",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

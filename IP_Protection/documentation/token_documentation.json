@@ -1,0 +1,34 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\token.py",
+  "classes": [
+    {
+      "name": "_TokenType",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "split",
+          "docstring": null
+        },
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "is_token_subtype",
+      "docstring": "Return True if ``ttype`` is a subtype of ``other``.\n\nexists for backwards compatibility. use ``ttype in other`` now."
+    },
+    {
+      "name": "string_to_tokentype",
+      "docstring": "Convert a string into a token type::\n\n    >>> string_to_token('String.Double')\n    Token.Literal.String.Double\n    >>> string_to_token('Token.Literal.Number')\n    Token.Literal.Number\n    >>> string_to_token('')\n    Token\n\nTokens that are already tokens are returned unchanged:\n\n    >>> string_to_token(String)\n    Token.Literal.String"
+    },
+    {
+      "name": "split",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

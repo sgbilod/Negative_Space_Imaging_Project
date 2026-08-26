@@ -1,0 +1,76 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\utils\\hashes.py",
+  "classes": [
+    {
+      "name": "Hashes",
+      "docstring": "A wrapper that builds multiple hashes at once and checks them against\nknown-good values",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": ":param hashes: A dict of algorithm names pointing to lists of allowed\n    hex digests"
+        },
+        {
+          "name": "digest_count",
+          "docstring": null
+        },
+        {
+          "name": "is_hash_allowed",
+          "docstring": "Return whether the given hex digest is allowed."
+        },
+        {
+          "name": "check_against_chunks",
+          "docstring": "Check good hashes against ones built from iterable of chunks of\ndata.\n\nRaise HashMismatch if none match."
+        },
+        {
+          "name": "check_against_file",
+          "docstring": "Check good hashes against a file-like object\n\nRaise HashMismatch if none match."
+        },
+        {
+          "name": "check_against_path",
+          "docstring": null
+        },
+        {
+          "name": "has_one_of",
+          "docstring": "Return whether any of the given hashes are allowed."
+        }
+      ]
+    },
+    {
+      "name": "MissingHashes",
+      "docstring": "A workalike for Hashes used when we're missing a hash for a requirement\n\nIt computes the actual hash of the requirement and raises a HashMissing\nexception showing it to the user.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Don't offer the ``hashes`` kwarg."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "digest_count",
+      "docstring": null
+    },
+    {
+      "name": "is_hash_allowed",
+      "docstring": "Return whether the given hex digest is allowed."
+    },
+    {
+      "name": "check_against_chunks",
+      "docstring": "Check good hashes against ones built from iterable of chunks of\ndata.\n\nRaise HashMismatch if none match."
+    },
+    {
+      "name": "check_against_file",
+      "docstring": "Check good hashes against a file-like object\n\nRaise HashMismatch if none match."
+    },
+    {
+      "name": "check_against_path",
+      "docstring": null
+    },
+    {
+      "name": "has_one_of",
+      "docstring": "Return whether any of the given hashes are allowed."
+    }
+  ],
+  "innovations": []
+}

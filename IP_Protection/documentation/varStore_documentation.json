@@ -1,0 +1,206 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\varLib\\varStore.py",
+  "classes": [
+    {
+      "name": "OnlineVarStoreBuilder",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "setModel",
+          "docstring": null
+        },
+        {
+          "name": "setSupports",
+          "docstring": null
+        },
+        {
+          "name": "finish",
+          "docstring": null
+        },
+        {
+          "name": "storeMasters",
+          "docstring": null
+        },
+        {
+          "name": "storeMastersMany",
+          "docstring": null
+        },
+        {
+          "name": "storeDeltas",
+          "docstring": null
+        },
+        {
+          "name": "storeDeltasMany",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "VarStoreInstancer",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "setLocation",
+          "docstring": null
+        },
+        {
+          "name": "interpolateFromDeltasAndScalars",
+          "docstring": null
+        },
+        {
+          "name": "interpolateFromDeltas",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_Encoding",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "append",
+          "docstring": null
+        },
+        {
+          "name": "extend",
+          "docstring": null
+        },
+        {
+          "name": "width_sort_key",
+          "docstring": null
+        },
+        {
+          "name": "gain_from_merging",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_EncodingDict",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "add_row",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "VarData_addItem",
+      "docstring": null
+    },
+    {
+      "name": "VarRegion_get_support",
+      "docstring": null
+    },
+    {
+      "name": "VarStore___bool__",
+      "docstring": null
+    },
+    {
+      "name": "VarStore_subset_varidxes",
+      "docstring": null
+    },
+    {
+      "name": "VarStore_prune_regions",
+      "docstring": "Remove unused VarRegions."
+    },
+    {
+      "name": "Object_collect_device_varidxes",
+      "docstring": null
+    },
+    {
+      "name": "Object_remap_device_varidxes",
+      "docstring": null
+    },
+    {
+      "name": "VarStore_optimize",
+      "docstring": "Optimize storage. Returns mapping from old VarIdxes to new ones."
+    },
+    {
+      "name": "main",
+      "docstring": "Optimize a font's GDEF variation store"
+    },
+    {
+      "name": "setModel",
+      "docstring": null
+    },
+    {
+      "name": "setSupports",
+      "docstring": null
+    },
+    {
+      "name": "finish",
+      "docstring": null
+    },
+    {
+      "name": "storeMasters",
+      "docstring": null
+    },
+    {
+      "name": "storeMastersMany",
+      "docstring": null
+    },
+    {
+      "name": "storeDeltas",
+      "docstring": null
+    },
+    {
+      "name": "storeDeltasMany",
+      "docstring": null
+    },
+    {
+      "name": "setLocation",
+      "docstring": null
+    },
+    {
+      "name": "interpolateFromDeltasAndScalars",
+      "docstring": null
+    },
+    {
+      "name": "interpolateFromDeltas",
+      "docstring": null
+    },
+    {
+      "name": "append",
+      "docstring": null
+    },
+    {
+      "name": "extend",
+      "docstring": null
+    },
+    {
+      "name": "width_sort_key",
+      "docstring": null
+    },
+    {
+      "name": "gain_from_merging",
+      "docstring": null
+    },
+    {
+      "name": "add_row",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "\n\n#\n# Optimizations\n#\n# retainFirstMap - If true, major 0 mappings are retained. Deltas for unused indices are zeroed\n# advIdxes - Set of major 0 indices for advance deltas to be listed first. Other major 0 indices follow."
+    }
+  ]
+}

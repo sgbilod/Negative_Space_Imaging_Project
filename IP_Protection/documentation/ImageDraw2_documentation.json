@@ -1,0 +1,152 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\PIL\\ImageDraw2.py",
+  "classes": [
+    {
+      "name": "Pen",
+      "docstring": "Stores an outline color and width.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Brush",
+      "docstring": "Stores a fill color",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Font",
+      "docstring": "Stores a TrueType font and color",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Draw",
+      "docstring": "(Experimental) WCK-style drawing interface",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "flush",
+          "docstring": null
+        },
+        {
+          "name": "render",
+          "docstring": null
+        },
+        {
+          "name": "settransform",
+          "docstring": "Sets a transformation offset."
+        },
+        {
+          "name": "arc",
+          "docstring": "Draws an arc (a portion of a circle outline) between the start and end\nangles, inside the given bounding box.\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.arc`"
+        },
+        {
+          "name": "chord",
+          "docstring": "Same as :py:meth:`~PIL.ImageDraw2.Draw.arc`, but connects the end points\nwith a straight line.\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.chord`"
+        },
+        {
+          "name": "ellipse",
+          "docstring": "Draws an ellipse inside the given bounding box.\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.ellipse`"
+        },
+        {
+          "name": "line",
+          "docstring": "Draws a line between the coordinates in the ``xy`` list.\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.line`"
+        },
+        {
+          "name": "pieslice",
+          "docstring": "Same as arc, but also draws straight lines between the end points and the\ncenter of the bounding box.\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.pieslice`"
+        },
+        {
+          "name": "polygon",
+          "docstring": "Draws a polygon.\n\nThe polygon outline consists of straight lines between the given\ncoordinates, plus a straight line between the last and the first\ncoordinate.\n\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.polygon`"
+        },
+        {
+          "name": "rectangle",
+          "docstring": "Draws a rectangle.\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.rectangle`"
+        },
+        {
+          "name": "text",
+          "docstring": "Draws the string at the given position.\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.text`"
+        },
+        {
+          "name": "textbbox",
+          "docstring": "Returns bounding box (in pixels) of given text.\n\n:return: ``(left, top, right, bottom)`` bounding box\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.textbbox`"
+        },
+        {
+          "name": "textlength",
+          "docstring": "Returns length (in pixels) of given text.\nThis is the amount by which following text should be offset.\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.textlength`"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "flush",
+      "docstring": null
+    },
+    {
+      "name": "render",
+      "docstring": null
+    },
+    {
+      "name": "settransform",
+      "docstring": "Sets a transformation offset."
+    },
+    {
+      "name": "arc",
+      "docstring": "Draws an arc (a portion of a circle outline) between the start and end\nangles, inside the given bounding box.\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.arc`"
+    },
+    {
+      "name": "chord",
+      "docstring": "Same as :py:meth:`~PIL.ImageDraw2.Draw.arc`, but connects the end points\nwith a straight line.\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.chord`"
+    },
+    {
+      "name": "ellipse",
+      "docstring": "Draws an ellipse inside the given bounding box.\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.ellipse`"
+    },
+    {
+      "name": "line",
+      "docstring": "Draws a line between the coordinates in the ``xy`` list.\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.line`"
+    },
+    {
+      "name": "pieslice",
+      "docstring": "Same as arc, but also draws straight lines between the end points and the\ncenter of the bounding box.\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.pieslice`"
+    },
+    {
+      "name": "polygon",
+      "docstring": "Draws a polygon.\n\nThe polygon outline consists of straight lines between the given\ncoordinates, plus a straight line between the last and the first\ncoordinate.\n\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.polygon`"
+    },
+    {
+      "name": "rectangle",
+      "docstring": "Draws a rectangle.\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.rectangle`"
+    },
+    {
+      "name": "text",
+      "docstring": "Draws the string at the given position.\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.text`"
+    },
+    {
+      "name": "textbbox",
+      "docstring": "Returns bounding box (in pixels) of given text.\n\n:return: ``(left, top, right, bottom)`` bounding box\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.textbbox`"
+    },
+    {
+      "name": "textlength",
+      "docstring": "Returns length (in pixels) of given text.\nThis is the amount by which following text should be offset.\n\n.. seealso:: :py:meth:`PIL.ImageDraw.ImageDraw.textlength`"
+    }
+  ],
+  "innovations": []
+}

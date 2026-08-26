@@ -1,0 +1,153 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\reconstruction\\point_cloud_generator.py",
+  "classes": [
+    {
+      "name": "PointCloudType",
+      "docstring": "Types of point cloud generation methods",
+      "methods": []
+    },
+    {
+      "name": "PointCloudParams",
+      "docstring": "Parameters for point cloud generation",
+      "methods": []
+    },
+    {
+      "name": "NegativeSpacePointCloud",
+      "docstring": "Point cloud class specifically optimized for negative space representation.\n\nThis class extends the standard point cloud concept with specialized\nattributes and methods for working with negative space.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the negative space point cloud.\n\nArgs:\n    points: Optional array of 3D points\n    colors: Optional array of colors corresponding to points"
+        },
+        {
+          "name": "add_points",
+          "docstring": "Add points to the point cloud.\n\nArgs:\n    points: Array of 3D points to add\n    colors: Optional array of colors corresponding to points"
+        },
+        {
+          "name": "classify_points",
+          "docstring": "Classify points as object, boundary, or void.\n\nArgs:\n    distance_threshold: Distance threshold for classification\n    boundary_thickness: Thickness of boundary regions"
+        },
+        {
+          "name": "generate_void_mesh",
+          "docstring": "Generate a mesh representation of the void spaces.\n\nThis creates a 3D mesh model of the negative space regions,\nproviding a tangible visualization of the \"invisible\" volume."
+        },
+        {
+          "name": "compute_interstitial_spaces",
+          "docstring": "Identify and analyze the interstitial spaces between objects.\n\nThis method finds the void regions between multiple objects and\ncharacterizes their spatial relationships."
+        },
+        {
+          "name": "compute_spatial_signature",
+          "docstring": "Compute a unique spatial signature based on the negative space configuration.\n\nThis signature represents the unique properties of the void regions and\ntheir relationships to objects, creating a \"fingerprint\" of the scene."
+        },
+        {
+          "name": "visualize",
+          "docstring": "Visualize the point cloud with optional features.\n\nArgs:\n    show_classification: Whether to color-code points by classification\n    show_interstitial: Whether to highlight interstitial regions"
+        },
+        {
+          "name": "save",
+          "docstring": "Save the point cloud to a file.\n\nArgs:\n    filepath: Path to save the file"
+        },
+        {
+          "name": "load",
+          "docstring": "Load a point cloud from a file.\n\nArgs:\n    filepath: Path to the point cloud file\n    \nReturns:\n    NegativeSpacePointCloud object"
+        }
+      ]
+    },
+    {
+      "name": "PointCloudGenerator",
+      "docstring": "Specialized point cloud generator with focus on negative space.\n\nThis class implements various methods for generating point clouds,\nwith specific optimizations for capturing and characterizing the\nnegative space between objects.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the point cloud generator.\n\nArgs:\n    cloud_type: Type of point cloud generation method\n    params: Parameters for point cloud generation"
+        },
+        {
+          "name": "add_camera",
+          "docstring": "Add camera parameters.\n\nArgs:\n    camera_matrix: 3x3 camera intrinsic matrix\n    projection_matrix: 3x4 or 4x4 projection matrix\n    position: 3D position of the camera"
+        },
+        {
+          "name": "add_image_data",
+          "docstring": "Add image data for point cloud generation.\n\nArgs:\n    image: RGB image\n    depth_map: Optional depth map\n    mask: Optional mask"
+        },
+        {
+          "name": "add_features",
+          "docstring": "Add feature data for point cloud generation.\n\nArgs:\n    keypoints: List of keypoints\n    descriptors: Feature descriptors"
+        },
+        {
+          "name": "triangulate_points",
+          "docstring": "Triangulate 3D points from matched keypoints.\n\nArgs:\n    keypoint_matches: List of keypoint matches between image pairs\n        Each match is a list of (image_idx, keypoint_idx) tuples\n    \nReturns:\n    Array of 3D points"
+        },
+        {
+          "name": "generate_point_cloud",
+          "docstring": "Generate a point cloud using the current data and parameters.\n\nReturns:\n    NegativeSpacePointCloud object"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "add_points",
+      "docstring": "Add points to the point cloud.\n\nArgs:\n    points: Array of 3D points to add\n    colors: Optional array of colors corresponding to points"
+    },
+    {
+      "name": "classify_points",
+      "docstring": "Classify points as object, boundary, or void.\n\nArgs:\n    distance_threshold: Distance threshold for classification\n    boundary_thickness: Thickness of boundary regions"
+    },
+    {
+      "name": "generate_void_mesh",
+      "docstring": "Generate a mesh representation of the void spaces.\n\nThis creates a 3D mesh model of the negative space regions,\nproviding a tangible visualization of the \"invisible\" volume."
+    },
+    {
+      "name": "compute_interstitial_spaces",
+      "docstring": "Identify and analyze the interstitial spaces between objects.\n\nThis method finds the void regions between multiple objects and\ncharacterizes their spatial relationships."
+    },
+    {
+      "name": "compute_spatial_signature",
+      "docstring": "Compute a unique spatial signature based on the negative space configuration.\n\nThis signature represents the unique properties of the void regions and\ntheir relationships to objects, creating a \"fingerprint\" of the scene."
+    },
+    {
+      "name": "visualize",
+      "docstring": "Visualize the point cloud with optional features.\n\nArgs:\n    show_classification: Whether to color-code points by classification\n    show_interstitial: Whether to highlight interstitial regions"
+    },
+    {
+      "name": "save",
+      "docstring": "Save the point cloud to a file.\n\nArgs:\n    filepath: Path to save the file"
+    },
+    {
+      "name": "load",
+      "docstring": "Load a point cloud from a file.\n\nArgs:\n    filepath: Path to the point cloud file\n    \nReturns:\n    NegativeSpacePointCloud object"
+    },
+    {
+      "name": "add_camera",
+      "docstring": "Add camera parameters.\n\nArgs:\n    camera_matrix: 3x3 camera intrinsic matrix\n    projection_matrix: 3x4 or 4x4 projection matrix\n    position: 3D position of the camera"
+    },
+    {
+      "name": "add_image_data",
+      "docstring": "Add image data for point cloud generation.\n\nArgs:\n    image: RGB image\n    depth_map: Optional depth map\n    mask: Optional mask"
+    },
+    {
+      "name": "add_features",
+      "docstring": "Add feature data for point cloud generation.\n\nArgs:\n    keypoints: List of keypoints\n    descriptors: Feature descriptors"
+    },
+    {
+      "name": "triangulate_points",
+      "docstring": "Triangulate 3D points from matched keypoints.\n\nArgs:\n    keypoint_matches: List of keypoint matches between image pairs\n        Each match is a list of (image_idx, keypoint_idx) tuples\n    \nReturns:\n    Array of 3D points"
+    },
+    {
+      "name": "generate_point_cloud",
+      "docstring": "Generate a point cloud using the current data and parameters.\n\nReturns:\n    NegativeSpacePointCloud object"
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    Specialized point cloud generator with focus on negative space.\n    \n    This class implements various methods for generating point clouds,\n    with specific optimizations for capturing and characterizing the\n    negative space between objects.\n    \"\"\"\n    "
+    },
+    {
+      "type": "potential_innovation",
+      "marker": "enhanced",
+      "context": "    STANDARD = \"standard\"  # Standard structure from motion\n    NEGATIVE_SPACE_OPTIMIZED = \"negative_space_optimized\"  # Optimized for negative space\n    VOID_FOCUSED = \"void_focused\"  # Focus specifically on void regions\n    BOUNDARY_ENHANCED = \"boundary_enhanced\"  # Enhanced sampling at object boundaries\n    INTERSTITIAL = \"interstitial\"  # Focus on space between multiple objects\n    VOLUMETRIC = \"volumetric\"  # Create volumetric representation of negative space\n"
+    }
+  ]
+}

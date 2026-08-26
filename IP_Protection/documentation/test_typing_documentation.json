@@ -1,0 +1,39 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\typing\\tests\\test_typing.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "strip_func",
+      "docstring": "`re.sub` helper function for stripping module names."
+    },
+    {
+      "name": "run_mypy",
+      "docstring": "Clears the cache and run mypy before running any of the typing tests.\n\nThe mypy results are cached in `OUTPUT_MYPY` for further use.\n\nThe cache refresh can be skipped using\n\nNUMPY_TYPING_TEST_CLEAR_CACHE=0 pytest numpy/typing/tests"
+    },
+    {
+      "name": "get_test_cases",
+      "docstring": null
+    },
+    {
+      "name": "test_success",
+      "docstring": null
+    },
+    {
+      "name": "test_fail",
+      "docstring": null
+    },
+    {
+      "name": "test_reveal",
+      "docstring": "Validate that mypy correctly infers the return-types of\nthe expressions in `path`."
+    },
+    {
+      "name": "test_code_runs",
+      "docstring": "Validate that the code in `path` properly during runtime."
+    },
+    {
+      "name": "test_extended_precision",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

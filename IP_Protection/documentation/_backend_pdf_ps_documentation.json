@@ -1,0 +1,92 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\backends\\_backend_pdf_ps.py",
+  "classes": [
+    {
+      "name": "CharacterTracker",
+      "docstring": "Helper for font subsetting by the pdf and ps backends.\n\nMaintains a mapping of font paths to the set of character codepoints that\nare being used from that font.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "track",
+          "docstring": "Record that string *s* is being typeset using font *font*."
+        },
+        {
+          "name": "track_glyph",
+          "docstring": "Record that codepoint *glyph* is being typeset using font *font*."
+        }
+      ]
+    },
+    {
+      "name": "RendererPDFPSBase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "flipy",
+          "docstring": null
+        },
+        {
+          "name": "option_scale_image",
+          "docstring": null
+        },
+        {
+          "name": "option_image_nocomposite",
+          "docstring": null
+        },
+        {
+          "name": "get_canvas_width_height",
+          "docstring": null
+        },
+        {
+          "name": "get_text_width_height_descent",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_glyphs_subset",
+      "docstring": "Subset a TTF font\n\nReads the named fontfile and restricts the font to the characters.\n\nParameters\n----------\nfontfile : str\n    Path to the font file\ncharacters : str\n    Continuous set of characters to include in subset\n\nReturns\n-------\nfontTools.ttLib.ttFont.TTFont\n    An open font object representing the subset, which needs to\n    be closed by the caller."
+    },
+    {
+      "name": "font_as_file",
+      "docstring": "Convert a TTFont object into a file-like object.\n\nParameters\n----------\nfont : fontTools.ttLib.ttFont.TTFont\n    A font object\n\nReturns\n-------\nBytesIO\n    A file object with the font saved into it"
+    },
+    {
+      "name": "track",
+      "docstring": "Record that string *s* is being typeset using font *font*."
+    },
+    {
+      "name": "track_glyph",
+      "docstring": "Record that codepoint *glyph* is being typeset using font *font*."
+    },
+    {
+      "name": "flipy",
+      "docstring": null
+    },
+    {
+      "name": "option_scale_image",
+      "docstring": null
+    },
+    {
+      "name": "option_image_nocomposite",
+      "docstring": null
+    },
+    {
+      "name": "get_canvas_width_height",
+      "docstring": null
+    },
+    {
+      "name": "get_text_width_height_descent",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

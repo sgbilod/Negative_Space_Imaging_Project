@@ -1,0 +1,94 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\commands\\configuration.py",
+  "classes": [
+    {
+      "name": "ConfigurationCommand",
+      "docstring": "Manage local and global configuration.\n\nSubcommands:\n\n- list: List the active configuration (or from the file specified)\n- edit: Edit the configuration file in an editor\n- get: Get the value associated with command.option\n- set: Set the command.option=value\n- unset: Unset the value associated with command.option\n- debug: List the configuration files and values defined under them\n\nConfiguration keys should be dot separated command and option name,\nwith the special prefix \"global\" affecting any command. For example,\n\"pip config set global.index-url https://example.org/\" would configure\nthe index url for all commands, but \"pip config set download.timeout 10\"\nwould configure a 10 second timeout only for \"pip download\" commands.\n\nIf none of --user, --global and --site are passed, a virtual\nenvironment configuration file is used if one is active and the file\nexists. Otherwise, all modifications happen to the user file by\ndefault.",
+      "methods": [
+        {
+          "name": "add_options",
+          "docstring": null
+        },
+        {
+          "name": "run",
+          "docstring": null
+        },
+        {
+          "name": "list_values",
+          "docstring": null
+        },
+        {
+          "name": "get_name",
+          "docstring": null
+        },
+        {
+          "name": "set_name_value",
+          "docstring": null
+        },
+        {
+          "name": "unset_name",
+          "docstring": null
+        },
+        {
+          "name": "list_config_values",
+          "docstring": "List config key-value pairs across different config files"
+        },
+        {
+          "name": "print_config_file_values",
+          "docstring": "Get key-value pairs from the file of a variant"
+        },
+        {
+          "name": "print_env_var_values",
+          "docstring": "Get key-values pairs present as environment variables"
+        },
+        {
+          "name": "open_in_editor",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "add_options",
+      "docstring": null
+    },
+    {
+      "name": "run",
+      "docstring": null
+    },
+    {
+      "name": "list_values",
+      "docstring": null
+    },
+    {
+      "name": "get_name",
+      "docstring": null
+    },
+    {
+      "name": "set_name_value",
+      "docstring": null
+    },
+    {
+      "name": "unset_name",
+      "docstring": null
+    },
+    {
+      "name": "list_config_values",
+      "docstring": "List config key-value pairs across different config files"
+    },
+    {
+      "name": "print_config_file_values",
+      "docstring": "Get key-value pairs from the file of a variant"
+    },
+    {
+      "name": "print_env_var_values",
+      "docstring": "Get key-values pairs present as environment variables"
+    },
+    {
+      "name": "open_in_editor",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

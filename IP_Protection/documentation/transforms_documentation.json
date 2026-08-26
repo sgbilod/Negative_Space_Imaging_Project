@@ -1,0 +1,225 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\cffLib\\transforms.py",
+  "classes": [
+    {
+      "name": "StopHintCountEvent",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_DesubroutinizingT2Decompiler",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "execute",
+          "docstring": null
+        },
+        {
+          "name": "op_callsubr",
+          "docstring": null
+        },
+        {
+          "name": "op_callgsubr",
+          "docstring": null
+        },
+        {
+          "name": "stop_hint_count",
+          "docstring": null
+        },
+        {
+          "name": "op_hintmask",
+          "docstring": null
+        },
+        {
+          "name": "processSubr",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_MarkingT2Decompiler",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "op_callsubr",
+          "docstring": null
+        },
+        {
+          "name": "op_callgsubr",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_DehintingT2Decompiler",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "execute",
+          "docstring": null
+        },
+        {
+          "name": "op_callsubr",
+          "docstring": null
+        },
+        {
+          "name": "op_callgsubr",
+          "docstring": null
+        },
+        {
+          "name": "op_hstem",
+          "docstring": null
+        },
+        {
+          "name": "op_vstem",
+          "docstring": null
+        },
+        {
+          "name": "op_hstemhm",
+          "docstring": null
+        },
+        {
+          "name": "op_vstemhm",
+          "docstring": null
+        },
+        {
+          "name": "op_hintmask",
+          "docstring": null
+        },
+        {
+          "name": "op_cntrmask",
+          "docstring": null
+        },
+        {
+          "name": "processHintmask",
+          "docstring": null
+        },
+        {
+          "name": "processHint",
+          "docstring": null
+        },
+        {
+          "name": "processSubr",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Hints",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "desubroutinize",
+      "docstring": null
+    },
+    {
+      "name": "remove_hints",
+      "docstring": null
+    },
+    {
+      "name": "remove_unused_subroutines",
+      "docstring": null
+    },
+    {
+      "name": "execute",
+      "docstring": null
+    },
+    {
+      "name": "op_callsubr",
+      "docstring": null
+    },
+    {
+      "name": "op_callgsubr",
+      "docstring": null
+    },
+    {
+      "name": "stop_hint_count",
+      "docstring": null
+    },
+    {
+      "name": "op_hintmask",
+      "docstring": null
+    },
+    {
+      "name": "processSubr",
+      "docstring": null
+    },
+    {
+      "name": "op_callsubr",
+      "docstring": null
+    },
+    {
+      "name": "op_callgsubr",
+      "docstring": null
+    },
+    {
+      "name": "execute",
+      "docstring": null
+    },
+    {
+      "name": "op_callsubr",
+      "docstring": null
+    },
+    {
+      "name": "op_callgsubr",
+      "docstring": null
+    },
+    {
+      "name": "op_hstem",
+      "docstring": null
+    },
+    {
+      "name": "op_vstem",
+      "docstring": null
+    },
+    {
+      "name": "op_hstemhm",
+      "docstring": null
+    },
+    {
+      "name": "op_vstemhm",
+      "docstring": null
+    },
+    {
+      "name": "op_hintmask",
+      "docstring": null
+    },
+    {
+      "name": "op_cntrmask",
+      "docstring": null
+    },
+    {
+      "name": "processHintmask",
+      "docstring": null
+    },
+    {
+      "name": "processHint",
+      "docstring": null
+    },
+    {
+      "name": "processSubr",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

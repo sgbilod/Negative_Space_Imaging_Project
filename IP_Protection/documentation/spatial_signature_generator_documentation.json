@@ -1,0 +1,26 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\negative_mapping\\spatial_signature_generator.py",
+  "classes": [
+    {
+      "name": "SpatialSignatureGenerator",
+      "docstring": "Generates cryptographically secure signatures from spatial coordinate data\nrepresenting negative space between objects.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the signature generator with configurable parameters.\n\nArgs:\n    hash_algorithm: Hashing algorithm to use ('sha256', 'sha512', etc.)\n    normalization: Whether to normalize coordinate values\n    use_relative_positions: Use relative positions instead of absolute"
+        },
+        {
+          "name": "generate",
+          "docstring": "Generate a spatial signature from a list of 3D coordinates.\n\nArgs:\n    coordinates: List of [x, y, z] coordinates representing points in 3D space\n    \nReturns:\n    A unique string signature derived from the spatial relationships"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "generate",
+      "docstring": "Generate a spatial signature from a list of 3D coordinates.\n\nArgs:\n    coordinates: List of [x, y, z] coordinates representing points in 3D space\n    \nReturns:\n    A unique string signature derived from the spatial relationships"
+    }
+  ],
+  "innovations": []
+}

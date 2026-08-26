@@ -1,0 +1,51 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\sphinxext\\figmpl_directive.py",
+  "classes": [
+    {
+      "name": "figmplnode",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "FigureMpl",
+      "docstring": "Implements a directive to allow an optional hidpi image.\n\nMeant to be used with the *plot_srcset* configuration option in conf.py,\nand gets set in the TEMPLATE of plot_directive.py\n\ne.g.::\n\n    .. figure-mpl:: plot_directive/some_plots-1.png\n        :alt: bar\n        :srcset: plot_directive/some_plots-1.png,\n                 plot_directive/some_plots-1.2x.png 2.00x\n        :class: plot-directive\n\nThe resulting html (at ``some_plots.html``) is::\n\n    <img src=\"sphx_glr_bar_001_hidpi.png\"\n        srcset=\"_images/some_plot-1.png,\n                _images/some_plots-1.2x.png 2.00x\",\n        alt=\"bar\"\n        class=\"plot_directive\" />\n\nNote that the handling of subdirectories is different than that used by the sphinx\nfigure directive::\n\n    .. figure-mpl:: plot_directive/nestedpage/index-1.png\n        :alt: bar\n        :srcset: plot_directive/nestedpage/index-1.png\n                 plot_directive/nestedpage/index-1.2x.png 2.00x\n        :class: plot_directive\n\nThe resulting html (at ``nestedpage/index.html``)::\n\n    <img src=\"../_images/nestedpage-index-1.png\"\n        srcset=\"../_images/nestedpage-index-1.png,\n                ../_images/_images/nestedpage-index-1.2x.png 2.00x\",\n        alt=\"bar\"\n        class=\"sphx-glr-single-img\" />\n\nwhere the subdirectory is included in the image name for uniqueness.",
+      "methods": [
+        {
+          "name": "run",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "visit_figmpl_html",
+      "docstring": null
+    },
+    {
+      "name": "visit_figmpl_latex",
+      "docstring": null
+    },
+    {
+      "name": "depart_figmpl_html",
+      "docstring": null
+    },
+    {
+      "name": "depart_figmpl_latex",
+      "docstring": null
+    },
+    {
+      "name": "figurempl_addnode",
+      "docstring": null
+    },
+    {
+      "name": "setup",
+      "docstring": null
+    },
+    {
+      "name": "run",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

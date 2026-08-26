@@ -1,0 +1,26 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_array_interface.py",
+  "classes": [
+    {
+      "name": "data_source",
+      "docstring": "This class is for testing the timing of the PyCapsule destructor\ninvoked when numpy release its reference to the shared data as part of\nthe numpy array interface protocol. If the PyCapsule destructor is\ncalled early the shared data is freed and invalid memory accesses will\noccur.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_module",
+      "docstring": "Some codes to generate data and manage temporary buffers use when\nsharing with numpy via the array interface protocol."
+    },
+    {
+      "name": "test_cstruct",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

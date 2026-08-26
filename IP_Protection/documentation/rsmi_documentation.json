@@ -1,0 +1,174 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\negative-space-project\\src\\intelligence\\rsmi.py",
+  "classes": [
+    {
+      "name": "PerformanceMetrics",
+      "docstring": "Tracks and analyzes system performance metrics.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize performance metrics tracking."
+        },
+        {
+          "name": "start_operation",
+          "docstring": "Record the start time of an operation."
+        },
+        {
+          "name": "end_operation",
+          "docstring": "Record the end time and calculate duration of an operation."
+        },
+        {
+          "name": "record_accuracy",
+          "docstring": "Record accuracy score for a component."
+        },
+        {
+          "name": "record_resource_usage",
+          "docstring": "Record resource usage metrics."
+        },
+        {
+          "name": "get_performance_summary",
+          "docstring": "Generate a summary of performance metrics."
+        }
+      ]
+    },
+    {
+      "name": "AdaptiveParameters",
+      "docstring": "Manages and adapts system parameters based on performance feedback.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize adaptive parameter management.\n\nArgs:\n    initial_params: Initial parameter values"
+        },
+        {
+          "name": "update_parameter",
+          "docstring": "Update a parameter value and record its impact on performance.\n\nArgs:\n    param_name: Name of the parameter to update\n    new_value: New parameter value\n    performance_delta: Change in performance after parameter update"
+        },
+        {
+          "name": "get_optimal_parameters",
+          "docstring": "Get the parameter values that resulted in best performance.\n\nReturns:\n    Dict of optimal parameter values"
+        }
+      ]
+    },
+    {
+      "name": "SelfOptimizationEngine",
+      "docstring": "Implements self-optimization strategies for the negative space analysis system.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the self-optimization engine.\n\nArgs:\n    learning_rate: Rate of parameter adaptation"
+        },
+        {
+          "name": "analyze_performance_trend",
+          "docstring": "Analyze performance trends to guide optimization.\n\nArgs:\n    metrics: List of performance metrics\n    \nReturns:\n    Tuple of (trend_slope, stability_score)"
+        },
+        {
+          "name": "suggest_optimization",
+          "docstring": "Suggest parameter optimizations based on performance analysis.\n\nArgs:\n    current_params: Current parameter values\n    performance_metrics: Current performance metrics\n    \nReturns:\n    Dict of suggested parameter updates"
+        }
+      ]
+    },
+    {
+      "name": "RSMI",
+      "docstring": "Main class implementing Recursive Self-Modeling Intelligence.\n\nThis class coordinates the self-modeling and optimization components\nto enable adaptive improvement of the negative space analysis system.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the RSMI system.\n\nArgs:\n    initial_params: Initial system parameters"
+        },
+        {
+          "name": "start_analysis",
+          "docstring": "Start timing an operation."
+        },
+        {
+          "name": "end_analysis",
+          "docstring": "End timing an operation."
+        },
+        {
+          "name": "record_accuracy",
+          "docstring": "Record accuracy for a component."
+        },
+        {
+          "name": "record_resource_usage",
+          "docstring": "Record resource usage."
+        },
+        {
+          "name": "update_model",
+          "docstring": "Update the self-model based on collected metrics.\n\nReturns:\n    Dict containing updated model state"
+        },
+        {
+          "name": "get_optimal_configuration",
+          "docstring": "Get the optimal configuration based on historical performance.\n\nReturns:\n    Dict containing optimal parameter values and their expected performance"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "start_operation",
+      "docstring": "Record the start time of an operation."
+    },
+    {
+      "name": "end_operation",
+      "docstring": "Record the end time and calculate duration of an operation."
+    },
+    {
+      "name": "record_accuracy",
+      "docstring": "Record accuracy score for a component."
+    },
+    {
+      "name": "record_resource_usage",
+      "docstring": "Record resource usage metrics."
+    },
+    {
+      "name": "get_performance_summary",
+      "docstring": "Generate a summary of performance metrics."
+    },
+    {
+      "name": "update_parameter",
+      "docstring": "Update a parameter value and record its impact on performance.\n\nArgs:\n    param_name: Name of the parameter to update\n    new_value: New parameter value\n    performance_delta: Change in performance after parameter update"
+    },
+    {
+      "name": "get_optimal_parameters",
+      "docstring": "Get the parameter values that resulted in best performance.\n\nReturns:\n    Dict of optimal parameter values"
+    },
+    {
+      "name": "analyze_performance_trend",
+      "docstring": "Analyze performance trends to guide optimization.\n\nArgs:\n    metrics: List of performance metrics\n    \nReturns:\n    Tuple of (trend_slope, stability_score)"
+    },
+    {
+      "name": "suggest_optimization",
+      "docstring": "Suggest parameter optimizations based on performance analysis.\n\nArgs:\n    current_params: Current parameter values\n    performance_metrics: Current performance metrics\n    \nReturns:\n    Dict of suggested parameter updates"
+    },
+    {
+      "name": "start_analysis",
+      "docstring": "Start timing an operation."
+    },
+    {
+      "name": "end_analysis",
+      "docstring": "End timing an operation."
+    },
+    {
+      "name": "record_accuracy",
+      "docstring": "Record accuracy for a component."
+    },
+    {
+      "name": "record_resource_usage",
+      "docstring": "Record resource usage."
+    },
+    {
+      "name": "update_model",
+      "docstring": "Update the self-model based on collected metrics.\n\nReturns:\n    Dict containing updated model state"
+    },
+    {
+      "name": "get_optimal_configuration",
+      "docstring": "Get the optimal configuration based on historical performance.\n\nReturns:\n    Dict containing optimal parameter values and their expected performance"
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "\nThis module implements the RSMI algorithmic enhancement for the Negative Space Imaging Project.\nIt enables the system to analyze and model its own behavior and performance, allowing for\nself-optimization and adaptive improvement of negative space analysis.\n\"\"\"\n\nimport numpy as np"
+    }
+  ]
+}

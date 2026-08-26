@@ -1,0 +1,17 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\subset\\util.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "wrapper",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "new method",
+      "context": "\n\ndef _add_method(*clazzes):\n    \"\"\"Returns a decorator function that adds a new method to one or\n    more classes.\"\"\"\n\n    def wrapper(method):"
+    }
+  ]
+}

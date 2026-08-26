@@ -1,0 +1,114 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\_dicom.py",
+  "classes": [
+    {
+      "name": "NotADicomFile",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "CompressedDicom",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "SimpleDicomReader",
+      "docstring": "This class provides reading of pixel data from DICOM files. It is\nfocussed on getting the pixel data, not the meta info.\n\nTo use, first create an instance of this class (giving it\na file object or filename). Next use the info attribute to\nget a dict of the meta data. The loading of pixel data is\ndeferred until get_numpy_array() is called.\n\nComparison with Pydicom\n-----------------------\n\nThis code focusses on getting the pixel data out, which allows some\nshortcuts, resulting in the code being much smaller.\n\nSince the processing of data elements is much cheaper (it skips a lot\nof tags), this code is about 3x faster than pydicom (except for the\ndeflated DICOM files).\n\nThis class does borrow some code (and ideas) from the pydicom\nproject, and (to the best of our knowledge) has the same limitations\nas pydicom with regard to the type of files that it can handle.\n\nLimitations\n-----------\n\nFor more advanced DICOM processing, please check out pydicom.\n\n  * Only a predefined subset of data elements (meta information) is read.\n  * This is a reader; it can not write DICOM files.\n  * (just like pydicom) it can handle none of the compressed DICOM\n    formats except for \"Deflated Explicit VR Little Endian\"\n    (1.2.840.10008.1.2.1.99).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "info",
+          "docstring": null
+        },
+        {
+          "name": "get_numpy_array",
+          "docstring": "Get numpy arra for this DICOM file, with the correct shape,\nand pixel values scaled appropriately."
+        }
+      ]
+    },
+    {
+      "name": "DicomSeries",
+      "docstring": "DicomSeries\nThis class represents a serie of dicom files (SimpleDicomReader\nobjects) that belong together. If these are multiple files, they\nrepresent the slices of a volume (like for CT or MRI).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "suid",
+          "docstring": null
+        },
+        {
+          "name": "shape",
+          "docstring": "The shape of the data (nz, ny, nx)."
+        },
+        {
+          "name": "sampling",
+          "docstring": "The sampling (voxel distances) of the data (dz, dy, dx)."
+        },
+        {
+          "name": "info",
+          "docstring": "A dictionary containing the information as present in the\nfirst dicomfile of this serie. None if there are no entries."
+        },
+        {
+          "name": "description",
+          "docstring": "A description of the dicom series. Used fields are\nPatientName, shape of the data, SeriesDescription, and\nImageComments."
+        },
+        {
+          "name": "get_numpy_array",
+          "docstring": "Get (load) the data that this DicomSeries represents, and return\nit as a numpy array. If this serie contains multiple images, the\nresulting array is 3D, otherwise it's 2D."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "list_files",
+      "docstring": "List all files in the directory, recursively."
+    },
+    {
+      "name": "process_directory",
+      "docstring": "Reads dicom files and returns a list of DicomSeries objects, which\ncontain information about the data, and can be used to load the\nimage or volume data.\n\nif readPixelData is True, the pixel data of all series is read. By\ndefault the loading of pixeldata is deferred until it is requested\nusing the DicomSeries.get_pixel_array() method. In general, both\nmethods should be equally fast."
+    },
+    {
+      "name": "splitSerieIfRequired",
+      "docstring": "Split the serie in multiple series if this is required. The choice\nis based on examing the image position relative to the previous\nimage. If it differs too much, it is assumed that there is a new\ndataset. This can happen for example in unspitted gated CT data."
+    },
+    {
+      "name": "info",
+      "docstring": null
+    },
+    {
+      "name": "get_numpy_array",
+      "docstring": "Get numpy arra for this DICOM file, with the correct shape,\nand pixel values scaled appropriately."
+    },
+    {
+      "name": "suid",
+      "docstring": null
+    },
+    {
+      "name": "shape",
+      "docstring": "The shape of the data (nz, ny, nx)."
+    },
+    {
+      "name": "sampling",
+      "docstring": "The sampling (voxel distances) of the data (dz, dy, dx)."
+    },
+    {
+      "name": "info",
+      "docstring": "A dictionary containing the information as present in the\nfirst dicomfile of this serie. None if there are no entries."
+    },
+    {
+      "name": "description",
+      "docstring": "A description of the dicom series. Used fields are\nPatientName, shape of the data, SeriesDescription, and\nImageComments."
+    },
+    {
+      "name": "get_numpy_array",
+      "docstring": "Get (load) the data that this DicomSeries represents, and return\nit as a numpy array. If this serie contains multiple images, the\nresulting array is 3D, otherwise it's 2D."
+    }
+  ],
+  "innovations": []
+}

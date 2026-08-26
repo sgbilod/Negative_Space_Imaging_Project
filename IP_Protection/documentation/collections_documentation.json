@@ -1,0 +1,934 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\collections.py",
+  "classes": [
+    {
+      "name": "Collection",
+      "docstring": "Base class for Collections. Must be subclassed to be usable.\n\nA Collection represents a sequence of `.Patch`\\es that can be drawn\nmore efficiently together than individually. For example, when a single\npath is being drawn repeatedly at different offsets, the renderer can\ntypically execute a ``draw_marker()`` call much more efficiently than a\nseries of repeated calls to ``draw_path()`` with the offsets put in\none-by-one.\n\nMost properties of a collection can be configured per-element. Therefore,\nCollections have \"plural\" versions of many of the properties of a `.Patch`\n(e.g. `.Collection.get_paths` instead of `.Patch.get_path`). Exceptions are\nthe *zorder*, *hatch*, *pickradius*, *capstyle* and *joinstyle* properties,\nwhich can only be set globally for the whole collection.\n\nBesides these exceptions, all properties can be specified as single values\n(applying to all elements) or sequences of values. The property of the\n``i``\\th element of the collection is::\n\n  prop[i % len(prop)]\n\nEach Collection can optionally be used as its own `.ScalarMappable` by\npassing the *norm* and *cmap* parameters to its constructor. If the\nCollection's `.ScalarMappable` matrix ``_A`` has been set (via a call\nto `.Collection.set_array`), then at draw time this internal scalar\nmappable will be used to set the ``facecolors`` and ``edgecolors``,\nignoring those that were manually passed in.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nedgecolors : :mpltype:`color` or list of colors, default: :rc:`patch.edgecolor`\n    Edge color for each patch making up the collection. The special\n    value 'face' can be passed to make the edgecolor match the\n    facecolor.\nfacecolors : :mpltype:`color` or list of colors, default: :rc:`patch.facecolor`\n    Face color for each patch making up the collection.\nlinewidths : float or list of floats, default: :rc:`patch.linewidth`\n    Line width for each patch making up the collection.\nlinestyles : str or tuple or list thereof, default: 'solid'\n    Valid strings are ['solid', 'dashed', 'dashdot', 'dotted', '-',\n    '--', '-.', ':']. Dash tuples should be of the form::\n\n        (offset, onoffseq),\n\n    where *onoffseq* is an even length tuple of on and off ink lengths\n    in points. For examples, see\n    :doc:`/gallery/lines_bars_and_markers/linestyles`.\ncapstyle : `.CapStyle`-like, default: 'butt'\n    Style to use for capping lines for all paths in the collection.\n    Allowed values are %(CapStyle)s.\njoinstyle : `.JoinStyle`-like, default: 'round'\n    Style to use for joining lines for all paths in the collection.\n    Allowed values are %(JoinStyle)s.\nantialiaseds : bool or list of bool, default: :rc:`patch.antialiased`\n    Whether each patch in the collection should be drawn with\n    antialiasing.\noffsets : (float, float) or list thereof, default: (0, 0)\n    A vector by which to translate each patch after rendering (default\n    is no translation). The translation is performed in screen (pixel)\n    coordinates (i.e. after the Artist's transform is applied).\noffset_transform : `~.Transform`, default: `.IdentityTransform`\n    A single transform which will be applied to each *offsets* vector\n    before it is used.\ncmap, norm\n    Data normalization and colormapping parameters. See\n    `.ScalarMappable` for a detailed description.\nhatch : str, optional\n    Hatching pattern to use in filled paths, if any. Valid strings are\n    ['/', '\\', '|', '-', '+', 'x', 'o', 'O', '.', '*']. See\n    :doc:`/gallery/shapes_and_collections/hatch_style_reference` for\n    the meaning of each hatch type.\npickradius : float, default: 5.0\n    If ``pickradius <= 0``, then `.Collection.contains` will return\n    ``True`` whenever the test point is inside of one of the polygons\n    formed by the control points of a Path in the Collection. On the\n    other hand, if it is greater than 0, then we instead check if the\n    test point is contained in a stroke of width ``2*pickradius``\n    following any of the Paths in the Collection.\nurls : list of str, default: None\n    A URL for each patch to link to once drawn. Currently only works\n    for the SVG backend. See :doc:`/gallery/misc/hyperlinks_sgskip` for\n    examples.\nzorder : float, default: 1\n    The drawing order, shared by all Patches in the Collection. See\n    :doc:`/gallery/misc/zorder_demo` for all defaults and examples.\n**kwargs\n    Remaining keyword arguments will be used to set properties as\n    ``Collection.set_{key}(val)`` for each key-value pair in *kwargs*."
+        },
+        {
+          "name": "get_paths",
+          "docstring": null
+        },
+        {
+          "name": "set_paths",
+          "docstring": null
+        },
+        {
+          "name": "get_transforms",
+          "docstring": null
+        },
+        {
+          "name": "get_offset_transform",
+          "docstring": "Return the `.Transform` instance used by this artist offset."
+        },
+        {
+          "name": "set_offset_transform",
+          "docstring": "Set the artist offset transform.\n\nParameters\n----------\noffset_transform : `.Transform`"
+        },
+        {
+          "name": "get_datalim",
+          "docstring": null
+        },
+        {
+          "name": "get_window_extent",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        },
+        {
+          "name": "set_pickradius",
+          "docstring": "Set the pick radius used for containment tests.\n\nParameters\n----------\npickradius : float\n    Pick radius, in points."
+        },
+        {
+          "name": "get_pickradius",
+          "docstring": null
+        },
+        {
+          "name": "contains",
+          "docstring": "Test whether the mouse event occurred in the collection.\n\nReturns ``bool, dict(ind=itemlist)``, where every item in itemlist\ncontains the event."
+        },
+        {
+          "name": "set_urls",
+          "docstring": "Parameters\n----------\nurls : list of str or None\n\nNotes\n-----\nURLs are currently only implemented by the SVG backend. They are\nignored by all other backends."
+        },
+        {
+          "name": "get_urls",
+          "docstring": "Return a list of URLs, one for each element of the collection.\n\nThe list contains *None* for elements without a URL. See\n:doc:`/gallery/misc/hyperlinks_sgskip` for an example."
+        },
+        {
+          "name": "set_hatch",
+          "docstring": "Set the hatching pattern\n\n*hatch* can be one of::\n\n  /   - diagonal hatching\n  \\   - back diagonal\n  |   - vertical\n  -   - horizontal\n  +   - crossed\n  x   - crossed diagonal\n  o   - small circle\n  O   - large circle\n  .   - dots\n  *   - stars\n\nLetters can be combined, in which case all the specified\nhatchings are done.  If same letter repeats, it increases the\ndensity of hatching of that pattern.\n\nUnlike other properties such as linewidth and colors, hatching\ncan only be specified for the collection as a whole, not separately\nfor each member.\n\nParameters\n----------\nhatch : {'/', '\\\\', '|', '-', '+', 'x', 'o', 'O', '.', '*'}"
+        },
+        {
+          "name": "get_hatch",
+          "docstring": "Return the current hatching pattern."
+        },
+        {
+          "name": "set_hatch_linewidth",
+          "docstring": "Set the hatch linewidth."
+        },
+        {
+          "name": "get_hatch_linewidth",
+          "docstring": "Return the hatch linewidth."
+        },
+        {
+          "name": "set_offsets",
+          "docstring": "Set the offsets for the collection.\n\nParameters\n----------\noffsets : (N, 2) or (2,) array-like"
+        },
+        {
+          "name": "get_offsets",
+          "docstring": "Return the offsets for the collection."
+        },
+        {
+          "name": "set_linewidth",
+          "docstring": "Set the linewidth(s) for the collection.  *lw* can be a scalar\nor a sequence; if it is a sequence the patches will cycle\nthrough the sequence\n\nParameters\n----------\nlw : float or list of floats"
+        },
+        {
+          "name": "set_linestyle",
+          "docstring": "Set the linestyle(s) for the collection.\n\n===========================   =================\nlinestyle                     description\n===========================   =================\n``'-'`` or ``'solid'``        solid line\n``'--'`` or  ``'dashed'``     dashed line\n``'-.'`` or  ``'dashdot'``    dash-dotted line\n``':'`` or ``'dotted'``       dotted line\n===========================   =================\n\nAlternatively a dash tuple of the following form can be provided::\n\n    (offset, onoffseq),\n\nwhere ``onoffseq`` is an even length tuple of on and off ink in points.\n\nParameters\n----------\nls : str or tuple or list thereof\n    Valid values for individual linestyles include {'-', '--', '-.',\n    ':', '', (offset, on-off-seq)}. See `.Line2D.set_linestyle` for a\n    complete description."
+        },
+        {
+          "name": "set_capstyle",
+          "docstring": "Set the `.CapStyle` for the collection (for all its elements).\n\nParameters\n----------\ncs : `.CapStyle` or %(CapStyle)s"
+        },
+        {
+          "name": "get_capstyle",
+          "docstring": "Return the cap style for the collection (for all its elements).\n\nReturns\n-------\n%(CapStyle)s or None"
+        },
+        {
+          "name": "set_joinstyle",
+          "docstring": "Set the `.JoinStyle` for the collection (for all its elements).\n\nParameters\n----------\njs : `.JoinStyle` or %(JoinStyle)s"
+        },
+        {
+          "name": "get_joinstyle",
+          "docstring": "Return the join style for the collection (for all its elements).\n\nReturns\n-------\n%(JoinStyle)s or None"
+        },
+        {
+          "name": "get_antialiased",
+          "docstring": "Get the antialiasing state for rendering.\n\nReturns\n-------\narray of bools"
+        },
+        {
+          "name": "set_antialiased",
+          "docstring": "Set the antialiasing state for rendering.\n\nParameters\n----------\naa : bool or list of bools"
+        },
+        {
+          "name": "set_color",
+          "docstring": "Set both the edgecolor and the facecolor.\n\nParameters\n----------\nc : :mpltype:`color` or list of RGBA tuples\n\nSee Also\n--------\nCollection.set_facecolor, Collection.set_edgecolor\n    For setting the edge or face color individually."
+        },
+        {
+          "name": "set_facecolor",
+          "docstring": "Set the facecolor(s) of the collection. *c* can be a color (all patches\nhave same color), or a sequence of colors; if it is a sequence the\npatches will cycle through the sequence.\n\nIf *c* is 'none', the patch will not be filled.\n\nParameters\n----------\nc : :mpltype:`color` or list of :mpltype:`color`"
+        },
+        {
+          "name": "get_facecolor",
+          "docstring": null
+        },
+        {
+          "name": "get_edgecolor",
+          "docstring": null
+        },
+        {
+          "name": "set_edgecolor",
+          "docstring": "Set the edgecolor(s) of the collection.\n\nParameters\n----------\nc : :mpltype:`color` or list of :mpltype:`color` or 'face'\n    The collection edgecolor(s).  If a sequence, the patches cycle\n    through it.  If 'face', match the facecolor."
+        },
+        {
+          "name": "set_alpha",
+          "docstring": "Set the transparency of the collection.\n\nParameters\n----------\nalpha : float or array of float or None\n    If not None, *alpha* values must be between 0 and 1, inclusive.\n    If an array is provided, its length must match the number of\n    elements in the collection.  Masked values and nans are not\n    supported."
+        },
+        {
+          "name": "get_linewidth",
+          "docstring": null
+        },
+        {
+          "name": "get_linestyle",
+          "docstring": null
+        },
+        {
+          "name": "update_scalarmappable",
+          "docstring": "Update colors from the scalar mappable array, if any.\n\nAssign colors to edges and faces based on the array and/or\ncolors that were directly set, as appropriate."
+        },
+        {
+          "name": "get_fill",
+          "docstring": "Return whether face is colored."
+        },
+        {
+          "name": "update_from",
+          "docstring": "Copy properties from other to self."
+        }
+      ]
+    },
+    {
+      "name": "_CollectionWithSizes",
+      "docstring": "Base class for collections that have an array of sizes.",
+      "methods": [
+        {
+          "name": "get_sizes",
+          "docstring": "Return the sizes ('areas') of the elements in the collection.\n\nReturns\n-------\narray\n    The 'area' of each element."
+        },
+        {
+          "name": "set_sizes",
+          "docstring": "Set the sizes of each member of the collection.\n\nParameters\n----------\nsizes : `numpy.ndarray` or None\n    The size to set for each element of the collection.  The\n    value is the 'area' of the element.\ndpi : float, default: 72\n    The dpi of the canvas."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PathCollection",
+      "docstring": "A collection of `~.path.Path`\\s, as created by e.g. `~.Axes.scatter`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\npaths : list of `.path.Path`\n    The paths that will make up the `.Collection`.\nsizes : array-like\n    The factor by which to scale each drawn `~.path.Path`. One unit\n    squared in the Path's data space is scaled to be ``sizes**2``\n    points when rendered.\n**kwargs\n    Forwarded to `.Collection`."
+        },
+        {
+          "name": "get_paths",
+          "docstring": null
+        },
+        {
+          "name": "legend_elements",
+          "docstring": "Create legend handles and labels for a PathCollection.\n\nEach legend handle is a `.Line2D` representing the Path that was drawn,\nand each label is a string that represents the Path.\n\nThis is useful for obtaining a legend for a `~.Axes.scatter` plot;\ne.g.::\n\n    scatter = plt.scatter([1, 2, 3],  [4, 5, 6],  c=[7, 2, 3], num=None)\n    plt.legend(*scatter.legend_elements())\n\ncreates three legend elements, one for each color with the numerical\nvalues passed to *c* as the labels.\n\nAlso see the :ref:`automatedlegendcreation` example.\n\nParameters\n----------\nprop : {\"colors\", \"sizes\"}, default: \"colors\"\n    If \"colors\", the legend handles will show the different colors of\n    the collection. If \"sizes\", the legend will show the different\n    sizes. To set both, use *kwargs* to directly edit the `.Line2D`\n    properties.\nnum : int, None, \"auto\" (default), array-like, or `~.ticker.Locator`\n    Target number of elements to create.\n    If None, use all unique elements of the mappable array. If an\n    integer, target to use *num* elements in the normed range.\n    If *\"auto\"*, try to determine which option better suits the nature\n    of the data.\n    The number of created elements may slightly deviate from *num* due\n    to a `~.ticker.Locator` being used to find useful locations.\n    If a list or array, use exactly those elements for the legend.\n    Finally, a `~.ticker.Locator` can be provided.\nfmt : str, `~matplotlib.ticker.Formatter`, or None (default)\n    The format or formatter to use for the labels. If a string must be\n    a valid input for a `.StrMethodFormatter`. If None (the default),\n    use a `.ScalarFormatter`.\nfunc : function, default: ``lambda x: x``\n    Function to calculate the labels.  Often the size (or color)\n    argument to `~.Axes.scatter` will have been pre-processed by the\n    user using a function ``s = f(x)`` to make the markers visible;\n    e.g. ``size = np.log10(x)``.  Providing the inverse of this\n    function here allows that pre-processing to be inverted, so that\n    the legend labels have the correct values; e.g. ``func = lambda\n    x: 10**x``.\n**kwargs\n    Allowed keyword arguments are *color* and *size*. E.g. it may be\n    useful to set the color of the markers if *prop=\"sizes\"* is used;\n    similarly to set the size of the markers if *prop=\"colors\"* is\n    used. Any further parameters are passed onto the `.Line2D`\n    instance. This may be useful to e.g. specify a different\n    *markeredgecolor* or *alpha* for the legend handles.\n\nReturns\n-------\nhandles : list of `.Line2D`\n    Visual representation of each element of the legend.\nlabels : list of str\n    The string labels for elements of the legend."
+        }
+      ]
+    },
+    {
+      "name": "PolyCollection",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nverts : list of array-like\n    The sequence of polygons [*verts0*, *verts1*, ...] where each\n    element *verts_i* defines the vertices of polygon *i* as a 2D\n    array-like of shape (M, 2).\nsizes : array-like, default: None\n    Squared scaling factors for the polygons. The coordinates of each\n    polygon *verts_i* are multiplied by the square-root of the\n    corresponding entry in *sizes* (i.e., *sizes* specify the scaling\n    of areas). The scaling is applied before the Artist master\n    transform.\nclosed : bool, default: True\n    Whether the polygon should be closed by adding a CLOSEPOLY\n    connection at the end.\n**kwargs\n    Forwarded to `.Collection`."
+        },
+        {
+          "name": "set_verts",
+          "docstring": "Set the vertices of the polygons.\n\nParameters\n----------\nverts : list of array-like\n    The sequence of polygons [*verts0*, *verts1*, ...] where each\n    element *verts_i* defines the vertices of polygon *i* as a 2D\n    array-like of shape (M, 2).\nclosed : bool, default: True\n    Whether the polygon should be closed by adding a CLOSEPOLY\n    connection at the end."
+        },
+        {
+          "name": "set_verts_and_codes",
+          "docstring": "Initialize vertices with path codes."
+        }
+      ]
+    },
+    {
+      "name": "FillBetweenPolyCollection",
+      "docstring": "`.PolyCollection` that fills the area between two x- or y-curves.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nt_direction : {{'x', 'y'}}\n    The axes on which the variable lies.\n\n    - 'x': the curves are ``(t, f1)`` and ``(t, f2)``.\n    - 'y': the curves are ``(f1, t)`` and ``(f2, t)``.\n\nt : array-like\n    The ``t_direction`` coordinates of the nodes defining the curves.\n\nf1 : array-like or float\n    The other coordinates of the nodes defining the first curve.\n\nf2 : array-like or float\n    The other coordinates of the nodes defining the second curve.\n\nwhere : array-like of bool, optional\n    Define *where* to exclude some {dir} regions from being filled.\n    The filled regions are defined by the coordinates ``t[where]``.\n    More precisely, fill between ``t[i]`` and ``t[i+1]`` if\n    ``where[i] and where[i+1]``.  Note that this definition implies\n    that an isolated *True* value between two *False* values in *where*\n    will not result in filling.  Both sides of the *True* position\n    remain unfilled due to the adjacent *False* values.\n\ninterpolate : bool, default: False\n    This option is only relevant if *where* is used and the two curves\n    are crossing each other.\n\n    Semantically, *where* is often used for *f1* > *f2* or\n    similar.  By default, the nodes of the polygon defining the filled\n    region will only be placed at the positions in the *t* array.\n    Such a polygon cannot describe the above semantics close to the\n    intersection.  The t-sections containing the intersection are\n    simply clipped.\n\n    Setting *interpolate* to *True* will calculate the actual\n    intersection point and extend the filled region up to this point.\n\nstep : {{'pre', 'post', 'mid'}}, optional\n    Define *step* if the filling should be a step function,\n    i.e. constant in between *t*.  The value determines where the\n    step will occur:\n\n    - 'pre': The f value is continued constantly to the left from\n      every *t* position, i.e. the interval ``(t[i-1], t[i]]`` has the\n      value ``f[i]``.\n    - 'post': The y value is continued constantly to the right from\n      every *x* position, i.e. the interval ``[t[i], t[i+1])`` has the\n      value ``f[i]``.\n    - 'mid': Steps occur half-way between the *t* positions.\n\n**kwargs\n    Forwarded to `.PolyCollection`.\n\nSee Also\n--------\n.Axes.fill_between, .Axes.fill_betweenx"
+        },
+        {
+          "name": "set_data",
+          "docstring": "Set new values for the two bounding curves.\n\nParameters\n----------\nt : array-like\n    The ``self.t_direction`` coordinates of the nodes defining the curves.\n\nf1 : array-like or float\n    The other coordinates of the nodes defining the first curve.\n\nf2 : array-like or float\n    The other coordinates of the nodes defining the second curve.\n\nwhere : array-like of bool, optional\n    Define *where* to exclude some {dir} regions from being filled.\n    The filled regions are defined by the coordinates ``t[where]``.\n    More precisely, fill between ``t[i]`` and ``t[i+1]`` if\n    ``where[i] and where[i+1]``.  Note that this definition implies\n    that an isolated *True* value between two *False* values in *where*\n    will not result in filling.  Both sides of the *True* position\n    remain unfilled due to the adjacent *False* values.\n\nSee Also\n--------\n.PolyCollection.set_verts, .Line2D.set_data"
+        },
+        {
+          "name": "get_datalim",
+          "docstring": "Calculate the data limits and return them as a `.Bbox`."
+        }
+      ]
+    },
+    {
+      "name": "RegularPolyCollection",
+      "docstring": "A collection of n-sided regular polygons.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nnumsides : int\n    The number of sides of the polygon.\nrotation : float\n    The rotation of the polygon in radians.\nsizes : tuple of float\n    The area of the circle circumscribing the polygon in points^2.\n**kwargs\n    Forwarded to `.Collection`.\n\nExamples\n--------\nSee :doc:`/gallery/event_handling/lasso_demo` for a complete example::\n\n    offsets = np.random.rand(20, 2)\n    facecolors = [cm.jet(x) for x in np.random.rand(20)]\n\n    collection = RegularPolyCollection(\n        numsides=5, # a pentagon\n        rotation=0, sizes=(50,),\n        facecolors=facecolors,\n        edgecolors=(\"black\",),\n        linewidths=(1,),\n        offsets=offsets,\n        offset_transform=ax.transData,\n        )"
+        },
+        {
+          "name": "get_numsides",
+          "docstring": null
+        },
+        {
+          "name": "get_rotation",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "StarPolygonCollection",
+      "docstring": "Draw a collection of regular stars with *numsides* points.",
+      "methods": []
+    },
+    {
+      "name": "AsteriskPolygonCollection",
+      "docstring": "Draw a collection of regular asterisks with *numsides* points.",
+      "methods": []
+    },
+    {
+      "name": "LineCollection",
+      "docstring": "Represents a sequence of `.Line2D`\\s that should be drawn together.\n\nThis class extends `.Collection` to represent a sequence of\n`.Line2D`\\s instead of just a sequence of `.Patch`\\s.\nJust as in `.Collection`, each property of a *LineCollection* may be either\na single value or a list of values. This list is then used cyclically for\neach element of the LineCollection, so the property of the ``i``\\th element\nof the collection is::\n\n  prop[i % len(prop)]\n\nThe properties of each member of a *LineCollection* default to their values\nin :rc:`lines.*` instead of :rc:`patch.*`, and the property *colors* is\nadded in place of *edgecolors*.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nsegments : list of (N, 2) array-like\n    A sequence ``[line0, line1, ...]`` where each line is a (N, 2)-shape\n    array-like containing points::\n\n        line0 = [(x0, y0), (x1, y1), ...]\n\n    Each line can contain a different number of points.\nlinewidths : float or list of float, default: :rc:`lines.linewidth`\n    The width of each line in points.\ncolors : :mpltype:`color` or list of color, default: :rc:`lines.color`\n    A sequence of RGBA tuples (e.g., arbitrary color strings, etc, not\n    allowed).\nantialiaseds : bool or list of bool, default: :rc:`lines.antialiased`\n    Whether to use antialiasing for each line.\nzorder : float, default: 2\n    zorder of the lines once drawn.\n\nfacecolors : :mpltype:`color` or list of :mpltype:`color`, default: 'none'\n    When setting *facecolors*, each line is interpreted as a boundary\n    for an area, implicitly closing the path from the last point to the\n    first point. The enclosed area is filled with *facecolor*.\n    In order to manually specify what should count as the \"interior\" of\n    each line, please use `.PathCollection` instead, where the\n    \"interior\" can be specified by appropriate usage of\n    `~.path.Path.CLOSEPOLY`.\n\n**kwargs\n    Forwarded to `.Collection`."
+        },
+        {
+          "name": "set_segments",
+          "docstring": null
+        },
+        {
+          "name": "get_segments",
+          "docstring": "Returns\n-------\nlist\n    List of segments in the LineCollection. Each list item contains an\n    array of vertices."
+        },
+        {
+          "name": "set_alpha",
+          "docstring": null
+        },
+        {
+          "name": "set_color",
+          "docstring": "Set the edgecolor(s) of the LineCollection.\n\nParameters\n----------\nc : :mpltype:`color` or list of :mpltype:`color`\n    Single color (all lines have same color), or a\n    sequence of RGBA tuples; if it is a sequence the lines will\n    cycle through the sequence."
+        },
+        {
+          "name": "get_color",
+          "docstring": null
+        },
+        {
+          "name": "set_gapcolor",
+          "docstring": "Set a color to fill the gaps in the dashed line style.\n\n.. note::\n\n    Striped lines are created by drawing two interleaved dashed lines.\n    There can be overlaps between those two, which may result in\n    artifacts when using transparency.\n\n    This functionality is experimental and may change.\n\nParameters\n----------\ngapcolor : :mpltype:`color` or list of :mpltype:`color` or None\n    The color with which to fill the gaps. If None, the gaps are\n    unfilled."
+        },
+        {
+          "name": "get_gapcolor",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "EventCollection",
+      "docstring": "A collection of locations along a single axis at which an \"event\" occurred.\n\nThe events are given by a 1-dimensional array. They do not have an\namplitude and are displayed as parallel lines.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\npositions : 1D array-like\n    Each value is an event.\norientation : {'horizontal', 'vertical'}, default: 'horizontal'\n    The sequence of events is plotted along this direction.\n    The marker lines of the single events are along the orthogonal\n    direction.\nlineoffset : float, default: 0\n    The offset of the center of the markers from the origin, in the\n    direction orthogonal to *orientation*.\nlinelength : float, default: 1\n    The total height of the marker (i.e. the marker stretches from\n    ``lineoffset - linelength/2`` to ``lineoffset + linelength/2``).\nlinewidth : float or list thereof, default: :rc:`lines.linewidth`\n    The line width of the event lines, in points.\ncolor : :mpltype:`color` or list of :mpltype:`color`, default: :rc:`lines.color`\n    The color of the event lines.\nlinestyle : str or tuple or list thereof, default: 'solid'\n    Valid strings are ['solid', 'dashed', 'dashdot', 'dotted',\n    '-', '--', '-.', ':']. Dash tuples should be of the form::\n\n        (offset, onoffseq),\n\n    where *onoffseq* is an even length tuple of on and off ink\n    in points.\nantialiased : bool or list thereof, default: :rc:`lines.antialiased`\n    Whether to use antialiasing for drawing the lines.\n**kwargs\n    Forwarded to `.LineCollection`.\n\nExamples\n--------\n.. plot:: gallery/lines_bars_and_markers/eventcollection_demo.py"
+        },
+        {
+          "name": "get_positions",
+          "docstring": "Return an array containing the floating-point values of the positions."
+        },
+        {
+          "name": "set_positions",
+          "docstring": "Set the positions of the events."
+        },
+        {
+          "name": "add_positions",
+          "docstring": "Add one or more events at the specified positions."
+        },
+        {
+          "name": "is_horizontal",
+          "docstring": "True if the eventcollection is horizontal, False if vertical."
+        },
+        {
+          "name": "get_orientation",
+          "docstring": "Return the orientation of the event line ('horizontal' or 'vertical')."
+        },
+        {
+          "name": "switch_orientation",
+          "docstring": "Switch the orientation of the event line, either from vertical to\nhorizontal or vice versus."
+        },
+        {
+          "name": "set_orientation",
+          "docstring": "Set the orientation of the event line.\n\nParameters\n----------\norientation : {'horizontal', 'vertical'}"
+        },
+        {
+          "name": "get_linelength",
+          "docstring": "Return the length of the lines used to mark each event."
+        },
+        {
+          "name": "set_linelength",
+          "docstring": "Set the length of the lines used to mark each event."
+        },
+        {
+          "name": "get_lineoffset",
+          "docstring": "Return the offset of the lines used to mark each event."
+        },
+        {
+          "name": "set_lineoffset",
+          "docstring": "Set the offset of the lines used to mark each event."
+        },
+        {
+          "name": "get_linewidth",
+          "docstring": "Get the width of the lines used to mark each event."
+        },
+        {
+          "name": "get_linewidths",
+          "docstring": null
+        },
+        {
+          "name": "get_color",
+          "docstring": "Return the color of the lines used to mark each event."
+        }
+      ]
+    },
+    {
+      "name": "CircleCollection",
+      "docstring": "A collection of circles, drawn using splines.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nsizes : float or array-like\n    The area of each circle in points^2.\n**kwargs\n    Forwarded to `.Collection`."
+        }
+      ]
+    },
+    {
+      "name": "EllipseCollection",
+      "docstring": "A collection of ellipses, drawn using splines.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nwidths : array-like\n    The lengths of the first axes (e.g., major axis lengths).\nheights : array-like\n    The lengths of second axes.\nangles : array-like\n    The angles of the first axes, degrees CCW from the x-axis.\nunits : {'points', 'inches', 'dots', 'width', 'height', 'x', 'y', 'xy'}\n    The units in which majors and minors are given; 'width' and\n    'height' refer to the dimensions of the axes, while 'x' and 'y'\n    refer to the *offsets* data units. 'xy' differs from all others in\n    that the angle as plotted varies with the aspect ratio, and equals\n    the specified angle only when the aspect ratio is unity.  Hence\n    it behaves the same as the `~.patches.Ellipse` with\n    ``axes.transData`` as its transform.\n**kwargs\n    Forwarded to `Collection`."
+        },
+        {
+          "name": "set_widths",
+          "docstring": "Set the lengths of the first axes (e.g., major axis)."
+        },
+        {
+          "name": "set_heights",
+          "docstring": "Set the lengths of second axes (e.g., minor axes)."
+        },
+        {
+          "name": "set_angles",
+          "docstring": "Set the angles of the first axes, degrees CCW from the x-axis."
+        },
+        {
+          "name": "get_widths",
+          "docstring": "Get the lengths of the first axes (e.g., major axis)."
+        },
+        {
+          "name": "get_heights",
+          "docstring": "Set the lengths of second axes (e.g., minor axes)."
+        },
+        {
+          "name": "get_angles",
+          "docstring": "Get the angles of the first axes, degrees CCW from the x-axis."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PatchCollection",
+      "docstring": "A generic collection of patches.\n\nPatchCollection draws faster than a large number of equivalent individual\nPatches. It also makes it easier to assign a colormap to a heterogeneous\ncollection of patches.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\npatches : list of `.Patch`\n    A sequence of Patch objects.  This list may include\n    a heterogeneous assortment of different patch types.\n\nmatch_original : bool, default: False\n    If True, use the colors and linewidths of the original\n    patches.  If False, new colors may be assigned by\n    providing the standard collection arguments, facecolor,\n    edgecolor, linewidths, norm or cmap.\n\n**kwargs\n    All other parameters are forwarded to `.Collection`.\n\n    If any of *edgecolors*, *facecolors*, *linewidths*, *antialiaseds*\n    are None, they default to their `.rcParams` patch setting, in\n    sequence form.\n\nNotes\n-----\nThe use of `~matplotlib.cm.ScalarMappable` functionality is optional.\nIf the `~matplotlib.cm.ScalarMappable` matrix ``_A`` has been set (via\na call to `~.ScalarMappable.set_array`), at draw time a call to scalar\nmappable will be made to set the face colors."
+        },
+        {
+          "name": "set_paths",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TriMesh",
+      "docstring": "Class for the efficient drawing of a triangular mesh using Gouraud shading.\n\nA triangular mesh is a `~matplotlib.tri.Triangulation` object.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_paths",
+          "docstring": null
+        },
+        {
+          "name": "set_paths",
+          "docstring": null
+        },
+        {
+          "name": "convert_mesh_to_paths",
+          "docstring": "Convert a given mesh into a sequence of `.Path` objects.\n\nThis function is primarily of use to implementers of backends that do\nnot directly support meshes."
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_MeshData",
+      "docstring": "Class for managing the two dimensional coordinates of Quadrilateral meshes\nand the associated data with them. This class is a mixin and is intended to\nbe used with another collection that will implement the draw separately.\n\nA quadrilateral mesh is a grid of M by N adjacent quadrilaterals that are\ndefined via a (M+1, N+1) grid of vertices. The quadrilateral (m, n) is\ndefined by the vertices ::\n\n           (m+1, n) ----------- (m+1, n+1)\n              /                   /\n             /                 /\n            /               /\n        (m, n) -------- (m, n+1)\n\nThe mesh need not be regular and the polygons need not be convex.\n\nParameters\n----------\ncoordinates : (M+1, N+1, 2) array-like\n    The vertices. ``coordinates[m, n]`` specifies the (x, y) coordinates\n    of vertex (m, n).\n\nshading : {'flat', 'gouraud'}, default: 'flat'",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "set_array",
+          "docstring": "Set the data values.\n\nParameters\n----------\nA : array-like\n    The mesh data. Supported array shapes are:\n\n    - (M, N) or (M*N,): a mesh with scalar data. The values are mapped\n      to colors using normalization and a colormap. See parameters\n      *norm*, *cmap*, *vmin*, *vmax*.\n    - (M, N, 3): an image with RGB values (0-1 float or 0-255 int).\n    - (M, N, 4): an image with RGBA values (0-1 float or 0-255 int),\n      i.e. including transparency.\n\n    If the values are provided as a 2D grid, the shape must match the\n    coordinates grid. If the values are 1D, they are reshaped to 2D.\n    M, N follow from the coordinates grid, where the coordinates grid\n    shape is (M, N) for 'gouraud' *shading* and (M+1, N+1) for 'flat'\n    shading."
+        },
+        {
+          "name": "get_coordinates",
+          "docstring": "Return the vertices of the mesh as an (M+1, N+1, 2) array.\n\nM, N are the number of quadrilaterals in the rows / columns of the\nmesh, corresponding to (M+1, N+1) vertices.\nThe last dimension specifies the components (x, y)."
+        },
+        {
+          "name": "get_edgecolor",
+          "docstring": null
+        },
+        {
+          "name": "get_facecolor",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "QuadMesh",
+      "docstring": "Class for the efficient drawing of a quadrilateral mesh.\n\nA quadrilateral mesh is a grid of M by N adjacent quadrilaterals that are\ndefined via a (M+1, N+1) grid of vertices. The quadrilateral (m, n) is\ndefined by the vertices ::\n\n           (m+1, n) ----------- (m+1, n+1)\n              /                   /\n             /                 /\n            /               /\n        (m, n) -------- (m, n+1)\n\nThe mesh need not be regular and the polygons need not be convex.\n\nParameters\n----------\ncoordinates : (M+1, N+1, 2) array-like\n    The vertices. ``coordinates[m, n]`` specifies the (x, y) coordinates\n    of vertex (m, n).\n\nantialiased : bool, default: True\n\nshading : {'flat', 'gouraud'}, default: 'flat'\n\nNotes\n-----\nUnlike other `.Collection`\\s, the default *pickradius* of `.QuadMesh` is 0,\ni.e. `~.Artist.contains` checks whether the test point is within any of the\nmesh quadrilaterals.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_paths",
+          "docstring": null
+        },
+        {
+          "name": "set_paths",
+          "docstring": null
+        },
+        {
+          "name": "get_datalim",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        },
+        {
+          "name": "get_cursor_data",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PolyQuadMesh",
+      "docstring": "Class for drawing a quadrilateral mesh as individual Polygons.\n\nA quadrilateral mesh is a grid of M by N adjacent quadrilaterals that are\ndefined via a (M+1, N+1) grid of vertices. The quadrilateral (m, n) is\ndefined by the vertices ::\n\n           (m+1, n) ----------- (m+1, n+1)\n              /                   /\n             /                 /\n            /               /\n        (m, n) -------- (m, n+1)\n\nThe mesh need not be regular and the polygons need not be convex.\n\nParameters\n----------\ncoordinates : (M+1, N+1, 2) array-like\n    The vertices. ``coordinates[m, n]`` specifies the (x, y) coordinates\n    of vertex (m, n).\n\nNotes\n-----\nUnlike `.QuadMesh`, this class will draw each cell as an individual Polygon.\nThis is significantly slower, but allows for more flexibility when wanting\nto add additional properties to the cells, such as hatching.\n\nAnother difference from `.QuadMesh` is that if any of the vertices or data\nof a cell are masked, that Polygon will **not** be drawn and it won't be in\nthe list of paths returned.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_edgecolor",
+          "docstring": null
+        },
+        {
+          "name": "get_facecolor",
+          "docstring": null
+        },
+        {
+          "name": "set_array",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_paths",
+      "docstring": null
+    },
+    {
+      "name": "set_paths",
+      "docstring": null
+    },
+    {
+      "name": "get_transforms",
+      "docstring": null
+    },
+    {
+      "name": "get_offset_transform",
+      "docstring": "Return the `.Transform` instance used by this artist offset."
+    },
+    {
+      "name": "set_offset_transform",
+      "docstring": "Set the artist offset transform.\n\nParameters\n----------\noffset_transform : `.Transform`"
+    },
+    {
+      "name": "get_datalim",
+      "docstring": null
+    },
+    {
+      "name": "get_window_extent",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "set_pickradius",
+      "docstring": "Set the pick radius used for containment tests.\n\nParameters\n----------\npickradius : float\n    Pick radius, in points."
+    },
+    {
+      "name": "get_pickradius",
+      "docstring": null
+    },
+    {
+      "name": "contains",
+      "docstring": "Test whether the mouse event occurred in the collection.\n\nReturns ``bool, dict(ind=itemlist)``, where every item in itemlist\ncontains the event."
+    },
+    {
+      "name": "set_urls",
+      "docstring": "Parameters\n----------\nurls : list of str or None\n\nNotes\n-----\nURLs are currently only implemented by the SVG backend. They are\nignored by all other backends."
+    },
+    {
+      "name": "get_urls",
+      "docstring": "Return a list of URLs, one for each element of the collection.\n\nThe list contains *None* for elements without a URL. See\n:doc:`/gallery/misc/hyperlinks_sgskip` for an example."
+    },
+    {
+      "name": "set_hatch",
+      "docstring": "Set the hatching pattern\n\n*hatch* can be one of::\n\n  /   - diagonal hatching\n  \\   - back diagonal\n  |   - vertical\n  -   - horizontal\n  +   - crossed\n  x   - crossed diagonal\n  o   - small circle\n  O   - large circle\n  .   - dots\n  *   - stars\n\nLetters can be combined, in which case all the specified\nhatchings are done.  If same letter repeats, it increases the\ndensity of hatching of that pattern.\n\nUnlike other properties such as linewidth and colors, hatching\ncan only be specified for the collection as a whole, not separately\nfor each member.\n\nParameters\n----------\nhatch : {'/', '\\\\', '|', '-', '+', 'x', 'o', 'O', '.', '*'}"
+    },
+    {
+      "name": "get_hatch",
+      "docstring": "Return the current hatching pattern."
+    },
+    {
+      "name": "set_hatch_linewidth",
+      "docstring": "Set the hatch linewidth."
+    },
+    {
+      "name": "get_hatch_linewidth",
+      "docstring": "Return the hatch linewidth."
+    },
+    {
+      "name": "set_offsets",
+      "docstring": "Set the offsets for the collection.\n\nParameters\n----------\noffsets : (N, 2) or (2,) array-like"
+    },
+    {
+      "name": "get_offsets",
+      "docstring": "Return the offsets for the collection."
+    },
+    {
+      "name": "set_linewidth",
+      "docstring": "Set the linewidth(s) for the collection.  *lw* can be a scalar\nor a sequence; if it is a sequence the patches will cycle\nthrough the sequence\n\nParameters\n----------\nlw : float or list of floats"
+    },
+    {
+      "name": "set_linestyle",
+      "docstring": "Set the linestyle(s) for the collection.\n\n===========================   =================\nlinestyle                     description\n===========================   =================\n``'-'`` or ``'solid'``        solid line\n``'--'`` or  ``'dashed'``     dashed line\n``'-.'`` or  ``'dashdot'``    dash-dotted line\n``':'`` or ``'dotted'``       dotted line\n===========================   =================\n\nAlternatively a dash tuple of the following form can be provided::\n\n    (offset, onoffseq),\n\nwhere ``onoffseq`` is an even length tuple of on and off ink in points.\n\nParameters\n----------\nls : str or tuple or list thereof\n    Valid values for individual linestyles include {'-', '--', '-.',\n    ':', '', (offset, on-off-seq)}. See `.Line2D.set_linestyle` for a\n    complete description."
+    },
+    {
+      "name": "set_capstyle",
+      "docstring": "Set the `.CapStyle` for the collection (for all its elements).\n\nParameters\n----------\ncs : `.CapStyle` or %(CapStyle)s"
+    },
+    {
+      "name": "get_capstyle",
+      "docstring": "Return the cap style for the collection (for all its elements).\n\nReturns\n-------\n%(CapStyle)s or None"
+    },
+    {
+      "name": "set_joinstyle",
+      "docstring": "Set the `.JoinStyle` for the collection (for all its elements).\n\nParameters\n----------\njs : `.JoinStyle` or %(JoinStyle)s"
+    },
+    {
+      "name": "get_joinstyle",
+      "docstring": "Return the join style for the collection (for all its elements).\n\nReturns\n-------\n%(JoinStyle)s or None"
+    },
+    {
+      "name": "get_antialiased",
+      "docstring": "Get the antialiasing state for rendering.\n\nReturns\n-------\narray of bools"
+    },
+    {
+      "name": "set_antialiased",
+      "docstring": "Set the antialiasing state for rendering.\n\nParameters\n----------\naa : bool or list of bools"
+    },
+    {
+      "name": "set_color",
+      "docstring": "Set both the edgecolor and the facecolor.\n\nParameters\n----------\nc : :mpltype:`color` or list of RGBA tuples\n\nSee Also\n--------\nCollection.set_facecolor, Collection.set_edgecolor\n    For setting the edge or face color individually."
+    },
+    {
+      "name": "set_facecolor",
+      "docstring": "Set the facecolor(s) of the collection. *c* can be a color (all patches\nhave same color), or a sequence of colors; if it is a sequence the\npatches will cycle through the sequence.\n\nIf *c* is 'none', the patch will not be filled.\n\nParameters\n----------\nc : :mpltype:`color` or list of :mpltype:`color`"
+    },
+    {
+      "name": "get_facecolor",
+      "docstring": null
+    },
+    {
+      "name": "get_edgecolor",
+      "docstring": null
+    },
+    {
+      "name": "set_edgecolor",
+      "docstring": "Set the edgecolor(s) of the collection.\n\nParameters\n----------\nc : :mpltype:`color` or list of :mpltype:`color` or 'face'\n    The collection edgecolor(s).  If a sequence, the patches cycle\n    through it.  If 'face', match the facecolor."
+    },
+    {
+      "name": "set_alpha",
+      "docstring": "Set the transparency of the collection.\n\nParameters\n----------\nalpha : float or array of float or None\n    If not None, *alpha* values must be between 0 and 1, inclusive.\n    If an array is provided, its length must match the number of\n    elements in the collection.  Masked values and nans are not\n    supported."
+    },
+    {
+      "name": "get_linewidth",
+      "docstring": null
+    },
+    {
+      "name": "get_linestyle",
+      "docstring": null
+    },
+    {
+      "name": "update_scalarmappable",
+      "docstring": "Update colors from the scalar mappable array, if any.\n\nAssign colors to edges and faces based on the array and/or\ncolors that were directly set, as appropriate."
+    },
+    {
+      "name": "get_fill",
+      "docstring": "Return whether face is colored."
+    },
+    {
+      "name": "update_from",
+      "docstring": "Copy properties from other to self."
+    },
+    {
+      "name": "get_sizes",
+      "docstring": "Return the sizes ('areas') of the elements in the collection.\n\nReturns\n-------\narray\n    The 'area' of each element."
+    },
+    {
+      "name": "set_sizes",
+      "docstring": "Set the sizes of each member of the collection.\n\nParameters\n----------\nsizes : `numpy.ndarray` or None\n    The size to set for each element of the collection.  The\n    value is the 'area' of the element.\ndpi : float, default: 72\n    The dpi of the canvas."
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "get_paths",
+      "docstring": null
+    },
+    {
+      "name": "legend_elements",
+      "docstring": "Create legend handles and labels for a PathCollection.\n\nEach legend handle is a `.Line2D` representing the Path that was drawn,\nand each label is a string that represents the Path.\n\nThis is useful for obtaining a legend for a `~.Axes.scatter` plot;\ne.g.::\n\n    scatter = plt.scatter([1, 2, 3],  [4, 5, 6],  c=[7, 2, 3], num=None)\n    plt.legend(*scatter.legend_elements())\n\ncreates three legend elements, one for each color with the numerical\nvalues passed to *c* as the labels.\n\nAlso see the :ref:`automatedlegendcreation` example.\n\nParameters\n----------\nprop : {\"colors\", \"sizes\"}, default: \"colors\"\n    If \"colors\", the legend handles will show the different colors of\n    the collection. If \"sizes\", the legend will show the different\n    sizes. To set both, use *kwargs* to directly edit the `.Line2D`\n    properties.\nnum : int, None, \"auto\" (default), array-like, or `~.ticker.Locator`\n    Target number of elements to create.\n    If None, use all unique elements of the mappable array. If an\n    integer, target to use *num* elements in the normed range.\n    If *\"auto\"*, try to determine which option better suits the nature\n    of the data.\n    The number of created elements may slightly deviate from *num* due\n    to a `~.ticker.Locator` being used to find useful locations.\n    If a list or array, use exactly those elements for the legend.\n    Finally, a `~.ticker.Locator` can be provided.\nfmt : str, `~matplotlib.ticker.Formatter`, or None (default)\n    The format or formatter to use for the labels. If a string must be\n    a valid input for a `.StrMethodFormatter`. If None (the default),\n    use a `.ScalarFormatter`.\nfunc : function, default: ``lambda x: x``\n    Function to calculate the labels.  Often the size (or color)\n    argument to `~.Axes.scatter` will have been pre-processed by the\n    user using a function ``s = f(x)`` to make the markers visible;\n    e.g. ``size = np.log10(x)``.  Providing the inverse of this\n    function here allows that pre-processing to be inverted, so that\n    the legend labels have the correct values; e.g. ``func = lambda\n    x: 10**x``.\n**kwargs\n    Allowed keyword arguments are *color* and *size*. E.g. it may be\n    useful to set the color of the markers if *prop=\"sizes\"* is used;\n    similarly to set the size of the markers if *prop=\"colors\"* is\n    used. Any further parameters are passed onto the `.Line2D`\n    instance. This may be useful to e.g. specify a different\n    *markeredgecolor* or *alpha* for the legend handles.\n\nReturns\n-------\nhandles : list of `.Line2D`\n    Visual representation of each element of the legend.\nlabels : list of str\n    The string labels for elements of the legend."
+    },
+    {
+      "name": "set_verts",
+      "docstring": "Set the vertices of the polygons.\n\nParameters\n----------\nverts : list of array-like\n    The sequence of polygons [*verts0*, *verts1*, ...] where each\n    element *verts_i* defines the vertices of polygon *i* as a 2D\n    array-like of shape (M, 2).\nclosed : bool, default: True\n    Whether the polygon should be closed by adding a CLOSEPOLY\n    connection at the end."
+    },
+    {
+      "name": "set_verts_and_codes",
+      "docstring": "Initialize vertices with path codes."
+    },
+    {
+      "name": "set_data",
+      "docstring": "Set new values for the two bounding curves.\n\nParameters\n----------\nt : array-like\n    The ``self.t_direction`` coordinates of the nodes defining the curves.\n\nf1 : array-like or float\n    The other coordinates of the nodes defining the first curve.\n\nf2 : array-like or float\n    The other coordinates of the nodes defining the second curve.\n\nwhere : array-like of bool, optional\n    Define *where* to exclude some {dir} regions from being filled.\n    The filled regions are defined by the coordinates ``t[where]``.\n    More precisely, fill between ``t[i]`` and ``t[i+1]`` if\n    ``where[i] and where[i+1]``.  Note that this definition implies\n    that an isolated *True* value between two *False* values in *where*\n    will not result in filling.  Both sides of the *True* position\n    remain unfilled due to the adjacent *False* values.\n\nSee Also\n--------\n.PolyCollection.set_verts, .Line2D.set_data"
+    },
+    {
+      "name": "get_datalim",
+      "docstring": "Calculate the data limits and return them as a `.Bbox`."
+    },
+    {
+      "name": "get_numsides",
+      "docstring": null
+    },
+    {
+      "name": "get_rotation",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "set_segments",
+      "docstring": null
+    },
+    {
+      "name": "get_segments",
+      "docstring": "Returns\n-------\nlist\n    List of segments in the LineCollection. Each list item contains an\n    array of vertices."
+    },
+    {
+      "name": "set_alpha",
+      "docstring": null
+    },
+    {
+      "name": "set_color",
+      "docstring": "Set the edgecolor(s) of the LineCollection.\n\nParameters\n----------\nc : :mpltype:`color` or list of :mpltype:`color`\n    Single color (all lines have same color), or a\n    sequence of RGBA tuples; if it is a sequence the lines will\n    cycle through the sequence."
+    },
+    {
+      "name": "get_color",
+      "docstring": null
+    },
+    {
+      "name": "set_gapcolor",
+      "docstring": "Set a color to fill the gaps in the dashed line style.\n\n.. note::\n\n    Striped lines are created by drawing two interleaved dashed lines.\n    There can be overlaps between those two, which may result in\n    artifacts when using transparency.\n\n    This functionality is experimental and may change.\n\nParameters\n----------\ngapcolor : :mpltype:`color` or list of :mpltype:`color` or None\n    The color with which to fill the gaps. If None, the gaps are\n    unfilled."
+    },
+    {
+      "name": "get_gapcolor",
+      "docstring": null
+    },
+    {
+      "name": "get_positions",
+      "docstring": "Return an array containing the floating-point values of the positions."
+    },
+    {
+      "name": "set_positions",
+      "docstring": "Set the positions of the events."
+    },
+    {
+      "name": "add_positions",
+      "docstring": "Add one or more events at the specified positions."
+    },
+    {
+      "name": "is_horizontal",
+      "docstring": "True if the eventcollection is horizontal, False if vertical."
+    },
+    {
+      "name": "get_orientation",
+      "docstring": "Return the orientation of the event line ('horizontal' or 'vertical')."
+    },
+    {
+      "name": "switch_orientation",
+      "docstring": "Switch the orientation of the event line, either from vertical to\nhorizontal or vice versus."
+    },
+    {
+      "name": "set_orientation",
+      "docstring": "Set the orientation of the event line.\n\nParameters\n----------\norientation : {'horizontal', 'vertical'}"
+    },
+    {
+      "name": "get_linelength",
+      "docstring": "Return the length of the lines used to mark each event."
+    },
+    {
+      "name": "set_linelength",
+      "docstring": "Set the length of the lines used to mark each event."
+    },
+    {
+      "name": "get_lineoffset",
+      "docstring": "Return the offset of the lines used to mark each event."
+    },
+    {
+      "name": "set_lineoffset",
+      "docstring": "Set the offset of the lines used to mark each event."
+    },
+    {
+      "name": "get_linewidth",
+      "docstring": "Get the width of the lines used to mark each event."
+    },
+    {
+      "name": "get_linewidths",
+      "docstring": null
+    },
+    {
+      "name": "get_color",
+      "docstring": "Return the color of the lines used to mark each event."
+    },
+    {
+      "name": "set_widths",
+      "docstring": "Set the lengths of the first axes (e.g., major axis)."
+    },
+    {
+      "name": "set_heights",
+      "docstring": "Set the lengths of second axes (e.g., minor axes)."
+    },
+    {
+      "name": "set_angles",
+      "docstring": "Set the angles of the first axes, degrees CCW from the x-axis."
+    },
+    {
+      "name": "get_widths",
+      "docstring": "Get the lengths of the first axes (e.g., major axis)."
+    },
+    {
+      "name": "get_heights",
+      "docstring": "Set the lengths of second axes (e.g., minor axes)."
+    },
+    {
+      "name": "get_angles",
+      "docstring": "Get the angles of the first axes, degrees CCW from the x-axis."
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "set_paths",
+      "docstring": null
+    },
+    {
+      "name": "get_paths",
+      "docstring": null
+    },
+    {
+      "name": "set_paths",
+      "docstring": null
+    },
+    {
+      "name": "convert_mesh_to_paths",
+      "docstring": "Convert a given mesh into a sequence of `.Path` objects.\n\nThis function is primarily of use to implementers of backends that do\nnot directly support meshes."
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "set_array",
+      "docstring": "Set the data values.\n\nParameters\n----------\nA : array-like\n    The mesh data. Supported array shapes are:\n\n    - (M, N) or (M*N,): a mesh with scalar data. The values are mapped\n      to colors using normalization and a colormap. See parameters\n      *norm*, *cmap*, *vmin*, *vmax*.\n    - (M, N, 3): an image with RGB values (0-1 float or 0-255 int).\n    - (M, N, 4): an image with RGBA values (0-1 float or 0-255 int),\n      i.e. including transparency.\n\n    If the values are provided as a 2D grid, the shape must match the\n    coordinates grid. If the values are 1D, they are reshaped to 2D.\n    M, N follow from the coordinates grid, where the coordinates grid\n    shape is (M, N) for 'gouraud' *shading* and (M+1, N+1) for 'flat'\n    shading."
+    },
+    {
+      "name": "get_coordinates",
+      "docstring": "Return the vertices of the mesh as an (M+1, N+1, 2) array.\n\nM, N are the number of quadrilaterals in the rows / columns of the\nmesh, corresponding to (M+1, N+1) vertices.\nThe last dimension specifies the components (x, y)."
+    },
+    {
+      "name": "get_edgecolor",
+      "docstring": null
+    },
+    {
+      "name": "get_facecolor",
+      "docstring": null
+    },
+    {
+      "name": "get_paths",
+      "docstring": null
+    },
+    {
+      "name": "set_paths",
+      "docstring": null
+    },
+    {
+      "name": "get_datalim",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "get_cursor_data",
+      "docstring": null
+    },
+    {
+      "name": "get_edgecolor",
+      "docstring": null
+    },
+    {
+      "name": "get_facecolor",
+      "docstring": null
+    },
+    {
+      "name": "set_array",
+      "docstring": null
+    },
+    {
+      "name": "determine_facecolor",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "        trans = self.get_transforms()\n        facecolors = self.get_facecolor()\n        edgecolors = self.get_edgecolor()\n        do_single_path_optimization = False\n        if (len(paths) == 1 and len(trans) <= 1 and\n                len(facecolors) == 1 and len(edgecolors) == 1 and\n                len(self._linewidths) == 1 and"
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\patheffects.py",
+  "classes": [
+    {
+      "name": "AbstractPathEffect",
+      "docstring": "A base class for path effects.\n\nSubclasses should override the ``draw_path`` method to add effect\nfunctionality.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\noffset : (float, float), default: (0, 0)\n    The (x, y) offset to apply to the path, measured in points."
+        },
+        {
+          "name": "draw_path",
+          "docstring": "Derived should override this method. The arguments are the same\nas :meth:`matplotlib.backend_bases.RendererBase.draw_path`\nexcept the first argument is a renderer."
+        }
+      ]
+    },
+    {
+      "name": "PathEffectRenderer",
+      "docstring": "Implements a Renderer which contains another renderer.\n\nThis proxy then intercepts draw calls, calling the appropriate\n:class:`AbstractPathEffect` draw method.\n\n.. note::\n    Not all methods have been overridden on this RendererBase subclass.\n    It may be necessary to add further methods to extend the PathEffects\n    capabilities further.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\npath_effects : iterable of :class:`AbstractPathEffect`\n    The path effects which this renderer represents.\nrenderer : `~matplotlib.backend_bases.RendererBase` subclass"
+        },
+        {
+          "name": "copy_with_path_effect",
+          "docstring": null
+        },
+        {
+          "name": "draw_path",
+          "docstring": null
+        },
+        {
+          "name": "draw_markers",
+          "docstring": null
+        },
+        {
+          "name": "draw_path_collection",
+          "docstring": null
+        },
+        {
+          "name": "open_group",
+          "docstring": null
+        },
+        {
+          "name": "close_group",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Normal",
+      "docstring": "The \"identity\" PathEffect.\n\nThe Normal PathEffect's sole purpose is to draw the original artist with\nno special path effect.",
+      "methods": []
+    },
+    {
+      "name": "Stroke",
+      "docstring": "A line based PathEffect which re-draws a stroke.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "The path will be stroked with its gc updated with the given\nkeyword arguments, i.e., the keyword arguments should be valid\ngc parameter values."
+        },
+        {
+          "name": "draw_path",
+          "docstring": "Draw the path with updated gc."
+        }
+      ]
+    },
+    {
+      "name": "SimplePatchShadow",
+      "docstring": "A simple shadow via a filled patch.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\noffset : (float, float), default: (2, -2)\n    The (x, y) offset of the shadow in points.\nshadow_rgbFace : :mpltype:`color`\n    The shadow color.\nalpha : float, default: 0.3\n    The alpha transparency of the created shadow patch.\nrho : float, default: 0.3\n    A scale factor to apply to the rgbFace color if *shadow_rgbFace*\n    is not specified.\n**kwargs\n    Extra keywords are stored and passed through to\n    :meth:`AbstractPathEffect._update_gc`."
+        },
+        {
+          "name": "draw_path",
+          "docstring": "Overrides the standard draw_path to add the shadow offset and\nnecessary color changes for the shadow."
+        }
+      ]
+    },
+    {
+      "name": "SimpleLineShadow",
+      "docstring": "A simple shadow via a line.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\noffset : (float, float), default: (2, -2)\n    The (x, y) offset to apply to the path, in points.\nshadow_color : :mpltype:`color`, default: 'black'\n    The shadow color.\n    A value of ``None`` takes the original artist's color\n    with a scale factor of *rho*.\nalpha : float, default: 0.3\n    The alpha transparency of the created shadow patch.\nrho : float, default: 0.3\n    A scale factor to apply to the rgbFace color if *shadow_color*\n    is ``None``.\n**kwargs\n    Extra keywords are stored and passed through to\n    :meth:`AbstractPathEffect._update_gc`."
+        },
+        {
+          "name": "draw_path",
+          "docstring": "Overrides the standard draw_path to add the shadow offset and\nnecessary color changes for the shadow."
+        }
+      ]
+    },
+    {
+      "name": "PathPatchEffect",
+      "docstring": "Draws a `.PathPatch` instance whose Path comes from the original\nPathEffect artist.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\noffset : (float, float), default: (0, 0)\n    The (x, y) offset to apply to the path, in points.\n**kwargs\n    All keyword arguments are passed through to the\n    :class:`~matplotlib.patches.PathPatch` constructor. The\n    properties which cannot be overridden are \"path\", \"clip_box\"\n    \"transform\" and \"clip_path\"."
+        },
+        {
+          "name": "draw_path",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TickedStroke",
+      "docstring": "A line-based PathEffect which draws a path with a ticked style.\n\nThis line style is frequently used to represent constraints in\noptimization.  The ticks may be used to indicate that one side\nof the line is invalid or to represent a closed boundary of a\ndomain (i.e. a wall or the edge of a pipe).\n\nThe spacing, length, and angle of ticks can be controlled.\n\nThis line style is sometimes referred to as a hatched line.\n\nSee also the :doc:`/gallery/misc/tickedstroke_demo` example.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\noffset : (float, float), default: (0, 0)\n    The (x, y) offset to apply to the path, in points.\nspacing : float, default: 10.0\n    The spacing between ticks in points.\nangle : float, default: 45.0\n    The angle between the path and the tick in degrees.  The angle\n    is measured as if you were an ant walking along the curve, with\n    zero degrees pointing directly ahead, 90 to your left, -90\n    to your right, and 180 behind you. To change side of the ticks,\n    change sign of the angle.\nlength : float, default: 1.414\n    The length of the tick relative to spacing.\n    Recommended length = 1.414 (sqrt(2)) when angle=45, length=1.0\n    when angle=90 and length=2.0 when angle=60.\n**kwargs\n    Extra keywords are stored and passed through to\n    :meth:`AbstractPathEffect._update_gc`.\n\nExamples\n--------\nSee :doc:`/gallery/misc/tickedstroke_demo`."
+        },
+        {
+          "name": "draw_path",
+          "docstring": "Draw the path with updated gc."
+        }
+      ]
+    },
+    {
+      "name": "withEffect",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "draw_path",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "draw_path",
+      "docstring": "Derived should override this method. The arguments are the same\nas :meth:`matplotlib.backend_bases.RendererBase.draw_path`\nexcept the first argument is a renderer."
+    },
+    {
+      "name": "copy_with_path_effect",
+      "docstring": null
+    },
+    {
+      "name": "draw_path",
+      "docstring": null
+    },
+    {
+      "name": "draw_markers",
+      "docstring": null
+    },
+    {
+      "name": "draw_path_collection",
+      "docstring": null
+    },
+    {
+      "name": "open_group",
+      "docstring": null
+    },
+    {
+      "name": "close_group",
+      "docstring": null
+    },
+    {
+      "name": "draw_path",
+      "docstring": "Draw the path with updated gc."
+    },
+    {
+      "name": "draw_path",
+      "docstring": "Overrides the standard draw_path to add the shadow offset and\nnecessary color changes for the shadow."
+    },
+    {
+      "name": "draw_path",
+      "docstring": "Overrides the standard draw_path to add the shadow offset and\nnecessary color changes for the shadow."
+    },
+    {
+      "name": "draw_path",
+      "docstring": null
+    },
+    {
+      "name": "draw_path",
+      "docstring": "Draw the path with updated gc."
+    },
+    {
+      "name": "draw_path",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "    A line-based PathEffect which draws a path with a ticked style.\n\n    This line style is frequently used to represent constraints in\n    optimization.  The ticks may be used to indicate that one side\n    of the line is invalid or to represent a closed boundary of a\n    domain (i.e. a wall or the edge of a pipe).\n"
+    }
+  ]
+}

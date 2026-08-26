@@ -1,0 +1,27 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\testing\\widgets.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "get_ax",
+      "docstring": "Create a plot and return its Axes."
+    },
+    {
+      "name": "noop",
+      "docstring": null
+    },
+    {
+      "name": "mock_event",
+      "docstring": "Create a mock event that can stand in for `.Event` and its subclasses.\n\nThis event is intended to be used in tests where it can be passed into\nevent handling functions.\n\nParameters\n----------\nax : `~matplotlib.axes.Axes`\n    The Axes the event will be in.\nxdata : float\n    x coord of mouse in data coords.\nydata : float\n    y coord of mouse in data coords.\nbutton : None or `MouseButton` or {'up', 'down'}\n    The mouse button pressed in this event (see also `.MouseEvent`).\nkey : None or str\n    The key pressed when the mouse event triggered (see also `.KeyEvent`).\nstep : int\n    Number of scroll steps (positive for 'up', negative for 'down').\n\nReturns\n-------\nevent\n    A `.Event`\\-like Mock instance."
+    },
+    {
+      "name": "do_event",
+      "docstring": "Trigger an event on the given tool.\n\nParameters\n----------\ntool : matplotlib.widgets.AxesWidget\netype : str\n    The event to trigger.\nxdata : float\n    x coord of mouse in data coords.\nydata : float\n    y coord of mouse in data coords.\nbutton : None or `MouseButton` or {'up', 'down'}\n    The mouse button pressed in this event (see also `.MouseEvent`).\nkey : None or str\n    The key pressed when the mouse event triggered (see also `.KeyEvent`).\nstep : int\n    Number of scroll steps (positive for 'up', negative for 'down')."
+    },
+    {
+      "name": "click_and_drag",
+      "docstring": "Helper to simulate a mouse drag operation.\n\nParameters\n----------\ntool : `~matplotlib.widgets.Widget`\nstart : [float, float]\n    Starting point in data coordinates.\nend : [float, float]\n    End point in data coordinates.\nkey : None or str\n     An optional key that is pressed during the whole operation\n     (see also `.KeyEvent`)."
+    }
+  ],
+  "innovations": []
+}

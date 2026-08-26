@@ -1,0 +1,288 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\ttFont.py",
+  "classes": [
+    {
+      "name": "TTFont",
+      "docstring": "Represents a TrueType font.\n\nThe object manages file input and output, and offers a convenient way of\naccessing tables. Tables will be only decompiled when necessary, ie. when\nthey're actually accessed. This means that simple operations can be extremely fast.\n\nExample usage:\n\n.. code-block:: pycon\n\n    >>>\n    >> from fontTools import ttLib\n    >> tt = ttLib.TTFont(\"afont.ttf\") # Load an existing font file\n    >> tt['maxp'].numGlyphs\n    242\n    >> tt['OS/2'].achVendID\n    'B&H\u0000'\n    >> tt['head'].unitsPerEm\n    2048\n\nFor details of the objects returned when accessing each table, see the\n:doc:`tables </ttLib/tables>` documentation.\nTo add a table to the font, use the :py:func:`newTable` function:\n\n.. code-block:: pycon\n\n    >>>\n    >> os2 = newTable(\"OS/2\")\n    >> os2.version = 4\n    >> # set other attributes\n    >> font[\"OS/2\"] = os2\n\nTrueType fonts can also be serialized to and from XML format (see also the\n:doc:`ttx </ttx>` binary):\n\n.. code-block:: pycon\n\n    >>\n    >> tt.saveXML(\"afont.ttx\")\n    Dumping 'LTSH' table...\n    Dumping 'OS/2' table...\n    [...]\n\n    >> tt2 = ttLib.TTFont() # Create a new font object\n    >> tt2.importXML(\"afont.ttx\")\n    >> tt2['maxp'].numGlyphs\n    242\n\nThe TTFont object may be used as a context manager; this will cause the file\nreader to be closed after the context ``with`` block is exited::\n\n        with TTFont(filename) as f:\n                # Do stuff\n\nArgs:\n        file: When reading a font from disk, either a pathname pointing to a file,\n                or a readable file object.\n        res_name_or_index: If running on a Macintosh, either a sfnt resource name or\n                an sfnt resource index number. If the index number is zero, TTLib will\n                autodetect whether the file is a flat file or a suitcase. (If it is a suitcase,\n                only the first 'sfnt' resource will be read.)\n        sfntVersion (str): When constructing a font object from scratch, sets the four-byte\n                sfnt magic number to be used. Defaults to ``\u0000\u0001\u0000\u0000`` (TrueType). To create\n                an OpenType file, use ``OTTO``.\n        flavor (str): Set this to ``woff`` when creating a WOFF file or ``woff2`` for a WOFF2\n                file.\n        checkChecksums (int): How checksum data should be treated. Default is 0\n                (no checking). Set to 1 to check and warn on wrong checksums; set to 2 to\n                raise an exception if any wrong checksums are found.\n        recalcBBoxes (bool): If true (the default), recalculates ``glyf``, ``CFF ``,\n                ``head`` bounding box values and ``hhea``/``vhea`` min/max values on save.\n                Also compiles the glyphs on importing, which saves memory consumption and\n                time.\n        ignoreDecompileErrors (bool): If true, exceptions raised during table decompilation\n                will be ignored, and the binary data will be returned for those tables instead.\n        recalcTimestamp (bool): If true (the default), sets the ``modified`` timestamp in\n                the ``head`` table on save.\n        fontNumber (int): The index of the font in a TrueType Collection file.\n        lazy (bool): If lazy is set to True, many data structures are loaded lazily, upon\n                access only. If it is set to False, many data structures are loaded immediately.\n                The default is ``lazy=None`` which is somewhere in between.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": "If we still have a reader object, close it."
+        },
+        {
+          "name": "save",
+          "docstring": "Save the font to disk.\n\nArgs:\n        file: Similarly to the constructor, can be either a pathname or a writable\n                file object.\n        reorderTables (Option[bool]): If true (the default), reorder the tables,\n                sorting them by tag (recommended by the OpenType specification). If\n                false, retain the original font order. If None, reorder by table\n                dependency (fastest)."
+        },
+        {
+          "name": "saveXML",
+          "docstring": "Export the font as TTX (an XML-based text file), or as a series of text\nfiles when splitTables is true. In the latter case, the 'fileOrPath'\nargument should be a path to a directory.\nThe 'tables' argument must either be false (dump all tables) or a\nlist of tables to dump. The 'skipTables' argument may be a list of tables\nto skip, but only when the 'tables' argument is false."
+        },
+        {
+          "name": "importXML",
+          "docstring": "Import a TTX file (an XML-based text format), so as to recreate\na font object."
+        },
+        {
+          "name": "isLoaded",
+          "docstring": "Return true if the table identified by ``tag`` has been\ndecompiled and loaded into memory."
+        },
+        {
+          "name": "has_key",
+          "docstring": "Test if the table identified by ``tag`` is present in the font.\n\nAs well as this method, ``tag in font`` can also be used to determine the\npresence of the table."
+        },
+        {
+          "name": "keys",
+          "docstring": "Returns the list of tables in the font, along with the ``GlyphOrder`` pseudo-table."
+        },
+        {
+          "name": "ensureDecompiled",
+          "docstring": "Decompile all the tables, even if a TTFont was opened in 'lazy' mode."
+        },
+        {
+          "name": "get",
+          "docstring": "Returns the table if it exists or (optionally) a default if it doesn't."
+        },
+        {
+          "name": "setGlyphOrder",
+          "docstring": "Set the glyph order\n\nArgs:\n        glyphOrder ([str]): List of glyph names in order."
+        },
+        {
+          "name": "getGlyphOrder",
+          "docstring": "Returns a list of glyph names ordered by their position in the font."
+        },
+        {
+          "name": "getGlyphNames",
+          "docstring": "Get a list of glyph names, sorted alphabetically."
+        },
+        {
+          "name": "getGlyphNames2",
+          "docstring": "Get a list of glyph names, sorted alphabetically,\nbut not case sensitive."
+        },
+        {
+          "name": "getGlyphName",
+          "docstring": "Returns the name for the glyph with the given ID.\n\nIf no name is available, synthesises one with the form ``glyphXXXXX``` where\n```XXXXX`` is the zero-padded glyph ID."
+        },
+        {
+          "name": "getGlyphNameMany",
+          "docstring": "Converts a list of glyph IDs into a list of glyph names."
+        },
+        {
+          "name": "getGlyphID",
+          "docstring": "Returns the ID of the glyph with the given name."
+        },
+        {
+          "name": "getGlyphIDMany",
+          "docstring": "Converts a list of glyph names into a list of glyph IDs."
+        },
+        {
+          "name": "getReverseGlyphMap",
+          "docstring": "Returns a mapping of glyph names to glyph IDs."
+        },
+        {
+          "name": "getTableData",
+          "docstring": "Returns the binary representation of a table.\n\nIf the table is currently loaded and in memory, the data is compiled to\nbinary and returned; if it is not currently loaded, the binary data is\nread from the font file and returned."
+        },
+        {
+          "name": "getGlyphSet",
+          "docstring": "Return a generic GlyphSet, which is a dict-like object\nmapping glyph names to glyph objects. The returned glyph objects\nhave a ``.draw()`` method that supports the Pen protocol, and will\nhave an attribute named 'width'.\n\nIf the font is CFF-based, the outlines will be taken from the ``CFF ``\nor ``CFF2`` tables. Otherwise the outlines will be taken from the\n``glyf`` table.\n\nIf the font contains both a ``CFF ``/``CFF2`` and a ``glyf`` table, you\ncan use the ``preferCFF`` argument to specify which one should be taken.\nIf the font contains both a ``CFF `` and a ``CFF2`` table, the latter is\ntaken.\n\nIf the ``location`` parameter is set, it should be a dictionary mapping\nfour-letter variation tags to their float values, and the returned\nglyph-set will represent an instance of a variable font at that\nlocation.\n\nIf the ``normalized`` variable is set to True, that location is\ninterpreted as in the normalized (-1..+1) space, otherwise it is in the\nfont's defined axes space."
+        },
+        {
+          "name": "normalizeLocation",
+          "docstring": "Normalize a ``location`` from the font's defined axes space (also\nknown as user space) into the normalized (-1..+1) space. It applies\n``avar`` mapping if the font contains an ``avar`` table.\n\nThe ``location`` parameter should be a dictionary mapping four-letter\nvariation tags to their float values.\n\nRaises ``TTLibError`` if the font is not a variable font."
+        },
+        {
+          "name": "getBestCmap",
+          "docstring": "Returns the 'best' Unicode cmap dictionary available in the font\nor ``None``, if no Unicode cmap subtable is available.\n\nBy default it will search for the following (platformID, platEncID)\npairs in order::\n\n                (3, 10), # Windows Unicode full repertoire\n                (0, 6),  # Unicode full repertoire (format 13 subtable)\n                (0, 4),  # Unicode 2.0 full repertoire\n                (3, 1),  # Windows Unicode BMP\n                (0, 3),  # Unicode 2.0 BMP\n                (0, 2),  # Unicode ISO/IEC 10646\n                (0, 1),  # Unicode 1.1\n                (0, 0)   # Unicode 1.0\n\nThis particular order matches what HarfBuzz uses to choose what\nsubtable to use by default. This order prefers the largest-repertoire\nsubtable, and among those, prefers the Windows-platform over the\nUnicode-platform as the former has wider support.\n\nThis order can be customized via the ``cmapPreferences`` argument."
+        },
+        {
+          "name": "reorderGlyphs",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "GlyphOrder",
+      "docstring": "A pseudo table. The glyph order isn't in the font as a separate\ntable, but it's nice to present it as such in the TTX format.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "getTableModule",
+      "docstring": "Fetch the packer/unpacker module for a table.\nReturn None when no module is found."
+    },
+    {
+      "name": "registerCustomTableClass",
+      "docstring": "Register a custom packer/unpacker class for a table.\n\nThe 'moduleName' must be an importable module. If no 'className'\nis given, it is derived from the tag, for example it will be\n``table_C_U_S_T_`` for a 'CUST' tag.\n\nThe registered table class should be a subclass of\n:py:class:`fontTools.ttLib.tables.DefaultTable.DefaultTable`"
+    },
+    {
+      "name": "unregisterCustomTableClass",
+      "docstring": "Unregister the custom packer/unpacker class for a table."
+    },
+    {
+      "name": "getCustomTableClass",
+      "docstring": "Return the custom table class for tag, if one has been registered\nwith 'registerCustomTableClass()'. Else return None."
+    },
+    {
+      "name": "getTableClass",
+      "docstring": "Fetch the packer/unpacker class for a table."
+    },
+    {
+      "name": "getClassTag",
+      "docstring": "Fetch the table tag for a class object."
+    },
+    {
+      "name": "newTable",
+      "docstring": "Return a new instance of a table."
+    },
+    {
+      "name": "tagToIdentifier",
+      "docstring": "Convert a table tag to a valid (but UGLY) python identifier,\nas well as a filename that's guaranteed to be unique even on a\ncaseless file system. Each character is mapped to two characters.\nLowercase letters get an underscore before the letter, uppercase\nletters get an underscore after the letter. Trailing spaces are\ntrimmed. Illegal characters are escaped as two hex bytes. If the\nresult starts with a number (as the result of a hex escape), an\nextra underscore is prepended. Examples:\n.. code-block:: pycon\n\n    >>>\n    >> tagToIdentifier('glyf')\n    '_g_l_y_f'\n    >> tagToIdentifier('cvt ')\n    '_c_v_t'\n    >> tagToIdentifier('OS/2')\n    'O_S_2f_2'"
+    },
+    {
+      "name": "identifierToTag",
+      "docstring": "the opposite of tagToIdentifier()"
+    },
+    {
+      "name": "tagToXML",
+      "docstring": "Similarly to tagToIdentifier(), this converts a TT tag\nto a valid XML element name. Since XML element names are\ncase sensitive, this is a fairly simple/readable translation."
+    },
+    {
+      "name": "xmlToTag",
+      "docstring": "The opposite of tagToXML()"
+    },
+    {
+      "name": "sortedTagList",
+      "docstring": "Return a sorted copy of tagList, sorted according to the OpenType\nspecification, or according to a custom tableOrder. If given and not\nNone, tableOrder needs to be a list of tag names."
+    },
+    {
+      "name": "reorderFontTables",
+      "docstring": "Rewrite a font file, ordering the tables as recommended by the\nOpenType specification 1.4."
+    },
+    {
+      "name": "maxPowerOfTwo",
+      "docstring": "Return the highest exponent of two, so that\n(2 ** exponent) <= x.  Return 0 if x is 0."
+    },
+    {
+      "name": "getSearchRange",
+      "docstring": "Calculate searchRange, entrySelector, rangeShift."
+    },
+    {
+      "name": "close",
+      "docstring": "If we still have a reader object, close it."
+    },
+    {
+      "name": "save",
+      "docstring": "Save the font to disk.\n\nArgs:\n        file: Similarly to the constructor, can be either a pathname or a writable\n                file object.\n        reorderTables (Option[bool]): If true (the default), reorder the tables,\n                sorting them by tag (recommended by the OpenType specification). If\n                false, retain the original font order. If None, reorder by table\n                dependency (fastest)."
+    },
+    {
+      "name": "saveXML",
+      "docstring": "Export the font as TTX (an XML-based text file), or as a series of text\nfiles when splitTables is true. In the latter case, the 'fileOrPath'\nargument should be a path to a directory.\nThe 'tables' argument must either be false (dump all tables) or a\nlist of tables to dump. The 'skipTables' argument may be a list of tables\nto skip, but only when the 'tables' argument is false."
+    },
+    {
+      "name": "importXML",
+      "docstring": "Import a TTX file (an XML-based text format), so as to recreate\na font object."
+    },
+    {
+      "name": "isLoaded",
+      "docstring": "Return true if the table identified by ``tag`` has been\ndecompiled and loaded into memory."
+    },
+    {
+      "name": "has_key",
+      "docstring": "Test if the table identified by ``tag`` is present in the font.\n\nAs well as this method, ``tag in font`` can also be used to determine the\npresence of the table."
+    },
+    {
+      "name": "keys",
+      "docstring": "Returns the list of tables in the font, along with the ``GlyphOrder`` pseudo-table."
+    },
+    {
+      "name": "ensureDecompiled",
+      "docstring": "Decompile all the tables, even if a TTFont was opened in 'lazy' mode."
+    },
+    {
+      "name": "get",
+      "docstring": "Returns the table if it exists or (optionally) a default if it doesn't."
+    },
+    {
+      "name": "setGlyphOrder",
+      "docstring": "Set the glyph order\n\nArgs:\n        glyphOrder ([str]): List of glyph names in order."
+    },
+    {
+      "name": "getGlyphOrder",
+      "docstring": "Returns a list of glyph names ordered by their position in the font."
+    },
+    {
+      "name": "getGlyphNames",
+      "docstring": "Get a list of glyph names, sorted alphabetically."
+    },
+    {
+      "name": "getGlyphNames2",
+      "docstring": "Get a list of glyph names, sorted alphabetically,\nbut not case sensitive."
+    },
+    {
+      "name": "getGlyphName",
+      "docstring": "Returns the name for the glyph with the given ID.\n\nIf no name is available, synthesises one with the form ``glyphXXXXX``` where\n```XXXXX`` is the zero-padded glyph ID."
+    },
+    {
+      "name": "getGlyphNameMany",
+      "docstring": "Converts a list of glyph IDs into a list of glyph names."
+    },
+    {
+      "name": "getGlyphID",
+      "docstring": "Returns the ID of the glyph with the given name."
+    },
+    {
+      "name": "getGlyphIDMany",
+      "docstring": "Converts a list of glyph names into a list of glyph IDs."
+    },
+    {
+      "name": "getReverseGlyphMap",
+      "docstring": "Returns a mapping of glyph names to glyph IDs."
+    },
+    {
+      "name": "getTableData",
+      "docstring": "Returns the binary representation of a table.\n\nIf the table is currently loaded and in memory, the data is compiled to\nbinary and returned; if it is not currently loaded, the binary data is\nread from the font file and returned."
+    },
+    {
+      "name": "getGlyphSet",
+      "docstring": "Return a generic GlyphSet, which is a dict-like object\nmapping glyph names to glyph objects. The returned glyph objects\nhave a ``.draw()`` method that supports the Pen protocol, and will\nhave an attribute named 'width'.\n\nIf the font is CFF-based, the outlines will be taken from the ``CFF ``\nor ``CFF2`` tables. Otherwise the outlines will be taken from the\n``glyf`` table.\n\nIf the font contains both a ``CFF ``/``CFF2`` and a ``glyf`` table, you\ncan use the ``preferCFF`` argument to specify which one should be taken.\nIf the font contains both a ``CFF `` and a ``CFF2`` table, the latter is\ntaken.\n\nIf the ``location`` parameter is set, it should be a dictionary mapping\nfour-letter variation tags to their float values, and the returned\nglyph-set will represent an instance of a variable font at that\nlocation.\n\nIf the ``normalized`` variable is set to True, that location is\ninterpreted as in the normalized (-1..+1) space, otherwise it is in the\nfont's defined axes space."
+    },
+    {
+      "name": "normalizeLocation",
+      "docstring": "Normalize a ``location`` from the font's defined axes space (also\nknown as user space) into the normalized (-1..+1) space. It applies\n``avar`` mapping if the font contains an ``avar`` table.\n\nThe ``location`` parameter should be a dictionary mapping four-letter\nvariation tags to their float values.\n\nRaises ``TTLibError`` if the font is not a variable font."
+    },
+    {
+      "name": "getBestCmap",
+      "docstring": "Returns the 'best' Unicode cmap dictionary available in the font\nor ``None``, if no Unicode cmap subtable is available.\n\nBy default it will search for the following (platformID, platEncID)\npairs in order::\n\n                (3, 10), # Windows Unicode full repertoire\n                (0, 6),  # Unicode full repertoire (format 13 subtable)\n                (0, 4),  # Unicode 2.0 full repertoire\n                (3, 1),  # Windows Unicode BMP\n                (0, 3),  # Unicode 2.0 BMP\n                (0, 2),  # Unicode ISO/IEC 10646\n                (0, 1),  # Unicode 1.1\n                (0, 0)   # Unicode 1.0\n\nThis particular order matches what HarfBuzz uses to choose what\nsubtable to use by default. This order prefers the largest-repertoire\nsubtable, and among those, prefers the Windows-platform over the\nUnicode-platform as the former has wider support.\n\nThis order can be customized via the ``cmapPreferences`` argument."
+    },
+    {
+      "name": "reorderGlyphs",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

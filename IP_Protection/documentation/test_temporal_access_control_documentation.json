@@ -1,0 +1,106 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\revenue\\temporal_access\\test_temporal_access_control.py",
+  "classes": [
+    {
+      "name": "TestAccessCondition",
+      "docstring": "Test cases for AccessCondition class.",
+      "methods": [
+        {
+          "name": "test_temporal_condition",
+          "docstring": "Test temporal condition evaluation."
+        },
+        {
+          "name": "test_identity_condition",
+          "docstring": "Test identity condition evaluation."
+        },
+        {
+          "name": "test_compound_condition",
+          "docstring": "Test compound condition evaluation."
+        }
+      ]
+    },
+    {
+      "name": "TestTemporalAccessPolicy",
+      "docstring": "Test cases for TemporalAccessPolicy class.",
+      "methods": [
+        {
+          "name": "test_policy_with_and_operator",
+          "docstring": "Test policy with AND operator."
+        },
+        {
+          "name": "test_policy_with_or_operator",
+          "docstring": "Test policy with OR operator."
+        }
+      ]
+    },
+    {
+      "name": "TestTemporalAccessControlSystem",
+      "docstring": "Test cases for TemporalAccessControlSystem class.",
+      "methods": [
+        {
+          "name": "setUp",
+          "docstring": "Set up the test environment."
+        },
+        {
+          "name": "test_create_policy",
+          "docstring": "Test policy creation."
+        },
+        {
+          "name": "test_encrypt_and_access_resource",
+          "docstring": "Test resource encryption and access."
+        },
+        {
+          "name": "test_access_logs",
+          "docstring": "Test access logging."
+        },
+        {
+          "name": "test_update_resource_policy",
+          "docstring": "Test updating a resource's policy."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_temporal_condition",
+      "docstring": "Test temporal condition evaluation."
+    },
+    {
+      "name": "test_identity_condition",
+      "docstring": "Test identity condition evaluation."
+    },
+    {
+      "name": "test_compound_condition",
+      "docstring": "Test compound condition evaluation."
+    },
+    {
+      "name": "test_policy_with_and_operator",
+      "docstring": "Test policy with AND operator."
+    },
+    {
+      "name": "test_policy_with_or_operator",
+      "docstring": "Test policy with OR operator."
+    },
+    {
+      "name": "setUp",
+      "docstring": "Set up the test environment."
+    },
+    {
+      "name": "test_create_policy",
+      "docstring": "Test policy creation."
+    },
+    {
+      "name": "test_encrypt_and_access_resource",
+      "docstring": "Test resource encryption and access."
+    },
+    {
+      "name": "test_access_logs",
+      "docstring": "Test access logging."
+    },
+    {
+      "name": "test_update_resource_policy",
+      "docstring": "Test updating a resource's policy."
+    }
+  ],
+  "innovations": []
+}

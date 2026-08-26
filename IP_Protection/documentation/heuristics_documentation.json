@@ -1,0 +1,108 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\heuristics.py",
+  "classes": [
+    {
+      "name": "BaseHeuristic",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "warning",
+          "docstring": "Return a valid 1xx warning header value describing the cache\nadjustments.\n\nThe response is provided too allow warnings like 113\nhttp://tools.ietf.org/html/rfc7234#section-5.5.4 where we need\nto explicitly say response is over 24 hours old."
+        },
+        {
+          "name": "update_headers",
+          "docstring": "Update the response headers with any new headers.\n\nNOTE: This SHOULD always include some Warning header to\n      signify that the response was cached by the client, not\n      by way of the provided headers."
+        },
+        {
+          "name": "apply",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "OneDayCache",
+      "docstring": "Cache the response by providing an expires 1 day in the\nfuture.",
+      "methods": [
+        {
+          "name": "update_headers",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ExpiresAfter",
+      "docstring": "Cache **all** requests for a defined time period.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "update_headers",
+          "docstring": null
+        },
+        {
+          "name": "warning",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "LastModified",
+      "docstring": "If there is no Expires header already, fall back on Last-Modified\nusing the heuristic from\nhttp://tools.ietf.org/html/rfc7234#section-4.2.2\nto calculate a reasonable value.\n\nFirefox also does something like this per\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Caching_FAQ\nhttp://lxr.mozilla.org/mozilla-release/source/netwerk/protocol/http/nsHttpResponseHead.cpp#397\nUnlike mozilla we limit this to 24-hr.",
+      "methods": [
+        {
+          "name": "update_headers",
+          "docstring": null
+        },
+        {
+          "name": "warning",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "expire_after",
+      "docstring": null
+    },
+    {
+      "name": "datetime_to_header",
+      "docstring": null
+    },
+    {
+      "name": "warning",
+      "docstring": "Return a valid 1xx warning header value describing the cache\nadjustments.\n\nThe response is provided too allow warnings like 113\nhttp://tools.ietf.org/html/rfc7234#section-5.5.4 where we need\nto explicitly say response is over 24 hours old."
+    },
+    {
+      "name": "update_headers",
+      "docstring": "Update the response headers with any new headers.\n\nNOTE: This SHOULD always include some Warning header to\n      signify that the response was cached by the client, not\n      by way of the provided headers."
+    },
+    {
+      "name": "apply",
+      "docstring": null
+    },
+    {
+      "name": "update_headers",
+      "docstring": null
+    },
+    {
+      "name": "update_headers",
+      "docstring": null
+    },
+    {
+      "name": "warning",
+      "docstring": null
+    },
+    {
+      "name": "update_headers",
+      "docstring": null
+    },
+    {
+      "name": "warning",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

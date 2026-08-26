@@ -1,0 +1,106 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\pillow_legacy.py",
+  "classes": [
+    {
+      "name": "PillowFormat",
+      "docstring": "Base format class for Pillow formats.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "plugin_id",
+          "docstring": "The PIL plugin id."
+        }
+      ]
+    },
+    {
+      "name": "PNGFormat",
+      "docstring": "See :mod:`imageio.plugins.pillow_legacy`",
+      "methods": []
+    },
+    {
+      "name": "JPEGFormat",
+      "docstring": "See :mod:`imageio.plugins.pillow_legacy`",
+      "methods": []
+    },
+    {
+      "name": "JPEG2000Format",
+      "docstring": "See :mod:`imageio.plugins.pillow_legacy`",
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "set_meta_data",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Reader",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "save_pillow_close",
+      "docstring": null
+    },
+    {
+      "name": "pil_try_read",
+      "docstring": null
+    },
+    {
+      "name": "pil_get_frame",
+      "docstring": "is_gray: Whether the image *is* gray (by inspecting its palette).\nas_gray: Whether the resulting image must be converted to gaey.\nmode: The mode to convert to."
+    },
+    {
+      "name": "ndarray_to_pil",
+      "docstring": null
+    },
+    {
+      "name": "plugin_id",
+      "docstring": "The PIL plugin id."
+    },
+    {
+      "name": "set_meta_data",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

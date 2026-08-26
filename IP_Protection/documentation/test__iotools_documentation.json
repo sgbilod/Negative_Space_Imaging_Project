@@ -1,0 +1,224 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\tests\\test__iotools.py",
+  "classes": [
+    {
+      "name": "TestLineSplitter",
+      "docstring": "Tests the LineSplitter class.",
+      "methods": [
+        {
+          "name": "test_no_delimiter",
+          "docstring": "Test LineSplitter w/o delimiter"
+        },
+        {
+          "name": "test_space_delimiter",
+          "docstring": "Test space delimiter"
+        },
+        {
+          "name": "test_tab_delimiter",
+          "docstring": "Test tab delimiter"
+        },
+        {
+          "name": "test_other_delimiter",
+          "docstring": "Test LineSplitter on delimiter"
+        },
+        {
+          "name": "test_constant_fixed_width",
+          "docstring": "Test LineSplitter w/ fixed-width fields"
+        },
+        {
+          "name": "test_variable_fixed_width",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestNameValidator",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_case_sensitivity",
+          "docstring": "Test case sensitivity"
+        },
+        {
+          "name": "test_excludelist",
+          "docstring": "Test excludelist"
+        },
+        {
+          "name": "test_missing_names",
+          "docstring": "Test validate missing names"
+        },
+        {
+          "name": "test_validate_nb_names",
+          "docstring": "Test validate nb names"
+        },
+        {
+          "name": "test_validate_wo_names",
+          "docstring": "Test validate no names"
+        }
+      ]
+    },
+    {
+      "name": "TestStringConverter",
+      "docstring": "Test StringConverter",
+      "methods": [
+        {
+          "name": "test_creation",
+          "docstring": "Test creation of a StringConverter"
+        },
+        {
+          "name": "test_upgrade",
+          "docstring": "Tests the upgrade method."
+        },
+        {
+          "name": "test_missing",
+          "docstring": "Tests the use of missing values."
+        },
+        {
+          "name": "test_upgrademapper",
+          "docstring": "Tests updatemapper"
+        },
+        {
+          "name": "test_string_to_object",
+          "docstring": "Make sure that string-to-object functions are properly recognized"
+        },
+        {
+          "name": "test_keep_default",
+          "docstring": "Make sure we don't lose an explicit default"
+        },
+        {
+          "name": "test_keep_default_zero",
+          "docstring": "Check that we don't lose a default of 0"
+        },
+        {
+          "name": "test_keep_missing_values",
+          "docstring": "Check that we're not losing missing values"
+        },
+        {
+          "name": "test_int64_dtype",
+          "docstring": "Check that int64 integer types can be specified"
+        },
+        {
+          "name": "test_uint64_dtype",
+          "docstring": "Check that uint64 integer types can be specified"
+        }
+      ]
+    },
+    {
+      "name": "TestMiscFunctions",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_has_nested_dtype",
+          "docstring": "Test has_nested_dtype"
+        },
+        {
+          "name": "test_easy_dtype",
+          "docstring": "Test ndtype on dtypes"
+        },
+        {
+          "name": "test_flatten_dtype",
+          "docstring": "Testing flatten_dtype"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_no_delimiter",
+      "docstring": "Test LineSplitter w/o delimiter"
+    },
+    {
+      "name": "test_space_delimiter",
+      "docstring": "Test space delimiter"
+    },
+    {
+      "name": "test_tab_delimiter",
+      "docstring": "Test tab delimiter"
+    },
+    {
+      "name": "test_other_delimiter",
+      "docstring": "Test LineSplitter on delimiter"
+    },
+    {
+      "name": "test_constant_fixed_width",
+      "docstring": "Test LineSplitter w/ fixed-width fields"
+    },
+    {
+      "name": "test_variable_fixed_width",
+      "docstring": null
+    },
+    {
+      "name": "test_case_sensitivity",
+      "docstring": "Test case sensitivity"
+    },
+    {
+      "name": "test_excludelist",
+      "docstring": "Test excludelist"
+    },
+    {
+      "name": "test_missing_names",
+      "docstring": "Test validate missing names"
+    },
+    {
+      "name": "test_validate_nb_names",
+      "docstring": "Test validate nb names"
+    },
+    {
+      "name": "test_validate_wo_names",
+      "docstring": "Test validate no names"
+    },
+    {
+      "name": "test_creation",
+      "docstring": "Test creation of a StringConverter"
+    },
+    {
+      "name": "test_upgrade",
+      "docstring": "Tests the upgrade method."
+    },
+    {
+      "name": "test_missing",
+      "docstring": "Tests the use of missing values."
+    },
+    {
+      "name": "test_upgrademapper",
+      "docstring": "Tests updatemapper"
+    },
+    {
+      "name": "test_string_to_object",
+      "docstring": "Make sure that string-to-object functions are properly recognized"
+    },
+    {
+      "name": "test_keep_default",
+      "docstring": "Make sure we don't lose an explicit default"
+    },
+    {
+      "name": "test_keep_default_zero",
+      "docstring": "Check that we don't lose a default of 0"
+    },
+    {
+      "name": "test_keep_missing_values",
+      "docstring": "Check that we're not losing missing values"
+    },
+    {
+      "name": "test_int64_dtype",
+      "docstring": "Check that int64 integer types can be specified"
+    },
+    {
+      "name": "test_uint64_dtype",
+      "docstring": "Check that uint64 integer types can be specified"
+    },
+    {
+      "name": "test_has_nested_dtype",
+      "docstring": "Test has_nested_dtype"
+    },
+    {
+      "name": "test_easy_dtype",
+      "docstring": "Test ndtype on dtypes"
+    },
+    {
+      "name": "test_flatten_dtype",
+      "docstring": "Testing flatten_dtype"
+    }
+  ],
+  "innovations": []
+}

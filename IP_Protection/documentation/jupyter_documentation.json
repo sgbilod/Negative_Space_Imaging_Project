@@ -1,0 +1,35 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\jupyter.py",
+  "classes": [
+    {
+      "name": "JupyterRenderable",
+      "docstring": "A shim to write html to Jupyter notebook.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "JupyterMixin",
+      "docstring": "Add to an Rich renderable to make it render in Jupyter notebook.",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "display",
+      "docstring": "Render segments to Jupyter."
+    },
+    {
+      "name": "print",
+      "docstring": "Proxy for Console print."
+    },
+    {
+      "name": "escape",
+      "docstring": "Escape html."
+    }
+  ],
+  "innovations": []
+}

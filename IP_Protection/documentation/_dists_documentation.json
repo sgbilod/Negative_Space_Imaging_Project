@@ -1,0 +1,180 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\metadata\\importlib\\_dists.py",
+  "classes": [
+    {
+      "name": "WheelDistribution",
+      "docstring": "An ``importlib.metadata.Distribution`` read from a wheel.\n\nAlthough ``importlib.metadata.PathDistribution`` accepts ``zipfile.Path``,\nits implementation is too \"lazy\" for pip's needs (we can't keep the ZipFile\nhandle open for the entire lifetime of the distribution object).\n\nThis implementation eagerly reads the entire metadata directory into the\nmemory instead, and operates from that.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "from_zipfile",
+          "docstring": null
+        },
+        {
+          "name": "iterdir",
+          "docstring": null
+        },
+        {
+          "name": "read_text",
+          "docstring": null
+        },
+        {
+          "name": "locate_file",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Distribution",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "from_directory",
+          "docstring": null
+        },
+        {
+          "name": "from_metadata_file_contents",
+          "docstring": null
+        },
+        {
+          "name": "from_wheel",
+          "docstring": null
+        },
+        {
+          "name": "location",
+          "docstring": null
+        },
+        {
+          "name": "info_location",
+          "docstring": null
+        },
+        {
+          "name": "installed_location",
+          "docstring": null
+        },
+        {
+          "name": "canonical_name",
+          "docstring": null
+        },
+        {
+          "name": "version",
+          "docstring": null
+        },
+        {
+          "name": "raw_version",
+          "docstring": null
+        },
+        {
+          "name": "is_file",
+          "docstring": null
+        },
+        {
+          "name": "iter_distutils_script_names",
+          "docstring": null
+        },
+        {
+          "name": "read_text",
+          "docstring": null
+        },
+        {
+          "name": "iter_entry_points",
+          "docstring": null
+        },
+        {
+          "name": "iter_provided_extras",
+          "docstring": null
+        },
+        {
+          "name": "iter_dependencies",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "from_zipfile",
+      "docstring": null
+    },
+    {
+      "name": "iterdir",
+      "docstring": null
+    },
+    {
+      "name": "read_text",
+      "docstring": null
+    },
+    {
+      "name": "locate_file",
+      "docstring": null
+    },
+    {
+      "name": "from_directory",
+      "docstring": null
+    },
+    {
+      "name": "from_metadata_file_contents",
+      "docstring": null
+    },
+    {
+      "name": "from_wheel",
+      "docstring": null
+    },
+    {
+      "name": "location",
+      "docstring": null
+    },
+    {
+      "name": "info_location",
+      "docstring": null
+    },
+    {
+      "name": "installed_location",
+      "docstring": null
+    },
+    {
+      "name": "canonical_name",
+      "docstring": null
+    },
+    {
+      "name": "version",
+      "docstring": null
+    },
+    {
+      "name": "raw_version",
+      "docstring": null
+    },
+    {
+      "name": "is_file",
+      "docstring": null
+    },
+    {
+      "name": "iter_distutils_script_names",
+      "docstring": null
+    },
+    {
+      "name": "read_text",
+      "docstring": null
+    },
+    {
+      "name": "iter_entry_points",
+      "docstring": null
+    },
+    {
+      "name": "iter_provided_extras",
+      "docstring": null
+    },
+    {
+      "name": "iter_dependencies",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

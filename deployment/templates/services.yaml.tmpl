@@ -1,0 +1,172 @@
+apiVersion: v1
+kind: ServiceDeployment
+metadata:
+  name: {{ cluster_name }}-services
+  labels:
+    cluster: {{ cluster_name }}
+spec:
+  services:
+    # API Gateway Service
+    - name: {{ cluster_name }}-api-gateway
+      image: {{ services.api_gateway.image }}
+      replicas: {{ services.api_gateway.replicas }}
+      resources:
+        limits:
+          cpu: {{ services.api_gateway.resources.limits.cpu }}
+          memory: {{ services.api_gateway.resources.limits.memory }}
+        requests:
+          cpu: {{ services.api_gateway.resources.requests.cpu }}
+          memory: {{ services.api_gateway.resources.requests.memory }}
+      ports:
+        - name: http
+          containerPort: 8080
+          servicePort: 80
+        - name: https
+          containerPort: 8443
+          servicePort: 443
+      environment:
+        {{#services.api_gateway.environment_variables}}
+        - name: {{ name }}
+          value: {{ value }}
+        {{/services.api_gateway.environment_variables}}
+      healthCheck:
+        path: /health
+        port: 8080
+        initialDelaySeconds: 30
+        periodSeconds: 10
+      nodeSelector:
+        nodeType: edge
+
+    # Image Processing Service
+    - name: {{ cluster_name }}-image-processing
+      image: {{ services.image_processing.image }}
+      replicas: {{ services.image_processing.replicas }}
+      resources:
+        limits:
+          cpu: {{ services.image_processing.resources.limits.cpu }}
+          memory: {{ services.image_processing.resources.limits.memory }}
+          nvidia.com/gpu: {{ services.image_processing.resources.limits.gpu }}
+        requests:
+          cpu: {{ services.image_processing.resources.requests.cpu }}
+          memory: {{ services.image_processing.resources.requests.memory }}
+          nvidia.com/gpu: {{ services.image_processing.resources.requests.gpu }}
+      ports:
+        - name: grpc
+          containerPort: 9000
+          servicePort: 9000
+      environment:
+        {{#services.image_processing.environment_variables}}
+        - name: {{ name }}
+          value: {{ value }}
+        {{/services.image_processing.environment_variables}}
+      volumeMounts:
+        - name: models
+          mountPath: /app/models
+          readOnly: true
+        - name: processing
+          mountPath: /app/processing
+        - name: data
+          mountPath: /app/data
+      healthCheck:
+        path: /health
+        port: 8080
+        initialDelaySeconds: 60
+        periodSeconds: 15
+      nodeSelector:
+        nodeType: compute
+
+    # Data Storage Service
+    - name: {{ cluster_name }}-data-storage
+      image: {{ services.data_storage.image }}
+      replicas: {{ services.data_storage.replicas }}
+      resources:
+        limits:
+          cpu: {{ services.data_storage.resources.limits.cpu }}
+          memory: {{ services.data_storage.resources.limits.memory }}
+        requests:
+          cpu: {{ services.data_storage.resources.requests.cpu }}
+          memory: {{ services.data_storage.resources.requests.memory }}
+      ports:
+        - name: http
+          containerPort: 8000
+          servicePort: 8000
+      environment:
+        {{#services.data_storage.environment_variables}}
+        - name: {{ name }}
+          value: {{ value }}
+        {{/services.data_storage.environment_variables}}
+      volumeMounts:
+        - name: data
+          mountPath: /app/data
+      healthCheck:
+        path: /health
+        port: 8000
+        initialDelaySeconds: 30
+        periodSeconds: 10
+      nodeSelector:
+        nodeType: storage
+
+    # Distributed Computing Service
+    - name: {{ cluster_name }}-distributed-computing
+      image: {{ services.distributed_computing.image }}
+      replicas: {{ services.distributed_computing.replicas }}
+      resources:
+        limits:
+          cpu: {{ services.distributed_computing.resources.limits.cpu }}
+          memory: {{ services.distributed_computing.resources.limits.memory }}
+        requests:
+          cpu: {{ services.distributed_computing.resources.requests.cpu }}
+          memory: {{ services.distributed_computing.resources.requests.memory }}
+      ports:
+        - name: http
+          containerPort: 8787
+          servicePort: 8787
+      environment:
+        {{#services.distributed_computing.environment_variables}}
+        - name: {{ name }}
+          value: {{ value }}
+        {{/services.distributed_computing.environment_variables}}
+      volumeMounts:
+        - name: data
+          mountPath: /app/data
+        - name: processing
+          mountPath: /app/processing
+      healthCheck:
+        path: /health
+        port: 8787
+        initialDelaySeconds: 45
+        periodSeconds: 15
+      nodeSelector:
+        nodeType: compute
+
+    # Security Service
+    - name: {{ cluster_name }}-security
+      image: {{ services.security.image }}
+      replicas: {{ services.security.replicas }}
+      resources:
+        limits:
+          cpu: {{ services.security.resources.limits.cpu }}
+          memory: {{ services.security.resources.limits.memory }}
+        requests:
+          cpu: {{ services.security.resources.requests.cpu }}
+          memory: {{ services.security.resources.requests.memory }}
+      ports:
+        - name: http
+          containerPort: 8443
+          servicePort: 8443
+      environment:
+        {{#services.security.environment_variables}}
+        - name: {{ name }}
+          value: {{ value }}
+        {{/services.security.environment_variables}}
+      volumeMounts:
+        - name: security-config
+          mountPath: /app/config
+          readOnly: true
+      healthCheck:
+        path: /health
+        port: 8080
+        initialDelaySeconds: 30
+        periodSeconds: 10
+      nodeSelector:
+        nodeType: master

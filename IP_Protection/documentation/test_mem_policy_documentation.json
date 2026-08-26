@@ -1,0 +1,57 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_mem_policy.py",
+  "classes": [
+    {
+      "name": "MyArr",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_module",
+      "docstring": "Add a memory policy that returns a false pointer 64 bytes into the\nactual allocation, and fill the prefix with some text. Then check at each\nmemory manipulation that the prefix exists, to make sure all alloc/realloc/\nfree/calloc go via the functions here."
+    },
+    {
+      "name": "test_set_policy",
+      "docstring": null
+    },
+    {
+      "name": "test_default_policy_singleton",
+      "docstring": null
+    },
+    {
+      "name": "test_policy_propagation",
+      "docstring": null
+    },
+    {
+      "name": "test_context_locality",
+      "docstring": null
+    },
+    {
+      "name": "concurrent_thread1",
+      "docstring": null
+    },
+    {
+      "name": "concurrent_thread2",
+      "docstring": null
+    },
+    {
+      "name": "test_thread_locality",
+      "docstring": null
+    },
+    {
+      "name": "test_new_policy",
+      "docstring": null
+    },
+    {
+      "name": "test_switch_owner",
+      "docstring": null
+    },
+    {
+      "name": "test_owner_is_base",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

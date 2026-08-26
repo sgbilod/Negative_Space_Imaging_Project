@@ -1,0 +1,29 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\varLib\\instancer\\names.py",
+  "classes": [
+    {
+      "name": "NameID",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "getVariationNameIDs",
+      "docstring": null
+    },
+    {
+      "name": "pruningUnusedNames",
+      "docstring": null
+    },
+    {
+      "name": "updateNameTable",
+      "docstring": "Update instatiated variable font's name table using STAT AxisValues.\n\nRaises ValueError if the STAT table is missing or an Axis Value table is\nmissing for requested axis locations.\n\nFirst, collect all STAT AxisValues that match the new default axis locations\n(excluding \"elided\" ones); concatenate the strings in design axis order,\nwhile giving priority to \"synthetic\" values (Format 4), to form the\ntypographic subfamily name associated with the new default instance.\nFinally, update all related records in the name table, making sure that\nlegacy family/sub-family names conform to the the R/I/B/BI (Regular, Italic,\nBold, Bold Italic) naming model.\n\nExample: Updating a partial variable font:\n| >>> ttFont = TTFont(\"OpenSans[wdth,wght].ttf\")\n| >>> updateNameTable(ttFont, {\"wght\": (400, 900), \"wdth\": 75})\n\nThe name table records will be updated in the following manner:\nNameID 1 familyName: \"Open Sans\" --> \"Open Sans Condensed\"\nNameID 2 subFamilyName: \"Regular\" --> \"Regular\"\nNameID 3 Unique font identifier: \"3.000;GOOG;OpenSans-Regular\" -->         \"3.000;GOOG;OpenSans-Condensed\"\nNameID 4 Full font name: \"Open Sans Regular\" --> \"Open Sans Condensed\"\nNameID 6 PostScript name: \"OpenSans-Regular\" --> \"OpenSans-Condensed\"\nNameID 16 Typographic Family name: None --> \"Open Sans\"\nNameID 17 Typographic Subfamily name: None --> \"Condensed\"\n\nReferences:\nhttps://docs.microsoft.com/en-us/typography/opentype/spec/stat\nhttps://docs.microsoft.com/en-us/typography/opentype/spec/name#name-ids"
+    },
+    {
+      "name": "checkAxisValuesExist",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

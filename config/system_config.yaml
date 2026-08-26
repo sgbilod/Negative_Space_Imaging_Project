@@ -1,0 +1,7 @@
+environment:
+  cuda_support: false
+  opencv_version: '>=4.7.0'
+  python_version: '>=3.8'
+logging:
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  level: INFO

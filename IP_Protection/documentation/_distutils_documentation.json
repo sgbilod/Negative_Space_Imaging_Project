@@ -1,0 +1,32 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\f2py\\_backends\\_distutils.py",
+  "classes": [
+    {
+      "name": "DistutilsBackend",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "compile",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "                self.build_dir,\n                \"--build-platlib\",\n                \".\",\n                \"--disable-optimization\",\n            ]\n        )\n"
+    }
+  ]
+}

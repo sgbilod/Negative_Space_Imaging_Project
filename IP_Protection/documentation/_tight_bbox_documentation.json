@@ -1,0 +1,19 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\_tight_bbox.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "adjust_bbox",
+      "docstring": "Temporarily adjust the figure so that only the specified area\n(bbox_inches) is saved.\n\nIt modifies fig.bbox, fig.bbox_inches,\nfig.transFigure._boxout, and fig.patch.  While the figure size\nchanges, the scale of the original figure is conserved.  A\nfunction which restores the original values are returned."
+    },
+    {
+      "name": "process_figure_for_rasterizing",
+      "docstring": "A function that needs to be called when figure dpi changes during the\ndrawing (e.g., rasterizing).  It recovers the bbox and re-adjust it with\nthe new dpi."
+    },
+    {
+      "name": "restore_bbox",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

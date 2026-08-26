@@ -1,0 +1,433 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_simd.py",
+  "classes": [
+    {
+      "name": "_Test_Utility",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_SIMD_BOOL",
+      "docstring": "To test all boolean vector types at once",
+      "methods": [
+        {
+          "name": "test_operators_logical",
+          "docstring": "Logical operations for boolean types.\nTest intrinsics:\n    npyv_xor_##SFX, npyv_and_##SFX, npyv_or_##SFX, npyv_not_##SFX,\n    npyv_andc_b8, npvy_orc_b8, nvpy_xnor_b8"
+        },
+        {
+          "name": "test_tobits",
+          "docstring": null
+        },
+        {
+          "name": "test_pack",
+          "docstring": "Pack multiple vectors into one\nTest intrinsics:\n    npyv_pack_b8_b16\n    npyv_pack_b8_b32\n    npyv_pack_b8_b64"
+        },
+        {
+          "name": "test_operators_crosstest",
+          "docstring": "Test intrinsics:\n    npyv_any_##SFX\n    npyv_all_##SFX"
+        }
+      ]
+    },
+    {
+      "name": "_SIMD_INT",
+      "docstring": "To test all integer vector types at once",
+      "methods": [
+        {
+          "name": "test_operators_shift",
+          "docstring": null
+        },
+        {
+          "name": "test_arithmetic_subadd_saturated",
+          "docstring": null
+        },
+        {
+          "name": "test_math_max_min",
+          "docstring": null
+        },
+        {
+          "name": "test_reduce_max_min",
+          "docstring": "Test intrinsics:\n    npyv_reduce_max_##sfx\n    npyv_reduce_min_##sfx"
+        }
+      ]
+    },
+    {
+      "name": "_SIMD_FP32",
+      "docstring": "To only test single precision",
+      "methods": [
+        {
+          "name": "test_conversions",
+          "docstring": "Round to nearest even integer, assume CPU control register is set to rounding.\nTest intrinsics:\n    npyv_round_s32_##SFX"
+        }
+      ]
+    },
+    {
+      "name": "_SIMD_FP64",
+      "docstring": "To only test double precision",
+      "methods": [
+        {
+          "name": "test_conversions",
+          "docstring": "Round to nearest even integer, assume CPU control register is set to rounding.\nTest intrinsics:\n    npyv_round_s32_##SFX"
+        }
+      ]
+    },
+    {
+      "name": "_SIMD_FP",
+      "docstring": "To test all float vector types at once",
+      "methods": [
+        {
+          "name": "test_arithmetic_fused",
+          "docstring": null
+        },
+        {
+          "name": "test_abs",
+          "docstring": null
+        },
+        {
+          "name": "test_sqrt",
+          "docstring": null
+        },
+        {
+          "name": "test_square",
+          "docstring": null
+        },
+        {
+          "name": "test_rounding",
+          "docstring": "Test intrinsics:\n    npyv_rint_##SFX\n    npyv_ceil_##SFX\n    npyv_trunc_##SFX\n    npyv_floor##SFX"
+        },
+        {
+          "name": "test_max_min",
+          "docstring": "Test intrinsics:\n    npyv_max_##sfx\n    npyv_maxp_##sfx\n    npyv_maxn_##sfx\n    npyv_min_##sfx\n    npyv_minp_##sfx\n    npyv_minn_##sfx\n    npyv_reduce_max_##sfx\n    npyv_reduce_maxp_##sfx\n    npyv_reduce_maxn_##sfx\n    npyv_reduce_min_##sfx\n    npyv_reduce_minp_##sfx\n    npyv_reduce_minn_##sfx"
+        },
+        {
+          "name": "test_reciprocal",
+          "docstring": null
+        },
+        {
+          "name": "test_special_cases",
+          "docstring": "Compare Not NaN. Test intrinsics:\n    npyv_notnan_##SFX"
+        },
+        {
+          "name": "test_unary_invalid_fpexception",
+          "docstring": null
+        },
+        {
+          "name": "test_comparison_with_nan",
+          "docstring": null
+        },
+        {
+          "name": "test_operators_crosstest",
+          "docstring": "Test intrinsics:\n    npyv_any_##SFX\n    npyv_all_##SFX"
+        }
+      ]
+    },
+    {
+      "name": "_SIMD_ALL",
+      "docstring": "To test all vector types at once",
+      "methods": [
+        {
+          "name": "test_memory_load",
+          "docstring": null
+        },
+        {
+          "name": "test_memory_store",
+          "docstring": null
+        },
+        {
+          "name": "test_memory_partial_load",
+          "docstring": null
+        },
+        {
+          "name": "test_memory_partial_store",
+          "docstring": null
+        },
+        {
+          "name": "test_memory_noncont_load",
+          "docstring": null
+        },
+        {
+          "name": "test_memory_noncont_partial_load",
+          "docstring": null
+        },
+        {
+          "name": "test_memory_noncont_store",
+          "docstring": null
+        },
+        {
+          "name": "test_memory_noncont_partial_store",
+          "docstring": null
+        },
+        {
+          "name": "test_lut",
+          "docstring": "Test lookup table intrinsics:\n    npyv_lut32_##sfx\n    npyv_lut16_##sfx"
+        },
+        {
+          "name": "test_misc",
+          "docstring": null
+        },
+        {
+          "name": "test_reorder",
+          "docstring": null
+        },
+        {
+          "name": "test_reorder_rev64",
+          "docstring": null
+        },
+        {
+          "name": "test_reorder_permi128",
+          "docstring": "Test permuting elements for each 128-bit lane.\nnpyv_permi128_##sfx"
+        },
+        {
+          "name": "test_operators_comparison",
+          "docstring": null
+        },
+        {
+          "name": "test_operators_logical",
+          "docstring": null
+        },
+        {
+          "name": "test_operators_crosstest",
+          "docstring": "Test intrinsics:\n    npyv_any_##SFX\n    npyv_all_##SFX"
+        },
+        {
+          "name": "test_conversion_boolean",
+          "docstring": null
+        },
+        {
+          "name": "test_conversion_expand",
+          "docstring": "Test expand intrinsics:\n    npyv_expand_u16_u8\n    npyv_expand_u32_u16"
+        },
+        {
+          "name": "test_arithmetic_subadd",
+          "docstring": null
+        },
+        {
+          "name": "test_arithmetic_mul",
+          "docstring": null
+        },
+        {
+          "name": "test_arithmetic_div",
+          "docstring": null
+        },
+        {
+          "name": "test_arithmetic_intdiv",
+          "docstring": "Test integer division intrinsics:\n    npyv_divisor_##sfx\n    npyv_divc_##sfx"
+        },
+        {
+          "name": "test_arithmetic_reduce_sum",
+          "docstring": "Test reduce sum intrinsics:\n    npyv_sum_##sfx"
+        },
+        {
+          "name": "test_arithmetic_reduce_sumup",
+          "docstring": "Test extend reduce sum intrinsics:\n    npyv_sumup_##sfx"
+        },
+        {
+          "name": "test_mask_conditional",
+          "docstring": "Conditional addition and subtraction for all supported data types.\nTest intrinsics:\n    npyv_ifadd_##SFX, npyv_ifsub_##SFX"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "check_floatstatus",
+      "docstring": null
+    },
+    {
+      "name": "test_operators_logical",
+      "docstring": "Logical operations for boolean types.\nTest intrinsics:\n    npyv_xor_##SFX, npyv_and_##SFX, npyv_or_##SFX, npyv_not_##SFX,\n    npyv_andc_b8, npvy_orc_b8, nvpy_xnor_b8"
+    },
+    {
+      "name": "test_tobits",
+      "docstring": null
+    },
+    {
+      "name": "test_pack",
+      "docstring": "Pack multiple vectors into one\nTest intrinsics:\n    npyv_pack_b8_b16\n    npyv_pack_b8_b32\n    npyv_pack_b8_b64"
+    },
+    {
+      "name": "test_operators_crosstest",
+      "docstring": "Test intrinsics:\n    npyv_any_##SFX\n    npyv_all_##SFX"
+    },
+    {
+      "name": "test_operators_shift",
+      "docstring": null
+    },
+    {
+      "name": "test_arithmetic_subadd_saturated",
+      "docstring": null
+    },
+    {
+      "name": "test_math_max_min",
+      "docstring": null
+    },
+    {
+      "name": "test_reduce_max_min",
+      "docstring": "Test intrinsics:\n    npyv_reduce_max_##sfx\n    npyv_reduce_min_##sfx"
+    },
+    {
+      "name": "test_conversions",
+      "docstring": "Round to nearest even integer, assume CPU control register is set to rounding.\nTest intrinsics:\n    npyv_round_s32_##SFX"
+    },
+    {
+      "name": "test_conversions",
+      "docstring": "Round to nearest even integer, assume CPU control register is set to rounding.\nTest intrinsics:\n    npyv_round_s32_##SFX"
+    },
+    {
+      "name": "test_arithmetic_fused",
+      "docstring": null
+    },
+    {
+      "name": "test_abs",
+      "docstring": null
+    },
+    {
+      "name": "test_sqrt",
+      "docstring": null
+    },
+    {
+      "name": "test_square",
+      "docstring": null
+    },
+    {
+      "name": "test_rounding",
+      "docstring": "Test intrinsics:\n    npyv_rint_##SFX\n    npyv_ceil_##SFX\n    npyv_trunc_##SFX\n    npyv_floor##SFX"
+    },
+    {
+      "name": "test_max_min",
+      "docstring": "Test intrinsics:\n    npyv_max_##sfx\n    npyv_maxp_##sfx\n    npyv_maxn_##sfx\n    npyv_min_##sfx\n    npyv_minp_##sfx\n    npyv_minn_##sfx\n    npyv_reduce_max_##sfx\n    npyv_reduce_maxp_##sfx\n    npyv_reduce_maxn_##sfx\n    npyv_reduce_min_##sfx\n    npyv_reduce_minp_##sfx\n    npyv_reduce_minn_##sfx"
+    },
+    {
+      "name": "test_reciprocal",
+      "docstring": null
+    },
+    {
+      "name": "test_special_cases",
+      "docstring": "Compare Not NaN. Test intrinsics:\n    npyv_notnan_##SFX"
+    },
+    {
+      "name": "test_unary_invalid_fpexception",
+      "docstring": null
+    },
+    {
+      "name": "test_comparison_with_nan",
+      "docstring": null
+    },
+    {
+      "name": "test_operators_crosstest",
+      "docstring": "Test intrinsics:\n    npyv_any_##SFX\n    npyv_all_##SFX"
+    },
+    {
+      "name": "test_memory_load",
+      "docstring": null
+    },
+    {
+      "name": "test_memory_store",
+      "docstring": null
+    },
+    {
+      "name": "test_memory_partial_load",
+      "docstring": null
+    },
+    {
+      "name": "test_memory_partial_store",
+      "docstring": null
+    },
+    {
+      "name": "test_memory_noncont_load",
+      "docstring": null
+    },
+    {
+      "name": "test_memory_noncont_partial_load",
+      "docstring": null
+    },
+    {
+      "name": "test_memory_noncont_store",
+      "docstring": null
+    },
+    {
+      "name": "test_memory_noncont_partial_store",
+      "docstring": null
+    },
+    {
+      "name": "test_lut",
+      "docstring": "Test lookup table intrinsics:\n    npyv_lut32_##sfx\n    npyv_lut16_##sfx"
+    },
+    {
+      "name": "test_misc",
+      "docstring": null
+    },
+    {
+      "name": "test_reorder",
+      "docstring": null
+    },
+    {
+      "name": "test_reorder_rev64",
+      "docstring": null
+    },
+    {
+      "name": "test_reorder_permi128",
+      "docstring": "Test permuting elements for each 128-bit lane.\nnpyv_permi128_##sfx"
+    },
+    {
+      "name": "test_operators_comparison",
+      "docstring": null
+    },
+    {
+      "name": "test_operators_logical",
+      "docstring": null
+    },
+    {
+      "name": "test_operators_crosstest",
+      "docstring": "Test intrinsics:\n    npyv_any_##SFX\n    npyv_all_##SFX"
+    },
+    {
+      "name": "test_conversion_boolean",
+      "docstring": null
+    },
+    {
+      "name": "test_conversion_expand",
+      "docstring": "Test expand intrinsics:\n    npyv_expand_u16_u8\n    npyv_expand_u32_u16"
+    },
+    {
+      "name": "test_arithmetic_subadd",
+      "docstring": null
+    },
+    {
+      "name": "test_arithmetic_mul",
+      "docstring": null
+    },
+    {
+      "name": "test_arithmetic_div",
+      "docstring": null
+    },
+    {
+      "name": "test_arithmetic_intdiv",
+      "docstring": "Test integer division intrinsics:\n    npyv_divisor_##sfx\n    npyv_divc_##sfx"
+    },
+    {
+      "name": "test_arithmetic_reduce_sum",
+      "docstring": "Test reduce sum intrinsics:\n    npyv_sum_##sfx"
+    },
+    {
+      "name": "test_arithmetic_reduce_sumup",
+      "docstring": "Test extend reduce sum intrinsics:\n    npyv_sumup_##sfx"
+    },
+    {
+      "name": "test_mask_conditional",
+      "docstring": "Conditional addition and subtraction for all supported data types.\nTest intrinsics:\n    npyv_ifadd_##SFX, npyv_ifsub_##SFX"
+    },
+    {
+      "name": "to_bool",
+      "docstring": null
+    },
+    {
+      "name": "to_bool",
+      "docstring": null
+    },
+    {
+      "name": "trunc_div",
+      "docstring": "Divide towards zero works with large integers > 2^53,\nand wrap around overflow similar to what C does."
+    }
+  ],
+  "innovations": []
+}

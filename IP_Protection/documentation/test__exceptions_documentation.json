@@ -1,0 +1,82 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test__exceptions.py",
+  "classes": [
+    {
+      "name": "TestArrayMemoryError",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_pickling",
+          "docstring": "Test that _ArrayMemoryError can be pickled "
+        },
+        {
+          "name": "test_str",
+          "docstring": null
+        },
+        {
+          "name": "test__size_to_string",
+          "docstring": "Test e._size_to_string "
+        },
+        {
+          "name": "test__total_size",
+          "docstring": "Test e._total_size "
+        }
+      ]
+    },
+    {
+      "name": "TestUFuncNoLoopError",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_pickling",
+          "docstring": "Test that _UFuncNoLoopError can be pickled "
+        }
+      ]
+    },
+    {
+      "name": "TestAxisError",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_attr",
+          "docstring": "Validate attribute types."
+        },
+        {
+          "name": "test_pickling",
+          "docstring": "Test that `AxisError` can be pickled."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_pickling",
+      "docstring": "Test that _ArrayMemoryError can be pickled "
+    },
+    {
+      "name": "test_str",
+      "docstring": null
+    },
+    {
+      "name": "test__size_to_string",
+      "docstring": "Test e._size_to_string "
+    },
+    {
+      "name": "test__total_size",
+      "docstring": "Test e._total_size "
+    },
+    {
+      "name": "test_pickling",
+      "docstring": "Test that _UFuncNoLoopError can be pickled "
+    },
+    {
+      "name": "test_attr",
+      "docstring": "Validate attribute types."
+    },
+    {
+      "name": "test_pickling",
+      "docstring": "Test that `AxisError` can be pickled."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,96 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\poolmanager.py",
+  "classes": [
+    {
+      "name": "PoolManager",
+      "docstring": "Allows for arbitrary requests while transparently keeping track of\nnecessary connection pools for you.\n\n:param num_pools:\n    Number of connection pools to cache before discarding the least\n    recently used pool.\n\n:param headers:\n    Headers to include with all requests, unless other headers are given\n    explicitly.\n\n:param \\**connection_pool_kw:\n    Additional parameters are used to create fresh\n    :class:`urllib3.connectionpool.ConnectionPool` instances.\n\nExample::\n\n    >>> manager = PoolManager(num_pools=2)\n    >>> r = manager.request('GET', 'http://google.com/')\n    >>> r = manager.request('GET', 'http://google.com/mail')\n    >>> r = manager.request('GET', 'http://yahoo.com/')\n    >>> len(manager.pools)\n    2",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "clear",
+          "docstring": "Empty our store of pools and direct them all to close.\n\nThis will not affect in-flight connections, but they will not be\nre-used after completion."
+        },
+        {
+          "name": "connection_from_host",
+          "docstring": "Get a :class:`urllib3.connectionpool.ConnectionPool` based on the host, port, and scheme.\n\nIf ``port`` isn't given, it will be derived from the ``scheme`` using\n``urllib3.connectionpool.port_by_scheme``. If ``pool_kwargs`` is\nprovided, it is merged with the instance's ``connection_pool_kw``\nvariable and used to create the new connection pool, if one is\nneeded."
+        },
+        {
+          "name": "connection_from_context",
+          "docstring": "Get a :class:`urllib3.connectionpool.ConnectionPool` based on the request context.\n\n``request_context`` must at least contain the ``scheme`` key and its\nvalue must be a key in ``key_fn_by_scheme`` instance variable."
+        },
+        {
+          "name": "connection_from_pool_key",
+          "docstring": "Get a :class:`urllib3.connectionpool.ConnectionPool` based on the provided pool key.\n\n``pool_key`` should be a namedtuple that only contains immutable\nobjects. At a minimum it must have the ``scheme``, ``host``, and\n``port`` fields."
+        },
+        {
+          "name": "connection_from_url",
+          "docstring": "Similar to :func:`urllib3.connectionpool.connection_from_url`.\n\nIf ``pool_kwargs`` is not provided and a new pool needs to be\nconstructed, ``self.connection_pool_kw`` is used to initialize\nthe :class:`urllib3.connectionpool.ConnectionPool`. If ``pool_kwargs``\nis provided, it is used instead. Note that if a new pool does not\nneed to be created for the request, the provided ``pool_kwargs`` are\nnot used."
+        },
+        {
+          "name": "urlopen",
+          "docstring": "Same as :meth:`urllib3.HTTPConnectionPool.urlopen`\nwith custom cross-host redirect logic and only sends the request-uri\nportion of the ``url``.\n\nThe given ``url`` parameter must be absolute, such that an appropriate\n:class:`urllib3.connectionpool.ConnectionPool` can be chosen for it."
+        }
+      ]
+    },
+    {
+      "name": "ProxyManager",
+      "docstring": "Behaves just like :class:`PoolManager`, but sends all requests through\nthe defined proxy, using the CONNECT method for HTTPS URLs.\n\n:param proxy_url:\n    The URL of the proxy to be used.\n\n:param proxy_headers:\n    A dictionary containing headers that will be sent to the proxy. In case\n    of HTTP they are being sent with each request, while in the\n    HTTPS/CONNECT case they are sent only once. Could be used for proxy\n    authentication.\n\n:param proxy_ssl_context:\n    The proxy SSL context is used to establish the TLS connection to the\n    proxy when using HTTPS proxies.\n\n:param use_forwarding_for_https:\n    (Defaults to False) If set to True will forward requests to the HTTPS\n    proxy to be made on behalf of the client instead of creating a TLS\n    tunnel via the CONNECT method. **Enabling this flag means that request\n    and response headers and content will be visible from the HTTPS proxy**\n    whereas tunneling keeps request and response headers and content\n    private.  IP address, target hostname, SNI, and port are always visible\n    to an HTTPS proxy even when this flag is disabled.\n\nExample:\n    >>> proxy = urllib3.ProxyManager('http://localhost:3128/')\n    >>> r1 = proxy.request('GET', 'http://google.com/')\n    >>> r2 = proxy.request('GET', 'http://httpbin.org/')\n    >>> len(proxy.pools)\n    1\n    >>> r3 = proxy.request('GET', 'https://httpbin.org/')\n    >>> r4 = proxy.request('GET', 'https://twitter.com/')\n    >>> len(proxy.pools)\n    3",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "connection_from_host",
+          "docstring": null
+        },
+        {
+          "name": "urlopen",
+          "docstring": "Same as HTTP(S)ConnectionPool.urlopen, ``url`` must be absolute."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "proxy_from_url",
+      "docstring": null
+    },
+    {
+      "name": "clear",
+      "docstring": "Empty our store of pools and direct them all to close.\n\nThis will not affect in-flight connections, but they will not be\nre-used after completion."
+    },
+    {
+      "name": "connection_from_host",
+      "docstring": "Get a :class:`urllib3.connectionpool.ConnectionPool` based on the host, port, and scheme.\n\nIf ``port`` isn't given, it will be derived from the ``scheme`` using\n``urllib3.connectionpool.port_by_scheme``. If ``pool_kwargs`` is\nprovided, it is merged with the instance's ``connection_pool_kw``\nvariable and used to create the new connection pool, if one is\nneeded."
+    },
+    {
+      "name": "connection_from_context",
+      "docstring": "Get a :class:`urllib3.connectionpool.ConnectionPool` based on the request context.\n\n``request_context`` must at least contain the ``scheme`` key and its\nvalue must be a key in ``key_fn_by_scheme`` instance variable."
+    },
+    {
+      "name": "connection_from_pool_key",
+      "docstring": "Get a :class:`urllib3.connectionpool.ConnectionPool` based on the provided pool key.\n\n``pool_key`` should be a namedtuple that only contains immutable\nobjects. At a minimum it must have the ``scheme``, ``host``, and\n``port`` fields."
+    },
+    {
+      "name": "connection_from_url",
+      "docstring": "Similar to :func:`urllib3.connectionpool.connection_from_url`.\n\nIf ``pool_kwargs`` is not provided and a new pool needs to be\nconstructed, ``self.connection_pool_kw`` is used to initialize\nthe :class:`urllib3.connectionpool.ConnectionPool`. If ``pool_kwargs``\nis provided, it is used instead. Note that if a new pool does not\nneed to be created for the request, the provided ``pool_kwargs`` are\nnot used."
+    },
+    {
+      "name": "urlopen",
+      "docstring": "Same as :meth:`urllib3.HTTPConnectionPool.urlopen`\nwith custom cross-host redirect logic and only sends the request-uri\nportion of the ``url``.\n\nThe given ``url`` parameter must be absolute, such that an appropriate\n:class:`urllib3.connectionpool.ConnectionPool` can be chosen for it."
+    },
+    {
+      "name": "connection_from_host",
+      "docstring": null
+    },
+    {
+      "name": "urlopen",
+      "docstring": "Same as HTTP(S)ConnectionPool.urlopen, ``url`` must be absolute."
+    }
+  ],
+  "innovations": []
+}

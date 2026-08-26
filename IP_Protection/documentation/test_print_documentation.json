@@ -1,0 +1,66 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_print.py",
+  "classes": [
+    {
+      "name": "TestCommaDecimalPointLocale",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_locale_single",
+          "docstring": null
+        },
+        {
+          "name": "test_locale_double",
+          "docstring": null
+        },
+        {
+          "name": "test_locale_longdouble",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_float_types",
+      "docstring": "Check formatting.\n\nThis is only for the str function, and only for simple types.\nThe precision of np.float32 and np.longdouble aren't the same as the\npython float precision."
+    },
+    {
+      "name": "test_nan_inf_float",
+      "docstring": "Check formatting of nan & inf.\n\nThis is only for the str function, and only for simple types.\nThe precision of np.float32 and np.longdouble aren't the same as the\npython float precision."
+    },
+    {
+      "name": "test_complex_types",
+      "docstring": "Check formatting of complex types.\n\nThis is only for the str function, and only for simple types.\nThe precision of np.float32 and np.longdouble aren't the same as the\npython float precision."
+    },
+    {
+      "name": "test_complex_inf_nan",
+      "docstring": "Check inf/nan formatting of complex types."
+    },
+    {
+      "name": "test_float_type_print",
+      "docstring": "Check formatting when using print "
+    },
+    {
+      "name": "test_complex_type_print",
+      "docstring": "Check formatting when using print "
+    },
+    {
+      "name": "test_scalar_format",
+      "docstring": "Test the str.format method with NumPy scalar types"
+    },
+    {
+      "name": "test_locale_single",
+      "docstring": null
+    },
+    {
+      "name": "test_locale_double",
+      "docstring": null
+    },
+    {
+      "name": "test_locale_longdouble",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,54 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\dateutil\\parser\\isoparser.py",
+  "classes": [
+    {
+      "name": "isoparser",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": ":param sep:\n    A single character that separates date and time portions. If\n    ``None``, the parser will accept any single character.\n    For strict ISO-8601 adherence, pass ``'T'``."
+        },
+        {
+          "name": "isoparse",
+          "docstring": "Parse an ISO-8601 datetime string into a :class:`datetime.datetime`.\n\nAn ISO-8601 datetime string consists of a date portion, followed\noptionally by a time portion - the date and time portions are separated\nby a single character separator, which is ``T`` in the official\nstandard. Incomplete date formats (such as ``YYYY-MM``) may *not* be\ncombined with a time portion.\n\nSupported date formats are:\n\nCommon:\n\n- ``YYYY``\n- ``YYYY-MM``\n- ``YYYY-MM-DD`` or ``YYYYMMDD``\n\nUncommon:\n\n- ``YYYY-Www`` or ``YYYYWww`` - ISO week (day defaults to 0)\n- ``YYYY-Www-D`` or ``YYYYWwwD`` - ISO week and day\n\nThe ISO week and day numbering follows the same logic as\n:func:`datetime.date.isocalendar`.\n\nSupported time formats are:\n\n- ``hh``\n- ``hh:mm`` or ``hhmm``\n- ``hh:mm:ss`` or ``hhmmss``\n- ``hh:mm:ss.ssssss`` (Up to 6 sub-second digits)\n\nMidnight is a special case for `hh`, as the standard supports both\n00:00 and 24:00 as a representation. The decimal separator can be\neither a dot or a comma.\n\n\n.. caution::\n\n    Support for fractional components other than seconds is part of the\n    ISO-8601 standard, but is not currently implemented in this parser.\n\nSupported time zone offset formats are:\n\n- `Z` (UTC)\n- `\u00b1HH:MM`\n- `\u00b1HHMM`\n- `\u00b1HH`\n\nOffsets will be represented as :class:`dateutil.tz.tzoffset` objects,\nwith the exception of UTC, which will be represented as\n:class:`dateutil.tz.tzutc`. Time zone offsets equivalent to UTC (such\nas `+00:00`) will also be represented as :class:`dateutil.tz.tzutc`.\n\n:param dt_str:\n    A string or stream containing only an ISO-8601 datetime string\n\n:return:\n    Returns a :class:`datetime.datetime` representing the string.\n    Unspecified components default to their lowest value.\n\n.. warning::\n\n    As of version 2.7.0, the strictness of the parser should not be\n    considered a stable part of the contract. Any valid ISO-8601 string\n    that parses correctly with the default settings will continue to\n    parse correctly in future versions, but invalid strings that\n    currently fail (e.g. ``2017-01-01T00:00+00:00:00``) are not\n    guaranteed to continue failing in future versions if they encode\n    a valid date.\n\n.. versionadded:: 2.7.0"
+        },
+        {
+          "name": "parse_isodate",
+          "docstring": "Parse the date portion of an ISO string.\n\n:param datestr:\n    The string portion of an ISO string, without a separator\n\n:return:\n    Returns a :class:`datetime.date` object"
+        },
+        {
+          "name": "parse_isotime",
+          "docstring": "Parse the time portion of an ISO string.\n\n:param timestr:\n    The time portion of an ISO string, without a separator\n\n:return:\n    Returns a :class:`datetime.time` object"
+        },
+        {
+          "name": "parse_tzstr",
+          "docstring": "Parse a valid ISO time zone string.\n\nSee :func:`isoparser.isoparse` for details on supported formats.\n\n:param tzstr:\n    A string representing an ISO time zone offset\n\n:param zero_as_utc:\n    Whether to return :class:`dateutil.tz.tzutc` for zero-offset zones\n\n:return:\n    Returns :class:`dateutil.tz.tzoffset` for offsets and\n    :class:`dateutil.tz.tzutc` for ``Z`` and (if ``zero_as_utc`` is\n    specified) offsets equivalent to UTC."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "func",
+      "docstring": null
+    },
+    {
+      "name": "isoparse",
+      "docstring": "Parse an ISO-8601 datetime string into a :class:`datetime.datetime`.\n\nAn ISO-8601 datetime string consists of a date portion, followed\noptionally by a time portion - the date and time portions are separated\nby a single character separator, which is ``T`` in the official\nstandard. Incomplete date formats (such as ``YYYY-MM``) may *not* be\ncombined with a time portion.\n\nSupported date formats are:\n\nCommon:\n\n- ``YYYY``\n- ``YYYY-MM``\n- ``YYYY-MM-DD`` or ``YYYYMMDD``\n\nUncommon:\n\n- ``YYYY-Www`` or ``YYYYWww`` - ISO week (day defaults to 0)\n- ``YYYY-Www-D`` or ``YYYYWwwD`` - ISO week and day\n\nThe ISO week and day numbering follows the same logic as\n:func:`datetime.date.isocalendar`.\n\nSupported time formats are:\n\n- ``hh``\n- ``hh:mm`` or ``hhmm``\n- ``hh:mm:ss`` or ``hhmmss``\n- ``hh:mm:ss.ssssss`` (Up to 6 sub-second digits)\n\nMidnight is a special case for `hh`, as the standard supports both\n00:00 and 24:00 as a representation. The decimal separator can be\neither a dot or a comma.\n\n\n.. caution::\n\n    Support for fractional components other than seconds is part of the\n    ISO-8601 standard, but is not currently implemented in this parser.\n\nSupported time zone offset formats are:\n\n- `Z` (UTC)\n- `\u00b1HH:MM`\n- `\u00b1HHMM`\n- `\u00b1HH`\n\nOffsets will be represented as :class:`dateutil.tz.tzoffset` objects,\nwith the exception of UTC, which will be represented as\n:class:`dateutil.tz.tzutc`. Time zone offsets equivalent to UTC (such\nas `+00:00`) will also be represented as :class:`dateutil.tz.tzutc`.\n\n:param dt_str:\n    A string or stream containing only an ISO-8601 datetime string\n\n:return:\n    Returns a :class:`datetime.datetime` representing the string.\n    Unspecified components default to their lowest value.\n\n.. warning::\n\n    As of version 2.7.0, the strictness of the parser should not be\n    considered a stable part of the contract. Any valid ISO-8601 string\n    that parses correctly with the default settings will continue to\n    parse correctly in future versions, but invalid strings that\n    currently fail (e.g. ``2017-01-01T00:00+00:00:00``) are not\n    guaranteed to continue failing in future versions if they encode\n    a valid date.\n\n.. versionadded:: 2.7.0"
+    },
+    {
+      "name": "parse_isodate",
+      "docstring": "Parse the date portion of an ISO string.\n\n:param datestr:\n    The string portion of an ISO string, without a separator\n\n:return:\n    Returns a :class:`datetime.date` object"
+    },
+    {
+      "name": "parse_isotime",
+      "docstring": "Parse the time portion of an ISO string.\n\n:param timestr:\n    The time portion of an ISO string, without a separator\n\n:return:\n    Returns a :class:`datetime.time` object"
+    },
+    {
+      "name": "parse_tzstr",
+      "docstring": "Parse a valid ISO time zone string.\n\nSee :func:`isoparser.isoparse` for details on supported formats.\n\n:param tzstr:\n    A string representing an ISO time zone offset\n\n:param zero_as_utc:\n    Whether to return :class:`dateutil.tz.tzutc` for zero-offset zones\n\n:return:\n    Returns :class:`dateutil.tz.tzoffset` for offsets and\n    :class:`dateutil.tz.tzutc` for ``Z`` and (if ``zero_as_utc`` is\n    specified) offsets equivalent to UTC."
+    }
+  ],
+  "innovations": []
+}

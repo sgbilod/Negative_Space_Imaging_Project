@@ -1,0 +1,122 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\dateutil\\tz\\_common.py",
+  "classes": [
+    {
+      "name": "_tzinfo",
+      "docstring": "Base class for all ``dateutil`` ``tzinfo`` objects.",
+      "methods": [
+        {
+          "name": "is_ambiguous",
+          "docstring": "Whether or not the \"wall time\" of a given datetime is ambiguous in this\nzone.\n\n:param dt:\n    A :py:class:`datetime.datetime`, naive or time zone aware.\n\n\n:return:\n    Returns ``True`` if ambiguous, ``False`` otherwise.\n\n.. versionadded:: 2.6.0"
+        },
+        {
+          "name": "fromutc",
+          "docstring": "Given a timezone-aware datetime in a given timezone, calculates a\ntimezone-aware datetime in a new timezone.\n\nSince this is the one time that we *know* we have an unambiguous\ndatetime object, we take this opportunity to determine whether the\ndatetime is ambiguous and in a \"fold\" state (e.g. if it's the first\noccurrence, chronologically, of the ambiguous datetime).\n\n:param dt:\n    A timezone-aware :class:`datetime.datetime` object."
+        }
+      ]
+    },
+    {
+      "name": "tzrangebase",
+      "docstring": "This is an abstract base class for time zones represented by an annual\ntransition into and out of DST. Child classes should implement the following\nmethods:\n\n    * ``__init__(self, *args, **kwargs)``\n    * ``transitions(self, year)`` - this is expected to return a tuple of\n      datetimes representing the DST on and off transitions in standard\n      time.\n\nA fully initialized ``tzrangebase`` subclass should also provide the\nfollowing attributes:\n    * ``hasdst``: Boolean whether or not the zone uses DST.\n    * ``_dst_offset`` / ``_std_offset``: :class:`datetime.timedelta` objects\n      representing the respective UTC offsets.\n    * ``_dst_abbr`` / ``_std_abbr``: Strings representing the timezone short\n      abbreviations in DST and STD, respectively.\n    * ``_hasdst``: Whether or not the zone has DST.\n\n.. versionadded:: 2.6.0",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "utcoffset",
+          "docstring": null
+        },
+        {
+          "name": "dst",
+          "docstring": null
+        },
+        {
+          "name": "tzname",
+          "docstring": null
+        },
+        {
+          "name": "fromutc",
+          "docstring": "Given a datetime in UTC, return local time "
+        },
+        {
+          "name": "is_ambiguous",
+          "docstring": "Whether or not the \"wall time\" of a given datetime is ambiguous in this\nzone.\n\n:param dt:\n    A :py:class:`datetime.datetime`, naive or time zone aware.\n\n\n:return:\n    Returns ``True`` if ambiguous, ``False`` otherwise.\n\n.. versionadded:: 2.6.0"
+        }
+      ]
+    },
+    {
+      "name": "_DatetimeWithFold",
+      "docstring": "This is a class designed to provide a PEP 495-compliant interface for\nPython versions before 3.6. It is used only for dates in a fold, so\nthe ``fold`` attribute is fixed at ``1``.\n\n.. versionadded:: 2.6.0",
+      "methods": [
+        {
+          "name": "replace",
+          "docstring": "Return a datetime with the same attributes, except for those\nattributes given new values by whichever keyword arguments are\nspecified. Note that tzinfo=None can be specified to create a naive\ndatetime from an aware datetime with no conversion of date and time\ndata.\n\nThis is reimplemented in ``_DatetimeWithFold`` because pypy3 will\nreturn a ``datetime.datetime`` even if ``fold`` is unchanged."
+        },
+        {
+          "name": "fold",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "tzname_in_python2",
+      "docstring": "Change unicode output into bytestrings in Python 2\n\ntzname() API changed in Python 3. It used to return bytes, but was changed\nto unicode strings"
+    },
+    {
+      "name": "enfold",
+      "docstring": "Provides a unified interface for assigning the ``fold`` attribute to\ndatetimes both before and after the implementation of PEP-495.\n\n:param fold:\n    The value for the ``fold`` attribute in the returned datetime. This\n    should be either 0 or 1.\n\n:return:\n    Returns an object for which ``getattr(dt, 'fold', 0)`` returns\n    ``fold`` for all versions of Python. In versions prior to\n    Python 3.6, this is a ``_DatetimeWithFold`` object, which is a\n    subclass of :py:class:`datetime.datetime` with the ``fold``\n    attribute added, if ``fold`` is 1.\n\n.. versionadded:: 2.6.0"
+    },
+    {
+      "name": "enfold",
+      "docstring": "Provides a unified interface for assigning the ``fold`` attribute to\ndatetimes both before and after the implementation of PEP-495.\n\n:param fold:\n    The value for the ``fold`` attribute in the returned datetime. This\n    should be either 0 or 1.\n\n:return:\n    Returns an object for which ``getattr(dt, 'fold', 0)`` returns\n    ``fold`` for all versions of Python. In versions prior to\n    Python 3.6, this is a ``_DatetimeWithFold`` object, which is a\n    subclass of :py:class:`datetime.datetime` with the ``fold``\n    attribute added, if ``fold`` is 1.\n\n.. versionadded:: 2.6.0"
+    },
+    {
+      "name": "fromutc",
+      "docstring": null
+    },
+    {
+      "name": "is_ambiguous",
+      "docstring": "Whether or not the \"wall time\" of a given datetime is ambiguous in this\nzone.\n\n:param dt:\n    A :py:class:`datetime.datetime`, naive or time zone aware.\n\n\n:return:\n    Returns ``True`` if ambiguous, ``False`` otherwise.\n\n.. versionadded:: 2.6.0"
+    },
+    {
+      "name": "fromutc",
+      "docstring": "Given a timezone-aware datetime in a given timezone, calculates a\ntimezone-aware datetime in a new timezone.\n\nSince this is the one time that we *know* we have an unambiguous\ndatetime object, we take this opportunity to determine whether the\ndatetime is ambiguous and in a \"fold\" state (e.g. if it's the first\noccurrence, chronologically, of the ambiguous datetime).\n\n:param dt:\n    A timezone-aware :class:`datetime.datetime` object."
+    },
+    {
+      "name": "utcoffset",
+      "docstring": null
+    },
+    {
+      "name": "dst",
+      "docstring": null
+    },
+    {
+      "name": "tzname",
+      "docstring": null
+    },
+    {
+      "name": "fromutc",
+      "docstring": "Given a datetime in UTC, return local time "
+    },
+    {
+      "name": "is_ambiguous",
+      "docstring": "Whether or not the \"wall time\" of a given datetime is ambiguous in this\nzone.\n\n:param dt:\n    A :py:class:`datetime.datetime`, naive or time zone aware.\n\n\n:return:\n    Returns ``True`` if ambiguous, ``False`` otherwise.\n\n.. versionadded:: 2.6.0"
+    },
+    {
+      "name": "adjust_encoding",
+      "docstring": null
+    },
+    {
+      "name": "replace",
+      "docstring": "Return a datetime with the same attributes, except for those\nattributes given new values by whichever keyword arguments are\nspecified. Note that tzinfo=None can be specified to create a naive\ndatetime from an aware datetime with no conversion of date and time\ndata.\n\nThis is reimplemented in ``_DatetimeWithFold`` because pypy3 will\nreturn a ``datetime.datetime`` even if ``fold`` is unchanged."
+    },
+    {
+      "name": "fold",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

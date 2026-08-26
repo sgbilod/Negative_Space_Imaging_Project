@@ -1,0 +1,559 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_strings.py",
+  "classes": [
+    {
+      "name": "TestMethods",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_add",
+          "docstring": null
+        },
+        {
+          "name": "test_multiply",
+          "docstring": null
+        },
+        {
+          "name": "test_multiply_raises",
+          "docstring": null
+        },
+        {
+          "name": "test_multiply_integer_dtypes",
+          "docstring": null
+        },
+        {
+          "name": "test_isalpha",
+          "docstring": null
+        },
+        {
+          "name": "test_isalnum",
+          "docstring": null
+        },
+        {
+          "name": "test_isdigit",
+          "docstring": null
+        },
+        {
+          "name": "test_isspace",
+          "docstring": null
+        },
+        {
+          "name": "test_islower",
+          "docstring": null
+        },
+        {
+          "name": "test_isupper",
+          "docstring": null
+        },
+        {
+          "name": "test_istitle",
+          "docstring": null
+        },
+        {
+          "name": "test_str_len",
+          "docstring": null
+        },
+        {
+          "name": "test_find",
+          "docstring": null
+        },
+        {
+          "name": "test_rfind",
+          "docstring": null
+        },
+        {
+          "name": "test_count",
+          "docstring": null
+        },
+        {
+          "name": "test_startswith",
+          "docstring": null
+        },
+        {
+          "name": "test_endswith",
+          "docstring": null
+        },
+        {
+          "name": "test_lstrip",
+          "docstring": null
+        },
+        {
+          "name": "test_rstrip",
+          "docstring": null
+        },
+        {
+          "name": "test_strip",
+          "docstring": null
+        },
+        {
+          "name": "test_replace",
+          "docstring": null
+        },
+        {
+          "name": "test_index",
+          "docstring": null
+        },
+        {
+          "name": "test_index_raises",
+          "docstring": null
+        },
+        {
+          "name": "test_rindex",
+          "docstring": null
+        },
+        {
+          "name": "test_rindex_raises",
+          "docstring": null
+        },
+        {
+          "name": "test_expandtabs",
+          "docstring": null
+        },
+        {
+          "name": "test_expandtabs_raises_overflow",
+          "docstring": null
+        },
+        {
+          "name": "test_center_raises_multiple_character_fill",
+          "docstring": null
+        },
+        {
+          "name": "test_ljust_raises_multiple_character_fill",
+          "docstring": null
+        },
+        {
+          "name": "test_rjust_raises_multiple_character_fill",
+          "docstring": null
+        },
+        {
+          "name": "test_center",
+          "docstring": null
+        },
+        {
+          "name": "test_ljust",
+          "docstring": null
+        },
+        {
+          "name": "test_rjust",
+          "docstring": null
+        },
+        {
+          "name": "test_zfill",
+          "docstring": null
+        },
+        {
+          "name": "test_partition",
+          "docstring": null
+        },
+        {
+          "name": "test_rpartition",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMethodsWithUnicode",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_isdecimal_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_isnumeric_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_replace_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_isalnum_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_islower_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_isupper_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_istitle_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_index_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_index_raises_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_expandtabs",
+          "docstring": null
+        },
+        {
+          "name": "test_center",
+          "docstring": null
+        },
+        {
+          "name": "test_ljust",
+          "docstring": null
+        },
+        {
+          "name": "test_rjust",
+          "docstring": null
+        },
+        {
+          "name": "test_partition",
+          "docstring": null
+        },
+        {
+          "name": "test_rpartition",
+          "docstring": null
+        },
+        {
+          "name": "test_strip_functions_unicode",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMixedTypeMethods",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_center",
+          "docstring": null
+        },
+        {
+          "name": "test_ljust",
+          "docstring": null
+        },
+        {
+          "name": "test_rjust",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestUnicodeOnlyMethodsRaiseWithBytes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_isdecimal_raises",
+          "docstring": null
+        },
+        {
+          "name": "test_isnumeric_bytes",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestReplaceOnArrays",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_replace_count_and_size",
+          "docstring": null
+        },
+        {
+          "name": "test_replace_broadcasting",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MyStr",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_mixed_string_comparison_ufuncs_fail",
+      "docstring": null
+    },
+    {
+      "name": "test_mixed_string_comparisons_ufuncs_with_cast",
+      "docstring": null
+    },
+    {
+      "name": "test_string_comparisons",
+      "docstring": null
+    },
+    {
+      "name": "test_string_comparisons_empty",
+      "docstring": null
+    },
+    {
+      "name": "test_float_to_string_cast",
+      "docstring": null
+    },
+    {
+      "name": "test_string_size_dtype_errors",
+      "docstring": null
+    },
+    {
+      "name": "test_string_size_dtype_large_repr",
+      "docstring": null
+    },
+    {
+      "name": "test_large_string_coercion_error",
+      "docstring": null
+    },
+    {
+      "name": "test_large_string_addition_error",
+      "docstring": null
+    },
+    {
+      "name": "test_large_string_cast",
+      "docstring": null
+    },
+    {
+      "name": "check_itemsize",
+      "docstring": null
+    },
+    {
+      "name": "test_add",
+      "docstring": null
+    },
+    {
+      "name": "test_multiply",
+      "docstring": null
+    },
+    {
+      "name": "test_multiply_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_multiply_integer_dtypes",
+      "docstring": null
+    },
+    {
+      "name": "test_isalpha",
+      "docstring": null
+    },
+    {
+      "name": "test_isalnum",
+      "docstring": null
+    },
+    {
+      "name": "test_isdigit",
+      "docstring": null
+    },
+    {
+      "name": "test_isspace",
+      "docstring": null
+    },
+    {
+      "name": "test_islower",
+      "docstring": null
+    },
+    {
+      "name": "test_isupper",
+      "docstring": null
+    },
+    {
+      "name": "test_istitle",
+      "docstring": null
+    },
+    {
+      "name": "test_str_len",
+      "docstring": null
+    },
+    {
+      "name": "test_find",
+      "docstring": null
+    },
+    {
+      "name": "test_rfind",
+      "docstring": null
+    },
+    {
+      "name": "test_count",
+      "docstring": null
+    },
+    {
+      "name": "test_startswith",
+      "docstring": null
+    },
+    {
+      "name": "test_endswith",
+      "docstring": null
+    },
+    {
+      "name": "test_lstrip",
+      "docstring": null
+    },
+    {
+      "name": "test_rstrip",
+      "docstring": null
+    },
+    {
+      "name": "test_strip",
+      "docstring": null
+    },
+    {
+      "name": "test_replace",
+      "docstring": null
+    },
+    {
+      "name": "test_index",
+      "docstring": null
+    },
+    {
+      "name": "test_index_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_rindex",
+      "docstring": null
+    },
+    {
+      "name": "test_rindex_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_expandtabs",
+      "docstring": null
+    },
+    {
+      "name": "test_expandtabs_raises_overflow",
+      "docstring": null
+    },
+    {
+      "name": "test_center_raises_multiple_character_fill",
+      "docstring": null
+    },
+    {
+      "name": "test_ljust_raises_multiple_character_fill",
+      "docstring": null
+    },
+    {
+      "name": "test_rjust_raises_multiple_character_fill",
+      "docstring": null
+    },
+    {
+      "name": "test_center",
+      "docstring": null
+    },
+    {
+      "name": "test_ljust",
+      "docstring": null
+    },
+    {
+      "name": "test_rjust",
+      "docstring": null
+    },
+    {
+      "name": "test_zfill",
+      "docstring": null
+    },
+    {
+      "name": "test_partition",
+      "docstring": null
+    },
+    {
+      "name": "test_rpartition",
+      "docstring": null
+    },
+    {
+      "name": "test_isdecimal_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_isnumeric_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_replace_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_isalnum_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_islower_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_isupper_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_istitle_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_index_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_index_raises_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_expandtabs",
+      "docstring": null
+    },
+    {
+      "name": "test_center",
+      "docstring": null
+    },
+    {
+      "name": "test_ljust",
+      "docstring": null
+    },
+    {
+      "name": "test_rjust",
+      "docstring": null
+    },
+    {
+      "name": "test_partition",
+      "docstring": null
+    },
+    {
+      "name": "test_rpartition",
+      "docstring": null
+    },
+    {
+      "name": "test_strip_functions_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_center",
+      "docstring": null
+    },
+    {
+      "name": "test_ljust",
+      "docstring": null
+    },
+    {
+      "name": "test_rjust",
+      "docstring": null
+    },
+    {
+      "name": "test_isdecimal_raises",
+      "docstring": null
+    },
+    {
+      "name": "test_isnumeric_bytes",
+      "docstring": null
+    },
+    {
+      "name": "test_replace_count_and_size",
+      "docstring": null
+    },
+    {
+      "name": "test_replace_broadcasting",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

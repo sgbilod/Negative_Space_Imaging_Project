@@ -1,0 +1,117 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\imageio\\plugins\\pillowmulti.py",
+  "classes": [
+    {
+      "name": "TIFFFormat",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "GIFFormat",
+      "docstring": "See :mod:`imageio.plugins.pillow_legacy`",
+      "methods": []
+    },
+    {
+      "name": "GifWriter",
+      "docstring": "Class that for helping write the animated GIF file. This is based on\ncode from images2gif.py (part of visvis). The version here is modified\nto allow streamed writing.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "add_image",
+          "docstring": null
+        },
+        {
+          "name": "write_header",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "write_image",
+          "docstring": null
+        },
+        {
+          "name": "getheaderAnim",
+          "docstring": "Get animation header. To replace PILs getheader()[0]"
+        },
+        {
+          "name": "getImageDescriptor",
+          "docstring": "Used for the local color table properties per image.\nOtherwise global color table applies to all frames irrespective of\nwhether additional colors comes in play that require a redefined\npalette. Still a maximum of 256 color per frame, obviously.\n\nWritten by Ant1 on 2010-08-22\nModified by Alex Robinson in Janurari 2011 to implement subrectangles."
+        },
+        {
+          "name": "getAppExt",
+          "docstring": "Application extension. This part specifies the amount of loops.\nIf loop is 0 or inf, it goes on infinitely."
+        },
+        {
+          "name": "getGraphicsControlExt",
+          "docstring": "Graphics Control Extension. A sort of header at the start of\neach image. Specifies duration and transparancy.\n\nDispose\n-------\n  * 0 - No disposal specified.\n  * 1 - Do not dispose. The graphic is to be left in place.\n  * 2 - Restore to background color. The area used by the graphic\n    must be restored to the background color.\n  * 3 - Restore to previous. The decoder is required to restore the\n    area overwritten by the graphic with what was there prior to\n    rendering the graphic.\n  * 4-7 -To be defined."
+        },
+        {
+          "name": "getSubRectangle",
+          "docstring": "Calculate the minimal rectangle that need updating. Returns\na two-element tuple containing the cropped image and an x-y tuple.\n\nCalculating the subrectangles takes extra time, obviously. However,\nif the image sizes were reduced, the actual writing of the GIF\ngoes faster. In some cases applying this method produces a GIF faster."
+        },
+        {
+          "name": "converToPIL",
+          "docstring": "Convert image to Paletted PIL image.\n\nPIL used to not do a very good job at quantization, but I guess\nthis has improved a lot (at least in Pillow). I don't think we need\nneuqant (and we can add it later if we really want)."
+        }
+      ]
+    },
+    {
+      "name": "Writer",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "intToBin",
+      "docstring": null
+    },
+    {
+      "name": "add_image",
+      "docstring": null
+    },
+    {
+      "name": "write_header",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "write_image",
+      "docstring": null
+    },
+    {
+      "name": "getheaderAnim",
+      "docstring": "Get animation header. To replace PILs getheader()[0]"
+    },
+    {
+      "name": "getImageDescriptor",
+      "docstring": "Used for the local color table properties per image.\nOtherwise global color table applies to all frames irrespective of\nwhether additional colors comes in play that require a redefined\npalette. Still a maximum of 256 color per frame, obviously.\n\nWritten by Ant1 on 2010-08-22\nModified by Alex Robinson in Janurari 2011 to implement subrectangles."
+    },
+    {
+      "name": "getAppExt",
+      "docstring": "Application extension. This part specifies the amount of loops.\nIf loop is 0 or inf, it goes on infinitely."
+    },
+    {
+      "name": "getGraphicsControlExt",
+      "docstring": "Graphics Control Extension. A sort of header at the start of\neach image. Specifies duration and transparancy.\n\nDispose\n-------\n  * 0 - No disposal specified.\n  * 1 - Do not dispose. The graphic is to be left in place.\n  * 2 - Restore to background color. The area used by the graphic\n    must be restored to the background color.\n  * 3 - Restore to previous. The decoder is required to restore the\n    area overwritten by the graphic with what was there prior to\n    rendering the graphic.\n  * 4-7 -To be defined."
+    },
+    {
+      "name": "getSubRectangle",
+      "docstring": "Calculate the minimal rectangle that need updating. Returns\na two-element tuple containing the cropped image and an x-y tuple.\n\nCalculating the subrectangles takes extra time, obviously. However,\nif the image sizes were reduced, the actual writing of the GIF\ngoes faster. In some cases applying this method produces a GIF faster."
+    },
+    {
+      "name": "converToPIL",
+      "docstring": "Convert image to Paletted PIL image.\n\nPIL used to not do a very good job at quantization, but I guess\nthis has improved a lot (at least in Pillow). I don't think we need\nneuqant (and we can add it later if we really want)."
+    }
+  ],
+  "innovations": []
+}

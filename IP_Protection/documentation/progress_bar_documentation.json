@@ -1,0 +1,34 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\progress_bar.py",
+  "classes": [
+    {
+      "name": "ProgressBar",
+      "docstring": "Renders a (progress) bar. Used by rich.progress.\n\nArgs:\n    total (float, optional): Number of steps in the bar. Defaults to 100. Set to None to render a pulsing animation.\n    completed (float, optional): Number of steps completed. Defaults to 0.\n    width (int, optional): Width of the bar, or ``None`` for maximum width. Defaults to None.\n    pulse (bool, optional): Enable pulse effect. Defaults to False. Will pulse if a None total was passed.\n    style (StyleType, optional): Style for the bar background. Defaults to \"bar.back\".\n    complete_style (StyleType, optional): Style for the completed bar. Defaults to \"bar.complete\".\n    finished_style (StyleType, optional): Style for a finished bar. Defaults to \"bar.finished\".\n    pulse_style (StyleType, optional): Style for pulsing bars. Defaults to \"bar.pulse\".\n    animation_time (Optional[float], optional): Time in seconds to use for animation, or None to use system time.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "percentage_completed",
+          "docstring": "Calculate percentage complete."
+        },
+        {
+          "name": "update",
+          "docstring": "Update progress with new values.\n\nArgs:\n    completed (float): Number of steps completed.\n    total (float, optional): Total number of steps, or ``None`` to not change. Defaults to None."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "percentage_completed",
+      "docstring": "Calculate percentage complete."
+    },
+    {
+      "name": "update",
+      "docstring": "Update progress with new values.\n\nArgs:\n    completed (float): Number of steps completed.\n    total (float, optional): Total number of steps, or ``None`` to not change. Defaults to None."
+    }
+  ],
+  "innovations": []
+}

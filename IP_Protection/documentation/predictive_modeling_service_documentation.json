@@ -1,0 +1,220 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\revenue\\spatial_insurance\\predictive_modeling_service.py",
+  "classes": [
+    {
+      "name": "GeoPoint",
+      "docstring": "Represents a geographical point with latitude, longitude, and optional elevation.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a geographical point.\n\nArgs:\n    latitude: Latitude in degrees\n    longitude: Longitude in degrees\n    elevation: Optional elevation in meters"
+        },
+        {
+          "name": "distance_to",
+          "docstring": "Calculate the distance to another point in kilometers.\n\nArgs:\n    other: The other geographical point\n    \nReturns:\n    Distance in kilometers"
+        },
+        {
+          "name": "to_dict",
+          "docstring": "Convert to dictionary representation."
+        },
+        {
+          "name": "from_dict",
+          "docstring": "Create from dictionary representation."
+        }
+      ]
+    },
+    {
+      "name": "Property",
+      "docstring": "Represents an insured property with geographical information and risk factors.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a property.\n\nArgs:\n    property_id: Unique identifier for the property\n    location: Geographical location of the property\n    value: Insured value of the property\n    risk_factors: Risk factors affecting the property\n    owner_info: Information about the property owner"
+        },
+        {
+          "name": "to_dict",
+          "docstring": "Convert to dictionary representation."
+        },
+        {
+          "name": "from_dict",
+          "docstring": "Create from dictionary representation."
+        }
+      ]
+    },
+    {
+      "name": "NaturalDisaster",
+      "docstring": "Represents a natural disaster or threat with a predicted path and intensity.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a natural disaster.\n\nArgs:\n    disaster_id: Unique identifier for the disaster\n    disaster_type: Type of disaster (hurricane, wildfire, etc.)\n    current_location: Current geographical location\n    predicted_path: Predicted future geographical path\n    intensity: Intensity on a standardized scale (0-10)\n    radius_of_effect: Radius of effect in kilometers\n    timestamp: ISO format timestamp"
+        },
+        {
+          "name": "to_dict",
+          "docstring": "Convert to dictionary representation."
+        },
+        {
+          "name": "from_dict",
+          "docstring": "Create from dictionary representation."
+        }
+      ]
+    },
+    {
+      "name": "ClaimProbabilityScore",
+      "docstring": "Represents a probability score for an insurance claim.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a claim probability score.\n\nArgs:\n    property_id: ID of the property\n    disaster_id: ID of the disaster\n    probability: Probability of a valid claim (0-1)\n    expected_damage_ratio: Expected ratio of damage to property value (0-1)\n    timestamp: ISO format timestamp\n    factors: Factors contributing to the probability\n    spatial_signature: Spatial signature of the calculation"
+        },
+        {
+          "name": "to_dict",
+          "docstring": "Convert to dictionary representation."
+        },
+        {
+          "name": "from_dict",
+          "docstring": "Create from dictionary representation."
+        }
+      ]
+    },
+    {
+      "name": "InsuranceClaim",
+      "docstring": "Represents an insurance claim for a property.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize an insurance claim.\n\nArgs:\n    claim_id: Unique identifier for the claim\n    property_id: ID of the property\n    disaster_id: ID of the disaster\n    claim_amount: Claimed amount\n    claim_description: Description of the claim\n    submitted_timestamp: ISO format timestamp of submission\n    claim_evidence: Evidence supporting the claim\n    claimant_info: Information about the claimant\n    status: Current status of the claim"
+        },
+        {
+          "name": "to_dict",
+          "docstring": "Convert to dictionary representation."
+        },
+        {
+          "name": "from_dict",
+          "docstring": "Create from dictionary representation."
+        }
+      ]
+    },
+    {
+      "name": "PredictiveModelingService",
+      "docstring": "Service for predictive insurance modeling and automated claim adjudication.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the predictive modeling service.\n\nArgs:\n    spatial_generator: Optional spatial signature generator\n    quantum_ledger: Optional quantum entangled ledger for verification\n    randomness_oracle: Optional randomness oracle for model sampling"
+        },
+        {
+          "name": "register_property",
+          "docstring": "Register a property in the system.\n\nArgs:\n    property_data: Property data\n    \nReturns:\n    Registered property"
+        },
+        {
+          "name": "register_disaster",
+          "docstring": "Register a natural disaster in the system.\n\nArgs:\n    disaster_data: Disaster data\n    \nReturns:\n    Registered disaster"
+        },
+        {
+          "name": "calculate_claim_probability",
+          "docstring": "Calculate the claim probability score for a property and disaster.\n\nArgs:\n    property_id: ID of the property\n    disaster_id: ID of the disaster\n    \nReturns:\n    Claim probability score"
+        },
+        {
+          "name": "submit_claim",
+          "docstring": "Submit an insurance claim.\n\nArgs:\n    claim_data: Claim data\n    \nReturns:\n    Submitted claim"
+        },
+        {
+          "name": "adjudicate_claim",
+          "docstring": "Adjudicate an insurance claim.\n\nArgs:\n    claim_id: ID of the claim to adjudicate\n    auto_approve_threshold: Threshold for auto-approval (0-1)\n    \nReturns:\n    Adjudicated claim"
+        },
+        {
+          "name": "generate_risk_horizon_data",
+          "docstring": "Generate anonymized risk horizon data for downstream applications.\n\nReturns:\n    Risk horizon data"
+        },
+        {
+          "name": "suggest_resource_allocation",
+          "docstring": "Suggest optimal resource allocation based on risk horizon data.\n\nReturns:\n    Resource allocation suggestions"
+        },
+        {
+          "name": "generate_preventative_action_incentives",
+          "docstring": "Generate preventative action incentives for a specific property.\n\nArgs:\n    property_id: ID of the property\n    \nReturns:\n    Preventative action incentives"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "distance_to",
+      "docstring": "Calculate the distance to another point in kilometers.\n\nArgs:\n    other: The other geographical point\n    \nReturns:\n    Distance in kilometers"
+    },
+    {
+      "name": "to_dict",
+      "docstring": "Convert to dictionary representation."
+    },
+    {
+      "name": "from_dict",
+      "docstring": "Create from dictionary representation."
+    },
+    {
+      "name": "to_dict",
+      "docstring": "Convert to dictionary representation."
+    },
+    {
+      "name": "from_dict",
+      "docstring": "Create from dictionary representation."
+    },
+    {
+      "name": "to_dict",
+      "docstring": "Convert to dictionary representation."
+    },
+    {
+      "name": "from_dict",
+      "docstring": "Create from dictionary representation."
+    },
+    {
+      "name": "to_dict",
+      "docstring": "Convert to dictionary representation."
+    },
+    {
+      "name": "from_dict",
+      "docstring": "Create from dictionary representation."
+    },
+    {
+      "name": "to_dict",
+      "docstring": "Convert to dictionary representation."
+    },
+    {
+      "name": "from_dict",
+      "docstring": "Create from dictionary representation."
+    },
+    {
+      "name": "register_property",
+      "docstring": "Register a property in the system.\n\nArgs:\n    property_data: Property data\n    \nReturns:\n    Registered property"
+    },
+    {
+      "name": "register_disaster",
+      "docstring": "Register a natural disaster in the system.\n\nArgs:\n    disaster_data: Disaster data\n    \nReturns:\n    Registered disaster"
+    },
+    {
+      "name": "calculate_claim_probability",
+      "docstring": "Calculate the claim probability score for a property and disaster.\n\nArgs:\n    property_id: ID of the property\n    disaster_id: ID of the disaster\n    \nReturns:\n    Claim probability score"
+    },
+    {
+      "name": "submit_claim",
+      "docstring": "Submit an insurance claim.\n\nArgs:\n    claim_data: Claim data\n    \nReturns:\n    Submitted claim"
+    },
+    {
+      "name": "adjudicate_claim",
+      "docstring": "Adjudicate an insurance claim.\n\nArgs:\n    claim_id: ID of the claim to adjudicate\n    auto_approve_threshold: Threshold for auto-approval (0-1)\n    \nReturns:\n    Adjudicated claim"
+    },
+    {
+      "name": "generate_risk_horizon_data",
+      "docstring": "Generate anonymized risk horizon data for downstream applications.\n\nReturns:\n    Risk horizon data"
+    },
+    {
+      "name": "suggest_resource_allocation",
+      "docstring": "Suggest optimal resource allocation based on risk horizon data.\n\nReturns:\n    Resource allocation suggestions"
+    },
+    {
+      "name": "generate_preventative_action_incentives",
+      "docstring": "Generate preventative action incentives for a specific property.\n\nArgs:\n    property_id: ID of the property\n    \nReturns:\n    Preventative action incentives"
+    }
+  ],
+  "innovations": []
+}

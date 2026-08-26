@@ -1,0 +1,92 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\IP_Protection\\1_Copyright_Registration\\registration_package\\source\\negative-space-project\\src\\reconstruction\\feature_detector.py",
+  "classes": [
+    {
+      "name": "FeatureType",
+      "docstring": "Types of features to detect",
+      "methods": []
+    },
+    {
+      "name": "FeatureDetectionParams",
+      "docstring": "Parameters for feature detection",
+      "methods": []
+    },
+    {
+      "name": "FeatureDetector",
+      "docstring": "Specialized feature detector optimized for negative space analysis.\n\nThis class implements various feature detection algorithms that are\nspecifically designed to identify features along the boundaries between\nobjects and negative space.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize the feature detector with specific feature type and parameters.\n\nArgs:\n    feature_type: Type of features to detect\n    params: Parameters for feature detection"
+        },
+        {
+          "name": "detect",
+          "docstring": "Detect features in an image.\n\nArgs:\n    image: Input image\n    depth_map: Optional depth map\n    mask: Optional mask for feature detection\n    \nReturns:\n    Tuple containing:\n        - List of keypoints\n        - Feature descriptors"
+        },
+        {
+          "name": "match_features",
+          "docstring": "Match features between two sets of descriptors.\n\nArgs:\n    descriptors1: First set of descriptors\n    descriptors2: Second set of descriptors\n    ratio_threshold: Threshold for Lowe's ratio test\n    \nReturns:\n    List of matches that pass the ratio test"
+        },
+        {
+          "name": "draw_features",
+          "docstring": "Draw detected features on an image.\n\nArgs:\n    image: Input image\n    keypoints: Optional list of keypoints to draw (uses stored keypoints if None)\n    \nReturns:\n    Image with features drawn on it"
+        },
+        {
+          "name": "draw_matches",
+          "docstring": "Draw feature matches between two images.\n\nArgs:\n    img1: First image\n    keypoints1: Keypoints from first image\n    img2: Second image\n    keypoints2: Keypoints from second image\n    matches: List of matches\n    \nReturns:\n    Image showing the matches"
+        },
+        {
+          "name": "filter_matches_by_geometry",
+          "docstring": "Filter matches using geometric constraints (RANSAC).\n\nArgs:\n    keypoints1: Keypoints from first image\n    keypoints2: Keypoints from second image\n    matches: Initial matches\n    threshold: Distance threshold for RANSAC\n    \nReturns:\n    Filtered matches that satisfy geometric constraints"
+        },
+        {
+          "name": "set_feature_type",
+          "docstring": "Change the feature detection method.\n\nArgs:\n    feature_type: New feature type to use"
+        },
+        {
+          "name": "set_params",
+          "docstring": "Update feature detection parameters.\n\nArgs:\n    params: New parameters"
+        },
+        {
+          "name": "detect_and_describe",
+          "docstring": "Detect and describe features in multiple images.\n\nArgs:\n    images: List of input images\n    depth_maps: Optional list of corresponding depth maps\n    \nReturns:\n    Dictionary with keypoints and descriptors for each image"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "detect",
+      "docstring": "Detect features in an image.\n\nArgs:\n    image: Input image\n    depth_map: Optional depth map\n    mask: Optional mask for feature detection\n    \nReturns:\n    Tuple containing:\n        - List of keypoints\n        - Feature descriptors"
+    },
+    {
+      "name": "match_features",
+      "docstring": "Match features between two sets of descriptors.\n\nArgs:\n    descriptors1: First set of descriptors\n    descriptors2: Second set of descriptors\n    ratio_threshold: Threshold for Lowe's ratio test\n    \nReturns:\n    List of matches that pass the ratio test"
+    },
+    {
+      "name": "draw_features",
+      "docstring": "Draw detected features on an image.\n\nArgs:\n    image: Input image\n    keypoints: Optional list of keypoints to draw (uses stored keypoints if None)\n    \nReturns:\n    Image with features drawn on it"
+    },
+    {
+      "name": "draw_matches",
+      "docstring": "Draw feature matches between two images.\n\nArgs:\n    img1: First image\n    keypoints1: Keypoints from first image\n    img2: Second image\n    keypoints2: Keypoints from second image\n    matches: List of matches\n    \nReturns:\n    Image showing the matches"
+    },
+    {
+      "name": "filter_matches_by_geometry",
+      "docstring": "Filter matches using geometric constraints (RANSAC).\n\nArgs:\n    keypoints1: Keypoints from first image\n    keypoints2: Keypoints from second image\n    matches: Initial matches\n    threshold: Distance threshold for RANSAC\n    \nReturns:\n    Filtered matches that satisfy geometric constraints"
+    },
+    {
+      "name": "set_feature_type",
+      "docstring": "Change the feature detection method.\n\nArgs:\n    feature_type: New feature type to use"
+    },
+    {
+      "name": "set_params",
+      "docstring": "Update feature detection parameters.\n\nArgs:\n    params: New parameters"
+    },
+    {
+      "name": "detect_and_describe",
+      "docstring": "Detect and describe features in multiple images.\n\nArgs:\n    images: List of input images\n    depth_maps: Optional list of corresponding depth maps\n    \nReturns:\n    Dictionary with keypoints and descriptors for each image"
+    }
+  ],
+  "innovations": []
+}

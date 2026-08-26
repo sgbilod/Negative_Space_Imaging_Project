@@ -1,0 +1,68 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\metadata\\importlib\\_envs.py",
+  "classes": [
+    {
+      "name": "_DistributionFinder",
+      "docstring": "Finder to locate distributions.\n\nThe main purpose of this class is to memoize found distributions' names, so\nonly one distribution is returned for each package name. At lot of pip code\nassumes this (because it is setuptools's behavior), and not doing the same\ncan potentially cause a distribution in lower precedence path to override a\nhigher precedence one if the caller is not careful.\n\nEventually we probably want to make it possible to see lower precedence\ninstallations as well. It's useful feature, after all.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "find",
+          "docstring": "Find distributions in a location.\n\nThe path can be either a directory, or a ZIP archive."
+        },
+        {
+          "name": "find_legacy_editables",
+          "docstring": "Read location in egg-link files and return distributions in there.\n\nThe path should be a directory; otherwise this returns nothing. This\nfollows how setuptools does this for compatibility. The first non-empty\nline in the egg-link is read as a path (resolved against the egg-link's\ncontaining directory if relative). Distributions found at that linked\nlocation are returned."
+        }
+      ]
+    },
+    {
+      "name": "Environment",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "default",
+          "docstring": null
+        },
+        {
+          "name": "from_paths",
+          "docstring": null
+        },
+        {
+          "name": "get_distribution",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "find",
+      "docstring": "Find distributions in a location.\n\nThe path can be either a directory, or a ZIP archive."
+    },
+    {
+      "name": "find_legacy_editables",
+      "docstring": "Read location in egg-link files and return distributions in there.\n\nThe path should be a directory; otherwise this returns nothing. This\nfollows how setuptools does this for compatibility. The first non-empty\nline in the egg-link is read as a path (resolved against the egg-link's\ncontaining directory if relative). Distributions found at that linked\nlocation are returned."
+    },
+    {
+      "name": "default",
+      "docstring": null
+    },
+    {
+      "name": "from_paths",
+      "docstring": null
+    },
+    {
+      "name": "get_distribution",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

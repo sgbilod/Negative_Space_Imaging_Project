@@ -1,0 +1,29 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\operations\\check.py",
+  "classes": [
+    {
+      "name": "PackageDetails",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "create_package_set_from_installed",
+      "docstring": "Converts a list of distributions into a PackageSet."
+    },
+    {
+      "name": "check_package_set",
+      "docstring": "Check if a package set is consistent\n\nIf should_ignore is passed, it should be a callable that takes a\npackage name and returns a boolean."
+    },
+    {
+      "name": "check_install_conflicts",
+      "docstring": "For checking if the dependency graph would be consistent after     installing given requirements\n    "
+    },
+    {
+      "name": "check_unsupported",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

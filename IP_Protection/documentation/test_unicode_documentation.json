@@ -1,0 +1,281 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_unicode.py",
+  "classes": [
+    {
+      "name": "CreateZeros",
+      "docstring": "Check the creation of zero-valued arrays",
+      "methods": [
+        {
+          "name": "content_check",
+          "docstring": null
+        },
+        {
+          "name": "test_zeros0D",
+          "docstring": null
+        },
+        {
+          "name": "test_zerosSD",
+          "docstring": null
+        },
+        {
+          "name": "test_zerosMD",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCreateZeros_1",
+      "docstring": "Check the creation of zero-valued arrays (size 1)",
+      "methods": []
+    },
+    {
+      "name": "TestCreateZeros_2",
+      "docstring": "Check the creation of zero-valued arrays (size 2)",
+      "methods": []
+    },
+    {
+      "name": "TestCreateZeros_1009",
+      "docstring": "Check the creation of zero-valued arrays (size 1009)",
+      "methods": []
+    },
+    {
+      "name": "CreateValues",
+      "docstring": "Check the creation of unicode arrays with values",
+      "methods": [
+        {
+          "name": "content_check",
+          "docstring": null
+        },
+        {
+          "name": "test_values0D",
+          "docstring": null
+        },
+        {
+          "name": "test_valuesSD",
+          "docstring": null
+        },
+        {
+          "name": "test_valuesMD",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCreateValues_1_UCS2",
+      "docstring": "Check the creation of valued arrays (size 1, UCS2 values)",
+      "methods": []
+    },
+    {
+      "name": "TestCreateValues_1_UCS4",
+      "docstring": "Check the creation of valued arrays (size 1, UCS4 values)",
+      "methods": []
+    },
+    {
+      "name": "TestCreateValues_2_UCS2",
+      "docstring": "Check the creation of valued arrays (size 2, UCS2 values)",
+      "methods": []
+    },
+    {
+      "name": "TestCreateValues_2_UCS4",
+      "docstring": "Check the creation of valued arrays (size 2, UCS4 values)",
+      "methods": []
+    },
+    {
+      "name": "TestCreateValues_1009_UCS2",
+      "docstring": "Check the creation of valued arrays (size 1009, UCS2 values)",
+      "methods": []
+    },
+    {
+      "name": "TestCreateValues_1009_UCS4",
+      "docstring": "Check the creation of valued arrays (size 1009, UCS4 values)",
+      "methods": []
+    },
+    {
+      "name": "AssignValues",
+      "docstring": "Check the assignment of unicode arrays with values",
+      "methods": [
+        {
+          "name": "content_check",
+          "docstring": null
+        },
+        {
+          "name": "test_values0D",
+          "docstring": null
+        },
+        {
+          "name": "test_valuesSD",
+          "docstring": null
+        },
+        {
+          "name": "test_valuesMD",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestAssignValues_1_UCS2",
+      "docstring": "Check the assignment of valued arrays (size 1, UCS2 values)",
+      "methods": []
+    },
+    {
+      "name": "TestAssignValues_1_UCS4",
+      "docstring": "Check the assignment of valued arrays (size 1, UCS4 values)",
+      "methods": []
+    },
+    {
+      "name": "TestAssignValues_2_UCS2",
+      "docstring": "Check the assignment of valued arrays (size 2, UCS2 values)",
+      "methods": []
+    },
+    {
+      "name": "TestAssignValues_2_UCS4",
+      "docstring": "Check the assignment of valued arrays (size 2, UCS4 values)",
+      "methods": []
+    },
+    {
+      "name": "TestAssignValues_1009_UCS2",
+      "docstring": "Check the assignment of valued arrays (size 1009, UCS2 values)",
+      "methods": []
+    },
+    {
+      "name": "TestAssignValues_1009_UCS4",
+      "docstring": "Check the assignment of valued arrays (size 1009, UCS4 values)",
+      "methods": []
+    },
+    {
+      "name": "ByteorderValues",
+      "docstring": "Check the byteorder of unicode arrays in round-trip conversions",
+      "methods": [
+        {
+          "name": "test_values0D",
+          "docstring": null
+        },
+        {
+          "name": "test_valuesSD",
+          "docstring": null
+        },
+        {
+          "name": "test_valuesMD",
+          "docstring": null
+        },
+        {
+          "name": "test_values_cast",
+          "docstring": null
+        },
+        {
+          "name": "test_values_updowncast",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestByteorder_1_UCS2",
+      "docstring": "Check the byteorder in unicode (size 1, UCS2 values)",
+      "methods": []
+    },
+    {
+      "name": "TestByteorder_1_UCS4",
+      "docstring": "Check the byteorder in unicode (size 1, UCS4 values)",
+      "methods": []
+    },
+    {
+      "name": "TestByteorder_2_UCS2",
+      "docstring": "Check the byteorder in unicode (size 2, UCS2 values)",
+      "methods": []
+    },
+    {
+      "name": "TestByteorder_2_UCS4",
+      "docstring": "Check the byteorder in unicode (size 2, UCS4 values)",
+      "methods": []
+    },
+    {
+      "name": "TestByteorder_1009_UCS2",
+      "docstring": "Check the byteorder in unicode (size 1009, UCS2 values)",
+      "methods": []
+    },
+    {
+      "name": "TestByteorder_1009_UCS4",
+      "docstring": "Check the byteorder in unicode (size 1009, UCS4 values)",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "buffer_length",
+      "docstring": null
+    },
+    {
+      "name": "test_string_cast",
+      "docstring": null
+    },
+    {
+      "name": "content_check",
+      "docstring": null
+    },
+    {
+      "name": "test_zeros0D",
+      "docstring": null
+    },
+    {
+      "name": "test_zerosSD",
+      "docstring": null
+    },
+    {
+      "name": "test_zerosMD",
+      "docstring": null
+    },
+    {
+      "name": "content_check",
+      "docstring": null
+    },
+    {
+      "name": "test_values0D",
+      "docstring": null
+    },
+    {
+      "name": "test_valuesSD",
+      "docstring": null
+    },
+    {
+      "name": "test_valuesMD",
+      "docstring": null
+    },
+    {
+      "name": "content_check",
+      "docstring": null
+    },
+    {
+      "name": "test_values0D",
+      "docstring": null
+    },
+    {
+      "name": "test_valuesSD",
+      "docstring": null
+    },
+    {
+      "name": "test_valuesMD",
+      "docstring": null
+    },
+    {
+      "name": "test_values0D",
+      "docstring": null
+    },
+    {
+      "name": "test_valuesSD",
+      "docstring": null
+    },
+    {
+      "name": "test_valuesMD",
+      "docstring": null
+    },
+    {
+      "name": "test_values_cast",
+      "docstring": null
+    },
+    {
+      "name": "test_values_updowncast",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

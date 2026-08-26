@@ -1,0 +1,388 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\lib\\tests\\test__datasource.py",
+  "classes": [
+    {
+      "name": "TestDataSourceOpen",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "teardown_method",
+          "docstring": null
+        },
+        {
+          "name": "test_ValidHTTP",
+          "docstring": null
+        },
+        {
+          "name": "test_InvalidHTTP",
+          "docstring": null
+        },
+        {
+          "name": "test_InvalidHTTPCacheURLError",
+          "docstring": null
+        },
+        {
+          "name": "test_ValidFile",
+          "docstring": null
+        },
+        {
+          "name": "test_InvalidFile",
+          "docstring": null
+        },
+        {
+          "name": "test_ValidGzipFile",
+          "docstring": null
+        },
+        {
+          "name": "test_ValidBz2File",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDataSourceExists",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "teardown_method",
+          "docstring": null
+        },
+        {
+          "name": "test_ValidHTTP",
+          "docstring": null
+        },
+        {
+          "name": "test_InvalidHTTP",
+          "docstring": null
+        },
+        {
+          "name": "test_ValidFile",
+          "docstring": null
+        },
+        {
+          "name": "test_InvalidFile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestDataSourceAbspath",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "teardown_method",
+          "docstring": null
+        },
+        {
+          "name": "test_ValidHTTP",
+          "docstring": null
+        },
+        {
+          "name": "test_ValidFile",
+          "docstring": null
+        },
+        {
+          "name": "test_InvalidHTTP",
+          "docstring": null
+        },
+        {
+          "name": "test_InvalidFile",
+          "docstring": null
+        },
+        {
+          "name": "test_sandboxing",
+          "docstring": null
+        },
+        {
+          "name": "test_windows_os_sep",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestRepositoryAbspath",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "teardown_method",
+          "docstring": null
+        },
+        {
+          "name": "test_ValidHTTP",
+          "docstring": null
+        },
+        {
+          "name": "test_sandboxing",
+          "docstring": null
+        },
+        {
+          "name": "test_windows_os_sep",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestRepositoryExists",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "teardown_method",
+          "docstring": null
+        },
+        {
+          "name": "test_ValidFile",
+          "docstring": null
+        },
+        {
+          "name": "test_InvalidFile",
+          "docstring": null
+        },
+        {
+          "name": "test_RemoveHTTPFile",
+          "docstring": null
+        },
+        {
+          "name": "test_CachedHTTPFile",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestOpenFunc",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "teardown_method",
+          "docstring": null
+        },
+        {
+          "name": "test_DataSourceOpen",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "urlopen_stub",
+      "docstring": "Stub to replace urlopen for testing."
+    },
+    {
+      "name": "setup_module",
+      "docstring": null
+    },
+    {
+      "name": "teardown_module",
+      "docstring": null
+    },
+    {
+      "name": "valid_textfile",
+      "docstring": null
+    },
+    {
+      "name": "invalid_textfile",
+      "docstring": null
+    },
+    {
+      "name": "valid_httpurl",
+      "docstring": null
+    },
+    {
+      "name": "invalid_httpurl",
+      "docstring": null
+    },
+    {
+      "name": "valid_baseurl",
+      "docstring": null
+    },
+    {
+      "name": "invalid_baseurl",
+      "docstring": null
+    },
+    {
+      "name": "valid_httpfile",
+      "docstring": null
+    },
+    {
+      "name": "invalid_httpfile",
+      "docstring": null
+    },
+    {
+      "name": "test_del_attr_handling",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "teardown_method",
+      "docstring": null
+    },
+    {
+      "name": "test_ValidHTTP",
+      "docstring": null
+    },
+    {
+      "name": "test_InvalidHTTP",
+      "docstring": null
+    },
+    {
+      "name": "test_InvalidHTTPCacheURLError",
+      "docstring": null
+    },
+    {
+      "name": "test_ValidFile",
+      "docstring": null
+    },
+    {
+      "name": "test_InvalidFile",
+      "docstring": null
+    },
+    {
+      "name": "test_ValidGzipFile",
+      "docstring": null
+    },
+    {
+      "name": "test_ValidBz2File",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "teardown_method",
+      "docstring": null
+    },
+    {
+      "name": "test_ValidHTTP",
+      "docstring": null
+    },
+    {
+      "name": "test_InvalidHTTP",
+      "docstring": null
+    },
+    {
+      "name": "test_ValidFile",
+      "docstring": null
+    },
+    {
+      "name": "test_InvalidFile",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "teardown_method",
+      "docstring": null
+    },
+    {
+      "name": "test_ValidHTTP",
+      "docstring": null
+    },
+    {
+      "name": "test_ValidFile",
+      "docstring": null
+    },
+    {
+      "name": "test_InvalidHTTP",
+      "docstring": null
+    },
+    {
+      "name": "test_InvalidFile",
+      "docstring": null
+    },
+    {
+      "name": "test_sandboxing",
+      "docstring": null
+    },
+    {
+      "name": "test_windows_os_sep",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "teardown_method",
+      "docstring": null
+    },
+    {
+      "name": "test_ValidHTTP",
+      "docstring": null
+    },
+    {
+      "name": "test_sandboxing",
+      "docstring": null
+    },
+    {
+      "name": "test_windows_os_sep",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "teardown_method",
+      "docstring": null
+    },
+    {
+      "name": "test_ValidFile",
+      "docstring": null
+    },
+    {
+      "name": "test_InvalidFile",
+      "docstring": null
+    },
+    {
+      "name": "test_RemoveHTTPFile",
+      "docstring": null
+    },
+    {
+      "name": "test_CachedHTTPFile",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "teardown_method",
+      "docstring": null
+    },
+    {
+      "name": "test_DataSourceOpen",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

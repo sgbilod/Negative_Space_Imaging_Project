@@ -1,0 +1,336 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\mpl_toolkits\\axisartist\\axislines.py",
+  "classes": [
+    {
+      "name": "_AxisArtistHelperBase",
+      "docstring": "Base class for axis helper.\n\nSubclasses should define the methods listed below.  The *axes*\nargument will be the ``.axes`` attribute of the caller artist. ::\n\n    # Construct the spine.\n\n    def get_line_transform(self, axes):\n        return transform\n\n    def get_line(self, axes):\n        return path\n\n    # Construct the label.\n\n    def get_axislabel_transform(self, axes):\n        return transform\n\n    def get_axislabel_pos_angle(self, axes):\n        return (x, y), angle\n\n    # Construct the ticks.\n\n    def get_tick_transform(self, axes):\n        return transform\n\n    def get_tick_iterators(self, axes):\n        # A pair of iterables (one for major ticks, one for minor ticks)\n        # that yield (tick_position, tick_angle, tick_label).\n        return iter_major, iter_minor",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "update_lim",
+          "docstring": null
+        },
+        {
+          "name": "get_nth_coord",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_FixedAxisArtistHelperBase",
+      "docstring": "Helper class for a fixed (in the axes coordinate) axis.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "``nth_coord = 0``: x-axis; ``nth_coord = 1``: y-axis."
+        },
+        {
+          "name": "get_line",
+          "docstring": null
+        },
+        {
+          "name": "get_line_transform",
+          "docstring": null
+        },
+        {
+          "name": "get_axislabel_transform",
+          "docstring": null
+        },
+        {
+          "name": "get_axislabel_pos_angle",
+          "docstring": "Return the label reference position in transAxes.\n\nget_label_transform() returns a transform of (transAxes+offset)"
+        },
+        {
+          "name": "get_tick_transform",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_FloatingAxisArtistHelperBase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_line",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FixedAxisArtistHelperRectilinear",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "nth_coord = along which coordinate value varies\nin 2D, nth_coord = 0 ->  x axis, nth_coord = 1 -> y axis"
+        },
+        {
+          "name": "get_tick_iterators",
+          "docstring": "tick_loc, tick_angle, tick_label"
+        }
+      ]
+    },
+    {
+      "name": "FloatingAxisArtistHelperRectilinear",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_line",
+          "docstring": null
+        },
+        {
+          "name": "get_line_transform",
+          "docstring": null
+        },
+        {
+          "name": "get_axislabel_transform",
+          "docstring": null
+        },
+        {
+          "name": "get_axislabel_pos_angle",
+          "docstring": "Return the label reference position in transAxes.\n\nget_label_transform() returns a transform of (transAxes+offset)"
+        },
+        {
+          "name": "get_tick_transform",
+          "docstring": null
+        },
+        {
+          "name": "get_tick_iterators",
+          "docstring": "tick_loc, tick_angle, tick_label"
+        }
+      ]
+    },
+    {
+      "name": "AxisArtistHelper",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "AxisArtistHelperRectlinear",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "GridHelperBase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "update_lim",
+          "docstring": null
+        },
+        {
+          "name": "get_gridlines",
+          "docstring": "Return list of grid lines as a list of paths (list of points).\n\nParameters\n----------\nwhich : {\"both\", \"major\", \"minor\"}\naxis : {\"both\", \"x\", \"y\"}"
+        }
+      ]
+    },
+    {
+      "name": "GridHelperRectlinear",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "new_fixed_axis",
+          "docstring": null
+        },
+        {
+          "name": "new_floating_axis",
+          "docstring": null
+        },
+        {
+          "name": "get_gridlines",
+          "docstring": "Return list of gridline coordinates in data coordinates.\n\nParameters\n----------\nwhich : {\"both\", \"major\", \"minor\"}\naxis : {\"both\", \"x\", \"y\"}"
+        }
+      ]
+    },
+    {
+      "name": "Axes",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "toggle_axisline",
+          "docstring": null
+        },
+        {
+          "name": "axis",
+          "docstring": null
+        },
+        {
+          "name": "clear",
+          "docstring": null
+        },
+        {
+          "name": "get_grid_helper",
+          "docstring": null
+        },
+        {
+          "name": "grid",
+          "docstring": "Toggle the gridlines, and optionally set the properties of the lines."
+        },
+        {
+          "name": "get_children",
+          "docstring": null
+        },
+        {
+          "name": "new_fixed_axis",
+          "docstring": null
+        },
+        {
+          "name": "new_floating_axis",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AxesZero",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "clear",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "update_lim",
+      "docstring": null
+    },
+    {
+      "name": "get_nth_coord",
+      "docstring": null
+    },
+    {
+      "name": "get_line",
+      "docstring": null
+    },
+    {
+      "name": "get_line_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_axislabel_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_axislabel_pos_angle",
+      "docstring": "Return the label reference position in transAxes.\n\nget_label_transform() returns a transform of (transAxes+offset)"
+    },
+    {
+      "name": "get_tick_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_line",
+      "docstring": null
+    },
+    {
+      "name": "get_tick_iterators",
+      "docstring": "tick_loc, tick_angle, tick_label"
+    },
+    {
+      "name": "get_line",
+      "docstring": null
+    },
+    {
+      "name": "get_line_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_axislabel_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_axislabel_pos_angle",
+      "docstring": "Return the label reference position in transAxes.\n\nget_label_transform() returns a transform of (transAxes+offset)"
+    },
+    {
+      "name": "get_tick_transform",
+      "docstring": null
+    },
+    {
+      "name": "get_tick_iterators",
+      "docstring": "tick_loc, tick_angle, tick_label"
+    },
+    {
+      "name": "update_lim",
+      "docstring": null
+    },
+    {
+      "name": "get_gridlines",
+      "docstring": "Return list of grid lines as a list of paths (list of points).\n\nParameters\n----------\nwhich : {\"both\", \"major\", \"minor\"}\naxis : {\"both\", \"x\", \"y\"}"
+    },
+    {
+      "name": "new_fixed_axis",
+      "docstring": null
+    },
+    {
+      "name": "new_floating_axis",
+      "docstring": null
+    },
+    {
+      "name": "get_gridlines",
+      "docstring": "Return list of gridline coordinates in data coordinates.\n\nParameters\n----------\nwhich : {\"both\", \"major\", \"minor\"}\naxis : {\"both\", \"x\", \"y\"}"
+    },
+    {
+      "name": "toggle_axisline",
+      "docstring": null
+    },
+    {
+      "name": "axis",
+      "docstring": null
+    },
+    {
+      "name": "clear",
+      "docstring": null
+    },
+    {
+      "name": "get_grid_helper",
+      "docstring": null
+    },
+    {
+      "name": "grid",
+      "docstring": "Toggle the gridlines, and optionally set the properties of the lines."
+    },
+    {
+      "name": "get_children",
+      "docstring": null
+    },
+    {
+      "name": "new_fixed_axis",
+      "docstring": null
+    },
+    {
+      "name": "new_floating_axis",
+      "docstring": null
+    },
+    {
+      "name": "clear",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

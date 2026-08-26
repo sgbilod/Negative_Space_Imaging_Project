@@ -1,0 +1,75 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\f2py\\f2py2e.py",
+  "classes": [
+    {
+      "name": "CombineIncludePaths",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "scaninputline",
+      "docstring": null
+    },
+    {
+      "name": "callcrackfortran",
+      "docstring": null
+    },
+    {
+      "name": "buildmodules",
+      "docstring": null
+    },
+    {
+      "name": "dict_append",
+      "docstring": null
+    },
+    {
+      "name": "run_main",
+      "docstring": "Equivalent to running::\n\n    f2py <args>\n\nwhere ``<args>=string.join(<list>,' ')``, but in Python.  Unless\n``-h`` is used, this function returns a dictionary containing\ninformation on generated modules and their dependencies on source\nfiles.\n\nYou cannot build extension modules with this function, that is,\nusing ``-c`` is not allowed. Use the ``compile`` command instead.\n\nExamples\n--------\nThe command ``f2py -m scalar scalar.f`` can be executed from Python as\nfollows.\n\n.. literalinclude:: ../../source/f2py/code/results/run_main_session.dat\n    :language: python"
+    },
+    {
+      "name": "filter_files",
+      "docstring": "Filter files by prefix and suffix."
+    },
+    {
+      "name": "get_prefix",
+      "docstring": null
+    },
+    {
+      "name": "f2py_parser",
+      "docstring": null
+    },
+    {
+      "name": "get_newer_options",
+      "docstring": null
+    },
+    {
+      "name": "make_f2py_compile_parser",
+      "docstring": null
+    },
+    {
+      "name": "preparse_sysargv",
+      "docstring": null
+    },
+    {
+      "name": "run_compile",
+      "docstring": "Do it all in one call!"
+    },
+    {
+      "name": "validate_modulename",
+      "docstring": null
+    },
+    {
+      "name": "main",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "optimization",
+      "context": "  --f90exec=           Specify the path to F90 compiler [NO_MESON]\n  --f77flags=          Specify F77 compiler flags\n  --f90flags=          Specify F90 compiler flags\n  --opt=               Specify optimization flags [NO_MESON]\n  --arch=              Specify architecture specific optimization flags [NO_MESON]\n  --noopt              Compile without optimization [NO_MESON]\n  --noarch             Compile without arch-dependent optimization [NO_MESON]"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\utils\\_jaraco_text.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "yield_lines",
+      "docstring": "Yield valid lines of a string or iterable.\n\n>>> list(yield_lines(''))\n[]\n>>> list(yield_lines(['foo', 'bar']))\n['foo', 'bar']\n>>> list(yield_lines('foo\\nbar'))\n['foo', 'bar']\n>>> list(yield_lines('\\nfoo\\n#bar\\nbaz #comment'))\n['foo', 'baz #comment']\n>>> list(yield_lines(['foo\\nbar', 'baz', 'bing\\n\\n\\n']))\n['foo', 'bar', 'baz', 'bing']"
+    },
+    {
+      "name": "drop_comment",
+      "docstring": "Drop comments.\n\n>>> drop_comment('foo # bar')\n'foo'\n\nA hash without a space may be in a URL.\n\n>>> drop_comment('http://example.com/foo#bar')\n'http://example.com/foo#bar'"
+    },
+    {
+      "name": "join_continuation",
+      "docstring": "Join lines continued by a trailing backslash.\n\n>>> list(join_continuation(['foo \\\\', 'bar', 'baz']))\n['foobar', 'baz']\n>>> list(join_continuation(['foo \\\\', 'bar', 'baz']))\n['foobar', 'baz']\n>>> list(join_continuation(['foo \\\\', 'bar \\\\', 'baz']))\n['foobarbaz']\n\nNot sure why, but...\nThe character preceding the backslash is also elided.\n\n>>> list(join_continuation(['goo\\\\', 'dly']))\n['godly']\n\nA terrible idea, but...\nIf no line is available to continue, suppress the lines.\n\n>>> list(join_continuation(['foo', 'bar\\\\', 'baz\\\\']))\n['foo']"
+    }
+  ],
+  "innovations": []
+}

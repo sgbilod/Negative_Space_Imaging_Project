@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>System Optimization - Sovereign Control System</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}" />
+  </head>
+  <body class="quantum-dark">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 sidebar">
+          <div class="sidebar-header">
+            <h3>Sovereign Control</h3>
+          </div>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/directives">Directives</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/optimization">Optimization</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/configuration">Configuration</a>
+            </li>
+          </ul>
+        </div>
+
+        <main role="main" class="col-md-10 ml-sm-auto px-4">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+          >
+            <h1 class="h2">System Optimization</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <button
+                type="button"
+                class="btn btn-sm btn-outline-secondary"
+                onclick="window.location.href='/'"
+              >
+                Return to Dashboard
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card quantum-card">
+                <div class="card-header">
+                  <h5>Performance Optimization</h5>
+                </div>
+                <div class="card-body">
+                  <form id="performanceOptimizeForm" action="/optimize" method="post">
+                    <input type="hidden" name="optimization_type" value="performance" />
+
+                    <div class="form-group">
+                      <label for="cpuAllocation">CPU Allocation (%):</label>
+                      <input
+                        type="range"
+                        class="custom-range"
+                        id="cpuAllocation"
+                        name="cpu_allocation"
+                        min="10"
+                        max="100"
+                        value="{{ system_config.performance.cpu_allocation if system_config else 75 }}"
+                      />
+                      <div class="d-flex justify-content-between">
+                        <span>10%</span>
+                        <span id="cpuAllocationValue"
+                          >{{ system_config.performance.cpu_allocation if system_config else 75
+                          }}%</span
+                        >
+                        <span>100%</span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="memoryAllocation">Memory Allocation (%):</label>
+                      <input
+                        type="range"
+                        class="custom-range"
+                        id="memoryAllocation"
+                        name="memory_allocation"
+                        min="10"
+                        max="100"
+                        value="{{ system_config.performance.memory_allocation if system_config else 80 }}"
+                      />
+                      <div class="d-flex justify-content-between">
+                        <span>10%</span>
+                        <span id="memoryAllocationValue"
+                          >{{ system_config.performance.memory_allocation if system_config else 80
+                          }}%</span
+                        >
+                        <span>100%</span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="gpuMode">GPU Mode:</label>
+                      <select class="form-control" id="gpuMode" name="gpu_mode">
+                        <option
+                          value="disabled"
+                          {%
+                          if
+                          system_config
+                          and
+                          system_config.performance.gpu_mode=""
+                          ="disabled"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Disabled
+                        </option>
+                        <option
+                          value="on-demand"
+                          {%
+                          if
+                          not
+                          system_config
+                          or
+                          system_config.performance.gpu_mode=""
+                          ="on-demand"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          On Demand
+                        </option>
+                        <option
+                          value="always"
+                          {%
+                          if
+                          system_config
+                          and
+                          system_config.performance.gpu_mode=""
+                          ="always"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Always On
+                        </option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="threadCount">Thread Count:</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="threadCount"
+                        name="thread_count"
+                        min="1"
+                        max="64"
+                        value="{{ system_config.performance.thread_count if system_config else 8 }}"
+                      />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                      Apply Performance Settings
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card quantum-card">
+                <div class="card-header">
+                  <h5>Quantum Field Optimization</h5>
+                </div>
+                <div class="card-body">
+                  <form id="quantumOptimizeForm" action="/optimize" method="post">
+                    <input type="hidden" name="optimization_type" value="quantum" />
+
+                    <div class="form-group">
+                      <label for="coherenceLevel">Field Coherence Level:</label>
+                      <input
+                        type="range"
+                        class="custom-range"
+                        id="coherenceLevel"
+                        name="coherence_level"
+                        min="1"
+                        max="10"
+                        value="{{ system_config.quantum.coherence_level if system_config else 7 }}"
+                      />
+                      <div class="d-flex justify-content-between">
+                        <span>Low</span>
+                        <span id="coherenceLevelValue"
+                          >{{ system_config.quantum.coherence_level if system_config else 7
+                          }}/10</span
+                        >
+                        <span>High</span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="entanglementDensity">Entanglement Density:</label>
+                      <input
+                        type="range"
+                        class="custom-range"
+                        id="entanglementDensity"
+                        name="entanglement_density"
+                        min="1"
+                        max="10"
+                        value="{{ system_config.quantum.entanglement_density if system_config else 6 }}"
+                      />
+                      <div class="d-flex justify-content-between">
+                        <span>Low</span>
+                        <span id="entanglementDensityValue"
+                          >{{ system_config.quantum.entanglement_density if system_config else 6
+                          }}/10</span
+                        >
+                        <span>High</span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="dimensionalStability">Dimensional Stability:</label>
+                      <input
+                        type="range"
+                        class="custom-range"
+                        id="dimensionalStability"
+                        name="dimensional_stability"
+                        min="1"
+                        max="10"
+                        value="{{ system_config.quantum.dimensional_stability if system_config else 8 }}"
+                      />
+                      <div class="d-flex justify-content-between">
+                        <span>Low</span>
+                        <span id="dimensionalStabilityValue"
+                          >{{ system_config.quantum.dimensional_stability if system_config else 8
+                          }}/10</span
+                        >
+                        <span>High</span>
+                      </div>
+                    </div>
+
+                    <div class="form-group form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="quantumAcceleration"
+                        name="quantum_acceleration"
+                        {%
+                        if
+                        system_config
+                        and
+                        system_config.quantum.acceleration_enabled
+                        %}checked{%
+                        endif
+                        %}
+                      />
+                      <label class="form-check-label" for="quantumAcceleration"
+                        >Enable Quantum Acceleration</label
+                      >
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Apply Quantum Settings</button>
+                  </form>
+                </div>
+              </div>
+
+              <div class="card quantum-card mt-4">
+                <div class="card-header">
+                  <h5>Advanced Optimization</h5>
+                </div>
+                <div class="card-body">
+                  <form id="advancedOptimizeForm" action="/optimize" method="post">
+                    <input type="hidden" name="optimization_type" value="advanced" />
+
+                    <div class="form-group">
+                      <label for="optimizationTarget">Optimization Target:</label>
+                      <select
+                        class="form-control"
+                        id="optimizationTarget"
+                        name="optimization_target"
+                      >
+                        <option
+                          value="speed"
+                          {%
+                          if
+                          system_config
+                          and
+                          system_config.advanced.target=""
+                          ="speed"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Speed
+                        </option>
+                        <option
+                          value="quality"
+                          {%
+                          if
+                          not
+                          system_config
+                          or
+                          system_config.advanced.target=""
+                          ="quality"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Quality
+                        </option>
+                        <option
+                          value="efficiency"
+                          {%
+                          if
+                          system_config
+                          and
+                          system_config.advanced.target=""
+                          ="efficiency"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Efficiency
+                        </option>
+                        <option
+                          value="balanced"
+                          {%
+                          if
+                          system_config
+                          and
+                          system_config.advanced.target=""
+                          ="balanced"
+                          %}selected{%
+                          endif
+                          %}
+                        >
+                          Balanced
+                        </option>
+                      </select>
+                    </div>
+
+                    <div class="form-group form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="adaptiveOptimization"
+                        name="adaptive_optimization"
+                        {%
+                        if
+                        system_config
+                        and
+                        system_config.advanced.adaptive_enabled
+                        %}checked{%
+                        endif
+                        %}
+                      />
+                      <label class="form-check-label" for="adaptiveOptimization"
+                        >Enable Adaptive Optimization</label
+                      >
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Apply Advanced Settings</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <script>
+      // Update range slider value displays
+      document.getElementById('cpuAllocation').addEventListener('input', function () {
+        document.getElementById('cpuAllocationValue').textContent = this.value + '%';
+      });
+
+      document.getElementById('memoryAllocation').addEventListener('input', function () {
+        document.getElementById('memoryAllocationValue').textContent = this.value + '%';
+      });
+
+      document.getElementById('coherenceLevel').addEventListener('input', function () {
+        document.getElementById('coherenceLevelValue').textContent = this.value + '/10';
+      });
+
+      document.getElementById('entanglementDensity').addEventListener('input', function () {
+        document.getElementById('entanglementDensityValue').textContent = this.value + '/10';
+      });
+
+      document.getElementById('dimensionalStability').addEventListener('input', function () {
+        document.getElementById('dimensionalStabilityValue').textContent = this.value + '/10';
+      });
+    </script>
+  </body>
+</html>

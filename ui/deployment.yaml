@@ -1,0 +1,57 @@
+# Quantum-Classical UI System Configuration
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hybrid-ui-system
+  namespace: negative-space-system
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: hybrid-ui
+  template:
+    metadata:
+      labels:
+        app: hybrid-ui
+    spec:
+      containers:
+      - name: frontend-engine
+        image: negative-space/hybrid-ui:latest
+        resources:
+          limits:
+            cpu: "8"
+            memory: "16Gi"
+            nvidia.com/gpu: "1"
+          requests:
+            cpu: "4"
+            memory: "8Gi"
+            nvidia.com/gpu: "1"
+        ports:
+        - containerPort: 3000
+          name: http
+        - containerPort: 9000
+          name: quantum-bridge
+        env:
+        - name: QUANTUM_BACKEND_URL
+          valueFrom:
+            configMapKeyRef:
+              name: quantum-config
+              key: backend_url
+        - name: NEURAL_PROCESSING
+          value: "enabled"
+        - name: QUANTUM_BRIDGE_MODE
+          value: "real_time"
+        volumeMounts:
+        - name: quantum-bridge-cache
+          mountPath: /cache
+        - name: ui-state
+          mountPath: /state
+      volumes:
+      - name: quantum-bridge-cache
+        persistentVolumeClaim:
+          claimName: ui-cache-pvc
+      - name: ui-state
+        persistentVolumeClaim:
+          claimName: ui-state-pvc

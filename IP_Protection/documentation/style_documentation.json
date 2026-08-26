@@ -1,0 +1,246 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\style.py",
+  "classes": [
+    {
+      "name": "_Bit",
+      "docstring": "A descriptor to get/set a style attribute bit.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Style",
+      "docstring": "A terminal style.\n\nA terminal style consists of a color (`color`), a background color (`bgcolor`), and a number of attributes, such\nas bold, italic etc. The attributes have 3 states: they can either be on\n(``True``), off (``False``), or not set (``None``).\n\nArgs:\n    color (Union[Color, str], optional): Color of terminal text. Defaults to None.\n    bgcolor (Union[Color, str], optional): Color of terminal background. Defaults to None.\n    bold (bool, optional): Enable bold text. Defaults to None.\n    dim (bool, optional): Enable dim text. Defaults to None.\n    italic (bool, optional): Enable italic text. Defaults to None.\n    underline (bool, optional): Enable underlined text. Defaults to None.\n    blink (bool, optional): Enabled blinking text. Defaults to None.\n    blink2 (bool, optional): Enable fast blinking text. Defaults to None.\n    reverse (bool, optional): Enabled reverse text. Defaults to None.\n    conceal (bool, optional): Enable concealed text. Defaults to None.\n    strike (bool, optional): Enable strikethrough text. Defaults to None.\n    underline2 (bool, optional): Enable doubly underlined text. Defaults to None.\n    frame (bool, optional): Enable framed text. Defaults to None.\n    encircle (bool, optional): Enable encircled text. Defaults to None.\n    overline (bool, optional): Enable overlined text. Defaults to None.\n    link (str, link): Link URL. Defaults to None.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "null",
+          "docstring": "Create an 'null' style, equivalent to Style(), but more performant."
+        },
+        {
+          "name": "from_color",
+          "docstring": "Create a new style with colors and no attributes.\n\nReturns:\n    color (Optional[Color]): A (foreground) color, or None for no color. Defaults to None.\n    bgcolor (Optional[Color]): A (background) color, or None for no color. Defaults to None."
+        },
+        {
+          "name": "from_meta",
+          "docstring": "Create a new style with meta data.\n\nReturns:\n    meta (Optional[Dict[str, Any]]): A dictionary of meta data. Defaults to None."
+        },
+        {
+          "name": "on",
+          "docstring": "Create a blank style with meta information.\n\nExample:\n    style = Style.on(click=self.on_click)\n\nArgs:\n    meta (Optional[Dict[str, Any]], optional): An optional dict of meta information.\n    **handlers (Any): Keyword arguments are translated in to handlers.\n\nReturns:\n    Style: A Style with meta information attached."
+        },
+        {
+          "name": "link_id",
+          "docstring": "Get a link id, used in ansi code for links."
+        },
+        {
+          "name": "normalize",
+          "docstring": "Normalize a style definition so that styles with the same effect have the same string\nrepresentation.\n\nArgs:\n    style (str): A style definition.\n\nReturns:\n    str: Normal form of style definition."
+        },
+        {
+          "name": "pick_first",
+          "docstring": "Pick first non-None style."
+        },
+        {
+          "name": "color",
+          "docstring": "The foreground color or None if it is not set."
+        },
+        {
+          "name": "bgcolor",
+          "docstring": "The background color or None if it is not set."
+        },
+        {
+          "name": "link",
+          "docstring": "Link text, if set."
+        },
+        {
+          "name": "transparent_background",
+          "docstring": "Check if the style specified a transparent background."
+        },
+        {
+          "name": "background_style",
+          "docstring": "A Style with background only."
+        },
+        {
+          "name": "meta",
+          "docstring": "Get meta information (can not be changed after construction)."
+        },
+        {
+          "name": "without_color",
+          "docstring": "Get a copy of the style with color removed."
+        },
+        {
+          "name": "parse",
+          "docstring": "Parse a style definition.\n\nArgs:\n    style_definition (str): A string containing a style.\n\nRaises:\n    errors.StyleSyntaxError: If the style definition syntax is invalid.\n\nReturns:\n    `Style`: A Style instance."
+        },
+        {
+          "name": "get_html_style",
+          "docstring": "Get a CSS style rule."
+        },
+        {
+          "name": "combine",
+          "docstring": "Combine styles and get result.\n\nArgs:\n    styles (Iterable[Style]): Styles to combine.\n\nReturns:\n    Style: A new style instance."
+        },
+        {
+          "name": "chain",
+          "docstring": "Combine styles from positional argument in to a single style.\n\nArgs:\n    *styles (Iterable[Style]): Styles to combine.\n\nReturns:\n    Style: A new style instance."
+        },
+        {
+          "name": "copy",
+          "docstring": "Get a copy of this style.\n\nReturns:\n    Style: A new Style instance with identical attributes."
+        },
+        {
+          "name": "clear_meta_and_links",
+          "docstring": "Get a copy of this style with link and meta information removed.\n\nReturns:\n    Style: New style object."
+        },
+        {
+          "name": "update_link",
+          "docstring": "Get a copy with a different value for link.\n\nArgs:\n    link (str, optional): New value for link. Defaults to None.\n\nReturns:\n    Style: A new Style instance."
+        },
+        {
+          "name": "render",
+          "docstring": "Render the ANSI codes for the style.\n\nArgs:\n    text (str, optional): A string to style. Defaults to \"\".\n    color_system (Optional[ColorSystem], optional): Color system to render to. Defaults to ColorSystem.TRUECOLOR.\n\nReturns:\n    str: A string containing ANSI style codes."
+        },
+        {
+          "name": "test",
+          "docstring": "Write text with style directly to terminal.\n\nThis method is for testing purposes only.\n\nArgs:\n    text (Optional[str], optional): Text to style or None for style name."
+        }
+      ]
+    },
+    {
+      "name": "StyleStack",
+      "docstring": "A stack of styles.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "current",
+          "docstring": "Get the Style at the top of the stack."
+        },
+        {
+          "name": "push",
+          "docstring": "Push a new style on to the stack.\n\nArgs:\n    style (Style): New style to combine with current style."
+        },
+        {
+          "name": "pop",
+          "docstring": "Pop last style and discard.\n\nReturns:\n    Style: New current style (also available as stack.current)"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "null",
+      "docstring": "Create an 'null' style, equivalent to Style(), but more performant."
+    },
+    {
+      "name": "from_color",
+      "docstring": "Create a new style with colors and no attributes.\n\nReturns:\n    color (Optional[Color]): A (foreground) color, or None for no color. Defaults to None.\n    bgcolor (Optional[Color]): A (background) color, or None for no color. Defaults to None."
+    },
+    {
+      "name": "from_meta",
+      "docstring": "Create a new style with meta data.\n\nReturns:\n    meta (Optional[Dict[str, Any]]): A dictionary of meta data. Defaults to None."
+    },
+    {
+      "name": "on",
+      "docstring": "Create a blank style with meta information.\n\nExample:\n    style = Style.on(click=self.on_click)\n\nArgs:\n    meta (Optional[Dict[str, Any]], optional): An optional dict of meta information.\n    **handlers (Any): Keyword arguments are translated in to handlers.\n\nReturns:\n    Style: A Style with meta information attached."
+    },
+    {
+      "name": "link_id",
+      "docstring": "Get a link id, used in ansi code for links."
+    },
+    {
+      "name": "normalize",
+      "docstring": "Normalize a style definition so that styles with the same effect have the same string\nrepresentation.\n\nArgs:\n    style (str): A style definition.\n\nReturns:\n    str: Normal form of style definition."
+    },
+    {
+      "name": "pick_first",
+      "docstring": "Pick first non-None style."
+    },
+    {
+      "name": "color",
+      "docstring": "The foreground color or None if it is not set."
+    },
+    {
+      "name": "bgcolor",
+      "docstring": "The background color or None if it is not set."
+    },
+    {
+      "name": "link",
+      "docstring": "Link text, if set."
+    },
+    {
+      "name": "transparent_background",
+      "docstring": "Check if the style specified a transparent background."
+    },
+    {
+      "name": "background_style",
+      "docstring": "A Style with background only."
+    },
+    {
+      "name": "meta",
+      "docstring": "Get meta information (can not be changed after construction)."
+    },
+    {
+      "name": "without_color",
+      "docstring": "Get a copy of the style with color removed."
+    },
+    {
+      "name": "parse",
+      "docstring": "Parse a style definition.\n\nArgs:\n    style_definition (str): A string containing a style.\n\nRaises:\n    errors.StyleSyntaxError: If the style definition syntax is invalid.\n\nReturns:\n    `Style`: A Style instance."
+    },
+    {
+      "name": "get_html_style",
+      "docstring": "Get a CSS style rule."
+    },
+    {
+      "name": "combine",
+      "docstring": "Combine styles and get result.\n\nArgs:\n    styles (Iterable[Style]): Styles to combine.\n\nReturns:\n    Style: A new style instance."
+    },
+    {
+      "name": "chain",
+      "docstring": "Combine styles from positional argument in to a single style.\n\nArgs:\n    *styles (Iterable[Style]): Styles to combine.\n\nReturns:\n    Style: A new style instance."
+    },
+    {
+      "name": "copy",
+      "docstring": "Get a copy of this style.\n\nReturns:\n    Style: A new Style instance with identical attributes."
+    },
+    {
+      "name": "clear_meta_and_links",
+      "docstring": "Get a copy of this style with link and meta information removed.\n\nReturns:\n    Style: New style object."
+    },
+    {
+      "name": "update_link",
+      "docstring": "Get a copy with a different value for link.\n\nArgs:\n    link (str, optional): New value for link. Defaults to None.\n\nReturns:\n    Style: A new Style instance."
+    },
+    {
+      "name": "render",
+      "docstring": "Render the ANSI codes for the style.\n\nArgs:\n    text (str, optional): A string to style. Defaults to \"\".\n    color_system (Optional[ColorSystem], optional): Color system to render to. Defaults to ColorSystem.TRUECOLOR.\n\nReturns:\n    str: A string containing ANSI style codes."
+    },
+    {
+      "name": "test",
+      "docstring": "Write text with style directly to terminal.\n\nThis method is for testing purposes only.\n\nArgs:\n    text (Optional[str], optional): Text to style or None for style name."
+    },
+    {
+      "name": "current",
+      "docstring": "Get the Style at the top of the stack."
+    },
+    {
+      "name": "push",
+      "docstring": "Push a new style on to the stack.\n\nArgs:\n    style (Style): New style to combine with current style."
+    },
+    {
+      "name": "pop",
+      "docstring": "Pop last style and discard.\n\nReturns:\n    Style: New current style (also available as stack.current)"
+    }
+  ],
+  "innovations": []
+}

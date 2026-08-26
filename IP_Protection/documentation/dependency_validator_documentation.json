@@ -1,0 +1,27 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\dependency_validator.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "parse_requirements",
+      "docstring": "Parse a requirements file into a dictionary of package names and versions."
+    },
+    {
+      "name": "check_conflicts",
+      "docstring": "Check for conflicts between shared dependencies and project dependencies."
+    },
+    {
+      "name": "create_dependency_report",
+      "docstring": "Create a report of dependency conflicts and missing dependencies."
+    },
+    {
+      "name": "sync_dependencies",
+      "docstring": "Synchronize dependencies across projects based on shared requirements."
+    },
+    {
+      "name": "main",
+      "docstring": "Main function to validate and sync dependencies."
+    }
+  ],
+  "innovations": []
+}

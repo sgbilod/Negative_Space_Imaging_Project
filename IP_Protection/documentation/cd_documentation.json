@@ -1,0 +1,51 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\charset_normalizer\\cd.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "encoding_unicode_range",
+      "docstring": "Return associated unicode ranges in a single byte code page."
+    },
+    {
+      "name": "unicode_range_languages",
+      "docstring": "Return inferred languages used with a unicode range."
+    },
+    {
+      "name": "encoding_languages",
+      "docstring": "Single-byte encoding language association. Some code page are heavily linked to particular language(s).\nThis function does the correspondence."
+    },
+    {
+      "name": "mb_encoding_languages",
+      "docstring": "Multi-byte encoding language association. Some code page are heavily linked to particular language(s).\nThis function does the correspondence."
+    },
+    {
+      "name": "get_target_features",
+      "docstring": "Determine main aspects from a supported language if it contains accents and if is pure Latin."
+    },
+    {
+      "name": "alphabet_languages",
+      "docstring": "Return associated languages associated to given characters."
+    },
+    {
+      "name": "characters_popularity_compare",
+      "docstring": "Determine if a ordered characters list (by occurrence from most appearance to rarest) match a particular language.\nThe result is a ratio between 0. (absolutely no correspondence) and 1. (near perfect fit).\nBeware that is function is not strict on the match in order to ease the detection. (Meaning close match is 1.)"
+    },
+    {
+      "name": "alpha_unicode_split",
+      "docstring": "Given a decoded text sequence, return a list of str. Unicode range / alphabet separation.\nEx. a text containing English/Latin with a bit a Hebrew will return two items in the resulting list;\nOne containing the latin letters and the other hebrew."
+    },
+    {
+      "name": "merge_coherence_ratios",
+      "docstring": "This function merge results previously given by the function coherence_ratio.\nThe return type is the same as coherence_ratio."
+    },
+    {
+      "name": "filter_alt_coherence_matches",
+      "docstring": "We shall NOT return \"English\u2014\" in CoherenceMatches because it is an alternative\nof \"English\". This function only keeps the best match and remove the em-dash in it."
+    },
+    {
+      "name": "coherence_ratio",
+      "docstring": "Detect ANY language that can be identified in given sequence. The sequence will be analysed by layers.\nA layer = Character extraction by alphabets/ranges."
+    }
+  ],
+  "innovations": []
+}

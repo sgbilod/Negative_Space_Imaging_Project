@@ -1,0 +1,198 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\varLib\\errors.py",
+  "classes": [
+    {
+      "name": "VarLibError",
+      "docstring": "Base exception for the varLib module.",
+      "methods": []
+    },
+    {
+      "name": "VarLibValidationError",
+      "docstring": "Raised when input data is invalid from varLib's point of view.",
+      "methods": []
+    },
+    {
+      "name": "VarLibMergeError",
+      "docstring": "Raised when input data cannot be merged into a variable font.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "reason",
+          "docstring": null
+        },
+        {
+          "name": "offender",
+          "docstring": null
+        },
+        {
+          "name": "details",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "ShouldBeConstant",
+      "docstring": "some values were different, but should have been the same",
+      "methods": [
+        {
+          "name": "details",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "FoundANone",
+      "docstring": "one of the values in a list was empty when it shouldn't have been",
+      "methods": [
+        {
+          "name": "offender",
+          "docstring": null
+        },
+        {
+          "name": "details",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "NotANone",
+      "docstring": "one of the values in a list was not empty when it should have been",
+      "methods": [
+        {
+          "name": "offender",
+          "docstring": null
+        },
+        {
+          "name": "details",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MismatchedTypes",
+      "docstring": "data had inconsistent types",
+      "methods": []
+    },
+    {
+      "name": "LengthsDiffer",
+      "docstring": "a list of objects had inconsistent lengths",
+      "methods": []
+    },
+    {
+      "name": "KeysDiffer",
+      "docstring": "a list of objects had different keys",
+      "methods": []
+    },
+    {
+      "name": "InconsistentGlyphOrder",
+      "docstring": "the glyph order was inconsistent between masters",
+      "methods": []
+    },
+    {
+      "name": "InconsistentExtensions",
+      "docstring": "the masters use extension lookups in inconsistent ways",
+      "methods": []
+    },
+    {
+      "name": "UnsupportedFormat",
+      "docstring": "an OpenType subtable (%s) had a format I didn't expect",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "reason",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "InconsistentFormats",
+      "docstring": "an OpenType subtable (%s) had inconsistent formats between masters",
+      "methods": []
+    },
+    {
+      "name": "VarLibCFFMergeError",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "VarLibCFFDictMergeError",
+      "docstring": "Raised when a CFF PrivateDict cannot be merged.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "VarLibCFFPointTypeMergeError",
+      "docstring": "Raised when a CFF glyph cannot be merged because of point type differences.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "VarLibCFFHintTypeMergeError",
+      "docstring": "Raised when a CFF glyph cannot be merged because of hint type differences.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "VariationModelError",
+      "docstring": "Raised when a variation model is faulty.",
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "reason",
+      "docstring": null
+    },
+    {
+      "name": "offender",
+      "docstring": null
+    },
+    {
+      "name": "details",
+      "docstring": null
+    },
+    {
+      "name": "details",
+      "docstring": null
+    },
+    {
+      "name": "offender",
+      "docstring": null
+    },
+    {
+      "name": "details",
+      "docstring": null
+    },
+    {
+      "name": "offender",
+      "docstring": null
+    },
+    {
+      "name": "details",
+      "docstring": null
+    },
+    {
+      "name": "reason",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

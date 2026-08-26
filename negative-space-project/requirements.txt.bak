@@ -1,0 +1,57 @@
+# Core dependencies
+numpy==1.24.3
+opencv-python>=4.5.3
+scipy>=1.8.0
+matplotlib==3.4.0
+open3d>=0.15.0
+scikit-learn==1.4.2
+scikit-image>=0.19.0
+
+# 3D analysis
+pyntcloud>=0.3.0
+plotly>=5.6.0
+
+# Image processing
+pillow>=9.0.0
+
+# Visualization and UI
+dash>=2.3.0
+
+# Temporal analysis (Phase 2)
+pandas==2.2.0
+statsmodels>=0.13.0  # For statistical modeling
+
+# Blockchain integration (Phase 2)
+web3>=5.29.0  # For Ethereum integration
+pycryptodome>=3.15.0  # For cryptographic operations
+merkletools>=1.0.3  # For Merkle tree operations
+
+# Smart contract integration (Phase 3)
+py-solc-x>=1.1.1  # For Solidity compilation
+eth-brownie>=1.19.0  # For smart contract development and testing
+eth-account>=0.5.9  # For Ethereum account management
+
+# Real-time processing (Phase 3)
+opencv-contrib-python>=4.5.3  # For advanced OpenCV features
+pyrealsense2>=2.50.0  # For Intel RealSense cameras (optional)
+multiprocess>=0.70.12  # For parallel processing
+psutil>=5.9.0  # For system resource monitoring
+vidgear>=0.2.5  # For video stream processing
+
+# Deep learning (optional)
+torch>=1.12.0
+torchvision>=0.13.0
+tensorflow>=2.9.0
+
+# Development and testing
+pytest>=7.0.0
+pytest-cov>=3.0.0
+black>=22.3.0
+flake8>=4.0.0
+mypy>=0.950
+pylint>=2.13.0
+autopep8>=1.6.0
+
+# Type stubs
+types-Pillow
+types-PyYAML

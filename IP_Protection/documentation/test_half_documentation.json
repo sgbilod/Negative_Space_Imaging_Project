@@ -1,0 +1,159 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_half.py",
+  "classes": [
+    {
+      "name": "TestHalf",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_half_conversions",
+          "docstring": "Checks that all 16-bit values survive conversion\nto/from 32-bit and 64-bit float"
+        },
+        {
+          "name": "test_half_conversion_to_string",
+          "docstring": null
+        },
+        {
+          "name": "test_half_conversion_from_string",
+          "docstring": null
+        },
+        {
+          "name": "test_half_conversion_rounding",
+          "docstring": null
+        },
+        {
+          "name": "test_half_conversion_denormal_round_even",
+          "docstring": null
+        },
+        {
+          "name": "test_nans_infs",
+          "docstring": null
+        },
+        {
+          "name": "test_half_values",
+          "docstring": "Confirms a small number of known half values"
+        },
+        {
+          "name": "test_half_rounding",
+          "docstring": "Checks that rounding when converting to half is correct"
+        },
+        {
+          "name": "test_half_correctness",
+          "docstring": "Take every finite float16, and check the casting functions with\na manual conversion."
+        },
+        {
+          "name": "test_half_ordering",
+          "docstring": "Make sure comparisons are working right"
+        },
+        {
+          "name": "test_half_funcs",
+          "docstring": "Test the various ArrFuncs"
+        },
+        {
+          "name": "test_spacing_nextafter",
+          "docstring": "Test np.spacing and np.nextafter"
+        },
+        {
+          "name": "test_half_ufuncs",
+          "docstring": "Test the various ufuncs"
+        },
+        {
+          "name": "test_half_coercion",
+          "docstring": "Test that half gets coerced properly with the other types"
+        },
+        {
+          "name": "test_half_fpe",
+          "docstring": null
+        },
+        {
+          "name": "test_half_array_interface",
+          "docstring": "Test that half is compatible with __array_interface__"
+        }
+      ]
+    },
+    {
+      "name": "Dummy",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "assert_raises_fpe",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_half_conversions",
+      "docstring": "Checks that all 16-bit values survive conversion\nto/from 32-bit and 64-bit float"
+    },
+    {
+      "name": "test_half_conversion_to_string",
+      "docstring": null
+    },
+    {
+      "name": "test_half_conversion_from_string",
+      "docstring": null
+    },
+    {
+      "name": "test_half_conversion_rounding",
+      "docstring": null
+    },
+    {
+      "name": "test_half_conversion_denormal_round_even",
+      "docstring": null
+    },
+    {
+      "name": "test_nans_infs",
+      "docstring": null
+    },
+    {
+      "name": "test_half_values",
+      "docstring": "Confirms a small number of known half values"
+    },
+    {
+      "name": "test_half_rounding",
+      "docstring": "Checks that rounding when converting to half is correct"
+    },
+    {
+      "name": "test_half_correctness",
+      "docstring": "Take every finite float16, and check the casting functions with\na manual conversion."
+    },
+    {
+      "name": "test_half_ordering",
+      "docstring": "Make sure comparisons are working right"
+    },
+    {
+      "name": "test_half_funcs",
+      "docstring": "Test the various ArrFuncs"
+    },
+    {
+      "name": "test_spacing_nextafter",
+      "docstring": "Test np.spacing and np.nextafter"
+    },
+    {
+      "name": "test_half_ufuncs",
+      "docstring": "Test the various ufuncs"
+    },
+    {
+      "name": "test_half_coercion",
+      "docstring": "Test that half gets coerced properly with the other types"
+    },
+    {
+      "name": "test_half_fpe",
+      "docstring": null
+    },
+    {
+      "name": "test_half_array_interface",
+      "docstring": "Test that half is compatible with __array_interface__"
+    }
+  ],
+  "innovations": []
+}

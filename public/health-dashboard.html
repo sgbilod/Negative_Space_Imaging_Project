@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Health Check Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            gap: 10px;
+        }
+
+        .status-badge.healthy {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-badge.unhealthy {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status-badge.warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .timestamp {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card.healthy {
+            border-left: 6px solid #28a745;
+        }
+
+        .service-card.warning {
+            border-left: 6px solid #ffc107;
+        }
+
+        .service-card.critical {
+            border-left: 6px solid #dc3545;
+        }
+
+        .service-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .service-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.healthy {
+            background: #28a745;
+        }
+
+        .status-dot.warning {
+            background: #ffc107;
+        }
+
+        .status-dot.critical {
+            background: #dc3545;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .service-details {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .service-details dt {
+            font-weight: 600;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .service-details dd {
+            margin-left: 20px;
+            color: #666;
+        }
+
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .summary-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .summary-card h3 {
+            color: #666;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .summary-card .value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .summary-card.healthy .value {
+            color: #28a745;
+        }
+
+        .summary-card.warning .value {
+            color: #ffc107;
+        }
+
+        .summary-card.critical .value {
+            color: #dc3545;
+        }
+
+        .controls {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: white;
+            font-size: 18px;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .refresh-info {
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .header-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-container h3 {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 12px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-fill.cpu {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .progress-fill.memory {
+            background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .progress-fill.disk {
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐳 Docker Health Check Dashboard</h1>
+            <div class="header-info">
+                <div>
+                    <div id="statusBadge" class="status-badge healthy">
+                        <span>●</span>
+                        <span id="statusText">Loading...</span>
+                    </div>
+                </div>
+                <div class="timestamp">
+                    Last updated: <span id="timestamp">--:--:--</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="errorContainer"></div>
+
+        <div class="summary-cards">
+            <div class="summary-card">
+                <h3>Total Services</h3>
+                <div class="value" id="totalServices">-</div>
+            </div>
+            <div class="summary-card healthy">
+                <h3>Healthy</h3>
+                <div class="value" id="healthyCount">-</div>
+            </div>
+            <div class="summary-card warning">
+                <h3>Warnings</h3>
+                <div class="value" id="warningCount">-</div>
+            </div>
+            <div class="summary-card critical">
+                <h3>Failures</h3>
+                <div class="value" id="failureCount">-</div>
+            </div>
+        </div>
+
+        <div class="dashboard" id="dashboard">
+            <div class="loading">Loading health status...</div>
+        </div>
+
+        <div class="chart-container">
+            <h3>System Resources</h3>
+            <div id="resourcesContainer"></div>
+        </div>
+
+        <div class="controls">
+            <button class="btn-primary" onclick="refreshDashboard()">🔄 Refresh Now</button>
+            <button class="btn-secondary" onclick="downloadReport()">📥 Download Report</button>
+            <button class="btn-secondary" onclick="toggleAutoRefresh()">⏱️ <span id="autoRefreshLabel">Enable</span> Auto Refresh</button>
+        </div>
+
+        <div class="refresh-info">
+            <p>Auto-refresh: <span id="autoRefreshStatus">Disabled</span></p>
+            <p>Next refresh: <span id="nextRefresh">--:--</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const config = {
+            apiEndpoint: '/api/health',
+            refreshInterval: 30000, // 30 seconds
+            autoRefresh: false,
+        };
+
+        let currentData = null;
+        let refreshTimeout = null;
+
+        /**
+         * Fetch health status from API
+         */
+        async function fetchHealthStatus() {
+            try {
+                // For demo purposes, create mock data
+                const mockData = {
+                    timestamp: new Date().toISOString(),
+                    overall_status: 'HEALTHY',
+                    summary: {
+                        total_services: 10,
+                        healthy: 10,
+                        warnings: 0,
+                        failures: 0,
+                    },
+                    services: {
+                        'PostgreSQL': { status: 'HEALTHY', details: 'All connections normal' },
+                        'Redis': { status: 'HEALTHY', details: 'Cache responsive' },
+                        'Node.js': { status: 'HEALTHY', details: 'API responding' },
+                        'Python': { status: 'HEALTHY', details: 'Service responsive' },
+                        'React': { status: 'HEALTHY', details: 'Frontend accessible' },
+                        'CPU Usage': { status: 'HEALTHY', details: '45.2%' },
+                        'Memory Usage': { status: 'HEALTHY', details: '62.8%' },
+                        'Disk Usage': { status: 'HEALTHY', details: '38.4%' },
+                    }
+                };
+                return mockData;
+            } catch (error) {
+                showError(`Failed to fetch health status: ${error.message}`);
+                return null;
+            }
+        }
+
+        /**
+         * Render dashboard
+         */
+        function renderDashboard(data) {
+            if (!data) return;
+
+            currentData = data;
+
+            // Update header
+            const statusBadge = document.getElementById('statusBadge');
+            const statusText = document.getElementById('statusText');
+            statusBadge.className = `status-badge ${data.overall_status === 'HEALTHY' ? 'healthy' : 'unhealthy'}`;
+            statusText.textContent = data.overall_status;
+
+            // Update timestamp
+            document.getElementById('timestamp').textContent = new Date(data.timestamp).toLocaleTimeString();
+
+            // Update summary
+            document.getElementById('totalServices').textContent = data.summary.total_services;
+            document.getElementById('healthyCount').textContent = data.summary.healthy;
+            document.getElementById('warningCount').textContent = data.summary.warnings;
+            document.getElementById('failureCount').textContent = data.summary.failures;
+
+            // Render service cards
+            const dashboard = document.getElementById('dashboard');
+            dashboard.innerHTML = '';
+
+            for (const [service, info] of Object.entries(data.services)) {
+                const statusClass = info.status.toLowerCase();
+                const card = document.createElement('div');
+                card.className = `service-card ${statusClass}`;
+                card.innerHTML = `
+                    <div class="service-name">${service}</div>
+                    <div class="service-status">
+                        <span class="status-dot ${statusClass}"></span>
+                        <span>${info.status}</span>
+                    </div>
+                    <div class="service-details">
+                        ${info.details ? `<p>${info.details}</p>` : '<p>No details available</p>'}
+                    </div>
+                `;
+                dashboard.appendChild(card);
+            }
+
+            // Clear error container
+            document.getElementById('errorContainer').innerHTML = '';
+        }
+
+        /**
+         * Show error message
+         */
+        function showError(message) {
+            const errorContainer = document.getElementById('errorContainer');
+            errorContainer.innerHTML = `<div class="error">${message}</div>`;
+        }
+
+        /**
+         * Refresh dashboard
+         */
+        async function refreshDashboard() {
+            console.log('Refreshing dashboard...');
+            const data = await fetchHealthStatus();
+            if (data) {
+                renderDashboard(data);
+            }
+        }
+
+        /**
+         * Toggle auto-refresh
+         */
+        function toggleAutoRefresh() {
+            config.autoRefresh = !config.autoRefresh;
+            document.getElementById('autoRefreshStatus').textContent =
+                config.autoRefresh ? 'Enabled' : 'Disabled';
+            document.getElementById('autoRefreshLabel').textContent =
+                config.autoRefresh ? 'Disable' : 'Enable';
+
+            if (config.autoRefresh) {
+                startAutoRefresh();
+            } else {
+                stopAutoRefresh();
+            }
+        }
+
+        /**
+         * Start auto-refresh
+         */
+        function startAutoRefresh() {
+            refreshDashboard();
+            scheduleNextRefresh();
+        }
+
+        /**
+         * Stop auto-refresh
+         */
+        function stopAutoRefresh() {
+            if (refreshTimeout) {
+                clearTimeout(refreshTimeout);
+                refreshTimeout = null;
+            }
+        }
+
+        /**
+         * Schedule next refresh
+         */
+        function scheduleNextRefresh() {
+            if (!config.autoRefresh) return;
+
+            refreshTimeout = setTimeout(() => {
+                startAutoRefresh();
+            }, config.refreshInterval);
+
+            const nextRefreshTime = new Date(Date.now() + config.refreshInterval).toLocaleTimeString();
+            document.getElementById('nextRefresh').textContent = nextRefreshTime;
+        }
+
+        /**
+         * Download report as JSON
+         */
+        function downloadReport() {
+            if (!currentData) {
+                showError('No data to download. Please refresh first.');
+                return;
+            }
+
+            const json = JSON.stringify(currentData, null, 2);
+            const blob = new Blob([json], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `health-report-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        /**
+         * Initialize dashboard
+         */
+        async function initializeDashboard() {
+            await refreshDashboard();
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initializeDashboard);
+    </script>
+</body>
+</html>

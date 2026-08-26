@@ -1,0 +1,216 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\_type1font.py",
+  "classes": [
+    {
+      "name": "_Token",
+      "docstring": "A token in a PostScript stream.\n\nAttributes\n----------\npos : int\n    Position, i.e. offset from the beginning of the data.\nraw : str\n    Raw text of the token.\nkind : str\n    Description of the token (for debugging or testing).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "endpos",
+          "docstring": "Position one past the end of the token"
+        },
+        {
+          "name": "is_keyword",
+          "docstring": "Is this a name token with one of the names?"
+        },
+        {
+          "name": "is_slash_name",
+          "docstring": "Is this a name token that starts with a slash?"
+        },
+        {
+          "name": "is_delim",
+          "docstring": "Is this a delimiter token?"
+        },
+        {
+          "name": "is_number",
+          "docstring": "Is this a number token?"
+        },
+        {
+          "name": "value",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_NameToken",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "is_slash_name",
+          "docstring": null
+        },
+        {
+          "name": "value",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BooleanToken",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "value",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_KeywordToken",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "is_keyword",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_DelimiterToken",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "is_delim",
+          "docstring": null
+        },
+        {
+          "name": "opposite",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_WhitespaceToken",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "_StringToken",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "value",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BinaryToken",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "value",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_NumberToken",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "is_number",
+          "docstring": null
+        },
+        {
+          "name": "value",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "_BalancedExpression",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "Type1Font",
+      "docstring": "A class representing a Type-1 font, for use by backends.\n\nAttributes\n----------\nparts : tuple\n    A 3-tuple of the cleartext part, the encrypted part, and the finale of\n    zeros.\n\ndecrypted : bytes\n    The decrypted form of ``parts[1]``.\n\nprop : dict[str, Any]\n    A dictionary of font properties. Noteworthy keys include:\n\n    - FontName: PostScript name of the font\n    - Encoding: dict from numeric codes to glyph names\n    - FontMatrix: bytes object encoding a matrix\n    - UniqueID: optional font identifier, dropped when modifying the font\n    - CharStrings: dict from glyph names to byte code\n    - Subrs: array of byte code subroutines\n    - OtherSubrs: bytes object encoding some PostScript code",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialize a Type-1 font.\n\nParameters\n----------\ninput : str or 3-tuple\n    Either a pfb file name, or a 3-tuple of already-decoded Type-1\n    font `~.Type1Font.parts`."
+        },
+        {
+          "name": "transform",
+          "docstring": "Return a new font that is slanted and/or extended.\n\nParameters\n----------\neffects : dict\n    A dict with optional entries:\n\n    - 'slant' : float, default: 0\n        Tangent of the angle that the font is to be slanted to the\n        right. Negative values slant to the left.\n    - 'extend' : float, default: 1\n        Scaling factor for the font width. Values less than 1 condense\n        the glyphs.\n\nReturns\n-------\n`Type1Font`"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "endpos",
+      "docstring": "Position one past the end of the token"
+    },
+    {
+      "name": "is_keyword",
+      "docstring": "Is this a name token with one of the names?"
+    },
+    {
+      "name": "is_slash_name",
+      "docstring": "Is this a name token that starts with a slash?"
+    },
+    {
+      "name": "is_delim",
+      "docstring": "Is this a delimiter token?"
+    },
+    {
+      "name": "is_number",
+      "docstring": "Is this a number token?"
+    },
+    {
+      "name": "value",
+      "docstring": null
+    },
+    {
+      "name": "is_slash_name",
+      "docstring": null
+    },
+    {
+      "name": "value",
+      "docstring": null
+    },
+    {
+      "name": "value",
+      "docstring": null
+    },
+    {
+      "name": "is_keyword",
+      "docstring": null
+    },
+    {
+      "name": "is_delim",
+      "docstring": null
+    },
+    {
+      "name": "opposite",
+      "docstring": null
+    },
+    {
+      "name": "value",
+      "docstring": null
+    },
+    {
+      "name": "value",
+      "docstring": null
+    },
+    {
+      "name": "is_number",
+      "docstring": null
+    },
+    {
+      "name": "value",
+      "docstring": null
+    },
+    {
+      "name": "transform",
+      "docstring": "Return a new font that is slanted and/or extended.\n\nParameters\n----------\neffects : dict\n    A dict with optional entries:\n\n    - 'slant' : float, default: 0\n        Tangent of the angle that the font is to be slanted to the\n        right. Negative values slant to the left.\n    - 'extend' : float, default: 1\n        Scaling factor for the font width. Values less than 1 condense\n        the glyphs.\n\nReturns\n-------\n`Type1Font`"
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,29 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\merge\\base.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "add_method",
+      "docstring": "Returns a decorator function that adds a new method to one or\nmore classes."
+    },
+    {
+      "name": "mergeObjects",
+      "docstring": null
+    },
+    {
+      "name": "merge",
+      "docstring": null
+    },
+    {
+      "name": "wrapper",
+      "docstring": null
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "new method",
+      "context": "\n\ndef add_method(*clazzes, **kwargs):\n    \"\"\"Returns a decorator function that adds a new method to one or\n    more classes.\"\"\"\n    allowDefault = kwargs.get(\"allowDefaultTable\", False)\n"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\self_outdated_check.py",
+  "classes": [
+    {
+      "name": "SelfCheckState",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "key",
+          "docstring": null
+        },
+        {
+          "name": "get",
+          "docstring": "Check if we have a not-outdated version loaded already."
+        },
+        {
+          "name": "set",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "UpgradePrompt",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "was_installed_by_pip",
+      "docstring": "Checks whether pkg was installed by pip\n\nThis is used not to display the upgrade message when pip is in fact\ninstalled by system package manager, such as dnf on Fedora."
+    },
+    {
+      "name": "pip_self_version_check",
+      "docstring": "Check for an update for pip.\n\nLimit the frequency of checks to once per week. State is stored either in\nthe active virtualenv or in the user's USER_CACHE_DIR keyed off the prefix\nof the pip script path."
+    },
+    {
+      "name": "key",
+      "docstring": null
+    },
+    {
+      "name": "get",
+      "docstring": "Check if we have a not-outdated version loaded already."
+    },
+    {
+      "name": "set",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

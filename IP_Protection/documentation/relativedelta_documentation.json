@@ -1,0 +1,42 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\dateutil\\relativedelta.py",
+  "classes": [
+    {
+      "name": "relativedelta",
+      "docstring": "The relativedelta type is designed to be applied to an existing datetime and\ncan replace specific components of that datetime, or represents an interval\nof time.\n\nIt is based on the specification of the excellent work done by M.-A. Lemburg\nin his\n`mx.DateTime <https://www.egenix.com/products/python/mxBase/mxDateTime/>`_ extension.\nHowever, notice that this type does *NOT* implement the same algorithm as\nhis work. Do *NOT* expect it to behave like mx.DateTime's counterpart.\n\nThere are two different ways to build a relativedelta instance. The\nfirst one is passing it two date/datetime classes::\n\n    relativedelta(datetime1, datetime2)\n\nThe second one is passing it any number of the following keyword arguments::\n\n    relativedelta(arg1=x,arg2=y,arg3=z...)\n\n    year, month, day, hour, minute, second, microsecond:\n        Absolute information (argument is singular); adding or subtracting a\n        relativedelta with absolute information does not perform an arithmetic\n        operation, but rather REPLACES the corresponding value in the\n        original datetime with the value(s) in relativedelta.\n\n    years, months, weeks, days, hours, minutes, seconds, microseconds:\n        Relative information, may be negative (argument is plural); adding\n        or subtracting a relativedelta with relative information performs\n        the corresponding arithmetic operation on the original datetime value\n        with the information in the relativedelta.\n\n    weekday:\n        One of the weekday instances (MO, TU, etc) available in the\n        relativedelta module. These instances may receive a parameter N,\n        specifying the Nth weekday, which could be positive or negative\n        (like MO(+1) or MO(-2)). Not specifying it is the same as specifying\n        +1. You can also use an integer, where 0=MO. This argument is always\n        relative e.g. if the calculated date is already Monday, using MO(1)\n        or MO(-1) won't change the day. To effectively make it absolute, use\n        it in combination with the day argument (e.g. day=1, MO(1) for first\n        Monday of the month).\n\n    leapdays:\n        Will add given days to the date found, if year is a leap\n        year, and the date found is post 28 of february.\n\n    yearday, nlyearday:\n        Set the yearday or the non-leap year day (jump leap days).\n        These are converted to day/month/leapdays information.\n\nThere are relative and absolute forms of the keyword\narguments. The plural is relative, and the singular is\nabsolute. For each argument in the order below, the absolute form\nis applied first (by setting each attribute to that value) and\nthen the relative form (by adding the value to the attribute).\n\nThe order of attributes considered when this relativedelta is\nadded to a datetime is:\n\n1. Year\n2. Month\n3. Day\n4. Hours\n5. Minutes\n6. Seconds\n7. Microseconds\n\nFinally, weekday is applied, using the rule described above.\n\nFor example\n\n>>> from datetime import datetime\n>>> from dateutil.relativedelta import relativedelta, MO\n>>> dt = datetime(2018, 4, 9, 13, 37, 0)\n>>> delta = relativedelta(hours=25, day=1, weekday=MO(1))\n>>> dt + delta\ndatetime.datetime(2018, 4, 2, 14, 37)\n\nFirst, the day is set to 1 (the first of the month), then 25 hours\nare added, to get to the 2nd day and 14th hour, finally the\nweekday is applied, but since the 2nd is already a Monday there is\nno effect.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "weeks",
+          "docstring": null
+        },
+        {
+          "name": "weeks",
+          "docstring": null
+        },
+        {
+          "name": "normalized",
+          "docstring": "Return a version of this object represented entirely using integer\nvalues for the relative attributes.\n\n>>> relativedelta(days=1.5, hours=2).normalized()\nrelativedelta(days=+1, hours=+14)\n\n:return:\n    Returns a :class:`dateutil.relativedelta.relativedelta` object."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "weeks",
+      "docstring": null
+    },
+    {
+      "name": "weeks",
+      "docstring": null
+    },
+    {
+      "name": "normalized",
+      "docstring": "Return a version of this object represented entirely using integer\nvalues for the relative attributes.\n\n>>> relativedelta(days=1.5, hours=2).normalized()\nrelativedelta(days=+1, hours=+14)\n\n:return:\n    Returns a :class:`dateutil.relativedelta.relativedelta` object."
+    }
+  ],
+  "innovations": []
+}

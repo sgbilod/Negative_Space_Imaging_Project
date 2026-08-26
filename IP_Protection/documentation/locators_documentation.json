@@ -1,0 +1,338 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\distlib\\locators.py",
+  "classes": [
+    {
+      "name": "RedirectHandler",
+      "docstring": "A class to work around a bug in some Python 3.2.x releases.",
+      "methods": [
+        {
+          "name": "http_error_302",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "Locator",
+      "docstring": "A base class for locators - things that locate distributions.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialise an instance.\n:param scheme: Because locators look for most recent versions, they\n               need to know the version scheme to use. This specifies\n               the current PEP-recommended scheme - use ``'legacy'``\n               if you need to support existing distributions on PyPI."
+        },
+        {
+          "name": "get_errors",
+          "docstring": "Return any errors which have occurred."
+        },
+        {
+          "name": "clear_errors",
+          "docstring": "Clear any errors which may have been logged."
+        },
+        {
+          "name": "clear_cache",
+          "docstring": null
+        },
+        {
+          "name": "get_distribution_names",
+          "docstring": "Return all the distribution names known to this locator."
+        },
+        {
+          "name": "get_project",
+          "docstring": "For a given project, get a dictionary mapping available versions to Distribution\ninstances.\n\nThis calls _get_project to do all the work, and just implements a caching layer on top."
+        },
+        {
+          "name": "score_url",
+          "docstring": "Give an url a score which can be used to choose preferred URLs\nfor a given project release."
+        },
+        {
+          "name": "prefer_url",
+          "docstring": "Choose one of two URLs where both are candidates for distribution\narchives for the same version of a distribution (for example,\n.tar.gz vs. zip).\n\nThe current implementation favours https:// URLs over http://, archives\nfrom PyPI over those from other locations, wheel compatibility (if a\nwheel) and then the archive name."
+        },
+        {
+          "name": "split_filename",
+          "docstring": "Attempt to split a filename in project name, version and Python version."
+        },
+        {
+          "name": "convert_url_to_download_info",
+          "docstring": "See if a URL is a candidate for a download URL for a project (the URL\nhas typically been scraped from an HTML page).\n\nIf it is, a dictionary is returned with keys \"name\", \"version\",\n\"filename\" and \"url\"; otherwise, None is returned."
+        },
+        {
+          "name": "locate",
+          "docstring": "Find the most recent distribution which matches the given\nrequirement.\n\n:param requirement: A requirement of the form 'foo (1.0)' or perhaps\n                    'foo (>= 1.0, < 2.0, != 1.3)'\n:param prereleases: If ``True``, allow pre-release versions\n                    to be located. Otherwise, pre-release versions\n                    are not returned.\n:return: A :class:`Distribution` instance, or ``None`` if no such\n         distribution could be located."
+        }
+      ]
+    },
+    {
+      "name": "PyPIRPCLocator",
+      "docstring": "This locator uses XML-RPC to locate distributions. It therefore\ncannot be used with simple mirrors (that only mirror file content).",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialise an instance.\n\n:param url: The URL to use for XML-RPC.\n:param kwargs: Passed to the superclass constructor."
+        },
+        {
+          "name": "get_distribution_names",
+          "docstring": "Return all the distribution names known to this locator."
+        }
+      ]
+    },
+    {
+      "name": "PyPIJSONLocator",
+      "docstring": "This locator uses PyPI's JSON interface. It's very limited in functionality\nand probably not worth using.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get_distribution_names",
+          "docstring": "Return all the distribution names known to this locator."
+        }
+      ]
+    },
+    {
+      "name": "Page",
+      "docstring": "This class represents a scraped HTML page.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialise an instance with the Unicode page contents and the URL they\ncame from."
+        },
+        {
+          "name": "links",
+          "docstring": "Return the URLs of all the links on a page together with information\nabout their \"rel\" attribute, for determining which ones to treat as\ndownloads and which ones to queue for further scraping."
+        }
+      ]
+    },
+    {
+      "name": "SimpleScrapingLocator",
+      "docstring": "A locator which scrapes HTML pages to locate downloads for a distribution.\nThis runs multiple threads to do the I/O; performance is at least as good\nas pip's PackageFinder, which works in an analogous fashion.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialise an instance.\n:param url: The root URL to use for scraping.\n:param timeout: The timeout, in seconds, to be applied to requests.\n                This defaults to ``None`` (no timeout specified).\n:param num_workers: The number of worker threads you want to do I/O,\n                    This defaults to 10.\n:param kwargs: Passed to the superclass."
+        },
+        {
+          "name": "get_page",
+          "docstring": "Get the HTML for an URL, possibly from an in-memory cache.\n\nXXX TODO Note: this cache is never actually cleared. It's assumed that\nthe data won't get stale over the lifetime of a locator instance (not\nnecessarily true for the default_locator)."
+        },
+        {
+          "name": "get_distribution_names",
+          "docstring": "Return all the distribution names known to this locator."
+        }
+      ]
+    },
+    {
+      "name": "DirectoryLocator",
+      "docstring": "This class locates distributions in a directory tree.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialise an instance.\n:param path: The root of the directory tree to search.\n:param kwargs: Passed to the superclass constructor,\n               except for:\n               * recursive - if True (the default), subdirectories are\n                 recursed into. If False, only the top-level directory\n                 is searched,"
+        },
+        {
+          "name": "should_include",
+          "docstring": "Should a filename be considered as a candidate for a distribution\narchive? As well as the filename, the directory which contains it\nis provided, though not used by the current implementation."
+        },
+        {
+          "name": "get_distribution_names",
+          "docstring": "Return all the distribution names known to this locator."
+        }
+      ]
+    },
+    {
+      "name": "JSONLocator",
+      "docstring": "This locator uses special extended metadata (not available on PyPI) and is\nthe basis of performant dependency resolution in distlib. Other locators\nrequire archive downloads before dependencies can be determined! As you\nmight imagine, that can be slow.",
+      "methods": [
+        {
+          "name": "get_distribution_names",
+          "docstring": "Return all the distribution names known to this locator."
+        }
+      ]
+    },
+    {
+      "name": "DistPathLocator",
+      "docstring": "This locator finds installed distributions in a path. It can be useful for\nadding to an :class:`AggregatingLocator`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialise an instance.\n\n:param distpath: A :class:`DistributionPath` instance to search."
+        }
+      ]
+    },
+    {
+      "name": "AggregatingLocator",
+      "docstring": "This class allows you to chain and/or merge a list of locators.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialise an instance.\n\n:param locators: The list of locators to search.\n:param kwargs: Passed to the superclass constructor,\n               except for:\n               * merge - if False (the default), the first successful\n                 search from any of the locators is returned. If True,\n                 the results from all locators are merged (this can be\n                 slow)."
+        },
+        {
+          "name": "clear_cache",
+          "docstring": null
+        },
+        {
+          "name": "get_distribution_names",
+          "docstring": "Return all the distribution names known to this locator."
+        }
+      ]
+    },
+    {
+      "name": "DependencyFinder",
+      "docstring": "Locate dependencies for distributions.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Initialise an instance, using the specified locator\nto locate distributions."
+        },
+        {
+          "name": "add_distribution",
+          "docstring": "Add a distribution to the finder. This will update internal information\nabout who provides what.\n:param dist: The distribution to add."
+        },
+        {
+          "name": "remove_distribution",
+          "docstring": "Remove a distribution from the finder. This will update internal\ninformation about who provides what.\n:param dist: The distribution to remove."
+        },
+        {
+          "name": "get_matcher",
+          "docstring": "Get a version matcher for a requirement.\n:param reqt: The requirement\n:type reqt: str\n:return: A version matcher (an instance of\n         :class:`distlib.version.Matcher`)."
+        },
+        {
+          "name": "find_providers",
+          "docstring": "Find the distributions which can fulfill a requirement.\n\n:param reqt: The requirement.\n :type reqt: str\n:return: A set of distribution which can fulfill the requirement."
+        },
+        {
+          "name": "try_to_replace",
+          "docstring": "Attempt to replace one provider with another. This is typically used\nwhen resolving dependencies from multiple sources, e.g. A requires\n(B >= 1.0) while C requires (B >= 1.1).\n\nFor successful replacement, ``provider`` must meet all the requirements\nwhich ``other`` fulfills.\n\n:param provider: The provider we are trying to replace with.\n:param other: The provider we're trying to replace.\n:param problems: If False is returned, this will contain what\n                 problems prevented replacement. This is currently\n                 a tuple of the literal string 'cantreplace',\n                 ``provider``, ``other``  and the set of requirements\n                 that ``provider`` couldn't fulfill.\n:return: True if we can replace ``other`` with ``provider``, else\n         False."
+        },
+        {
+          "name": "find",
+          "docstring": "Find a distribution and all distributions it depends on.\n\n:param requirement: The requirement specifying the distribution to\n                    find, or a Distribution instance.\n:param meta_extras: A list of meta extras such as :test:, :build: and\n                    so on.\n:param prereleases: If ``True``, allow pre-release versions to be\n                    returned - otherwise, don't return prereleases\n                    unless they're all that's available.\n\nReturn a set of :class:`Distribution` instances and a set of\nproblems.\n\nThe distributions returned should be such that they have the\n:attr:`required` attribute set to ``True`` if they were\nfrom the ``requirement`` passed to ``find()``, and they have the\n:attr:`build_time_dependency` attribute set to ``True`` unless they\nare post-installation dependencies of the ``requirement``.\n\nThe problems should be a tuple consisting of the string\n``'unsatisfied'`` and the requirement which couldn't be satisfied\nby any distribution known to the locator."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_all_distribution_names",
+      "docstring": "Return all distribution names known by an index.\n:param url: The URL of the index.\n:return: A list of all known distribution names."
+    },
+    {
+      "name": "http_error_302",
+      "docstring": null
+    },
+    {
+      "name": "get_errors",
+      "docstring": "Return any errors which have occurred."
+    },
+    {
+      "name": "clear_errors",
+      "docstring": "Clear any errors which may have been logged."
+    },
+    {
+      "name": "clear_cache",
+      "docstring": null
+    },
+    {
+      "name": "get_distribution_names",
+      "docstring": "Return all the distribution names known to this locator."
+    },
+    {
+      "name": "get_project",
+      "docstring": "For a given project, get a dictionary mapping available versions to Distribution\ninstances.\n\nThis calls _get_project to do all the work, and just implements a caching layer on top."
+    },
+    {
+      "name": "score_url",
+      "docstring": "Give an url a score which can be used to choose preferred URLs\nfor a given project release."
+    },
+    {
+      "name": "prefer_url",
+      "docstring": "Choose one of two URLs where both are candidates for distribution\narchives for the same version of a distribution (for example,\n.tar.gz vs. zip).\n\nThe current implementation favours https:// URLs over http://, archives\nfrom PyPI over those from other locations, wheel compatibility (if a\nwheel) and then the archive name."
+    },
+    {
+      "name": "split_filename",
+      "docstring": "Attempt to split a filename in project name, version and Python version."
+    },
+    {
+      "name": "convert_url_to_download_info",
+      "docstring": "See if a URL is a candidate for a download URL for a project (the URL\nhas typically been scraped from an HTML page).\n\nIf it is, a dictionary is returned with keys \"name\", \"version\",\n\"filename\" and \"url\"; otherwise, None is returned."
+    },
+    {
+      "name": "locate",
+      "docstring": "Find the most recent distribution which matches the given\nrequirement.\n\n:param requirement: A requirement of the form 'foo (1.0)' or perhaps\n                    'foo (>= 1.0, < 2.0, != 1.3)'\n:param prereleases: If ``True``, allow pre-release versions\n                    to be located. Otherwise, pre-release versions\n                    are not returned.\n:return: A :class:`Distribution` instance, or ``None`` if no such\n         distribution could be located."
+    },
+    {
+      "name": "get_distribution_names",
+      "docstring": "Return all the distribution names known to this locator."
+    },
+    {
+      "name": "get_distribution_names",
+      "docstring": "Return all the distribution names known to this locator."
+    },
+    {
+      "name": "links",
+      "docstring": "Return the URLs of all the links on a page together with information\nabout their \"rel\" attribute, for determining which ones to treat as\ndownloads and which ones to queue for further scraping."
+    },
+    {
+      "name": "get_page",
+      "docstring": "Get the HTML for an URL, possibly from an in-memory cache.\n\nXXX TODO Note: this cache is never actually cleared. It's assumed that\nthe data won't get stale over the lifetime of a locator instance (not\nnecessarily true for the default_locator)."
+    },
+    {
+      "name": "get_distribution_names",
+      "docstring": "Return all the distribution names known to this locator."
+    },
+    {
+      "name": "should_include",
+      "docstring": "Should a filename be considered as a candidate for a distribution\narchive? As well as the filename, the directory which contains it\nis provided, though not used by the current implementation."
+    },
+    {
+      "name": "get_distribution_names",
+      "docstring": "Return all the distribution names known to this locator."
+    },
+    {
+      "name": "get_distribution_names",
+      "docstring": "Return all the distribution names known to this locator."
+    },
+    {
+      "name": "clear_cache",
+      "docstring": null
+    },
+    {
+      "name": "get_distribution_names",
+      "docstring": "Return all the distribution names known to this locator."
+    },
+    {
+      "name": "add_distribution",
+      "docstring": "Add a distribution to the finder. This will update internal information\nabout who provides what.\n:param dist: The distribution to add."
+    },
+    {
+      "name": "remove_distribution",
+      "docstring": "Remove a distribution from the finder. This will update internal\ninformation about who provides what.\n:param dist: The distribution to remove."
+    },
+    {
+      "name": "get_matcher",
+      "docstring": "Get a version matcher for a requirement.\n:param reqt: The requirement\n:type reqt: str\n:return: A version matcher (an instance of\n         :class:`distlib.version.Matcher`)."
+    },
+    {
+      "name": "find_providers",
+      "docstring": "Find the distributions which can fulfill a requirement.\n\n:param reqt: The requirement.\n :type reqt: str\n:return: A set of distribution which can fulfill the requirement."
+    },
+    {
+      "name": "try_to_replace",
+      "docstring": "Attempt to replace one provider with another. This is typically used\nwhen resolving dependencies from multiple sources, e.g. A requires\n(B >= 1.0) while C requires (B >= 1.1).\n\nFor successful replacement, ``provider`` must meet all the requirements\nwhich ``other`` fulfills.\n\n:param provider: The provider we are trying to replace with.\n:param other: The provider we're trying to replace.\n:param problems: If False is returned, this will contain what\n                 problems prevented replacement. This is currently\n                 a tuple of the literal string 'cantreplace',\n                 ``provider``, ``other``  and the set of requirements\n                 that ``provider`` couldn't fulfill.\n:return: True if we can replace ``other`` with ``provider``, else\n         False."
+    },
+    {
+      "name": "find",
+      "docstring": "Find a distribution and all distributions it depends on.\n\n:param requirement: The requirement specifying the distribution to\n                    find, or a Distribution instance.\n:param meta_extras: A list of meta extras such as :test:, :build: and\n                    so on.\n:param prereleases: If ``True``, allow pre-release versions to be\n                    returned - otherwise, don't return prereleases\n                    unless they're all that's available.\n\nReturn a set of :class:`Distribution` instances and a set of\nproblems.\n\nThe distributions returned should be such that they have the\n:attr:`required` attribute set to ``True`` if they were\nfrom the ``requirement`` passed to ``find()``, and they have the\n:attr:`build_time_dependency` attribute set to ``True`` unless they\nare post-installation dependencies of the ``requirement``.\n\nThe problems should be a tuple consisting of the string\n``'unsatisfied'`` and the requirement which couldn't be satisfied\nby any distribution known to the locator."
+    },
+    {
+      "name": "same_project",
+      "docstring": null
+    },
+    {
+      "name": "clean",
+      "docstring": "Tidy up an URL."
+    }
+  ],
+  "innovations": []
+}

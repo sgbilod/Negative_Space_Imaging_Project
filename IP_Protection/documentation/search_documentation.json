@@ -1,0 +1,63 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\commands\\search.py",
+  "classes": [
+    {
+      "name": "TransformedHit",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "SearchCommand",
+      "docstring": "Search for PyPI packages whose name or summary contains <query>.",
+      "methods": [
+        {
+          "name": "add_options",
+          "docstring": null
+        },
+        {
+          "name": "run",
+          "docstring": null
+        },
+        {
+          "name": "search",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "transform_hits",
+      "docstring": "The list from pypi is really a list of versions. We want a list of\npackages with the list of versions stored inline. This converts the\nlist from pypi into one we can use."
+    },
+    {
+      "name": "print_dist_installation_info",
+      "docstring": null
+    },
+    {
+      "name": "get_installed_distribution",
+      "docstring": null
+    },
+    {
+      "name": "print_results",
+      "docstring": null
+    },
+    {
+      "name": "highest_version",
+      "docstring": null
+    },
+    {
+      "name": "add_options",
+      "docstring": null
+    },
+    {
+      "name": "run",
+      "docstring": null
+    },
+    {
+      "name": "search",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

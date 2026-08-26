@@ -1,0 +1,115 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_internal\\network\\lazy_wheel.py",
+  "classes": [
+    {
+      "name": "HTTPRangeRequestUnsupported",
+      "docstring": null,
+      "methods": []
+    },
+    {
+      "name": "LazyZipOverHTTP",
+      "docstring": "File-like object mapped to a ZIP file over HTTP.\n\nThis uses HTTP range requests to lazily fetch the file's content,\nwhich is supposed to be fed to ZipFile.  If such requests are not\nsupported by the server, raise HTTPRangeRequestUnsupported\nduring initialization.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "mode",
+          "docstring": "Opening mode, which is always rb."
+        },
+        {
+          "name": "name",
+          "docstring": "Path to the underlying file."
+        },
+        {
+          "name": "seekable",
+          "docstring": "Return whether random access is supported, which is True."
+        },
+        {
+          "name": "close",
+          "docstring": "Close the file."
+        },
+        {
+          "name": "closed",
+          "docstring": "Whether the file is closed."
+        },
+        {
+          "name": "read",
+          "docstring": "Read up to size bytes from the object and return them.\n\nAs a convenience, if size is unspecified or -1,\nall bytes until EOF are returned.  Fewer than\nsize bytes may be returned if EOF is reached."
+        },
+        {
+          "name": "readable",
+          "docstring": "Return whether the file is readable, which is True."
+        },
+        {
+          "name": "seek",
+          "docstring": "Change stream position and return the new absolute position.\n\nSeek to offset relative position indicated by whence:\n* 0: Start of stream (the default).  pos should be >= 0;\n* 1: Current position - pos may be negative;\n* 2: End of stream - pos usually negative."
+        },
+        {
+          "name": "tell",
+          "docstring": "Return the current position."
+        },
+        {
+          "name": "truncate",
+          "docstring": "Resize the stream to the given size in bytes.\n\nIf size is unspecified resize to the current position.\nThe current stream position isn't changed.\n\nReturn the new file size."
+        },
+        {
+          "name": "writable",
+          "docstring": "Return False."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "dist_from_wheel_url",
+      "docstring": "Return a distribution object from the given wheel URL.\n\nThis uses HTTP range requests to only fetch the portion of the wheel\ncontaining metadata, just enough for the object to be constructed.\nIf such requests are not supported, HTTPRangeRequestUnsupported\nis raised."
+    },
+    {
+      "name": "mode",
+      "docstring": "Opening mode, which is always rb."
+    },
+    {
+      "name": "name",
+      "docstring": "Path to the underlying file."
+    },
+    {
+      "name": "seekable",
+      "docstring": "Return whether random access is supported, which is True."
+    },
+    {
+      "name": "close",
+      "docstring": "Close the file."
+    },
+    {
+      "name": "closed",
+      "docstring": "Whether the file is closed."
+    },
+    {
+      "name": "read",
+      "docstring": "Read up to size bytes from the object and return them.\n\nAs a convenience, if size is unspecified or -1,\nall bytes until EOF are returned.  Fewer than\nsize bytes may be returned if EOF is reached."
+    },
+    {
+      "name": "readable",
+      "docstring": "Return whether the file is readable, which is True."
+    },
+    {
+      "name": "seek",
+      "docstring": "Change stream position and return the new absolute position.\n\nSeek to offset relative position indicated by whence:\n* 0: Start of stream (the default).  pos should be >= 0;\n* 1: Current position - pos may be negative;\n* 2: End of stream - pos usually negative."
+    },
+    {
+      "name": "tell",
+      "docstring": "Return the current position."
+    },
+    {
+      "name": "truncate",
+      "docstring": "Resize the stream to the given size in bytes.\n\nIf size is unspecified resize to the current position.\nThe current stream position isn't changed.\n\nReturn the new file size."
+    },
+    {
+      "name": "writable",
+      "docstring": "Return False."
+    }
+  ],
+  "innovations": []
+}

@@ -1,0 +1,205 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\pyopenssl.py",
+  "classes": [
+    {
+      "name": "WrappedSocket",
+      "docstring": "API-compatibility wrapper for Python OpenSSL's Connection-class.\n\nNote: _makefile_refs, _drop() and _reuse() are needed for the garbage\ncollector of pypy.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "fileno",
+          "docstring": null
+        },
+        {
+          "name": "recv",
+          "docstring": null
+        },
+        {
+          "name": "recv_into",
+          "docstring": null
+        },
+        {
+          "name": "settimeout",
+          "docstring": null
+        },
+        {
+          "name": "sendall",
+          "docstring": null
+        },
+        {
+          "name": "shutdown",
+          "docstring": null
+        },
+        {
+          "name": "close",
+          "docstring": null
+        },
+        {
+          "name": "getpeercert",
+          "docstring": null
+        },
+        {
+          "name": "version",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "PyOpenSSLContext",
+      "docstring": "I am a wrapper class for the PyOpenSSL ``Context`` object. I am responsible\nfor translating the interface of the standard library ``SSLContext`` object\nto calls into PyOpenSSL.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "options",
+          "docstring": null
+        },
+        {
+          "name": "options",
+          "docstring": null
+        },
+        {
+          "name": "verify_mode",
+          "docstring": null
+        },
+        {
+          "name": "verify_mode",
+          "docstring": null
+        },
+        {
+          "name": "set_default_verify_paths",
+          "docstring": null
+        },
+        {
+          "name": "set_ciphers",
+          "docstring": null
+        },
+        {
+          "name": "load_verify_locations",
+          "docstring": null
+        },
+        {
+          "name": "load_cert_chain",
+          "docstring": null
+        },
+        {
+          "name": "set_alpn_protocols",
+          "docstring": null
+        },
+        {
+          "name": "wrap_socket",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "UnsupportedExtension",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "inject_into_urllib3",
+      "docstring": "Monkey-patch urllib3 with PyOpenSSL-backed SSL-support."
+    },
+    {
+      "name": "extract_from_urllib3",
+      "docstring": "Undo monkey-patching by :func:`inject_into_urllib3`."
+    },
+    {
+      "name": "get_subj_alt_name",
+      "docstring": "Given an PyOpenSSL certificate, provides all the subject alternative names."
+    },
+    {
+      "name": "idna_encode",
+      "docstring": "Borrowed wholesale from the Python Cryptography Project. It turns out\nthat we can't just safely call `idna.encode`: it can explode for\nwildcard names. This avoids that problem."
+    },
+    {
+      "name": "fileno",
+      "docstring": null
+    },
+    {
+      "name": "recv",
+      "docstring": null
+    },
+    {
+      "name": "recv_into",
+      "docstring": null
+    },
+    {
+      "name": "settimeout",
+      "docstring": null
+    },
+    {
+      "name": "sendall",
+      "docstring": null
+    },
+    {
+      "name": "shutdown",
+      "docstring": null
+    },
+    {
+      "name": "close",
+      "docstring": null
+    },
+    {
+      "name": "getpeercert",
+      "docstring": null
+    },
+    {
+      "name": "version",
+      "docstring": null
+    },
+    {
+      "name": "makefile",
+      "docstring": null
+    },
+    {
+      "name": "options",
+      "docstring": null
+    },
+    {
+      "name": "options",
+      "docstring": null
+    },
+    {
+      "name": "verify_mode",
+      "docstring": null
+    },
+    {
+      "name": "verify_mode",
+      "docstring": null
+    },
+    {
+      "name": "set_default_verify_paths",
+      "docstring": null
+    },
+    {
+      "name": "set_ciphers",
+      "docstring": null
+    },
+    {
+      "name": "load_verify_locations",
+      "docstring": null
+    },
+    {
+      "name": "load_cert_chain",
+      "docstring": null
+    },
+    {
+      "name": "set_alpn_protocols",
+      "docstring": null
+    },
+    {
+      "name": "wrap_socket",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

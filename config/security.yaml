@@ -1,0 +1,69 @@
+# Security Configuration
+# © 2025 Negative Space Imaging, Inc. - CONFIDENTIAL
+
+version: '1.0'
+
+encryption:
+  at_rest:
+    algorithm: AES-256-GCM
+    key_rotation: 30d
+  in_transit:
+    protocol: TLS-1.3
+    perfect_forward_secrecy: true
+  quantum_resistant:
+    enabled: true
+    algorithm: CRYSTALS-Kyber
+
+authentication:
+  mfa:
+    required: true
+    methods:
+      - hardware_token
+      - biometric
+      - time_based_otp
+  session:
+    timeout: 1h
+    max_concurrent: 3
+
+authorization:
+  rbac:
+    enabled: true
+    default_deny: true
+  zero_trust:
+    enabled: true
+    continuous_verification: true
+
+network_security:
+  firewall:
+    default_deny: true
+    rate_limiting: true
+    ip_whitelist: true
+  vpn:
+    required: true
+    protocol: WireGuard
+  isolation:
+    network_segments: true
+    container_isolation: true
+
+monitoring:
+  audit_logging:
+    enabled: true
+    retention: 7y
+  threat_detection:
+    ml_based: true
+    real_time: true
+  incident_response:
+    auto_mitigation: true
+    notification_channels:
+      - security_team
+      - automated_response
+
+compliance:
+  standards:
+    - ISO-27001
+    - GDPR
+    - HIPAA
+    - SOC2
+  data_classification:
+    enabled: true
+    default: confidential

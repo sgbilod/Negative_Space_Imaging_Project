@@ -1,0 +1,32 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\matplotlib\\sphinxext\\roles.py",
+  "classes": [
+    {
+      "name": "_QueryReference",
+      "docstring": "Wraps a reference or pending reference to add a query string.\n\nThe query string is generated from the attributes added to this node.\n\nAlso equivalent to a `~docutils.nodes.literal` node.",
+      "methods": [
+        {
+          "name": "to_query_string",
+          "docstring": "Generate query string from node attributes."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "setup",
+      "docstring": null
+    },
+    {
+      "name": "to_query_string",
+      "docstring": "Generate query string from node attributes."
+    }
+  ],
+  "innovations": [
+    {
+      "type": "potential_innovation",
+      "marker": "new method",
+      "context": "There are two ways, Matplotlib docstrings can end up in downstream documentation.\nYou have to subclass a Matplotlib class and either use the ``:inherited-members:``\noption in your autodoc configuration, or you have to override a method without\nspecifying a new docstring; the new method will inherit the original docstring and\nstill render in your autodoc. If the docstring contains one of the custom sphinx\nroles, you'll see one of the following error messages:\n"
+    }
+  ]
+}

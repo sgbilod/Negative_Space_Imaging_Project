@@ -1,0 +1,17 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\pywt\\_pytesttester.py",
+  "classes": [
+    {
+      "name": "PytestTester",
+      "docstring": "Pytest test runner.\n\nThis class is made available in ``pywt.testing``, and a test function\nis typically added to a package's __init__.py like so::\n\n  from pywt.testing import PytestTester\n  test = PytestTester(__name__).test\n  del PytestTester\n\nCalling this test function finds and runs all tests associated with the\nmodule and all its sub-modules.\n\nAttributes\n----------\nmodule_name : str\n    Full path to the package to test.\n\nParameters\n----------\nmodule_name : module name\n    The name of the module to test.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [],
+  "innovations": []
+}

@@ -1,0 +1,15 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\contourpy\\chunk.py",
+  "classes": [],
+  "functions": [
+    {
+      "name": "calc_chunk_sizes",
+      "docstring": "Calculate chunk sizes.\n\nArgs:\n    chunk_size (int or tuple(int, int), optional): Chunk size in (y, x) directions, or the same\n        size in both directions if only one is specified. Cannot be negative.\n    chunk_count (int or tuple(int, int), optional): Chunk count in (y, x) directions, or the\n        same count in both directions if only one is specified. If less than 1, set to 1.\n    total_chunk_count (int, optional): Total number of chunks. If less than 1, set to 1.\n    ny (int): Number of grid points in y-direction.\n    nx (int): Number of grid points in x-direction.\n\nReturn:\n    tuple(int, int): Chunk sizes (y_chunk_size, x_chunk_size).\n\nNote:\n    Zero or one of ``chunk_size``, ``chunk_count`` and ``total_chunk_count`` should be\n    specified."
+    },
+    {
+      "name": "two_factors",
+      "docstring": "Split an integer into two integer factors.\n\nThe two factors will be as close as possible to the sqrt of n, and are returned in decreasing\norder.  Worst case returns (n, 1).\n\nArgs:\n    n (int): The integer to factorize, must be positive.\n\nReturn:\n    tuple(int, int): The two factors of n, in decreasing order."
+    }
+  ],
+  "innovations": []
+}

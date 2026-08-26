@@ -1,0 +1,320 @@
+{% extends "base.html" %} {% block title %}Performance Details{% endblock %} {% block content %}
+<div class="container-fluid">
+  <h1 class="mt-4 mb-4">Performance Details</h1>
+
+  <div class="row">
+    <!-- Performance Summary Card -->
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">System Performance Summary</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3 text-center">
+              <h5>System Health</h5>
+              <div class="display-4 text-{{ report.health_status_color }}">
+                {{ report.health_status }}
+              </div>
+              <p class="text-muted">{{ report.health_description }}</p>
+            </div>
+            <div class="col-md-3 text-center">
+              <h5>Performance Score</h5>
+              <div class="display-4">{{ report.performance_score }}/100</div>
+              <div class="progress mt-2">
+                <div
+                  class="progress-bar bg-{{ report.score_color }}"
+                  role="progressbar"
+                  style="width: {{ report.performance_score }}%"
+                  aria-valuenow="{{ report.performance_score }}"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+            <div class="col-md-3 text-center">
+              <h5>Uptime</h5>
+              <div class="display-4">{{ report.uptime_formatted }}</div>
+              <p class="text-muted">Since {{ report.start_time_formatted }}</p>
+            </div>
+            <div class="col-md-3 text-center">
+              <h5>Request Rate</h5>
+              <div class="display-4">{{ report.request_rate|round(2) }}</div>
+              <p class="text-muted">requests/second</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Function Performance Table -->
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="card-title mb-0">Function Performance Analysis</h5>
+          <div class="btn-group">
+            <button class="btn btn-sm btn-outline-secondary" id="sort-calls">Sort by Calls</button>
+            <button class="btn btn-sm btn-outline-secondary" id="sort-time">Sort by Time</button>
+            <button class="btn btn-sm btn-outline-secondary" id="sort-avg">Sort by Average</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover" id="function-table">
+              <thead>
+                <tr>
+                  <th>Function</th>
+                  <th>Module</th>
+                  <th>Calls</th>
+                  <th>Total Time (ms)</th>
+                  <th>Avg Time (ms)</th>
+                  <th>% of Runtime</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for func in report.function_stats %}
+                <tr>
+                  <td>{{ func.name }}</td>
+                  <td>{{ func.module }}</td>
+                  <td>{{ func.calls }}</td>
+                  <td>{{ func.total_time|round(2) }}</td>
+                  <td>{{ func.avg_time|round(2) }}</td>
+                  <td>
+                    <div class="progress">
+                      <div
+                        class="progress-bar {{ func.color }}"
+                        role="progressbar"
+                        style="width: {{ func.percentage }}%"
+                        aria-valuenow="{{ func.percentage }}"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      >
+                        {{ func.percentage|round(1) }}%
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="badge bg-{{ func.status_color }}">{{ func.status }}</span>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- I/O Performance Card -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">I/O Performance</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Value</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Disk Read Speed</td>
+                  <td>{{ report.io_stats.disk_read_speed|round(2) }} MB/s</td>
+                  <td>
+                    <span class="badge bg-{{ report.io_stats.disk_read_status_color }}"
+                      >{{ report.io_stats.disk_read_status }}</span
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>Disk Write Speed</td>
+                  <td>{{ report.io_stats.disk_write_speed|round(2) }} MB/s</td>
+                  <td>
+                    <span class="badge bg-{{ report.io_stats.disk_write_status_color }}"
+                      >{{ report.io_stats.disk_write_status }}</span
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>Network Latency</td>
+                  <td>{{ report.io_stats.network_latency|round(2) }} ms</td>
+                  <td>
+                    <span class="badge bg-{{ report.io_stats.network_latency_status_color }}"
+                      >{{ report.io_stats.network_latency_status }}</span
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>Database Query Time</td>
+                  <td>{{ report.io_stats.db_query_time|round(2) }} ms</td>
+                  <td>
+                    <span class="badge bg-{{ report.io_stats.db_query_status_color }}"
+                      >{{ report.io_stats.db_query_status }}</span
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thread Performance Card -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Thread & Process Analysis</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Value</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Total Threads</td>
+                  <td>{{ report.thread_stats.total_threads }}</td>
+                  <td>
+                    <span class="badge bg-{{ report.thread_stats.thread_status_color }}"
+                      >{{ report.thread_stats.thread_status }}</span
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>Active Threads</td>
+                  <td>{{ report.thread_stats.active_threads }}</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Thread Contention</td>
+                  <td>{{ report.thread_stats.thread_contention|round(2) }}%</td>
+                  <td>
+                    <span class="badge bg-{{ report.thread_stats.contention_status_color }}"
+                      >{{ report.thread_stats.contention_status }}</span
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>Parallel Efficiency</td>
+                  <td>{{ report.thread_stats.parallel_efficiency|round(2) }}%</td>
+                  <td>
+                    <span class="badge bg-{{ report.thread_stats.efficiency_status_color }}"
+                      >{{ report.thread_stats.efficiency_status }}</span
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Performance Options -->
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Performance Options</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3 text-center mb-3">
+              <a href="{{ url_for('performance.monitor') }}" class="btn btn-primary btn-lg w-100">
+                <i class="fas fa-tachometer-alt mb-2"></i><br />
+                Real-time Monitor
+              </a>
+            </div>
+            <div class="col-md-3 text-center mb-3">
+              <a href="{{ url_for('performance.dashboard') }}" class="btn btn-info btn-lg w-100">
+                <i class="fas fa-chart-line mb-2"></i><br />
+                Dashboard
+              </a>
+            </div>
+            <div class="col-md-3 text-center mb-3">
+              <a href="{{ url_for('performance.memory') }}" class="btn btn-success btn-lg w-100">
+                <i class="fas fa-memory mb-2"></i><br />
+                Memory Optimization
+              </a>
+            </div>
+            <div class="col-md-3 text-center mb-3">
+              <a href="{{ url_for('performance.settings') }}" class="btn btn-warning btn-lg w-100">
+                <i class="fas fa-cogs mb-2"></i><br />
+                Optimization Settings
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<script>
+  // Sorting function for the function performance table
+  document.getElementById('sort-calls').addEventListener('click', function () {
+    sortTable('function-table', 2, 'numeric', 'desc');
+  });
+
+  document.getElementById('sort-time').addEventListener('click', function () {
+    sortTable('function-table', 3, 'numeric', 'desc');
+  });
+
+  document.getElementById('sort-avg').addEventListener('click', function () {
+    sortTable('function-table', 4, 'numeric', 'desc');
+  });
+
+  function sortTable(tableId, column, type, direction) {
+    var table = document.getElementById(tableId);
+    var tbody = table.getElementsByTagName('tbody')[0];
+    var rows = Array.from(tbody.rows);
+
+    rows.sort(function (a, b) {
+      var aValue = a.cells[column].textContent.trim();
+      var bValue = b.cells[column].textContent.trim();
+
+      if (type === 'numeric') {
+        aValue = parseFloat(aValue);
+        bValue = parseFloat(bValue);
+      }
+
+      if (direction === 'asc') {
+        return aValue > bValue ? 1 : -1;
+      } else {
+        return aValue < bValue ? 1 : -1;
+      }
+    });
+
+    // Clear the table and append sorted rows
+    while (tbody.firstChild) {
+      tbody.removeChild(tbody.firstChild);
+    }
+
+    rows.forEach(function (row) {
+      tbody.appendChild(row);
+    });
+  }
+
+  // Auto-refresh details every 60 seconds
+  setTimeout(function () {
+    location.reload();
+  }, 60000);
+</script>
+{% endblock %}

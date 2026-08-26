@@ -1,0 +1,664 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\mpl_toolkits\\mplot3d\\axes3d.py",
+  "classes": [
+    {
+      "name": "Axes3D",
+      "docstring": "3D Axes object.\n\n.. note::\n\n    As a user, you do not instantiate Axes directly, but use Axes creation\n    methods instead; e.g. from `.pyplot` or `.Figure`:\n    `~.pyplot.subplots`, `~.pyplot.subplot_mosaic` or `.Figure.add_axes`.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": "Parameters\n----------\nfig : Figure\n    The parent figure.\nrect : tuple (left, bottom, width, height), default: None.\n    The ``(left, bottom, width, height)`` Axes position.\nelev : float, default: 30\n    The elevation angle in degrees rotates the camera above and below\n    the x-y plane, with a positive angle corresponding to a location\n    above the plane.\nazim : float, default: -60\n    The azimuthal angle in degrees rotates the camera about the z axis,\n    with a positive angle corresponding to a right-handed rotation. In\n    other words, a positive azimuth rotates the camera about the origin\n    from its location along the +x axis towards the +y axis.\nroll : float, default: 0\n    The roll angle in degrees rotates the camera about the viewing\n    axis. A positive angle spins the camera clockwise, causing the\n    scene to rotate counter-clockwise.\nshareview : Axes3D, optional\n    Other Axes to share view angles with.  Note that it is not possible\n    to unshare axes.\nsharez : Axes3D, optional\n    Other Axes to share z-limits with.  Note that it is not possible to\n    unshare axes.\nproj_type : {'persp', 'ortho'}\n    The projection type, default 'persp'.\nfocal_length : float, default: None\n    For a projection type of 'persp', the focal length of the virtual\n    camera. Must be > 0. If None, defaults to 1.\n    For a projection type of 'ortho', must be set to either None\n    or infinity (numpy.inf). If None, defaults to infinity.\n    The focal length can be computed from a desired Field Of View via\n    the equation: focal_length = 1/tan(FOV/2)\nbox_aspect : 3-tuple of floats, default: None\n    Changes the physical dimensions of the Axes3D, such that the ratio\n    of the axis lengths in display units is x:y:z.\n    If None, defaults to 4:4:3\ncomputed_zorder : bool, default: True\n    If True, the draw order is computed based on the average position\n    of the `.Artist`\\s along the view direction.\n    Set to False if you want to manually control the order in which\n    Artists are drawn on top of each other using their *zorder*\n    attribute. This can be used for fine-tuning if the automatic order\n    does not produce the desired result. Note however, that a manual\n    zorder will only be correct for a limited view angle. If the figure\n    is rotated by the user, it will look wrong from certain angles.\n\n**kwargs\n    Other optional keyword arguments:\n\n    %(Axes3D:kwdoc)s"
+        },
+        {
+          "name": "set_axis_off",
+          "docstring": null
+        },
+        {
+          "name": "set_axis_on",
+          "docstring": null
+        },
+        {
+          "name": "convert_zunits",
+          "docstring": "For artists in an Axes, if the zaxis has units support,\nconvert *z* using zaxis unit type"
+        },
+        {
+          "name": "set_top_view",
+          "docstring": null
+        },
+        {
+          "name": "get_zaxis",
+          "docstring": "Return the ``ZAxis`` (`~.axis3d.Axis`) instance."
+        },
+        {
+          "name": "set_aspect",
+          "docstring": "Set the aspect ratios.\n\nParameters\n----------\naspect : {'auto', 'equal', 'equalxy', 'equalxz', 'equalyz'}\n    Possible values:\n\n    =========   ==================================================\n    value       description\n    =========   ==================================================\n    'auto'      automatic; fill the position rectangle with data.\n    'equal'     adapt all the axes to have equal aspect ratios.\n    'equalxy'   adapt the x and y axes to have equal aspect ratios.\n    'equalxz'   adapt the x and z axes to have equal aspect ratios.\n    'equalyz'   adapt the y and z axes to have equal aspect ratios.\n    =========   ==================================================\n\nadjustable : None or {'box', 'datalim'}, optional\n    If not *None*, this defines which parameter will be adjusted to\n    meet the required aspect. See `.set_adjustable` for further\n    details.\n\nanchor : None or str or 2-tuple of float, optional\n    If not *None*, this defines where the Axes will be drawn if there\n    is extra space due to aspect constraints. The most common way to\n    specify the anchor are abbreviations of cardinal directions:\n\n    =====   =====================\n    value   description\n    =====   =====================\n    'C'     centered\n    'SW'    lower left corner\n    'S'     middle of bottom edge\n    'SE'    lower right corner\n    etc.\n    =====   =====================\n\n    See `~.Axes.set_anchor` for further details.\n\nshare : bool, default: False\n    If ``True``, apply the settings to all shared Axes.\n\nSee Also\n--------\nmpl_toolkits.mplot3d.axes3d.Axes3D.set_box_aspect"
+        },
+        {
+          "name": "set_box_aspect",
+          "docstring": "Set the Axes box aspect.\n\nThe box aspect is the ratio of height to width in display\nunits for each face of the box when viewed perpendicular to\nthat face.  This is not to be confused with the data aspect (see\n`~.Axes3D.set_aspect`). The default ratios are 4:4:3 (x:y:z).\n\nTo simulate having equal aspect in data space, set the box\naspect to match your data range in each dimension.\n\n*zoom* controls the overall size of the Axes3D in the figure.\n\nParameters\n----------\naspect : 3-tuple of floats or None\n    Changes the physical dimensions of the Axes3D, such that the ratio\n    of the axis lengths in display units is x:y:z.\n    If None, defaults to (4, 4, 3).\n\nzoom : float, default: 1\n    Control overall size of the Axes3D in the figure. Must be > 0."
+        },
+        {
+          "name": "apply_aspect",
+          "docstring": null
+        },
+        {
+          "name": "draw",
+          "docstring": null
+        },
+        {
+          "name": "get_axis_position",
+          "docstring": null
+        },
+        {
+          "name": "update_datalim",
+          "docstring": "Not implemented in `~mpl_toolkits.mplot3d.axes3d.Axes3D`."
+        },
+        {
+          "name": "get_zmargin",
+          "docstring": "Retrieve autoscaling margin of the z-axis.\n\n.. versionadded:: 3.9\n\nReturns\n-------\nzmargin : float\n\nSee Also\n--------\nmpl_toolkits.mplot3d.axes3d.Axes3D.set_zmargin"
+        },
+        {
+          "name": "set_zmargin",
+          "docstring": "Set padding of Z data limits prior to autoscaling.\n\n*m* times the data interval will be added to each end of that interval\nbefore it is used in autoscaling.  If *m* is negative, this will clip\nthe data range instead of expanding it.\n\nFor example, if your data is in the range [0, 2], a margin of 0.1 will\nresult in a range [-0.2, 2.2]; a margin of -0.1 will result in a range\nof [0.2, 1.8].\n\nParameters\n----------\nm : float greater than -0.5"
+        },
+        {
+          "name": "margins",
+          "docstring": "Set or retrieve autoscaling margins.\n\nSee `.Axes.margins` for full documentation.  Because this function\napplies to 3D Axes, it also takes a *z* argument, and returns\n``(xmargin, ymargin, zmargin)``."
+        },
+        {
+          "name": "autoscale",
+          "docstring": "Convenience method for simple axis view autoscaling.\n\nSee `.Axes.autoscale` for full documentation.  Because this function\napplies to 3D Axes, *axis* can also be set to 'z', and setting *axis*\nto 'both' autoscales all three axes."
+        },
+        {
+          "name": "auto_scale_xyz",
+          "docstring": null
+        },
+        {
+          "name": "autoscale_view",
+          "docstring": "Autoscale the view limits using the data limits.\n\nSee `.Axes.autoscale_view` for full documentation.  Because this\nfunction applies to 3D Axes, it also takes a *scalez* argument."
+        },
+        {
+          "name": "get_w_lims",
+          "docstring": "Get 3D world limits."
+        },
+        {
+          "name": "set_xbound",
+          "docstring": "Set the lower and upper numerical bounds of the x-axis.\n\nThis method will honor axis inversion regardless of parameter order.\nIt will not change the autoscaling setting (`.get_autoscalex_on()`).\n\nParameters\n----------\nlower, upper : float or None\n    The lower and upper bounds. If *None*, the respective axis bound\n    is not modified.\nview_margin : float or None\n    The margin to apply to the bounds. If *None*, the margin is handled\n    by `.set_xlim`.\n\nSee Also\n--------\nget_xbound\nget_xlim, set_xlim\ninvert_xaxis, xaxis_inverted"
+        },
+        {
+          "name": "set_ybound",
+          "docstring": "Set the lower and upper numerical bounds of the y-axis.\n\nThis method will honor axis inversion regardless of parameter order.\nIt will not change the autoscaling setting (`.get_autoscaley_on()`).\n\nParameters\n----------\nlower, upper : float or None\n    The lower and upper bounds. If *None*, the respective axis bound\n    is not modified.\nview_margin : float or None\n    The margin to apply to the bounds. If *None*, the margin is handled\n    by `.set_ylim`.\n\nSee Also\n--------\nget_ybound\nget_ylim, set_ylim\ninvert_yaxis, yaxis_inverted"
+        },
+        {
+          "name": "set_zbound",
+          "docstring": "Set the lower and upper numerical bounds of the z-axis.\nThis method will honor axis inversion regardless of parameter order.\nIt will not change the autoscaling setting (`.get_autoscaley_on()`).\n\nParameters\n----------\nlower, upper : float or None\n    The lower and upper bounds. If *None*, the respective axis bound\n    is not modified.\nview_margin : float or None\n    The margin to apply to the bounds. If *None*, the margin is handled\n    by `.set_zlim`.\n\nSee Also\n--------\nget_zbound\nget_zlim, set_zlim\ninvert_zaxis, zaxis_inverted"
+        },
+        {
+          "name": "set_xlim",
+          "docstring": "Set the 3D x-axis view limits.\n\nParameters\n----------\nleft : float, optional\n    The left xlim in data coordinates. Passing *None* leaves the\n    limit unchanged.\n\n    The left and right xlims may also be passed as the tuple\n    (*left*, *right*) as the first positional argument (or as\n    the *left* keyword argument).\n\n    .. ACCEPTS: (left: float, right: float)\n\nright : float, optional\n    The right xlim in data coordinates. Passing *None* leaves the\n    limit unchanged.\n\nemit : bool, default: True\n    Whether to notify observers of limit change.\n\nauto : bool or None, default: False\n    Whether to turn on autoscaling of the x-axis. *True* turns on,\n    *False* turns off, *None* leaves unchanged.\n\nview_margin : float, optional\n    The additional margin to apply to the limits.\n\nxmin, xmax : float, optional\n    They are equivalent to left and right respectively, and it is an\n    error to pass both *xmin* and *left* or *xmax* and *right*.\n\nReturns\n-------\nleft, right : (float, float)\n    The new x-axis limits in data coordinates.\n\nSee Also\n--------\nget_xlim\nset_xbound, get_xbound\ninvert_xaxis, xaxis_inverted\n\nNotes\n-----\nThe *left* value may be greater than the *right* value, in which\ncase the x-axis values will decrease from *left* to *right*.\n\nExamples\n--------\n>>> set_xlim(left, right)\n>>> set_xlim((left, right))\n>>> left, right = set_xlim(left, right)\n\nOne limit may be left unchanged.\n\n>>> set_xlim(right=right_lim)\n\nLimits may be passed in reverse order to flip the direction of\nthe x-axis. For example, suppose ``x`` represents depth of the\nocean in m. The x-axis limits might be set like the following\nso 5000 m depth is at the left of the plot and the surface,\n0 m, is at the right.\n\n>>> set_xlim(5000, 0)"
+        },
+        {
+          "name": "set_ylim",
+          "docstring": "Set the 3D y-axis view limits.\n\nParameters\n----------\nbottom : float, optional\n    The bottom ylim in data coordinates. Passing *None* leaves the\n    limit unchanged.\n\n    The bottom and top ylims may also be passed as the tuple\n    (*bottom*, *top*) as the first positional argument (or as\n    the *bottom* keyword argument).\n\n    .. ACCEPTS: (bottom: float, top: float)\n\ntop : float, optional\n    The top ylim in data coordinates. Passing *None* leaves the\n    limit unchanged.\n\nemit : bool, default: True\n    Whether to notify observers of limit change.\n\nauto : bool or None, default: False\n    Whether to turn on autoscaling of the y-axis. *True* turns on,\n    *False* turns off, *None* leaves unchanged.\n\nview_margin : float, optional\n    The additional margin to apply to the limits.\n\nymin, ymax : float, optional\n    They are equivalent to bottom and top respectively, and it is an\n    error to pass both *ymin* and *bottom* or *ymax* and *top*.\n\nReturns\n-------\nbottom, top : (float, float)\n    The new y-axis limits in data coordinates.\n\nSee Also\n--------\nget_ylim\nset_ybound, get_ybound\ninvert_yaxis, yaxis_inverted\n\nNotes\n-----\nThe *bottom* value may be greater than the *top* value, in which\ncase the y-axis values will decrease from *bottom* to *top*.\n\nExamples\n--------\n>>> set_ylim(bottom, top)\n>>> set_ylim((bottom, top))\n>>> bottom, top = set_ylim(bottom, top)\n\nOne limit may be left unchanged.\n\n>>> set_ylim(top=top_lim)\n\nLimits may be passed in reverse order to flip the direction of\nthe y-axis. For example, suppose ``y`` represents depth of the\nocean in m. The y-axis limits might be set like the following\nso 5000 m depth is at the bottom of the plot and the surface,\n0 m, is at the top.\n\n>>> set_ylim(5000, 0)"
+        },
+        {
+          "name": "set_zlim",
+          "docstring": "Set the 3D z-axis view limits.\n\nParameters\n----------\nbottom : float, optional\n    The bottom zlim in data coordinates. Passing *None* leaves the\n    limit unchanged.\n\n    The bottom and top zlims may also be passed as the tuple\n    (*bottom*, *top*) as the first positional argument (or as\n    the *bottom* keyword argument).\n\n    .. ACCEPTS: (bottom: float, top: float)\n\ntop : float, optional\n    The top zlim in data coordinates. Passing *None* leaves the\n    limit unchanged.\n\nemit : bool, default: True\n    Whether to notify observers of limit change.\n\nauto : bool or None, default: False\n    Whether to turn on autoscaling of the z-axis. *True* turns on,\n    *False* turns off, *None* leaves unchanged.\n\nview_margin : float, optional\n    The additional margin to apply to the limits.\n\nzmin, zmax : float, optional\n    They are equivalent to bottom and top respectively, and it is an\n    error to pass both *zmin* and *bottom* or *zmax* and *top*.\n\nReturns\n-------\nbottom, top : (float, float)\n    The new z-axis limits in data coordinates.\n\nSee Also\n--------\nget_zlim\nset_zbound, get_zbound\ninvert_zaxis, zaxis_inverted\n\nNotes\n-----\nThe *bottom* value may be greater than the *top* value, in which\ncase the z-axis values will decrease from *bottom* to *top*.\n\nExamples\n--------\n>>> set_zlim(bottom, top)\n>>> set_zlim((bottom, top))\n>>> bottom, top = set_zlim(bottom, top)\n\nOne limit may be left unchanged.\n\n>>> set_zlim(top=top_lim)\n\nLimits may be passed in reverse order to flip the direction of\nthe z-axis. For example, suppose ``z`` represents depth of the\nocean in m. The z-axis limits might be set like the following\nso 5000 m depth is at the bottom of the plot and the surface,\n0 m, is at the top.\n\n>>> set_zlim(5000, 0)"
+        },
+        {
+          "name": "get_xlim",
+          "docstring": null
+        },
+        {
+          "name": "get_ylim",
+          "docstring": null
+        },
+        {
+          "name": "get_zlim",
+          "docstring": "Return the 3D z-axis view limits.\n\nReturns\n-------\nleft, right : (float, float)\n    The current z-axis limits in data coordinates.\n\nSee Also\n--------\nset_zlim\nset_zbound, get_zbound\ninvert_zaxis, zaxis_inverted\n\nNotes\n-----\nThe z-axis may be inverted, in which case the *left* value will\nbe greater than the *right* value."
+        },
+        {
+          "name": "clabel",
+          "docstring": "Currently not implemented for 3D Axes, and returns *None*."
+        },
+        {
+          "name": "view_init",
+          "docstring": "Set the elevation and azimuth of the Axes in degrees (not radians).\n\nThis can be used to rotate the Axes programmatically.\n\nTo look normal to the primary planes, the following elevation and\nazimuth angles can be used. A roll angle of 0, 90, 180, or 270 deg\nwill rotate these views while keeping the axes at right angles.\n\n==========   ====  ====\nview plane   elev  azim\n==========   ====  ====\nXY           90    -90\nXZ           0     -90\nYZ           0     0\n-XY          -90   90\n-XZ          0     90\n-YZ          0     180\n==========   ====  ====\n\nParameters\n----------\nelev : float, default: None\n    The elevation angle in degrees rotates the camera above the plane\n    pierced by the vertical axis, with a positive angle corresponding\n    to a location above that plane. For example, with the default\n    vertical axis of 'z', the elevation defines the angle of the camera\n    location above the x-y plane.\n    If None, then the initial value as specified in the `Axes3D`\n    constructor is used.\nazim : float, default: None\n    The azimuthal angle in degrees rotates the camera about the\n    vertical axis, with a positive angle corresponding to a\n    right-handed rotation. For example, with the default vertical axis\n    of 'z', a positive azimuth rotates the camera about the origin from\n    its location along the +x axis towards the +y axis.\n    If None, then the initial value as specified in the `Axes3D`\n    constructor is used.\nroll : float, default: None\n    The roll angle in degrees rotates the camera about the viewing\n    axis. A positive angle spins the camera clockwise, causing the\n    scene to rotate counter-clockwise.\n    If None, then the initial value as specified in the `Axes3D`\n    constructor is used.\nvertical_axis : {\"z\", \"x\", \"y\"}, default: \"z\"\n    The axis to align vertically. *azim* rotates about this axis.\nshare : bool, default: False\n    If ``True``, apply the settings to all Axes with shared views."
+        },
+        {
+          "name": "set_proj_type",
+          "docstring": "Set the projection type.\n\nParameters\n----------\nproj_type : {'persp', 'ortho'}\n    The projection type.\nfocal_length : float, default: None\n    For a projection type of 'persp', the focal length of the virtual\n    camera. Must be > 0. If None, defaults to 1.\n    The focal length can be computed from a desired Field Of View via\n    the equation: focal_length = 1/tan(FOV/2)"
+        },
+        {
+          "name": "get_proj",
+          "docstring": "Create the projection matrix from the current viewing position."
+        },
+        {
+          "name": "mouse_init",
+          "docstring": "Set the mouse buttons for 3D rotation and zooming.\n\nParameters\n----------\nrotate_btn : int or list of int, default: 1\n    The mouse button or buttons to use for 3D rotation of the Axes.\npan_btn : int or list of int, default: 2\n    The mouse button or buttons to use to pan the 3D Axes.\nzoom_btn : int or list of int, default: 3\n    The mouse button or buttons to use to zoom the 3D Axes."
+        },
+        {
+          "name": "disable_mouse_rotation",
+          "docstring": "Disable mouse buttons for 3D rotation, panning, and zooming."
+        },
+        {
+          "name": "can_zoom",
+          "docstring": null
+        },
+        {
+          "name": "can_pan",
+          "docstring": null
+        },
+        {
+          "name": "sharez",
+          "docstring": "Share the z-axis with *other*.\n\nThis is equivalent to passing ``sharez=other`` when constructing the\nAxes, and cannot be used if the z-axis is already being shared with\nanother Axes.  Note that it is not possible to unshare axes."
+        },
+        {
+          "name": "shareview",
+          "docstring": "Share the view angles with *other*.\n\nThis is equivalent to passing ``shareview=other`` when constructing the\nAxes, and cannot be used if the view angles are already being shared\nwith another Axes.  Note that it is not possible to unshare axes."
+        },
+        {
+          "name": "clear",
+          "docstring": null
+        },
+        {
+          "name": "format_zdata",
+          "docstring": "Return *z* string formatted.  This function will use the\n:attr:`fmt_zdata` attribute if it is callable, else will fall\nback on the zaxis major formatter"
+        },
+        {
+          "name": "format_coord",
+          "docstring": "Return a string giving the current view rotation angles, or the x, y, z\ncoordinates of the point on the nearest axis pane underneath the mouse\ncursor, depending on the mouse button pressed."
+        },
+        {
+          "name": "drag_pan",
+          "docstring": null
+        },
+        {
+          "name": "set_zlabel",
+          "docstring": "Set zlabel.  See doc for `.set_ylabel` for description."
+        },
+        {
+          "name": "get_zlabel",
+          "docstring": "Get the z-label text string."
+        },
+        {
+          "name": "grid",
+          "docstring": "Set / unset 3D grid.\n\n.. note::\n\n    Currently, this function does not behave the same as\n    `.axes.Axes.grid`, but it is intended to eventually support that\n    behavior."
+        },
+        {
+          "name": "tick_params",
+          "docstring": "Convenience method for changing the appearance of ticks and\ntick labels.\n\nSee `.Axes.tick_params` for full documentation.  Because this function\napplies to 3D Axes, *axis* can also be set to 'z', and setting *axis*\nto 'both' autoscales all three axes.\n\nAlso, because of how Axes3D objects are drawn very differently\nfrom regular 2D Axes, some of these settings may have\nambiguous meaning.  For simplicity, the 'z' axis will\naccept settings as if it was like the 'y' axis.\n\n.. note::\n   Axes3D currently ignores some of these settings."
+        },
+        {
+          "name": "invert_zaxis",
+          "docstring": "Invert the z-axis.\n\nSee Also\n--------\nzaxis_inverted\nget_zlim, set_zlim\nget_zbound, set_zbound"
+        },
+        {
+          "name": "get_zbound",
+          "docstring": "Return the lower and upper z-axis bounds, in increasing order.\n\nSee Also\n--------\nset_zbound\nget_zlim, set_zlim\ninvert_zaxis, zaxis_inverted"
+        },
+        {
+          "name": "text",
+          "docstring": "Add the text *s* to the 3D Axes at location *x*, *y*, *z* in data coordinates.\n\nParameters\n----------\nx, y, z : float\n    The position to place the text.\ns : str\n    The text.\nzdir : {'x', 'y', 'z', 3-tuple}, optional\n    The direction to be used as the z-direction. Default: 'z'.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide text that is outside the axes view limits.\n\n    .. versionadded:: 3.10\n**kwargs\n    Other arguments are forwarded to `matplotlib.axes.Axes.text`.\n\nReturns\n-------\n`.Text3D`\n    The created `.Text3D` instance."
+        },
+        {
+          "name": "plot",
+          "docstring": "Plot 2D or 3D data.\n\nParameters\n----------\nxs : 1D array-like\n    x coordinates of vertices.\nys : 1D array-like\n    y coordinates of vertices.\nzs : float or 1D array-like\n    z coordinates of vertices; either one for all points or one for\n    each point.\nzdir : {'x', 'y', 'z'}, default: 'z'\n    When plotting 2D data, the direction to use as z.\naxlim_clip : bool, default: False\n    Whether to hide data that is outside the axes view limits.\n\n    .. versionadded:: 3.10\n**kwargs\n    Other arguments are forwarded to `matplotlib.axes.Axes.plot`."
+        },
+        {
+          "name": "fill_between",
+          "docstring": "Fill the area between two 3D curves.\n\nThe curves are defined by the points (*x1*, *y1*, *z1*) and\n(*x2*, *y2*, *z2*). This creates one or multiple quadrangle\npolygons that are filled. All points must be the same length N, or a\nsingle value to be used for all points.\n\nParameters\n----------\nx1, y1, z1 : float or 1D array-like\n    x, y, and z  coordinates of vertices for 1st line.\n\nx2, y2, z2 : float or 1D array-like\n    x, y, and z coordinates of vertices for 2nd line.\n\nwhere : array of bool (length N), optional\n    Define *where* to exclude some regions from being filled. The\n    filled regions are defined by the coordinates ``pts[where]``,\n    for all x, y, and z pts. More precisely, fill between ``pts[i]``\n    and ``pts[i+1]`` if ``where[i] and where[i+1]``. Note that this\n    definition implies that an isolated *True* value between two\n    *False* values in *where* will not result in filling. Both sides of\n    the *True* position remain unfilled due to the adjacent *False*\n    values.\n\nmode : {'quad', 'polygon', 'auto'}, default: 'auto'\n    The fill mode. One of:\n\n    - 'quad':  A separate quadrilateral polygon is created for each\n      pair of subsequent points in the two lines.\n    - 'polygon': The two lines are connected to form a single polygon.\n      This is faster and can render more cleanly for simple shapes\n      (e.g. for filling between two lines that lie within a plane).\n    - 'auto': If the points all lie on the same 3D plane, 'polygon' is\n      used. Otherwise, 'quad' is used.\n\nfacecolors : list of :mpltype:`color`, default: None\n    Colors of each individual patch, or a single color to be used for\n    all patches.\n\nshade : bool, default: None\n    Whether to shade the facecolors. If *None*, then defaults to *True*\n    for 'quad' mode and *False* for 'polygon' mode.\n\naxlim_clip : bool, default: False\n    Whether to hide data that is outside the axes view limits.\n\n    .. versionadded:: 3.10\n\n**kwargs\n    All other keyword arguments are passed on to `.Poly3DCollection`.\n\nReturns\n-------\n`.Poly3DCollection`\n    A `.Poly3DCollection` containing the plotted polygons."
+        },
+        {
+          "name": "plot_surface",
+          "docstring": "Create a surface plot.\n\nBy default, it will be colored in shades of a solid color, but it also\nsupports colormapping by supplying the *cmap* argument.\n\n.. note::\n\n   The *rcount* and *ccount* kwargs, which both default to 50,\n   determine the maximum number of samples used in each direction.  If\n   the input data is larger, it will be downsampled (by slicing) to\n   these numbers of points.\n\n.. note::\n\n   To maximize rendering speed consider setting *rstride* and *cstride*\n   to divisors of the number of rows minus 1 and columns minus 1\n   respectively. For example, given 51 rows rstride can be any of the\n   divisors of 50.\n\n   Similarly, a setting of *rstride* and *cstride* equal to 1 (or\n   *rcount* and *ccount* equal the number of rows and columns) can use\n   the optimized path.\n\nParameters\n----------\nX, Y, Z : 2D arrays\n    Data values.\n\nrcount, ccount : int\n    Maximum number of samples used in each direction.  If the input\n    data is larger, it will be downsampled (by slicing) to these\n    numbers of points.  Defaults to 50.\n\nrstride, cstride : int\n    Downsampling stride in each direction.  These arguments are\n    mutually exclusive with *rcount* and *ccount*.  If only one of\n    *rstride* or *cstride* is set, the other defaults to 10.\n\n    'classic' mode uses a default of ``rstride = cstride = 10`` instead\n    of the new default of ``rcount = ccount = 50``.\n\ncolor : :mpltype:`color`\n    Color of the surface patches.\n\ncmap : Colormap, optional\n    Colormap of the surface patches.\n\nfacecolors : list of :mpltype:`color`\n    Colors of each individual patch.\n\nnorm : `~matplotlib.colors.Normalize`, optional\n    Normalization for the colormap.\n\nvmin, vmax : float, optional\n    Bounds for the normalization.\n\nshade : bool, default: True\n    Whether to shade the facecolors.  Shading is always disabled when\n    *cmap* is specified.\n\nlightsource : `~matplotlib.colors.LightSource`, optional\n    The lightsource to use when *shade* is True.\n\naxlim_clip : bool, default: False\n    Whether to hide patches with a vertex outside the axes view limits.\n\n    .. versionadded:: 3.10\n\n**kwargs\n    Other keyword arguments are forwarded to `.Poly3DCollection`."
+        },
+        {
+          "name": "plot_wireframe",
+          "docstring": "Plot a 3D wireframe.\n\n.. note::\n\n   The *rcount* and *ccount* kwargs, which both default to 50,\n   determine the maximum number of samples used in each direction.  If\n   the input data is larger, it will be downsampled (by slicing) to\n   these numbers of points.\n\nParameters\n----------\nX, Y, Z : 2D arrays\n    Data values.\n\naxlim_clip : bool, default: False\n    Whether to hide lines and patches with vertices outside the axes\n    view limits.\n\n    .. versionadded:: 3.10\n\nrcount, ccount : int\n    Maximum number of samples used in each direction.  If the input\n    data is larger, it will be downsampled (by slicing) to these\n    numbers of points.  Setting a count to zero causes the data to be\n    not sampled in the corresponding direction, producing a 3D line\n    plot rather than a wireframe plot.  Defaults to 50.\n\nrstride, cstride : int\n    Downsampling stride in each direction.  These arguments are\n    mutually exclusive with *rcount* and *ccount*.  If only one of\n    *rstride* or *cstride* is set, the other defaults to 1.  Setting a\n    stride to zero causes the data to be not sampled in the\n    corresponding direction, producing a 3D line plot rather than a\n    wireframe plot.\n\n    'classic' mode uses a default of ``rstride = cstride = 1`` instead\n    of the new default of ``rcount = ccount = 50``.\n\n**kwargs\n    Other keyword arguments are forwarded to `.Line3DCollection`."
+        },
+        {
+          "name": "plot_trisurf",
+          "docstring": "Plot a triangulated surface.\n\nThe (optional) triangulation can be specified in one of two ways;\neither::\n\n  plot_trisurf(triangulation, ...)\n\nwhere triangulation is a `~matplotlib.tri.Triangulation` object, or::\n\n  plot_trisurf(X, Y, ...)\n  plot_trisurf(X, Y, triangles, ...)\n  plot_trisurf(X, Y, triangles=triangles, ...)\n\nin which case a Triangulation object will be created.  See\n`.Triangulation` for an explanation of these possibilities.\n\nThe remaining arguments are::\n\n  plot_trisurf(..., Z)\n\nwhere *Z* is the array of values to contour, one per point\nin the triangulation.\n\nParameters\n----------\nX, Y, Z : array-like\n    Data values as 1D arrays.\ncolor\n    Color of the surface patches.\ncmap\n    A colormap for the surface patches.\nnorm : `~matplotlib.colors.Normalize`, optional\n    An instance of Normalize to map values to colors.\nvmin, vmax : float, optional\n    Minimum and maximum value to map.\nshade : bool, default: True\n    Whether to shade the facecolors.  Shading is always disabled when\n    *cmap* is specified.\nlightsource : `~matplotlib.colors.LightSource`, optional\n    The lightsource to use when *shade* is True.\naxlim_clip : bool, default: False\n    Whether to hide patches with a vertex outside the axes view limits.\n\n    .. versionadded:: 3.10\n**kwargs\n    All other keyword arguments are passed on to\n    :class:`~mpl_toolkits.mplot3d.art3d.Poly3DCollection`\n\nExamples\n--------\n.. plot:: gallery/mplot3d/trisurf3d.py\n.. plot:: gallery/mplot3d/trisurf3d_2.py"
+        },
+        {
+          "name": "add_contour_set",
+          "docstring": null
+        },
+        {
+          "name": "add_contourf_set",
+          "docstring": null
+        },
+        {
+          "name": "contour",
+          "docstring": "Create a 3D contour plot.\n\nParameters\n----------\nX, Y, Z : array-like,\n    Input data. See `.Axes.contour` for supported data shapes.\nextend3d : bool, default: False\n    Whether to extend contour in 3D.\nstride : int, default: 5\n    Step size for extending contour.\nzdir : {'x', 'y', 'z'}, default: 'z'\n    The direction to use.\noffset : float, optional\n    If specified, plot a projection of the contour lines at this\n    position in a plane normal to *zdir*.\naxlim_clip : bool, default: False\n    Whether to hide lines with a vertex outside the axes view limits.\n\n    .. versionadded:: 3.10\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n\n*args, **kwargs\n    Other arguments are forwarded to `matplotlib.axes.Axes.contour`.\n\nReturns\n-------\nmatplotlib.contour.QuadContourSet"
+        },
+        {
+          "name": "tricontour",
+          "docstring": "Create a 3D contour plot.\n\n.. note::\n    This method currently produces incorrect output due to a\n    longstanding bug in 3D PolyCollection rendering.\n\nParameters\n----------\nX, Y, Z : array-like\n    Input data. See `.Axes.tricontour` for supported data shapes.\nextend3d : bool, default: False\n    Whether to extend contour in 3D.\nstride : int, default: 5\n    Step size for extending contour.\nzdir : {'x', 'y', 'z'}, default: 'z'\n    The direction to use.\noffset : float, optional\n    If specified, plot a projection of the contour lines at this\n    position in a plane normal to *zdir*.\naxlim_clip : bool, default: False\n    Whether to hide lines with a vertex outside the axes view limits.\n\n    .. versionadded:: 3.10\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n*args, **kwargs\n    Other arguments are forwarded to `matplotlib.axes.Axes.tricontour`.\n\nReturns\n-------\nmatplotlib.tri._tricontour.TriContourSet"
+        },
+        {
+          "name": "contourf",
+          "docstring": "Create a 3D filled contour plot.\n\nParameters\n----------\nX, Y, Z : array-like\n    Input data. See `.Axes.contourf` for supported data shapes.\nzdir : {'x', 'y', 'z'}, default: 'z'\n    The direction to use.\noffset : float, optional\n    If specified, plot a projection of the contour lines at this\n    position in a plane normal to *zdir*.\naxlim_clip : bool, default: False\n    Whether to hide lines with a vertex outside the axes view limits.\n\n    .. versionadded:: 3.10\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n*args, **kwargs\n    Other arguments are forwarded to `matplotlib.axes.Axes.contourf`.\n\nReturns\n-------\nmatplotlib.contour.QuadContourSet"
+        },
+        {
+          "name": "tricontourf",
+          "docstring": "Create a 3D filled contour plot.\n\n.. note::\n    This method currently produces incorrect output due to a\n    longstanding bug in 3D PolyCollection rendering.\n\nParameters\n----------\nX, Y, Z : array-like\n    Input data. See `.Axes.tricontourf` for supported data shapes.\nzdir : {'x', 'y', 'z'}, default: 'z'\n    The direction to use.\noffset : float, optional\n    If specified, plot a projection of the contour lines at this\n    position in a plane normal to zdir.\naxlim_clip : bool, default: False\n    Whether to hide lines with a vertex outside the axes view limits.\n\n    .. versionadded:: 3.10\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n*args, **kwargs\n    Other arguments are forwarded to\n    `matplotlib.axes.Axes.tricontourf`.\n\nReturns\n-------\nmatplotlib.tri._tricontour.TriContourSet"
+        },
+        {
+          "name": "add_collection3d",
+          "docstring": "Add a 3D collection object to the plot.\n\n2D collection types are converted to a 3D version by\nmodifying the object and adding z coordinate information,\n*zs* and *zdir*.\n\nSupported 2D collection types are:\n\n- `.PolyCollection`\n- `.LineCollection`\n- `.PatchCollection` (currently not supporting *autolim*)\n\nParameters\n----------\ncol : `.Collection`\n    A 2D collection object.\nzs : float or array-like, default: 0\n    The z-positions to be used for the 2D objects.\nzdir : {'x', 'y', 'z'}, default: 'z'\n    The direction to use for the z-positions.\nautolim : bool, default: True\n    Whether to update the data limits.\naxlim_clip : bool, default: False\n    Whether to hide the scatter points outside the axes view limits.\n\n    .. versionadded:: 3.10"
+        },
+        {
+          "name": "scatter",
+          "docstring": "Create a scatter plot.\n\nParameters\n----------\nxs, ys : array-like\n    The data positions.\nzs : float or array-like, default: 0\n    The z-positions. Either an array of the same length as *xs* and\n    *ys* or a single value to place all points in the same plane.\nzdir : {'x', 'y', 'z', '-x', '-y', '-z'}, default: 'z'\n    The axis direction for the *zs*. This is useful when plotting 2D\n    data on a 3D Axes. The data must be passed as *xs*, *ys*. Setting\n    *zdir* to 'y' then plots the data to the x-z-plane.\n\n    See also :doc:`/gallery/mplot3d/2dcollections3d`.\n\ns : float or array-like, default: 20\n    The marker size in points**2. Either an array of the same length\n    as *xs* and *ys* or a single value to make all markers the same\n    size.\nc : :mpltype:`color`, sequence, or sequence of colors, optional\n    The marker color. Possible values:\n\n    - A single color format string.\n    - A sequence of colors of length n.\n    - A sequence of n numbers to be mapped to colors using *cmap* and\n      *norm*.\n    - A 2D array in which the rows are RGB or RGBA.\n\n    For more details see the *c* argument of `~.axes.Axes.scatter`.\ndepthshade : bool, default: True\n    Whether to shade the scatter markers to give the appearance of\n    depth. Each call to ``scatter()`` will perform its depthshading\n    independently.\naxlim_clip : bool, default: False\n    Whether to hide the scatter points outside the axes view limits.\n\n    .. versionadded:: 3.10\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n**kwargs\n    All other keyword arguments are passed on to `~.axes.Axes.scatter`.\n\nReturns\n-------\npaths : `~matplotlib.collections.PathCollection`"
+        },
+        {
+          "name": "bar",
+          "docstring": "Add 2D bar(s).\n\nParameters\n----------\nleft : 1D array-like\n    The x coordinates of the left sides of the bars.\nheight : 1D array-like\n    The height of the bars.\nzs : float or 1D array-like, default: 0\n    Z coordinate of bars; if a single value is specified, it will be\n    used for all bars.\nzdir : {'x', 'y', 'z'}, default: 'z'\n    When plotting 2D data, the direction to use as z ('x', 'y' or 'z').\naxlim_clip : bool, default: False\n    Whether to hide bars with points outside the axes view limits.\n\n    .. versionadded:: 3.10\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n**kwargs\n    Other keyword arguments are forwarded to\n    `matplotlib.axes.Axes.bar`.\n\nReturns\n-------\nmpl_toolkits.mplot3d.art3d.Patch3DCollection"
+        },
+        {
+          "name": "bar3d",
+          "docstring": "Generate a 3D barplot.\n\nThis method creates three-dimensional barplot where the width,\ndepth, height, and color of the bars can all be uniquely set.\n\nParameters\n----------\nx, y, z : array-like\n    The coordinates of the anchor point of the bars.\n\ndx, dy, dz : float or array-like\n    The width, depth, and height of the bars, respectively.\n\ncolor : sequence of colors, optional\n    The color of the bars can be specified globally or\n    individually. This parameter can be:\n\n    - A single color, to color all bars the same color.\n    - An array of colors of length N bars, to color each bar\n      independently.\n    - An array of colors of length 6, to color the faces of the\n      bars similarly.\n    - An array of colors of length 6 * N bars, to color each face\n      independently.\n\n    When coloring the faces of the boxes specifically, this is\n    the order of the coloring:\n\n    1. -Z (bottom of box)\n    2. +Z (top of box)\n    3. -Y\n    4. +Y\n    5. -X\n    6. +X\n\nzsort : {'average', 'min', 'max'}, default: 'average'\n    The z-axis sorting scheme passed onto `~.art3d.Poly3DCollection`\n\nshade : bool, default: True\n    When true, this shades the dark sides of the bars (relative\n    to the plot's source of light).\n\nlightsource : `~matplotlib.colors.LightSource`, optional\n    The lightsource to use when *shade* is True.\n\naxlim_clip : bool, default: False\n    Whether to hide the bars with points outside the axes view limits.\n\n    .. versionadded:: 3.10\n\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n\n**kwargs\n    Any additional keyword arguments are passed onto\n    `~.art3d.Poly3DCollection`.\n\nReturns\n-------\ncollection : `~.art3d.Poly3DCollection`\n    A collection of three-dimensional polygons representing the bars."
+        },
+        {
+          "name": "set_title",
+          "docstring": null
+        },
+        {
+          "name": "quiver",
+          "docstring": "Plot a 3D field of arrows.\n\nThe arguments can be array-like or scalars, so long as they can be\nbroadcast together. The arguments can also be masked arrays. If an\nelement in any of argument is masked, then that corresponding quiver\nelement will not be plotted.\n\nParameters\n----------\nX, Y, Z : array-like\n    The x, y and z coordinates of the arrow locations (default is\n    tail of arrow; see *pivot* kwarg).\n\nU, V, W : array-like\n    The x, y and z components of the arrow vectors.\n\nlength : float, default: 1\n    The length of each quiver.\n\narrow_length_ratio : float, default: 0.3\n    The ratio of the arrow head with respect to the quiver.\n\npivot : {'tail', 'middle', 'tip'}, default: 'tail'\n    The part of the arrow that is at the grid point; the arrow\n    rotates about this point, hence the name *pivot*.\n\nnormalize : bool, default: False\n    Whether all arrows are normalized to have the same length, or keep\n    the lengths defined by *u*, *v*, and *w*.\n\naxlim_clip : bool, default: False\n    Whether to hide arrows with points outside the axes view limits.\n\n    .. versionadded:: 3.10\n\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n\n**kwargs\n    Any additional keyword arguments are delegated to\n    :class:`.Line3DCollection`"
+        },
+        {
+          "name": "voxels",
+          "docstring": "ax.voxels([x, y, z,] /, filled, facecolors=None, edgecolors=None, **kwargs)\n\nPlot a set of filled voxels\n\nAll voxels are plotted as 1x1x1 cubes on the axis, with\n``filled[0, 0, 0]`` placed with its lower corner at the origin.\nOccluded faces are not plotted.\n\nParameters\n----------\nfilled : 3D np.array of bool\n    A 3D array of values, with truthy values indicating which voxels\n    to fill\n\nx, y, z : 3D np.array, optional\n    The coordinates of the corners of the voxels. This should broadcast\n    to a shape one larger in every dimension than the shape of\n    *filled*.  These can be used to plot non-cubic voxels.\n\n    If not specified, defaults to increasing integers along each axis,\n    like those returned by :func:`~numpy.indices`.\n    As indicated by the ``/`` in the function signature, these\n    arguments can only be passed positionally.\n\nfacecolors, edgecolors : array-like, optional\n    The color to draw the faces and edges of the voxels. Can only be\n    passed as keyword arguments.\n    These parameters can be:\n\n    - A single color value, to color all voxels the same color. This\n      can be either a string, or a 1D RGB/RGBA array\n    - ``None``, the default, to use a single color for the faces, and\n      the style default for the edges.\n    - A 3D `~numpy.ndarray` of color names, with each item the color\n      for the corresponding voxel. The size must match the voxels.\n    - A 4D `~numpy.ndarray` of RGB/RGBA data, with the components\n      along the last axis.\n\nshade : bool, default: True\n    Whether to shade the facecolors.\n\nlightsource : `~matplotlib.colors.LightSource`, optional\n    The lightsource to use when *shade* is True.\n\naxlim_clip : bool, default: False\n    Whether to hide voxels with points outside the axes view limits.\n\n    .. versionadded:: 3.10\n\n**kwargs\n    Additional keyword arguments to pass onto\n    `~mpl_toolkits.mplot3d.art3d.Poly3DCollection`.\n\nReturns\n-------\nfaces : dict\n    A dictionary indexed by coordinate, where ``faces[i, j, k]`` is a\n    `.Poly3DCollection` of the faces drawn for the voxel\n    ``filled[i, j, k]``. If no faces were drawn for a given voxel,\n    either because it was not asked to be drawn, or it is fully\n    occluded, then ``(i, j, k) not in faces``.\n\nExamples\n--------\n.. plot:: gallery/mplot3d/voxels.py\n.. plot:: gallery/mplot3d/voxels_rgb.py\n.. plot:: gallery/mplot3d/voxels_torus.py\n.. plot:: gallery/mplot3d/voxels_numpy_logo.py"
+        },
+        {
+          "name": "errorbar",
+          "docstring": "Plot lines and/or markers with errorbars around them.\n\n*x*/*y*/*z* define the data locations, and *xerr*/*yerr*/*zerr* define\nthe errorbar sizes. By default, this draws the data markers/lines as\nwell the errorbars. Use fmt='none' to draw errorbars only.\n\nParameters\n----------\nx, y, z : float or array-like\n    The data positions.\n\nxerr, yerr, zerr : float or array-like, shape (N,) or (2, N), optional\n    The errorbar sizes:\n\n    - scalar: Symmetric +/- values for all data points.\n    - shape(N,): Symmetric +/-values for each data point.\n    - shape(2, N): Separate - and + values for each bar. First row\n      contains the lower errors, the second row contains the upper\n      errors.\n    - *None*: No errorbar.\n\n    Note that all error arrays should have *positive* values.\n\nfmt : str, default: ''\n    The format for the data points / data lines. See `.plot` for\n    details.\n\n    Use 'none' (case-insensitive) to plot errorbars without any data\n    markers.\n\necolor : :mpltype:`color`, default: None\n    The color of the errorbar lines.  If None, use the color of the\n    line connecting the markers.\n\nelinewidth : float, default: None\n    The linewidth of the errorbar lines. If None, the linewidth of\n    the current style is used.\n\ncapsize : float, default: :rc:`errorbar.capsize`\n    The length of the error bar caps in points.\n\ncapthick : float, default: None\n    An alias to the keyword argument *markeredgewidth* (a.k.a. *mew*).\n    This setting is a more sensible name for the property that\n    controls the thickness of the error bar cap in points. For\n    backwards compatibility, if *mew* or *markeredgewidth* are given,\n    then they will over-ride *capthick*. This may change in future\n    releases.\n\nbarsabove : bool, default: False\n    If True, will plot the errorbars above the plot\n    symbols. Default is below.\n\nxlolims, ylolims, zlolims : bool, default: False\n    These arguments can be used to indicate that a value gives only\n    lower limits. In that case a caret symbol is used to indicate\n    this. *lims*-arguments may be scalars, or array-likes of the same\n    length as the errors. To use limits with inverted axes,\n    `~.set_xlim`, `~.set_ylim`, or `~.set_zlim` must be\n    called before `errorbar`. Note the tricky parameter names: setting\n    e.g. *ylolims* to True means that the y-value is a *lower* limit of\n    the True value, so, only an *upward*-pointing arrow will be drawn!\n\nxuplims, yuplims, zuplims : bool, default: False\n    Same as above, but for controlling the upper limits.\n\nerrorevery : int or (int, int), default: 1\n    draws error bars on a subset of the data. *errorevery* =N draws\n    error bars on the points (x[::N], y[::N], z[::N]).\n    *errorevery* =(start, N) draws error bars on the points\n    (x[start::N], y[start::N], z[start::N]). e.g. *errorevery* =(6, 3)\n    adds error bars to the data at (x[6], x[9], x[12], x[15], ...).\n    Used to avoid overlapping error bars when two series share x-axis\n    values.\n\naxlim_clip : bool, default: False\n    Whether to hide error bars that are outside the axes limits.\n\n    .. versionadded:: 3.10\n\nReturns\n-------\nerrlines : list\n    List of `~mpl_toolkits.mplot3d.art3d.Line3DCollection` instances\n    each containing an errorbar line.\ncaplines : list\n    List of `~mpl_toolkits.mplot3d.art3d.Line3D` instances each\n    containing a capline object.\nlimmarks : list\n    List of `~mpl_toolkits.mplot3d.art3d.Line3D` instances each\n    containing a marker with an upper or lower limit.\n\nOther Parameters\n----------------\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n\n**kwargs\n    All other keyword arguments for styling errorbar lines are passed\n    `~mpl_toolkits.mplot3d.art3d.Line3DCollection`.\n\nExamples\n--------\n.. plot:: gallery/mplot3d/errorbar3d.py"
+        },
+        {
+          "name": "get_tightbbox",
+          "docstring": null
+        },
+        {
+          "name": "stem",
+          "docstring": "Create a 3D stem plot.\n\nA stem plot draws lines perpendicular to a baseline, and places markers\nat the heads. By default, the baseline is defined by *x* and *y*, and\nstems are drawn vertically from *bottom* to *z*.\n\nParameters\n----------\nx, y, z : array-like\n    The positions of the heads of the stems. The stems are drawn along\n    the *orientation*-direction from the baseline at *bottom* (in the\n    *orientation*-coordinate) to the heads. By default, the *x* and *y*\n    positions are used for the baseline and *z* for the head position,\n    but this can be changed by *orientation*.\n\nlinefmt : str, default: 'C0-'\n    A string defining the properties of the vertical lines. Usually,\n    this will be a color or a color and a linestyle:\n\n    =========  =============\n    Character  Line Style\n    =========  =============\n    ``'-'``    solid line\n    ``'--'``   dashed line\n    ``'-.'``   dash-dot line\n    ``':'``    dotted line\n    =========  =============\n\n    Note: While it is technically possible to specify valid formats\n    other than color or color and linestyle (e.g. 'rx' or '-.'), this\n    is beyond the intention of the method and will most likely not\n    result in a reasonable plot.\n\nmarkerfmt : str, default: 'C0o'\n    A string defining the properties of the markers at the stem heads.\n\nbasefmt : str, default: 'C3-'\n    A format string defining the properties of the baseline.\n\nbottom : float, default: 0\n    The position of the baseline, in *orientation*-coordinates.\n\nlabel : str, optional\n    The label to use for the stems in legends.\n\norientation : {'x', 'y', 'z'}, default: 'z'\n    The direction along which stems are drawn.\n\naxlim_clip : bool, default: False\n    Whether to hide stems that are outside the axes limits.\n\n    .. versionadded:: 3.10\n\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n\nReturns\n-------\n`.StemContainer`\n    The container may be treated like a tuple\n    (*markerline*, *stemlines*, *baseline*)\n\nExamples\n--------\n.. plot:: gallery/mplot3d/stem3d_demo.py"
+        }
+      ]
+    },
+    {
+      "name": "_Quaternion",
+      "docstring": "Quaternions\nconsisting of scalar, along 1, and vector, with components along i, j, k",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "conjugate",
+          "docstring": "The conjugate quaternion -(1/2)*(q+i*q*i+j*q*j+k*q*k)"
+        },
+        {
+          "name": "norm",
+          "docstring": "The 2-norm, q*q', a scalar"
+        },
+        {
+          "name": "normalize",
+          "docstring": "Scaling such that norm equals 1"
+        },
+        {
+          "name": "reciprocal",
+          "docstring": "The reciprocal, 1/q = q'/(q*q') = q' / norm(q)"
+        },
+        {
+          "name": "rotate",
+          "docstring": null
+        },
+        {
+          "name": "rotate_from_to",
+          "docstring": "The quaternion for the shortest rotation from vector r1 to vector r2\ni.e., q = sqrt(r2*r1'), normalized.\nIf r1 and r2 are antiparallel, then the result is ambiguous;\na normal vector will be returned, and a warning will be issued."
+        },
+        {
+          "name": "from_cardan_angles",
+          "docstring": "Converts the angles to a quaternion\n    q = exp((roll/2)*e_x)*exp((elev/2)*e_y)*exp((-azim/2)*e_z)\ni.e., the angles are a kind of Tait-Bryan angles, -z,y',x\".\nThe angles should be given in radians, not degrees."
+        },
+        {
+          "name": "as_cardan_angles",
+          "docstring": "The inverse of `from_cardan_angles()`.\nNote that the angles returned are in radians, not degrees.\nThe angles are not sensitive to the quaternion's norm()."
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "get_test_data",
+      "docstring": "Return a tuple X, Y, Z with a test data set."
+    },
+    {
+      "name": "set_axis_off",
+      "docstring": null
+    },
+    {
+      "name": "set_axis_on",
+      "docstring": null
+    },
+    {
+      "name": "convert_zunits",
+      "docstring": "For artists in an Axes, if the zaxis has units support,\nconvert *z* using zaxis unit type"
+    },
+    {
+      "name": "set_top_view",
+      "docstring": null
+    },
+    {
+      "name": "get_zaxis",
+      "docstring": "Return the ``ZAxis`` (`~.axis3d.Axis`) instance."
+    },
+    {
+      "name": "set_aspect",
+      "docstring": "Set the aspect ratios.\n\nParameters\n----------\naspect : {'auto', 'equal', 'equalxy', 'equalxz', 'equalyz'}\n    Possible values:\n\n    =========   ==================================================\n    value       description\n    =========   ==================================================\n    'auto'      automatic; fill the position rectangle with data.\n    'equal'     adapt all the axes to have equal aspect ratios.\n    'equalxy'   adapt the x and y axes to have equal aspect ratios.\n    'equalxz'   adapt the x and z axes to have equal aspect ratios.\n    'equalyz'   adapt the y and z axes to have equal aspect ratios.\n    =========   ==================================================\n\nadjustable : None or {'box', 'datalim'}, optional\n    If not *None*, this defines which parameter will be adjusted to\n    meet the required aspect. See `.set_adjustable` for further\n    details.\n\nanchor : None or str or 2-tuple of float, optional\n    If not *None*, this defines where the Axes will be drawn if there\n    is extra space due to aspect constraints. The most common way to\n    specify the anchor are abbreviations of cardinal directions:\n\n    =====   =====================\n    value   description\n    =====   =====================\n    'C'     centered\n    'SW'    lower left corner\n    'S'     middle of bottom edge\n    'SE'    lower right corner\n    etc.\n    =====   =====================\n\n    See `~.Axes.set_anchor` for further details.\n\nshare : bool, default: False\n    If ``True``, apply the settings to all shared Axes.\n\nSee Also\n--------\nmpl_toolkits.mplot3d.axes3d.Axes3D.set_box_aspect"
+    },
+    {
+      "name": "set_box_aspect",
+      "docstring": "Set the Axes box aspect.\n\nThe box aspect is the ratio of height to width in display\nunits for each face of the box when viewed perpendicular to\nthat face.  This is not to be confused with the data aspect (see\n`~.Axes3D.set_aspect`). The default ratios are 4:4:3 (x:y:z).\n\nTo simulate having equal aspect in data space, set the box\naspect to match your data range in each dimension.\n\n*zoom* controls the overall size of the Axes3D in the figure.\n\nParameters\n----------\naspect : 3-tuple of floats or None\n    Changes the physical dimensions of the Axes3D, such that the ratio\n    of the axis lengths in display units is x:y:z.\n    If None, defaults to (4, 4, 3).\n\nzoom : float, default: 1\n    Control overall size of the Axes3D in the figure. Must be > 0."
+    },
+    {
+      "name": "apply_aspect",
+      "docstring": null
+    },
+    {
+      "name": "draw",
+      "docstring": null
+    },
+    {
+      "name": "get_axis_position",
+      "docstring": null
+    },
+    {
+      "name": "update_datalim",
+      "docstring": "Not implemented in `~mpl_toolkits.mplot3d.axes3d.Axes3D`."
+    },
+    {
+      "name": "get_zmargin",
+      "docstring": "Retrieve autoscaling margin of the z-axis.\n\n.. versionadded:: 3.9\n\nReturns\n-------\nzmargin : float\n\nSee Also\n--------\nmpl_toolkits.mplot3d.axes3d.Axes3D.set_zmargin"
+    },
+    {
+      "name": "set_zmargin",
+      "docstring": "Set padding of Z data limits prior to autoscaling.\n\n*m* times the data interval will be added to each end of that interval\nbefore it is used in autoscaling.  If *m* is negative, this will clip\nthe data range instead of expanding it.\n\nFor example, if your data is in the range [0, 2], a margin of 0.1 will\nresult in a range [-0.2, 2.2]; a margin of -0.1 will result in a range\nof [0.2, 1.8].\n\nParameters\n----------\nm : float greater than -0.5"
+    },
+    {
+      "name": "margins",
+      "docstring": "Set or retrieve autoscaling margins.\n\nSee `.Axes.margins` for full documentation.  Because this function\napplies to 3D Axes, it also takes a *z* argument, and returns\n``(xmargin, ymargin, zmargin)``."
+    },
+    {
+      "name": "autoscale",
+      "docstring": "Convenience method for simple axis view autoscaling.\n\nSee `.Axes.autoscale` for full documentation.  Because this function\napplies to 3D Axes, *axis* can also be set to 'z', and setting *axis*\nto 'both' autoscales all three axes."
+    },
+    {
+      "name": "auto_scale_xyz",
+      "docstring": null
+    },
+    {
+      "name": "autoscale_view",
+      "docstring": "Autoscale the view limits using the data limits.\n\nSee `.Axes.autoscale_view` for full documentation.  Because this\nfunction applies to 3D Axes, it also takes a *scalez* argument."
+    },
+    {
+      "name": "get_w_lims",
+      "docstring": "Get 3D world limits."
+    },
+    {
+      "name": "set_xbound",
+      "docstring": "Set the lower and upper numerical bounds of the x-axis.\n\nThis method will honor axis inversion regardless of parameter order.\nIt will not change the autoscaling setting (`.get_autoscalex_on()`).\n\nParameters\n----------\nlower, upper : float or None\n    The lower and upper bounds. If *None*, the respective axis bound\n    is not modified.\nview_margin : float or None\n    The margin to apply to the bounds. If *None*, the margin is handled\n    by `.set_xlim`.\n\nSee Also\n--------\nget_xbound\nget_xlim, set_xlim\ninvert_xaxis, xaxis_inverted"
+    },
+    {
+      "name": "set_ybound",
+      "docstring": "Set the lower and upper numerical bounds of the y-axis.\n\nThis method will honor axis inversion regardless of parameter order.\nIt will not change the autoscaling setting (`.get_autoscaley_on()`).\n\nParameters\n----------\nlower, upper : float or None\n    The lower and upper bounds. If *None*, the respective axis bound\n    is not modified.\nview_margin : float or None\n    The margin to apply to the bounds. If *None*, the margin is handled\n    by `.set_ylim`.\n\nSee Also\n--------\nget_ybound\nget_ylim, set_ylim\ninvert_yaxis, yaxis_inverted"
+    },
+    {
+      "name": "set_zbound",
+      "docstring": "Set the lower and upper numerical bounds of the z-axis.\nThis method will honor axis inversion regardless of parameter order.\nIt will not change the autoscaling setting (`.get_autoscaley_on()`).\n\nParameters\n----------\nlower, upper : float or None\n    The lower and upper bounds. If *None*, the respective axis bound\n    is not modified.\nview_margin : float or None\n    The margin to apply to the bounds. If *None*, the margin is handled\n    by `.set_zlim`.\n\nSee Also\n--------\nget_zbound\nget_zlim, set_zlim\ninvert_zaxis, zaxis_inverted"
+    },
+    {
+      "name": "set_xlim",
+      "docstring": "Set the 3D x-axis view limits.\n\nParameters\n----------\nleft : float, optional\n    The left xlim in data coordinates. Passing *None* leaves the\n    limit unchanged.\n\n    The left and right xlims may also be passed as the tuple\n    (*left*, *right*) as the first positional argument (or as\n    the *left* keyword argument).\n\n    .. ACCEPTS: (left: float, right: float)\n\nright : float, optional\n    The right xlim in data coordinates. Passing *None* leaves the\n    limit unchanged.\n\nemit : bool, default: True\n    Whether to notify observers of limit change.\n\nauto : bool or None, default: False\n    Whether to turn on autoscaling of the x-axis. *True* turns on,\n    *False* turns off, *None* leaves unchanged.\n\nview_margin : float, optional\n    The additional margin to apply to the limits.\n\nxmin, xmax : float, optional\n    They are equivalent to left and right respectively, and it is an\n    error to pass both *xmin* and *left* or *xmax* and *right*.\n\nReturns\n-------\nleft, right : (float, float)\n    The new x-axis limits in data coordinates.\n\nSee Also\n--------\nget_xlim\nset_xbound, get_xbound\ninvert_xaxis, xaxis_inverted\n\nNotes\n-----\nThe *left* value may be greater than the *right* value, in which\ncase the x-axis values will decrease from *left* to *right*.\n\nExamples\n--------\n>>> set_xlim(left, right)\n>>> set_xlim((left, right))\n>>> left, right = set_xlim(left, right)\n\nOne limit may be left unchanged.\n\n>>> set_xlim(right=right_lim)\n\nLimits may be passed in reverse order to flip the direction of\nthe x-axis. For example, suppose ``x`` represents depth of the\nocean in m. The x-axis limits might be set like the following\nso 5000 m depth is at the left of the plot and the surface,\n0 m, is at the right.\n\n>>> set_xlim(5000, 0)"
+    },
+    {
+      "name": "set_ylim",
+      "docstring": "Set the 3D y-axis view limits.\n\nParameters\n----------\nbottom : float, optional\n    The bottom ylim in data coordinates. Passing *None* leaves the\n    limit unchanged.\n\n    The bottom and top ylims may also be passed as the tuple\n    (*bottom*, *top*) as the first positional argument (or as\n    the *bottom* keyword argument).\n\n    .. ACCEPTS: (bottom: float, top: float)\n\ntop : float, optional\n    The top ylim in data coordinates. Passing *None* leaves the\n    limit unchanged.\n\nemit : bool, default: True\n    Whether to notify observers of limit change.\n\nauto : bool or None, default: False\n    Whether to turn on autoscaling of the y-axis. *True* turns on,\n    *False* turns off, *None* leaves unchanged.\n\nview_margin : float, optional\n    The additional margin to apply to the limits.\n\nymin, ymax : float, optional\n    They are equivalent to bottom and top respectively, and it is an\n    error to pass both *ymin* and *bottom* or *ymax* and *top*.\n\nReturns\n-------\nbottom, top : (float, float)\n    The new y-axis limits in data coordinates.\n\nSee Also\n--------\nget_ylim\nset_ybound, get_ybound\ninvert_yaxis, yaxis_inverted\n\nNotes\n-----\nThe *bottom* value may be greater than the *top* value, in which\ncase the y-axis values will decrease from *bottom* to *top*.\n\nExamples\n--------\n>>> set_ylim(bottom, top)\n>>> set_ylim((bottom, top))\n>>> bottom, top = set_ylim(bottom, top)\n\nOne limit may be left unchanged.\n\n>>> set_ylim(top=top_lim)\n\nLimits may be passed in reverse order to flip the direction of\nthe y-axis. For example, suppose ``y`` represents depth of the\nocean in m. The y-axis limits might be set like the following\nso 5000 m depth is at the bottom of the plot and the surface,\n0 m, is at the top.\n\n>>> set_ylim(5000, 0)"
+    },
+    {
+      "name": "set_zlim",
+      "docstring": "Set the 3D z-axis view limits.\n\nParameters\n----------\nbottom : float, optional\n    The bottom zlim in data coordinates. Passing *None* leaves the\n    limit unchanged.\n\n    The bottom and top zlims may also be passed as the tuple\n    (*bottom*, *top*) as the first positional argument (or as\n    the *bottom* keyword argument).\n\n    .. ACCEPTS: (bottom: float, top: float)\n\ntop : float, optional\n    The top zlim in data coordinates. Passing *None* leaves the\n    limit unchanged.\n\nemit : bool, default: True\n    Whether to notify observers of limit change.\n\nauto : bool or None, default: False\n    Whether to turn on autoscaling of the z-axis. *True* turns on,\n    *False* turns off, *None* leaves unchanged.\n\nview_margin : float, optional\n    The additional margin to apply to the limits.\n\nzmin, zmax : float, optional\n    They are equivalent to bottom and top respectively, and it is an\n    error to pass both *zmin* and *bottom* or *zmax* and *top*.\n\nReturns\n-------\nbottom, top : (float, float)\n    The new z-axis limits in data coordinates.\n\nSee Also\n--------\nget_zlim\nset_zbound, get_zbound\ninvert_zaxis, zaxis_inverted\n\nNotes\n-----\nThe *bottom* value may be greater than the *top* value, in which\ncase the z-axis values will decrease from *bottom* to *top*.\n\nExamples\n--------\n>>> set_zlim(bottom, top)\n>>> set_zlim((bottom, top))\n>>> bottom, top = set_zlim(bottom, top)\n\nOne limit may be left unchanged.\n\n>>> set_zlim(top=top_lim)\n\nLimits may be passed in reverse order to flip the direction of\nthe z-axis. For example, suppose ``z`` represents depth of the\nocean in m. The z-axis limits might be set like the following\nso 5000 m depth is at the bottom of the plot and the surface,\n0 m, is at the top.\n\n>>> set_zlim(5000, 0)"
+    },
+    {
+      "name": "get_xlim",
+      "docstring": null
+    },
+    {
+      "name": "get_ylim",
+      "docstring": null
+    },
+    {
+      "name": "get_zlim",
+      "docstring": "Return the 3D z-axis view limits.\n\nReturns\n-------\nleft, right : (float, float)\n    The current z-axis limits in data coordinates.\n\nSee Also\n--------\nset_zlim\nset_zbound, get_zbound\ninvert_zaxis, zaxis_inverted\n\nNotes\n-----\nThe z-axis may be inverted, in which case the *left* value will\nbe greater than the *right* value."
+    },
+    {
+      "name": "clabel",
+      "docstring": "Currently not implemented for 3D Axes, and returns *None*."
+    },
+    {
+      "name": "view_init",
+      "docstring": "Set the elevation and azimuth of the Axes in degrees (not radians).\n\nThis can be used to rotate the Axes programmatically.\n\nTo look normal to the primary planes, the following elevation and\nazimuth angles can be used. A roll angle of 0, 90, 180, or 270 deg\nwill rotate these views while keeping the axes at right angles.\n\n==========   ====  ====\nview plane   elev  azim\n==========   ====  ====\nXY           90    -90\nXZ           0     -90\nYZ           0     0\n-XY          -90   90\n-XZ          0     90\n-YZ          0     180\n==========   ====  ====\n\nParameters\n----------\nelev : float, default: None\n    The elevation angle in degrees rotates the camera above the plane\n    pierced by the vertical axis, with a positive angle corresponding\n    to a location above that plane. For example, with the default\n    vertical axis of 'z', the elevation defines the angle of the camera\n    location above the x-y plane.\n    If None, then the initial value as specified in the `Axes3D`\n    constructor is used.\nazim : float, default: None\n    The azimuthal angle in degrees rotates the camera about the\n    vertical axis, with a positive angle corresponding to a\n    right-handed rotation. For example, with the default vertical axis\n    of 'z', a positive azimuth rotates the camera about the origin from\n    its location along the +x axis towards the +y axis.\n    If None, then the initial value as specified in the `Axes3D`\n    constructor is used.\nroll : float, default: None\n    The roll angle in degrees rotates the camera about the viewing\n    axis. A positive angle spins the camera clockwise, causing the\n    scene to rotate counter-clockwise.\n    If None, then the initial value as specified in the `Axes3D`\n    constructor is used.\nvertical_axis : {\"z\", \"x\", \"y\"}, default: \"z\"\n    The axis to align vertically. *azim* rotates about this axis.\nshare : bool, default: False\n    If ``True``, apply the settings to all Axes with shared views."
+    },
+    {
+      "name": "set_proj_type",
+      "docstring": "Set the projection type.\n\nParameters\n----------\nproj_type : {'persp', 'ortho'}\n    The projection type.\nfocal_length : float, default: None\n    For a projection type of 'persp', the focal length of the virtual\n    camera. Must be > 0. If None, defaults to 1.\n    The focal length can be computed from a desired Field Of View via\n    the equation: focal_length = 1/tan(FOV/2)"
+    },
+    {
+      "name": "get_proj",
+      "docstring": "Create the projection matrix from the current viewing position."
+    },
+    {
+      "name": "mouse_init",
+      "docstring": "Set the mouse buttons for 3D rotation and zooming.\n\nParameters\n----------\nrotate_btn : int or list of int, default: 1\n    The mouse button or buttons to use for 3D rotation of the Axes.\npan_btn : int or list of int, default: 2\n    The mouse button or buttons to use to pan the 3D Axes.\nzoom_btn : int or list of int, default: 3\n    The mouse button or buttons to use to zoom the 3D Axes."
+    },
+    {
+      "name": "disable_mouse_rotation",
+      "docstring": "Disable mouse buttons for 3D rotation, panning, and zooming."
+    },
+    {
+      "name": "can_zoom",
+      "docstring": null
+    },
+    {
+      "name": "can_pan",
+      "docstring": null
+    },
+    {
+      "name": "sharez",
+      "docstring": "Share the z-axis with *other*.\n\nThis is equivalent to passing ``sharez=other`` when constructing the\nAxes, and cannot be used if the z-axis is already being shared with\nanother Axes.  Note that it is not possible to unshare axes."
+    },
+    {
+      "name": "shareview",
+      "docstring": "Share the view angles with *other*.\n\nThis is equivalent to passing ``shareview=other`` when constructing the\nAxes, and cannot be used if the view angles are already being shared\nwith another Axes.  Note that it is not possible to unshare axes."
+    },
+    {
+      "name": "clear",
+      "docstring": null
+    },
+    {
+      "name": "format_zdata",
+      "docstring": "Return *z* string formatted.  This function will use the\n:attr:`fmt_zdata` attribute if it is callable, else will fall\nback on the zaxis major formatter"
+    },
+    {
+      "name": "format_coord",
+      "docstring": "Return a string giving the current view rotation angles, or the x, y, z\ncoordinates of the point on the nearest axis pane underneath the mouse\ncursor, depending on the mouse button pressed."
+    },
+    {
+      "name": "drag_pan",
+      "docstring": null
+    },
+    {
+      "name": "set_zlabel",
+      "docstring": "Set zlabel.  See doc for `.set_ylabel` for description."
+    },
+    {
+      "name": "get_zlabel",
+      "docstring": "Get the z-label text string."
+    },
+    {
+      "name": "grid",
+      "docstring": "Set / unset 3D grid.\n\n.. note::\n\n    Currently, this function does not behave the same as\n    `.axes.Axes.grid`, but it is intended to eventually support that\n    behavior."
+    },
+    {
+      "name": "tick_params",
+      "docstring": "Convenience method for changing the appearance of ticks and\ntick labels.\n\nSee `.Axes.tick_params` for full documentation.  Because this function\napplies to 3D Axes, *axis* can also be set to 'z', and setting *axis*\nto 'both' autoscales all three axes.\n\nAlso, because of how Axes3D objects are drawn very differently\nfrom regular 2D Axes, some of these settings may have\nambiguous meaning.  For simplicity, the 'z' axis will\naccept settings as if it was like the 'y' axis.\n\n.. note::\n   Axes3D currently ignores some of these settings."
+    },
+    {
+      "name": "invert_zaxis",
+      "docstring": "Invert the z-axis.\n\nSee Also\n--------\nzaxis_inverted\nget_zlim, set_zlim\nget_zbound, set_zbound"
+    },
+    {
+      "name": "get_zbound",
+      "docstring": "Return the lower and upper z-axis bounds, in increasing order.\n\nSee Also\n--------\nset_zbound\nget_zlim, set_zlim\ninvert_zaxis, zaxis_inverted"
+    },
+    {
+      "name": "text",
+      "docstring": "Add the text *s* to the 3D Axes at location *x*, *y*, *z* in data coordinates.\n\nParameters\n----------\nx, y, z : float\n    The position to place the text.\ns : str\n    The text.\nzdir : {'x', 'y', 'z', 3-tuple}, optional\n    The direction to be used as the z-direction. Default: 'z'.\n    See `.get_dir_vector` for a description of the values.\naxlim_clip : bool, default: False\n    Whether to hide text that is outside the axes view limits.\n\n    .. versionadded:: 3.10\n**kwargs\n    Other arguments are forwarded to `matplotlib.axes.Axes.text`.\n\nReturns\n-------\n`.Text3D`\n    The created `.Text3D` instance."
+    },
+    {
+      "name": "plot",
+      "docstring": "Plot 2D or 3D data.\n\nParameters\n----------\nxs : 1D array-like\n    x coordinates of vertices.\nys : 1D array-like\n    y coordinates of vertices.\nzs : float or 1D array-like\n    z coordinates of vertices; either one for all points or one for\n    each point.\nzdir : {'x', 'y', 'z'}, default: 'z'\n    When plotting 2D data, the direction to use as z.\naxlim_clip : bool, default: False\n    Whether to hide data that is outside the axes view limits.\n\n    .. versionadded:: 3.10\n**kwargs\n    Other arguments are forwarded to `matplotlib.axes.Axes.plot`."
+    },
+    {
+      "name": "fill_between",
+      "docstring": "Fill the area between two 3D curves.\n\nThe curves are defined by the points (*x1*, *y1*, *z1*) and\n(*x2*, *y2*, *z2*). This creates one or multiple quadrangle\npolygons that are filled. All points must be the same length N, or a\nsingle value to be used for all points.\n\nParameters\n----------\nx1, y1, z1 : float or 1D array-like\n    x, y, and z  coordinates of vertices for 1st line.\n\nx2, y2, z2 : float or 1D array-like\n    x, y, and z coordinates of vertices for 2nd line.\n\nwhere : array of bool (length N), optional\n    Define *where* to exclude some regions from being filled. The\n    filled regions are defined by the coordinates ``pts[where]``,\n    for all x, y, and z pts. More precisely, fill between ``pts[i]``\n    and ``pts[i+1]`` if ``where[i] and where[i+1]``. Note that this\n    definition implies that an isolated *True* value between two\n    *False* values in *where* will not result in filling. Both sides of\n    the *True* position remain unfilled due to the adjacent *False*\n    values.\n\nmode : {'quad', 'polygon', 'auto'}, default: 'auto'\n    The fill mode. One of:\n\n    - 'quad':  A separate quadrilateral polygon is created for each\n      pair of subsequent points in the two lines.\n    - 'polygon': The two lines are connected to form a single polygon.\n      This is faster and can render more cleanly for simple shapes\n      (e.g. for filling between two lines that lie within a plane).\n    - 'auto': If the points all lie on the same 3D plane, 'polygon' is\n      used. Otherwise, 'quad' is used.\n\nfacecolors : list of :mpltype:`color`, default: None\n    Colors of each individual patch, or a single color to be used for\n    all patches.\n\nshade : bool, default: None\n    Whether to shade the facecolors. If *None*, then defaults to *True*\n    for 'quad' mode and *False* for 'polygon' mode.\n\naxlim_clip : bool, default: False\n    Whether to hide data that is outside the axes view limits.\n\n    .. versionadded:: 3.10\n\n**kwargs\n    All other keyword arguments are passed on to `.Poly3DCollection`.\n\nReturns\n-------\n`.Poly3DCollection`\n    A `.Poly3DCollection` containing the plotted polygons."
+    },
+    {
+      "name": "plot_surface",
+      "docstring": "Create a surface plot.\n\nBy default, it will be colored in shades of a solid color, but it also\nsupports colormapping by supplying the *cmap* argument.\n\n.. note::\n\n   The *rcount* and *ccount* kwargs, which both default to 50,\n   determine the maximum number of samples used in each direction.  If\n   the input data is larger, it will be downsampled (by slicing) to\n   these numbers of points.\n\n.. note::\n\n   To maximize rendering speed consider setting *rstride* and *cstride*\n   to divisors of the number of rows minus 1 and columns minus 1\n   respectively. For example, given 51 rows rstride can be any of the\n   divisors of 50.\n\n   Similarly, a setting of *rstride* and *cstride* equal to 1 (or\n   *rcount* and *ccount* equal the number of rows and columns) can use\n   the optimized path.\n\nParameters\n----------\nX, Y, Z : 2D arrays\n    Data values.\n\nrcount, ccount : int\n    Maximum number of samples used in each direction.  If the input\n    data is larger, it will be downsampled (by slicing) to these\n    numbers of points.  Defaults to 50.\n\nrstride, cstride : int\n    Downsampling stride in each direction.  These arguments are\n    mutually exclusive with *rcount* and *ccount*.  If only one of\n    *rstride* or *cstride* is set, the other defaults to 10.\n\n    'classic' mode uses a default of ``rstride = cstride = 10`` instead\n    of the new default of ``rcount = ccount = 50``.\n\ncolor : :mpltype:`color`\n    Color of the surface patches.\n\ncmap : Colormap, optional\n    Colormap of the surface patches.\n\nfacecolors : list of :mpltype:`color`\n    Colors of each individual patch.\n\nnorm : `~matplotlib.colors.Normalize`, optional\n    Normalization for the colormap.\n\nvmin, vmax : float, optional\n    Bounds for the normalization.\n\nshade : bool, default: True\n    Whether to shade the facecolors.  Shading is always disabled when\n    *cmap* is specified.\n\nlightsource : `~matplotlib.colors.LightSource`, optional\n    The lightsource to use when *shade* is True.\n\naxlim_clip : bool, default: False\n    Whether to hide patches with a vertex outside the axes view limits.\n\n    .. versionadded:: 3.10\n\n**kwargs\n    Other keyword arguments are forwarded to `.Poly3DCollection`."
+    },
+    {
+      "name": "plot_wireframe",
+      "docstring": "Plot a 3D wireframe.\n\n.. note::\n\n   The *rcount* and *ccount* kwargs, which both default to 50,\n   determine the maximum number of samples used in each direction.  If\n   the input data is larger, it will be downsampled (by slicing) to\n   these numbers of points.\n\nParameters\n----------\nX, Y, Z : 2D arrays\n    Data values.\n\naxlim_clip : bool, default: False\n    Whether to hide lines and patches with vertices outside the axes\n    view limits.\n\n    .. versionadded:: 3.10\n\nrcount, ccount : int\n    Maximum number of samples used in each direction.  If the input\n    data is larger, it will be downsampled (by slicing) to these\n    numbers of points.  Setting a count to zero causes the data to be\n    not sampled in the corresponding direction, producing a 3D line\n    plot rather than a wireframe plot.  Defaults to 50.\n\nrstride, cstride : int\n    Downsampling stride in each direction.  These arguments are\n    mutually exclusive with *rcount* and *ccount*.  If only one of\n    *rstride* or *cstride* is set, the other defaults to 1.  Setting a\n    stride to zero causes the data to be not sampled in the\n    corresponding direction, producing a 3D line plot rather than a\n    wireframe plot.\n\n    'classic' mode uses a default of ``rstride = cstride = 1`` instead\n    of the new default of ``rcount = ccount = 50``.\n\n**kwargs\n    Other keyword arguments are forwarded to `.Line3DCollection`."
+    },
+    {
+      "name": "plot_trisurf",
+      "docstring": "Plot a triangulated surface.\n\nThe (optional) triangulation can be specified in one of two ways;\neither::\n\n  plot_trisurf(triangulation, ...)\n\nwhere triangulation is a `~matplotlib.tri.Triangulation` object, or::\n\n  plot_trisurf(X, Y, ...)\n  plot_trisurf(X, Y, triangles, ...)\n  plot_trisurf(X, Y, triangles=triangles, ...)\n\nin which case a Triangulation object will be created.  See\n`.Triangulation` for an explanation of these possibilities.\n\nThe remaining arguments are::\n\n  plot_trisurf(..., Z)\n\nwhere *Z* is the array of values to contour, one per point\nin the triangulation.\n\nParameters\n----------\nX, Y, Z : array-like\n    Data values as 1D arrays.\ncolor\n    Color of the surface patches.\ncmap\n    A colormap for the surface patches.\nnorm : `~matplotlib.colors.Normalize`, optional\n    An instance of Normalize to map values to colors.\nvmin, vmax : float, optional\n    Minimum and maximum value to map.\nshade : bool, default: True\n    Whether to shade the facecolors.  Shading is always disabled when\n    *cmap* is specified.\nlightsource : `~matplotlib.colors.LightSource`, optional\n    The lightsource to use when *shade* is True.\naxlim_clip : bool, default: False\n    Whether to hide patches with a vertex outside the axes view limits.\n\n    .. versionadded:: 3.10\n**kwargs\n    All other keyword arguments are passed on to\n    :class:`~mpl_toolkits.mplot3d.art3d.Poly3DCollection`\n\nExamples\n--------\n.. plot:: gallery/mplot3d/trisurf3d.py\n.. plot:: gallery/mplot3d/trisurf3d_2.py"
+    },
+    {
+      "name": "add_contour_set",
+      "docstring": null
+    },
+    {
+      "name": "add_contourf_set",
+      "docstring": null
+    },
+    {
+      "name": "contour",
+      "docstring": "Create a 3D contour plot.\n\nParameters\n----------\nX, Y, Z : array-like,\n    Input data. See `.Axes.contour` for supported data shapes.\nextend3d : bool, default: False\n    Whether to extend contour in 3D.\nstride : int, default: 5\n    Step size for extending contour.\nzdir : {'x', 'y', 'z'}, default: 'z'\n    The direction to use.\noffset : float, optional\n    If specified, plot a projection of the contour lines at this\n    position in a plane normal to *zdir*.\naxlim_clip : bool, default: False\n    Whether to hide lines with a vertex outside the axes view limits.\n\n    .. versionadded:: 3.10\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n\n*args, **kwargs\n    Other arguments are forwarded to `matplotlib.axes.Axes.contour`.\n\nReturns\n-------\nmatplotlib.contour.QuadContourSet"
+    },
+    {
+      "name": "tricontour",
+      "docstring": "Create a 3D contour plot.\n\n.. note::\n    This method currently produces incorrect output due to a\n    longstanding bug in 3D PolyCollection rendering.\n\nParameters\n----------\nX, Y, Z : array-like\n    Input data. See `.Axes.tricontour` for supported data shapes.\nextend3d : bool, default: False\n    Whether to extend contour in 3D.\nstride : int, default: 5\n    Step size for extending contour.\nzdir : {'x', 'y', 'z'}, default: 'z'\n    The direction to use.\noffset : float, optional\n    If specified, plot a projection of the contour lines at this\n    position in a plane normal to *zdir*.\naxlim_clip : bool, default: False\n    Whether to hide lines with a vertex outside the axes view limits.\n\n    .. versionadded:: 3.10\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n*args, **kwargs\n    Other arguments are forwarded to `matplotlib.axes.Axes.tricontour`.\n\nReturns\n-------\nmatplotlib.tri._tricontour.TriContourSet"
+    },
+    {
+      "name": "contourf",
+      "docstring": "Create a 3D filled contour plot.\n\nParameters\n----------\nX, Y, Z : array-like\n    Input data. See `.Axes.contourf` for supported data shapes.\nzdir : {'x', 'y', 'z'}, default: 'z'\n    The direction to use.\noffset : float, optional\n    If specified, plot a projection of the contour lines at this\n    position in a plane normal to *zdir*.\naxlim_clip : bool, default: False\n    Whether to hide lines with a vertex outside the axes view limits.\n\n    .. versionadded:: 3.10\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n*args, **kwargs\n    Other arguments are forwarded to `matplotlib.axes.Axes.contourf`.\n\nReturns\n-------\nmatplotlib.contour.QuadContourSet"
+    },
+    {
+      "name": "tricontourf",
+      "docstring": "Create a 3D filled contour plot.\n\n.. note::\n    This method currently produces incorrect output due to a\n    longstanding bug in 3D PolyCollection rendering.\n\nParameters\n----------\nX, Y, Z : array-like\n    Input data. See `.Axes.tricontourf` for supported data shapes.\nzdir : {'x', 'y', 'z'}, default: 'z'\n    The direction to use.\noffset : float, optional\n    If specified, plot a projection of the contour lines at this\n    position in a plane normal to zdir.\naxlim_clip : bool, default: False\n    Whether to hide lines with a vertex outside the axes view limits.\n\n    .. versionadded:: 3.10\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n*args, **kwargs\n    Other arguments are forwarded to\n    `matplotlib.axes.Axes.tricontourf`.\n\nReturns\n-------\nmatplotlib.tri._tricontour.TriContourSet"
+    },
+    {
+      "name": "add_collection3d",
+      "docstring": "Add a 3D collection object to the plot.\n\n2D collection types are converted to a 3D version by\nmodifying the object and adding z coordinate information,\n*zs* and *zdir*.\n\nSupported 2D collection types are:\n\n- `.PolyCollection`\n- `.LineCollection`\n- `.PatchCollection` (currently not supporting *autolim*)\n\nParameters\n----------\ncol : `.Collection`\n    A 2D collection object.\nzs : float or array-like, default: 0\n    The z-positions to be used for the 2D objects.\nzdir : {'x', 'y', 'z'}, default: 'z'\n    The direction to use for the z-positions.\nautolim : bool, default: True\n    Whether to update the data limits.\naxlim_clip : bool, default: False\n    Whether to hide the scatter points outside the axes view limits.\n\n    .. versionadded:: 3.10"
+    },
+    {
+      "name": "scatter",
+      "docstring": "Create a scatter plot.\n\nParameters\n----------\nxs, ys : array-like\n    The data positions.\nzs : float or array-like, default: 0\n    The z-positions. Either an array of the same length as *xs* and\n    *ys* or a single value to place all points in the same plane.\nzdir : {'x', 'y', 'z', '-x', '-y', '-z'}, default: 'z'\n    The axis direction for the *zs*. This is useful when plotting 2D\n    data on a 3D Axes. The data must be passed as *xs*, *ys*. Setting\n    *zdir* to 'y' then plots the data to the x-z-plane.\n\n    See also :doc:`/gallery/mplot3d/2dcollections3d`.\n\ns : float or array-like, default: 20\n    The marker size in points**2. Either an array of the same length\n    as *xs* and *ys* or a single value to make all markers the same\n    size.\nc : :mpltype:`color`, sequence, or sequence of colors, optional\n    The marker color. Possible values:\n\n    - A single color format string.\n    - A sequence of colors of length n.\n    - A sequence of n numbers to be mapped to colors using *cmap* and\n      *norm*.\n    - A 2D array in which the rows are RGB or RGBA.\n\n    For more details see the *c* argument of `~.axes.Axes.scatter`.\ndepthshade : bool, default: True\n    Whether to shade the scatter markers to give the appearance of\n    depth. Each call to ``scatter()`` will perform its depthshading\n    independently.\naxlim_clip : bool, default: False\n    Whether to hide the scatter points outside the axes view limits.\n\n    .. versionadded:: 3.10\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n**kwargs\n    All other keyword arguments are passed on to `~.axes.Axes.scatter`.\n\nReturns\n-------\npaths : `~matplotlib.collections.PathCollection`"
+    },
+    {
+      "name": "bar",
+      "docstring": "Add 2D bar(s).\n\nParameters\n----------\nleft : 1D array-like\n    The x coordinates of the left sides of the bars.\nheight : 1D array-like\n    The height of the bars.\nzs : float or 1D array-like, default: 0\n    Z coordinate of bars; if a single value is specified, it will be\n    used for all bars.\nzdir : {'x', 'y', 'z'}, default: 'z'\n    When plotting 2D data, the direction to use as z ('x', 'y' or 'z').\naxlim_clip : bool, default: False\n    Whether to hide bars with points outside the axes view limits.\n\n    .. versionadded:: 3.10\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n**kwargs\n    Other keyword arguments are forwarded to\n    `matplotlib.axes.Axes.bar`.\n\nReturns\n-------\nmpl_toolkits.mplot3d.art3d.Patch3DCollection"
+    },
+    {
+      "name": "bar3d",
+      "docstring": "Generate a 3D barplot.\n\nThis method creates three-dimensional barplot where the width,\ndepth, height, and color of the bars can all be uniquely set.\n\nParameters\n----------\nx, y, z : array-like\n    The coordinates of the anchor point of the bars.\n\ndx, dy, dz : float or array-like\n    The width, depth, and height of the bars, respectively.\n\ncolor : sequence of colors, optional\n    The color of the bars can be specified globally or\n    individually. This parameter can be:\n\n    - A single color, to color all bars the same color.\n    - An array of colors of length N bars, to color each bar\n      independently.\n    - An array of colors of length 6, to color the faces of the\n      bars similarly.\n    - An array of colors of length 6 * N bars, to color each face\n      independently.\n\n    When coloring the faces of the boxes specifically, this is\n    the order of the coloring:\n\n    1. -Z (bottom of box)\n    2. +Z (top of box)\n    3. -Y\n    4. +Y\n    5. -X\n    6. +X\n\nzsort : {'average', 'min', 'max'}, default: 'average'\n    The z-axis sorting scheme passed onto `~.art3d.Poly3DCollection`\n\nshade : bool, default: True\n    When true, this shades the dark sides of the bars (relative\n    to the plot's source of light).\n\nlightsource : `~matplotlib.colors.LightSource`, optional\n    The lightsource to use when *shade* is True.\n\naxlim_clip : bool, default: False\n    Whether to hide the bars with points outside the axes view limits.\n\n    .. versionadded:: 3.10\n\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n\n**kwargs\n    Any additional keyword arguments are passed onto\n    `~.art3d.Poly3DCollection`.\n\nReturns\n-------\ncollection : `~.art3d.Poly3DCollection`\n    A collection of three-dimensional polygons representing the bars."
+    },
+    {
+      "name": "set_title",
+      "docstring": null
+    },
+    {
+      "name": "quiver",
+      "docstring": "Plot a 3D field of arrows.\n\nThe arguments can be array-like or scalars, so long as they can be\nbroadcast together. The arguments can also be masked arrays. If an\nelement in any of argument is masked, then that corresponding quiver\nelement will not be plotted.\n\nParameters\n----------\nX, Y, Z : array-like\n    The x, y and z coordinates of the arrow locations (default is\n    tail of arrow; see *pivot* kwarg).\n\nU, V, W : array-like\n    The x, y and z components of the arrow vectors.\n\nlength : float, default: 1\n    The length of each quiver.\n\narrow_length_ratio : float, default: 0.3\n    The ratio of the arrow head with respect to the quiver.\n\npivot : {'tail', 'middle', 'tip'}, default: 'tail'\n    The part of the arrow that is at the grid point; the arrow\n    rotates about this point, hence the name *pivot*.\n\nnormalize : bool, default: False\n    Whether all arrows are normalized to have the same length, or keep\n    the lengths defined by *u*, *v*, and *w*.\n\naxlim_clip : bool, default: False\n    Whether to hide arrows with points outside the axes view limits.\n\n    .. versionadded:: 3.10\n\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n\n**kwargs\n    Any additional keyword arguments are delegated to\n    :class:`.Line3DCollection`"
+    },
+    {
+      "name": "voxels",
+      "docstring": "ax.voxels([x, y, z,] /, filled, facecolors=None, edgecolors=None, **kwargs)\n\nPlot a set of filled voxels\n\nAll voxels are plotted as 1x1x1 cubes on the axis, with\n``filled[0, 0, 0]`` placed with its lower corner at the origin.\nOccluded faces are not plotted.\n\nParameters\n----------\nfilled : 3D np.array of bool\n    A 3D array of values, with truthy values indicating which voxels\n    to fill\n\nx, y, z : 3D np.array, optional\n    The coordinates of the corners of the voxels. This should broadcast\n    to a shape one larger in every dimension than the shape of\n    *filled*.  These can be used to plot non-cubic voxels.\n\n    If not specified, defaults to increasing integers along each axis,\n    like those returned by :func:`~numpy.indices`.\n    As indicated by the ``/`` in the function signature, these\n    arguments can only be passed positionally.\n\nfacecolors, edgecolors : array-like, optional\n    The color to draw the faces and edges of the voxels. Can only be\n    passed as keyword arguments.\n    These parameters can be:\n\n    - A single color value, to color all voxels the same color. This\n      can be either a string, or a 1D RGB/RGBA array\n    - ``None``, the default, to use a single color for the faces, and\n      the style default for the edges.\n    - A 3D `~numpy.ndarray` of color names, with each item the color\n      for the corresponding voxel. The size must match the voxels.\n    - A 4D `~numpy.ndarray` of RGB/RGBA data, with the components\n      along the last axis.\n\nshade : bool, default: True\n    Whether to shade the facecolors.\n\nlightsource : `~matplotlib.colors.LightSource`, optional\n    The lightsource to use when *shade* is True.\n\naxlim_clip : bool, default: False\n    Whether to hide voxels with points outside the axes view limits.\n\n    .. versionadded:: 3.10\n\n**kwargs\n    Additional keyword arguments to pass onto\n    `~mpl_toolkits.mplot3d.art3d.Poly3DCollection`.\n\nReturns\n-------\nfaces : dict\n    A dictionary indexed by coordinate, where ``faces[i, j, k]`` is a\n    `.Poly3DCollection` of the faces drawn for the voxel\n    ``filled[i, j, k]``. If no faces were drawn for a given voxel,\n    either because it was not asked to be drawn, or it is fully\n    occluded, then ``(i, j, k) not in faces``.\n\nExamples\n--------\n.. plot:: gallery/mplot3d/voxels.py\n.. plot:: gallery/mplot3d/voxels_rgb.py\n.. plot:: gallery/mplot3d/voxels_torus.py\n.. plot:: gallery/mplot3d/voxels_numpy_logo.py"
+    },
+    {
+      "name": "errorbar",
+      "docstring": "Plot lines and/or markers with errorbars around them.\n\n*x*/*y*/*z* define the data locations, and *xerr*/*yerr*/*zerr* define\nthe errorbar sizes. By default, this draws the data markers/lines as\nwell the errorbars. Use fmt='none' to draw errorbars only.\n\nParameters\n----------\nx, y, z : float or array-like\n    The data positions.\n\nxerr, yerr, zerr : float or array-like, shape (N,) or (2, N), optional\n    The errorbar sizes:\n\n    - scalar: Symmetric +/- values for all data points.\n    - shape(N,): Symmetric +/-values for each data point.\n    - shape(2, N): Separate - and + values for each bar. First row\n      contains the lower errors, the second row contains the upper\n      errors.\n    - *None*: No errorbar.\n\n    Note that all error arrays should have *positive* values.\n\nfmt : str, default: ''\n    The format for the data points / data lines. See `.plot` for\n    details.\n\n    Use 'none' (case-insensitive) to plot errorbars without any data\n    markers.\n\necolor : :mpltype:`color`, default: None\n    The color of the errorbar lines.  If None, use the color of the\n    line connecting the markers.\n\nelinewidth : float, default: None\n    The linewidth of the errorbar lines. If None, the linewidth of\n    the current style is used.\n\ncapsize : float, default: :rc:`errorbar.capsize`\n    The length of the error bar caps in points.\n\ncapthick : float, default: None\n    An alias to the keyword argument *markeredgewidth* (a.k.a. *mew*).\n    This setting is a more sensible name for the property that\n    controls the thickness of the error bar cap in points. For\n    backwards compatibility, if *mew* or *markeredgewidth* are given,\n    then they will over-ride *capthick*. This may change in future\n    releases.\n\nbarsabove : bool, default: False\n    If True, will plot the errorbars above the plot\n    symbols. Default is below.\n\nxlolims, ylolims, zlolims : bool, default: False\n    These arguments can be used to indicate that a value gives only\n    lower limits. In that case a caret symbol is used to indicate\n    this. *lims*-arguments may be scalars, or array-likes of the same\n    length as the errors. To use limits with inverted axes,\n    `~.set_xlim`, `~.set_ylim`, or `~.set_zlim` must be\n    called before `errorbar`. Note the tricky parameter names: setting\n    e.g. *ylolims* to True means that the y-value is a *lower* limit of\n    the True value, so, only an *upward*-pointing arrow will be drawn!\n\nxuplims, yuplims, zuplims : bool, default: False\n    Same as above, but for controlling the upper limits.\n\nerrorevery : int or (int, int), default: 1\n    draws error bars on a subset of the data. *errorevery* =N draws\n    error bars on the points (x[::N], y[::N], z[::N]).\n    *errorevery* =(start, N) draws error bars on the points\n    (x[start::N], y[start::N], z[start::N]). e.g. *errorevery* =(6, 3)\n    adds error bars to the data at (x[6], x[9], x[12], x[15], ...).\n    Used to avoid overlapping error bars when two series share x-axis\n    values.\n\naxlim_clip : bool, default: False\n    Whether to hide error bars that are outside the axes limits.\n\n    .. versionadded:: 3.10\n\nReturns\n-------\nerrlines : list\n    List of `~mpl_toolkits.mplot3d.art3d.Line3DCollection` instances\n    each containing an errorbar line.\ncaplines : list\n    List of `~mpl_toolkits.mplot3d.art3d.Line3D` instances each\n    containing a capline object.\nlimmarks : list\n    List of `~mpl_toolkits.mplot3d.art3d.Line3D` instances each\n    containing a marker with an upper or lower limit.\n\nOther Parameters\n----------------\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n\n**kwargs\n    All other keyword arguments for styling errorbar lines are passed\n    `~mpl_toolkits.mplot3d.art3d.Line3DCollection`.\n\nExamples\n--------\n.. plot:: gallery/mplot3d/errorbar3d.py"
+    },
+    {
+      "name": "get_tightbbox",
+      "docstring": null
+    },
+    {
+      "name": "stem",
+      "docstring": "Create a 3D stem plot.\n\nA stem plot draws lines perpendicular to a baseline, and places markers\nat the heads. By default, the baseline is defined by *x* and *y*, and\nstems are drawn vertically from *bottom* to *z*.\n\nParameters\n----------\nx, y, z : array-like\n    The positions of the heads of the stems. The stems are drawn along\n    the *orientation*-direction from the baseline at *bottom* (in the\n    *orientation*-coordinate) to the heads. By default, the *x* and *y*\n    positions are used for the baseline and *z* for the head position,\n    but this can be changed by *orientation*.\n\nlinefmt : str, default: 'C0-'\n    A string defining the properties of the vertical lines. Usually,\n    this will be a color or a color and a linestyle:\n\n    =========  =============\n    Character  Line Style\n    =========  =============\n    ``'-'``    solid line\n    ``'--'``   dashed line\n    ``'-.'``   dash-dot line\n    ``':'``    dotted line\n    =========  =============\n\n    Note: While it is technically possible to specify valid formats\n    other than color or color and linestyle (e.g. 'rx' or '-.'), this\n    is beyond the intention of the method and will most likely not\n    result in a reasonable plot.\n\nmarkerfmt : str, default: 'C0o'\n    A string defining the properties of the markers at the stem heads.\n\nbasefmt : str, default: 'C3-'\n    A format string defining the properties of the baseline.\n\nbottom : float, default: 0\n    The position of the baseline, in *orientation*-coordinates.\n\nlabel : str, optional\n    The label to use for the stems in legends.\n\norientation : {'x', 'y', 'z'}, default: 'z'\n    The direction along which stems are drawn.\n\naxlim_clip : bool, default: False\n    Whether to hide stems that are outside the axes limits.\n\n    .. versionadded:: 3.10\n\ndata : indexable object, optional\n    DATA_PARAMETER_PLACEHOLDER\n\nReturns\n-------\n`.StemContainer`\n    The container may be treated like a tuple\n    (*markerline*, *stemlines*, *baseline*)\n\nExamples\n--------\n.. plot:: gallery/mplot3d/stem3d_demo.py"
+    },
+    {
+      "name": "conjugate",
+      "docstring": "The conjugate quaternion -(1/2)*(q+i*q*i+j*q*j+k*q*k)"
+    },
+    {
+      "name": "norm",
+      "docstring": "The 2-norm, q*q', a scalar"
+    },
+    {
+      "name": "normalize",
+      "docstring": "Scaling such that norm equals 1"
+    },
+    {
+      "name": "reciprocal",
+      "docstring": "The reciprocal, 1/q = q'/(q*q') = q' / norm(q)"
+    },
+    {
+      "name": "rotate",
+      "docstring": null
+    },
+    {
+      "name": "rotate_from_to",
+      "docstring": "The quaternion for the shortest rotation from vector r1 to vector r2\ni.e., q = sqrt(r2*r1'), normalized.\nIf r1 and r2 are antiparallel, then the result is ambiguous;\na normal vector will be returned, and a warning will be issued."
+    },
+    {
+      "name": "from_cardan_angles",
+      "docstring": "Converts the angles to a quaternion\n    q = exp((roll/2)*e_x)*exp((elev/2)*e_y)*exp((-azim/2)*e_z)\ni.e., the angles are a kind of Tait-Bryan angles, -z,y',x\".\nThe angles should be given in radians, not degrees."
+    },
+    {
+      "name": "as_cardan_angles",
+      "docstring": "The inverse of `from_cardan_angles()`.\nNote that the angles returned are in radians, not degrees.\nThe angles are not sensitive to the quaternion's norm()."
+    },
+    {
+      "name": "calc_arrows",
+      "docstring": null
+    },
+    {
+      "name": "permutation_matrices",
+      "docstring": "Generate cyclic permutation matrices."
+    },
+    {
+      "name": "voxels",
+      "docstring": null
+    },
+    {
+      "name": "voxels",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

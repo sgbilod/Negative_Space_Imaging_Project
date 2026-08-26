@@ -1,0 +1,868 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\numpy\\_core\\tests\\test_defchararray.py",
+  "classes": [
+    {
+      "name": "TestBasic",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_from_object_array",
+          "docstring": null
+        },
+        {
+          "name": "test_from_object_array_unicode",
+          "docstring": null
+        },
+        {
+          "name": "test_from_string_array",
+          "docstring": null
+        },
+        {
+          "name": "test_from_unicode_array",
+          "docstring": null
+        },
+        {
+          "name": "test_unicode_upconvert",
+          "docstring": null
+        },
+        {
+          "name": "test_from_string",
+          "docstring": null
+        },
+        {
+          "name": "test_from_unicode",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestVecString",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_non_existent_method",
+          "docstring": null
+        },
+        {
+          "name": "test_non_string_array",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_args_tuple",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_type_descr",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_function_args",
+          "docstring": null
+        },
+        {
+          "name": "test_invalid_result_type",
+          "docstring": null
+        },
+        {
+          "name": "test_broadcast_error",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestWhitespace",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test1",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestChar",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_it",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestComparisons",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_not_equal",
+          "docstring": null
+        },
+        {
+          "name": "test_equal",
+          "docstring": null
+        },
+        {
+          "name": "test_greater_equal",
+          "docstring": null
+        },
+        {
+          "name": "test_less_equal",
+          "docstring": null
+        },
+        {
+          "name": "test_greater",
+          "docstring": null
+        },
+        {
+          "name": "test_less",
+          "docstring": null
+        },
+        {
+          "name": "test_type",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestComparisonsMixed1",
+      "docstring": "Ticket #1276",
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestComparisonsMixed2",
+      "docstring": "Ticket #1276",
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestInformation",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_len",
+          "docstring": null
+        },
+        {
+          "name": "test_count",
+          "docstring": null
+        },
+        {
+          "name": "test_endswith",
+          "docstring": null
+        },
+        {
+          "name": "test_find",
+          "docstring": null
+        },
+        {
+          "name": "test_index",
+          "docstring": null
+        },
+        {
+          "name": "test_isalnum",
+          "docstring": null
+        },
+        {
+          "name": "test_isalpha",
+          "docstring": null
+        },
+        {
+          "name": "test_isdigit",
+          "docstring": null
+        },
+        {
+          "name": "test_islower",
+          "docstring": null
+        },
+        {
+          "name": "test_isspace",
+          "docstring": null
+        },
+        {
+          "name": "test_istitle",
+          "docstring": null
+        },
+        {
+          "name": "test_isupper",
+          "docstring": null
+        },
+        {
+          "name": "test_rfind",
+          "docstring": null
+        },
+        {
+          "name": "test_rindex",
+          "docstring": null
+        },
+        {
+          "name": "test_startswith",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMethods",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_capitalize",
+          "docstring": null
+        },
+        {
+          "name": "test_center",
+          "docstring": null
+        },
+        {
+          "name": "test_decode",
+          "docstring": null
+        },
+        {
+          "name": "test_encode",
+          "docstring": null
+        },
+        {
+          "name": "test_expandtabs",
+          "docstring": null
+        },
+        {
+          "name": "test_join",
+          "docstring": null
+        },
+        {
+          "name": "test_ljust",
+          "docstring": null
+        },
+        {
+          "name": "test_lower",
+          "docstring": null
+        },
+        {
+          "name": "test_lstrip",
+          "docstring": null
+        },
+        {
+          "name": "test_partition",
+          "docstring": null
+        },
+        {
+          "name": "test_replace",
+          "docstring": null
+        },
+        {
+          "name": "test_replace_count_and_size",
+          "docstring": null
+        },
+        {
+          "name": "test_replace_broadcasting",
+          "docstring": null
+        },
+        {
+          "name": "test_rjust",
+          "docstring": null
+        },
+        {
+          "name": "test_rpartition",
+          "docstring": null
+        },
+        {
+          "name": "test_rsplit",
+          "docstring": null
+        },
+        {
+          "name": "test_rstrip",
+          "docstring": null
+        },
+        {
+          "name": "test_strip",
+          "docstring": null
+        },
+        {
+          "name": "test_split",
+          "docstring": null
+        },
+        {
+          "name": "test_splitlines",
+          "docstring": null
+        },
+        {
+          "name": "test_swapcase",
+          "docstring": null
+        },
+        {
+          "name": "test_title",
+          "docstring": null
+        },
+        {
+          "name": "test_upper",
+          "docstring": null
+        },
+        {
+          "name": "test_isnumeric",
+          "docstring": null
+        },
+        {
+          "name": "test_isdecimal",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestOperations",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_add",
+          "docstring": null
+        },
+        {
+          "name": "test_radd",
+          "docstring": null
+        },
+        {
+          "name": "test_mul",
+          "docstring": null
+        },
+        {
+          "name": "test_rmul",
+          "docstring": null
+        },
+        {
+          "name": "test_mod",
+          "docstring": "Ticket #856"
+        },
+        {
+          "name": "test_rmod",
+          "docstring": null
+        },
+        {
+          "name": "test_slice",
+          "docstring": "Regression test for https://github.com/numpy/numpy/issues/5982"
+        },
+        {
+          "name": "test_getitem_length_zero_item",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMethodsEmptyArray",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setup_method",
+          "docstring": null
+        },
+        {
+          "name": "test_encode",
+          "docstring": null
+        },
+        {
+          "name": "test_decode",
+          "docstring": null
+        },
+        {
+          "name": "test_decode_with_reshape",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestMethodsScalarValues",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "test_mod",
+          "docstring": null
+        },
+        {
+          "name": "test_decode",
+          "docstring": null
+        },
+        {
+          "name": "test_encode",
+          "docstring": null
+        },
+        {
+          "name": "test_expandtabs",
+          "docstring": null
+        },
+        {
+          "name": "test_join",
+          "docstring": null
+        },
+        {
+          "name": "test_partition",
+          "docstring": null
+        },
+        {
+          "name": "test_rpartition",
+          "docstring": null
+        },
+        {
+          "name": "test_replace",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "test_empty_indexing",
+      "docstring": "Regression test for ticket 1948."
+    },
+    {
+      "name": "test_from_object_array",
+      "docstring": null
+    },
+    {
+      "name": "test_from_object_array_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_from_string_array",
+      "docstring": null
+    },
+    {
+      "name": "test_from_unicode_array",
+      "docstring": null
+    },
+    {
+      "name": "test_unicode_upconvert",
+      "docstring": null
+    },
+    {
+      "name": "test_from_string",
+      "docstring": null
+    },
+    {
+      "name": "test_from_unicode",
+      "docstring": null
+    },
+    {
+      "name": "test_non_existent_method",
+      "docstring": null
+    },
+    {
+      "name": "test_non_string_array",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_args_tuple",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_type_descr",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_function_args",
+      "docstring": null
+    },
+    {
+      "name": "test_invalid_result_type",
+      "docstring": null
+    },
+    {
+      "name": "test_broadcast_error",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test1",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_it",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_not_equal",
+      "docstring": null
+    },
+    {
+      "name": "test_equal",
+      "docstring": null
+    },
+    {
+      "name": "test_greater_equal",
+      "docstring": null
+    },
+    {
+      "name": "test_less_equal",
+      "docstring": null
+    },
+    {
+      "name": "test_greater",
+      "docstring": null
+    },
+    {
+      "name": "test_less",
+      "docstring": null
+    },
+    {
+      "name": "test_type",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_len",
+      "docstring": null
+    },
+    {
+      "name": "test_count",
+      "docstring": null
+    },
+    {
+      "name": "test_endswith",
+      "docstring": null
+    },
+    {
+      "name": "test_find",
+      "docstring": null
+    },
+    {
+      "name": "test_index",
+      "docstring": null
+    },
+    {
+      "name": "test_isalnum",
+      "docstring": null
+    },
+    {
+      "name": "test_isalpha",
+      "docstring": null
+    },
+    {
+      "name": "test_isdigit",
+      "docstring": null
+    },
+    {
+      "name": "test_islower",
+      "docstring": null
+    },
+    {
+      "name": "test_isspace",
+      "docstring": null
+    },
+    {
+      "name": "test_istitle",
+      "docstring": null
+    },
+    {
+      "name": "test_isupper",
+      "docstring": null
+    },
+    {
+      "name": "test_rfind",
+      "docstring": null
+    },
+    {
+      "name": "test_rindex",
+      "docstring": null
+    },
+    {
+      "name": "test_startswith",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_capitalize",
+      "docstring": null
+    },
+    {
+      "name": "test_center",
+      "docstring": null
+    },
+    {
+      "name": "test_decode",
+      "docstring": null
+    },
+    {
+      "name": "test_encode",
+      "docstring": null
+    },
+    {
+      "name": "test_expandtabs",
+      "docstring": null
+    },
+    {
+      "name": "test_join",
+      "docstring": null
+    },
+    {
+      "name": "test_ljust",
+      "docstring": null
+    },
+    {
+      "name": "test_lower",
+      "docstring": null
+    },
+    {
+      "name": "test_lstrip",
+      "docstring": null
+    },
+    {
+      "name": "test_partition",
+      "docstring": null
+    },
+    {
+      "name": "test_replace",
+      "docstring": null
+    },
+    {
+      "name": "test_replace_count_and_size",
+      "docstring": null
+    },
+    {
+      "name": "test_replace_broadcasting",
+      "docstring": null
+    },
+    {
+      "name": "test_rjust",
+      "docstring": null
+    },
+    {
+      "name": "test_rpartition",
+      "docstring": null
+    },
+    {
+      "name": "test_rsplit",
+      "docstring": null
+    },
+    {
+      "name": "test_rstrip",
+      "docstring": null
+    },
+    {
+      "name": "test_strip",
+      "docstring": null
+    },
+    {
+      "name": "test_split",
+      "docstring": null
+    },
+    {
+      "name": "test_splitlines",
+      "docstring": null
+    },
+    {
+      "name": "test_swapcase",
+      "docstring": null
+    },
+    {
+      "name": "test_title",
+      "docstring": null
+    },
+    {
+      "name": "test_upper",
+      "docstring": null
+    },
+    {
+      "name": "test_isnumeric",
+      "docstring": null
+    },
+    {
+      "name": "test_isdecimal",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_add",
+      "docstring": null
+    },
+    {
+      "name": "test_radd",
+      "docstring": null
+    },
+    {
+      "name": "test_mul",
+      "docstring": null
+    },
+    {
+      "name": "test_rmul",
+      "docstring": null
+    },
+    {
+      "name": "test_mod",
+      "docstring": "Ticket #856"
+    },
+    {
+      "name": "test_rmod",
+      "docstring": null
+    },
+    {
+      "name": "test_slice",
+      "docstring": "Regression test for https://github.com/numpy/numpy/issues/5982"
+    },
+    {
+      "name": "test_getitem_length_zero_item",
+      "docstring": null
+    },
+    {
+      "name": "setup_method",
+      "docstring": null
+    },
+    {
+      "name": "test_encode",
+      "docstring": null
+    },
+    {
+      "name": "test_decode",
+      "docstring": null
+    },
+    {
+      "name": "test_decode_with_reshape",
+      "docstring": null
+    },
+    {
+      "name": "test_mod",
+      "docstring": null
+    },
+    {
+      "name": "test_decode",
+      "docstring": null
+    },
+    {
+      "name": "test_encode",
+      "docstring": null
+    },
+    {
+      "name": "test_expandtabs",
+      "docstring": null
+    },
+    {
+      "name": "test_join",
+      "docstring": null
+    },
+    {
+      "name": "test_partition",
+      "docstring": null
+    },
+    {
+      "name": "test_rpartition",
+      "docstring": null
+    },
+    {
+      "name": "test_replace",
+      "docstring": null
+    },
+    {
+      "name": "fail",
+      "docstring": null
+    },
+    {
+      "name": "fail",
+      "docstring": null
+    },
+    {
+      "name": "fail",
+      "docstring": null
+    },
+    {
+      "name": "fail",
+      "docstring": null
+    },
+    {
+      "name": "fail",
+      "docstring": null
+    },
+    {
+      "name": "fail",
+      "docstring": null
+    },
+    {
+      "name": "fail",
+      "docstring": null
+    },
+    {
+      "name": "fail",
+      "docstring": null
+    },
+    {
+      "name": "fail",
+      "docstring": null
+    },
+    {
+      "name": "fail",
+      "docstring": null
+    },
+    {
+      "name": "fail",
+      "docstring": null
+    },
+    {
+      "name": "fail",
+      "docstring": null
+    },
+    {
+      "name": "fail",
+      "docstring": null
+    },
+    {
+      "name": "fail",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

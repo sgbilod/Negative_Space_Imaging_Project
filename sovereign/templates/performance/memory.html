@@ -1,0 +1,486 @@
+{% extends "base.html" %} {% block title %}Memory Optimization{% endblock %} {% block content %}
+<div class="container-fluid">
+  <h1 class="mt-4 mb-4">Memory Optimization</h1>
+
+  <div class="row">
+    <!-- Memory Overview Card -->
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="card-title mb-0">Memory Overview</h5>
+          <div>
+            <form method="post" action="{{ url_for('performance.memory_gc') }}" class="d-inline">
+              <button type="submit" class="btn btn-sm btn-warning">
+                <i class="fas fa-broom"></i> Run Garbage Collection
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3 text-center">
+              <h5>RSS Memory</h5>
+              <div class="display-4 text-{{ memory_usage.rss_color }}">
+                {{ memory_usage.rss_mb|round(1) }}
+                <small>MB</small>
+              </div>
+              <div class="progress mt-2">
+                <div
+                  class="progress-bar bg-{{ memory_usage.rss_color }}"
+                  role="progressbar"
+                  style="width: {{ memory_usage.rss_percent }}%"
+                  aria-valuenow="{{ memory_usage.rss_percent }}"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  {{ memory_usage.rss_percent|round(1) }}%
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 text-center">
+              <h5>Virtual Memory</h5>
+              <div class="display-4 text-{{ memory_usage.vms_color }}">
+                {{ memory_usage.vms_mb|round(1) }}
+                <small>MB</small>
+              </div>
+              <div class="progress mt-2">
+                <div
+                  class="progress-bar bg-{{ memory_usage.vms_color }}"
+                  role="progressbar"
+                  style="width: {{ memory_usage.vms_percent }}%"
+                  aria-valuenow="{{ memory_usage.vms_percent }}"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  {{ memory_usage.vms_percent|round(1) }}%
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 text-center">
+              <h5>Shared Memory</h5>
+              <div class="display-4">
+                {{ memory_usage.shared_mb|round(1) }}
+                <small>MB</small>
+              </div>
+            </div>
+            <div class="col-md-3 text-center">
+              <h5>Memory Growth Rate</h5>
+              <div class="display-4 text-{{ memory_usage.growth_rate_color }}">
+                {{ memory_usage.growth_rate|round(2) }}
+                <small>MB/min</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Memory Usage Chart -->
+    <div class="col-md-8">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Memory Usage History</h5>
+        </div>
+        <div class="card-body">
+          <canvas id="memoryChart" width="100%" height="300"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Garbage Collection Stats -->
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Garbage Collection</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-sm">
+              <tbody>
+                <tr>
+                  <th>Collections (Gen 0)</th>
+                  <td>{{ gc_stats.collections0 }}</td>
+                </tr>
+                <tr>
+                  <th>Collections (Gen 1)</th>
+                  <td>{{ gc_stats.collections1 }}</td>
+                </tr>
+                <tr>
+                  <th>Collections (Gen 2)</th>
+                  <td>{{ gc_stats.collections2 }}</td>
+                </tr>
+                <tr>
+                  <th>Tracked Objects</th>
+                  <td>{{ gc_stats.tracked_objects }}</td>
+                </tr>
+                <tr>
+                  <th>Uncollectable Objects</th>
+                  <td>{{ gc_stats.uncollectable }}</td>
+                </tr>
+                <tr>
+                  <th>Last Collection Time</th>
+                  <td>{{ gc_stats.last_collection_time|round(3) }} ms</td>
+                </tr>
+                <tr>
+                  <th>Total Memory Reclaimed</th>
+                  <td>{{ gc_stats.total_memory_reclaimed|round(2) }} MB</td>
+                </tr>
+                <tr>
+                  <th>GC Efficiency</th>
+                  <td>{{ gc_stats.efficiency|round(2) }}%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Top Memory Consumers -->
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Top Memory Consumers</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Object Type</th>
+                  <th>Count</th>
+                  <th>Total Size (MB)</th>
+                  <th>Avg Size (KB)</th>
+                  <th>Memory %</th>
+                  <th>Creation Location</th>
+                  <th>Recommendation</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for obj in allocation_tracking.top_consumers %}
+                <tr>
+                  <td>{{ obj.type }}</td>
+                  <td>{{ obj.count }}</td>
+                  <td>{{ obj.total_size|round(2) }}</td>
+                  <td>{{ obj.avg_size|round(2) }}</td>
+                  <td>
+                    <div class="progress">
+                      <div
+                        class="progress-bar {{ obj.color }}"
+                        role="progressbar"
+                        style="width: {{ obj.percentage }}%"
+                        aria-valuenow="{{ obj.percentage }}"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      >
+                        {{ obj.percentage|round(1) }}%
+                      </div>
+                    </div>
+                  </td>
+                  <td><code>{{ obj.location }}</code></td>
+                  <td>{{ obj.recommendation }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Memory Leaks -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Potential Memory Leaks</h5>
+        </div>
+        <div class="card-body">
+          {% if allocation_tracking.potential_leaks %}
+          <div class="table-responsive">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th>Object Type</th>
+                  <th>Growth Rate</th>
+                  <th>Count</th>
+                  <th>Location</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for leak in allocation_tracking.potential_leaks %}
+                <tr>
+                  <td>{{ leak.type }}</td>
+                  <td>{{ leak.growth_rate|round(2) }}/min</td>
+                  <td>{{ leak.count }}</td>
+                  <td><code>{{ leak.location }}</code></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          {% else %}
+          <div class="alert alert-success">
+            <i class="fas fa-check-circle"></i> No potential memory leaks detected.
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Memory Optimization Recommendations -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Optimization Recommendations</h5>
+        </div>
+        <div class="card-body">
+          {% if allocation_tracking.recommendations %}
+          <div class="list-group">
+            {% for rec in allocation_tracking.recommendations %}
+            <div class="list-group-item">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">{{ rec.title }}</h6>
+                <small class="text-{{ rec.impact_color }}">{{ rec.impact }} impact</small>
+              </div>
+              <p class="mb-1">{{ rec.description }}</p>
+              <small><code>{{ rec.location }}</code></small>
+            </div>
+            {% endfor %}
+          </div>
+          {% else %}
+          <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i> No specific optimization recommendations at this
+            time.
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Memory Configuration -->
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Memory Configuration</h5>
+        </div>
+        <div class="card-body">
+          <form method="post" action="{{ url_for('performance.memory_config_update') }}">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="maxMemoryUsage" class="form-label">Maximum Memory Usage (MB)</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="maxMemoryUsage"
+                    name="max_memory_usage"
+                    value="{{ memory_usage.max_memory_mb }}"
+                    min="128"
+                  />
+                  <div class="form-text">Maximum RSS memory to allow before optimization</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="gcThreshold" class="form-label">GC Threshold (MB)</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="gcThreshold"
+                    name="gc_threshold"
+                    value="{{ gc_stats.threshold_mb }}"
+                    min="16"
+                  />
+                  <div class="form-text">Memory increase that triggers garbage collection</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="memoryCheckInterval" class="form-label"
+                    >Check Interval (seconds)</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="memoryCheckInterval"
+                    name="memory_check_interval"
+                    value="{{ memory_usage.check_interval }}"
+                    min="5"
+                    max="3600"
+                  />
+                  <div class="form-text">How often to check memory usage</div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="enableTracking"
+                    name="enable_tracking"
+                    {%
+                    if
+                    allocation_tracking.enabled
+                    %}checked{%
+                    endif
+                    %}
+                  />
+                  <label class="form-check-label" for="enableTracking">
+                    Enable Memory Allocation Tracking
+                  </label>
+                  <div class="form-text">
+                    Tracks object allocations for debugging (adds overhead)
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="autoGC"
+                    name="auto_gc"
+                    {%
+                    if
+                    gc_stats.auto_gc_enabled
+                    %}checked{%
+                    endif
+                    %}
+                  />
+                  <label class="form-check-label" for="autoGC">
+                    Enable Automatic Garbage Collection
+                  </label>
+                  <div class="form-text">Automatically run GC when memory threshold is reached</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="leakDetection"
+                    name="leak_detection"
+                    {%
+                    if
+                    allocation_tracking.leak_detection
+                    %}checked{%
+                    endif
+                    %}
+                  />
+                  <label class="form-check-label" for="leakDetection">
+                    Enable Memory Leak Detection
+                  </label>
+                  <div class="form-text">Analyze object growth patterns to detect memory leaks</div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Configuration</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Performance Options -->
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Performance Options</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3 text-center mb-3">
+              <a href="{{ url_for('performance.dashboard') }}" class="btn btn-primary btn-lg w-100">
+                <i class="fas fa-chart-line mb-2"></i><br />
+                Dashboard
+              </a>
+            </div>
+            <div class="col-md-3 text-center mb-3">
+              <a href="{{ url_for('performance.details') }}" class="btn btn-info btn-lg w-100">
+                <i class="fas fa-tachometer-alt mb-2"></i><br />
+                Performance Details
+              </a>
+            </div>
+            <div class="col-md-3 text-center mb-3">
+              <a href="{{ url_for('performance.database') }}" class="btn btn-success btn-lg w-100">
+                <i class="fas fa-database mb-2"></i><br />
+                Database Optimization
+              </a>
+            </div>
+            <div class="col-md-3 text-center mb-3">
+              <a href="{{ url_for('performance.settings') }}" class="btn btn-warning btn-lg w-100">
+                <i class="fas fa-cogs mb-2"></i><br />
+                Optimization Settings
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Memory Usage Chart
+  var memoryCtx = document.getElementById('memoryChart').getContext('2d');
+  var memoryChart = new Chart(memoryCtx, {
+      type: 'line',
+      data: {
+          labels: {{ labels|tojson }},
+          datasets: [
+              {
+                  label: 'RSS Memory (MB)',
+                  data: {{ rss_data|tojson }},
+                  backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                  borderColor: 'rgba(54, 162, 235, 1)',
+                  borderWidth: 1,
+                  tension: 0.4
+              },
+              {
+                  label: 'Virtual Memory (MB)',
+                  data: {{ vms_data|tojson }},
+                  backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                  borderColor: 'rgba(153, 102, 255, 1)',
+                  borderWidth: 1,
+                  tension: 0.4
+              }
+          ]
+      },
+      options: {
+          responsive: true,
+          scales: {
+              y: {
+                  beginAtZero: true,
+                  title: {
+                      display: true,
+                      text: 'Memory (MB)'
+                  }
+              },
+              x: {
+                  title: {
+                      display: true,
+                      text: 'Time'
+                  }
+              }
+          }
+      }
+  });
+
+  // Auto-refresh every 60 seconds
+  setTimeout(function() {
+      location.reload();
+  }, 60000);
+</script>
+{% endblock %}

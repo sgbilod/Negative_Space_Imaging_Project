@@ -1,0 +1,246 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\ttLib\\tables\\_n_a_m_e.py",
+  "classes": [
+    {
+      "name": "table__n_a_m_e",
+      "docstring": "Naming table\n\nThe ``name`` table is used to store a variety of strings that can be\nassociated with user-facing font information. Records in the ``name``\ntable can be tagged with language tags to support multilingual naming\nand can support platform-specific character-encoding variants.\n\nSee also https://learn.microsoft.com/en-us/typography/opentype/spec/name",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "decompile",
+          "docstring": null
+        },
+        {
+          "name": "compile",
+          "docstring": null
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        },
+        {
+          "name": "getName",
+          "docstring": null
+        },
+        {
+          "name": "getDebugName",
+          "docstring": null
+        },
+        {
+          "name": "getFirstDebugName",
+          "docstring": null
+        },
+        {
+          "name": "getBestFamilyName",
+          "docstring": null
+        },
+        {
+          "name": "getBestSubFamilyName",
+          "docstring": null
+        },
+        {
+          "name": "getBestFullName",
+          "docstring": null
+        },
+        {
+          "name": "setName",
+          "docstring": "Set the 'string' for the name record identified by 'nameID', 'platformID',\n'platEncID' and 'langID'. If a record with that nameID doesn't exist, create it\nand append to the name table.\n\n'string' can be of type `str` (`unicode` in PY2) or `bytes`. In the latter case,\nit is assumed to be already encoded with the correct plaform-specific encoding\nidentified by the (platformID, platEncID, langID) triplet. A warning is issued\nto prevent unexpected results."
+        },
+        {
+          "name": "removeNames",
+          "docstring": "Remove any name records identified by the given combination of 'nameID',\n'platformID', 'platEncID' and 'langID'."
+        },
+        {
+          "name": "removeUnusedNames",
+          "docstring": "Remove any name records which are not in NameID range 0-255 and not utilized\nwithin the font itself."
+        },
+        {
+          "name": "findMultilingualName",
+          "docstring": "Return the name ID of an existing multilingual name that\nmatches the 'names' dictionary, or None if not found.\n\n'names' is a dictionary with the name in multiple languages,\nsuch as {'en': 'Pale', 'de': 'Bla\u00df', 'de-CH': 'Blass'}.\nThe keys can be arbitrary IETF BCP 47 language codes;\nthe values are Unicode strings.\n\nIf 'windows' is True, the returned name ID is guaranteed\nexist for all requested languages for platformID=3 and\nplatEncID=1.\nIf 'mac' is True, the returned name ID is guaranteed to exist\nfor all requested languages for platformID=1 and platEncID=0.\n\nThe returned name ID will not be less than the 'minNameID'\nargument."
+        },
+        {
+          "name": "addMultilingualName",
+          "docstring": "Add a multilingual name, returning its name ID\n\n'names' is a dictionary with the name in multiple languages,\nsuch as {'en': 'Pale', 'de': 'Bla\u00df', 'de-CH': 'Blass'}.\nThe keys can be arbitrary IETF BCP 47 language codes;\nthe values are Unicode strings.\n\n'ttFont' is the TTFont to which the names are added, or None.\nIf present, the font's 'ltag' table can get populated\nto store exotic language codes, which allows encoding\nnames that otherwise cannot get encoded at all.\n\n'nameID' is the name ID to be used, or None to let the library\nfind an existing set of name records that match, or pick an\nunused name ID.\n\nIf 'windows' is True, a platformID=3 name record will be added.\nIf 'mac' is True, a platformID=1 name record will be added.\n\nIf the 'nameID' argument is None, the created nameID will not\nbe less than the 'minNameID' argument."
+        },
+        {
+          "name": "addName",
+          "docstring": "Add a new name record containing 'string' for each (platformID, platEncID,\nlangID) tuple specified in the 'platforms' list.\n\nThe nameID is assigned in the range between 'minNameID'+1 and 32767 (inclusive),\nfollowing the last nameID in the name table.\nIf no 'platforms' are specified, two English name records are added, one for the\nMacintosh (platformID=0), and one for the Windows platform (3).\n\nThe 'string' must be a Unicode string, so it can be encoded with different,\nplatform-specific encodings.\n\nReturn the new nameID."
+        }
+      ]
+    },
+    {
+      "name": "NameRecord",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "getEncoding",
+          "docstring": "Returns the Python encoding name for this name entry based on its platformID,\nplatEncID, and langID.  If encoding for these values is not known, by default\n'ascii' is returned.  That can be overriden by passing a value to the default\nargument."
+        },
+        {
+          "name": "encodingIsUnicodeCompatible",
+          "docstring": null
+        },
+        {
+          "name": "isUnicode",
+          "docstring": null
+        },
+        {
+          "name": "toUnicode",
+          "docstring": "If self.string is a Unicode string, return it; otherwise try decoding the\nbytes in self.string to a Unicode string using the encoding of this\nentry as returned by self.getEncoding(); Note that  self.getEncoding()\nreturns 'ascii' if the encoding is unknown to the library.\n\nCertain heuristics are performed to recover data from bytes that are\nill-formed in the chosen encoding, or that otherwise look misencoded\n(mostly around bad UTF-16BE encoded bytes, or bytes that look like UTF-16BE\nbut marked otherwise).  If the bytes are ill-formed and the heuristics fail,\nthe error is handled according to the errors parameter to this function, which is\npassed to the underlying decode() function; by default it throws a\nUnicodeDecodeError exception.\n\nNote: The mentioned heuristics mean that roundtripping a font to XML and back\nto binary might recover some misencoded data whereas just loading the font\nand saving it back will not change them."
+        },
+        {
+          "name": "toBytes",
+          "docstring": "If self.string is a bytes object, return it; otherwise try encoding\nthe Unicode string in self.string to bytes using the encoding of this\nentry as returned by self.getEncoding(); Note that self.getEncoding()\nreturns 'ascii' if the encoding is unknown to the library.\n\nIf the Unicode string cannot be encoded to bytes in the chosen encoding,\nthe error is handled according to the errors parameter to this function,\nwhich is passed to the underlying encode() function; by default it throws a\nUnicodeEncodeError exception."
+        },
+        {
+          "name": "toXML",
+          "docstring": null
+        },
+        {
+          "name": "fromXML",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "NameRecordVisitor",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "makeName",
+      "docstring": null
+    },
+    {
+      "name": "visit",
+      "docstring": null
+    },
+    {
+      "name": "visit",
+      "docstring": null
+    },
+    {
+      "name": "visit",
+      "docstring": null
+    },
+    {
+      "name": "visit",
+      "docstring": null
+    },
+    {
+      "name": "visit",
+      "docstring": null
+    },
+    {
+      "name": "decompile",
+      "docstring": null
+    },
+    {
+      "name": "compile",
+      "docstring": null
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "getName",
+      "docstring": null
+    },
+    {
+      "name": "getDebugName",
+      "docstring": null
+    },
+    {
+      "name": "getFirstDebugName",
+      "docstring": null
+    },
+    {
+      "name": "getBestFamilyName",
+      "docstring": null
+    },
+    {
+      "name": "getBestSubFamilyName",
+      "docstring": null
+    },
+    {
+      "name": "getBestFullName",
+      "docstring": null
+    },
+    {
+      "name": "setName",
+      "docstring": "Set the 'string' for the name record identified by 'nameID', 'platformID',\n'platEncID' and 'langID'. If a record with that nameID doesn't exist, create it\nand append to the name table.\n\n'string' can be of type `str` (`unicode` in PY2) or `bytes`. In the latter case,\nit is assumed to be already encoded with the correct plaform-specific encoding\nidentified by the (platformID, platEncID, langID) triplet. A warning is issued\nto prevent unexpected results."
+    },
+    {
+      "name": "removeNames",
+      "docstring": "Remove any name records identified by the given combination of 'nameID',\n'platformID', 'platEncID' and 'langID'."
+    },
+    {
+      "name": "removeUnusedNames",
+      "docstring": "Remove any name records which are not in NameID range 0-255 and not utilized\nwithin the font itself."
+    },
+    {
+      "name": "findMultilingualName",
+      "docstring": "Return the name ID of an existing multilingual name that\nmatches the 'names' dictionary, or None if not found.\n\n'names' is a dictionary with the name in multiple languages,\nsuch as {'en': 'Pale', 'de': 'Bla\u00df', 'de-CH': 'Blass'}.\nThe keys can be arbitrary IETF BCP 47 language codes;\nthe values are Unicode strings.\n\nIf 'windows' is True, the returned name ID is guaranteed\nexist for all requested languages for platformID=3 and\nplatEncID=1.\nIf 'mac' is True, the returned name ID is guaranteed to exist\nfor all requested languages for platformID=1 and platEncID=0.\n\nThe returned name ID will not be less than the 'minNameID'\nargument."
+    },
+    {
+      "name": "addMultilingualName",
+      "docstring": "Add a multilingual name, returning its name ID\n\n'names' is a dictionary with the name in multiple languages,\nsuch as {'en': 'Pale', 'de': 'Bla\u00df', 'de-CH': 'Blass'}.\nThe keys can be arbitrary IETF BCP 47 language codes;\nthe values are Unicode strings.\n\n'ttFont' is the TTFont to which the names are added, or None.\nIf present, the font's 'ltag' table can get populated\nto store exotic language codes, which allows encoding\nnames that otherwise cannot get encoded at all.\n\n'nameID' is the name ID to be used, or None to let the library\nfind an existing set of name records that match, or pick an\nunused name ID.\n\nIf 'windows' is True, a platformID=3 name record will be added.\nIf 'mac' is True, a platformID=1 name record will be added.\n\nIf the 'nameID' argument is None, the created nameID will not\nbe less than the 'minNameID' argument."
+    },
+    {
+      "name": "addName",
+      "docstring": "Add a new name record containing 'string' for each (platformID, platEncID,\nlangID) tuple specified in the 'platforms' list.\n\nThe nameID is assigned in the range between 'minNameID'+1 and 32767 (inclusive),\nfollowing the last nameID in the name table.\nIf no 'platforms' are specified, two English name records are added, one for the\nMacintosh (platformID=0), and one for the Windows platform (3).\n\nThe 'string' must be a Unicode string, so it can be encoded with different,\nplatform-specific encodings.\n\nReturn the new nameID."
+    },
+    {
+      "name": "getEncoding",
+      "docstring": "Returns the Python encoding name for this name entry based on its platformID,\nplatEncID, and langID.  If encoding for these values is not known, by default\n'ascii' is returned.  That can be overriden by passing a value to the default\nargument."
+    },
+    {
+      "name": "encodingIsUnicodeCompatible",
+      "docstring": null
+    },
+    {
+      "name": "isUnicode",
+      "docstring": null
+    },
+    {
+      "name": "toUnicode",
+      "docstring": "If self.string is a Unicode string, return it; otherwise try decoding the\nbytes in self.string to a Unicode string using the encoding of this\nentry as returned by self.getEncoding(); Note that  self.getEncoding()\nreturns 'ascii' if the encoding is unknown to the library.\n\nCertain heuristics are performed to recover data from bytes that are\nill-formed in the chosen encoding, or that otherwise look misencoded\n(mostly around bad UTF-16BE encoded bytes, or bytes that look like UTF-16BE\nbut marked otherwise).  If the bytes are ill-formed and the heuristics fail,\nthe error is handled according to the errors parameter to this function, which is\npassed to the underlying decode() function; by default it throws a\nUnicodeDecodeError exception.\n\nNote: The mentioned heuristics mean that roundtripping a font to XML and back\nto binary might recover some misencoded data whereas just loading the font\nand saving it back will not change them."
+    },
+    {
+      "name": "toBytes",
+      "docstring": "If self.string is a bytes object, return it; otherwise try encoding\nthe Unicode string in self.string to bytes using the encoding of this\nentry as returned by self.getEncoding(); Note that self.getEncoding()\nreturns 'ascii' if the encoding is unknown to the library.\n\nIf the Unicode string cannot be encoded to bytes in the chosen encoding,\nthe error is handled according to the errors parameter to this function,\nwhich is passed to the underlying encode() function; by default it throws a\nUnicodeEncodeError exception."
+    },
+    {
+      "name": "toXML",
+      "docstring": null
+    },
+    {
+      "name": "fromXML",
+      "docstring": null
+    },
+    {
+      "name": "isascii",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

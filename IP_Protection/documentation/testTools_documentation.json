@@ -1,0 +1,239 @@
+{
+  "file_path": "c:\\Users\\sgbil\\OneDrive\\Desktop\\Negative_Space_Imaging_Project\\.venv\\Lib\\site-packages\\fontTools\\misc\\testTools.py",
+  "classes": [
+    {
+      "name": "FakeFont",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "get",
+          "docstring": null
+        },
+        {
+          "name": "getGlyphID",
+          "docstring": null
+        },
+        {
+          "name": "getGlyphIDMany",
+          "docstring": null
+        },
+        {
+          "name": "getGlyphName",
+          "docstring": null
+        },
+        {
+          "name": "getGlyphNameMany",
+          "docstring": null
+        },
+        {
+          "name": "getGlyphOrder",
+          "docstring": null
+        },
+        {
+          "name": "getReverseGlyphMap",
+          "docstring": null
+        },
+        {
+          "name": "getGlyphNames",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestXMLReader_",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "startElement_",
+          "docstring": null
+        },
+        {
+          "name": "endElement_",
+          "docstring": null
+        },
+        {
+          "name": "addCharacterData_",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "MockFont",
+      "docstring": "A font-like object that automatically adds any looked up glyphname\nto its glyphOrder.",
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        },
+        {
+          "name": "getGlyphID",
+          "docstring": null
+        },
+        {
+          "name": "getReverseGlyphMap",
+          "docstring": null
+        },
+        {
+          "name": "getGlyphName",
+          "docstring": null
+        },
+        {
+          "name": "getGlyphOrder",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "TestCase",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "__init__",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "DataFilesHandler",
+      "docstring": null,
+      "methods": [
+        {
+          "name": "setUp",
+          "docstring": null
+        },
+        {
+          "name": "tearDown",
+          "docstring": null
+        },
+        {
+          "name": "getpath",
+          "docstring": null
+        },
+        {
+          "name": "temp_dir",
+          "docstring": null
+        },
+        {
+          "name": "temp_font",
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "AllocatingDict",
+      "docstring": null,
+      "methods": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "parseXML",
+      "docstring": "Parses a snippet of XML.\n\nInput can be either a single string (unicode or UTF-8 bytes), or a\na sequence of strings.\n\nThe result is in the same format that would be returned by\nXMLReader, but the parser imposes no constraints on the root\nelement so it can be called on small snippets of TTX files."
+    },
+    {
+      "name": "parseXmlInto",
+      "docstring": null
+    },
+    {
+      "name": "makeXMLWriter",
+      "docstring": null
+    },
+    {
+      "name": "getXML",
+      "docstring": "Call the passed toXML function and return the written content as a\nlist of lines (unicode strings).\nResult is stripped of XML declaration and OS-specific newline characters."
+    },
+    {
+      "name": "stripVariableItemsFromTTX",
+      "docstring": "Strip stuff like ttLibVersion, checksums, timestamps, etc. from TTX dumps."
+    },
+    {
+      "name": "get",
+      "docstring": null
+    },
+    {
+      "name": "getGlyphID",
+      "docstring": null
+    },
+    {
+      "name": "getGlyphIDMany",
+      "docstring": null
+    },
+    {
+      "name": "getGlyphName",
+      "docstring": null
+    },
+    {
+      "name": "getGlyphNameMany",
+      "docstring": null
+    },
+    {
+      "name": "getGlyphOrder",
+      "docstring": null
+    },
+    {
+      "name": "getReverseGlyphMap",
+      "docstring": null
+    },
+    {
+      "name": "getGlyphNames",
+      "docstring": null
+    },
+    {
+      "name": "startElement_",
+      "docstring": null
+    },
+    {
+      "name": "endElement_",
+      "docstring": null
+    },
+    {
+      "name": "addCharacterData_",
+      "docstring": null
+    },
+    {
+      "name": "getGlyphID",
+      "docstring": null
+    },
+    {
+      "name": "getReverseGlyphMap",
+      "docstring": null
+    },
+    {
+      "name": "getGlyphName",
+      "docstring": null
+    },
+    {
+      "name": "getGlyphOrder",
+      "docstring": null
+    },
+    {
+      "name": "setUp",
+      "docstring": null
+    },
+    {
+      "name": "tearDown",
+      "docstring": null
+    },
+    {
+      "name": "getpath",
+      "docstring": null
+    },
+    {
+      "name": "temp_dir",
+      "docstring": null
+    },
+    {
+      "name": "temp_font",
+      "docstring": null
+    }
+  ],
+  "innovations": []
+}

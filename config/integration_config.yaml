@@ -1,0 +1,8 @@
+apis:
+  retry_attempts: 3
+  timeout_seconds: 30
+  verify_ssl: true
+services:
+  image_store:
+    path: data/images
+    type: local

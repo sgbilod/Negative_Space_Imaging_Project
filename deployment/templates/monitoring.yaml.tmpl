@@ -1,0 +1,123 @@
+apiVersion: v1
+kind: MonitoringConfig
+metadata:
+  name: {{ cluster_name }}-monitoring
+  labels:
+    cluster: {{ cluster_name }}
+spec:
+  # Prometheus configuration
+  prometheus:
+    enabled: {{ monitoring.prometheus.enabled }}
+    retention: {{ monitoring.prometheus.retention }}
+    scrapeInterval: {{ monitoring.prometheus.scrape_interval }}
+    resources:
+      limits:
+        cpu: {{ monitoring.prometheus.resources.limits.cpu }}
+        memory: {{ monitoring.prometheus.resources.limits.memory }}
+      requests:
+        cpu: {{ monitoring.prometheus.resources.requests.cpu }}
+        memory: {{ monitoring.prometheus.resources.requests.memory }}
+    storage:
+      size: {{ monitoring.prometheus.storage.size }}
+      storageClassName: {{ cluster_name }}-persistent
+    alerting:
+      enabled: {{ monitoring.prometheus.alerting.enabled }}
+      rules:
+        - name: HighCpuUsage
+          expr: avg(rate(container_cpu_usage_seconds_total{namespace="{{ cluster_name }}"}[5m])) by (pod) > 0.8
+          for: 5m
+          severity: warning
+          summary: High CPU usage detected
+        - name: HighMemoryUsage
+          expr: container_memory_usage_bytes{namespace="{{ cluster_name }}"} / container_spec_memory_limit_bytes{namespace="{{ cluster_name }}"} > 0.9
+          for: 5m
+          severity: warning
+          summary: High memory usage detected
+        - name: PodCrashLooping
+          expr: rate(kube_pod_container_status_restarts_total{namespace="{{ cluster_name }}"}[15m]) > 0
+          for: 15m
+          severity: critical
+          summary: Pod is crash looping
+
+  # Grafana configuration
+  grafana:
+    enabled: {{ monitoring.grafana.enabled }}
+    adminPassword: "{{ monitoring.grafana.admin_password }}"
+    resources:
+      limits:
+        cpu: {{ monitoring.grafana.resources.limits.cpu }}
+        memory: {{ monitoring.grafana.resources.limits.memory }}
+      requests:
+        cpu: {{ monitoring.grafana.resources.requests.cpu }}
+        memory: {{ monitoring.grafana.resources.requests.memory }}
+    dashboards:
+      - name: ClusterOverview
+        configMap: {{ cluster_name }}-grafana-dashboards
+        fileName: cluster-overview.json
+      - name: NodePerformance
+        configMap: {{ cluster_name }}-grafana-dashboards
+        fileName: node-performance.json
+      - name: ServicePerformance
+        configMap: {{ cluster_name }}-grafana-dashboards
+        fileName: service-performance.json
+
+  # Loki configuration for log aggregation
+  loki:
+    enabled: {{ logging.loki.enabled }}
+    retention: {{ logging.loki.retention }}
+    resources:
+      limits:
+        cpu: {{ logging.loki.resources.limits.cpu }}
+        memory: {{ logging.loki.resources.limits.memory }}
+      requests:
+        cpu: {{ logging.loki.resources.requests.cpu }}
+        memory: {{ logging.loki.resources.requests.memory }}
+    storage:
+      size: {{ logging.loki.storage.size }}
+      storageClassName: {{ cluster_name }}-persistent
+
+  # Fluentd configuration for log collection
+  fluentd:
+    enabled: {{ logging.fluentd.enabled }}
+    resources:
+      limits:
+        cpu: {{ logging.fluentd.resources.limits.cpu }}
+        memory: {{ logging.fluentd.resources.limits.memory }}
+      requests:
+        cpu: {{ logging.fluentd.resources.requests.cpu }}
+        memory: {{ logging.fluentd.resources.requests.memory }}
+    filters:
+      - type: kubernetes
+        config:
+          kubernetes_url: https://kubernetes.default.svc
+          cache_size: 1000
+          use_journal: false
+          container_name_to_kubernetes_regexp: '^(?<name>.*)-(?<pod>[a-z0-9]+)-(?<container>[a-z0-9]+)$'
+      - type: record_transformer
+        config:
+          enable_ruby: true
+          <record>
+            cluster {{ cluster_name }}
+            environment {{ environment }}
+          </record>
+
+  # Node exporter for hardware metrics
+  nodeExporter:
+    enabled: {{ monitoring.node_exporter.enabled }}
+    resources:
+      limits:
+        cpu: {{ monitoring.node_exporter.resources.limits.cpu }}
+        memory: {{ monitoring.node_exporter.resources.limits.memory }}
+      requests:
+        cpu: {{ monitoring.node_exporter.resources.requests.cpu }}
+        memory: {{ monitoring.node_exporter.resources.requests.memory }}
+
+  # Custom application metrics
+  applicationMetrics:
+    enabled: {{ monitoring.application_metrics.enabled }}
+    endpoint: /metrics
+    port: 8080
+    path: /metrics
+    scrapeInterval: {{ monitoring.application_metrics.scrape_interval }}
+    labels:
+      app: {{ cluster_name }}
