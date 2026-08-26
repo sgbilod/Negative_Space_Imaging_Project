@@ -1,6 +1,6 @@
 # EXECUTIVE DIRECTIVES
 **CONFIDENTIAL AND PROPRIETARY**
-**© 2025 Negative Space Imaging, Inc. - Patent Pending**
+**© 2026 Stephen Bilodeau. Covered by U.S. Provisional Patent Application No. 64/137,685, filed 2026-08-20.**
 
 ## Authority Framework
 - Full executive decision-making authority granted
